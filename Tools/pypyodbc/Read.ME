@@ -1,0 +1,24 @@
+To install the python SQL interface pypyodbc use:
+
+-	pip install pypyodbc
+
+Setting a Connection in a python Script:
+
+1. import pypyodbc
+
+-	import pypyodbc
+
+2. Create a Connection
+
+connection = pypyodbc.connect('Driver={SQL Server};'
+                              'Server=10.10.200.73;'
+                              'Database=SWTS1103;'
+                              'uid=PADmin;pwd=PADmin;')
+3. To verify a Connection
+
+if connection.connected:
+    print("Happy Day you connnected")
+	
+4. to close a Connection
+
+connection.close()

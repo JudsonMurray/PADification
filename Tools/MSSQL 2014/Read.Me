@@ -4,9 +4,7 @@ Setup TCP/IP Connections
 To enable the TCP/IP protocol in SQL Server 2014, follow these steps:
 
 1. Open SQL Server Configuration Manager "C:\Windows\SysWOW64\SQLServerManager12.msc" or Type SQLServerManager12.msc in start menu search. 
-
-If an Error occurs use this path. "C:\windows\system32\SQLServerManager12.msc"
-
+	-	If an Error occurs use this path. "C:\windows\system32\SQLServerManager12.msc"
 2. Expand “SQL Server Network Configuration” and click on “Protocols for MSSQLSERVER”
 3. Right click on “TCP/IP” and choose “Enable”
 4. Click “OK” on the Warning that the service will have to be restarted
@@ -26,3 +24,27 @@ To create a username to access the Sql Server Via TCP/IP:
 7. Select "Server Roles" at the top left.
 8. Select the role "SysAdmin". "If more constraints are needed creating custom Roles is possible."
 9. Click "OK"
+10. Right Click on server in "Object Manager" *first item* and Select Properties
+11. Select Security on the left
+12. Select Sql and Windows Authenticaion Mode and Press "ok"
+13. Restart the SQL server.
+
+Setup Firewall Exceptions:
+
+1. Open Windows Firewall
+2. Select Inbound Rules on the Left.
+3. Select New Rule on the Right.
+4. Select Port and hit "Next >"
+5. Set Specific local Ports to "1433" and hit Select "Next >"
+6. Select Allow the connection and hit "Next >"
+7. Select all check boxes and hit "Next >"
+8. Name "SQL IN" and hit "Finish"
+
+9. Select Outbound Rules on the Left.
+10. Select New Rule on the Right.
+11. Select Port and hit "Next >"
+12. Set Specific remote Ports to "1433" and hit Select "Next >"
+13. Select Allow the connection and hit "Next >"
+14. Select all check boxes and hit "Next >"
+15. Name "SQL OUT" and hit "Finish"
+
