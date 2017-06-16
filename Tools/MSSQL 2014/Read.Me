@@ -1,0 +1,25 @@
+
+Setup TCP/IP Connections
+
+To enable the TCP/IP protocol in SQL Server 2014, follow these steps:
+
+1. Open SQL Server Configuration Manager "C:\Windows\SysWOW64\SQLServerManager12.msc" or Type SQLServerManager12.msc in start menu search.
+2. Expand “SQL Server Network Configuration” and click on “Protocols for MSSQLSERVER”
+3. Right click on “TCP/IP” and choose “Enable”
+4. Click “OK” on the Warning that the service will have to be restarted
+5. Click on “SQL Server Services”
+6. Right click on “SQL Server (MSSQLSERVER) and choose “Restart”
+
+Setup User for SQL TCP/IP Connection
+
+To create a username to access the Sql Server Via TCP/IP:
+
+1. Open SQL Server Management Studio and Login.
+2. Expand Security in the Object Explorer.
+3. Right Click Logins and Select New Login.
+4. In the Login Creation Screen first Select SQL Server Authentication.
+5. Enter the New Login Name and Password / Confirm Password.
+6. Uncheck "Enforce Password Policy", "Enforce Password Expiration", and "user must change password on next login".
+7. Select "Server Roles" at the top left.
+8. Select the role "SysAdmin". "If more constraints are needed creating custom Roles is possible."
+9. Click "OK"
