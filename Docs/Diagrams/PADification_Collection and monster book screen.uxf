@@ -1,0 +1,2137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>4</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>292</x>
+      <y>236</y>
+      <w>484</w>
+      <h>428</h>
+    </coordinates>
+    <panel_attributes>Player collection screen
+halign=left
+layer=-3
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>312</x>
+      <y>252</y>
+      <w>40</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Main Menu
+halign=center
+bg=blue
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>388</x>
+      <y>252</y>
+      <w>44</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Player's Monster 
+Viewer
+halign=center
+bg=blue
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>460</x>
+      <y>252</y>
+      <w>44</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Monster Book 
+halign=center
+bg=blue
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>524</x>
+      <y>252</y>
+      <w>44</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Edit Teams
+halign=center
+bg=blue
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>588</x>
+      <y>252</y>
+      <w>44</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>View others
+Players' info
+halign=center
+bg=blue
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>660</x>
+      <y>252</y>
+      <w>44</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>View Team 
+Ranking
+halign=center
+bg=blue
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>728</x>
+      <y>252</y>
+      <w>36</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Account 
+Options
+halign=center
+bg=blue
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>296</x>
+      <y>280</y>
+      <w>476</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>Player collection
+Manage your monsters and keep track of their propertiesby editing them
+valign=center
+bg=cyan
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>296</x>
+      <y>328</y>
+      <w>252</w>
+      <h>284</h>
+    </coordinates>
+    <panel_attributes>valign=center
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>536</x>
+      <y>332</y>
+      <w>8</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>
+bg=gray
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>536</x>
+      <y>592</y>
+      <w>8</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>
+bg=gray
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>536</x>
+      <y>352</y>
+      <w>8</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>300</x>
+      <y>332</y>
+      <w>232</w>
+      <h>272</h>
+    </coordinates>
+    <panel_attributes>
+bg=pink
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>536</x>
+      <y>352</y>
+      <w>8</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>
+fg=gray
+bg=dark_gray
+layer=2
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>536</x>
+      <y>336</y>
+      <w>12</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+group=4</panel_attributes>
+    <additional_attributes>10.0;20.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>536</x>
+      <y>592</y>
+      <w>12</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+group=4</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>552</x>
+      <y>328</y>
+      <w>220</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>valign=center
+bg=light_gray
+layer=-1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>552</x>
+      <y>472</y>
+      <w>220</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>valign=center
+bg=light_gray
+layer=-1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>236</y>
+      <w>496</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>
+group=4</panel_attributes>
+    <additional_attributes>10.0;90.0;220.0;90.0;220.0;20.0;390.0;20.0;390.0;90.0;1220.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>556</x>
+      <y>348</y>
+      <w>64</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Monster Card
+valign=center
+bg=green
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>556</x>
+      <y>400</y>
+      <w>212</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Monster info sumary
+(Stats, attributes, types. etc.)
+valign=center
+bg=magenta
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>556</x>
+      <y>504</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>668</x>
+      <y>504</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>668</x>
+      <y>540</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>668</x>
+      <y>576</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>612</x>
+      <y>504</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>724</x>
+      <y>576</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>516</y>
+      <w>32</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+group=4</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>644</x>
+      <y>516</y>
+      <w>32</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+group=4</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>628</x>
+      <y>532</y>
+      <w>48</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+group=4</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;100.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>628</x>
+      <y>532</y>
+      <w>48</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+group=4</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0;100.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>700</x>
+      <y>584</y>
+      <w>32</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+group=4</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>700</x>
+      <y>596</y>
+      <w>32</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+group=4</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>300</x>
+      <y>332</y>
+      <w>52</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>collection
+valign=center
+layer=1
+bg=yellow
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>552</x>
+      <y>328</y>
+      <w>52</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>Monster sumary
+valign=center
+layer=1
+bg=yellow
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>552</x>
+      <y>472</y>
+      <w>52</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>Evolution Tree
+valign=center
+layer=1
+bg=yellow
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>636</x>
+      <y>332</y>
+      <w>40</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Favorite/
+Add from 
+Wishlist
+valign=center
+bg=blue
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>680</x>
+      <y>332</y>
+      <w>40</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Edit Monster 
+Properties
+valign=center
+bg=blue
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>724</x>
+      <y>332</y>
+      <w>40</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Remove 
+Monster
+valign=center
+bg=blue
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>308</x>
+      <y>356</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>308</x>
+      <y>392</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>308</x>
+      <y>428</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>396</x>
+      <y>356</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>396</x>
+      <y>392</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>396</x>
+      <y>428</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>440</x>
+      <y>356</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>440</x>
+      <y>392</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>440</x>
+      <y>428</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>484</x>
+      <y>356</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>484</x>
+      <y>392</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>484</x>
+      <y>428</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>352</x>
+      <y>356</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>352</x>
+      <y>392</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>352</x>
+      <y>428</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>396</x>
+      <y>464</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>308</x>
+      <y>464</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>308</x>
+      <y>500</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>308</x>
+      <y>536</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>352</x>
+      <y>536</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>352</x>
+      <y>500</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>352</x>
+      <y>464</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>396</x>
+      <y>500</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>396</x>
+      <y>536</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>440</x>
+      <y>536</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>440</x>
+      <y>500</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>440</x>
+      <y>464</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>484</x>
+      <y>464</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>484</x>
+      <y>500</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>484</x>
+      <y>536</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>804</x>
+      <y>236</y>
+      <w>484</w>
+      <h>428</h>
+    </coordinates>
+    <panel_attributes>Monster Book screen
+halign=left
+layer=-2
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>824</x>
+      <y>252</y>
+      <w>40</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Main Menu
+halign=center
+bg=blue
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>888</x>
+      <y>252</y>
+      <w>44</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Player's Monster 
+Viewer
+halign=center
+bg=blue
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>956</x>
+      <y>252</y>
+      <w>44</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Monster Book 
+halign=center
+bg=blue
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1028</x>
+      <y>252</y>
+      <w>44</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Edit Teams
+halign=center
+bg=blue
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1100</x>
+      <y>252</y>
+      <w>44</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>View others
+Players' info
+halign=center
+bg=blue
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1172</x>
+      <y>252</y>
+      <w>44</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>View Team 
+Ranking
+halign=center
+bg=blue
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1240</x>
+      <y>252</y>
+      <w>36</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Account 
+Options
+halign=center
+bg=blue
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>808</x>
+      <y>280</y>
+      <w>476</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>Monster Book
+View any monsters and/or search for specifc monsters
+valign=center
+bg=cyan
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>808</x>
+      <y>328</y>
+      <w>252</w>
+      <h>284</h>
+    </coordinates>
+    <panel_attributes>valign=center
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1048</x>
+      <y>332</y>
+      <w>8</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>
+bg=gray
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1048</x>
+      <y>592</y>
+      <w>8</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>
+bg=gray
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1048</x>
+      <y>352</y>
+      <w>8</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>812</x>
+      <y>332</y>
+      <w>232</w>
+      <h>272</h>
+    </coordinates>
+    <panel_attributes>
+bg=pink
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1048</x>
+      <y>352</y>
+      <w>8</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>
+fg=gray
+bg=dark_gray
+layer=2
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1048</x>
+      <y>336</y>
+      <w>12</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+group=6</panel_attributes>
+    <additional_attributes>10.0;20.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1048</x>
+      <y>592</y>
+      <w>12</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+group=6</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1064</x>
+      <y>328</y>
+      <w>220</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>valign=center
+bg=light_gray
+layer=-1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1064</x>
+      <y>472</y>
+      <w>220</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>valign=center
+bg=light_gray
+layer=-1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>800</x>
+      <y>236</y>
+      <w>496</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>
+group=6</panel_attributes>
+    <additional_attributes>10.0;90.0;190.0;90.0;190.0;20.0;360.0;20.0;360.0;90.0;1220.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1068</x>
+      <y>348</y>
+      <w>64</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Monster Card
+valign=center
+bg=green
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1068</x>
+      <y>504</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1180</x>
+      <y>504</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1180</x>
+      <y>540</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1180</x>
+      <y>576</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1124</x>
+      <y>504</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1236</x>
+      <y>576</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1100</x>
+      <y>516</y>
+      <w>32</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+group=6</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1156</x>
+      <y>516</y>
+      <w>32</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+group=6</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1140</x>
+      <y>532</y>
+      <w>48</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+group=6</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;100.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1140</x>
+      <y>532</y>
+      <w>48</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+group=6</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0;100.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1212</x>
+      <y>584</y>
+      <w>32</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+group=6</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1212</x>
+      <y>596</y>
+      <w>32</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+group=6</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>812</x>
+      <y>332</y>
+      <w>52</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>collection
+valign=center
+layer=1
+bg=yellow
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1064</x>
+      <y>328</y>
+      <w>52</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>Monster sumary
+valign=center
+layer=1
+bg=yellow
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1064</x>
+      <y>472</y>
+      <w>52</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>Evolution Tree
+valign=center
+layer=1
+bg=yellow
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>820</x>
+      <y>576</y>
+      <w>48</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Add Monster(s)
+to collection
+valign=center
+bg=blue
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1236</x>
+      <y>332</y>
+      <w>40</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>View Monster 
+Properties
+valign=center
+bg=blue
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>820</x>
+      <y>392</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>820</x>
+      <y>428</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>908</x>
+      <y>392</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>908</x>
+      <y>428</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>952</x>
+      <y>392</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>952</x>
+      <y>428</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>996</x>
+      <y>392</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>996</x>
+      <y>428</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>864</x>
+      <y>392</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>864</x>
+      <y>428</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>908</x>
+      <y>464</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>820</x>
+      <y>464</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>820</x>
+      <y>500</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>820</x>
+      <y>536</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>864</x>
+      <y>536</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>864</x>
+      <y>500</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>864</x>
+      <y>464</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>908</x>
+      <y>500</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>908</x>
+      <y>536</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>952</x>
+      <y>536</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>952</x>
+      <y>500</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>952</x>
+      <y>464</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>996</x>
+      <y>464</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>996</x>
+      <y>500</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>996</x>
+      <y>536</y>
+      <w>36</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Monster
+Card
+valign=center
+bg=green
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1068</x>
+      <y>400</y>
+      <w>212</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Monster info sumary
+(Stats, attributes, types. etc.)
+valign=center
+bg=magenta
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>808</x>
+      <y>300</y>
+      <w>236</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Filter options (Drop down menu?)
+valign=center
+bg=orange
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1048</x>
+      <y>300</y>
+      <w>184</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Search bar
+valign=center
+bg=red
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1236</x>
+      <y>300</y>
+      <w>48</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Search / Go
+halign=center
+valign=center
+bg=blue
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>876</x>
+      <y>576</y>
+      <w>48</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Add Monster(s)
+to Wishlist
+valign=center
+bg=blue
+layer=1
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>296</x>
+      <y>616</y>
+      <w>476</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>PADification application information
+Version number, release date, authors, help screen, etc.
+valign=center
+bg=cyan
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>808</x>
+      <y>616</y>
+      <w>476</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>PADification application information
+Version number, release date, authors, help screen, etc.
+valign=center
+bg=cyan
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>164</x>
+      <y>236</y>
+      <w>120</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Legend.
+--
+Green = Monster Card image
+Cyan = information about PADification
+Blue = Buttons
+Yellow = scroll bar
+Magenta = Monster sumary
+Orange = section indicators
+Pink = Monster list
+Light gray = Monster sumary section and evo
+tree
+gray = Monster History
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>160</x>
+      <y>344</y>
+      <w>124</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Note.
+--
+Button placement can be altered
+-Have the button layout exactly the same and
+change their function depending on the type of
+screen selected.
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>820</x>
+      <y>356</y>
+      <w>212</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Player's monster history
+Last 5 monsters selected
+valign=center
+bg=gray
+layer=2
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>808</x>
+      <y>564</y>
+      <w>132</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>
+layer=3
+group=6</panel_attributes>
+    <additional_attributes>10.0;20.0;310.0;20.0;310.0;100.0</additional_attributes>
+  </element>
+</diagram>
