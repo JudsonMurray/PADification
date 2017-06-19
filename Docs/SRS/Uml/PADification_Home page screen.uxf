@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>280</x>
+      <y>40</y>
+      <w>968</w>
+      <h>856</h>
+    </coordinates>
+    <panel_attributes>Home page screen
+halign=left
+layer=-2
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>312</x>
+      <y>72</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Main Menu
+halign=center
+bg=blue
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>440</x>
+      <y>72</y>
+      <w>88</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Player's Monster 
+Viewer
+halign=center
+bg=blue
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>576</x>
+      <y>72</y>
+      <w>88</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Monster Book 
+halign=center
+bg=blue
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>720</x>
+      <y>72</y>
+      <w>88</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Edit Teams
+halign=center
+bg=blue
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>864</x>
+      <y>72</y>
+      <w>88</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>View others
+Players' info
+halign=center
+bg=blue
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1008</x>
+      <y>72</y>
+      <w>88</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>View Team 
+Ranking
+halign=center
+bg=blue
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1144</x>
+      <y>72</y>
+      <w>72</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Account 
+Options
+halign=center
+bg=blue
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>40</y>
+      <w>992</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>
+group=1</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;20.0;180.0;20.0;180.0;90.0;1220.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>288</x>
+      <y>128</y>
+      <w>952</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Awesome PADification Title or fancy image
+valign=center
+bg=cyan
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>288</x>
+      <y>272</y>
+      <w>952</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>News about the PADification application /
+or Updates notification section?
+valign=center
+bg=cyan
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>24</x>
+      <y>40</y>
+      <w>240</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>Legend.
+--
+Cyan = information about PADification
+Blue = Buttons
+Yellow = scroll bar
+gray = Player history
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>288</x>
+      <y>416</y>
+      <w>952</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Player's History?
+Last 10 things a player has done?
+valign=center
+bg=gray
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>288</x>
+      <y>528</y>
+      <w>472</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>List of Followers
+valign=center
+bg=gray
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>288</x>
+      <y>800</y>
+      <w>952</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>PADification application information
+Version number, release date, authors, help screen, etc.
+valign=center
+bg=cyan
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>776</x>
+      <y>528</y>
+      <w>464</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>List of Followings
+valign=center
+bg=gray
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>736</x>
+      <y>536</y>
+      <w>24</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+layer=3
+group=1</panel_attributes>
+    <additional_attributes>10.0;20.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>736</x>
+      <y>536</y>
+      <w>16</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>
+bg=gray
+layer=2
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>736</x>
+      <y>568</y>
+      <w>16</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>
+fg=gray
+bg=dark_gray
+layer=4
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>736</x>
+      <y>568</y>
+      <w>16</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+layer=2
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>736</x>
+      <y>752</y>
+      <w>24</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+layer=3
+group=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>736</x>
+      <y>752</y>
+      <w>16</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>
+bg=gray
+layer=2
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1216</x>
+      <y>536</y>
+      <w>24</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+layer=3
+group=1</panel_attributes>
+    <additional_attributes>10.0;20.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1216</x>
+      <y>536</y>
+      <w>16</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>
+bg=gray
+layer=2
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1216</x>
+      <y>568</y>
+      <w>16</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>
+fg=gray
+bg=dark_gray
+layer=4
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1216</x>
+      <y>568</y>
+      <w>16</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+layer=2
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1216</x>
+      <y>752</y>
+      <w>24</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+layer=3
+group=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1216</x>
+      <y>752</y>
+      <w>16</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>
+bg=gray
+layer=2
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
