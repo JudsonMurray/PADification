@@ -379,4 +379,20 @@ layer=2
 group=1</panel_attributes>
     <additional_attributes/>
   </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>301</x>
+      <y>784</y>
+      <w>126</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>*Verison*
+--
+*Edit Team information*
+Version 1.0
+Date: 06/20/2017
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
 </diagram>

@@ -626,4 +626,20 @@ orange = search history
 bg=white</panel_attributes>
     <additional_attributes/>
   </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>350</x>
+      <y>819</y>
+      <w>119</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>*Version*
+--
+*Search other player info*
+version 1.0
+Date: 06/20/2017
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
 </diagram>

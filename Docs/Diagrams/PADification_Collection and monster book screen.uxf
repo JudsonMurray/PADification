@@ -2134,4 +2134,36 @@ layer=3
 group=6</panel_attributes>
     <additional_attributes>10.0;20.0;310.0;20.0;310.0;100.0</additional_attributes>
   </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>212</x>
+      <y>628</y>
+      <w>72</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>*Verison*
+--
+*Player collection*
+Version 1.0
+Date: 06/20/2017
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1296</x>
+      <y>632</y>
+      <w>72</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>*Verison*
+--
+*Monster book*
+Version 1.0
+Date: 06/20/2017
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
 </diagram>

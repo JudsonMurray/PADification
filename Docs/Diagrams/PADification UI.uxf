@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>1</zoom_level>
+  <zoom_level>5</zoom_level>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>284</x>
-      <y>360</y>
-      <w>81</w>
-      <h>75</h>
+      <x>495</x>
+      <y>320</y>
+      <w>405</w>
+      <h>375</h>
     </coordinates>
     <panel_attributes>Main menu page
 halign=left
@@ -17,10 +17,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>285</x>
-      <y>363</y>
-      <w>10</w>
-      <h>5</h>
+      <x>500</x>
+      <y>335</y>
+      <w>50</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Main Menu
 halign=center
@@ -31,10 +31,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>285</x>
-      <y>428</y>
-      <w>79</w>
-      <h>5</h>
+      <x>500</x>
+      <y>660</y>
+      <w>395</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>PADification options/information (Help, sources, authors, etc.)
 halign=center
@@ -45,10 +45,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>296</x>
-      <y>363</y>
-      <w>11</w>
-      <h>5</h>
+      <x>555</x>
+      <y>335</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Player's Monster 
 Viewer
@@ -60,10 +60,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>308</x>
-      <y>363</y>
-      <w>11</w>
-      <h>5</h>
+      <x>615</x>
+      <y>335</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Monster Search
 halign=center
@@ -74,10 +74,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>320</x>
-      <y>363</y>
-      <w>11</w>
-      <h>5</h>
+      <x>675</x>
+      <y>335</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Edit Teams
 halign=center
@@ -88,10 +88,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>332</x>
-      <y>363</y>
-      <w>11</w>
-      <h>5</h>
+      <x>735</x>
+      <y>335</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View others
 Players' info
@@ -103,10 +103,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>285</x>
-      <y>387</y>
-      <w>79</w>
-      <h>7</h>
+      <x>500</x>
+      <y>455</y>
+      <w>395</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>News section
 halign=center
@@ -117,10 +117,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>285</x>
-      <y>369</y>
-      <w>79</w>
-      <h>17</h>
+      <x>500</x>
+      <y>365</y>
+      <w>395</w>
+      <h>85</h>
     </coordinates>
     <panel_attributes>PADification Title 
 Image?
@@ -132,10 +132,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>285</x>
-      <y>395</y>
-      <w>79</w>
-      <h>7</h>
+      <x>500</x>
+      <y>495</y>
+      <w>395</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>Player's History
 Last 10 things they did before log out?
@@ -147,10 +147,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>356</x>
-      <y>363</y>
-      <w>8</w>
-      <h>5</h>
+      <x>855</x>
+      <y>335</y>
+      <w>40</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Account 
 Options
@@ -162,10 +162,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>369</x>
-      <y>360</y>
-      <w>27</w>
-      <h>10</h>
+      <x>920</x>
+      <y>320</y>
+      <w>135</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>First window when player logs in or 
 successfully creates account.
@@ -177,10 +177,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>266</x>
-      <y>296</y>
-      <w>37</w>
-      <h>40</h>
+      <x>405</x>
+      <y>0</y>
+      <w>185</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>Player account creation
 halign=left
@@ -190,10 +190,10 @@ group=52</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>267</x>
-      <y>299</y>
-      <w>33</w>
-      <h>4</h>
+      <x>410</x>
+      <y>15</y>
+      <w>165</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Player PAD ID *
 halign=left
@@ -204,10 +204,10 @@ group=52</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>267</x>
-      <y>305</y>
-      <w>33</w>
-      <h>4</h>
+      <x>410</x>
+      <y>45</y>
+      <w>165</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>User name*
 halign=left
@@ -218,10 +218,10 @@ group=52</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>267</x>
-      <y>311</y>
-      <w>33</w>
-      <h>4</h>
+      <x>410</x>
+      <y>75</y>
+      <w>165</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Enter Password*
 halign=left
@@ -232,10 +232,10 @@ group=52</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>267</x>
-      <y>317</y>
-      <w>33</w>
-      <h>4</h>
+      <x>410</x>
+      <y>105</y>
+      <w>165</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Confirm Password*
 halign=left
@@ -246,10 +246,10 @@ group=52</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>267</x>
-      <y>323</y>
-      <w>33</w>
-      <h>4</h>
+      <x>410</x>
+      <y>135</y>
+      <w>165</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Player email*
 halign=left
@@ -260,10 +260,10 @@ group=52</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>270</x>
-      <y>330</y>
-      <w>11</w>
-      <h>4</h>
+      <x>425</x>
+      <y>170</y>
+      <w>55</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Create Button
 halign=center
@@ -275,10 +275,10 @@ group=52</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>287</x>
-      <y>330</y>
-      <w>11</w>
-      <h>4</h>
+      <x>510</x>
+      <y>170</y>
+      <w>55</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Cancel button
 halign=center
@@ -290,10 +290,10 @@ group=52</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>308</x>
-      <y>323</y>
-      <w>33</w>
-      <h>4</h>
+      <x>615</x>
+      <y>135</y>
+      <w>165</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Enter Password*
 halign=left
@@ -304,10 +304,10 @@ group=53</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>308</x>
-      <y>318</y>
-      <w>33</w>
-      <h>4</h>
+      <x>615</x>
+      <y>110</y>
+      <w>165</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Player email*
 halign=left
@@ -318,10 +318,10 @@ group=53</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>310</x>
-      <y>329</y>
-      <w>11</w>
-      <h>4</h>
+      <x>625</x>
+      <y>165</y>
+      <w>55</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Create Button
 halign=center
@@ -333,10 +333,10 @@ group=53</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>328</x>
-      <y>329</y>
-      <w>11</w>
-      <h>4</h>
+      <x>715</x>
+      <y>165</y>
+      <w>55</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Cancel button
 halign=center
@@ -348,10 +348,10 @@ group=53</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>307</x>
-      <y>314</y>
-      <w>37</w>
-      <h>22</h>
+      <x>610</x>
+      <y>90</y>
+      <w>185</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>Player Log in
 halign=left
@@ -361,10 +361,10 @@ group=53</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>221</x>
-      <y>367</y>
-      <w>33</w>
-      <h>4</h>
+      <x>180</x>
+      <y>355</y>
+      <w>165</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Change Player PAD ID 
 halign=left
@@ -375,10 +375,10 @@ group=75</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>221</x>
-      <y>372</y>
-      <w>33</w>
-      <h>4</h>
+      <x>180</x>
+      <y>380</y>
+      <w>165</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Cahnge User name
 halign=left
@@ -389,10 +389,10 @@ group=75</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>221</x>
-      <y>377</y>
-      <w>33</w>
-      <h>4</h>
+      <x>180</x>
+      <y>405</y>
+      <w>165</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes> Change Password
 halign=left
@@ -403,10 +403,10 @@ group=75</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>221</x>
-      <y>382</y>
-      <w>33</w>
-      <h>4</h>
+      <x>180</x>
+      <y>430</y>
+      <w>165</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Change email
 halign=left
@@ -417,10 +417,10 @@ group=75</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>223</x>
-      <y>389</y>
-      <w>11</w>
-      <h>4</h>
+      <x>190</x>
+      <y>465</y>
+      <w>55</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Apply changes
 Button
@@ -433,10 +433,10 @@ group=75</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>242</x>
-      <y>389</y>
-      <w>11</w>
-      <h>4</h>
+      <x>285</x>
+      <y>465</y>
+      <w>55</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Back Button
 halign=center
@@ -448,10 +448,10 @@ group=75</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>220</x>
-      <y>356</y>
-      <w>37</w>
-      <h>47</h>
+      <x>175</x>
+      <y>300</y>
+      <w>185</w>
+      <h>235</h>
     </coordinates>
     <panel_attributes>Player account options
 halign=left
@@ -461,10 +461,10 @@ group=75</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>245</x>
-      <y>363</y>
-      <w>9</w>
-      <h>3</h>
+      <x>300</x>
+      <y>335</y>
+      <w>45</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>Log out
 halign=center
@@ -476,10 +476,10 @@ group=75</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>231</x>
-      <y>398</y>
-      <w>14</w>
-      <h>2</h>
+      <x>230</x>
+      <y>510</y>
+      <w>70</w>
+      <h>10</h>
     </coordinates>
     <panel_attributes>Delete Account option
 halign=center
@@ -491,10 +491,10 @@ group=75</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>282</x>
-      <y>473</y>
-      <w>81</w>
-      <h>75</h>
+      <x>485</x>
+      <y>885</y>
+      <w>405</w>
+      <h>375</h>
     </coordinates>
     <panel_attributes>Collection View page
 halign=left</panel_attributes>
@@ -503,10 +503,10 @@ halign=left</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>283</x>
-      <y>541</y>
-      <w>79</w>
-      <h>5</h>
+      <x>490</x>
+      <y>1225</y>
+      <w>395</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>PADification options/information (Help, sources, authors, etc.)
 halign=center
@@ -516,10 +516,10 @@ valign=center</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>283</x>
-      <y>483</y>
-      <w>79</w>
-      <h>6</h>
+      <x>490</x>
+      <y>935</y>
+      <w>395</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>Window or Page Summary
 halign=center
@@ -529,10 +529,10 @@ valign=center</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>283</x>
-      <y>491</y>
-      <w>42</w>
-      <h>49</h>
+      <x>490</x>
+      <y>975</y>
+      <w>210</w>
+      <h>245</h>
     </coordinates>
     <panel_attributes>Player Monster instances &amp; wish list
 halign=center
@@ -542,10 +542,10 @@ valign=center</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>326</x>
-      <y>491</y>
-      <w>36</w>
-      <h>27</h>
+      <x>705</x>
+      <y>975</y>
+      <w>180</w>
+      <h>135</h>
     </coordinates>
     <panel_attributes>Selected Monster Information
 halign=center
@@ -555,10 +555,10 @@ valign=center</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>326</x>
-      <y>519</y>
-      <w>36</w>
-      <h>21</h>
+      <x>705</x>
+      <y>1115</y>
+      <w>180</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>Selected Monster Evolution Tree
 halign=center
@@ -568,10 +568,10 @@ valign=center</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>411</x>
-      <y>473</y>
-      <w>81</w>
-      <h>75</h>
+      <x>1130</x>
+      <y>885</y>
+      <w>405</w>
+      <h>375</h>
     </coordinates>
     <panel_attributes>Monster book/monster search page
 halign=left
@@ -581,10 +581,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>412</x>
-      <y>541</y>
-      <w>79</w>
-      <h>5</h>
+      <x>1135</x>
+      <y>1225</y>
+      <w>395</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>PADification options/information (Help, sources, authors, etc.)
 halign=center
@@ -595,10 +595,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>412</x>
-      <y>483</y>
-      <w>79</w>
-      <h>6</h>
+      <x>1135</x>
+      <y>935</y>
+      <w>395</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>Window or Page Summary
 halign=center
@@ -609,10 +609,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>412</x>
-      <y>491</y>
-      <w>39</w>
-      <h>5</h>
+      <x>1135</x>
+      <y>975</y>
+      <w>195</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Player Search History
 (for monsters)
@@ -624,10 +624,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>412</x>
-      <y>497</y>
-      <w>79</w>
-      <h>7</h>
+      <x>1135</x>
+      <y>1005</y>
+      <w>395</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>Search filter options
 
@@ -639,10 +639,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>476</x>
-      <y>491</y>
-      <w>15</w>
-      <h>5</h>
+      <x>1455</x>
+      <y>975</y>
+      <w>75</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Search Button/
 Go Button
@@ -655,10 +655,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>384</x>
-      <y>474</y>
-      <w>25</w>
-      <h>23</h>
+      <x>995</x>
+      <y>890</y>
+      <w>125</w>
+      <h>115</h>
     </coordinates>
     <panel_attributes>Note.
 Monsters in the search results should
@@ -678,10 +678,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>670</x>
-      <y>473</y>
-      <w>81</w>
-      <h>75</h>
+      <x>2425</x>
+      <y>885</y>
+      <w>405</w>
+      <h>375</h>
     </coordinates>
     <panel_attributes>Search other players info page
 halign=left
@@ -691,10 +691,10 @@ group=79</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>541</y>
-      <w>79</w>
-      <h>5</h>
+      <x>2430</x>
+      <y>1225</y>
+      <w>395</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>PADification options/information (Help, sources, authors, etc.)
 halign=center
@@ -705,10 +705,10 @@ group=79</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>483</y>
-      <w>79</w>
-      <h>6</h>
+      <x>2430</x>
+      <y>935</y>
+      <w>395</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>Window or Page Summary
 halign=center
@@ -719,10 +719,10 @@ group=79</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>490</y>
-      <w>79</w>
-      <h>9</h>
+      <x>2430</x>
+      <y>970</y>
+      <w>395</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>Player Search History
 (for other player info)
@@ -734,10 +734,10 @@ group=79</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>500</y>
-      <w>38</w>
-      <h>26</h>
+      <x>2430</x>
+      <y>1020</y>
+      <w>190</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>Search filter options
 (Team specific info)
@@ -749,10 +749,10 @@ group=79</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>527</y>
-      <w>38</w>
-      <h>9</h>
+      <x>2430</x>
+      <y>1155</y>
+      <w>190</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>Search Button/
 Go Button
@@ -765,10 +765,10 @@ group=79</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>546</x>
-      <y>473</y>
-      <w>81</w>
-      <h>75</h>
+      <x>1805</x>
+      <y>885</y>
+      <w>405</w>
+      <h>375</h>
     </coordinates>
     <panel_attributes>Edit Team page
 halign=left
@@ -778,10 +778,10 @@ group=80</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>547</x>
-      <y>541</y>
-      <w>79</w>
-      <h>5</h>
+      <x>1810</x>
+      <y>1225</y>
+      <w>395</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>PADification options/information (Help, sources, authors, etc.)
 halign=center
@@ -792,10 +792,10 @@ group=80</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>547</x>
-      <y>483</y>
-      <w>79</w>
-      <h>6</h>
+      <x>1810</x>
+      <y>935</y>
+      <w>395</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>Window or Page Summary
 halign=center
@@ -806,10 +806,10 @@ group=80</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>587</x>
-      <y>491</y>
-      <w>39</w>
-      <h>49</h>
+      <x>2010</x>
+      <y>975</y>
+      <w>195</w>
+      <h>245</h>
     </coordinates>
     <panel_attributes>Team sumary display /
 Create, update &amp; delete
@@ -821,10 +821,10 @@ group=80</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>547</x>
-      <y>491</y>
-      <w>39</w>
-      <h>49</h>
+      <x>1810</x>
+      <y>975</y>
+      <w>195</w>
+      <h>245</h>
     </coordinates>
     <panel_attributes>Select monsters from player's Monster Box
 halign=center
@@ -835,10 +835,10 @@ group=80</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>307</x>
-      <y>434</y>
-      <w>3</w>
-      <h>41</h>
+      <x>610</x>
+      <y>690</y>
+      <w>15</w>
+      <h>205</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;390.0</additional_attributes>
@@ -846,10 +846,10 @@ group=80</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>324</x>
-      <y>434</y>
-      <w>104</w>
-      <h>41</h>
+      <x>695</x>
+      <y>690</y>
+      <w>520</w>
+      <h>205</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;230.0;1020.0;230.0;1020.0;390.0</additional_attributes>
@@ -857,10 +857,10 @@ group=80</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>342</x>
-      <y>434</y>
-      <w>224</w>
-      <h>41</h>
+      <x>785</x>
+      <y>690</y>
+      <w>1120</w>
+      <h>205</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;160.0;2220.0;160.0;2220.0;390.0</additional_attributes>
@@ -868,10 +868,10 @@ group=80</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>353</x>
-      <y>434</y>
-      <w>330</w>
-      <h>41</h>
+      <x>840</x>
+      <y>690</y>
+      <w>1650</w>
+      <h>205</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;110.0;3280.0;110.0;3280.0;390.0</additional_attributes>
@@ -879,10 +879,10 @@ group=80</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>427</x>
-      <y>547</y>
-      <w>27</w>
-      <h>60</h>
+      <x>1210</x>
+      <y>1255</y>
+      <w>135</w>
+      <h>300</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>250.0;10.0;250.0;580.0;10.0;580.0</additional_attributes>
@@ -890,10 +890,10 @@ group=80</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>295</x>
-      <y>335</y>
-      <w>3</w>
-      <h>27</h>
+      <x>550</x>
+      <y>195</y>
+      <w>15</w>
+      <h>135</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;250.0</additional_attributes>
@@ -901,10 +901,10 @@ group=80</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>335</y>
-      <w>3</w>
-      <h>27</h>
+      <x>625</x>
+      <y>195</y>
+      <w>15</w>
+      <h>135</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;250.0</additional_attributes>
@@ -912,10 +912,10 @@ group=80</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>256</x>
-      <y>373</y>
-      <w>30</w>
-      <h>3</h>
+      <x>355</x>
+      <y>385</y>
+      <w>150</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>280.0;10.0;10.0;10.0</additional_attributes>
@@ -923,10 +923,10 @@ group=80</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>382</x>
-      <y>309</y>
-      <w>27</w>
-      <h>32</h>
+      <x>985</x>
+      <y>65</y>
+      <w>135</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>TBD topics
 --
@@ -943,10 +943,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>352</x>
-      <y>491</y>
-      <w>10</w>
-      <h>5</h>
+      <x>835</x>
+      <y>975</y>
+      <w>50</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Remove 
 Monster
@@ -957,10 +957,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>347</x>
-      <y>561</y>
-      <w>81</w>
-      <h>75</h>
+      <x>810</x>
+      <y>1325</y>
+      <w>405</w>
+      <h>375</h>
     </coordinates>
     <panel_attributes>Edit/view Monster properties page
 halign=left
@@ -970,10 +970,10 @@ group=83</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>348</x>
-      <y>629</y>
-      <w>79</w>
-      <h>5</h>
+      <x>815</x>
+      <y>1665</y>
+      <w>395</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>PADification options/information (Help, sources, authors, etc.)
 halign=center
@@ -984,10 +984,10 @@ group=83</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>348</x>
-      <y>571</y>
-      <w>79</w>
-      <h>6</h>
+      <x>815</x>
+      <y>1375</y>
+      <w>395</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>Window or Page Summary
 halign=center
@@ -998,10 +998,10 @@ group=83</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>348</x>
-      <y>579</y>
-      <w>79</w>
-      <h>41</h>
+      <x>815</x>
+      <y>1415</y>
+      <w>395</w>
+      <h>205</h>
     </coordinates>
     <panel_attributes>Monster information /
 Edit monster options
@@ -1014,10 +1014,10 @@ group=83</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>379</x>
-      <y>621</y>
-      <w>18</w>
-      <h>5</h>
+      <x>970</x>
+      <y>1625</y>
+      <w>90</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Delete Monster Button /
 Add monster uner Wishlist
@@ -1030,10 +1030,10 @@ group=83</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>353</x>
-      <y>621</y>
-      <w>18</w>
-      <h>5</h>
+      <x>840</x>
+      <y>1625</y>
+      <w>90</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Apply changes / 
 Add monster to collection
@@ -1046,10 +1046,10 @@ group=83</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>322</x>
-      <y>547</y>
-      <w>27</w>
-      <h>57</h>
+      <x>685</x>
+      <y>1255</y>
+      <w>135</w>
+      <h>285</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;550.0;250.0;550.0</additional_attributes>
@@ -1057,10 +1057,10 @@ group=83</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>405</x>
-      <y>621</y>
-      <w>18</w>
-      <h>5</h>
+      <x>1100</x>
+      <y>1625</y>
+      <w>90</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Return Button
 halign=center
@@ -1072,10 +1072,10 @@ group=83</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>325</x>
-      <y>562</y>
-      <w>21</w>
-      <h>38</h>
+      <x>700</x>
+      <y>1330</y>
+      <w>105</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>From Collection
 --
@@ -1101,10 +1101,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>429</x>
-      <y>561</y>
-      <w>21</w>
-      <h>42</h>
+      <x>1220</x>
+      <y>1325</y>
+      <w>105</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>From Monster Book
 --
@@ -1123,10 +1123,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>352</x>
-      <y>309</y>
-      <w>25</w>
-      <h>32</h>
+      <x>835</x>
+      <y>65</y>
+      <w>125</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>Legend
 --
@@ -1141,10 +1141,10 @@ bg=white</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>283</x>
-      <y>477</y>
-      <w>10</w>
-      <h>5</h>
+      <x>490</x>
+      <y>905</y>
+      <w>50</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Main Menu
 halign=center
@@ -1154,10 +1154,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>294</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>545</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Player's Monster 
 Viewer
@@ -1168,10 +1168,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>306</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>605</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Monster Search
 halign=center
@@ -1181,10 +1181,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>318</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>665</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Edit Teams
 halign=center
@@ -1194,10 +1194,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>330</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>725</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View others
 Players' info
@@ -1208,10 +1208,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>354</x>
-      <y>477</y>
-      <w>8</w>
-      <h>5</h>
+      <x>845</x>
+      <y>905</y>
+      <w>40</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Account 
 Options
@@ -1222,10 +1222,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>348</x>
-      <y>565</y>
-      <w>10</w>
-      <h>5</h>
+      <x>815</x>
+      <y>1345</y>
+      <w>50</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Main Menu
 halign=center
@@ -1236,10 +1236,10 @@ group=83</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>359</x>
-      <y>565</y>
-      <w>11</w>
-      <h>5</h>
+      <x>870</x>
+      <y>1345</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Player's Monster 
 Viewer
@@ -1251,10 +1251,10 @@ group=83</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>371</x>
-      <y>565</y>
-      <w>11</w>
-      <h>5</h>
+      <x>930</x>
+      <y>1345</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Monster Search
 halign=center
@@ -1265,10 +1265,10 @@ group=83</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>383</x>
-      <y>565</y>
-      <w>11</w>
-      <h>5</h>
+      <x>990</x>
+      <y>1345</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Edit Teams
 halign=center
@@ -1279,10 +1279,10 @@ group=83</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>395</x>
-      <y>565</y>
-      <w>11</w>
-      <h>5</h>
+      <x>1050</x>
+      <y>1345</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View others
 Players' info
@@ -1294,10 +1294,10 @@ group=83</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>419</x>
-      <y>565</y>
-      <w>8</w>
-      <h>5</h>
+      <x>1170</x>
+      <y>1345</y>
+      <w>40</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Account 
 Options
@@ -1309,10 +1309,10 @@ group=83</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>412</x>
-      <y>477</y>
-      <w>10</w>
-      <h>5</h>
+      <x>1135</x>
+      <y>905</y>
+      <w>50</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Main Menu
 halign=center
@@ -1323,10 +1323,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>423</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>1190</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Player's Monster 
 Viewer
@@ -1338,10 +1338,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>435</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>1250</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Monster Search
 halign=center
@@ -1352,10 +1352,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>447</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>1310</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Edit Teams
 halign=center
@@ -1366,10 +1366,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>459</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>1370</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View others
 Players' info
@@ -1381,10 +1381,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>483</x>
-      <y>477</y>
-      <w>8</w>
-      <h>5</h>
+      <x>1490</x>
+      <y>905</y>
+      <w>40</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Account 
 Options
@@ -1396,10 +1396,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>547</x>
-      <y>477</y>
-      <w>10</w>
-      <h>5</h>
+      <x>1810</x>
+      <y>905</y>
+      <w>50</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Main Menu
 halign=center
@@ -1410,10 +1410,10 @@ group=80</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>558</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>1865</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Player's Monster 
 Viewer
@@ -1425,10 +1425,10 @@ group=80</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>570</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>1925</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Monster Search
 halign=center
@@ -1439,10 +1439,10 @@ group=80</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>582</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>1985</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Edit Teams
 halign=center
@@ -1453,10 +1453,10 @@ group=80</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>594</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2045</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View others
 Players' info
@@ -1468,10 +1468,10 @@ group=80</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>618</x>
-      <y>477</y>
-      <w>8</w>
-      <h>5</h>
+      <x>2165</x>
+      <y>905</y>
+      <w>40</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Account 
 Options
@@ -1483,10 +1483,10 @@ group=80</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>477</y>
-      <w>10</w>
-      <h>5</h>
+      <x>2430</x>
+      <y>905</y>
+      <w>50</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Main Menu
 halign=center
@@ -1497,10 +1497,10 @@ group=79</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>682</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2485</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Player's Monster 
 Viewer
@@ -1512,10 +1512,10 @@ group=79</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>694</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2545</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Monster Search
 halign=center
@@ -1526,10 +1526,10 @@ group=79</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>706</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2605</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Edit Teams
 halign=center
@@ -1540,10 +1540,10 @@ group=79</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>718</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2665</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View others
 Players' info
@@ -1555,10 +1555,10 @@ group=79</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>742</x>
-      <y>477</y>
-      <w>8</w>
-      <h>5</h>
+      <x>2785</x>
+      <y>905</y>
+      <w>40</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Account 
 Options
@@ -1570,10 +1570,10 @@ group=79</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>288</x>
-      <y>404</y>
-      <w>34</w>
-      <h>21</h>
+      <x>515</x>
+      <y>540</y>
+      <w>170</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>Current followers
 halign=center
@@ -1584,10 +1584,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>326</x>
-      <y>404</y>
-      <w>34</w>
-      <h>21</h>
+      <x>705</x>
+      <y>540</y>
+      <w>170</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>Current Following
 halign=center
@@ -1598,10 +1598,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>670</x>
-      <y>554</y>
-      <w>81</w>
-      <h>75</h>
+      <x>2425</x>
+      <y>1290</y>
+      <w>405</w>
+      <h>375</h>
     </coordinates>
     <panel_attributes>Search other players result page
 halign=left
@@ -1611,10 +1611,10 @@ group=63</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>622</y>
-      <w>79</w>
-      <h>5</h>
+      <x>2430</x>
+      <y>1630</y>
+      <w>395</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>PADification options/information (Help, sources, authors, etc.)
 halign=center
@@ -1625,10 +1625,10 @@ group=63</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>564</y>
-      <w>79</w>
-      <h>6</h>
+      <x>2430</x>
+      <y>1340</y>
+      <w>395</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>Window or Page Summary
 halign=center
@@ -1639,10 +1639,10 @@ group=63</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>558</y>
-      <w>10</w>
-      <h>5</h>
+      <x>2430</x>
+      <y>1310</y>
+      <w>50</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Main Menu
 halign=center
@@ -1653,10 +1653,10 @@ group=63</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>682</x>
-      <y>558</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2485</x>
+      <y>1310</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Player's Monster 
 Viewer
@@ -1668,10 +1668,10 @@ group=63</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>694</x>
-      <y>558</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2545</x>
+      <y>1310</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Monster Search
 halign=center
@@ -1682,10 +1682,10 @@ group=63</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>706</x>
-      <y>558</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2605</x>
+      <y>1310</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Edit Teams
 halign=center
@@ -1696,10 +1696,10 @@ group=63</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>718</x>
-      <y>558</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2665</x>
+      <y>1310</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View others
 Players' info
@@ -1711,10 +1711,10 @@ group=63</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>742</x>
-      <y>558</y>
-      <w>8</w>
-      <h>5</h>
+      <x>2785</x>
+      <y>1310</y>
+      <w>40</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Account 
 Options
@@ -1726,10 +1726,10 @@ group=63</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>578</y>
-      <w>79</w>
-      <h>42</h>
+      <x>2430</x>
+      <y>1410</y>
+      <w>395</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>Other player team results
 halign=center
@@ -1740,10 +1740,10 @@ group=63</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>710</x>
-      <y>500</y>
-      <w>40</w>
-      <h>36</h>
+      <x>2625</x>
+      <y>1020</y>
+      <w>200</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>Search by follwers or Following
 halign=center
@@ -1754,10 +1754,10 @@ group=79</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>571</y>
-      <w>79</w>
-      <h>6</h>
+      <x>2430</x>
+      <y>1375</y>
+      <w>395</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>Search Filter option
 halign=center
@@ -1768,10 +1768,10 @@ group=63</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>704</y>
-      <w>79</w>
-      <h>5</h>
+      <x>2430</x>
+      <y>2040</y>
+      <w>395</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>PADification options/information (Help, sources, authors, etc.)
 halign=center
@@ -1782,10 +1782,10 @@ group=71</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>646</y>
-      <w>79</w>
-      <h>6</h>
+      <x>2430</x>
+      <y>1750</y>
+      <w>395</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>Window or Page Summary
 halign=center
@@ -1796,10 +1796,10 @@ group=71</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>640</y>
-      <w>10</w>
-      <h>5</h>
+      <x>2430</x>
+      <y>1720</y>
+      <w>50</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Main Menu
 halign=center
@@ -1810,10 +1810,10 @@ group=71</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>682</x>
-      <y>640</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2485</x>
+      <y>1720</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Player's Monster 
 Viewer
@@ -1825,10 +1825,10 @@ group=71</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>694</x>
-      <y>640</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2545</x>
+      <y>1720</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Monster Search
 halign=center
@@ -1839,10 +1839,10 @@ group=71</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>706</x>
-      <y>640</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2605</x>
+      <y>1720</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Edit Teams
 halign=center
@@ -1853,10 +1853,10 @@ group=71</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>718</x>
-      <y>640</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2665</x>
+      <y>1720</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View others
 Players' info
@@ -1868,10 +1868,10 @@ group=71</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>742</x>
-      <y>640</y>
-      <w>8</w>
-      <h>5</h>
+      <x>2785</x>
+      <y>1720</y>
+      <w>40</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Account 
 Options
@@ -1883,10 +1883,10 @@ group=71</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>662</y>
-      <w>79</w>
-      <h>40</h>
+      <x>2430</x>
+      <y>1830</y>
+      <w>395</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>Selected player's PADification information
 halign=center
@@ -1897,10 +1897,10 @@ group=71</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>670</x>
-      <y>636</y>
-      <w>81</w>
-      <h>75</h>
+      <x>2425</x>
+      <y>1700</y>
+      <w>405</w>
+      <h>375</h>
     </coordinates>
     <panel_attributes>Other players info page
 halign=left
@@ -1910,10 +1910,10 @@ group=71</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>662</y>
-      <w>12</w>
-      <h>3</h>
+      <x>2430</x>
+      <y>1830</y>
+      <w>60</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>Team inforamtion
 halign=center
@@ -1924,10 +1924,10 @@ group=71</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>683</x>
-      <y>662</y>
-      <w>14</w>
-      <h>3</h>
+      <x>2490</x>
+      <y>1830</y>
+      <w>70</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>Monster Information
 halign=center
@@ -1938,10 +1938,10 @@ group=71</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>671</x>
-      <y>653</y>
-      <w>65</w>
-      <h>7</h>
+      <x>2430</x>
+      <y>1785</y>
+      <w>325</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>Player account information
 halign=center
@@ -1952,10 +1952,10 @@ group=71</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>737</x>
-      <y>653</y>
-      <w>13</w>
-      <h>7</h>
+      <x>2760</x>
+      <y>1785</y>
+      <w>65</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>Follow Button/
 Unfollow
@@ -1968,10 +1968,10 @@ group=71</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>710</x>
-      <y>547</y>
-      <w>3</w>
-      <h>9</h>
+      <x>2625</x>
+      <y>1255</y>
+      <w>15</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
@@ -1979,10 +1979,10 @@ group=71</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>711</x>
-      <y>628</y>
-      <w>3</w>
-      <h>10</h>
+      <x>2630</x>
+      <y>1660</y>
+      <w>15</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
@@ -1990,10 +1990,10 @@ group=71</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>652</x>
-      <y>636</y>
-      <w>17</w>
-      <h>14</h>
+      <x>2335</x>
+      <y>1700</y>
+      <w>85</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Note.
 People's team will be 
@@ -2007,10 +2007,10 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
-      <y>523</y>
-      <w>18</w>
-      <h>155</h>
+      <x>2825</x>
+      <y>1135</y>
+      <w>90</w>
+      <h>775</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;160.0;10.0;160.0;1530.0;10.0;1530.0</additional_attributes>
@@ -2018,10 +2018,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>256</x>
-      <y>474</y>
-      <w>22</w>
-      <h>11</h>
+      <x>355</x>
+      <y>890</y>
+      <w>110</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>Note.
 Monsters from Monster book
@@ -2034,10 +2034,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>525</x>
-      <y>473</y>
-      <w>19</w>
-      <h>9</h>
+      <x>1700</x>
+      <y>885</y>
+      <w>95</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>Note.
 Teams will ahve 2 categories
@@ -2049,10 +2049,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>787</x>
-      <y>471</y>
-      <w>81</w>
-      <h>75</h>
+      <x>3010</x>
+      <y>875</y>
+      <w>405</w>
+      <h>375</h>
     </coordinates>
     <panel_attributes>Team ranks page
 halign=left</panel_attributes>
@@ -2061,10 +2061,10 @@ halign=left</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>788</x>
-      <y>539</y>
-      <w>79</w>
-      <h>5</h>
+      <x>3015</x>
+      <y>1215</y>
+      <w>395</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>PADification options/information (Help, sources, authors, etc.)
 halign=center
@@ -2074,10 +2074,10 @@ valign=center</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>788</x>
-      <y>481</y>
-      <w>79</w>
-      <h>6</h>
+      <x>3015</x>
+      <y>925</y>
+      <w>395</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>Window or Page Summary
 halign=center
@@ -2087,10 +2087,10 @@ valign=center</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>788</x>
-      <y>475</y>
-      <w>10</w>
-      <h>5</h>
+      <x>3015</x>
+      <y>895</y>
+      <w>50</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Main Menu
 halign=center
@@ -2100,10 +2100,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>799</x>
-      <y>475</y>
-      <w>11</w>
-      <h>5</h>
+      <x>3070</x>
+      <y>895</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Player's Monster 
 Viewer
@@ -2114,10 +2114,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>811</x>
-      <y>475</y>
-      <w>11</w>
-      <h>5</h>
+      <x>3130</x>
+      <y>895</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Monster Search
 halign=center
@@ -2127,10 +2127,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>823</x>
-      <y>475</y>
-      <w>11</w>
-      <h>5</h>
+      <x>3190</x>
+      <y>895</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Edit Teams
 halign=center
@@ -2140,10 +2140,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>835</x>
-      <y>475</y>
-      <w>11</w>
-      <h>5</h>
+      <x>3250</x>
+      <y>895</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View others
 Players' info
@@ -2154,10 +2154,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>859</x>
-      <y>475</y>
-      <w>8</w>
-      <h>5</h>
+      <x>3370</x>
+      <y>895</y>
+      <w>40</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Account 
 Options
@@ -2168,10 +2168,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>788</x>
-      <y>488</y>
-      <w>79</w>
-      <h>6</h>
+      <x>3015</x>
+      <y>960</y>
+      <w>395</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>Search Filter option
 halign=center
@@ -2181,10 +2181,10 @@ valign=center</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>788</x>
-      <y>495</y>
-      <w>79</w>
-      <h>42</h>
+      <x>3015</x>
+      <y>995</y>
+      <w>395</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>Team rank results
 (Upvote from here)
@@ -2195,10 +2195,10 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
-      <y>545</y>
-      <w>81</w>
-      <h>152</h>
+      <x>2825</x>
+      <y>1245</y>
+      <w>405</w>
+      <h>760</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>790.0;10.0;790.0;1500.0;10.0;1500.0</additional_attributes>
@@ -2206,10 +2206,10 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>362</x>
-      <y>434</y>
-      <w>468</w>
-      <h>39</h>
+      <x>885</x>
+      <y>690</y>
+      <w>2340</w>
+      <h>195</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0;4660.0;40.0;4660.0;370.0</additional_attributes>
@@ -2217,10 +2217,10 @@ valign=center</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>344</x>
-      <y>363</y>
-      <w>11</w>
-      <h>5</h>
+      <x>795</x>
+      <y>335</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View Team 
 Ranking
@@ -2232,10 +2232,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>342</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>785</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View Team 
 Ranking
@@ -2246,10 +2246,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>407</x>
-      <y>565</y>
-      <w>11</w>
-      <h>5</h>
+      <x>1110</x>
+      <y>1345</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View Team 
 Ranking
@@ -2261,10 +2261,10 @@ group=83</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>471</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>1430</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View Team 
 Ranking
@@ -2276,10 +2276,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>606</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2105</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View Team 
 Ranking
@@ -2291,10 +2291,10 @@ group=80</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>730</x>
-      <y>477</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2725</x>
+      <y>905</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View Team 
 Ranking
@@ -2306,10 +2306,10 @@ group=79</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>730</x>
-      <y>558</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2725</x>
+      <y>1310</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View Team 
 Ranking
@@ -2321,10 +2321,10 @@ group=63</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>847</x>
-      <y>475</y>
-      <w>11</w>
-      <h>5</h>
+      <x>3310</x>
+      <y>895</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View Team 
 Ranking
@@ -2335,10 +2335,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>730</x>
-      <y>640</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2725</x>
+      <y>1720</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View Team 
 Ranking
@@ -2350,10 +2350,10 @@ group=71</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>518</x>
-      <y>535</y>
-      <w>26</w>
-      <h>12</h>
+      <x>1665</x>
+      <y>1195</y>
+      <w>130</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Note.
 Players should have access to 
@@ -2365,10 +2365,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>412</x>
-      <y>505</y>
-      <w>39</w>
-      <h>34</h>
+      <x>1135</x>
+      <y>1045</y>
+      <w>195</w>
+      <h>170</h>
     </coordinates>
     <panel_attributes>Monster Book list
 
@@ -2380,10 +2380,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>452</x>
-      <y>491</y>
-      <w>23</w>
-      <h>5</h>
+      <x>1335</x>
+      <y>975</y>
+      <w>115</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Monster Search bar
 halign=center
@@ -2394,10 +2394,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>452</x>
-      <y>505</y>
-      <w>39</w>
-      <h>34</h>
+      <x>1335</x>
+      <y>1045</y>
+      <w>195</w>
+      <h>170</h>
     </coordinates>
     <panel_attributes>Monster information / 
 Evolution tree
@@ -2409,10 +2409,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>319</x>
-      <y>405</y>
-      <w>2</w>
-      <h>19</h>
+      <x>670</x>
+      <y>545</y>
+      <w>10</w>
+      <h>95</h>
     </coordinates>
     <panel_attributes>halign=left
 bg=yellow
@@ -2422,10 +2422,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>357</x>
-      <y>405</y>
-      <w>2</w>
-      <h>19</h>
+      <x>860</x>
+      <y>545</y>
+      <w>10</w>
+      <h>95</h>
     </coordinates>
     <panel_attributes>halign=left
 bg=yellow
@@ -2435,10 +2435,10 @@ group=67</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>322</x>
-      <y>492</y>
-      <w>2</w>
-      <h>46</h>
+      <x>685</x>
+      <y>980</y>
+      <w>10</w>
+      <h>230</h>
     </coordinates>
     <panel_attributes>halign=left
 bg=yellow</panel_attributes>
@@ -2447,10 +2447,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>448</x>
-      <y>506</y>
-      <w>2</w>
-      <h>32</h>
+      <x>1315</x>
+      <y>1050</y>
+      <w>10</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>halign=left
 bg=yellow
@@ -2460,10 +2460,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>583</x>
-      <y>492</y>
-      <w>2</w>
-      <h>47</h>
+      <x>1990</x>
+      <y>980</y>
+      <w>10</w>
+      <h>235</h>
     </coordinates>
     <panel_attributes>halign=left
 bg=yellow
@@ -2473,10 +2473,10 @@ group=80</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>747</x>
-      <y>501</y>
-      <w>2</w>
-      <h>34</h>
+      <x>2810</x>
+      <y>1025</y>
+      <w>10</w>
+      <h>170</h>
     </coordinates>
     <panel_attributes>halign=left
 bg=yellow
@@ -2486,10 +2486,10 @@ group=79</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>747</x>
-      <y>579</y>
-      <w>2</w>
-      <h>40</h>
+      <x>2810</x>
+      <y>1415</y>
+      <w>10</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>halign=left
 bg=yellow
@@ -2499,10 +2499,10 @@ group=63</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>864</x>
-      <y>496</y>
-      <w>2</w>
-      <h>40</h>
+      <x>3395</x>
+      <y>1000</y>
+      <w>10</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>halign=left
 bg=yellow</panel_attributes>
@@ -2511,10 +2511,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>546</x>
-      <y>554</y>
-      <w>81</w>
-      <h>75</h>
+      <x>1805</x>
+      <y>1290</y>
+      <w>405</w>
+      <h>375</h>
     </coordinates>
     <panel_attributes>Team information page
 halign=left</panel_attributes>
@@ -2523,10 +2523,10 @@ halign=left</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>547</x>
-      <y>622</y>
-      <w>79</w>
-      <h>5</h>
+      <x>1810</x>
+      <y>1630</y>
+      <w>395</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>PADification options/information (Help, sources, authors, etc.)
 halign=center
@@ -2536,10 +2536,10 @@ valign=center</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>547</x>
-      <y>564</y>
-      <w>79</w>
-      <h>6</h>
+      <x>1810</x>
+      <y>1340</y>
+      <w>395</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>Window or Page Summary
 halign=center
@@ -2549,10 +2549,10 @@ valign=center</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>547</x>
-      <y>572</y>
-      <w>79</w>
-      <h>44</h>
+      <x>1810</x>
+      <y>1380</y>
+      <w>395</w>
+      <h>220</h>
     </coordinates>
     <panel_attributes>Team information
 (including ranking)
@@ -2563,10 +2563,10 @@ valign=center</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>547</x>
-      <y>617</y>
-      <w>13</w>
-      <h>4</h>
+      <x>1810</x>
+      <y>1605</y>
+      <w>65</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Delete Team Button
 valign=center
@@ -2576,10 +2576,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>547</x>
-      <y>558</y>
-      <w>10</w>
-      <h>5</h>
+      <x>1810</x>
+      <y>1310</y>
+      <w>50</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Main Menu
 halign=center
@@ -2589,10 +2589,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>558</x>
-      <y>558</y>
-      <w>11</w>
-      <h>5</h>
+      <x>1865</x>
+      <y>1310</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Player's Monster 
 Viewer
@@ -2603,10 +2603,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>570</x>
-      <y>558</y>
-      <w>11</w>
-      <h>5</h>
+      <x>1925</x>
+      <y>1310</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Monster Search
 halign=center
@@ -2616,10 +2616,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>582</x>
-      <y>558</y>
-      <w>11</w>
-      <h>5</h>
+      <x>1985</x>
+      <y>1310</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Edit Teams
 halign=center
@@ -2629,10 +2629,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>594</x>
-      <y>558</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2045</x>
+      <y>1310</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View others
 Players' info
@@ -2643,10 +2643,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>618</x>
-      <y>558</y>
-      <w>8</w>
-      <h>5</h>
+      <x>2165</x>
+      <y>1310</y>
+      <w>40</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Account 
 Options
@@ -2657,10 +2657,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>606</x>
-      <y>558</y>
-      <w>11</w>
-      <h>5</h>
+      <x>2105</x>
+      <y>1310</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>View Team 
 Ranking
@@ -2671,10 +2671,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>561</x>
-      <y>617</y>
-      <w>13</w>
-      <h>4</h>
+      <x>1880</x>
+      <y>1605</y>
+      <w>65</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Submit /unsubmit
 team button
@@ -2685,10 +2685,10 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>586</x>
-      <y>547</y>
-      <w>3</w>
-      <h>9</h>
+      <x>2005</x>
+      <y>1255</y>
+      <w>15</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
@@ -2696,10 +2696,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>247</x>
-      <y>520</y>
-      <w>28</w>
-      <h>17</h>
+      <x>310</x>
+      <y>1120</y>
+      <w>140</w>
+      <h>85</h>
     </coordinates>
     <panel_attributes>Delete monster pop-up window
 halign=center
@@ -2709,10 +2709,10 @@ group=77</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>249</x>
-      <y>527</y>
-      <w>11</w>
-      <h>5</h>
+      <x>320</x>
+      <y>1155</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Cancel
 halign=center
@@ -2724,10 +2724,10 @@ group=77</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>262</x>
-      <y>527</y>
-      <w>11</w>
-      <h>5</h>
+      <x>385</x>
+      <y>1155</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Confirm
 halign=center
@@ -2739,10 +2739,10 @@ group=77</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>274</x>
-      <y>522</y>
-      <w>10</w>
-      <h>3</h>
+      <x>445</x>
+      <y>1130</y>
+      <w>50</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
@@ -2750,10 +2750,10 @@ group=77</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>342</x>
-      <y>491</y>
-      <w>10</w>
-      <h>5</h>
+      <x>785</x>
+      <y>975</y>
+      <w>50</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Edit Monster 
 Properties
@@ -2764,10 +2764,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>332</x>
-      <y>491</y>
-      <w>10</w>
-      <h>5</h>
+      <x>735</x>
+      <y>975</y>
+      <w>50</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Favorite/
 Add from 
@@ -2779,10 +2779,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>221</x>
-      <y>359</y>
-      <w>8</w>
-      <h>7</h>
+      <x>180</x>
+      <y>315</y>
+      <w>40</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>Monster 
 Profile?
@@ -2794,10 +2794,10 @@ group=75</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>623</x>
-      <y>492</y>
-      <w>2</w>
-      <h>47</h>
+      <x>2190</x>
+      <y>980</y>
+      <w>10</w>
+      <h>235</h>
     </coordinates>
     <panel_attributes>halign=left
 bg=yellow
@@ -2807,10 +2807,10 @@ group=80</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>515</x>
-      <y>520</y>
-      <w>11</w>
-      <h>5</h>
+      <x>1650</x>
+      <y>1120</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Cancel
 halign=center
@@ -2822,10 +2822,10 @@ group=78</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>528</x>
-      <y>520</y>
-      <w>11</w>
-      <h>5</h>
+      <x>1715</x>
+      <y>1120</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Confirm
 halign=center
@@ -2837,10 +2837,10 @@ group=78</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>513</x>
-      <y>513</y>
-      <w>28</w>
-      <h>17</h>
+      <x>1640</x>
+      <y>1085</y>
+      <w>140</w>
+      <h>85</h>
     </coordinates>
     <panel_attributes>Delete Team pop-up window
 halign=center
@@ -2850,10 +2850,10 @@ group=78</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>522</y>
-      <w>8</w>
-      <h>3</h>
+      <x>1775</x>
+      <y>1130</y>
+      <w>40</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
@@ -2861,10 +2861,10 @@ group=78</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>185</x>
-      <y>386</y>
-      <w>28</w>
-      <h>17</h>
+      <x>0</x>
+      <y>450</y>
+      <w>140</w>
+      <h>85</h>
     </coordinates>
     <panel_attributes>Delete account pop-up window
 halign=center
@@ -2874,10 +2874,10 @@ group=81</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>200</x>
-      <y>393</y>
-      <w>11</w>
-      <h>5</h>
+      <x>75</x>
+      <y>485</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Confirm
 halign=center
@@ -2889,10 +2889,10 @@ group=81</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>187</x>
-      <y>393</y>
-      <w>11</w>
-      <h>5</h>
+      <x>10</x>
+      <y>485</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Cancel
 halign=center
@@ -2904,10 +2904,10 @@ group=81</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>212</x>
-      <y>393</y>
-      <w>10</w>
-      <h>3</h>
+      <x>135</x>
+      <y>485</y>
+      <w>50</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
@@ -2915,10 +2915,10 @@ group=81</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>314</x>
-      <y>623</y>
-      <w>11</w>
-      <h>5</h>
+      <x>645</x>
+      <y>1635</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Cancel
 halign=center
@@ -2930,10 +2930,10 @@ group=82</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>327</x>
-      <y>623</y>
-      <w>11</w>
-      <h>5</h>
+      <x>710</x>
+      <y>1635</y>
+      <w>55</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Confirm
 halign=center
@@ -2945,10 +2945,10 @@ group=82</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>312</x>
-      <y>616</y>
-      <w>28</w>
-      <h>17</h>
+      <x>635</x>
+      <y>1600</y>
+      <w>140</w>
+      <h>85</h>
     </coordinates>
     <panel_attributes>Delete monster /
 Add monster 
@@ -2960,10 +2960,10 @@ group=82</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>339</x>
-      <y>623</y>
-      <w>10</w>
-      <h>3</h>
+      <x>770</x>
+      <y>1635</y>
+      <w>50</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
@@ -2971,10 +2971,10 @@ group=82</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>412</x>
-      <y>505</y>
-      <w>11</w>
-      <h>4</h>
+      <x>1135</x>
+      <y>1045</y>
+      <w>55</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Add Monster(s)
 to collection
@@ -2987,10 +2987,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>488</x>
-      <y>506</y>
-      <w>2</w>
-      <h>32</h>
+      <x>1515</x>
+      <y>1050</y>
+      <w>10</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>halign=left
 bg=yellow
@@ -3000,10 +3000,10 @@ group=84</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>423</x>
-      <y>505</y>
-      <w>11</w>
-      <h>4</h>
+      <x>1190</x>
+      <y>1045</y>
+      <w>55</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>Add Monster(s)
 to Wishlist
@@ -3011,6 +3011,22 @@ halign=center
 valign=center
 bg=blue
 group=84</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>385</y>
+      <w>85</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>*Version*
+--
+*PADifiaction relationship diagram*
+version 1.0
+Date: 06/20/2017
+bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
