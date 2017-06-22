@@ -140,7 +140,7 @@ CREATE TABLE PADification.dbo.Attribute (
 GO
 
 CREATE TABLE PADification.dbo.ActiveSkill (
-  ActiveSkillName NVARCHAR(100) NOT NULL,
+  ActiveSkillName NVARCHAR(100) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL,
   ActiveSkillDesc NVARCHAR(MAX) NOT NULL,
   ActiveSkillMaxLevel INT NOT NULL,
   ActiveSkillMaxCoolDown INT NOT NULL,
@@ -149,7 +149,7 @@ CREATE TABLE PADification.dbo.ActiveSkill (
 GO
 
 CREATE TABLE PADification.dbo.LeaderSkill (
-  LeaderSkillName NVARCHAR(100) NOT NULL,
+  LeaderSkillName NVARCHAR(100) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL,
   LeaderSKillDesc NVARCHAR(MAX) NOT NULL,
   CONSTRAINT PK_LeaderSkill PRIMARY KEY (LeaderSkillName)
 )
@@ -164,15 +164,15 @@ GO
 
 CREATE TABLE PADification.dbo.AwokenSkillList (
   ASListID INT NOT NULL,
-  AwokenSkillOne VARCHAR(100) NOT NULL,
-  AwokenSkillTwo VARCHAR(100) NOT NULL,
-  AwokenSkillThree VARCHAR(100) NOT NULL,
-  AwokenSkillFour VARCHAR(100) NOT NULL,
-  AwokenSkillFive VARCHAR(100) NOT NULL,
-  AwokenSkillSix VARCHAR(100) NOT NULL,
-  AwokenSkillSeven VARCHAR(100) NOT NULL,
-  AwokenSkillEight VARCHAR(100) NOT NULL,
-  AwokenSkillNine VARCHAR(100) NOT NULL,
+  AwokenSkillOne VARCHAR(100) NULL,
+  AwokenSkillTwo VARCHAR(100) NULL,
+  AwokenSkillThree VARCHAR(100) NULL,
+  AwokenSkillFour VARCHAR(100) NULL,
+  AwokenSkillFive VARCHAR(100) NULL,
+  AwokenSkillSix VARCHAR(100) NULL,
+  AwokenSkillSeven VARCHAR(100) NULL,
+  AwokenSkillEight VARCHAR(100) NULL,
+  AwokenSkillNine VARCHAR(100) NULL,
   CONSTRAINT PK_AwokenSkillList PRIMARY KEY (ASListID)
 )
 GO
@@ -182,16 +182,16 @@ CREATE TABLE PADification.dbo.MonsterClass (
   MonsterName NVARCHAR(100) NOT NULL,
   Rarity INT NOT NULL,
   PriAttribute VARCHAR(50) NOT NULL,
-  SecAttribute VARCHAR(50) NOT NULL,
+  SecAttribute VARCHAR(50) NULL,
   MonsterTypeOne VARCHAR(50) NOT NULL,
-  MonsterTypeTwo VARCHAR(50) NOT NULL,
-  MonsterTypeThree VARCHAR(50) NOT NULL,
+  MonsterTypeTwo VARCHAR(50) NULL,
+  MonsterTypeThree VARCHAR(50) NULL,
   ExpCurve INT NOT NULL,
   MaxLevel INT NOT NULL,
   MonsterCost INT NOT NULL,
-  ASListID INT NOT NULL,
-  LeaderSkillName NVARCHAR(100) NOT NULL,
-  ActiveSkillName NVARCHAR(100) NOT NULL,
+  ASListID INT NULL,
+  LeaderSkillName NVARCHAR(100) COLLATE SQL_Latin1_General_CP1_CS_AS NULL,
+  ActiveSkillName NVARCHAR(100) COLLATE SQL_Latin1_General_CP1_CS_AS NULL,
   MaxHP INT NOT NULL,
   MinHP INT NOT NULL,
   GrowthRateHP REAL NOT NULL,
