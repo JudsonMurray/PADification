@@ -7,6 +7,111 @@
 /*  Version  : 0.01                                                               */
 /*  Date     : June 21, 2017                                                      */
 /*================================================================================*/
+--Revision History
+--June 22, 2017 - Integrated Drop table functions from Table-Drop.sql.
+
+USE PADification
+/*================================================================================*/
+/* DROP TABLES                                                                    */
+/*================================================================================*/
+
+--Drop Team table
+if OBJECT_ID('PADification.dbo.Team', 'U') is not null
+	ALTER TABLE Team DROP CONSTRAINT PK_Team
+	GO
+	DROP TABLE Team;
+	GO
+
+--Drop Awoken Badge table
+if OBJECT_ID('PADification.dbo.AwokenBadge', 'U') is not null
+	ALTER TABLE AwokenBadge DROP CONSTRAINT PK_AwokenBadge
+	GO
+	DROP TABLE AwokenBadge;
+	GO
+
+--Drop Monster Instance table
+if OBJECT_ID('PADification.dbo.MonsterInstance', 'U') is not null
+	ALTER TABLE MonsterInstance DROP CONSTRAINT PK_MonsterInstance
+	GO
+	DROP TABLE MonsterInstance;
+	GO
+
+--Drop Latent Skill List table
+if OBJECT_ID('PADification.dbo.LatentSkillList', 'U') is not null
+	ALTER TABLE LatentSkillList DROP CONSTRAINT PK_LatentSkillList
+	GO
+	DROP TABLE LatentSkillList;
+	GO
+
+--Drop Player table
+if OBJECT_ID('PADification.dbo.Player', 'U') is not null
+	ALTER TABLE Player DROP CONSTRAINT PK_Player
+	GO
+	DROP TABLE Player;
+	GO
+
+--Drop Evolution Tree table
+if OBJECT_ID('PADification.dbo.EvolutionTree', 'U') is not null
+	ALTER TABLE EvolutionTree DROP CONSTRAINT PK_EvolutionTree
+	GO
+	DROP TABLE EvolutionTree;
+	GO
+
+--Drop Monster Class table
+if OBJECT_ID('PADification.dbo.MonsterClass', 'U') is not null
+	ALTER TABLE MonsterClass DROP CONSTRAINT PK_MonsterClass
+	GO
+	DROP TABLE MonsterClass;
+	GO
+
+--Drop Monster Type table
+if OBJECT_ID('PADification.dbo.MonsterType', 'U') is not null
+	ALTER TABLE MonsterType DROP CONSTRAINT PK_MonsterType
+	GO
+	DROP TABLE MonsterType;
+	GO
+
+--Drop Attribute table
+if OBJECT_ID('PADification.dbo.Attribute', 'U') is not null
+	ALTER TABLE Attribute DROP CONSTRAINT PK_Attribute
+	GO
+	DROP TABLE Attribute;
+	GO
+
+--Drop Active Skill table
+if OBJECT_ID('PADification.dbo.Team', 'U') is not null
+	ALTER TABLE ActiveSkill DROP CONSTRAINT PK_ActiveSkill
+	GO
+	DROP TABLE ActiveSkill;
+	GO
+
+--Drop Leader Skill table
+if OBJECT_ID('PADification.dbo.LeaderSkill', 'U') is not null
+	ALTER TABLE LeaderSkill DROP CONSTRAINT PK_LeaderSkill
+	GO
+	DROP TABLE LeaderSkill;
+	GO
+
+--Drop Awoken Skill List table
+if OBJECT_ID('PADification.dbo.AwokenSkillList', 'U') is not null
+	ALTER TABLE AwokenSkillList DROP CONSTRAINT PK_AwokenSkillList
+	GO
+	DROP TABLE AwokenSkillList;
+	GO
+
+--Drop Awoken Skill table
+if OBJECT_ID('PADification.dbo.AwokenSkill', 'U') is not null
+	ALTER TABLE AwokenSkill DROP CONSTRAINT PK_AwokenSkill
+	GO
+	DROP TABLE AwokenSkill;
+	GO
+
+--Drop Latent Skill table
+if OBJECT_ID('PADification.dbo.LatentSkill', 'U') is not null
+	ALTER TABLE LatentSkill DROP CONSTRAINT PK_LatentSkill
+	GO
+	DROP TABLE LatentSkill;
+	GO
 
 
 USE PADification
@@ -14,37 +119,50 @@ USE PADification
 /* CREATE TABLES                                                                  */
 /*================================================================================*/
 
+CREATE TABLE PADification.dbo.LatentSkill (
+  LatentSkillName VARCHAR(50) NOT NULL,
+  LatentSkillDesc VARCHAR(MAX) NOT NULL,
+  LSSlotsReq INT NOT NULL,
+  CONSTRAINT PK_LatentSkill PRIMARY KEY (LatentSkillName)
+)
+GO
 
-CREATE TABLE ActiveSkill (
-  ActiveSkillName VARCHAR(100) NOT NULL,
-  ActiveSkillDesc VARCHAR(MAX) NOT NULL,
+CREATE TABLE PADification.dbo.MonsterType (
+  MonsterTypeName VARCHAR(50) NOT NULL,
+  CONSTRAINT PK_MonsterType PRIMARY KEY (MonsterTypeName)
+)
+GO
+
+CREATE TABLE PADification.dbo.Attribute (
+  AttributeName VARCHAR(50) NOT NULL,
+  CONSTRAINT PK_Attribute PRIMARY KEY (AttributeName)
+)
+GO
+
+CREATE TABLE PADification.dbo.ActiveSkill (
+  ActiveSkillName NVARCHAR(100) NOT NULL,
+  ActiveSkillDesc NVARCHAR(MAX) NOT NULL,
   ActiveSkillMaxLevel INT NOT NULL,
   ActiveSkillMaxCoolDown INT NOT NULL,
   CONSTRAINT PK_ActiveSkill PRIMARY KEY (ActiveSkillName)
 )
 GO
 
-CREATE TABLE Attribute (
-  AttributeName VARCHAR(50) NOT NULL,
-  CONSTRAINT PK_Attribute PRIMARY KEY (AttributeName)
+CREATE TABLE PADification.dbo.LeaderSkill (
+  LeaderSkillName NVARCHAR(100) NOT NULL,
+  LeaderSKillDesc NVARCHAR(MAX) NOT NULL,
+  CONSTRAINT PK_LeaderSkill PRIMARY KEY (LeaderSkillName)
 )
 GO
 
-CREATE TABLE AwokenBadge (
-  AwokenBadgeName VARCHAR(50) NOT NULL,
-  AwokenBadgeDesc VARCHAR(MAX) NOT NULL,
-  CONSTRAINT PK_AwokenBadge PRIMARY KEY (AwokenBadgeName)
-)
-GO
-
-CREATE TABLE AwokenSkill (
+CREATE TABLE PADification.dbo.AwokenSkill (
   AwokenSkillName VARCHAR(100) NOT NULL,
   AwokenSkillDesc VARCHAR(MAX) NOT NULL,
   CONSTRAINT PK_AwokenSkill PRIMARY KEY (AwokenSkillName)
 )
 GO
 
-CREATE TABLE AwokenSkillList (
+CREATE TABLE PADification.dbo.AwokenSkillList (
   ASListID INT NOT NULL,
   AwokenSkillOne VARCHAR(100) NOT NULL,
   AwokenSkillTwo VARCHAR(100) NOT NULL,
@@ -59,22 +177,9 @@ CREATE TABLE AwokenSkillList (
 )
 GO
 
-CREATE TABLE LeaderSkill (
-  LeaderSkillName VARCHAR(100) NOT NULL,
-  LeaderSKillDesc VARCHAR(MAX) NOT NULL,
-  CONSTRAINT PK_LeaderSkill PRIMARY KEY (LeaderSkillName)
-)
-GO
-
-CREATE TABLE MonsterType (
-  MonsterTypeName VARCHAR(50) NOT NULL,
-  CONSTRAINT PK_MonsterType PRIMARY KEY (MonsterTypeName)
-)
-GO
-
-CREATE TABLE MonsterClass (
+CREATE TABLE PADification.dbo.MonsterClass (
   MonsterClassID INT NOT NULL,
-  MonsterName VARCHAR(100) NOT NULL,
+  MonsterName NVARCHAR(100) NOT NULL,
   Rarity INT NOT NULL,
   PriAttribute VARCHAR(50) NOT NULL,
   SecAttribute VARCHAR(50) NOT NULL,
@@ -85,8 +190,8 @@ CREATE TABLE MonsterClass (
   MaxLevel INT NOT NULL,
   MonsterCost INT NOT NULL,
   ASListID INT NOT NULL,
-  LeaderSkillName VARCHAR(100) NOT NULL,
-  ActiveSkillName VARCHAR(100) NOT NULL,
+  LeaderSkillName NVARCHAR(100) NOT NULL,
+  ActiveSkillName NVARCHAR(100) NOT NULL,
   MaxHP INT NOT NULL,
   MinHP INT NOT NULL,
   GrowthRateHP REAL NOT NULL,
@@ -104,7 +209,7 @@ CREATE TABLE MonsterClass (
 )
 GO
 
-CREATE TABLE EvolutionTree (
+CREATE TABLE PADification.dbo.EvolutionTree (
   NextMonsterID INT NOT NULL,
   BaseMonsterID INT NOT NULL,
   EvoMaterialIDOne INT NOT NULL,
@@ -119,15 +224,16 @@ CREATE TABLE EvolutionTree (
 )
 GO
 
-CREATE TABLE LatentSkill (
-  LatentSkillName VARCHAR(50) NOT NULL,
-  LatentSkillDesc VARCHAR(MAX) NOT NULL,
-  LSSlotsReq INT NOT NULL,
-  CONSTRAINT PK_LatentSkill PRIMARY KEY (LatentSkillName)
+CREATE TABLE PADification.dbo.Player (
+  PlayerID INT NOT NULL,
+  Password VARCHAR(10) NOT NULL,
+  Email VARCHAR(50),
+  Username VARCHAR(15) NOT NULL,
+  CONSTRAINT PK_Player PRIMARY KEY (UserName)
 )
 GO
 
-CREATE TABLE LatentSkillList (
+CREATE TABLE PADification.dbo.LatentSkillList (
   InstanceID INT NOT NULL,
   LatentSkillOne VARCHAR(50) NOT NULL,
   LatentSkillTwo VARCHAR(50) NOT NULL,
@@ -140,16 +246,7 @@ CREATE TABLE LatentSkillList (
 )
 GO
 
-CREATE TABLE Player (
-  PlayerID INT NOT NULL,
-  Password VARCHAR(10) NOT NULL,
-  Email VARCHAR(50),
-  Username VARCHAR(15) NOT NULL,
-  CONSTRAINT PK_Player PRIMARY KEY (UserName)
-)
-GO
-
-CREATE TABLE MonsterInstance (
+CREATE TABLE PADification.dbo.MonsterInstance (
   InstanceID INT NOT NULL,
   Username VARCHAR(15) NOT NULL,
   MonsterClassID INT NOT NULL,
@@ -165,7 +262,14 @@ CREATE TABLE MonsterInstance (
 )
 GO
 
-CREATE TABLE Team (
+CREATE TABLE PADification.dbo.AwokenBadge (
+  AwokenBadgeName VARCHAR(50) NOT NULL,
+  AwokenBadgeDesc VARCHAR(MAX) NOT NULL,
+  CONSTRAINT PK_AwokenBadge PRIMARY KEY (AwokenBadgeName)
+)
+GO
+
+CREATE TABLE PADification.dbo.Team (
   TeamInstanceID INT NOT NULL,
   Username VARCHAR(15) NOT NULL,
   TeamName VARCHAR(50),
