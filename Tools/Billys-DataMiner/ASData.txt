@@ -1,0 +1,1175 @@
+min_cooldown	effect	name	max_cooldown	
+10	Inflict damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense. Attacker & Dragon type cards ATK x2.5 for 2 turns.	があっ!!!!!	15	
+10	50% damage reduction for 1 turn.	バリアー	25	
+6	Increase skyfall chance of Water orbs by 15% for 3 turns. Change right-most column into Water orbs.	アプロード	10	
+15	Reduce 25% of all enemies' HP. Ignore enemy element and defense.	デスボール	25	
+6	Increase skyfall chance of Fire orbs by 15% for 3 turn. Change right-most column into Fire orbs.	アグニロード	10	
+7	Randomly spawn 3 Fire & Heart orbs from non Fire & Heart orbs. Give 7 seconds to move orbs without triggering matches.	ツインバレル	12	
+5	Change Jammer, Poison & Mortal Poison orbs to Heart orbs. Bind recovery for 5 turns.	ネロフェイス	9	
+6	Reshuffle all orbs.	マッハキック	11	
+999	Unknown - needs data update	てまエンハンス	999	
+10	Give 5 seconds to move orbs without triggering matches.	サイコキネシス	17	
+11	Change all orbs to Water, Wood & Light & Heart orbs. Deals damage equal to 5% of enemies' max HP.	サンダークロウ	16	
+9	Inflict Water damage equal to ATK x80 to 1 enemy. Affected by enemy element and defense. Change all orbs to Water, Wood & Light orbs.	パワーブリッツ	13	
+17	Reduce 30% of all enemies' HP. Ignore enemy element and defense. Recover 7000 HP.	ヒレフセーッ！	24	
+5	Inflict Fire damage equal to ATK x1-100 to all enemies. Affected by enemy element and defense.	ブレイズブレス	20	
+6	Inflict Wood damage equal to ATK x80 to 1 enemy. Affected by enemy element and defense. Enhance Wood orbs. +6% per orb, up to +180% for full board.	ロケットパンチ	10	
+11	Inflict Fire damage equal to ATK x10 to 1 enemy. Affected by enemy element and defense. Machine type cards ATK x1.5 for 1 turn.	アイ、アイサー！	11	
+20	Inflict Fire damage equal to ATK x250 to all enemies. Affected by enemy element and defense.	エネルギーボール	24	
+999	Unknown - needs data update	ストームアタック	999	
+14	Inflict Dark damage equal to ATK x80 to 1 enemy. Affected by enemy element and defense.	スナイプショット	29	
+8	All attacks become multi-target for 3 turns. Devil type cards ATK x1.2 for 3 turns.	デーモン・ダンス	15	
+10	Randomly spawn 7 Light orbs from non Light orbs.	ドラゴンレーダー	15	
+10	Inflict damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense. Change Poison orbs to Heart orbs.	ミルキーキャノン	17	
+8	Reduce enemies' defense by 25% for 1 turn. Effects carry forward on sweep. Inflict damage equal to ATK x20 to 1 enemy. Affected by enemy element and defense.	クラッシャーボール	15	
+9	Delay 2 turns to all enemies. Inflict damage equal to ATK x1 to 1 enemy. Affected by enemy element and defense.	ダイナマイトキック	14	
+7	Dragon type cards ATK x1.5 for 1 turn. Reduces cooldown of other skills by 1 turn.	ドラゴン・サポート	13	
+11	Increases time limit of orb movement by 5 seconds for 1 turn. Devil type cards ATK x1.5 for 1 turn.	パズル＆デーモンズ	14	
+2	Switch places with leader card. Use again to switch back.	プロミネンスシフト	22	
+12	Devil type cards ATK x2 for 1 turn. Reduces cooldown of other skills by 1 turn.	スペル・シュトローム	17	
+8	Inflict damage equal to ATK x80 to 1 enemy. Affected by enemy element and defense. Change Fire, Jammer, Poison & Mortal Poison orbs to Dark orbs.	ファイナルフラッシュ	13	
+13	Dragon type cards ATK x1.5 for 1 turn. Inflict damage equal to ATK x20 to 1 enemy. Affected by enemy element and defense.	リクーム…ウルトラ…	20	
+8	Change left-most column into Light orbs and the right-most column into Dark orbs. Counter 5x damage taken with Light for 1 turn.	オーバーリフレクション	13	
+10	Recover 25% of max HP. Change all orbs to Fire, Water & Wood & Light & Dark & Heart orbs.	オールドロップキュアー	15	
+7	Change Wood orbs to Heart orbs. Reduces cooldown of other skills by 1 turn.	ヘルブレイズヴィジョン	22	
+999	Unknown - needs data update	エンゲージフェザー・ルナ	999	
+999	Unknown - needs data update	スターウェディングロード	999	
+7	Change right-most column into Fire orbs. Reduces cooldown of other skills by 1 turn.	ボルシャック・ファイアー	12	
+6	Deal 1000 damage to all enemies. Ignore enemy element and defense.	1,000 Day Anniversary TAMA!	6	
+8	Attacker type cards ATK x2 for 1 turn. Reduce enemies' defense by 75% for 1 turn. Effects carry forward on sweep.	100 Victories in 100 Battles	12	
+7	Randomly spawn 6 Fire orbs from non Fire orbs. Enhance Fire orbs. +6% per orb.	3連炎ブレス	12	
+23	Deals damage equal to 25% of enemies' max HP.	Abandon your prayers.	28	
+4	Randomly spawn 3 Water orbs from non Water orbs.	A Break in the Clouds	14	
+8	Deal Dark damage to all enemies based on player's HP %. ATK x40 at 100% HP up to ATK x200 at 1 HP. Affected by enemy element and defense. Dark attribute ATK x2 for 1 turn.	Abyssal Strike	12	
+8	Change left-most column into Water orbs. Bind recovery for 3 turns.	Abyssal Stroke	16	
+7	Increases time limit of orb movement by 300% for 1 turn. Reduces cooldown of other skills by 1 turn.	Abyssal Vision	22	
+10	Change all orbs to Water, Dark & Heart orbs. Reduces cooldown of other skills by 1 turn.	Abyss Dark Ring	15	
+10	Change Wood, Heart, Jammer, Poison & Mortal Poison orbs to Dark orbs. Increase skyfall chance of Dark orbs by 15% for 4 turns.	Aero Wake - Dark	15	
+10	Change Wood, Heart, Jammer, Poison & Mortal Poison orbs to Fire orbs. Increase skyfall chance of Fire orbs by 15% for 4 turn.	Aero Wake - Flare	15	
+5	Increase skyfall chance of Dark orbs by 15% for 1 turns. Randomly spawn 2 Dark orbs from non Dark orbs.	Ah... How refreshing	15	
+8	Randomly spawn 4 Fire & Water orbs from non Fire & Water orbs. Reduces cooldown of other skills by 1 turn.	Akane's MY fiancée!!	13	
+7	35% damage reduction for 2 turns. Inflict Fire damage equal to ATK x10 to all enemies. Affected by enemy element and defense.	Alchemical Forging	17	
+14	ATK x1 + ( 0.3x for every Extend Time on the team ) for 2 turns.	Alexandrite of Calmness	19	
+9	Change all orbs to Fire, Water & Wood & Light & Dark & Heart orbs. Reduces cooldown of other skills by 1 turn.	All Orbs Charge	14	
+5	Increase skyfall chance of Fire & Dark orbs by 10% for 5 turn.	All right! Let's settle this!	10	
+7	Inflict damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense. Attacker & Machine type cards ATK x1.5 for 2 turns.	All right, understood!	12	
+10	Change left-most column into Dark orbs and the right-most column into Dark orbs. Reduces cooldown of other skills by 1 turn.	All that shall remain... is Evil!!	15	
+14	Fire attribute ATK x3 for 1 turn. Increase skyfall chance of Fire orbs by 25% for 1 turn.	Amakakeru Ryu no Hirameki	18	
+8	Recover 25% of max HP. Increase skyfall chance of Wood & Heart orbs by 10% for 4 turn.	Amanotamuzake	18	
+7	Counter 5x damage taken with Water for 4 turns. Change Fire, Jammer, Poison & Mortal Poison orbs to Water orbs.	Amon Cross	11	
+5	25% damage reduction for 2 turns.	Ancient Chain Vine	9	
+6	Enhance Water, Wood & Light orbs. +6% per orb.	Angel	11	
+16	Give 12 seconds to move orbs without triggering matches.	Another Dimension	26	
+15	Light attribute ATK x5 for 1 turn. Reduces cooldown of other skills by 2 turns.	Apolluo Enhancement	15	
+6	Inflict damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense. Balanced type cards ATK x1.5 for 1 turn.	Apple Power!	10	
+5	Change Wood orbs to Dark orbs, Light orbs to Poison orbs.	APTX4869	15	
+8	Change top-most row into Water orbs. Reduces cooldown of other skills by 1 turn.	Aqua Charge	13	
+8	Change Light orbs to Water orbs, Heart orbs to Wood orbs. Increases time limit of orb movement by 2 seconds for 1 turn.	Aqua Leaf Prism	11	
+10	Inflict Water damage equal to ATK x20 to all enemies. Affected by enemy element and defense. Recover 1000 HP.	Aqua Seed Breath	20	
+5	Change bottom-most row into Water orbs.	Aqua Spell	9	
+5	Increase skyfall chance of Light & Dark orbs by 10% for 5 turn.	Arcane Evil Witch	15	
+8	Change left-most column into Light orbs and the right-most column into Water orbs. Reduces cooldown of other skills by 1 turn.	Arctic Breath	12	
+7	.. 35% damage reduction for 1 turn.	Are you ok!?	12	
+6	Dark attribute ATK x1.5 for 1 turn.	Are you ready?	16	
+10	Reduce enemies' defense by 75% for 5 turns. Effects carry forward on sweep. 20% damage reduction for 5 turns.	Armor Break	17	
+12	Recover 30% of max HP. Wood & Light attribute cards ATK x1.5 for 4 turns.	Armor Chink nya!	17	
+10	Physical type cards ATK x2 for 1 turn. Delay 1 turn to all enemies.	Armourer Queen	15	
+7	Change Fire orbs to Light orbs, Dark orbs to Heart orbs. Change own attribute to Light for 2 turns.	Arthurian Light	12	
+8	Change Light orbs to Wood orbs, Water orbs to Dark orbs. Change Jammer orbs to Fire orbs.	As an Abomination	18	
+22	Reduce 40% of all enemies' HP. Ignore enemy element and defense. Reduces cooldown of other skills by 1 turn.	Astral Blast	27	
+11	Reduce enemies' defense to 0 for 1 turn. Effects carry forward on sweep. 50% damage reduction for 1 turn.	Astray Mist	16	
+7	Change Heart, Jammer, Poison & Mortal Poison orbs to Water orbs. Reduces cooldown of other skills by 1 turn.	Astrocharge - Aqua	12	
+7	Change Heart, Jammer, Poison & Mortal Poison orbs to Dark orbs. Reduces cooldown of other skills by 1 turn.	Astrocharge - Dark	12	
+7	Change Heart, Jammer, Poison & Mortal Poison orbs to Fire orbs. Reduces cooldown of other skills by 1 turn.	Astrocharge - Flare	12	
+7	Change Heart, Jammer, Poison & Mortal Poison orbs to Wood orbs. Reduces cooldown of other skills by 1 turn.	Astrocharge - Land	12	
+7	Change Heart, Jammer, Poison & Mortal Poison orbs to Light orbs. Reduces cooldown of other skills by 1 turn.	Astrocharge - Light	12	
+9	Change all orbs to Water, Light & Heart orbs. Change own attribute to Light for 3 turns.	Astronomical Incandescence	14	
+12	Inflict damage equal to ATK x10 to 1 enemy. Affected by enemy element and defense. Attacker type cards ATK x3 for 1 turn.	Attack Enhancement	17	
+5	Change Heart orbs to Dark orbs.	Attack Stance - Dark	11	
+5	Change Heart orbs to Fire orbs.	Attack Stance - Fire	11	
+5	Change Heart orbs to Light orbs.	Attack Stance - Light	11	
+6	Change Heart orbs to Light orbs. Enhance Light orbs. +6% per orb.	Attack Stance - Light X	10	
+5	Change Heart orbs to Water orbs.	Attack Stance - Water	11	
+5	Change Heart orbs to Wood orbs.	Attack Stance - Wood	11	
+12	Change all orbs to Wood & Light orbs.	Aubade Gaia	19	
+5	Inflict Water damage equal to ATK x20 to 1 enemy. Affected by enemy element and defense. 30% damage reduction for 1 turn.	Azure Sea Dragon Broadside	18	
+15	Wood attribute ATK x5 for 1 turn. Reduces cooldown of other skills by 2 turns.	Bacches Enhancement	15	
+15	Inflict Poison damage equal to ATK x2 to all enemies every turn. Ignore enemy element and defense.	Bad Breath	20	
+12	Inflict damage equal to ATK x10 to 1 enemy. Affected by enemy element and defense. Balanced type cards ATK x3 for 1 turn.	Balanced Enhancement	17	
+16	Change all orbs to Fire & Dark orbs. Dragon & Machine type cards ATK x2.5 for 1 turn.	Baldin's Eyes	21	
+8	Balanced type cards ATK x2 for 1 turn. Reduces cooldown of other skills by 1 turn.	Batarang Blitz	13	
+11	Deal 999 damage to 1 enemy. Ignore enemy element and defense. Dark attribute ATK x2.5 for 1 turn.	Batwing	14	
+11	Inflict Light damage equal to ATK x10 to 1 enemy. Affected by enemy element and defense. God type cards ATK x1.5 for 1 turn.	BEAMS Beam	11	
+11	Inflict damage equal to ATK x10 to 1 enemy. Affected by enemy element and defense. Devil type cards ATK x1.5 for 1 turn.	BEAMS DeviBeam	11	
+6	Change Heart, Jammer, Poison & Mortal Poison orbs to Light orbs. Bind recovery for 3 turns.	Beast Spear	12	
+4	Enhance Light orbs. +6% per orb, up to +180% for full board. Increases time limit of orb movement by 2 seconds for 1 turn.	Beautiful World	9	
+10	Delay 1 turn to all enemies. Attacker type cards ATK x2 for 1 turn.	Behold: True brotherhood!	15	
+6	Change Dark, Poison & Mortal Poison orbs to Water orbs. Increases time limit of orb movement by 1 second for 2 turns.	Be my friend.	11	
+13	+2 combo count for 1 turn. Change all orbs to Water, Light & Heart orbs.	Benevolent Prayer	18	
+11	Bind recovery for 3 turns.Awoken Bind recovery for 3 turns. Change all orbs to Water, Light & Heart orbs.	Benevolent Support	15	
+7	Change Heart orbs to Poison orbs. Dragon type cards ATK x2 for 1 turn.	Berserk	12	
+12	+2 combo count for 1 turn. Change all orbs to Fire, Water & Wood & Dark & Heart orbs.	Bewitching Prayer	17	
+10	75% damage reduction for 1 turn. Change all orbs to Fire, Water & Wood & Dark & Heart orbs.	Bewitching Smile	14	
+20	Inflict Dark damage equal to ATK x200 to all enemies. Affected by enemy element and defense. Reduces cooldown of other skills by 1 turn.	Big Bang	30	
+18	Reduce 30% of all enemies' HP. Ignore enemy element and defense. Full HP recovery.	Big Saint Gravity	22	
+6	Increase skyfall chance of Water orbs by 15% for 4 turns.	Big Whale's Sea Spray	21	
+8	Change Water orbs to Wood orbs, Fire orbs to Heart orbs. Change Jammer, Poison & Mortal Poison orbs to Dark orbs.	Bionic Green Star Blade	12	
+3	Deal 99 damage to 1 enemy. Ignore enemy element and defense. Balanced type cards ATK x1.2 for 6 turns.	Birdarangs	6	
+11	Inflict Dark nuke damage equal to team Light ATK x10 to 1 enemy. Avoid all Dark  damage for 1 turn.	Black Ruin	21	
+5	Deal 30000 Fire damage to all enemies. Affected by enemy element and defense. Enhance Fire orbs. +6% per orb, up to +180% for full board.	Blast Cannon	20	
+7	Change left-most column into Fire orbs. Reduces cooldown of other skills by 1 turn.	Blast Signal	12	
+3	Deal 25000 Fire damage to all enemies. Affected by enemy element and defense.	Blaze Ball	9	
+13	Enhance Fire orbs. +6% per orb, up to +180% for full board. Reduces cooldown of other skills by 2 turns.	Blaze Charge	23	
+10	Avoid all Wood  damage for 3 turns. Enhance Fire orbs. +6% per orb, up to +180% for full board.	Blazing Field	20	
+11	50% damage reduction for 3 turns. Reduces cooldown of other skills by 1 turn.	Blazing Storm Barricade	15	
+7	Increase skyfall chance of Fire orbs by 25% for 1 turn. Reduces cooldown of other skills by 1 turn.	Blazing Vision	22	
+13	Reduce enemies' defense to 0 for 1 turn. Effects carry forward on sweep. Inflict Wood damage equal to ATK x20 to 1 enemy, and drain 100% of the damage you dealt. Affected by enemy element and defense.	Blessed Blade of the Hero	23	
+10	75% damage reduction for 1 turn. +1 combo count for 1 turn.	Blessed Protection	14	
+8	Deal 40000 Water damage to all enemies. Affected by enemy element and defense. Delay 1 turn to all enemies.	Blizzaga	13	
+6	Deal 20000 Water damage to all enemies. Affected by enemy element and defense. Change Light orbs to Water orbs.	Blizzard Ball	15	
+7	Inflict Water damage equal to ATK x20 to all enemies. Affected by enemy element and defense. Water attribute ATK x1.5 for 2 turns.	Blizzard Breath	29	
+5	Deal 30000 Water damage to all enemies. Affected by enemy element and defense. Enhance Water orbs. +6% per orb, up to +180% for full board.	Blizzard Cannon	20	
+7	Change right-most column into Water orbs. Reduces cooldown of other skills by 1 turn.	Blizzard Signal	12	
+6	Enhance Dark orbs. +6% per orb, up to +180% for full board. 35% damage reduction for 2 turns.	Blood Howl	15	
+8	Reduce 10% of all enemies' HP. Ignore enemy element and defense. Enhance Wood orbs. +6% per orb, up to +180% for full board.	Blowing Gravity	14	
+6	Recover 30% of max HP. Change Fire orbs to Heart orbs.	Blueberry Shower	13	
+10	God type cards ATK x2.5 for 2 turns. Deal 100000 damage to 1 enemy. Ignore enemy element and defense.	Blue Crest	15	
+7	Attacker type cards ATK x1.5 for 1 turn. Randomly spawn 3 Water orbs from non Water orbs.	Blue Season	12	
+10	Reduce 20% of all enemies' HP. Ignore enemy element and defense.	Boisterous Dance	15	
+13	+2 combo count for 1 turn. Change all orbs to Fire, Wood & Heart orbs.	Bold Prayer	18	
+11	Bind recovery for 3 turns.Awoken Bind recovery for 3 turns. Change all orbs to Fire, Wood & Heart orbs.	Bold Supremacy	15	
+5	Inflict damage equal to ATK x10 to 1 enemy. Affected by enemy element and defense. Reduce enemies' defense by 25% for 1 turn. Effects carry forward on sweep.	Bomb	30	
+6	Inflict Wood damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense. Wood attribute ATK x1.5 for 1 turn.	Boost	12	
+12	Delay 1 turn to all enemies. Change bottom-most row into Heart orbs.	Break Time	16	
+7	Inflict damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense. God type cards ATK x2 for 1 turn.	Breath of Creation	11	
+10	Enhance Light & Dark orbs. +6% per orb, up to +180% for full board. Bind recovery for 1 turn.	Breath of the Demon God	15	
+10	Counter 10x damage taken with Dark for 1 turn.	Bring it On!!	20	
+7	Enhance Wood & Heart orbs. +6% per orb, up to +180% for full board. Reduces cooldown of other skills by 1 turn.	Broken Arrow	12	
+4	Switch places with leader card. Use again to switch back.	Browning Shift	20	
+8	Change Wood & Dark orbs to Heart orbs. Reduces cooldown of other skills by 1 turn.	Bumper Crop Prayer	13	
+4	Switch places with leader card. Use again to switch back.	Burning Shift	16	
+5	Inflict damage equal to ATK x50 to 1 enemy. Affected by enemy element and defense. Reduce enemies' defense by 75% for 2 turns. Effects carry forward on sweep.	Burst Bomb	20	
+15	Reduce 15% of all enemies' HP. Ignore enemy element and defense.	Butcher Knife	25	
+9	Change all orbs to Fire, Water & Dark orbs. Reduces cooldown of other skills by 1 turn.	Byakko Seven-Star Formation	13	
+6	Increase skyfall chance of Light orbs by 15% for 2 turns. Randomly spawn 3 Light orbs from non Light orbs.	By the honor of the Quincy...	11	
+5	Change Water orbs to Heart orbs. Enhance Wood & Heart orbs. +6% per orb, up to +180% for full board.	Calming Mountain Wind	9	
+9	Delay 1 turn to all enemies. Change Water orbs to Fire orbs.	Carving One's Own Path	14	
+8	Change all orbs to Fire, Water & Wood & Light & Dark orbs. Enhance Fire orbs. +6% per orb.	Celestial Eye of Wadjet X	12	
+4	Change left-most column into Water orbs.	Celestial Sign	9	
+7	Change Water orbs to Light orbs, Dark orbs to Heart orbs. Change own attribute to Light for 2 turns.	Celtic Light	12	
+6	Change Water orbs to Heart orbs, Light orbs to Mortal Poison orbs. Balanced & Dragon type cards ATK x2 for 1 turn.	Chameleon Blast	21	
+7	Change Light orbs to Wood orbs, Water orbs to Poison orbs. Reduces cooldown of other skills by 1 turn.	Chameleonic Vision	22	
+13	God type cards ATK x2.5 for 1 turn. Give 10 seconds to move orbs without triggering matches.	Change the World	20	
+8	God type cards ATK x2 for 1 turn. Increases time limit of orb movement by 200% for 1 turn.	Change the World X	13	
+10	Deal 3000 Dark damage to all enemies. Affected by enemy element and defense.	Chaos Ball	25	
+10	Inflict Dark damage equal to ATK x5 to all enemies. Affected by enemy element and defense.	Chaos Breath	20	
+8	Change all orbs to Fire, Wood & Dark orbs.	Chaotic Call	14	
+6	Inflict Fire damage equal to ATK x10 to 1 enemy. Affected by enemy element and defense. Fire & Water attribute cards ATK x1.3 for 5 turns.	Charge!!	15	
+16	Reduce 30% of all enemies' HP. Ignore enemy element and defense. Reduces cooldown of other skills by 1 turn.	Charge Gravity-G	31	
+21	Reduce 35% of all enemies' HP. Ignore enemy element and defense. Reduces cooldown of other skills by 1 turn.	Charge Gravity-H	36	
+7	Enhance Wood, Light & Heart orbs. +6% per orb. Reduces cooldown of other skills by 1 turn.	Charge of Aegis	22	
+8	Healer type cards ATK x2 for 1 turn. Reduces cooldown of other skills by 1 turn.	Cheering nya!	11	
+8	Randomly spawn 4 Wood & Light orbs from non Wood & Light orbs. Reduces cooldown of other skills by 1 turn.	Child of the Meteor	13	
+15	Inflict Light damage equal to ATK x40 to 1 enemy. Affected by enemy element and defense.	Choco Attack	15	
+8	Recover RCV x15 HP.	Choco Cure	8	
+8	50% damage reduction for 1 turn.	Choco Guard	8	
+8	Inflict Fire damage equal to ATK x10-100 to all enemies. Affected by enemy element and defense.	Choco Meteor	8	
+11	Change all orbs to Fire, Water & Light & Dark & Heart orbs. Reduces cooldown of other skills by 1 turn.	Choose whatever you'll regret the least	16	
+8	Enhance Water & Light orbs. +6% per orb, up to +180% for full board. Recover RCV x20 HP. Bind recovery for 2 turns. Awoken Bind recovery for 2 turns.	Clear Water Star Astrology	15	
+5	Deal 1000 Water damage to all enemies. Affected by enemy element and defense.	Cold Ball	10	
+5	Inflict Water damage equal to ATK x3 to all enemies. Affected by enemy element and defense.	Cold Breath	10	
+5	Enhance Water & Wood orbs. +6% per orb, up to +180% for full board.	Cold Wave	15	
+6	Deal 99 damage to 1 enemy. Ignore enemy element and defense. Change Light orbs to Dark orbs.	Come back when you're stronger!	16	
+10	Change all orbs to Water, Wood & Light orbs. Delay 1 turn to all enemies.	Conan Edogawa... Detective...	15	
+8	Change Fire orbs to Dark orbs, Water orbs to Heart orbs. Enhance Dark orbs. +6% per orb, up to +180% for full board.	Confusing Strategy	13	
+11	Change Heart orbs to Fire orbs. Fire attribute ATK x1.5 for 2 turns.	Corona Blast	17	
+5	Change Wood orbs to Dark orbs.	Costume Changing Technique-Dark	10	
+7	Delay 1 turn to all enemies. Change Heart, Jammer, Poison & Mortal Poison orbs to Wood orbs.	Crawling Chaos	37	
+13	Change Light orbs to Fire orbs, Dark orbs to Jammer orbs. Reduces cooldown of other skills by 2 turns.	Create Routine	28	
+15	Inflict Fire damage equal to ATK x50 to 1 enemy. Affected by enemy element and defense.	Crimson Bomb	30	
+8	Change Water orbs to Fire orbs, Light orbs to Heart orbs. Enhance Fire orbs. +6% per orb, up to +180% for full board.	Crimson Cross Spear	13	
+5	Inflict Fire damage equal to ATK x20 to 1 enemy. Affected by enemy element and defense. 30% damage reduction for 1 turn.	Crimson Sea Dragon Broadside	18	
+7	Randomly spawn 6 Heart orbs from non Fire & Heart orbs. Reduces cooldown of other skills by 1 turn.	Crimson Season	12	
+10	Deal 15000 damage to 1 enemy. Ignore enemy element and defense.	Critical Rejection	20	
+10	Recover RCV x10 HP. Bind recovery for 3 turns. All attribute cards RCV x1.5 for 7 turns.	Cure	20	
+4	Deal 25000 Dark damage to all enemies. Affected by enemy element and defense.	Curse Ball	9	
+3	Inflict Dark damage equal to ATK x5 to all enemies. Affected by enemy element and defense.	Curse Breath	10	
+8	Counter 3x damage taken with Dark for 4 turns. Change Wood orbs to Dark orbs.	Curse of the Darkness	18	
+7	Counter 3x damage taken with Fire for 4 turns. Change Wood orbs to Fire orbs.	Curse of the Flame	17	
+7	Counter 3x damage taken with Water for 4 turns. Change Fire orbs to Water orbs.	Curse of the Ice	17	
+8	Counter 3x damage taken with Light for 4 turns. Change Water orbs to Light orbs.	Curse of the Lightning	18	
+7	Counter 3x damage taken with Wood for 4 turns. Change Fire orbs to Wood orbs.	Curse of the Tree	17	
+4	Switch places with leader card. Use again to switch back.	Dance of the Great Tengu	16	
+5	Deal 1000 Dark damage to all enemies. Affected by enemy element and defense.	Dark Ball	10	
+12	Reduce 20% of all enemies' HP. Ignore enemy element and defense.	Dark Blaster	22	
+5	Inflict Dark damage equal to ATK x3 to all enemies. Affected by enemy element and defense.	Dark Breath	10	
+9	Reduces cooldown of other skills by 1 turn. Dark attribute ATK x1.5 for 3 turns.	Dark Enhancement	17	
+13	Inflict Dark damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense.	Dark Gift	13	
+6	Change Light & Jammer orbs to Dark orbs. Change Heart, Poison & Mortal Poison orbs to Light orbs.	Dark&Light Orbs Change	13	
+6	Change own attribute to Dark for 2 turns. Machine type cards ATK x1.5 for 1 turn.	Darkness Mode	16	
+5	Change Light orbs to Dark orbs.	Dark Orb Change	9	
+10	Inflict Dark damage equal to ATK x20 to all enemies. Affected by enemy element and defense. Recover 1000 HP.	Dark Seed Breath	20	
+5	Increase skyfall chance of Dark & Poison orbs by 10% for 5 turn.	Dark Snow	15	
+5	Change right-most column into Dark orbs. Enhance Dark orbs. +6% per orb.	Dark Spell	9	
+10	Deal 35000 Dark damage to all Light enemies. Affected by enemy element and defense.	Dark Strike	15	
+8	Dark attribute ATK x1.5 for 2 turns. Enhance Dark orbs. +6% per orb, up to +180% for full board.	Dark Terror Mist	17	
+6	God & Balanced type cards ATK x2 for 1 turn. Deal 100000 Light damage to 1 enemy in exchange for reducing HP by 50%. Affected by enemy element and defense.	Dawn of the Celestial Ocean	10	
+9	Change all orbs to Fire, Light & Heart orbs.	Daydream Flame Attack	14	
+5	Enhance Dark & Water orbs. +6% per orb, up to +180% for full board.	Deadly Drive	15	
+7	Bind recovery for 3 turns. Change Fire, Jammer, Poison & Mortal Poison orbs to Dark orbs.	Deadly Steel Spiral	12	
+5	Enhance Wood & Dark orbs. +6% per orb, up to +180% for full board.	Deadrise	15	
+7	Change Light orbs to Dark orbs. Reduces cooldown of other skills by 1 turn.	Deathgazer	22	
+7	Change Fire, Jammer, Poison & Mortal Poison orbs to Light orbs. Increases time limit of orb movement by 5 seconds for 2 turns.	Dedicate your heart!	12	
+10	Inflict Dark damage equal to ATK x20 to all enemies. Affected by enemy element and defense. Dragon type cards ATK x1.3 for 2 turns.	Deep Shadow Breath	20	
+6	Randomly spawn 5 Heart orbs from non Water & Heart orbs.	Deep Spiral	11	
+15	50% damage reduction for 3 turns.	Defensive Stance	20	
+2	Inflict Dark damage equal to ATK x10 to all enemies. Affected by enemy element and defense.	Demon Slash	6	
+10	Inflict Wood damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense. Wood attribute ATK x1.5 for 4 turns.	Demon Strike	15	
+8	Change all orbs to Fire, Water & Wood & Dark orbs. Deal 100000 damage to all enemies. Ignore enemy element and defense.	Demon-Vanquishing Hymn	14	
+16	Ignores enemy attribute damage absorb effects for 1 turn ( does not include combo shield, damage absorb shield, and damage void ). Randomly spawn 5 Fire orbs from non Fire orbs.	Destiny can burn, for all I care!	21	
+15	Inflict Dark damage equal to ATK x50 to all enemies. Affected by enemy element and defense. Inflict Poison damage equal to ATK x10 to all enemies every turn. Ignore enemy element and defense.	Destroying Lance, Gungnir	20	
+15	Inflict Dark damage equal to ATK x50 to all enemies. Affected by enemy element and defense. Inflict Poison damage equal to ATK x10 to all enemies every turn. Ignore enemy element and defense.	Destroying Lance, Gungnir X	19	
+7	Reduce enemies' defense by 75% for 1 turn. Effects carry forward on sweep. Enhance Fire & Heart orbs. +6% per orb, up to +180% for full board.	Devastating Third Eye	13	
+15	Reduce enemies' defense to 0 for 1 turn. Effects carry forward on sweep. Reduces cooldown of other skills by 2 turns.	Devastating Wink!	19	
+12	Inflict damage equal to ATK x10 to 1 enemy. Affected by enemy element and defense. Devil type cards ATK x3 for 1 turn.	Devilish Enhancement	17	
+10	Change Light orbs to Jammer orbs. Delay 1 turn to all enemies.	Diabolical Conqueror	20	
+6	Inflict Dark damage equal to ATK x50 to 1 enemy, and drain 15% of the damage you dealt. Affected by enemy element and defense. Enhance Water & Dark orbs. +6% per orb, up to +180% for full board.	Diabolic Lance, Gungnir	17	
+6	Inflict Dark damage equal to ATK x50 to 1 enemy, and drain 15% of the damage you dealt. Affected by enemy element and defense. Enhance Water & Dark orbs. +6% per orb.	Diabolic Lance, Gungnir X	11	
+10	Deal 10000 damage to 1 enemy. Ignore enemy element and defense. Balanced type cards ATK x2 for 2 turns.	Diamond Dust	14	
+14	ATK x1 + ( 0.3x for every Two-Pronged Attack on the team ) for 2 turns.	Diamond of Fortitude	19	
+15	Dark attribute ATK x5 for 1 turn. Reduces cooldown of other skills by 2 turns.	Diena Enhancement	15	
+9	Change all orbs to Wood, Light & Heart orbs.	Dimensional Formation - Mountain God	14	
+7	Change Water, Jammer, Poison & Mortal Poison orbs to Dark orbs. Reduces cooldown of other skills by 1 turn.	Dimension Dance - Purple Sky	12	
+7	Randomly spawn 3 Water & Heart orbs from non Water & Heart orbs. Reduces cooldown of other skills by 1 turn.	Dimension Formation - Blue Life	12	
+7	Randomly spawn 3 Wood & Heart orbs from non Wood & Heart orbs. Reduces cooldown of other skills by 1 turn.	Dimension Formation - Green Life	12	
+7	Randomly spawn 3 Fire & Light orbs from non Fire & Light orbs. Reduces cooldown of other skills by 1 turn.	Dimension Formation - Scarlet Sun	12	
+10	Dragon & God type cards ATK x2 for 1 turn. Reduces cooldown of other skills by 1 turn.	Dimension Song - Holy Fang	15	
+5	Enhance Dark orbs. +6% per orb, up to +180% for full board. 35% damage reduction for 1 turn.	Dispelling Breath	10	
+15	Dark attribute ATK x2 for 3 turns. Reduces cooldown of other skills by 2 turns.	Divine Blessing	20	
+2	Inflict Fire damage equal to ATK x10 to all enemies. Affected by enemy element and defense.	Divine Flame of the Beauty	6	
+10	Change Fire & Heart orbs to Water orbs. +1 combo count for 1 turn.	Divine Healing	15	
+8	Recover 40% of max HP. Bind recovery for 4 turns. Reduces cooldown of other skills by 1 turn.	Divine Illumination	12	
+8	God & Devil type cards ATK x2.5 for 2 turns. Inflict Dark damage equal to ATK x40 to 1 enemy in exchange for reducing HP to 1. Affected by enemy element and defense.	Divine Instrument Strike	13	
+7	+1 combo count for 1 turn. Reduces cooldown of other skills by 1 turn.	Divine Luckbringer	12	
+18	Deals damage equal to 20% of enemies' max HP.	Divine Purification	23	
+15	Light attribute ATK x2 for 3 turns. Reduces cooldown of other skills by 2 turns.	Divine Reckoning	20	
+5	Enhance Fire & Light orbs. +6% per orb, up to +180% for full board.	Divine Wind of Creation Flame	15	
+12	+1 combo count for 1 turn. Change Light, Heart, Jammer, Poison & Mortal Poison orbs to Fire orbs.	Dogiragon Entry	17	
+15	Inflict Light damage equal to ATK x50-100 to all enemies. Affected by enemy element and defense. Light & Fire attribute cards ATK x2 for 1 turn.	Don! Dokodon!	30	
+7	Counter 10x damage taken with Dark for 1 turn. Reduces cooldown of other skills by 1 turn.	Don't come any closer!	12	
+9	Randomly spawn 4 Fire & Heart orbs from non Fire & Heart orbs. Reduces cooldown of other skills by 1 turn.	Don't lay your hands on him!	14	
+8	Recover 30% of max HP. Awoken Bind recovery for 3 turns. Change Dark, Jammer, Poison & Mortal Poison orbs to Heart orbs.	Don't leave me here.	13	
+10	Increases time limit of orb movement by 1 second for 2 turns. Delay 1 turn to all enemies.	Don't talk down to me!!	15	
+4	Inflict Dark damage equal to ATK x1-50 to 1 enemy. Affected by enemy element and defense.	Don't underestimate me!	14	
+7	Change Wood orbs to Fire orbs, Dark orbs to Light orbs. Increases time limit of orb movement by 1 second for 1 turn.	Don't underestimate me.	12	
+8	Change Heart & Light orbs to Dark orbs.	Double Attack Stance-Dk	16	
+8	Change Heart & Water orbs to Fire orbs.	Double Attack Stance-Fr	16	
+8	Change Heart & Dark orbs to Light orbs.	Double Attack Stance-Lt	16	
+8	Change Heart & Fire orbs to Wood orbs.	Double Attack Stance-Wd	16	
+8	Change Heart & Wood orbs to Water orbs.	Double Attack Stance-Wt	16	
+7	Change Fire, Light, Poison & Mortal Poison orbs to Heart orbs. Bind recovery for 3 turns.	Double Dark Guard	12	
+7	Change Wood, Light, Poison & Mortal Poison orbs to Heart orbs. Bind recovery for 3 turns.	Double Fire Guard	12	
+7	Change Wood, Dark, Poison & Mortal Poison orbs to Heart orbs. Bind recovery for 3 turns.	Double Light Guard	12	
+7	Change Fire, Dark, Poison & Mortal Poison orbs to Heart orbs. Bind recovery for 3 turns.	Double Water Guard	12	
+7	Change Water, Light, Poison & Mortal Poison orbs to Heart orbs. Bind recovery for 3 turns.	Double Wood Guard	12	
+9	Change all orbs to Fire, Dark & Heart orbs.	Draco Summon - Dark, Fire & Life	14	
+12	Change all orbs to Fire & Dark orbs.	Draco Summoning Circle-Fr & Dk	19	
+12	Change all orbs to Wood & Dark orbs.	Draco Summoning Circle-Wd & Dk	19	
+12	Change all orbs to Water & Dark orbs.	Draco Summoning Circle-Wt & Dk	19	
+12	Change all orbs to Light & Dark orbs.	Draco Summon - Light & Dark	17	
+12	Dragon type cards ATK x2 for 1 turn. Delay 1 turn to all enemies.	Draggie Enhance	17	
+9	Change Water orbs to Light orbs, Dark orbs to Heart orbs. Reduces cooldown of other skills by 1 turn.	Dragonband Compliant Rod	13	
+11	Dragon type cards ATK x2.5 for 1 turn. Delay 1 turn to all enemies.	Dragon Enhancement	21	
+8	All attribute cards RCV x2 for 4 turns. Recover 3000 HP.	Dragon Heart Sutra	18	
+11	Inflict Poison damage equal to ATK x8 to all enemies every turn. Ignore enemy element and defense. Reduces cooldown of other skills by 1 turn.	Dragon Song - The Sea Deity	26	
+10	Inflict Dark damage equal to ATK x10 to 1 enemy, and drain 100% of the damage you dealt. Affected by enemy element and defense.	Dragon Strength Spellflame	20	
+6	Change Heart orbs to Dark orbs. Bind recovery for 3 turns.	Dragon Strike Stance - Dark	11	
+6	Change Heart orbs to Fire orbs. Bind recovery for 3 turns.	Dragon Strike Stance - Fire	11	
+6	Change Heart orbs to Light orbs. Bind recovery for 3 turns.	Dragon Strike Stance - Light	11	
+6	Change Heart orbs to Water orbs. Bind recovery for 3 turns.	Dragon Strike Stance - Water	11	
+6	Change Heart orbs to Wood orbs. Bind recovery for 3 turns.	Dragon Strike Stance - Wood	11	
+9	Recover 50% of max HP. Full bind recovery. Awoken Bind recovery for 9999 turns. Reduces cooldown of other skills by 1 turn.	Draupnir	14	
+7	Change Water, Jammer, Poison & Mortal Poison orbs to Light orbs. Reduces cooldown of other skills by 1 turn.	Dream Dragon Dance - White Cloud	12	
+8	Change Wood & Heart orbs to Water orbs. Increase skyfall chance of Water orbs by 15% for 2 turns.	Dream Water	12	
+10	Reshuffle all orbs.	Droidance	10	
+13	Change Water, Poison & Mortal Poison orbs to Jammer orbs. Reduces cooldown of other skills by 2 turns.	Earnest Mode	28	
+10	Deal 3000 Wood damage to all enemies. Affected by enemy element and defense.	Earth Ball	25	
+10	Inflict Wood damage equal to ATK x5 to all enemies. Affected by enemy element and defense.	Earth Breath	20	
+15	Wood attribute ATK x2 for 3 turns. Reduces cooldown of other skills by 1 turn.	Earth Enhancement	18	
+9	Reduces cooldown of other skills by 1 turn. Wood attribute ATK x1.5 for 3 turns.	Earth Enhancement	17	
+10	Avoid all Water  damage for 3 turns. Enhance Wood orbs. +6% per orb, up to +180% for full board.	Earth Field	20	
+8	Change Dark orbs to Wood orbs, Fire orbs to Light orbs. Change Wood & Light orbs into locked orbs.	Earth Light Impact	18	
+8	Change all orbs to Water, Wood & Dark orbs.	Eastern Seven-Star Formation	14	
+4	Bind recovery for 4 turns.	Eat this!	9	
+5	Inflict Dark damage equal to ATK x20 to 1 enemy. Affected by enemy element and defense. 30% damage reduction for 1 turn.	Ebony Sea Dragon Broadside	18	
+10	Avoid all Dark  damage for 1 turn.	Egg!	15	
+15	Delay 4 turns to all enemies.	Eight-Headed Suppression	19	
+9	Delay 2 turns to all enemies. Bind recovery for 2 turns.	Electric Impact	14	
+9	Deal 10000 damage to all enemies. Ignore enemy element and defense. Delay 1 turn to all enemies.	Electric Shock Daccha	13	
+13	Delay 1 turn to all enemies. Physical & Dragon type cards ATK x2 for 2 turns.	Electric Shock Meow!	18	
+9	Change all orbs to Fire, Water & Wood & Light orbs. Deal 99 damage to all enemies. Ignore enemy element and defense.	Elegant Singing and Dancing	14	
+15	Change all enemies attributes to Fire. ( Ignores status shield )	Elemental Jammer - Fire	20	
+15	Change all enemies attributes to Water. ( Ignores status shield )	Elemental Jammer - Water	20	
+15	Change all enemies attributes to Wood. ( Ignores status shield )	Elemental Jammer - Wood	20	
+7	35% damage reduction for 1 turn. Bind recovery for 2 turns.	Elezar's Scythe	12	
+8	Water attribute ATK x1.5 for 2 turns. Recover 25% of max HP.	Ell-Heal	13	
+11	30% damage reduction for 1 turn. Change all orbs to Fire, Wood & Dark orbs.	Emerald Guard	22	
+14	ATK x1 + ( 0.3x for every Enhanced Wood Attribute, Enhanced Dark Attribute on the team ) for 2 turns.	Emerald of Clarity	19	
+9	Change Dark & Heart orbs to Fire orbs. Reduces cooldown of other skills by 1 turn.	Emergency Launch!	16	
+5	Inflict Fire nuke damage equal to team Dark ATK x5 to all enemies. Change Light orbs to Jammer orbs.	Energy Beams	15	
+10	Inflict damage equal to ATK x15 to 1 enemy. Affected by enemy element and defense.	Energy Bomb	30	
+9	35% damage reduction for 1 turn. Change all orbs to Fire, Water & Wood & Light & Dark & Heart orbs.	Energy Geyser	24	
+3	Enhance Dark orbs. +6% per orb, up to +180% for full board.	Enhanced Dark Orbs	15	
+3	Enhance Fire orbs. +6% per orb, up to +180% for full board.	Enhanced Fire Orbs	15	
+3	Enhance Light orbs. +6% per orb, up to +180% for full board.	Enhanced Light Orbs	15	
+3	Enhance Water orbs. +6% per orb, up to +180% for full board.	Enhanced Water Orbs	15	
+3	Enhance Wood orbs. +6% per orb, up to +180% for full board.	Enhanced Wood Orbs	15	
+9	Reduces cooldown of other skills by 1 turn. Change left-most column into Fire orbs and the right-most column into Light orbs.	Espers... Heed my call.	14	
+8	+1 combo count for 2 turns.	Ether Boost	13	
+15	75% damage reduction for 3 turns.	Evasion	20	
+12	Change Dark orbs to Wood orbs. +2 combo count for 1 turn.	Even if it kills me!	17	
+9	Delay 1 turn to all enemies. Change Water, Poison & Mortal Poison orbs to Fire orbs.	Everlasting Stratagem	13	
+9	Machine type cards ATK x1.2 for 8 turns.	Everybody Dance!	9	
+10	Physical type cards ATK x2.5 for 2 turns. Deal 100000 damage to 1 enemy. Ignore enemy element and defense.	Evil Crest	15	
+4	Deal 150000 Dark damage to all Light enemies. Affected by enemy element and defense. Enhance Dark orbs. +6% per orb, up to +180% for full board.	Evil Nova	19	
+7	Increase skyfall chance of Heart orbs by 15% for 3 turns. Reduces cooldown of other skills by 1 turn.	Evil Will Not Be Tolerated-TAMA!	12	
+7	Inflict Dark damage equal to ATK x30 to all enemies. Affected by enemy element and defense. Attacker type cards ATK x1.5 for 2 turns.	Evil Wind	19	
+12	Inflict damage equal to ATK x5 to 1 enemy, and drain 100% of the damage you dealt. Affected by enemy element and defense. Avoid all Fire  damage for 1 turn.	Exactly as planned	22	
+10	Inflict Water damage equal to ATK x20 to all enemies. Affected by enemy element and defense. Dragon type cards ATK x1.3 for 2 turns.	Exa-Freeze Breath	20	
+15	Inflict Dark nuke damage equal to team Wood ATK x20 to 1 enemy.	Execution	25	
+16	ATK x1 + ( 0.7x for every Resistance-Dark on the team ) for 1 turn.	Eyes of Darkness	31	
+23	Reduce 30% of all enemies' HP. Ignore enemy element and defense. Randomly spawn 4 Dark & Heart orbs from non Dark & Heart orbs.	Eyes of Hera	38	
+9	Change Dark, Jammer, Poison & Mortal Poison orbs to Heart orbs. Bind recovery for 5 turns.	Family's Medicine	14	
+10	Deal 3328 damage to all enemies. Ignore enemy element and defense.	Famitsu App Awakens	10	
+12	Machine type cards ATK x3 for 1 turn.	Famitsu App Enthusiasm	17	
+8	Change Light orbs to Poison orbs. Inflict Poison damage equal to ATK x1 to all enemies every turn. Ignore enemy element and defense.	Fear Gas	18	
+12	+2 combo count for 1 turn. Change all orbs to Fire, Water & Wood & Light & Heart orbs.	Fearless Prayer	17	
+10	75% damage reduction for 1 turn. Change all orbs to Fire, Water & Wood & Light & Heart orbs.	Fearless Thunderblade	14	
+5	Increase skyfall chance of Light orbs by 15% for 2 turns. Randomly spawn 2 Light orbs from non Light orbs.	Feathers of Heaven	20	
+7	25% damage reduction for 1 turn. Reduces cooldown of other skills by 1 turn.	Fermata	17	
+10	Change all orbs to Heart, Light & Dark orbs. Reduces cooldown of other skills by 1 turn.	Final Judgement	16	
+6	Increase skyfall chance of Fire orbs by 15% for 3 turn. Randomly spawn 2 Fire orbs from non Fire orbs.	Fire Awakening	15	
+10	Deal 3000 Fire damage to all enemies. Affected by enemy element and defense.	Fire Ball	25	
+10	Inflict Fire damage equal to ATK x5 to all enemies. Affected by enemy element and defense.	Fire Breath	20	
+5	Change Water orbs to Fire orbs.	Fire Orb Change	9	
+5	Change bottom-most row into Fire orbs.	Fire Spell	9	
+6	Change Fire & Jammer orbs to Water orbs. Change Heart, Poison & Mortal Poison orbs to Fire orbs.	Fire&Water Orbs Change	13	
+6	Change Wood & Jammer orbs to Fire orbs. Change Heart, Poison & Mortal Poison orbs to Wood orbs.	Fire&Wood Orbs Change	13	
+8	Attacker type cards ATK x2 for 1 turn. Reduces cooldown of other skills by 1 turn.	Firing up nya!	11	
+10	Inflict Water nuke damage equal to team Water ATK x10 to 1 enemy. Water attribute ATK x1.5 for 4 turns.	Five Chariots Wave Barrier	15	
+7	Change all orbs to Fire, Water & Wood & Light & Dark orbs.	Five Colored Alchemy	12	
+6	Increases time limit of orb movement by 1 second for 3 turns. Inflict Poison damage equal to ATK x1 to all enemies every turn. Ignore enemy element and defense.	Five Flower Scales	10	
+2	Inflict Fire damage equal to ATK x5 to all enemies. Affected by enemy element and defense.	Flame Breath	10	
+5	Deal 75000 Fire damage to all Wood enemies. Affected by enemy element and defense. Enhance Fire orbs. +6% per orb, up to +180% for full board.	Flame Burst	15	
+8	Change top-most row into Fire orbs. Reduces cooldown of other skills by 1 turn.	Flame Charge	13	
+9	Reduces cooldown of other skills by 1 turn. Fire attribute ATK x1.5 for 3 turns.	Flame Enhancement	17	
+13	Inflict Fire damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense.	Flame Gift	13	
+8	Change Light orbs to Fire orbs, Dark orbs to Jammer orbs. Enhance Fire orbs. +6% per orb, up to +180% for full board.	Flame Hammer	18	
+16	Change all orbs to Fire orbs.	Flame Ocean of Destruction	30	
+8	Inflict Fire damage equal to ATK x30 to all enemies. Affected by enemy element and defense. Fire attribute ATK x1.5 for 1 turn.	Flame of Olympus	20	
+10	Inflict Fire damage equal to ATK x20 to all enemies. Affected by enemy element and defense. Recover 1000 HP.	Flame Seed Breath	20	
+10	Deal 35000 Fire damage to all Wood enemies. Affected by enemy element and defense.	Flame Strike	15	
+7	Inflict Fire damage equal to ATK x30 to all enemies. Affected by enemy element and defense. Physical type cards ATK x1.5 for 2 turns.	Flame Wind	19	
+12	Inflict Dark nuke damage equal to team Fire ATK x10 to 1 enemy. Randomly spawn 8 Fire orbs from non Fire orbs.	Flare Star	22	
+12	Deal 10000 damage to all enemies. Ignore enemy element and defense. Fire & Dark attribute cards ATK x1.5 for 4 turns.	Flash Attack nya!	17	
+5	Deal 1000 Light damage to all enemies. Affected by enemy element and defense.	Flash Ball	10	
+5	Inflict Light damage equal to ATK x3 to all enemies. Affected by enemy element and defense.	Flash Breath	10	
+10	Avoid all Dark  damage for 3 turns. Enhance Light orbs. +6% per orb, up to +180% for full board.	Flashing Field	20	
+8	Change Dark orbs to Light orbs, Fire orbs to Heart orbs. Change Jammer, Poison & Mortal Poison orbs to Water orbs.	Flawless Devotion	12	
+9	Change Wood orbs to Dark orbs, Light orbs to Heart orbs. Reduces cooldown of other skills by 1 turn.	Forbidden Box	13	
+20	Delay 5 turns to all enemies.	Force	25	
+8	Deal 999 damage to 1 enemy. Ignore enemy element and defense. Change all orbs to Fire, Water & Wood & Light & Dark & Heart orbs.	Force of All Orbs	13	
+4	Change right-most column into Wood orbs.	Forest Sign	9	
+15	Reduce enemies' defense to 0 for 1 turn. Effects carry forward on sweep. Avoid all Dark  damage for 3 turns.	Forsake	20	
+8	Recover 25% of max HP. Enhance Wood & Light orbs. +6% per orb, up to +180% for full board.	Fortitudinous Rally	18	
+5	Deal 75000 Water damage to all Fire enemies. Affected by enemy element and defense. Enhance Water orbs. +6% per orb, up to +180% for full board.	Freeze Burst	15	
+5	Randomly spawn 3 Water & Dark orbs from non Water & Dark orbs. Change Water & Dark orbs into locked orbs.	Freeze Lock	15	
+10	Deal 35000 Water damage to all Fire enemies. Affected by enemy element and defense.	Freeze Strike	15	
+8	Reduce 10% of all enemies' HP. Ignore enemy element and defense. Enhance Water orbs. +6% per orb, up to +180% for full board.	Freezing Gravity	14	
+4	Switch places with leader card. Use again to switch back.	Freezing Shift	16	
+10	Randomly spawn 5 Water & Heart orbs from non Water & Heart orbs. Change Water & Heart orbs into locked orbs.	Freezing Zone	20	
+10	Dark attribute ATK x2.5 for 3 turns. Inflict Dark damage equal to ATK x100 to 1 enemy in exchange for reducing HP by 50%. Affected by enemy element and defense.	Frenzied Dance of the Sacred Treasures	14	
+8	Change Dark orbs to Water orbs, Wood orbs to Heart orbs.	Fresh!	13	
+15	Water attribute ATK x2 for 3 turns. Reduces cooldown of other skills by 1 turn.	Frost Enhancement	18	
+7	Reduce enemies' defense to 0 for 1 turn. Effects carry forward on sweep. Deal 100000 Wood damage to 1 enemy in exchange for reducing HP by 50%. Affected by enemy element and defense.	Futae no Kiwami	12	
+6	Deal 20000 Wood damage to all enemies. Affected by enemy element and defense. Change Dark orbs to Wood orbs.	Gaia Ball	15	
+7	Inflict Wood damage equal to ATK x20 to all enemies. Affected by enemy element and defense. Wood attribute ATK x1.5 for 2 turns.	Gaia Breath	29	
+7	Inflict Wood damage equal to ATK x30 to all enemies. Affected by enemy element and defense. Attacker type cards ATK x1.5 for 2 turns.	Gaia Wind	19	
+13	Delay 2 turns to all enemies. Water attribute ATK x2 for 2 turns.	Garyou Tensei Expertise	17	
+10	Deal 200000 damage to 1 enemy. Ignore enemy element and defense. Randomly spawn 5 Dark orbs from non Dark orbs.	Gatotsu	15	
+10	Deal Light damage to 1 enemy based on player's HP %. ATK x20 at 100% HP up to ATK x200 at 1 HP. Affected by enemy element and defense. Light attribute ATK x1.5 for 4 turns.	Gekiheki Haisui Sho	15	
+8	Change left-most column into Light orbs and the right-most column into Dark orbs. Reduces cooldown of other skills by 1 turn.	Gemini Star Road	13	
+9	Change all orbs to Wood, Light & Dark orbs. Reduces cooldown of other skills by 1 turn.	Genbu Seven-Star Formation	13	
+8	Randomly spawn 8 Fire orbs from non Fire orbs.	Get out of here!! 8 Dragons!!	15	
+22	Ignores enemy damage absorb effects for 1 turn ( does not include combo shield, attribute absorb, and damage void ). Randomly spawn 4 Dark orbs from non Dark orbs.	Get outta my face!	27	
+13	Change all orbs to Fire, Wood & Light orbs. Reduces cooldown of other skills by 2 turns.	Get set for lots of special goodies!	18	
+8	50% damage reduction for 1 turn. Balanced type cards ATK x1.5 for 1 turn.	Ghost Star's Gleam	18	
+4	Inflict Wood damage equal to ATK x1-50 to 1 enemy. Affected by enemy element and defense.	Gigantic Gladiator	14	
+10	Inflict Light damage equal to ATK x20 to all enemies. Affected by enemy element and defense. Dragon type cards ATK x1.3 for 2 turns.	Gigavolt Breath	20	
+5	Inflict Light damage equal to ATK x20 to 1 enemy. Affected by enemy element and defense. 30% damage reduction for 1 turn.	Gilded Sea Dragon Broadside	18	
+6	God type cards ATK x1.2 for 3 turns. Increases time limit of orb movement by 1 second for 3 turns.	Gjallarhorn	16	
+8	Recover RCV x10 HP. Bind recovery for 2 turns.	Gleaming Amaterasu Ring	13	
+8	Reduce 10% of all enemies' HP. Ignore enemy element and defense. Enhance Light & Dark orbs. +6% per orb.	Gleaming Gravity	13	
+6	Change Water orbs to Heart orbs. All attacks become multi-target for 1 turn.	Gleam of Sirius	16	
+5	Enhance Wood & Light orbs. +6% per orb, up to +180% for full board.	Glitter of Aegis	15	
+11	Inflict Water damage equal to ATK x40 to all enemies. Affected by enemy element and defense. Water attribute ATK x1.5 for 4 turns.	God Blizzard Breath	23	
+11	Inflict Wood damage equal to ATK x40 to all enemies. Affected by enemy element and defense. Wood attribute ATK x1.5 for 4 turns.	God Gaia Breath	23	
+23	Reduce 45% of all enemies' HP. Ignore enemy element and defense.	God Gravity	38	
+12	Inflict Dark damage equal to ATK x40 to all enemies. Affected by enemy element and defense. Dark attribute ATK x1.5 for 4 turns.	God Hell Breath	23	
+12	Inflict Light damage equal to ATK x40 to all enemies. Affected by enemy element and defense. Light attribute ATK x1.5 for 4 turns.	God Holy Breath	23	
+11	Inflict Fire damage equal to ATK x40 to all enemies. Affected by enemy element and defense. Fire attribute ATK x1.5 for 4 turns.	God Magma Breath	23	
+8	Change left-most column into Light orbs and the right-most column into Wood orbs. Reduces cooldown of other skills by 1 turn.	God Tree's Sacred Arrow	13	
+8	Change Heart orbs to Light orbs, Dark orbs to Heart orbs. Recover 30% of max HP. Awoken Bind recovery for 3 turns.	Golden Staff	12	
+12	Attacker type cards ATK x1.5 for 4 turns.	Go on! Pulverize 'em!	22	
+11	Enhance Water & Dark orbs. +6% per orb. Delay 3 turns to all enemies.	Gorgon's Evil Gaze	16	
+12	Reduces cooldown of other skills by 1 turn. Change top-most row into Light orbs and bottom-most row into Fire orbs.	Got a surprise for you!	17	
+12	Inflict Light damage equal to ATK x50 to all enemies. Affected by enemy element and defense. Delay 1 turn to all enemies.	Grand Cross	19	
+8	Delay 1 turn to all enemies. Enhance Wood orbs. +6% per orb, up to +180% for full board.	Grand Howl	16	
+6	Recover 30% of max HP. Change Light orbs to Heart orbs.	Grape Shower	13	
+15	Reduce 15% of all enemies' HP. Ignore enemy element and defense.	Gravity	25	
+20	Reduce 35% of all enemies' HP. Ignore enemy element and defense.	Gravity Breath	35	
+5	Deal 30000 Dark damage to all enemies. Affected by enemy element and defense. Enhance Dark orbs. +6% per orb, up to +180% for full board.	Gravity Cannon	20	
+8	Reduce 10% of all enemies' HP. Ignore enemy element and defense. Change Jammer & Poison orbs to Heart orbs.	Gravity Room	12	
+7	Change left-most column into Dark orbs. Reduces cooldown of other skills by 1 turn.	Gravity Signal	12	
+12	Reduce 25% of all enemies' HP. Ignore enemy element and defense. Increases time limit of orb movement by 5 seconds for 5 turns.	Gravity World	17	
+10	Balanced type cards ATK x2.5 for 2 turns. Deal 100000 damage to 1 enemy. Ignore enemy element and defense.	Green Crest	15	
+8	Change Water orbs to Wood orbs, Fire orbs to Heart orbs. Enhance Heart orbs. +6% per orb.	Green Star Blade	13	
+13	Deal 100000 damage to all enemies. Ignore enemy element and defense. Change all orbs to Fire & Light orbs.	Grimoire Shade	18	
+12	Change all orbs to Fire & Light orbs.	Grimoire Sphere	19	
+12	Inflict damage equal to ATK x10 to 1 enemy. Affected by enemy element and defense. Balanced type cards ATK x1.5 for 2 turns.	GROOVE COASTER	17	
+7	Deal Dark damage to all enemies based on player's HP %. ATK x10 at 100% HP up to ATK x150 at 1 HP. Affected by enemy element and defense. Dark attribute ATK x1.5 for 1 turn.	Grudge Strike	15	
+6	Reduce enemies' defense by 50% for 5 turns. Effects carry forward on sweep.	Guard Break	15	
+9	Removes lock status on orbs. Change left-most column into Fire orbs and the right-most column into Heart orbs.	Guardian of the Universe	14	
+9	Recover 50% of max HP. Change top-most row into Fire orbs.	Guardian Spirit of Core	14	
+7	Removes lock status on orbs. Randomly spawn 3 Light & Dark orbs from non Light & Dark orbs.	Guardian Spirit of Cosmos	12	
+6	Wood attribute ATK x1.2 for 5 turns. Increases time limit of orb movement by 1 second for 5 turns.	Guardian Spirit of Forest	11	
+10	Deal 99 damage to all enemies. Ignore enemy element and defense. Change Dark & Jammer orbs to Light orbs.	Guardian Spirit of Land	15	
+11	Inflict Water damage equal to ATK x100 to 1 enemy. Affected by enemy element and defense. Attacker & Machine type cards ATK x2 for 2 turns.	Guardian Spirit of Water	16	
+5	Change Light orbs to Heart orbs.	Guard Stance - Dark	11	
+5	Change Wood orbs to Heart orbs.	Guard Stance - Fire	11	
+5	Change Dark orbs to Heart orbs.	Guard Stance - Light	11	
+5	Change Fire orbs to Heart orbs.	Guard Stance - Water	11	
+5	Change Water orbs to Heart orbs.	Guard Stance - Wood	11	
+9	Recover 50% of max HP. Change top-most row into Fire orbs.	Guess I don't have a choice	14	
+4	Randomly spawn 4 Light orbs from non Light orbs.	Guiding Light Hymn	9	
+9	Inflict Light damage equal to ATK x50 to 1 enemy, and drain 15% of the damage you dealt. Affected by enemy element and defense. Bind recovery for 5 turns.Awoken Bind recovery for 5 turns.	Gungnir	17	
+8	Inflict damage equal to ATK x10 to 1 enemy, and drain 100% of the damage you dealt. Affected by enemy element and defense. Bind recovery for 5 turns.	gungnir nya!	12	
+9	Inflict Light damage equal to ATK x50 to 1 enemy, and drain 15% of the damage you dealt. Affected by enemy element and defense. Bind recovery for 5 turns.	Gungnir X	13	
+10	Recover 1000 HP. Change all orbs to Fire, Water & Wood & Light & Dark & Heart orbs.	Gysahl Greens	11	
+10	Inflict Wood damage equal to ATK x20 to all enemies. Affected by enemy element and defense. Dragon type cards ATK x1.3 for 2 turns.	Hard Mistral Breath	20	
+9	Change all orbs to Fire, Water & Wood & Light & Dark orbs. Reduces cooldown of other skills by 1 turn.	Harmonic Feather	14	
+8	Physical type cards ATK x2 for 1 turn. Reduces cooldown of other skills by 1 turn.	Harpoon of Atlantis	13	
+7	Removes lock status on orbs. Change Dark orbs to Fire orbs, Water orbs to Light orbs.	Haste makes waste, yo!	12	
+5	Recover RCV x5 HP. Bind recovery for 2 turns. All attribute cards RCV x1.5 for 3 turns.	Heal	10	
+8	Avoid all Dark  damage for 2 turns. Recover 25% of max HP.	Heal Barrier	13	
+6	All attribute cards RCV x1.5 for 4 turns. Bind recovery for 4 turns.	Healing Cheer	11	
+5	Change 2nd column from the right into Heart orbs.	Healing Cut	10	
+5	Recover 2500 HP.	Healing Dance	5	
+5	Change Light orbs to Heart orbs.	Healing Hymn	10	
+5	Recover 3000 HP.	Healing Shout	5	
+5	Increase skyfall chance of Heart orbs by 15% for 3 turns.	Healing Spot	10	
+6	Reshuffle all orbs.	Hear the Cry of My Soul!!	11	
+5	Deal 1000 Fire damage to all enemies. Affected by enemy element and defense.	Heat Ball	10	
+5	Inflict Fire damage equal to ATK x3 to all enemies. Affected by enemy element and defense.	Heat Breath	10	
+8	Deal 1000 damage to 1 enemy. Ignore enemy element and defense. Change all orbs to Fire, Water & Light orbs.	Heat Vision	13	
+7	Randomly spawn 3 Light & Dark orbs from non Light & Dark orbs. Reduces cooldown of other skills by 1 turn.	Heaven and Earth Creation	12	
+7	Change Heart, Jammer, Poison & Mortal Poison orbs to Fire orbs. Reduces cooldown of other skills by 1 turn.	Heavenly Destruction	12	
+13	Reduce 25% of all enemies' HP. Ignore enemy element and defense.	Heavenly Splash	18	
+13	75% damage reduction for 2 turns. Reduces cooldown of other skills by 1 turn.	Heaven-Shaking Lightning Wall	17	
+15	Inflict Poison damage equal to ATK x10 to all enemies every turn. Ignore enemy element and defense. Attacker & Devil type cards ATK x2.5 for 1 turn.	Heavenstrom	17	
+6	Deal 20000 Dark damage to all enemies. Affected by enemy element and defense. Change Water orbs to Dark orbs.	Hell Ball	15	
+9	15% damage reduction for 9 turns.	Hellblaze Shield	24	
+2	Deal 99 damage to 1 enemy. Ignore enemy element and defense.	Hell Fang	7	
+10	Inflict Fire damage equal to ATK x20 to all enemies. Affected by enemy element and defense. Dragon type cards ATK x1.3 for 2 turns.	Hellfire Breath	20	
+5	Reduce enemies' defense by 50% for 2 turns. Effects carry forward on sweep. Change Dark orbs to Fire orbs.	Hellish Inferno	7	
+7	Increase skyfall chance of Dark orbs by 25% for 1 turns. Randomly spawn 3 Dark orbs from non Dark orbs.	Hellish Noise	22	
+8	for every Enhanced Light Orbs on the team ) for 0 turn.	Hello, I'm Pepper	8	
+5	Recover 4649 HP. Enhance Dark orbs. +6% per orb, up to +180% for full board.	Hell's Charge	10	
+6	Change Fire & Water orbs to Heart & Poison orbs. Increase skyfall chance of Poison orbs by 15% for 3 turns.	Hell's Garden	16	
+5	Inflict Dark nuke damage equal to team Light ATK x5 to 1 enemy. Change Heart orbs to Jammer orbs.	Hell's Judgment	15	
+5	Reduce 5% of all enemies' HP. Ignore enemy element and defense.	Hell's Raging Wind	20	
+55	Recover 555555 HP.	Here's to 5 years, TAMA!	55	
+8	Physical type cards ATK x1.2 for 6 turns. Reduces cooldown of other skills by 1 turn.	Here...take half...	13	
+8	Randomly spawn 4 Water, Dark & Jammer orbs from non Water, Dark & Jammer orbs.	Heritage Sword "Hyakka Ryoran"	18	
+13	Change all orbs to Wood, Dark & Heart orbs. Reduces cooldown of other skills by 2 turns.	Heroic Blade	18	
+15	75% damage reduction for 3 turns.	Heroic Dragon Guard	20	
+10	Activate a random skill. This includes: Grimoire Shade, Aero Wake - Flare, Meteor Shot - Aqua, Baldin's Eyes, Starry Road - Flare, Healing Cut, Dimensional Formation - Mountain God	Heroine Power	10	
+7	Recover 5000 HP. Bind recovery for 4 turns. Reduces cooldown of other skills by 1 turn.	Hey, again.	12	
+12	Light & Dark attribute cards ATK x1.5 for 1 turn. Bind recovery for 2 turns.	Hieroglyphic Carvings	20	
+7	Balanced & Devil type cards ATK x1.5 for 2 turns. Increases time limit of orb movement by 150% for 2 turns.	High King of the Seven Seas	12	
+20	Ignores enemy damage absorb effects for 1 turn ( does not include combo shield, attribute absorb, and damage void ). +1 combo count for 1 turn.	Hiten Mitsurugi-ryu: Kuzu Ryusen	25	
+6	Increase skyfall chance of Fire & Light orbs by 10% for 2 turn. Randomly spawn 2 Fire & Light orbs from non Fire & Light orbs.	Hiten Mitsurugi-ryu: Ryushosen	11	
+7	Change own attribute to Dark for 1 turn. Inflict Dark damage equal to ATK x50 to 1 enemy. Affected by enemy element and defense.	Hold still for me	17	
+14	Change all orbs to Water & Dark orbs. Reduces cooldown of other skills by 2 turns.	Holiday Summoning Circle-Wt & Dk	19	
+6	Deal 20000 Light damage to all enemies. Affected by enemy element and defense. Change Water orbs to Light orbs.	Holy Ball	15	
+8	Inflict Light damage equal to ATK x20 to all enemies. Affected by enemy element and defense. Light attribute ATK x1.5 for 2 turns.	Holy Breath	29	
+10	Healer type cards ATK x2.5 for 2 turns. Deal 100000 damage to 1 enemy. Ignore enemy element and defense.	Holy Crest	15	
+14	Change all orbs to Fire & Wood orbs. Reduces cooldown of other skills by 2 turns.	Holy Draco Summoning Circle-Fr & Wd	19	
+13	Inflict Light damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense.	Holy Gift	13	
+10	Balanced type cards ATK x2.5 for 1 turn. Inflict Light damage equal to ATK x100 to all enemies in exchange for reducing HP to 1. Affected by enemy element and defense.	Holy Grail	14	
+7	Change Dark orbs to Light orbs. Reduces cooldown of other skills by 1 turn.	Holy Star	22	
+8	Change all orbs to Water, Wood & Light & Dark orbs. Deal 100000 damage to all enemies. Ignore enemy element and defense.	Holy Water Hymn	14	
+13	Delay 2 turns to all enemies. Healer type cards ATK x2 for 2 turns.	Honest Insight	18	
+25	Change all orbs to Water orbs. Inflict Poison damage equal to ATK x100 to all enemies every turn. Ignore enemy element and defense.	Hope of Noah	40	
+1	Deal 500 Wood damage to all enemies. Affected by enemy element and defense. Recover 500 HP.	Hot Spring of Kusatsu	6	
+9	Deal 10000 damage to all enemies. Ignore enemy element and defense. Recover 50% of max HP. Bind recovery for 5 turns.	Houyoku Tenshou	13	
+7	Inflict Poison damage equal to ATK x8 to all enemies every turn. Ignore enemy element and defense. Randomly spawn 3 Poison orbs from non Poison orbs.	How nice...	17	
+3	Randomly spawn 2 Heart orbs from non Wood & Heart orbs. Change Jammer, Poison & Mortal Poison orbs to Wood orbs.	Hurricane Shout	8	
+16	Inflict Poison damage equal to ATK x100 to all enemies every turn. Ignore enemy element and defense. Reduces cooldown of other skills by 2 turns.	Hydra Horn	21	
+15	God type cards ATK x1.5 for 1 turn. Inflict Poison damage equal to ATK x10 to all enemies every turn. Ignore enemy element and defense.	Hydra's Poison	20	
+20	Inflict Dark damage equal to ATK x250 to 1 enemy. Affected by enemy element and defense. Reduces cooldown of other skills by 1 turn.	Hyperdrive	30	
+7	Recover RCV x7 HP. Bind recovery for 3 turns. Reduces cooldown of other skills by 1 turn.	Hyper Heal	11	
+5	Change Heart, Jammer, Poison & Mortal Poison orbs to Water orbs. Bind recovery for 3 turns.	Hysteric Nightmare	35	
+13	Reduces cooldown of other skills by 2 turns. Enhance Fire, Water, Wood, Light, Dark & Heart orbs. +6% per orb.	I am the chosen one.	18	
+8	Removes lock status on orbs. Change all orbs to Fire, Water & Wood & Light & Dark orbs.	I am the path to the world of Spirits!	13	
+7	Increase skyfall chance of Light orbs by 15% for 3 turns. Reduces cooldown of other skills by 1 turn.	I can do it by myself	12	
+7	Deal 50000 damage to 1 enemy. Ignore enemy element and defense. Randomly spawn 2 Light orbs from non Light orbs.	I can do it too!!	12	
+6	Deal Light damage to all enemies based on player's HP %. ATK x50 at 100% HP up to ATK x250 at 1 HP. Affected by enemy element and defense.	I can't stand that!!	11	
+10	Deal 3000 Water damage to all enemies. Affected by enemy element and defense.	Ice Ball	25	
+10	Inflict Water damage equal to ATK x5 to all enemies. Affected by enemy element and defense.	Ice Breath	20	
+13	Inflict Water damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense.	Ice Gift	13	
+7	Inflict Water damage equal to ATK x30 to all enemies. Affected by enemy element and defense. Attacker type cards ATK x1.5 for 2 turns.	Ice Wind	19	
+15	Fire attribute ATK x2 for 3 turns. Reduces cooldown of other skills by 1 turn.	Ignis Enhancement	18	
+9	50% damage reduction for 1 turn. Reduces cooldown of other skills by 1 turn.	I have become a summoner!	14	
+10	Randomly spawn 7 Heart orbs from non Light & Heart orbs. Increases time limit of orb movement by 7 seconds for 1 turn.	I have nothing else.	15	
+10	Enhance Dark orbs. +6% per orb, up to +180% for full board. Delay 1 turn to all enemies.	I knew you could do it.	15	
+3	Inflict Light damage equal to ATK x10 to 1 enemy in exchange for reducing HP to 1. Affected by enemy element and defense. Attacker & Physical type cards ATK x1.5 for 1 turn.	I'll become a delinquent from today on!!	8	
+7	Increase skyfall chance of Light & Heart orbs by 10% for 5 turn. Bind recovery for 3 turns.	I'll believe in him	12	
+4	Change Heart orbs to Dark orbs, Light orbs to Jammer orbs.	I'll be the one to do it!	9	
+12	Deal 1000 damage to all enemies. Ignore enemy element and defense. 35% damage reduction for 1 turn.	I'll crush that power!!	22	
+20	ATK x1 + ( 0.5x for every Enhanced Dark Attribute on the team ) for 1 turn.	I'll end this... in an instant.	24	
+6	Change Light, Poison & Mortal Poison orbs to Wood orbs. Increases time limit of orb movement by 150% for 2 turns.	I'll fulfill my goal.	11	
+9	All attribute cards RCV x0.5 for 3 turns. Change all orbs to Fire & Dark orbs.	I'll give it everything I've got!	14	
+7	30% damage reduction for 6 turns.	I'll hold out nya!	12	
+7	Recover 30% of max HP. Bind recovery for 3 turns. Reduces cooldown of other skills by 1 turn.	I'll kill them all!	12	
+8	Randomly spawn 6 Light orbs from non Light orbs. Increases time limit of orb movement by 150% for 1 turn.	I'll navigate!	13	
+9	Change all orbs to Fire, Wood & Light & Dark & Heart orbs. Reduces cooldown of other skills by 1 turn.	I'll protect you with my life	14	
+19	Devil type cards ATK x4 for 1 turn. Inflict Dark damage equal to ATK x50 to 1 enemy in exchange for reducing HP to 1. Affected by enemy element and defense.	I'll put a stop to it...or die trying!	24	
+5	Randomly spawn 4 Dark & Jammer orbs from non Dark & Jammer orbs.	I'll put holes all over you!	13	
+13	100% damage reduction for 1 turn. Reduces cooldown of other skills by 1 turn.	I'll send you to Hell!	18	
+10	Deal 77 damage to 1 enemy. Ignore enemy element and defense. Randomly spawn 7 Light orbs from non Light orbs.	I'll Send You to Hell!	15	
+7	Inflict Light damage equal to ATK x10 to 1 enemy. Affected by enemy element and defense. All attribute cards RCV x1.2 for 6 turns.	I'll support you nya!	12	
+7	Randomly spawn 4 Water orbs from non Water orbs. Reduces cooldown of other skills by 1 turn.	I'll survive no matter what!	12	
+4	35% damage reduction for 1 turn.	I'll take you one on one!	14	
+10	Reduce enemies' defense by 35% for 1 turn. Effects carry forward on sweep. 35% damage reduction for 1 turn.	I'll use all my strength	20	
+7	Inflict Dark damage equal to ATK x10 to all enemies. Affected by enemy element and defense. Bind recovery for 3 turns.	Illusory Spectral Sword	17	
+10	Deal 50000 damage to all enemies. Ignore enemy element and defense. Delay 1 turn to all enemies.	I'll win for sure!!	15	
+8	Change Heart, Jammer, Poison & Mortal Poison orbs to Fire orbs. Increase skyfall chance of Fire orbs by 15% for 3 turn.	I'm fine with being a crow!!	13	
+6	Increase skyfall chance of Fire & Light orbs by 10% for 5 turn.	I'm gonna crush you!!	11	
+13	Enhance Light & Dark orbs. +6% per orb. Reduces cooldown of other skills by 2 turns.	I'm gonna eat you!	17	
+7	Randomly spawn 5 Water orbs from non Water orbs. Enhance Water & Heart orbs. +6% per orb, up to +180% for full board.	I'm gonna put you out of your misery	12	
+6	Enhance Dark orbs. +6% per orb. 35% damage reduction for 1 turn.	I'm gonna smash you into pieces	16	
+6	30% damage reduction for 4 turns.	Immortal Guard	11	
+15	Reduce 15% of all enemies' HP. Ignore enemy element and defense. Reduce enemies' defense to 0 for 1 turn. Effects carry forward on sweep.	Implosion	25	
+15	Inflict Light damage equal to ATK x150 to 1 enemy. Affected by enemy element and defense. Reduces cooldown of other skills by 1 turn.	Improved Sweet Shoot	20	
+13	Reduce enemies' defense by 50% for 1 turn. Effects carry forward on sweep. Delay 1 turn to all enemies.	I'm seeing through your game!	23	
+7	Inflict Dark damage equal to ATK x10 to 1 enemy. Affected by enemy element and defense. Dragon type cards ATK x1.2 for 5 turns.	I'm serious now nya!	12	
+9	Deal 100000 damage to 1 enemy. Ignore enemy element and defense. Change 2nd row from the bottom into Fire orbs.	I'm taking on the baseball world!	14	
+7	Change Wood orbs to Water orbs, Heart orbs to Dark orbs.	I mustn't run away	12	
+13	100% damage reduction for 1 turn. Enhance Fire, Water, Wood, Light, Dark & Heart orbs. +6% per orb.	Incisive Brilliance	24	
+7	Counter 5x damage taken with Fire for 4 turns. Change Wood, Jammer, Poison & Mortal Poison orbs to Fire orbs.	Infernal Heat	11	
+11	Change top-most row into Fire orbs. Deal 1000 damage to all enemies. Ignore enemy element and defense.	Inferno Blast	31	
+8	Inflict Dark damage equal to ATK x20 to all enemies. Affected by enemy element and defense. Dark attribute ATK x1.5 for 2 turns.	Inferno Breath	29	
+8	Attacker type cards ATK x2 for 1 turn. Reduces cooldown of other skills by 1 turn.	Infinite Mass Punch	13	
+8	Change left-most column into Water orbs and the right-most column into Wood orbs. Reduces cooldown of other skills by 1 turn.	In the name of Yakumo, I command you!	13	
+11	Delay 1 turn to all enemies. Change Dark orbs to Wood orbs.	Intimidating Shout	20	
+8	Delay 1 turn to all enemies. Change Jammer orbs to Dark orbs.	Intimidation	11	
+11	Reduce 20% of all enemies' HP. Ignore enemy element and defense. Delay 1 turn to all enemies.	Inversion - Boisterous Dance	15	
+13	Change all orbs to Fire & Dark orbs. Reduces cooldown of other skills by 1 turn.	Inversion-Draco Summoning Circle-Fr & Dk	17	
+7	Enhance Wood & Light orbs. +6% per orb, up to +180% for full board. Reduces cooldown of other skills by 1 turn.	Inversion - Glitter of Aegis	12	
+9	Randomly spawn 4 Wood & Heart orbs from non Wood & Heart orbs. Reduces cooldown of other skills by 1 turn.	Inversion - Green Life	14	
+8	Change all orbs to Water, Dark & Jammer orbs.	I recognize you as my enemy	23	
+5	35% damage reduction for 1 turn. Randomly spawn 3 Heart orbs from non Wood & Heart orbs.	I reject.	10	
+15	50% damage reduction for 5 turns.	Iron Wall Stance	20	
+8	Change Wood orbs to Dark orbs, Fire orbs to Heart orbs. Change own attribute to Dark for 4 turns.	It only makes you look weak.	13	
+7	Give 7 seconds to move orbs without triggering matches.	IT'S A SHOW TIME!	12	
+10	Change left-most column into Wood orbs and the right-most column into Wood orbs. Reduces cooldown of other skills by 1 turn.	It's just a trick I learned from my dad	15	
+4	Randomly spawn 4 Dark orbs from non Dark orbs.	It's my turn now!!	9	
+7	Change right-most column into Light orbs. Reduces cooldown of other skills by 1 turn.	It's not my problem.	12	
+12	Reduces cooldown of other skills by 2 turns. Give 8 seconds to move orbs without triggering matches.	I want to change that future, too.	17	
+6	Change Heart, Poison & Mortal Poison orbs to Fire orbs. Increases time limit of orb movement by 1 second for 2 turns.	I want to fight too	11	
+10	50% damage reduction for 2 turns.	I will protect you	15	
+10	Change all orbs to Water, Light & Dark & Heart orbs. Reduces cooldown of other skills by 1 turn.	I will show you no mercy!	15	
+7	Change Wood, Jammer, Poison & Mortal Poison orbs to Fire orbs. Reduces cooldown of other skills by 1 turn.	I won't even need the push of my farts!	12	
+8	Change Heart orbs to Light orbs. 35% damage reduction for 3 turns.	I won't give up!	13	
+12	ATK x1 + ( 0.3x for every Enhanced Fire Attribute, Enhanced Wood Attribute on the team ) for 1 turn.	I won't let you die!	17	
+7	Bind recovery for 4 turns. Reduces cooldown of other skills by 1 turn.	Jack-o'-Lantern	12	
+4	Recover 4000 HP. Randomly spawn 1 Light orbs from non Light orbs.	Japan's Top Four Udon	10	
+7	Increase skyfall chance of Fire & Light orbs by 10% for 3 turn. Reduces cooldown of other skills by 1 turn.	Jingle Bells	17	
+10	Counter 3x damage taken with Light for 3 turns.	Judgement in Holy Night	20	
+8	Inflict Water damage equal to ATK x1-50 to 1 enemy. Affected by enemy element and defense. Physical type cards ATK x2 for 1 turn.	Jump	13	
+16	Change all orbs to Wood orbs.	Jupiter Genesis	30	
+8	Machine type cards ATK x1.5 for 1 turn. Bind recovery for 3 turns.	Justice Mode	23	
+11	Delay 2 turns to all enemies. Bind recovery for 2 turns.Awoken Bind recovery for 2 turns.	Just leave it to me!	16	
+7	Change Heart & Jammer orbs to Fire orbs. Reduces cooldown of other skills by 1 turn.	Just stay close to me.	12	
+9	Increase skyfall chance of Water orbs by 15% for 2 turns. Randomly spawn 6 Water orbs from non Water orbs.	Kaiten-Kenbu Rokuren	14	
+6	Change Light & Jammer orbs to Fire orbs. Recover 30% of max HP.	Kansatsu Tobikunai	11	
+8	Full bind recovery. Reduces cooldown of other skills by 1 turn.	Keeeeeeen!	13	
+3	Inflict damage equal to ATK x5 to 1 enemy, and drain 100% of the damage you dealt. Affected by enemy element and defense.	Kerokero Attack!	7	
+9	Activate a random skill. This includes: Change the World, Ultra Gravity, Orb Refresh, Southern Seven-Star Formation, Eastern Seven-Star Formation, Northern Seven-Star Formation, Western Seven-Star Formation	Killing Joke	14	
+6	35% damage reduction for 2 turns. Inflict Dark damage equal to ATK x50 to all enemies. Affected by enemy element and defense.	Killing Sword of Shakku's	16	
+5	Recover 1000 HP.	King's Smile	5	
+10	Reduce 20% of all enemies' HP. Ignore enemy element and defense. Bind recovery for 3 turns.	Kirin's Boisterous Dance	14	
+5	Enhance Dark & Fire orbs. +6% per orb, up to +180% for full board.	Kiss of Demonic Fire Queen	15	
+7	Reduces cooldown of other skills by 1 turn. Enhance Fire & Light orbs. +6% per orb.	Know divine wrath!	12	
+10	Change all orbs to Wood, Dark & Heart orbs. Reduces cooldown of other skills by 1 turn.	Kryptonite Spear	15	
+8	Reduces cooldown of other skills by 1 turn. Reshuffle all orbs.	Landscape-Patterned Cup	13	
+8	Delay 1 turn to all enemies. Increases time limit of orb movement by 1 second for 1 turn.	Lasso of Truth	13	
+7	Counter 5x damage taken with Wood for 4 turns. Change Fire, Jammer, Poison & Mortal Poison orbs to Wood orbs.	Lazy Smile	11	
+10	Change Heart & Dark orbs to Wood orbs. Recover 30% of max HP.	Leading a Comeback	15	
+6	Recover 30% of max HP. Change Dark orbs to Heart orbs.	Lemon Shower	13	
+7	Randomly spawn 6 Wood orbs from non Wood orbs.	Let me win!!	12	
+14	Dragon type cards ATK x1.5 for 1 turn. Inflict damage equal to ATK x50 to 1 enemy. Affected by enemy element and defense.	Let's do this seriously	28	
+9	Reduces cooldown of other skills by 1 turn. Change Dark orbs to Water orbs, Fire orbs to Heart orbs.	Let's go. Focus!	14	
+8	Recover 30% of max HP. Bind recovery for 3 turns. Attacker & Devil type cards ATK x1.5 for 1 turn.	Let's see what this bad boy can do!	13	
+9	Deal 9999 damage to all enemies. Ignore enemy element and defense. Randomly spawn 4 Fire orbs from non Fire orbs.	Let's walk together for all eternity...Kurei...	15	
+15	Reduce enemies' defense to 0 for 1 turn. Effects carry forward on sweep. Avoid all Light  damage for 3 turns.	Libra	20	
+8	Change Wood orbs to Fire orbs, Dark orbs to Heart orbs. Enhance Fire orbs. +6% per orb.	Life Flame X - Orb Change	11	
+8	Change Water orbs to Light orbs, Dark orbs to Heart orbs. Enhance Light orbs. +6% per orb.	Life Flash X - Orb Change	11	
+8	Change Light orbs to Wood orbs, Dark orbs to Heart orbs. Enhance Wood orbs. +6% per orb.	Life Forest X - Orb Change	11	
+8	Change Wood orbs to Dark orbs, Light orbs to Heart orbs. Enhance Dark orbs. +6% per orb.	Life Prison X - Orb Change	11	
+8	Change Fire orbs to Water orbs, Light orbs to Heart orbs. Enhance Water orbs. +6% per orb.	Life Sapphire X - Orb Change	11	
+5	35% damage reduction for 1 turn. Recover 4000 HP.	Lifestream	19	
+8	Change Water orbs to Wood orbs, Fire orbs to Heart orbs. Enhance Wood orbs. +6% per orb.	Life Tree X - Orb Change	11	
+8	Inflict damage equal to ATK x50 to 1 enemy, and drain 50% of the damage you dealt. Affected by enemy element and defense. Randomly spawn 4 Heart orbs from non Water & Heart orbs.	Life Water Lotus Blossom	12	
+6	Change Dark & Jammer orbs to Light orbs. Change Heart, Poison & Mortal Poison orbs to Dark orbs.	Light&Dark Orbs Change	13	
+9	Reduces cooldown of other skills by 1 turn. Light attribute ATK x1.5 for 3 turns.	Light Enhancement	17	
+8	Change top-most row into Light orbs. Reduces cooldown of other skills by 1 turn.	Lightning Charge	13	
+8	Delay 1 turn to all enemies. Enhance Light orbs. +6% per orb, up to +180% for full board.	Lightning Howl	16	
+7	Inflict Light damage equal to ATK x30 to all enemies. Affected by enemy element and defense. Physical type cards ATK x1.5 for 2 turns.	Lightning Wind	19	
+5	Recover 500 HP.	Light of Healing	10	
+3	Recover 2000 HP.	Light of Mighty Healing	10	
+5	Change Dark orbs to Light orbs.	Light Orb Change	9	
+5	Change left-most column into Light orbs.	Light Spell	9	
+8	Change Fire orbs to Wood orbs, Dark orbs to Heart orbs. Bind recovery for 3 turns.	Live by my side!!	13	
+7	Removes lock status on orbs. Change Light orbs to Fire orbs, Water orbs to Dark orbs.	Lively Glance	12	
+4	Change bottom-most row into Wood orbs. Randomly spawn 3 Jammer orbs from non Wood & Jammer orbs.	Looks like you're in a bind.	9	
+5	Inflict Dark damage equal to ATK x10-50 to all enemies. Affected by enemy element and defense.	Lucky(?) Ribbon	20	
+8	Change Fire & Heart orbs to Wood orbs. Increase skyfall chance of Wood orbs by 15% for 2 turns.	Lunatic Storm	12	
+13	Recover 30% of max HP. Bind recovery for 3 turns. Increases time limit of orb movement by 300% for 1 turn.	Magazine All-Stars, 1st Edition	18	
+10	Recover RCV x5 HP. Change all orbs to Fire, Water & Wood & Light & Dark orbs.	Magical Song	15	
+12	+2 combo count for 1 turn. Increases time limit of orb movement by 2 seconds for 1 turn.	Magic Chain	27	
+10	Inflict damage equal to ATK x50 to 1 enemy, and drain 50% of the damage you dealt. Affected by enemy element and defense. Enhance Water orbs. +6% per orb, up to +180% for full board.	Magic-Draining Light	23	
+8	Inflict damage equal to ATK x10 to 1 enemy, and drain 100% of the damage you dealt. Affected by enemy element and defense. Increases time limit of orb movement by 150% for 5 turns.	Magic Spear, gungnir nya!	12	
+4	Switch places with leader card. Use again to switch back.	Magic Stone Teleportation	9	
+6	Deal 20000 Fire damage to all enemies. Affected by enemy element and defense. Change Dark orbs to Fire orbs.	Magma Ball	15	
+7	Inflict Fire damage equal to ATK x20 to all enemies. Affected by enemy element and defense. Fire attribute ATK x1.5 for 2 turns.	Magma Breath	29	
+10	Reduce 10% of all enemies' HP. Ignore enemy element and defense.	Malice	10	
+10	Reduce enemies' defense by 75% for 1 turn. Effects carry forward on sweep. Attacker type cards ATK x1.3 for 3 turns.	Man cannot live forever...	20	
+12	Delay 1 turn to all enemies. Inflict Fire damage equal to ATK x50 to all enemies. Affected by enemy element and defense.	Mars Daylight	22	
+11	Delay 2 turns to all enemies. Dark attribute ATK x1.5 for 2 turns.	Masterful Foundation	15	
+10	Inflict damage equal to ATK x1 to 1 enemy. Affected by enemy element and defense. 75% damage reduction for 1 turn.	Maya Kick!	20	
+6	Dragon & Attacker type cards ATK x0.5 for 1 turn. Change all orbs to Fire, Water & Wood & Light & Dark orbs.	Meditative Five Color Dragon	16	
+10	Deal 9999 damage to all enemies. Ignore enemy element and defense.	Mega Flare	20	
+10	Delay 1 turn to all enemies. Enhance Fire, Water, Wood, Light, Dark & Heart orbs. +6% per orb.	Melody Wink	14	
+6	Recover 30% of max HP. Change Water orbs to Heart orbs.	Melon Shower	13	
+7	Randomly spawn 3 Fire & Heart orbs from non Fire & Heart orbs. Reduces cooldown of other skills by 1 turn.	Melting Masks	12	
+10	Delay 3 turns to all enemies.	Menace	15	
+6	Increase skyfall chance of Heart orbs by 15% for 3 turns. Randomly spawn 3 Heart orbs from non Light & Heart orbs.	Merciful Mother Star	11	
+4	35% damage reduction for 1 turn.	Merciful Protection	11	
+10	Recover 30% of max HP. Bind recovery for 1 turn.	Merciful Radiance	20	
+15	Water attribute ATK x5 for 1 turn. Reduces cooldown of other skills by 2 turns.	Mercuria Enhancement	15	
+16	Change all orbs to Water orbs.	Mercury Genesis	30	
+9	Change Light, Heart, Poison & Mortal Poison orbs to Dark orbs. Reduces cooldown of other skills by 1 turn.	Meteor Charge - Dark	14	
+9	Change Dark, Heart, Poison & Mortal Poison orbs to Light orbs. Reduces cooldown of other skills by 1 turn.	Meteor Charge - Light	14	
+12	Change Dark & Heart orbs to Water orbs. +2 combo count for 1 turn.	Meteor Shot - Aqua	17	
+8	Deal 99 damage to all enemies. Ignore enemy element and defense. Increase skyfall chance of Wood orbs by 15% for 3 turns.	Midare Benten	13	
+6	Change bottom-most row into Dark orbs.	Midnight Spell	11	
+8	Reduce enemies' defense by 75% for 5 turns. Effects carry forward on sweep. Reduces cooldown of other skills by 1 turn.	Mind if I try an experiment?	13	
+8	Change Light orbs to Fire orbs, Dark orbs to Heart orbs. Enhance Heart orbs. +6% per orb, up to +180% for full board.	Miracle of Fire	13	
+16	Change all orbs to Heart orbs. 100% damage reduction for 2 turns.	Miracle of Healing	23	
+8	Change Light orbs to Water orbs, Dark orbs to Heart orbs. Enhance Heart orbs. +6% per orb, up to +180% for full board.	Miracle of Ice	13	
+8	Change Light orbs to Wood orbs, Dark orbs to Heart orbs. Enhance Heart orbs. +6% per orb, up to +180% for full board.	Miracle of Wood	13	
+11	Change top-most row into Water orbs. Deal 1000 damage to all enemies. Ignore enemy element and defense.	Mirage Blade	31	
+13	Inflict Fire damage equal to ATK x20 to 1 enemy, and drain 50% of the damage you dealt. Affected by enemy element and defense. Dragon & Devil type cards ATK x2 for 1 turn.	Mirage Flare	18	
+12	Reduce enemies' defense to 0 for 1 turn. Effects carry forward on sweep. Inflict Dark damage equal to ATK x50 to all enemies. Affected by enemy element and defense.	Mission of Salvation	22	
+5	Change right-most column into Light orbs.	Miyomimane Ryutsuisen	10	
+4	Randomly spawn 3 Wood orbs from non Wood orbs.	Moon Blossom	14	
+9	Randomly spawn 4 Dark & Heart orbs from non Dark & Heart orbs. Reduces cooldown of other skills by 1 turn.	Moon God's Arm	14	
+2	Removes lock status on orbs. Increases time limit of orb movement by 2 seconds for 1 turn.	Moonlight Serenade	7	
+7	Randomly spawn 7 Heart orbs from non Light & Heart orbs. Give 7 seconds to move orbs without triggering matches.	Moon Phase	22	
+12	Inflict damage equal to ATK x10 to 1 enemy. Affected by enemy element and defense. Physical type cards ATK x3 for 1 turn.	Muscle Enhancement	17	
+10	Activate a random skill. This includes: Excalibur, Excalipoor, Masamune, Genji Shield	My Collection	14	
+9	Dragon type cards ATK x1.5 for 3 turns. Reduces cooldown of other skills by 1 turn.	My duel is not finished!	14	
+6	Randomly spawn 3 Dark & Heart orbs from non Dark & Heart orbs. Bind recovery for 2 turns.	Mysterious Words	11	
+6	Deal 6666 damage to 1 enemy. Ignore enemy element and defense. Increases time limit of orb movement by 2 seconds for 1 turn.	Mystic Lazer	16	
+11	Change all orbs to Fire, Light & Dark & Heart orbs.	N/A	16	
+11	Change all orbs to Fire, Water & Dark & Heart orbs.	N/A	16	
+11	Reduces cooldown of other skills by 1 turn.	N/A	16	
+11	Reduces cooldown of other skills by 1 turn.	N/A	16	
+16	Change all orbs to Heart orbs.	N/A	23	
+16	100% damage reduction for 2 turns.	N/A	23	
+6	Attacker type cards ATK x1.25 for 1 turn.	N/A	11	
+6	Change Heart, Jammer, Poison & Mortal Poison orbs to Water orbs.	N/A	11	
+7	Change all orbs to Fire, Water & Wood & Light & Dark & Heart & Poison orbs.	Natural Blossom	17	
+10	Deal 10000 damage to 1 enemy. Ignore enemy element and defense. Healer type cards ATK x2 for 2 turns.	Nebula Chain	14	
+8	Counter 5x damage taken with Dark for 4 turns. Change Wood, Jammer, Poison & Mortal Poison orbs to Dark orbs.	Necro Bite	12	
+15	Fire attribute ATK x5 for 1 turn. Reduces cooldown of other skills by 2 turns.	Nerva Enhancement	15	
+8	Change Light & Heart orbs to Dark orbs. Increase skyfall chance of Dark orbs by 15% for 2 turns.	Netherworld Star	12	
+15	Inflict damage equal to ATK x20 to 1 enemy, and drain 10% of the damage you dealt. Affected by enemy element and defense.	Nightmare Sword	20	
+10	Inflict Fire damage equal to ATK x20-100 to all enemies. Affected by enemy element and defense. Randomly spawn 8 Fire orbs from non Fire orbs.	Nine Lives	15	
+5	Change Dark orbs to Water orbs.	Ninja Art Dk to Wt	9	
+16	Change all orbs to Fire orbs.	Ninja Art Fireworks	30	
+5	Change Fire orbs to Dark orbs.	Ninja Art Fr to Dk	9	
+5	Change Light orbs to Fire orbs.	Ninja Art Lt to Fr	9	
+5	Change Wood orbs to Fire orbs.	Ninja Art - Presents on Fire	10	
+15	Inflict damage equal to ATK x20 to 1 enemy, and drain 5% of the damage you dealt. Affected by enemy element and defense.	Ninja Art Shadow Tag	25	
+5	Change Fire orbs to Light orbs.	Ninja Art Thousand Lanterns	10	
+5	Change Wood orbs to Light orbs.	Ninja Art Wd to Lt	9	
+5	Change Water orbs to Wood orbs.	Ninja Art Wt to Wd	9	
+9	Change all orbs to Water, Wood & Light orbs.	Ninpo - Dead Leaf Blizzard	14	
+6	Devil type cards ATK x1.5 for 1 turn. Change Jammer, Poison & Mortal Poison orbs to Water orbs.	No escape!	11	
+9	Removes lock status on orbs. Change left-most column into Fire orbs and the right-most column into Heart orbs.	No hard feelings, asshole!	14	
+7	Change Fire orbs to Wood orbs, Light orbs to Heart orbs. Change own attribute to Wood for 2 turns.	Nordic Wind	12	
+11	Deal 10000 damage to all enemies. Ignore enemy element and defense. Change all orbs to Fire, Water & Wood & Light & Dark & Heart orbs.	No room for doubt.	16	
+8	Change all orbs to Wood, Light & Dark orbs.	Northern Seven-Star Formation	14	
+6	Reduce enemies' defense by 75% for 1 turn. Effects carry forward on sweep. Randomly spawn 3 Fire & Dark orbs from non Fire & Dark orbs.	Now is the time to choose!	11	
+11	Avoid all Water  damage for 3 turns. All attacks become multi-target for 3 turns.	Now...what are we supposed to do?	16	
+7	Balanced type cards ATK x1.3 for 5 turns. Inflict Poison damage equal to ATK x1 to all enemies every turn. Ignore enemy element and defense.	nya!	12	
+8	Deal 150000 damage to 1 enemy. Ignore enemy element and defense. Randomly spawn 3 Dark orbs from non Dark orbs.	Oblivion Nova	12	
+12	Reduces cooldown of other skills by 1 turn. Change top-most row into Dark orbs and bottom-most row into Wood orbs.	O-hohohohoho!	17	
+5	Deal 100 damage to all enemies. Ignore enemy element and defense.	Oink Oink!	11	
+9	Deal 8000 damage to all enemies. Ignore enemy element and defense.	Omega Sanction	19	
+8	Attacker type cards ATK x2.5 for 1 turn. Reduces time limit of orb movement to 25% for 1 turn.	Oraa! Come and fight!	18	
+6	Reshuffle all orbs.	Orb Refresh	12	
+7	Change all orbs to Fire, Water & Wood & Light & Dark & Heart orbs.	Orb Transformation	12	
+3	Change Poison & Mortal Poison orbs to Jammer orbs.	Oriental Stomp	18	
+2	Randomly spawn 2 Wood & Jammer orbs from non Wood & Jammer orbs.	Oriental Wind	22	
+10	Inflict Wood damage equal to ATK x10 to all enemies in exchange for reducing HP to 1. Affected by enemy element and defense. God type cards ATK x1.5 for 4 turns.	Overcoming Hardship	25	
+15	Inflict Fire damage equal to ATK x100 to all enemies. Affected by enemy element and defense. Delay 1 turn to all enemies.	Overwhelming Fear	25	
+5	Activate a random skill. This includes: Guard Stance - Water, Guard Stance - Light, Guard Stance - Fire, Guard Stance - Wood, Guard Stance - Dark	Pal Power	5	
+8	Fire & Dark attribute cards ATK x2 for 1 turn. Randomly spawn 3 Jammer orbs from non Fire & Jammer orbs.	Pandemonium's Best Sake	18	
+14	Change all orbs to Fire & Water orbs. Reduces cooldown of other skills by 2 turns.	Parable of the Three Arrows	19	
+15	Inflict Wood damage equal to ATK x50 to all enemies. Affected by enemy element and defense. Reduces cooldown of other skills by 1 turn.	Particle Beam	25	
+7	Removes lock status on orbs. Randomly spawn 3 Fire & Dark orbs from non Fire & Dark orbs.	Pathetic, aren't you!	12	
+5	Inflict Light damage equal to ATK x30 to all enemies. Affected by enemy element and defense. All attacks become multi-target for 5 turns.	Pegasus Ryuuseiken	9	
+7	Deal 100000 damage to 1 enemy. Ignore enemy element and defense. Change Heart & Jammer orbs to Light orbs.	Pegasus Suiseiken	12	
+8	Randomly spawn 6 Wood orbs from non Wood orbs. Wood attribute ATK x1.5 for 3 turns.	Penetrating Arrow	14	
+4	35% damage reduction for 1 turn.	Pe, pe, pe, pper!	4	
+14	35% damage reduction for 2 turns. Healer type cards ATK x2 for 2 turns.	Performance of Judgement	25	
+1	Inflict Water damage equal to ATK x2 to all enemies. Affected by enemy element and defense.	Petit Cold Breath	2	
+1	Inflict Fire damage equal to ATK x2 to all enemies. Affected by enemy element and defense.	Petit Heat Breath	2	
+1	Inflict Wood damage equal to ATK x2 to all enemies. Affected by enemy element and defense.	Petit Wind Breath	2	
+8	Change top-most row into Dark orbs. Reduces cooldown of other skills by 1 turn.	Phantom Charge	13	
+13	Dragon type cards ATK x2 for 1 turn. Reduce 15% of all enemies' HP. Ignore enemy element and defense.	Pirate Dragon's Might	22	
+3	Deal 25000 Wood damage to all enemies. Affected by enemy element and defense.	Plant Ball	9	
+13	Inflict Wood damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense.	Plant Gift	13	
+4	Deal 25000 Light damage to all enemies. Affected by enemy element and defense.	Plasma Ball	9	
+3	Inflict Light damage equal to ATK x5 to all enemies. Affected by enemy element and defense.	Plasma Breath	10	
+5	Deal 30000 Light damage to all enemies. Affected by enemy element and defense. Enhance Light orbs. +6% per orb, up to +180% for full board.	Plasma Cannon	20	
+7	Change right-most column into Light orbs. Reduces cooldown of other skills by 1 turn.	Plasma Signal	12	
+13	Change top-most row & bottom-most row into Fire orbs.	Please. Give me the power.	18	
+15	Inflict Poison damage equal to ATK x2 to all enemies every turn. Ignore enemy element and defense.	Poison Death Mist	20	
+15	Inflict Poison damage equal to ATK x8 to all enemies every turn. Ignore enemy element and defense. Inflict Water damage equal to ATK x10 to all enemies. Affected by enemy element and defense.	Poison Fang of Temptation	25	
+10	Devil type cards ATK x1.5 for 1 turn. Inflict Poison damage equal to ATK x1 to all enemies every turn. Ignore enemy element and defense.	Poison Mist	15	
+11	Change all orbs to Fire, Water & Wood & Light & Dark & Jammer orbs. Inflict Poison damage equal to ATK x1 to all enemies every turn. Ignore enemy element and defense.	Poisonous Fang of Transformation	21	
+5	Change top-most row into Poison orbs. 50% damage reduction for 1 turn.	Poison Shout	10	
+11	Inflict Light damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense. Light attribute ATK x3 for 1 turn.	Pompurin Dance	15	
+10	Inflict Light damage equal to ATK x50 to 1 enemy in exchange for reducing HP to 1. Affected by enemy element and defense. Attacker type cards ATK x1.5 for 1 turn.	Powerful High Kick	20	
+3	Switch places with leader card. Use again to switch back.	Prehistoric Wisdom	6	
+8	Balanced type cards ATK x2 for 1 turn. Reduces cooldown of other skills by 1 turn.	Preparation Rush nya!	11	
+7	Removes lock status on orbs. Change Dark orbs to Water orbs, Wood orbs to Light orbs.	Princess' Loyal Attendant	12	
+8	Delay 1 turn to all enemies. Removes lock status on orbs.	Princess Smile	11	
+8	Change Heart, Jammer, Poison & Mortal Poison orbs to Light orbs. Increase skyfall chance of Light orbs by 15% for 3 turns.	Princess who guides the Paladins	13	
+8	Change all orbs to Fire, Water & Wood & Light & Dark & Heart & Jammer orbs. Enhance Fire orbs. +6% per orb, up to +180% for full board.	Prism Fire	18	
+10	Change Wood, Heart, Jammer, Poison & Mortal Poison orbs to Light orbs. Increase skyfall chance of Light orbs by 15% for 4 turns.	Promise Bouquet - Light	15	
+6	Change Wood orbs to Heart orbs. Bind recovery for 3 turns.	Protection Magic - Dark	11	
+6	Change Water orbs to Heart orbs. Bind recovery for 3 turns.	Protection Magic - Fire	11	
+6	Change Water orbs to Heart orbs. Bind recovery for 3 turns.	Protection Magic - Light	11	
+6	Change Wood orbs to Heart orbs. Bind recovery for 3 turns.	Protection Magic - Water	11	
+6	Change Fire orbs to Heart orbs. Bind recovery for 3 turns.	Protection Magic - Wood	11	
+8	75% damage reduction for 1 turn.	Protection of Divine Wisdom	11	
+9	50% damage reduction for 1 turn. Change Heart & Dark orbs to Water orbs.	Protection of the Blue Monarch	15	
+7	Counter 5x damage taken with Light for 4 turns. Change Water, Jammer, Poison & Mortal Poison orbs to Light orbs.	Proud Impulse	11	
+7	Randomly spawn 6 Heart orbs from non Dark & Heart orbs. Reduces cooldown of other skills by 1 turn.	Pumpkin Season	12	
+9	Change all orbs to Fire, Water & Wood & Dark & Heart orbs. Reduces cooldown of other skills by 1 turn.	Pureblood Pillar	14	
+8	Removes lock status on orbs. Change all orbs to Fire, Water & Wood & Light & Dark & Heart orbs.	Purging Thunderdrums	13	
+6	All attribute cards RCV x1.5 for 4 turns. Change Jammer, Poison & Mortal Poison orbs to Heart orbs.	Purify Mode	21	
+7	Randomly spawn 3 Dark & Heart orbs from non Dark & Heart orbs. Reduces cooldown of other skills by 1 turn.	Purple Season	12	
+11	Increases time limit of orb movement by 5 seconds for 3 turns. Dragon type cards ATK x1.5 for 1 turn.	Puzzle & Dragons	21	
+15	Increases time limit of orb movement by 200% for 2 turns. Dragon type cards ATK x2 for 2 turns.	Puzzle & Dragons W	25	
+3	Deal 99 damage to 1 enemy. Ignore enemy element and defense. Reduce enemies' defense by 50% for 1 turn. Effects carry forward on sweep.	Quick Bomb	10	
+4	Recover RCV x8 HP. Bind recovery for 3 turns.	Quick Cure	11	
+3	15% damage reduction for 1 turn. Bind recovery for 2 turns.	Quick Guard	7	
+3	Recover RCV x5 HP. Bind recovery for 2 turns.	Quick Heal	8	
+8	Change Water & Heart orbs to Fire orbs. Increase skyfall chance of Fire orbs by 15% for 2 turn.	Raging Blaze	12	
+7	Deal 440 damage to 1 enemy. Ignore enemy element and defense.	Raging Fireball	8	
+7	Bind recovery for 4 turns. Give 7 seconds to move orbs without triggering matches.	Rainbow Magnet	12	
+6	Removes lock status on orbs. Change Heart orbs to Light orbs.	Ranma, you jerk!	11	
+15	Activate a random skill. This includes: Ultra Gravity, Shower of Healing, Force, Heroic Dragon Guard, Five Colored Alchemy, Orb Transformation	Rare Power	15	
+5	Recover 300 HP.	Ray of Healing	10	
+10	Change Dark & Heart orbs to Wood orbs. Recover 20% of max HP. Bind recovery for 2 turns.	Recovering Chance	14	
+8	All attribute cards RCV x2 for 4 turns. Bind recovery for 4 turns.	Recovery Encouragement	12	
+12	Inflict damage equal to ATK x10 to 1 enemy. Affected by enemy element and defense. Healer type cards ATK x3 for 1 turn.	Recovery Enhancement	17	
+10	Attacker type cards ATK x2.5 for 2 turns. Deal 100000 damage to 1 enemy. Ignore enemy element and defense.	Red Crest	15	
+4	Enhance Fire orbs. +6% per orb, up to +180% for full board. Increases time limit of orb movement by 2 seconds for 1 turn.	Reversal Flame	8	
+10	Change all orbs to Fire, Wood & Heart orbs. Reduces cooldown of other skills by 1 turn.	Revolution Change	15	
+4	Activate a random skill. This includes: Blessed Night Rain, Gentle Morning Rain	Rhythm of the Falling Rain	19	
+4	Randomly spawn 3 Light orbs from non Light orbs.	Rice Cake Warding Prayer	9	
+7	Increase skyfall chance of Dark orbs by 15% for 3 turns. Reduces cooldown of other skills by 1 turn.	Rising Dark	17	
+7	Enhance Fire, Wood, Light, Dark & Heart orbs. +6% per orb. Reduces cooldown of other skills by 1 turn.	Rising Sun Sparkle	12	
+3	Change Fire & Heart orbs to Jammer orbs.	Rising Sun's Roar	8	
+7	Change Fire orbs to Water orbs, Heart orbs to Wood orbs.	Ritual of the Mountain and Sea	11	
+14	Delay 1 turn to all enemies. Enhance Water orbs. +6% per orb, up to +180% for full board.	Roar of the Time-Sea	23	
+8	Physical type cards ATK x2.5 for 1 turn. Reduces time limit of orb movement to 25% for 1 turn.	Robotic Weapon	18	
+2	Inflict Wood damage equal to ATK x5 to all enemies. Affected by enemy element and defense.	Rock Breath	10	
+7	50% damage reduction for 1 turn.	Rock Shield	12	
+10	Deal 35000 Wood damage to all Water enemies. Affected by enemy element and defense.	Rock Strike	15	
+7	Randomly spawn 4 Fire orbs from non Fire orbs. Reduces cooldown of other skills by 1 turn.	Rose Flare	17	
+8	Dragon type cards ATK x2.5 for 2 turns. Inflict Wood damage equal to ATK x30 to 1 enemy in exchange for reducing HP to 1. Affected by enemy element and defense.	Rouzan Shoryuha	12	
+5	Randomly spawn 5 Wood orbs from non Wood orbs.	Royal Gale	10	
+15	Reduce 30% of all enemies' HP. Ignore enemy element and defense.	Royal Gravity	25	
+14	ATK x1 + ( 0.15x for every Enhanced Fire Orbs, Enhanced Light Orbs, Enhanced Heart Orbs on the team ) for 2 turns.	Ruby of Charity	19	
+12	Reduces cooldown of other skills by 2 turns.	Rudraksha	17	
+12	Dark & Light attribute cards ATK x2 for 3 turns. Reduces cooldown of other skills by 1 turn.	Rune Enhance, Dark & Light	16	
+12	Fire & Water attribute cards ATK x2 for 3 turns. Reduces cooldown of other skills by 1 turn.	Rune Enhance, Fire & Water	16	
+12	Light & Water attribute cards ATK x2 for 3 turns. Reduces cooldown of other skills by 1 turn.	Rune Enhance, Light & Water	16	
+12	Water & Dark attribute cards ATK x2 for 3 turns. Reduces cooldown of other skills by 1 turn.	Rune Enhance, Water & Dark	16	
+12	Wood & Dark attribute cards ATK x2 for 3 turns. Reduces cooldown of other skills by 1 turn.	Rune Enhance, Wood & Dark	16	
+6	Enhance Dark orbs. +6% per orb. 35% damage reduction for 1 turn.	Ruthless Commander	16	
+15	Inflict Wood damage equal to ATK x150 to 1 enemy. Affected by enemy element and defense. Reduce enemies' defense by 50% for 3 turns. Effects carry forward on sweep.	Ruthless Tackle	25	
+6	Increase skyfall chance of Light orbs by 15% for 3 turns. Randomly spawn 2 Light orbs from non Light orbs.	Sレボリューション	10	
+6	Change Dark & Jammer orbs to Light orbs. Light attribute ATK x1.3 for 1 turn.	Sエクスティンクション	11	
+10	Change Dark & Heart orbs to Fire orbs. Recover 30% of max HP.	Sacred Fire Oath	15	
+6	Randomly spawn 5 Heart orbs from non Light & Heart orbs.	Sacred Horn	11	
+7	Change all orbs to Fire, Wood & Dark & Poison orbs.	Saimyosho Summoning	13	
+10	Inflict Light damage equal to ATK x10 to all enemies. Affected by enemy element and defense. All attribute cards RCV x2 for 2 turns.	Saintly Maiden's Command	20	
+10	Reduce 15% of all enemies' HP. Ignore enemy element and defense. Enhance Fire orbs. +6% per orb, up to +180% for full board.	Samurai Dragon's Bravery	18	
+14	ATK x1 + ( 0.3x for every Skill Boost on the team ) for 2 turns.	Sapphire of Nobility	19	
+6	5% damage reduction for 1 turn for every Resistance-Skill Bind on the team ) for 1 turn.	Scorpion Resistance	21	
+14	Change all orbs to Water & Wood orbs. Reduces cooldown of other skills by 2 turns.	Sea Draco Summoning Circle-Wt & Wd	19	
+22	Reduce enemies' defense to 0 for 1 turn. Effects carry forward on sweep.	Search	22	
+8	Deal 100000 Fire damage to 1 enemy in exchange for reducing HP by 50%. Affected by enemy element and defense. Delay 1 turn to all enemies.	Secret Blow	18	
+8	Deal 300 damage to 1 enemy. Ignore enemy element and defense.	Secret Bonus	15	
+8	Change Wood orbs to Dark orbs, Light orbs to Heart orbs. Enhance Heart orbs. +6% per orb.	Secret Box	13	
+11	Change top-most row into Fire orbs and bottom-most row into Wood orbs.	Secret Heaven - Meteor Blade	26	
+7	8% damage reduction for 1 turn for every Resistance-Skill Bind on the team ) for 1 turn.	Secret Special Training!	17	
+5	Deal 49 damage to 1 enemy. Ignore enemy element and defense. Randomly spawn 2 Wood & Dark orbs from non Wood & Dark orbs.	Secret Technique Kessho Shi	10	
+11	Change 3rd column from the right into Light orbs. Change middle row into Light orbs.	Secret Technique Tensho Juji Ho	16	
+14	ATK x1 + ( 0.2x for every Enhanced Dark Orbs on the team ) for 2 turns.	See the difference in our strengths.	19	
+7	Change all orbs to Fire, Water & Wood & Light & Dark & Heart orbs. Bind recovery for 3 turns.	Seething Chaos	37	
+7	+1 combo count for 1 turn. Enhance Dark orbs. +6% per orb.	See you in hell	12	
+9	Change all orbs to Water, Wood & Dark orbs. Reduces cooldown of other skills by 1 turn.	Seiryuu Seven-Star Formation	13	
+8	Change Dark orbs to Light orbs, Fire orbs to Heart orbs.	Selfless Devotion	13	
+9	Randomly spawn 2 Fire & Water orbs from non Fire & Water orbs. Enhance Fire & Water orbs. +6% per orb, up to +180% for full board.	SGカミカゼアタック	14	
+10	Avoid all Light  damage for 3 turns. Enhance Dark orbs. +6% per orb, up to +180% for full board.	Shadow Field	20	
+7	Removes lock status on orbs. Change Fire orbs to Dark orbs, Light orbs to Water orbs.	Shadow Tactics	12	
+9	Randomly spawn 3 Heart orbs from non Fire & Heart orbs. 75% damage reduction for 1 turn.	Shape of Love, Yumi	14	
+8	Reduce enemies' defense by 50% for 5 turns. Effects carry forward on sweep.	Shield Break	15	
+10	Change all orbs to Fire, Light & Heart orbs. Reduces cooldown of other skills by 1 turn.	Shine Flare Ring	15	
+10	Inflict Light damage equal to ATK x20 to all enemies. Affected by enemy element and defense. Recover 1000 HP.	Shine Seed Breath	20	
+8	Randomly spawn 3 Water & Light orbs from non Water & Light orbs. 35% damage reduction for 1 turn.	Shining Abyssal Gate	12	
+7	35% damage reduction for 1 turn. Enhance Light orbs. +6% per orb, up to +180% for full board.	Shining Death Queen's Whisper	20	
+8	Increase skyfall chance of Water & Light orbs by 10% for 1 turn. Randomly spawn 3 Water & Light orbs from non Water & Light orbs.	Shining Stroke	16	
+7	Randomly spawn 5 Light orbs from non Light & Heart orbs. Reduces cooldown of other skills by 1 turn.	Shining Vision	22	
+12	Delay 2 turns to all enemies. Randomly spawn 3 Dark orbs from non Dark orbs.	Shin no Ippo	17	
+7	Change Light orbs to Wood orbs, Heart orbs to Light orbs.	Shinrabansho	12	
+10	Full HP recovery. Full bind recovery.	Shower of Healing	20	
+12	Full HP recovery. Full bind recovery. Reduces cooldown of other skills by 1 turn.	Shower of Healing X	16	
+3	Randomly spawn 3 Light orbs from non Light orbs.	Show me your burning soul!!	18	
+3	Randomly spawn 3 Fire orbs from non Fire orbs.	Show them your burning soul!!	18	
+4	Inflict Dark damage equal to ATK x1-50 to 1 enemy. Affected by enemy element and defense. Randomly spawn 3 Dark orbs from non Dark orbs.	Shuffle Shot	10	
+3	Deal 99 damage to 1 enemy. Ignore enemy element and defense. Randomly spawn 2 Light orbs from non Light orbs.	Shukuchi	8	
+7	Inflict Fire damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense. Randomly spawn 4 Fire orbs from non Fire orbs.	Sidewinder	12	
+9	Randomly spawn 4 Light & Heart orbs from non Light & Heart orbs. Reduces cooldown of other skills by 1 turn.	Sign of Hera	14	
+7	Reduce enemies' defense by 75% for 2 turns. Effects carry forward on sweep. Reduces cooldown of other skills by 1 turn.	Sit boy!	12	
+9	Delay 2 turns to all enemies.	Slow	14	
+10	Change all orbs to Wood, Light & Dark & Heart orbs. Reduces cooldown of other skills by 1 turn.	Smile	16	
+24	Change all orbs to Fire, Water & Wood & Light & Dark & Heart orbs. Ignores enemy damage absorb effects for 1 turn ( does not include combo shield, attribute absorb, and damage void ).	Smiles All Around	29	
+8	Change Fire orbs to Wood orbs, Dark orbs to Heart orbs.	Smiling Palm	13	
+7	Deal Fire damage to all enemies based on player's HP %. ATK x10 at 100% HP up to ATK x150 at 1 HP. Affected by enemy element and defense. Randomly spawn 3 Fire orbs from non Fire orbs.	Smite of Rage	15	
+7	Change Fire & Water orbs to Heart orbs.	Snack Time!	11	
+7	Deal 7777 damage to all enemies. Ignore enemy element and defense.	Solar Lazer	14	
+6	Change Heart & Poison orbs to Fire orbs. Recover 3000 HP. Bind recovery for 3 turns.	Solid Fortitude	12	
+6	Recover 30% of max HP. Bind recovery for 3 turns.	Soul Cure	9	
+8	Inflict Light damage equal to ATK x8 to 1 enemy, and drain 50% of the damage you dealt. Affected by enemy element and defense.	Soul Drain	18	
+15	Inflict Dark damage equal to ATK x50 to all enemies. Affected by enemy element and defense. Reduces cooldown of other skills by 1 turn.	Soul of Oblivion	25	
+8	Change Fire orbs to Water orbs, Heart orbs to Dark orbs. Change Jammer, Poison & Mortal Poison orbs to Wood orbs.	Soul of the Sea God	12	
+7	Give 6 seconds to move orbs without triggering matches. Enhance Dark & Heart orbs. +6% per orb.	Soul's Oracle	17	
+8	Change all orbs to Fire, Wood & Light orbs.	Southern Seven-Star Formation	14	
+9	Change all orbs to Fire, Water & Heart orbs.	Space-Time Tuning Circle - Fr / Wt	14	
+9	Change all orbs to Fire, Wood & Heart orbs.	Space-Time Tuning Circle - Wd / Fr	14	
+9	Change all orbs to Water, Wood & Heart orbs.	Space-Time Tuning Circle - Wt / Wd	14	
+6	Reshuffle all orbs.	Spanking!	10	
+7	Randomly spawn 3 Light & Heart orbs from non Light & Heart orbs. Reduces cooldown of other skills by 1 turn.	Sparkling Lips	12	
+3	Deal 25000 Water damage to all enemies. Affected by enemy element and defense.	Splash Ball	9	
+2	Inflict Water damage equal to ATK x5 to all enemies. Affected by enemy element and defense.	Splash Breath	10	
+6	All attacks become multi-target for 3 turns. Wood attribute ATK x1.15 for 3 turns.	Spread Cats	13	
+7	Change Water orbs to Dark orbs, Wood orbs to Heart orbs. Change own attribute to Dark for 2 turns.	Spring and Autumn Shadows	12	
+13	ATK x1 + ( 0.15x for every Enhanced Wood Orbs, Enhanced Light Orbs on the team ) for 1 turn.	Sprite Circle	28	
+12	Inflict Water damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense. Change all orbs to Fire, Water & Light & Dark orbs.	Staff of the Four Waters	27	
+17	Change all orbs to Water orbs. Reduces cooldown of other skills by 1 turn.	Stand back. I'll handle this!	22	
+3	Randomly spawn 3 Water & Jammer orbs from non Water & Jammer orbs. Increases time limit of orb movement by 1 second for 1 turn.	Star Dust - Aqua	8	
+3	Randomly spawn 3 Fire & Jammer orbs from non Fire & Jammer orbs. Increases time limit of orb movement by 1 second for 1 turn.	Star Dust - Flare	8	
+3	Randomly spawn 3 Wood & Jammer orbs from non Wood & Jammer orbs. Increases time limit of orb movement by 1 second for 1 turn.	Star Dust - Land	8	
+15	Inflict Water damage equal to ATK x50 to all enemies. Affected by enemy element and defense. Reduces cooldown of other skills by 1 turn.	Starfall	25	
+6	Inflict Light damage equal to ATK x40 to all enemies. Affected by enemy element and defense. Change Heart & Jammer orbs to Light orbs.	Starlight Breath	17	
+9	Change Wood & Light orbs to Fire orbs. Increase skyfall chance of Heart orbs by 15% for 2 turns.	Starry Road - Flare	14	
+6	Change Light orbs to Wood orbs. Bind recovery for 3 turns.	Startreat Land	21	
+10	Change Light, Heart, Jammer, Poison & Mortal Poison orbs to Water orbs. Increase skyfall chance of Water orbs by 15% for 4 turns.	Star Wake - Aqua	15	
+10	Change Light, Heart, Jammer, Poison & Mortal Poison orbs to Wood orbs. Increase skyfall chance of Wood orbs by 15% for 4 turns.	Star Wake - Land	15	
+6	Change Jammer & Water orbs to Fire orbs. Recover 30% of max HP.	Steel Spikes	11	
+6	Reshuffle all orbs.	Stir-Fry Rake	21	
+8	Physical type cards ATK x2 for 1 turn. Reduces cooldown of other skills by 1 turn.	Storing Power nya!	11	
+10	Change all orbs to Wood, Light & Heart orbs. Reduces cooldown of other skills by 1 turn.	Storm Light Ring	15	
+6	Recover 30% of max HP. Change Wood orbs to Heart orbs.	Strawberry Shower	13	
+9	Change Wood orbs to Fire orbs, Dark orbs to Heart orbs. Increases time limit of orb movement by 5 seconds for 1 turn.	Stupidity of epic proportions!	14	
+3	Change own attribute to Fire for 1 turn. Attacker type cards ATK x1.5 for 1 turn.	Style Change - Fire	10	
+3	Change own attribute to Water for 1 turn. Attacker type cards ATK x1.5 for 1 turn.	Style Change - Water	10	
+3	Change own attribute to Wood for 1 turn. Attacker type cards ATK x1.5 for 1 turn.	Style Change - Wood	10	
+10	Change Wood, Heart, Jammer, Poison & Mortal Poison orbs to Water orbs. Increase skyfall chance of Water orbs by 15% for 4 turns.	Summer Paradise - Aqua	15	
+8	Change all orbs to Water, Wood & Light orbs.	Summer Sea Seven-Star Formation	13	
+6	Randomly spawn 5 Dark orbs from non Dark orbs. Enhance Dark orbs. +6% per orb, up to +180% for full board.	Summon Darkness	11	
+4	Randomly spawn 2 Fire orbs from non Fire orbs. Enhance Fire orbs. +6% per orb, up to +180% for full board.	Summon Fire	10	
+6	Randomly spawn 5 Light orbs from non Light orbs. Enhance Light orbs. +6% per orb, up to +180% for full board.	Summon Light	11	
+4	Randomly spawn 2 Water orbs from non Water orbs. Enhance Water orbs. +6% per orb, up to +180% for full board.	Summon Water	10	
+4	Randomly spawn 2 Wood orbs from non Wood orbs. Enhance Wood orbs. +6% per orb, up to +180% for full board.	Summon Wood	10	
+7	Deal 77777 damage to all enemies. Ignore enemy element and defense. Increases time limit of orb movement by 3 seconds for 1 turn.	Sunburst Knuckle	11	
+7	Randomly spawn 7 Heart orbs from non Water & Heart orbs. Give 7 seconds to move orbs without triggering matches.	Sundial	12	
+13	Increases time limit of orb movement by 5 seconds for 1 turn. Reduces cooldown of other skills by 2 turns.	Sunlight Crown	18	
+8	Change Dark & Heart orbs to Light orbs. Increase skyfall chance of Light orbs by 15% for 2 turns.	Sunlight Harmony	12	
+10	Change all orbs to Fire, Light & Dark & Heart orbs. Reduces cooldown of other skills by 1 turn.	Sunrise Zone	16	
+5	Change all orbs to Fire, Water & Wood & Light & Dark & Heart & Jammer orbs. Increases time limit of orb movement by 150% for 1 turn.	Sunset Mystery	10	
+10	Change all orbs to Fire, Water & Dark & Heart orbs. Reduces cooldown of other skills by 1 turn.	Sunset Zone	16	
+13	Change all orbs to Fire, Water & Dark & Heart orbs. Reduces cooldown of other skills by 2 turns.	Sunset Zone X	17	
+5	Randomly spawn 3 Wood & Dark orbs from non Wood & Dark orbs.	Super Power Hymn	10	
+10	Enhance Light & Dark orbs. +6% per orb. Give 10 seconds to move orbs without triggering matches.	Super Shinra - A. Lord Shin	20	
+12	Inflict Fire damage equal to ATK x50 to all enemies. Affected by enemy element and defense. Fire & Water attribute cards ATK x2 for 2 turns.	Super Shinra - Blazing God Devastation	20	
+12	Inflict Fire damage equal to ATK x50 to all enemies. Affected by enemy element and defense. Fire & Dark attribute cards ATK x2 for 2 turns.	Super Shinra - Gathering Cloud Devastation	20	
+8	Inflict Light damage equal to ATK x50 to all enemies. Affected by enemy element and defense. Dragon type cards ATK x2 for 1 turn.	Super Shinra - Light Dragon God Devastation	14	
+12	Inflict Light damage equal to ATK x50 to all enemies. Affected by enemy element and defense. Light & Water attribute cards ATK x2 for 2 turns.	Super Shinra - Oni Howl Devastation	20	
+12	Inflict Dark damage equal to ATK x50 to all enemies. Affected by enemy element and defense. Dark & Wood attribute cards ATK x2 for 2 turns.	Super Shinra - Sacred Dragon Devastation	20	
+12	Inflict Wood damage equal to ATK x50 to all enemies. Affected by enemy element and defense. Wood & Light attribute cards ATK x2 for 2 turns.	Super Shinra - Sacred Dragon God Devastation	20	
+12	Inflict Dark damage equal to ATK x50 to all enemies. Affected by enemy element and defense. Dark & Light attribute cards ATK x2 for 2 turns.	Super Shinra - Ultimate God Devastation	20	
+9	Change all orbs to Fire, Wood & Light orbs. Reduces cooldown of other skills by 1 turn.	Suzaku Seven-Star Formation	13	
+6	Fire attribute ATK x1.2 for 5 turns. Increases time limit of orb movement by 1 second for 5 turns.	Suzuran Harumichi's Gang is here	11	
+8	Recover 4000 HP. Bind recovery for 4 turns.	Sweet Perfume	18	
+15	Inflict Light damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense.	Sweet Shoot	20	
+6	Randomly spawn 3 Fire & Heart orbs from non Fire & Heart orbs. Bind recovery for 2 turns.	Sweet Words	11	
+12	Change top-most row into Water orbs and bottom-most row into Light orbs. Recover 50% of max HP.	Swords that give life	17	
+7	Randomly spawn 5 Fire orbs from non Fire orbs. 35% damage reduction for 3 turns.	Tactical Flame	12	
+7	Randomly spawn 5 Light orbs from non Light orbs.	Tail Lightning	15	
+13	Reduce 10% of all enemies' HP. Ignore enemy element and defense. Attacker & Dragon type cards ATK x2 for 2 turns.	Tail Strike Meow!	18	
+7	Change Dark orbs to Fire orbs, Light orbs to Water orbs.	Tears of a Clown	12	
+7	Removes lock status on orbs. Change Dark orbs to Wood orbs, Fire orbs to Light orbs.	Tempest Flash	12	
+8	Randomly spawn 6 Water orbs from non Water orbs. Delay 1 turn to all enemies.	Terror Wave	13	
+13	Delay 2 turns to all enemies. Change all orbs to Fire, Water & Dark & Heart orbs.	That is your sin!	18	
+8	Change own attribute to Fire for 2 turns. Devil type cards ATK x1.5 for 2 turns.	That's what you get!	18	
+7	Randomly spawn 4 Heart orbs from non Heart orbs. All attribute cards RCV x2 for 1 turn.	The 6 Wings Legend	17	
+8	Change Water orbs to Light orbs, Dark orbs to Heart orbs. Enhance Heart orbs. +6% per orb.	The Compliant Rod	13	
+8	Change Wood orbs to Fire orbs, Dark orbs to Heart orbs. Change Jammer, Poison & Mortal Poison orbs to Water orbs.	The Divine Swordset, Kusanagi	12	
+6	35% damage reduction for 3 turns.	The Feathered Garment of Yomi	13	
+12	Light attribute ATK x2 for 1 turn. Change all orbs to Fire, Water & Wood & Light & Dark & Heart orbs.	The gate's open!	17	
+7	Inflict Dark damage equal to ATK x200 to 1 enemy in exchange for reducing HP to 1. Affected by enemy element and defense. Randomly spawn 6 Heart orbs from non Dark & Heart orbs.	The Morning Star	22	
+7	Change left-most column into Water orbs. Reduces cooldown of other skills by 1 turn.	Then get stronger.	12	
+12	Inflict damage equal to ATK x10 to 1 enemy, and drain 100% of the damage you dealt. Affected by enemy element and defense. Attacker & Machine type cards ATK x1.5 for 4 turns.	The promised time has come	17	
+8	Change Fire orbs to Water orbs, Light orbs to Heart orbs. Enhance Heart orbs. +6% per orb.	The Sacred Blue Chains	13	
+6	Switch places with leader card. Use again to switch back.	The Switch	16	
+8	Change Wood orbs to Fire orbs, Dark orbs to Heart orbs. Enhance Heart orbs. +6% per orb.	The Sword Kusanagi	13	
+11	Reduce enemies' defense to 0 for 1 turn. Effects carry forward on sweep. Enhance Fire orbs. +6% per orb, up to +180% for full board.	The Third Eye	22	
+10	Change all orbs to Fire, Water & Wood & Light & Dark & Heart orbs. God & Attacker type cards ATK x1.5 for 1 turn.	The ties that bind you will show you the way.	15	
+5	Change right-most column into Wood orbs. Enhance Wood orbs. +6% per orb.	The time to annihilate you has come	10	
+8	Recover 25% of max HP. Enhance Wood & Fire orbs. +6% per orb, up to +180% for full board.	The Way of Yielding Firmness	18	
+10	Randomly spawn 3 Heart orbs from non Water & Heart orbs. 75% damage reduction for 1 turn.	This ain't a gamble, it's strategy!	15	
+12	Physical type cards ATK x1.5 for 3 turns. 35% damage reduction for 3 turns.	This ain't no fun and games	17	
+8	Change all orbs to Fire, Water & Wood & Light & Dark & Heart orbs. Increases time limit of orb movement by 150% for 1 turn.	This fight... is all mine!	13	
+9	Change all orbs to Heart, Light & Dark orbs.	This is a fight for me and me alone	14	
+12	Full HP recovery. Full bind recovery. Awoken Bind recovery for 9999 turns. 75% damage reduction for 1 turn.	This is linked to the future	17	
+10	Reduces cooldown of other skills by 1 turn. 75% damage reduction for 1 turn.	This is my duty as a knight!	15	
+7	Water attribute ATK x1.5 for 2 turns. Reduces cooldown of other skills by 1 turn.	This is my story!	13	
+14	ATK x1 + ( 0.3x for every Enhanced Light Attribute on the team ) for 2 turns.	This match is mine, Kudo!	19	
+15	Inflict Light damage equal to ATK x100 to 1 enemy. Affected by enemy element and defense. Physical & Attacker type cards ATK x2 for 2 turns.	This will end it	20	
+10	Deal 3000 Light damage to all enemies. Affected by enemy element and defense.	Thunder Ball	25	
+10	Inflict Light damage equal to ATK x5 to all enemies. Affected by enemy element and defense.	Thunder Breath	20	
+10	Deal 35000 Light damage to all Dark enemies. Affected by enemy element and defense.	Thunder Strike	15	
+10	+1 combo count for 1 turn. Change Dark orbs to Fire orbs, Heart orbs to Wood orbs.	Time for my trump card!	15	
+3	Randomly spawn 3 Heart orbs from non Light & Heart orbs.	Time for some moogle magic. Kupo!	4	
+10	Deal 300000 Water damage to 1 enemy in exchange for reducing HP to 1. Affected by enemy element and defense. Attacker & Machine type cards ATK x3 for 2 turns.	Time has come...	20	
+10	Give 6 seconds to move orbs without triggering matches.	Time's Coiled Spring	15	
+9	Change 2nd row from the bottom into Wood orbs. +1 combo count for 1 turn.	Time to meet your maker!	14	
+13	100% damage reduction for 1 turn. Full bind recovery.	Tokei Koho	20	
+5	Deal 30000 Wood damage to all enemies. Affected by enemy element and defense. Enhance Wood orbs. +6% per orb, up to +180% for full board.	Tornado Cannon	20	
+7	Change left-most column into Wood orbs. Reduces cooldown of other skills by 1 turn.	Tornado Signal	12	
+5	Change bottom-most row into Wood orbs.	Tree Spell	9	
+5	Randomly spawn 3 Dark & Jammer orbs from non Dark & Jammer orbs. Increase skyfall chance of Jammer orbs by 20% for 1 turns.	Trembling Sky Roar	10	
+15	50% damage reduction for 2 turns. Dragon & Machine type cards ATK x2 for 2 turns.	Triface	20	
+3	Switch places with leader card. Use again to switch back.	Truce Negotiations	13	
+15	Change all orbs to Fire orbs. Deal 200000 Fire damage to all enemies in exchange for reducing HP to 1. Affected by enemy element and defense.	True Ninja Art Fireworks	20	
+7	Randomly spawn 4 Dark orbs from non Dark orbs. +1 combo count for 1 turn.	Trust in me...	12	
+8	Change Fire orbs to Water orbs, Light orbs to Heart orbs. Change Jammer, Poison & Mortal Poison orbs to Wood orbs.	Turquoise Starchains	12	
+18	Inflict damage equal to ATK x200 to 1 enemy. Affected by enemy element and defense.	Twin Pole Oni Flame Slash	28	
+7	Change Water orbs to Light orbs, Fire orbs to Heart orbs. Change own attribute to Light for 2 turns.	Ulidian Light	12	
+15	Reduces cooldown of other skills by 1 turn. Inflict Dark nuke damage equal to team Water ATK x10 to all enemies.	Ultimate Jecht Shot	25	
+15	Reduce 30% of all enemies' HP. Ignore enemy element and defense.	Ultra Gravity	30	
+9	Change Heart & Wood orbs to Fire orbs.	Ultra Heat Up	16	
+7	Randomly spawn 6 Dark orbs from non Dark orbs. Bind recovery for 3 turns.	Unifying Magic Bullets	12	
+11	Devil type cards ATK x4 for 1 turn. Inflict Dark damage equal to ATK x10 to all enemies in exchange for reducing HP to 1. Affected by enemy element and defense.	Unparalleled Destructive Strike	16	
+6	Change Heart & Poison orbs to Wood orbs. Recover 3000 HP. Bind recovery for 3 turns.	Unwavering Faith	12	
+7	Removes lock status on orbs. Change Dark orbs to Water orbs, Wood orbs to Fire orbs.	Unyielding Arrows	12	
+8	Reduce 10% of all enemies' HP. Ignore enemy element and defense. Enhance Fire orbs. +6% per orb, up to +180% for full board.	Ur Fever!!	14	
+6	All attribute cards RCV x2 for 2 turns. Bind recovery for 2 turns.	Vamos, Amigo!	6	
+15	Inflict Water damage equal to ATK x200 to 1 enemy in exchange for reducing HP to 1. Affected by enemy element and defense. Change all orbs to Water orbs.	Vast Dawn	30	
+5	Inflict Wood damage equal to ATK x20 to 1 enemy. Affected by enemy element and defense. 30% damage reduction for 1 turn.	Verdant Sea Dragon Broadside	18	
+6	Inflict Water damage equal to ATK x50 to all enemies. Affected by enemy element and defense. Physical type cards ATK x1.2 for 6 turns.	Vik Enhance	16	
+11	Bind recovery for 3 turns.Awoken Bind recovery for 3 turns. Change all orbs to Wood, Dark & Heart orbs.	Virtuous Compassion	15	
+8	Delay 1 turn to all enemies. Dark attribute ATK x1.5 for 1 turn.	Virtuous Foundation	11	
+13	+2 combo count for 1 turn. Change all orbs to Wood, Dark & Heart orbs.	Virtuous Prayer	18	
+7	Counter 5x damage taken with Water for 1 turn. Reduces cooldown of other skills by 1 turn.	Vortex Counter	11	
+8	Reduces cooldown of other skills by 1 turn. Reshuffle all orbs.	ボルメテウス・W・フレア	13	
+10	Inflict Fire nuke damage equal to team Water ATK x10 to all enemies. Increases time limit of orb movement by 2 seconds for 1 turn.	Waaaaaaaah!	20	
+8	Change Fire orbs to Light orbs, Water orbs to Heart orbs. Enhance Light orbs. +6% per orb, up to +180% for full board.	Wakizashi's Vow	13	
+6	Increase skyfall chance of Water orbs by 15% for 3 turns. Randomly spawn 2 Water orbs from non Water orbs.	Water Awakening	15	
+9	Reduces cooldown of other skills by 1 turn. Water attribute ATK x1.5 for 3 turns.	Water Enhancement	17	
+5	Change Wood orbs to Water orbs.	Water Orb Change	9	
+10	Avoid all Fire  damage for 3 turns. Enhance Water orbs. +6% per orb, up to +180% for full board.	Water Rapids Field	20	
+8	Change Fire & Wood orbs to Water orbs.	Water Ring Jail	13	
+6	Change Water & Jammer orbs to Wood orbs. Change Heart, Poison & Mortal Poison orbs to Water orbs.	Water&Wood Orbs Change	13	
+15	Fire & Dark attribute cards ATK x2 for 1 turn. Reduces cooldown of other skills by 2 turns.	We have arrived!	20	
+7	Increase skyfall chance of Wood & Light orbs by 10% for 5 turn. Reduces cooldown of other skills by 1 turn.	We'll destroy you and prove you wrong!	12	
+9	Balanced type cards ATK x1.5 for 3 turns. Reduces cooldown of other skills by 1 turn.	Well, let's start	14	
+6	30% damage reduction for 4 turns.	We must take measures now.	11	
+10	Change all orbs to Fire, Light & Heart orbs. Increases time limit of orb movement by 150% for 2 turns.	We're friends, aren't we?	14	
+5	Increase skyfall chance of Dark orbs by 15% for 2 turns. Randomly spawn 2 Dark orbs from non Dark orbs.	We're gonna settle this!	10	
+8	Change all orbs to Fire, Water & Dark orbs.	Western Seven-Star Formation	14	
+8	Change Wood orbs to Water orbs, Heart orbs to Dark orbs. Increase skyfall chance of Water orbs by 15% for 4 turns.	What am I supposed to do now?	13	
+5	Give 7 seconds to move orbs without triggering matches.	What are you, stupid?	15	
+6	Change Heart, Jammer, Poison & Mortal Poison orbs to Water orbs. Attacker type cards ATK x1.25 for 1 turn.	What Color is Your Blood?!	11	
+4	Randomly spawn 2 Wood & Heart orbs from non Wood & Heart orbs.	What say we be friends!	14	
+11	Change top-most row into Dark orbs. 50% damage reduction for 1 turn.	What would Rei Ayanami do?	16	
+3	Removes lock status on orbs. Randomly spawn 2 Heart orbs from non Light & Heart orbs.	Where am I?	8	
+5	Change Light orbs to Water orbs.	Whirlwind Scoop's Technique	10	
+12	Randomly spawn 4 Dark orbs from non Dark orbs. Physical type cards ATK x2 for 1 turn.	Who wanna die come here!!	17	
+5	All attacks become multi-target for 3 turns. Increases time limit of orb movement by 2 seconds for 1 turn.	Wild Cats	9	
+6	All attacks become multi-target for 3 turns. Reduce enemies' defense by 50% for 3 turns. Effects carry forward on sweep.	Wild Cats X	10	
+19	Ignores enemy damage absorb effects for 1 turn ( does not include combo shield, attribute absorb, and damage void ). Reduces cooldown of other skills by 1 turn.	Wild Wind	24	
+5	Deal 1000 Wood damage to all enemies. Affected by enemy element and defense.	Wind Ball	10	
+5	Inflict Wood damage equal to ATK x3 to all enemies. Affected by enemy element and defense.	Wind Breath	10	
+5	Inflict Wood damage equal to ATK x3 to all enemies. Affected by enemy element and defense.	Wind Breath	10	
+8	Change top-most row into Wood orbs. Reduces cooldown of other skills by 1 turn.	Wind Charge	13	
+10	Inflict Wood damage equal to ATK x20 to all enemies. Affected by enemy element and defense. Recover 1000 HP.	Wind Seed Breath	20	
+11	Change top-most row into Wood orbs. Deal 1000 damage to all enemies. Ignore enemy element and defense.	Wind Spiral	31	
+6	Switch places with leader card. Use again to switch back.	Wisdom of the Ancients	23	
+8	Randomly spawn 3 Fire & Heart orbs from non Fire & Heart orbs. +1 combo count for 1 turn.	Wisdom of the Flames	13	
+10	Change all orbs to Fire, Wood & Light orbs. +1 combo count for 1 turn.	Wisdom of the Trees	15	
+5	Randomly spawn 3 Dark orbs from non Dark orbs. Bind recovery for 2 turns.	With the Yang & Ying of Heaven and Earth I command you!	10	
+10	Change Light orbs to Jammer orbs. Delay 1 turn to all enemies.	Won't you accept defeat!?	20	
+6	Increase skyfall chance of Wood orbs by 15% for 3 turns. Randomly spawn 2 Wood orbs from non Wood orbs.	Wood Awakening	15	
+5	Change Fire orbs to Wood orbs.	Wood Orb Change	9	
+5	Give 5 seconds to move orbs without triggering matches.	World	15	
+8	Enhance Fire, Water, Wood, Light, Dark & Heart orbs. +6% per orb. Increases time limit of orb movement by 5 seconds for 3 turns.	World of the Gleaming Moon	12	
+15	Inflict Dark damage equal to ATK x300 to 1 enemy in exchange for reducing HP to 1. Affected by enemy element and defense. Randomly spawn 6 Dark orbs from non Dark orbs.	World's End	35	
+20	Reduce 35% of all enemies' HP. Ignore enemy element and defense.	Wrath of God	35	
+27	Reduce 35% of all enemies' HP. Ignore enemy element and defense. God type cards ATK x1.5 for 1 turn.	Wrath of God X	31	
+22	Reduce 35% of all enemies' HP. Ignore enemy element and defense. Increases time limit of orb movement by 200% for 1 turn.	Wrath of Zeus	37	
+10	Physical type cards ATK x1.5 for 1 turn. Randomly spawn 6 Light orbs from non Light orbs.	Yellow Season	15	
+7	Reduce enemies' defense by 75% for 2 turns. Effects carry forward on sweep. Change Water orbs to Fire orbs, Heart orbs to Dark orbs.	Yomi Wave	12	
+5	Change right-most column into Fire orbs. Enhance Fire orbs. +6% per orb.	You and your ambition burn to ashes!	10	
+8	Wood attribute ATK x2.5 for 2 turns. Inflict Wood damage equal to ATK x10 to all enemies in exchange for reducing HP to 1. Affected by enemy element and defense.	...You are a fool.	13	
+12	Reduce enemies' defense to 0 for 1 turn. Effects carry forward on sweep. Increases time limit of orb movement by 7 seconds for 1 turn.	You Are Already Dead	20	
+12	Change Fire, Wood, Jammer, Poison & Mortal Poison orbs to Dark orbs. +1 combo count for 1 turn.	You either live or you die!	17	
+10	Deal 99 damage to all enemies. Ignore enemy element and defense. Change Dark & Jammer orbs to Fire orbs.	You filthy punks!	15	
+12	Change Water & Heart orbs to Fire orbs. +1 combo count for 2 turns.	You have not learned your lesson.	17	
+6	Change Heart, Poison & Mortal Poison orbs to Light orbs. Increases time limit of orb movement by 150% for 2 turns.	You're a brave one	10	
+6	Change Dark & Jammer orbs to Wood orbs. Recover 30% of max HP.	You really are a basket case	11	
+9	Attacker type cards ATK x2.5 for 1 turn.	You're nothing more than a puppet!	19	
+7	Inflict Poison damage equal to ATK x1 to all enemies every turn. Ignore enemy element and defense. Reduces time limit of orb movement to 50% for 1 turn.	You're out of moves...	17	
+10	Randomly spawn 5 Fire orbs from non Fire orbs. All attacks become multi-target for 1 turn.	You stubborn fool...	20	
+4	Bind recovery for 2 turns. Deal 99 damage to 1 enemy. Ignore enemy element and defense.	Youth Light	9	
+6	Change Heart orbs to Dark orbs. Bind recovery for 1 turn.	Zone of Darkness	11	
+4	Reduce enemies' defense by 25% for 1 turn. Effects carry forward on sweep. Inflict Fire damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense.	一握りの火薬	8	
+20	Full HP recovery.	仙豆	20	
+11	Inflict Light damage equal to ATK x100 to 1 enemy. Affected by enemy element and defense. Change all orbs to Fire, Wood & Light & Heart orbs.	オレが会長の遺志を継ぐ	12	
+13	Inflict damage equal to ATK x10 to 1 enemy. Affected by enemy element and defense. Healer type cards ATK x1.5 for 2 turns.	僕、ちょっと強いかも	18	
+12	Avoid all Light  damage for 1 turn.	光吸収	22	
+7	Wood attribute ATK x1.5 for 1 turn. Reduces cooldown of other skills by 1 turn.	タオパブの力	13	
+20	75% damage reduction for 4 turns.	勝負は今!!ここで決める!!	25	
+15	Reduce 25% of all enemies' HP. Ignore enemy element and defense.	北斗剛掌波デビ～！	15	
+5	Recover 3000 HP. Bind recovery for 3 turns.	友との約束	9	
+10	Change all orbs to Light, Heart & Jammer orbs. Inflict Poison damage equal to ATK x1 to all enemies every turn. Ignore enemy element and defense.	呪炎の毒牙	15	
+5	Recover 20% of max HP.	回復薬	5	
+8	35% damage reduction for 1 turn. Change 2nd row from the bottom into Fire orbs.	回転斬り	16	
+7	Reduce enemies' defense by 75% for 2 turns. Effects carry forward on sweep. Reduces cooldown of other skills by 1 turn.	壱乃掌	11	
+13	35% damage reduction for 1 turn. Dragon type cards ATK x1.5 for 1 turn.	変身	18	
+8	Removes lock status on orbs. Change Dark orbs to Water orbs, Wood orbs to Heart orbs.	大竜巻	13	
+12	Delay 3 turns to all enemies. Recover 4000 HP. Bind recovery for 3 turns.	尖聖剣	16	
+7	Reduces cooldown of other skills by 1 turn. Change 2nd column from the left into Dark orbs.	尻尾たたき付け	12	
+12	Inflict Poison damage equal to ATK x50 to all enemies every turn. Ignore enemy element and defense. Delay 2 turns to all enemies.	サマーソルト尻尾攻撃	17	
+9	Dragon & Attacker type cards ATK x2 for 1 turn. Change 2nd column from the right into Fire orbs.	尻尾砥ぎ	14	
+8	Change left-most column into Wood orbs and the right-most column into Light orbs. +1 combo count for 1 turn.	廬山百龍覇	12	
+10	Deal 1000 damage to all enemies. Ignore enemy element and defense. Change all orbs to Fire, Water & Wood & Light & Dark orbs.	彗星	15	
+19	Delay 4 turns to all enemies. Reduce 10% of all enemies' HP. Ignore enemy element and defense.	律する小指の鎖	23	
+7	Inflict damage equal to ATK x80 to 1 enemy. Affected by enemy element and defense. Change Wood, Poison & Mortal Poison orbs to Water orbs.	必殺剣	13	
+12	Change all orbs to Fire & Wood orbs.	お怒りニャ！	16	
+7	Deal Dark damage to all enemies based on player's HP %. ATK x10 at 100% HP up to ATK x150 at 1 HP. Affected by enemy element and defense.	“怨”	11	
+4	Randomly spawn 2 Dark orbs from non Dark orbs. Enhance Dark orbs. +6% per orb, up to +180% for full board.	悪魔龍の滅角	13	
+6	Change Jammer orbs to Dark orbs.	ブラック戒律発動	16	
+9	Deal 100000 damage to 1 enemy. Ignore enemy element and defense. Delay 1 turn to all enemies.	ジャジャン拳・グー	13	
+10	Dragon & Devil type cards ATK x2.5 for 1 turn. Enhance Dark orbs. +6% per orb, up to +180% for full board.	ジワジワ攻めるニャ！	16	
+7	35% damage reduction for 3 turns. Increases time limit of orb movement by 150% for 3 turns.	敬虔な祈り	22	
+10	Deal 10000 damage to 1 enemy. Ignore enemy element and defense.	暗黒魔界の炎	20	
+8	Deal 99 damage to all enemies. Ignore enemy element and defense. Randomly spawn 5 Dark orbs from non Dark orbs.	曲射	16	
+18	Inflict Light damage equal to ATK x200 to 1 enemy. Affected by enemy element and defense.	最高の技	23	
+6	Change Heart & Jammer orbs to Wood orbs. Bind recovery for 2 turns.	木星創世	10	
+8	Inflict damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense. Physical type cards ATK x2 for 1 turn.	桃色吐息	11	
+11	Reduces cooldown of other skills by 1 turn. Change all orbs to Fire, Wood & Light & Dark & Heart orbs.	死神の円舞曲	15	
+9	Delay 1 turn to all enemies. Deal 100000 damage to 1 enemy. Ignore enemy element and defense.	気円斬	13	
+5	+1 combo count for 1 turn.	気刃斬り	13	
+11	Deal 10000 damage to all enemies. Ignore enemy element and defense. Change all orbs to Fire, Wood & Dark orbs.	ダブル気功波	16	
+9	Delay 2 turns to all enemies. Inflict Wood damage equal to ATK x80 to 1 enemy in exchange for reducing HP to 1. Affected by enemy element and defense.	気功砲	13	
+10	Recover 50% of max HP. Bind recovery for 2 turns.	治癒能力	16	
+10	All attribute cards RCV x3 for 6 turns. Increase skyfall chance of Heart orbs by 15% for 6 turns.	泡ブレス	15	
+9	Physical & Dragon type cards ATK x2.5 for 1 turn. Inflict damage equal to ATK x100 to 1 enemy. Affected by enemy element and defense.	かめはめ波	15	
+9	Avoid all Light  damage for 2 turns. Inflict damage equal to ATK x50 to 1 enemy. Affected by enemy element and defense.	どどん波	13	
+999	Unknown - needs data update	湯けむり大解放	999	
+11	Delay 2 turns to all enemies. Reduce 10% of all enemies' HP. Ignore enemy element and defense.	溜め攻撃	19	
+14	ATK x1 + ( 0.5x for every Dragon Killer on the team ) for 2 turns.	溜め斬り	22	
+13	Change all orbs to Light & Heart orbs. Recover 40% of max HP. Bind recovery for 4 turns.	溢れ出す知識	18	
+9	Delay 2 turns to all enemies.	牽制するニャ！	13	
+24	Enhance Fire, Water, Wood, Light, Dark & Heart orbs. +6% per orb. Deals damage equal to 25% of enemies' max HP.	狂暴走水蒸気爆発	29	
+13	God type cards ATK x1.3 for 1 turn. Inflict Light damage equal to ATK x30 to all enemies. Affected by enemy element and defense.	王の一手	22	
+4	All attacks become multi-target for 2 turns. Increases time limit of orb movement by 1 second for 2 turns.	理力パワー増大	8	
+4	Activate a random skill. This includes: 密室遊魚, 蛇咬の舞, 念糸縫合, 携帯する他人の運命, 廻天, 神の左手悪魔の右手, 記憶を読み取る能力	盗賊の極意	8	
+10	Change top-most row into Light orbs. Heal for 30% of max HP every turn for 3 turns.	私が賭けたのはここからだから	15	
+7	Change all orbs to Fire, Wood & Jammer orbs.	突進	12	
+4	Randomly spawn 2 Light orbs from non Light orbs. Enhance Light orbs. +6% per orb, up to +180% for full board.	精霊龍の煌牙	13	
+5	Inflict Light damage equal to ATK x40 to 1 enemy. Affected by enemy element and defense. Enhance Light orbs. +6% per orb, up to +180% for full board.	素早い攻撃ニャ！	15	
+999	Unknown - needs data update	絶景大花火	999	
+10	Recover 25% of max HP. Change all orbs to Light, Dark & Heart orbs.	継界宿龍陣・闇光命	15	
+10	Recover 25% of max HP. Change all orbs to Wood, Dark & Heart orbs.	継界宿龍陣・闇木命	15	
+10	Recover 25% of max HP. Change all orbs to Water, Dark & Heart orbs.	継界宿龍陣・闇水命	15	
+10	Recover 25% of max HP. Change all orbs to Fire, Dark & Heart orbs.	継界宿龍陣・闇火命	15	
+10	Recover 25% of max HP. Change all orbs to Dark, Heart & Jammer orbs.	継界宿龍陣・闇魔命	15	
+11	Change top-most row into Water orbs. Dragon type cards ATK x2 for 1 turn.	緑のドラゴンリキッド	21	
+5	Inflict Fire damage equal to ATK x50 to all enemies. Affected by enemy element and defense. All attacks become multi-target for 5 turns.	繰気弾	9	
+8	Change Light orbs to Wood orbs, Dark orbs to Heart orbs. Recover 30% of max HP.	聖樹の審判	12	
+8	Change Light orbs to Water orbs, Dark orbs to Heart orbs. Recover 30% of max HP.	聖氷の審判	12	
+8	Change Light orbs to Fire orbs, Dark orbs to Heart orbs. Recover 30% of max HP.	聖炎の審判	12	
+7	Change Poison & Water orbs to Light orbs. Reduces cooldown of other skills by 1 turn.	聖霊光	12	
+20	Inflict Wood damage equal to ATK x80 to 1 enemy in exchange for reducing HP to 1. Affected by enemy element and defense.	自爆	35	
+6	Increase skyfall chance of Fire & Wood orbs by 10% for 3 turn. Randomly spawn 2 Fire & Wood orbs from non Fire & Wood orbs.	舞空術	11	
+3	Change Wood orbs to Poison orbs. Reduce enemies' defense by 50% for 1 turn. Effects carry forward on sweep.	モルボル菌	11	
+7	Change left-most column into Heart orbs.	お菓子光線	15	
+9	Deal 10000 damage to all enemies. Ignore enemy element and defense. Delay 1 turn to all enemies.	落雷	13	
+9	+1 combo count for 1 turn. Change top-most row into Light orbs.	落雷突進	14	
+4	30% damage reduction for 2 turns.	薄っぺらな嘘	8	
+10	Randomly spawn 5 Water orbs from non Water orbs. Dragon type cards ATK x2 for 1 turn.	赤のドラゴンリキッド	25	
+9	Deal 150000 damage to 1 enemy. Ignore enemy element and defense. Delay 1 turn to all enemies.	超ベジットソード	14	
+18	Inflict Fire damage equal to ATK x200 to 1 enemy. Affected by enemy element and defense. Devil type cards ATK x3 for 2 turns.	超悪魔の魔炎	22	
+6	Inflict damage equal to ATK x100 to 1 enemy. Affected by enemy element and defense. Enhance Water & Light orbs. +6% per orb, up to +180% for full board.	超かめはめ波	13	
+7	Inflict damage equal to ATK x80 to 1 enemy. Affected by enemy element and defense. Change Heart & Jammer orbs to Wood orbs.	超爆裂魔破	13	
+9	Inflict damage equal to ATK x100 to 1 enemy. Affected by enemy element and defense. Enhance Wood & Dark orbs. +6% per orb, up to +180% for full board.	超級かめはめ波	15	
+12	Inflict Wood damage equal to ATK x50 to 1 enemy, and drain 50% of the damage you dealt. Affected by enemy element and defense. Change all orbs to Water, Wood & Heart orbs.	超遠距離撃破パワー砲	16	
+9	Randomly spawn 3 Water, Wood & Dark orbs from non Water, Wood & Dark orbs. Delay 1 turn to all enemies.	踏みならし	14	
+10	Recover 832 HP.	ファミ通Appの声援	10	
+12	Deal 832 damage to all enemies. Ignore enemy element and defense.	ファミ通 App の大激怒	12	
+3	Deal 832 Light damage to all enemies. Affected by enemy element and defense.	ファミ通 App の怒り	3	
+10	Recover 3000 HP. Bind recovery for 3 turns.	ファミ通Appの祝福	10	
+999	Unknown - needs data update	ファミ通の天眼	999	
+13	+2 combo count for 1 turn. Reduces cooldown of other skills by 2 turns.	降り立つ狂気	18	
+13	Removes lock status on orbs. 100% damage reduction for 1 turn.	障害除去の知恵	17	
+10	Delay 2 turns to all enemies. Increase skyfall chance of Light orbs by 15% for 2 turns.	電気ブレス	15	
+10	Change left-most column into Water orbs. Dragon type cards ATK x2 for 1 turn.	青のドラゴンリキッド	20	
+11	Change all orbs to Fire, Water & Light & Heart orbs. +1 combo count for 1 turn.	音なき不意打ちニャ！	15	
+11	+1 combo count for 3 turns.	鬼人化	19	
+8	Change bottom-most row into Dark orbs. Reduces cooldown of other skills by 1 turn.	魔弾ロマノフ・ストライク	13	
+18	Inflict Dark damage equal to ATK x200 to 1 enemy. Affected by enemy element and defense.	魔貫光殺砲	22	

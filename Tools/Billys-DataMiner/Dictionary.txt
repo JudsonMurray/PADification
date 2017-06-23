@@ -1,0 +1,2883 @@
+MonsterID	MonsterName	MonsterNameJP	Rarity	AttributeOne	MaxLevel	NumOfAwokenSkills
+1	Tyrra	ティラ	2	1	5	0	
+2	Tyran	ティラン	3	1	15	0	
+3	Tyrannos	ティラノス	4	1	35	0	
+4	Firedragon Tyrannos	爆炎龍ティラノス	5	1	99	3	
+5	Plessie	プレシィ	2	2	5	0	
+6	Plesiel	プレシィール	3	2	15	0	
+7	Plesios	プレシオス	4	2	35	0	
+8	Icedragon Plesios	氷塊龍プレシオス	5	2	99	3	
+9	Brachy	ブラッキィ	2	3	5	0	
+10	Brachio	ブラッキオ	3	3	15	0	
+11	Brachys	ブラキオス	4	3	35	0	
+12	Flowerdragon Brachys	大花龍ブラキオス	5	3	99	3	
+13	Pterra	プテーラ	2	4	5	0	
+14	Pteras	プテラス	3	4	15	0	
+15	Pterados	プテラドス	4	4	35	0	
+16	Sundragon Pterados	太陽龍プテラドス	5	4	99	3	
+17	Spinon	スピノン	2	5	5	0	
+18	Spinas	スピナス	3	5	15	0	
+19	D'spinas	デスピナス	4	5	35	0	
+20	Moondragon D'spinas	月光龍デスピナス	5	5	99	3	
+21	Lil' Red Dragon	レッドコドラ	2	1	15	0	
+22	Red Dragon	レッドドラゴン	3	1	25	0	
+23	Volcano Dragon	ボルケーノドラゴン	4	1	70	0	
+24	Lil' Blue Dragon	ブルーコドラ	2	2	15	0	
+25	Blue Dragon	ブルードラゴン	3	2	25	0	
+26	Aurora Dragon	オーロラドラゴン	4	2	70	0	
+27	Lil' Green Dragon	グリーンコドラ	2	3	15	0	
+28	Green Dragon	グリーンドラゴン	3	3	25	0	
+29	Earth Dragon	アースドラゴン	4	3	70	0	
+30	Lil' White Dragon	ホワイトコドラ	2	4	15	0	
+31	White Dragon	ホワイトドラゴン	3	4	25	0	
+32	Holy Dragon	ホーリードラゴン	4	4	70	0	
+33	Lil' Black Dragon	ブラックコドラ	2	5	15	0	
+34	Black Dragon	ブラックドラゴン	3	5	25	0	
+35	Devil Dragon	デビルドラゴン	4	5	70	0	
+36	Flamie	ホノりん	1	1	10	0	
+37	Big Flamie	デカホノりん	2	1	30	0	
+38	Bubblie	アワりん	1	2	10	0	
+39	Big Bubblie	デカアワりん	2	2	30	0	
+40	Woodsie	モリりん	1	3	10	0	
+41	Big Woodsie	デカモリりん	2	3	30	0	
+42	Shynee	ヒカりん	1	4	10	0	
+43	Big Shynee	デカヒカりん	2	4	30	0	
+44	Baddie	ワルりん	1	5	10	0	
+45	Big Baddie	デカワルりん	2	5	30	0	
+46	Red Carbuncle	レッドカーバンクル	1	1	10	0	
+47	Ruby Carbuncle	ルビーカーバンクル	2	1	30	0	
+48	Blue Carbuncle	ブルーカーバンクル	1	2	10	0	
+49	Sapphire Carbuncle	サファイアカーバンクル	2	2	30	0	
+50	Green Carbuncle	グリーンカーバンクル	1	3	10	0	
+51	Emerald Carbuncle	エメラルドカーバンクル	2	3	30	0	
+52	Yellow Carbuncle	イエローカーバンクル	1	4	10	0	
+53	Topaz Carbuncle	トパーズカーバンクル	2	4	30	0	
+54	Purple Carbuncle	パープルカーバンクル	1	5	10	0	
+55	Amethyst Carbuncle	アメジストカーバンクル	2	5	30	0	
+56	Red Goblin	レッドゴブリン	1	1	10	0	
+57	Samurai Goblin	武者ゴブリン	2	1	30	0	
+58	Blue Goblin	ブルーゴブリン	1	2	10	0	
+59	Marine Goblin	マリンゴブリン	2	2	30	0	
+60	Goblin	ゴブリン	1	3	10	0	
+61	Hobgoblin	ホブゴブリン	2	3	30	0	
+62	Red Ogre	レッドオーガ	2	1	15	0	
+63	Samurai Ogre	サムライオーガ	3	1	50	2	
+64	Blue Ogre	ブルーオーガ	2	2	15	0	
+65	Ice Ogre	アイスオーガ	3	2	50	2	
+66	Ogre	オーガ	2	3	15	0	
+67	Armor Ogre	アーマーオーガ	3	3	50	2	
+68	Flame Fighter	フレイムファイター	2	1	15	0	
+69	Flame Knight	フレイムナイト	3	1	50	0	
+70	Aqua Fighter	アクアファイター	2	2	15	0	
+71	Aqua Knight	アクアナイト	3	2	50	0	
+72	Earth Fighter	アースファイター	2	3	15	0	
+73	Earth Knight	アースナイト	3	3	50	0	
+74	White Fighter	ホワイトファイター	2	4	15	0	
+75	White Knight	ホワイトナイト	3	4	50	0	
+76	Black Fighter	ブラックファイター	2	5	15	0	
+77	Black Knight	ブラックナイト	3	5	50	0	
+78	Flame Golem	フレイムゴーレム	3	1	25	0	
+79	Flame Guardian	フレイムガーディアン	4	1	70	0	
+80	Ice Golem	アイスゴーレム	3	2	25	0	
+81	Ice Guardian	アイスガーディアン	4	2	70	0	
+82	Earth Golem	アースゴーレム	3	3	25	0	
+83	Earth Guardian	アースガーディアン	4	3	70	0	
+84	Machine Golem	マシンゴーレム	3	4	25	0	
+85	Machine Golem Mk.II	マシンゴーレムMk-II	4	4	70	0	
+86	Dark Golem	ダークゴーレム	3	5	25	0	
+87	Dark Golem Mk.II	ダークゴーレムMk-II	4	5	70	0	
+88	Naga	ナーガ	3	1	25	0	
+89	Echidna	エキドナ	4	1	70	0	
+90	Mermaid	マーメイド	3	2	25	0	
+91	Siren	セイレーン	4	2	70	0	
+92	Dryad	ドリヤード	3	3	25	0	
+93	Mandrake	アルラウネ	4	3	70	0	
+94	Cupid	キューピッド	3	4	25	0	
+95	Angel	エンジェル	4	4	70	0	
+96	Succubus	サキュバス	3	5	25	0	
+97	Lilith	リリス	4	5	70	0	
+98	Mystic Flame Knight	炎の魔剣士	3	1	25	0	
+99	Phoenix Knight	フェニックスナイト	4	1	70	0	
+100	Mystic Ice Knight	氷の魔剣士	3	2	25	0	
+101	Fenrir Knight	フェンリルナイト	4	2	70	0	
+102	Mystic Stone Knight	岩の魔剣士	3	3	25	0	
+103	Dragon Knight	ドラゴンナイト	4	3	70	0	
+104	Mystic Light Knight	光の魔剣士	3	4	25	0	
+105	Verche	ヴァーチェ	4	4	70	0	
+106	Titan	タイタン	3	1	25	0	
+107	Gigas	ギガンテス	4	1	70	0	
+108	Mystic Dark Knight	闇の魔剣士	3	5	25	0	
+109	Dark Dragon Knight	ダークドラゴンナイト	4	5	70	0	
+110	Vampire	ヴァンパイア	3	5	25	0	
+111	Vampire Lord	ヴァンパイアロード	4	5	70	0	
+112	Salamander	サラマンダー	4	1	35	0	
+113	Ifrit	イフリート	5	1	99	3	
+114	Sea Serpent	シーサーペント	4	2	35	0	
+115	Leviathan	リヴァイアサン	5	2	99	3	
+116	Dragonette	ドラゴネット	4	3	35	0	
+117	Fafnir	ファフニール	5	3	99	3	
+118	Ivory Dragon	白龍	4	4	35	0	
+119	Divinegon	神龍	5	4	99	3	
+120	Basilisk	バジリスク	4	5	35	0	
+121	Tiamat	ティアマット	5	5	99	3	
+122	Minerva	ミネルヴァ	5	1	50	0	
+123	War Deity Minerva	戦女神・ミネルヴァ	6	1	99	4	
+124	Neptune	ネプチューン	5	2	50	0	
+125	Sea Deity Neptune	海王神・ネプチューン	6	2	99	4	
+126	Ceres	セレス	5	3	50	0	
+127	Fertility Deity Ceres	豊穣神・セレス	6	3	99	4	
+128	Venus	ヴィーナス	5	4	50	0	
+129	Love Deity Venus	慈愛神・ヴィーナス	6	4	99	4	
+130	Hades	ハーデス	5	5	50	0	
+131	Underlord Hades	冥界神・ハーデス	6	5	99	4	
+132	Kagutsuchi	カグツチ	5	1	50	0	
+133	Hino Kagutsuchi	ヒノカグツチ	6	1	99	4	
+134	Viper Orochi	オロチ	5	2	50	0	
+135	Demon Viper Orochi	ヤマタノオロチ	6	2	99	4	
+136	Susano	スサノオ	5	3	50	0	
+137	Susano no Mikoto	スサノオノミコト	6	3	99	4	
+138	Amaterasu	アマテラス	5	4	50	0	
+139	Amaterasu Ohkami	アマテラスオオカミ	6	4	99	4	
+140	Yomi	ヨミ	5	5	50	0	
+141	Tsuku Yomi	ツクヨミ	6	5	99	4	
+142	Flamedragon Muspelheim	炎龍・ムスプルヘイム	6	1	99	2	
+143	Ice Dragon Niflheim	氷龍・ニブルヘイム	6	2	99	2	
+144	Isle Dragon Yggdrasil	島龍・ユグドラシル	6	3	99	2	
+145	Mechadragon Valhalla	機龍・ヴァルハラ	6	4	99	2	
+146	Evil Dragon Helheim	邪龍・ヘルヘイム	6	5	99	2	
+147	Keeper of Flame	炎の番人	4	1	1	0	
+148	Keeper of Water	水の番人	4	2	1	0	
+149	Keeper of Forest	森の番人	4	3	1	0	
+150	Keeper of Light	光の番人	4	4	1	0	
+151	Keeper of Dark	闇の番人	4	5	1	0	
+152	Dragon Seed	ドラゴンシード	2	3	1	0	
+153	Dragon Plant	ドラゴンプラント	3	3	1	0	
+154	Dragon Flower	ドラゴンフラワー	4	3	1	0	
+155	Rubylit	ルビリット	2	1	1	0	
+156	Sapphilit	サファリット	2	2	1	0	
+157	Emelit	エメリット	2	3	1	0	
+158	Topalit	トパリット	2	4	1	0	
+159	Amelit	アメリット	2	5	1	0	
+160	Mythlit	ミスリット	5	5	1	0	
+161	Red Evolution Mask	進化の赤仮面	1	1	1	0	
+162	Blue Evolution Mask	進化の青仮面	1	2	1	0	
+163	Green Evolution Mask	進化の緑仮面	1	3	1	0	
+164	Yellow Evolution Mask	進化の黄仮面	1	4	1	0	
+165	Purple Evolution Mask	進化の紫仮面	1	5	1	0	
+166	Crimson Demon Mask	朱色の鬼神面	3	1	1	0	
+167	Indigo Demon Mask	蒼色の鬼神面	3	2	1	0	
+168	Azure Demon Mask	碧色の鬼神面	3	3	1	0	
+169	Golden Demon Mask	黄金の鬼神面	3	4	1	0	
+170	Violet Demon Mask	紫色の鬼神面	3	5	1	0	
+171	Divine Carmine Mask	神化の紅面	5	1	1	0	
+172	Divine Indigo Mask	神化の蒼面	5	2	1	0	
+173	Divine Jade Mask	神化の碧面	5	3	1	0	
+174	Divine Gold Mask	神化の金面	5	4	1	0	
+175	Divine Onyx Mask	神化の黒面	5	5	1	0	
+176	Metal Dragon	メタルドラゴン	3	5	1	0	
+177	High Metal Dragon	ハイメタルドラゴン	4	5	1	0	
+178	King Metal Dragon	キングメタルドラゴン	5	5	1	0	
+179	Gold Dragon	ゴールドドラゴン	3	4	1	0	
+180	High Gold Dragon	ハイゴールドドラゴン	4	4	1	0	
+181	King Gold Dragon	キングゴールドドラゴン	5	4	1	0	
+182	Poring	ポリン	3	1	1	0	
+183	Marin	マーリン	3	2	1	0	
+184	Poporing	ポポリン	3	3	1	0	
+185	Drops	ドロップス	3	4	1	0	
+186	Ghostring	ゴーストリング	3	5	1	0	
+187	Zeus	ゼウス	6	4	50	0	
+188	Awoken Zeus	覚醒ゼウス	7	4	99	3	
+189	Hera	ヘラ	6	5	50	0	
+190	Awoken Hera	覚醒ヘラ	7	5	99	3	
+191	Pyro Devil	パイロデビル	2	1	15	0	
+192	Pyro Demon	パイロデーモン	3	1	50	0	
+193	Frost Devil	フロストデビル	2	2	15	0	
+194	Frost Demon	フロストデーモン	3	2	50	0	
+195	Taur Devil	タウロスデビル	2	3	15	0	
+196	Taur Demon	タウロスデーモン	3	3	50	0	
+197	Harpie Devil	ハーピィデビル	2	4	15	0	
+198	Harpie Demon	ハーピィデーモン	3	4	50	0	
+199	Blood Devil	ブラッドデビル	2	5	15	0	
+200	Blood Demon	ブラッドデーモン	3	5	50	0	
+201	Empress of Serpents, Echidna	紅蓮の女帝・エキドナ	5	1	99	3	
+202	Enchantress of the Sea, Siren	大海の歌姫・セイレーン	5	2	99	3	
+203	Mystical Forest Pixie, Alraune	大樹の精霊・アルラウネ	5	3	99	3	
+204	Messenger of God, Archangel	天空の使徒・エンジェル	5	4	99	3	
+205	Witch of the Night, Lilith	常夜の魔女・リリス	5	5	99	3	
+206	Mars Light Carbuncle	マーズライトカーバンクル	4	1	70	2	
+207	Mercury Light Carbuncle	マーキュライトカーバンクル	4	2	70	2	
+208	Earth Light Carbuncle	アースライトカーバンクル	4	3	70	2	
+209	Sunlight Carbuncle	サンライトカーバンクル	4	4	70	2	
+210	Moonlight Carbuncle	ムーンライトカーバンクル	4	5	70	2	
+211	Meteor Volcano Dragon	メテオボルケーノドラゴン	5	1	99	3	
+212	Crystal Aurora Dragon	クリスタルオーロラドラゴン	5	2	99	3	
+213	Graviton Earth Dragon	グラビトンアースドラゴン	5	3	99	3	
+214	Lightning Holy Dragon	ライトニングホーリードラゴン	5	4	99	3	
+215	Chaos Devil Dragon	カオスデビルドラゴン	5	5	99	3	
+216	Red Skydragon, El Dorado	緋天龍・エルドラド	6	1	99	2	
+217	Blue Skydragon, Nirai Kanai	蒼天龍・ニライカナイ	6	2	99	2	
+218	Wood Skydragon, Horai	樹天龍・ホウライ	6	3	99	2	
+219	Holy Skydragon, Shangri-La	聖天龍・シャングリラ	6	4	99	2	
+220	Night Skydragon, Elysion	夜天龍・エリュシオン	6	5	99	2	
+221	Berserk	ベルセルク	4	2	50	0	
+222	Siegfried, the Blue Champion	蒼剣の覇王・ジークフリート	5	2	70	0	
+223	Highlander	ハイランダー	4	3	50	0	
+224	Cu Chulainn, the Green Lancer	碧槍の英雄・クーフーリン	5	3	70	0	
+225	Valkyrie	ワルキューレ	4	4	50	0	
+226	Great Valkyrie	白盾の女神・ヴァルキリー	5	4	70	0	
+227	Dragon Fruit	ドラゴンフルーツ	5	3	1	0	
+228	Mastering	マスターリング	5	1	99	2	
+229	Phoenix Knight Homura	フェニックスナイト・ホムラ	5	1	99	3	
+230	Fenrir Knight Kamui	フェンリルナイト・カムイ	5	2	99	3	
+231	Ancient Dragon Knight	エンシェントドラゴンナイト	5	3	99	3	
+232	Verche, the Knight of the Sky	天空の騎士・ヴァーチェ	5	4	99	3	
+233	Chaos Dragon Knight	カオスドラゴンナイト	5	5	99	3	
+234	Mystic Mask	神秘の仮面	5	4	1	0	
+236	Shiva	シヴァ	5	1	50	0	
+237	Shiva, the Destroyer	破壊神・シヴァ	6	1	99	4	
+238	Lakshmi	ラクシュミー	5	2	50	0	
+239	Fortune Deity Lakshmi	幸運の女神・ラクシュミー	6	2	99	4	
+240	Parvati	パールヴァティー	5	3	50	0	
+241	Parvati, the Golden Goddess	金色の女神・パールヴァティー	6	3	99	4	
+242	Indra	インドラ	5	4	50	0	
+243	Thunderdragon Indra	雷霆龍・インドラ	6	4	99	4	
+244	Vritra	ヴリトラ	5	5	50	0	
+245	Darkdragon Vritra	暗黒龍・ヴリトラ	6	5	99	4	
+246	Dub-rubylit	ダブルビリット	5	1	1	0	
+247	Dub-sapphilit	ダブサファリット	5	2	1	0	
+248	Dub-emelit	ダブエメリット	5	3	1	0	
+249	Dub-topalit	ダブトパリット	5	4	1	0	
+250	Dub-amelit	ダブアメリット	5	5	1	0	
+251	Dub-mythlit	ダブミスリット	6	5	1	0	
+252	Ruby Dragon	ルビードラゴン	3	1	1	0	
+253	High Ruby Dragon	ハイルビードラゴン	4	1	1	0	
+254	King Ruby Dragon	キングルビードラゴン	5	1	1	0	
+255	Sapphire Dragon	サファイアドラゴン	3	2	1	0	
+256	High Sapphire Dragon	ハイサファイアドラゴン	4	2	1	0	
+257	King Sapphire Dragon	キングサファイアドラゴン	5	2	1	0	
+258	Emerald Dragon	エメラルドドラゴン	3	3	1	0	
+259	High Emerald Dragon	ハイエメラルドドラゴン	4	3	1	0	
+260	King Emerald Dragon	キングエメラルドドラゴン	5	3	1	0	
+261	Super King Metal Dragon	超キングメタルドラゴン	6	5	1	0	
+262	Flame Chimera	フレイムキメラ	3	1	25	0	
+263	Magma Chimera	マグマキマイラ	4	1	70	0	
+264	Bubble Chimera	バブルキメラ	3	2	25	0	
+265	Deep Chimera	ディープキマイラ	4	2	70	0	
+266	Leaf Chimera	リーフキメラ	3	3	25	0	
+267	Flower Chimera	フラワーキマイラ	4	3	70	0	
+268	Volt Chimera	ボルトキメラ	3	4	25	0	
+269	Thunder Chimera	サンダーキマイラ	4	4	70	0	
+270	Mist Chimera	ミストキメラ	3	5	25	0	
+271	Fog Chimera	フォッグキマイラ	4	5	70	0	
+272	Baby Match	ベビーマッチ	2	1	15	0	
+273	Baby Match Plus	ベビーマッチプラス	3	1	50	2	
+274	Devil Mermaid	アクマーメイド	2	2	15	0	
+275	Devil Mermaid Plus	アクマーメイドプラス	3	2	50	2	
+276	Buzz Cut Goblin	ごぶがりゴブリン	2	3	15	0	
+277	Buzz Cut Goblin Plus	ごぶがりゴブリンプラス	3	3	50	2	
+278	Note Reaper	音符のしにがみ	2	5	15	0	
+279	Note Reaper Plus	音符のしにがみプラス	3	5	50	2	
+280	Don-chan	どんちゃん	3	4	50	0	
+281	Brave Don-chan	勇者どんちゃん	4	4	70	0	
+282	Brave Don-chan Plus	勇者どんちゃんプラス	5	4	99	2	
+283	Fire Mechdragon, Betelgeuse	砲炎機龍・ベテルギウス	6	1	99	2	
+284	Ice Mechdragon, Aldebaran	氷砕機龍・アルデバラン	6	2	99	2	
+285	Wind Mechdragon, Canopus	旋風機龍・カノープス	6	3	99	2	
+286	Noble Mechdragon, Regulus	皇爪機龍・レグルス	6	4	99	2	
+287	Annihilate Mechdragon, Hadar	殲滅機龍・ハダル	6	5	99	2	
+288	Drall	ドラール	3	1	15	0	
+289	Agdrall	アグドラール	4	1	35	0	
+290	Flare Drall	フレアドラール	5	1	99	3	
+291	Shardra	シャードラ	3	2	15	0	
+292	Shardran	シャードラン	4	2	35	0	
+293	Megalodran	メガロドラン	5	2	99	3	
+294	Toytops	トイトプス	3	3	15	0	
+295	Toyceratops	トイケラトプス	4	3	35	0	
+296	Fortoytops	フォートトイトプス	5	3	99	3	
+297	Fairlio	フェリオ	3	4	15	0	
+298	Fairlion	フェアリオン	4	4	35	0	
+299	Angelion	エンジェリオン	5	4	99	3	
+300	Pierdra	ピエドラ	3	5	15	0	
+301	Pierdrawn	ピエドラウン	4	5	35	0	
+302	Drawn Joker	ドラウンジョーカー	5	5	99	3	
+303	Fire Pengdra	ホノペンドラ	2	1	10	0	
+304	Ruby Pengdra	ルビペンドラ	3	1	1	0	
+305	Water Pengdra	ペンペンドラ	2	2	10	0	
+306	Sapphire Pengdra	サファペンドラ	3	2	1	0	
+307	Wood Pengdra	ジュペンドラ	2	3	10	0	
+308	Emerald Pengdra	エメペンドラ	3	3	1	0	
+309	Super King Gold Dragon	超キングゴールドドラゴン	6	4	1	0	
+310	Ice Samurai Ogre	氷のサムライオーガ	4	1	50	2	
+311	Wood Samurai Ogre	樹のサムライオーガ	4	1	50	2	
+312	Blazing Ice Ogre	炎のアイスオーガ	4	2	50	2	
+313	Wood Ice Ogre	樹のアイスオーガ	4	2	50	2	
+314	Flame Armor Ogre	炎のアーマーオーガ	4	3	50	2	
+315	Ice Armor Ogre	氷のアーマーオーガ	4	3	50	2	
+316	Flame Mech Warrior, Jotunn	炎の機神兵・ヨトゥン	5	1	99	3	
+317	Water Mech Warrior, Midgard	水の機神兵・ミズガルズ	5	2	99	3	
+318	Wood Mech Warrior, Asgard	木の機神兵・アースガル	5	3	99	3	
+319	Machine Golem Mk.III	マシンゴーレムMk-III	5	4	99	3	
+320	Dark Golem Mk.III	ダークゴーレムMk-III	5	5	99	3	
+321	Keeper of Rainbow	虹の番人	6	5	1	0	
+322	Blue Flame Ifrit	蒼炎星・イフリート	6	1	99	3	
+323	Green Flame Ifrit	碧炎星・イフリート	6	1	99	3	
+324	Shining Flame Ifrit	輝炎星・イフリート	6	1	99	3	
+325	Dark Flame Ifrit	黒炎星・イフリート	6	1	99	3	
+326	Red Ice Leviathan	紅氷星・リヴァイアサン	6	2	99	3	
+327	Green Ice Leviathan	碧氷星・リヴァイアサン	6	2	99	3	
+328	Shining Ice Leviathan	輝氷星・リヴァイアサン	6	2	99	3	
+329	Dark Ice Leviathan	黒氷星・リヴァイアサン	6	2	99	3	
+330	Red Wood Fafnir	紅樹星・ファフニール	6	3	99	5	
+331	Blue Wood Fafnir	蒼樹星・ファフニール	6	3	99	5	
+332	Shining Wood Fafnir	輝樹星・ファフニール	6	3	99	5	
+333	Dark Wood Fafnir	黒樹星・ファフニール	6	3	99	5	
+334	Red Shining Divinegon	紅光星・神龍	6	4	99	3	
+335	Blue Shining Divinegon	蒼光星・神龍	6	4	99	3	
+336	Green Shining Divinegon	碧光星・神龍	6	4	99	3	
+337	Dark Shining Divinegon	黒光星・神龍	6	4	99	3	
+338	Blazing Dark Tiamat	紅闇星・ティアマット	6	5	99	3	
+339	Flowing Dark Tiamat	蒼闇星・ティアマット	6	5	99	3	
+340	Wooden Dark Tiamat	碧闇星・ティアマット	6	5	99	3	
+341	Lightning Dark Tiamat	輝闇星・ティアマット	6	5	99	3	
+342	ECO Salamander	ECO・サラマンダー	3	1	25	0	
+343	ECO Salamander Alma	ECO・サラマンダー・アルマ	4	1	70	2	
+344	ECO Pepen	ECO・ペペン	3	2	25	0	
+345	ECO Pepen Alma	ECO・ペペン・アルマ	4	2	70	2	
+346	ECO Shabo	ECO・シャボタン	3	3	25	0	
+347	ECO Shabo Alma	ECO・シャボタン・アルマ	4	3	70	2	
+348	ECO Baby Tiny	ECO・ベイビータイニー	3	4	25	0	
+349	ECO Tiny	ECO・タイニー	4	4	70	0	
+350	Formula	フォーミュラー	4	4	25	0	
+351	Sacred Flame Dragon, Formula	炎聖騎龍・フォーミュラー	5	4	99	3	
+352	Shaitan	シャイターン	4	1	35	0	
+353	Shaitan, the Flame Elemental	怒りと炎の精霊・シャイターン	5	1	99	5	
+354	Undine	ウンディーネ	4	2	35	0	
+355	Undine, the Water Elemental	愛と水の精霊・ウンディーネ	5	2	99	5	
+356	Sylph	シルフ	4	3	35	0	
+357	Sylph, the Wind Elemental	自由と風の精霊・シルフ	5	3	99	5	
+358	Genie	ジーニャ	4	4	35	0	
+359	Genie, the Light Elemental	富と光の精霊・ジーニャ	5	4	99	5	
+360	Thanatos	タナトス	4	5	35	0	
+361	Thanatos, the Dark Elemental	死と闇の精霊・タナトス	5	5	99	5	
+362	Odin	オーディン	5	3	50	0	
+363	Awoken Odin	覚醒オーディン	6	3	99	5	
+364	Odin, the War Deity	秘神・オーディン	6	2	50	0	
+365	Awoken Deity Odin	覚醒秘神・オーディン	7	2	99	6	
+368	Freyr	フレイ	5	1	50	0	
+369	Freyr, the God of Victory	勝利の神・フレイ	6	1	99	4	
+370	Idunn&Idunna	イズン＆イズーナ	5	2	50	0	
+371	Idunn&Idunna, Twin Goddesses	双星の女神・イズン＆イズーナ	6	2	99	4	
+372	Freyja	フレイヤ	5	3	50	0	
+373	Freyja, the Goddess of Gaia	大地の女神・フレイヤ	6	3	99	4	
+374	Thor	トール	5	4	50	0	
+375	Thor, the God of Lightning	雷の戦神・トール	6	4	99	4	
+376	Loki	ロキ	5	5	50	0	
+377	Loki, the God of Guile	狡知の神・ロキ	6	5	99	4	
+378	Dino Rider	ディノライダー	5	1	50	0	
+379	Dino Rider Drake	ディノライダー・ドレーク	6	1	99	4	
+380	Beast Rider	ビーストライダー	5	2	50	0	
+381	Beast Rider Merlin	ビーストライダー・マーリン	6	2	99	4	
+382	Marine Rider	マリンライダー	5	3	50	0	
+383	Marine Rider Robin	マリンライダー・ロビン	6	3	99	4	
+384	Dragon Rider	ドラゴンライダー	5	4	50	0	
+385	Dragon Rider Arthur	ドラゴンライダー・アーサー	6	4	99	4	
+386	Gryps Rider	グリプスライダー	5	5	50	0	
+387	Gryps Rider Finn	グリプスライダー・フィン	6	5	99	4	
+388	War Deity, Saint Minerva	戦女神・セイントミネルヴァ	7	1	99	6	
+389	War Deity, Dark Minerva	戦女神・ダークミネルヴァ	7	1	99	6	
+390	Sea Deity, Heaven Neptune	海王神・ヘブンズネプチューン	7	2	99	6	
+391	Sea Deity, Abyss Neptune	海王神・アビスネプチューン	7	2	99	6	
+392	Fertility Deity, Holy Ceres	豊穣神・ホーリーセレス	7	3	99	6	
+393	Fertility Deity, Evil Ceres	豊穣神・イービルセレス	7	3	99	6	
+394	Love Deity, Cosmos Venus	慈愛神・コスモスヴィーナス	7	4	99	6	
+395	Love Deity, Chaos Venus	慈愛神・カオスヴィーナス	7	4	99	6	
+396	Underlord Arch Hades	冥界神・アークハーデス	7	5	99	6	
+397	Underlord Inferno Hades	冥界神・インフェルノハーデス	7	5	99	6	
+398	Phoenix	フェニックス	4	1	35	0	
+399	Phoenix Resurrected	転生の霊鳥・フェニックス	5	1	99	3	
+400	Kraken	クラーケン	4	2	35	0	
+401	Sea Devil Kraken	大洋の悪魔・クラーケン	5	2	99	3	
+402	Griffin	グリフォン	4	3	35	0	
+403	Griffin, the Hunter of Tempests	疾風の狩人・グリフォン	5	3	99	3	
+404	Unicorn	ユニコーン	4	4	35	0	
+405	Unicorn, the Guardian of Saints	聖女の守護獣・ユニコーン	5	4	99	3	
+406	Cerberus	ケルベロス	4	5	35	0	
+407	Cerberus, the Guardian of Hell	地獄の番犬・ケルベロス	5	5	99	3	
+408	Infernodragon Muspelheim	究極炎龍・ムスプルヘイム	7	1	99	2	
+409	Glacialdragon Niflheim	究極氷龍・ニブルヘイム	7	2	99	2	
+410	Gaiadragon Yggdrasil	究極島龍・ユグドラシル	7	3	99	2	
+411	Cyberdragon Valhalla	究極機龍・ヴァルハラ	7	4	99	2	
+412	Viciousdragon Helheim	究極邪龍・ヘルヘイム	7	5	99	2	
+413	Blue Flamedragon Muspelheim	蒼炎龍・ムスプルヘイム	6	2	99	2	
+414	Mitsuki	ミツキ	4	1	15	0	
+415	Fire Courier Mitsuki	火の案内人・ミツキ	5	1	50	0	
+416	Mitsuki, the Flame Fox	焔尾の天狐・ミツキ	6	1	99	3	
+417	Ruka	ルカ	4	2	15	0	
+418	Water Courier Ruka	水の案内人・ルカ	5	2	50	0	
+419	Ruka, the Lady of the Sea	海洋の才女・ルカ	6	2	99	3	
+420	Kano	カノ	4	3	15	0	
+421	Wind Courier Kano	木の案内人・カノ	5	3	50	0	
+422	Kano, the Daughter of Nature	森羅の神子・カノ	6	3	99	3	
+423	Fuu	フウ	4	4	15	0	
+424	Light Courier Fuu	光の案内人・フウ	5	4	50	0	
+425	Fuu, the Dancer in the Grasses	草原の舞姫・フウ	6	4	99	3	
+426	Kurone	クロネ	4	5	15	0	
+427	Dark Courier Kurone	闇の案内人・クロネ	5	5	50	0	
+428	Kurone, the Feline of the Night	宵闇の猫又・クロネ	6	5	99	3	
+429	Queen Metal Dragon	クイーンメタルドラゴン	5	5	1	0	
+430	Queen Gold Dragon	クイーンゴールドドラゴン	5	4	1	0	
+431	Shimonita Leek	下仁田ネギ	3	3	10	0	
+432	Super Shimonita Leek	超・下仁田ネギ	4	3	1	0	
+433	Shimonita Konjac	下仁田こんにゃく	2	2	10	0	
+434	Super Shimonita Konjac	超・下仁田こんにゃく	3	2	1	0	
+435	Tsumagoi Cabbage	嬬恋キャベツ	2	3	10	0	
+436	Super Tsumagoi Cabbage	超・嬬恋キャベツ	3	3	1	0	
+437	Daruma	だるま	3	1	15	0	
+438	Super Daruma	超・だるま	4	1	30	0	
+439	Gunma	ぐんまけん	5	3	50	0	
+440	Super Gunma	超・ぐんまけん	6	3	99	3	
+441	Ancient Fire Dragon, Ardbeg	火の歴龍・アードベッグ	6	1	99	2	
+442	Ancient Water Dragon, Bowmore	水の歴龍・ボウモア	6	2	99	2	
+443	Ancient Wood Dragon, Lagavulin	木の歴龍・ラガヴーリン	6	3	99	2	
+444	Ancient Light Dragon, Laphroaig	光の歴龍・ラフロイグ	6	4	99	2	
+445	Ancient Dark Dragon, Caol-ila	闇の歴龍・カリラ	6	5	99	2	
+475	Hellfire Pyro Demon	火炎獄・パイロデーモン	4	1	99	2	
+476	Hellice Frost Demon	氷結獄・フロストデーモン	4	2	99	2	
+477	Hellwind Taur Demon	樹海獄・タウロスデーモン	4	3	99	2	
+478	Hellray Harpie Demon	光天獄・ハーピィデーモン	4	4	99	2	
+479	Helldark Blood Demon	闇地獄・ブラッドデーモン	4	5	99	2	
+480	Firedragon Grand Tyrannos	爆炎龍・グランティラノス	6	1	99	3	
+481	Icedragon Depth Plesios	氷塊龍・デプスプレシオス	6	2	99	3	
+482	Flowerdragon Gaia Brachys	大花龍・ガイアブラキオス	6	3	99	3	
+483	Sundragon Sol Pterados	太陽龍・ソルプテラドス	6	4	99	3	
+484	Moondragon Lunar D'spinas	月光龍・ルナデスピナス	6	5	99	3	
+486	Gamble Mage	ギャンブルメイジ	4	5	35	0	
+487	Daredevil of Dark, Gamble Mage	闇の勝負師・ギャンブルメイジ	5	5	99	5	
+488	Chrono Turtle	クロノタートル	4	2	35	0	
+489	Missionary of Time, Chrono Turtle	時の伝道師・クロノタートル	5	2	99	5	
+490	Horus	ホルス	5	1	50	0	
+491	Flame Deity, Falcon Horus	炎隼神・ホルス	6	1	99	4	
+492	Isis	イシス	5	2	50	0	
+493	Water Deity, Holy Isis	聖海神・イシス	6	2	99	4	
+494	Bastet	バステト	5	3	50	0	
+495	Love Deity, Feline Bastet	愛猫神・バステト	6	3	99	4	
+496	Ra	ラー	5	4	50	0	
+497	Sun Deity Ra	太陽神・ラー	6	4	99	4	
+498	Anubis	アヌビス	5	5	50	0	
+499	Hell Deity, Jackal Anubis	冥狼神・アヌビス	6	5	99	4	
+500	Princess Punt	ケリ姫	4	4	50	0	
+501	Anne Punt Quettebuss	アン・パント・ケットバス	5	4	99	2	
+502	Dinocorn	ガウガウ	4	1	35	0	
+503	Dinocorn King	草原の主・ガウガウキング	5	1	99	2	
+504	Baby Seal	アザラシくん	3	2	25	0	
+505	Mr. Walrus	セイウチさん	4	2	70	2	
+506	Jelly's Angel	ゼリーエンジェル	3	3	25	0	
+507	The Jelly's Angels	ザ・ゼリーエンジェルズ	4	3	70	2	
+508	Balloon Penguin	バルーンペンペン	3	4	25	0	
+509	Kite Penguin	カイトペンペン	4	4	70	2	
+510	Goggler	ギョロリ	3	5	25	0	
+511	Devil Eye	デイビルアイ	4	5	70	2	
+512	Red Giant Gigas	剛腕の巨人・ギガンテス	5	1	99	3	
+513	King Siegfried, Blue Champion	蒼覇王・カイゼルジークフリート	6	2	99	3	
+514	More Cu Chulainn, the Hero	大英雄・モアクーフーリン	6	3	99	3	
+515	Princess Valkyrie	戦乙女・プリンセスヴァルキリー	6	4	99	3	
+516	Duke Vampire Lord	魔王・ヴァンパイアロード	5	5	99	3	
+517	Present Egg	プレゼントＢＯＸ	4	4	15	0	
+518	Present Egg	プレゼントＢＯＸ	4	4	15	0	
+519	Present Egg	プレゼントＢＯＸ	4	4	15	0	
+520	Snow Globe Dragon Rouge	ノエルドラゴン・ルージュ	5	1	50	0	
+521	Snow Globe Dragon Bleu	ノエルドラゴン・ブルー	5	2	50	0	
+522	Snow Globe Dragon Vert	ノエルドラゴン・ヴェール	5	3	50	0	
+523	Red Moltdra	アカムギドラ	2	1	10	0	
+524	Blue Moltdra	アオムギドラ	2	2	10	0	
+525	Green Moltdra	ミドムギドラ	2	3	10	0	
+540	Fire Samurai Dragon, Shingen	風林火山龍・シンゲン	6	1	99	2	
+541	Water Samurai Dragon, Kenshin	毘沙門龍・ケンシン	6	2	99	2	
+542	Wood Samurai Dragon, Masamune	独眼竜・マサムネ	6	3	99	2	
+543	Light Samurai Dragon, Hideyoshi	太閤龍・ヒデヨシ	6	4	99	2	
+544	Dark Samurai Dragon, Nobunaga	第六天魔龍・ノブナガ	6	5	99	2	
+545	Low Fire Ninja	火の下忍	2	1	15	0	
+546	Mid Fire Ninja	火の中忍	3	1	50	0	
+547	Low Water Ninja	水の下忍	2	2	15	0	
+548	Mid Water Ninja	水の中忍	3	2	50	0	
+549	Low Wood Ninja	木の下忍	2	3	15	0	
+550	Mid Wood Ninja	木の中忍	3	3	50	0	
+551	Low Light Ninja	光の下忍	2	4	15	0	
+552	Mid Light Ninja	光の中忍	3	4	50	0	
+553	Low Dark Ninja	闇の下忍	2	5	15	0	
+554	Mid Dark Ninja	闇の中忍	3	5	50	0	
+555	Mochizuki Chiyome	望月千代女	5	1	50	0	
+556	Flame Shrine Maiden, Chiyome	紅焔の巫女・望月千代女	6	1	99	4	
+557	Hatsume no Tsubone	初芽局	5	2	50	0	
+558	Blue Wind Ninja, Hatsume	蒼扇の夜叉・初芽局	6	2	99	4	
+559	Sarutobi Sasuke	猿飛佐助	5	3	50	0	
+560	Wind Prodigy, Sasuke	旋風の神童・猿飛佐助	6	3	99	4	
+561	Fuma Kotaro	風魔小太郎	5	4	50	0	
+562	Lightning Storm, Fuma Kotaro	雷角の頭領・風魔小太郎	6	4	99	4	
+563	Hattori Hanzo	服部半蔵	5	5	50	0	
+564	High Dark Ninja, Hanzo	朧夜の闇忍・服部半蔵	6	5	99	4	
+565	Ishikawa Goemon	石川五右衛門	6	1	50	0	
+566	Goemon, the Thief	天下の大泥棒・石川五右衛門	7	1	99	3	
+567	Ares	アレス	5	1	50	0	
+568	War Deity Ares	戦軍神・アレス	6	1	99	4	
+569	Hermes	ヘルメス	5	2	50	0	
+570	Commerce Deity Hermes	商業神・ヘルメス	6	2	99	4	
+571	Artemis	アルテミス	5	3	50	0	
+572	Hunting Deity Artemis	狩猟神・アルテミス	6	3	99	4	
+573	Apollo	アポロン	5	4	50	0	
+574	Solar Deity Apollo	光明神・アポロン	6	4	99	4	
+575	Persephone	ペルセポネ	5	5	50	0	
+576	Hell Queen Persephone	冥府神・ペルセポネ	6	5	99	4	
+577	Gold Moltdra	キンムギドラ	2	4	10	0	
+578	Black Moltdra	クロムギドラ	2	5	10	0	
+579	Will-O'-Wisp	ウィルオーウィスプ	1	1	15	0	
+580	Flame Spirit Will-O'-Wisp	焔の霊魂・ウィルオーウィスプ	2	1	50	0	
+581	Kelpie	ケルピー	1	2	15	0	
+582	Water Horse Kelpie	湖の幻馬・ケルピー	2	2	50	0	
+583	Treant	トレント	1	3	15	0	
+584	Wood Sage Treant	森の賢人・トレント	2	3	50	0	
+585	Pixie	ピクシー	1	4	15	0	
+586	Light Sprite Pixie	光の妖精・ピクシー	2	4	50	0	
+587	Werewolf	ワーウルフ	1	5	15	0	
+588	Midnight Beast Werewolf	月夜の魔人・ワーウルフ	2	5	50	0	
+593	Angeling	エンジェリング	4	1	1	0	
+594	Archangeling	アークエンジェリング	4	2	1	0	
+595	Deviling	デビルリング	4	5	1	0	
+596	Hera-Is	ヘラ・イース	6	2	50	0	
+597	Awoken Hera-Is	覚醒ヘラ・イース	7	2	99	3	
+598	Hera-Ur	ヘラ・ウルズ	6	1	50	0	
+599	Awoken Hera-Ur	覚醒ヘラ・ウルズ	7	1	99	3	
+600	Shiny Pengdra	ピカペンドラ	2	4	10	0	
+601	Topaz Pengdra	トパペンドラ	3	4	1	0	
+602	Dark Pengdra	ヤミペンドラ	2	5	10	0	
+603	Amethyst Pengdra	アメペンドラ	3	5	1	0	
+604	Mechadon	メカドン	3	1	1	0	
+605	Taiko Master! Don-chan	太鼓の達人！どんちゃん	4	4	70	0	
+606	Taiko God Don-chan	太鼓神どんちゃん	5	4	99	2	
+607	Atsui-san	あついさん	3	1	25	0	
+608	Merari! Atsui-san	メラリ！ あついさん	4	1	70	2	
+609	White-san	ホワイトさん	3	2	25	0	
+610	Uttorin White-san	うっとり～ん ホワイトさん	4	2	70	2	
+611	Kapibara-san	カピバラさん	4	3	35	0	
+612	Nobon Kapibara-san	のぼ～ん カピバラさん	5	3	99	2	
+613	Hidamari-san	ひだまりさん	3	4	25	0	
+614	Furawan Hidamari-san	ふらわ～ん ひだまりさん	4	4	70	2	
+615	Regent-kun	リーゼントくん	3	5	25	0	
+616	Bun Bun Regent-kun	ブンブン リーゼントくん	4	5	70	2	
+617	Super King Ruby Dragon	超キングルビードラゴン	6	1	1	0	
+618	Super King Sapphire Dragon	超キングサファイアドラゴン	6	2	1	0	
+619	Super King Emerald Dragon	超キングエメラルドドラゴン	6	3	1	0	
+620	Archangel Uriel	大天使・ウリエル	5	1	50	0	
+621	Fire Dominion Uriel	神炎の熾天使・ウリエル	6	1	99	4	
+622	Archangel Gabriel	大天使・ガブリエル	5	2	50	0	
+623	Water Dominion Gabriel	神託の大天使・ガブリエル	6	2	99	4	
+624	Archangel Michael	大天使・ミカエル	5	3	50	0	
+625	Wood Dominion Michael	護法の大天使・ミカエル	6	3	99	4	
+626	Archangel Raphael	大天使・ラファエル	5	4	50	0	
+627	Light Dominion Raphael	神癒の大天使・ラファエル	6	4	99	4	
+628	Archangel Lucifer	大天使・ルシファー	5	5	50	0	
+629	Seraph of Dawn Lucifer	黎明の熾天使・ルシファー	6	5	99	4	
+630	Belial	魔神・ベリアル	5	1	50	0	
+631	Flame Archdemon Belial	邪炎の魔神将・ベリアル	6	1	99	4	
+632	Amon	魔神・アモン	5	2	50	0	
+633	Blizzard Archdemon Amon	義侠の魔神将・アモン	6	2	99	4	
+634	Astaroth	魔神・アスタロト	5	3	50	0	
+635	Wind Archdemon Astaroth	予見の魔神将・アスタロト	6	3	99	4	
+636	Baal	魔神・バアル	5	4	50	0	
+637	Lightning Archdemon Baal	閃剣の魔神将・バアル	6	4	99	4	
+638	Fallen Angel Lucifer	堕天使・ルシファー	5	5	50	0	
+639	Dark Archdemon Lucifer	逆心の神魔王・ルシファー	6	5	99	4	
+640	Archangel Metatron	代行者・メタトロン	5	4	50	0	
+641	Voice of God, Metatron	神輝の代行者・メタトロン	6	4	99	5	
+642	Dark Angel Metatron	執行者・メタトロン	6	5	50	0	
+643	Hand of the Dark God, Metatron	神魔の執行者・メタトロン	7	5	99	6	
+644	Beelzebub	魔皇子・ベルゼブブ	6	5	50	0	
+645	Archdemon Beelzebub	奈落の狂皇子・ベルゼブブ	7	5	99	3	
+646	Satan	大魔王・サタン	6	5	50	0	
+647	Satan, King of the Underworld	災禍の魔神王・サタン	7	5	99	3	
+648	Athena	アテナ	6	4	50	0	
+649	Awoken Athena	覚醒アテナ	7	4	99	3	
+650	Zeus-Dios	ゼウス・ディオス	6	3	50	0	
+651	Awoken Zeus-Dios	覚醒ゼウス・ディオス	7	3	99	3	
+652	Freyr, the Blazing Swordsman	焔剣の勝利神・フレイ	7	1	99	6	
+653	Idunn&Idunna, the Twin Archers	蒼穹の双星神・イズン＆イズーナ	7	2	99	6	
+654	Freyja, the Fertility Goddess	緑聖の豊麗神・フレイヤ	7	3	99	6	
+655	Thor, the Wielder of Mjolnir	雷槌の金剛神・トール	7	4	99	6	
+656	Loki, the Finisher	終焉の狡知神・ロキ	7	5	99	6	
+657	Holy Thunderdragon Indra	天頂の雷霆龍・インドラ	7	4	99	6	
+658	Evil Darkdragon Vritra	深潭の暗黒龍・ヴリトラ	7	5	99	6	
+659	Puzzdroid	パズドロイド	4	3	35	0	
+660	Droidragon	ドロイドラゴン	5	3	99	9	
+661	Chaos Blizzard Dragon	カオスブリザードドラゴン	5	2	99	3	
+662	Cathy Crazy	キャシー・クレイジー	3	5	25	0	
+663	Romantic★Cathy	ロマンティック★キャシー	4	5	70	2	
+664	Ukai Magoroku	鵜飼孫六	3	2	25	0	
+665	Blue Ninja, Ukai Magoroku	蒼翼忍者・鵜飼孫六	4	2	70	2	
+666	ECO Tiny Alma	ECO・タイニー・アルマ	5	4	99	2	
+667	ECO Dumpty	ECO・ダンプティー	4	5	70	0	
+668	ECO Dumpty Alma	ECO・ダンプティー・アルマ	5	5	99	2	
+669	Joker	ジョーカー	4	5	50	0	
+670	Joker+A. Blossom	ジョーカー＋Aブロッサム	5	5	99	2	
+671	Catwoman	キャットウーマン	4	1	50	0	
+672	Catwoman+C. Claw	キャットウーマン＋Cクロー	5	1	99	3	
+673	Robin	ロビン	4	3	50	0	
+674	Robin+E. Stick	ロビン＋Eスティック	5	3	99	3	
+675	Batman+S. Gloves	バットマン＋Sグローブ	5	5	50	0	
+676	Batman+S. Gloves Act	バットマン＋SグローブAct	6	5	99	4	
+677	Batman+Batarang	バットマン＋バットラング	4	5	50	0	
+678	Batman+Remote Claw	バットマン＋遠隔クロー	5	5	99	8	
+679	Batman+Batwing	バットマン＋バットウィング	5	5	50	0	
+680	Batman+BW Attack	バットマン＋BWアタック	6	5	99	4	
+681	Manekimewdra	マネキニャドラ	3	4	1	0	
+682	Heavy Metal Dragon	ヘビーメタルドラゴン	6	5	50	0	
+683	Dragon Lord Zaerog	龍王・ゼローグ	7	5	99	3	
+684	King Flamie	キングホノりん	3	1	50	2	
+685	King Bubblie	キングアワりん	3	2	50	2	
+686	King Woodsie	キングモリりん	3	3	50	2	
+687	King Shynee	キングヒカりん	3	4	50	2	
+688	King Baddie	キングワルりん	3	5	50	2	
+689	Rowdy Red Samurai Goblin	荒武者・レッドゴブリン	3	1	70	2	
+690	Marine Spec Ops Goblin	突撃兵・マリンゴブリン	3	2	70	2	
+691	Heavy Infantry Hobgoblin	重戦士・ホブゴブリン	3	3	70	2	
+692	Earth-Rending Emperor, Siegfried	破龍皇帝・グランドジークフリート	7	2	99	3	
+693	Noble Wolf King Hero, Cu Chulainn	王狼英雄・ノーブルクーフーリン	7	3	99	3	
+694	Warrior Rose, Graceful Valkyrie	薔薇戦姫・グレイスヴァルキリー	7	4	99	3	
+695	Asuka&Eva Unit-02	アスカ＆エヴァ2号機	4	1	50	0	
+696	Asuka&Upgraded Eva Unit-02	アスカ＆エヴァ改2号機	5	1	99	3	
+697	Shinji&Eva Unit-01	シンジ＆エヴァ初号機	4	2	50	0	
+698	Awoken Shinji&Eva Unit-01	シンジ＆エヴァ初号機・覚醒	5	2	99	3	
+699	Mari&Eva Provisional Unit-05	マリ＆エヴァ仮設5号機	4	3	50	0	
+700	Mari&Eva Unit-08	マリ＆エヴァ8号機	5	3	99	3	
+701	Rei&Eva Unit-00	レイ＆エヴァ零号機	4	4	50	0	
+702	Rei&Eva Unit-00, Suicide ATK Mode	レイ＆エヴァ零号機・特攻	5	4	99	3	
+703	Kaworu&Mark06, Under Construction	カヲル＆Mark.06・建造中	4	5	50	0	
+704	Kaworu&Mark.06	カヲル＆Mark.06	5	5	99	3	
+705	Shinji&Kaworu&Unit-13	シンジ＆カヲル＆第13号機	5	2	50	0	
+706	Awoken Shinji&Kaworu&Unit-13	シンジ＆カヲル＆第13号機・覚醒	6	2	99	4	
+707	The Fifth Angel	第5の使徒	3	1	25	0	
+708	The Fifth Angel - Assault Mode	第5の使徒・戦闘形態	4	1	70	2	
+709	The Sixth Angel	第6の使徒	3	4	25	0	
+710	The Sixth Angel - Assault Mode	第6の使徒・戦闘形態	4	4	70	2	
+711	The Tenth Angel	第10の使徒	5	5	50	0	
+712	The Tenth Angel - Assault Mode	第10の使徒・戦闘形態	6	5	99	2	
+713	The Fourth Angel	第4の使徒	3	5	25	0	
+714	The Fourth Angel - Assault Mode	第4の使徒・戦闘形態	4	5	70	2	
+715	Blazing King Apollo	灼炎王アポロ	6	1	99	2	
+716	Awoken Light Dragon King Saiga	完全覚醒・光龍王サイガ	7	3	99	2	
+717	Neneko	ねねこ	2	2	30	0	
+718	Hamahime	はまひめ	2	5	30	0	
+719	Green Skydragon Elysium	翠天龍・エリュシオン	6	3	99	2	
+720	CoC Barbarian	CoC・バーバリアン	3	4	25	0	
+721	CoC Rage Barbarian	CoC・レイジバーバリアン	4	4	70	2	
+722	CoC Archer	CoC・アーチャー	3	1	25	0	
+723	CoC Flame Archer	CoC・フレイムアーチャー	4	1	70	2	
+724	CoC Goblin	CoC・ゴブリン	3	3	25	0	
+725	CoC Forest Goblin	CoC・フォレストゴブリン	4	3	70	2	
+726	CoC Healer	CoC・ヒーラー	3	4	25	0	
+727	CoC Glorious Healer	CoC・グロリアスヒーラー	4	4	70	2	
+728	CoC Dragon	CoC・ドラゴン	4	1	50	0	
+729	CoC Crimson Dragon	CoC・クリムゾンドラゴン	5	1	99	2	
+730	CoC P.E.K.K.A	CoC・P.E.K.K.A	5	5	50	0	
+731	CoC Nightmare P.E.K.K.A	CoC・ナイトメアP.E.K.K.A	6	5	99	2	
+737	Scarlet Stone Dragon, Vermilionyt	緋石龍・ヒヒイロカネ	5	1	99	2	
+738	Blue Stone Dragon, Mythril	蒼石龍・ミスリル	5	2	99	2	
+739	Green Stone Dragon, Adamant	翠石龍・アダマント	5	3	99	2	
+740	Rainbow Stone Dragon, Orichalcum	虹石龍・オリハルコン	5	4	99	2	
+741	Purple Stone Dragon, Damascus	紫石龍・ダマスカス	5	5	99	2	
+742	Draggie	ドラりん	2	3	30	0	
+743	Draggie Knight	ドラりんナイト	3	3	50	0	
+744	Ancient Draggie Knight	エンシェントドラりんナイト	4	3	70	2	
+745	Incarnation of Suzaku, Leilan	朱雀の化身・レイラン	5	1	50	0	
+746	Heavenly Guide Suzaku, Leilan	天導の朱雀・レイラン	6	1	99	4	
+747	Incarnation of Seiryuu, Karin	青龍の化身・カリン	5	2	50	0	
+748	Guardian of Life Seiryuu, Karin	命護の青龍・カリン	6	2	99	4	
+749	Incarnation of Genbu, Meimei	玄武の化身・メイメイ	5	3	50	0	
+750	Tortoise Mountain Genbu, Meimei	地鎮の玄武・メイメイ	6	3	99	4	
+751	Incarnation of Kirin, Sakuya	麒麟の化身・サクヤ	5	4	50	0	
+752	Kirin of the Aurora, Sakuya	極光の麒麟・サクヤ	6	4	99	4	
+753	Incarnation of Byakko, Haku	白虎の化身・ハク	5	5	50	0	
+754	Soul Guardian Byakko, Haku	霊護の白虎・ハク	6	5	99	4	
+755	Red Dragon God, Hino Kagutsuchi	紅蓮龍神・ヒノカグツチ	7	1	99	6	
+756	Fire Serpent God, Hino Kagutsuchi	焔獄蛇神・ヒノカグツチ	7	1	99	6	
+757	Scorched Claw Dragon, Flare Drall	灼爪龍・フレアドラール	6	1	99	5	
+758	Drilling Shark Dragon, Megalodran	穿鮫龍・メガロドラン	6	2	99	5	
+759	Horned Fort Dragon, Fortoytops	角砦龍・フォートトイトプス	6	3	99	5	
+760	Sacred Dragon Beast, Angelion	聖獣龍・エンジェリオン	6	4	99	5	
+761	Jester Dragon, Drawn Joker	道化龍・ドラウンジョーカー	6	5	99	5	
+762	OCTOPUS	OCTOPUS	3	1	25	0	
+763	OCTOPUS Ver.2	OCTOPUS Ver.2	4	1	70	2	
+764	CRAB	CRAB	3	2	25	0	
+765	CRAB Ver.2	CRAB Ver.2	4	2	70	2	
+766	SQUID	SQUID	3	3	25	0	
+767	SQUID Ver.2	SQUID Ver.2	4	3	70	2	
+768	GC CRAB	GC CRAB	5	4	50	0	
+769	GC CRAB Ver.2	GC CRAB Ver.2	6	4	99	2	
+770	UFO	UFO	4	5	50	0	
+771	UFO Ver.2	UFO Ver.2	5	5	99	2	
+772	Omega Red Skydragon, El Dorado	緋天蒼龍・エルドラド	7	1	99	2	
+773	Omega Blue Skydragon, Nirai Kanai	蒼天夜龍・ニライカナイ	7	2	99	2	
+774	Omega Wood Skydragon, Horai	樹天緋龍・ホウライ	7	3	99	2	
+775	Omega Holy Skydragon, Shangri-La	聖天樹龍・シャングリラ	7	4	99	2	
+776	Omega Night Skydragon, Elysion	夜天聖龍・エリュシオン	7	5	99	2	
+777	Great Tengu	大天狗	5	3	50	0	
+778	Twisted Mountain God, Grand Tengu	霊峰の破戒神・大天狗	6	3	99	3	
+779	Kodama	こだま	2	3	30	0	
+780	Incarnation of Kouryu, Fagan	黄龍の化身・ファガン	6	4	50	0	
+781	Kouryu the Star Emperor, Fagan	星帝の黄龍・ファガン	7	4	99	3	
+782	Mystic Megalith Dragon, Baalbek	神秘の巨石龍・バールベック	6	1	99	2	
+783	Mystic Mechdragon, Antikythera	神秘の天体龍・アンティキティラ	6	2	99	2	
+784	Mystic Painting Dragon, Nazca	神秘の絵画龍・ナスカ	6	3	99	2	
+785	Mystic Crystal Dragon, CrystalSkull	神秘の結晶龍・クリスタルスカル	6	4	99	2	
+786	Mystic Astro Dragon, Nebradisk	神秘の円盤龍・ネブラディスク	6	5	99	2	
+787	Minotaur	ミノタウロス	2	1	25	0	
+788	Beast of the Labyrinth, Minotaur	迷宮の獣人・ミノタウロス	3	1	70	0	
+789	Cockatrice	コカトリス	2	2	25	0	
+790	Stone Gaze Demon Bird, Cockatrice	魔眼の怪鳥・コカトリス	3	2	70	0	
+791	Centaur	ケンタウロス	2	3	25	0	
+792	Hominal Beast, Centaur	疾駆の人馬・ケンタウロス	3	3	70	0	
+793	Cyclops	サイクロプス	2	4	25	0	
+794	Thunder Giant, Cyclops	雷光の巨漢・サイクロプス	3	4	70	0	
+795	Wicked Lady	ダークレディ	2	5	25	0	
+796	Charming Temptress, Wicked Lady	魅惑の夜魔・ダークレディ	3	5	70	0	
+797	TAMADRA	たまドラ	5	4	1	0	
+798	Samba Ruby Dragon	サンバルビードラゴン	6	1	1	0	
+799	Ame no Uzume	アメノウズメ	5	1	50	0	
+800	Goddess of the Art, Ame no Uzume	技芸の女神・アメノウズメ	6	1	99	4	
+801	Umisachi&Yamasachi	ウミサチヤマサチ	5	2	50	0	
+802	Gods of Hunt, Umisachi&Yamasachi	漁猟の神・ウミサチヤマサチ	6	2	99	4	
+803	Kushinadahime	クシナダヒメ	5	3	50	0	
+804	Goddess of Rice Fields, Kushinada	稲田の女神・クシナダヒメ	6	3	99	4	
+805	Izanagi	イザナギ	5	4	50	0	
+806	Ancestor of the Gods, Izanagi	皇祖の神・イザナギ	6	4	99	4	
+807	Okuninushi	オオクニヌシ	5	5	50	0	
+808	Founder of Nations, Okuninushi	国造の神・オオクニヌシ	6	5	99	4	
+809	Takeminakata	タケミナカタ	5	4	50	0	
+810	War God of Metal, Takeminakata	冶金の軍神・タケミナカタ	6	4	99	3	
+811	Empress God, Izanami	皇妃神・イザナミ	6	4	50	0	
+812	Empress of Creation, Izanami	万物の妃神・イザナミ	7	4	99	3	
+813	Yomi God, Izanami	黄泉神・イザナミ	6	5	50	0	
+814	Yomi Mistress, Izanami	黄泉の主神・イザナミ	7	5	99	3	
+815	Domovoi	ドモヴォイ	3	4	25	0	
+816	Don Domovoi	ドン・ドモヴォイ	4	4	70	2	
+817	Grendel	グレンデル	3	1	25	0	
+818	Bronzed Grendel	グレンデルサンタン	4	1	70	2	
+819	Hrungnir	フルングニル	5	2	50	0	
+820	Absolute Zero Hrungnir	絶対零度フルングニル	6	2	99	3	
+821	Anne Punt Quettebuss in Love	恋するアン・パント・ケットバス	6	4	99	2	
+822	Burning Phoenix Knight, Homura	バーンフェニックスナイト・ホムラ	6	1	99	3	
+823	Torrential Fenrir Knight, Kamui	フラッドフェンリルナイト・カムイ	6	2	99	3	
+824	Ancient Dragon Knight, Zeal	エンシェントドラゴンナイト・セロ	6	3	99	3	
+825	Godly Knight of the Sky, Verche	スカイゴッドナイト・ヴァーチェ	6	4	99	3	
+826	Chaos Dragon Knight, Voice	カオスドラゴンナイト・ヴォイス	6	5	99	3	
+827	Shugen Demon, Shouki	修験鬼・ショウキ	3	4	25	0	
+828	Protection Demon of Light, Shouki	光の守護鬼・ショウキ	4	4	70	2	
+829	Shugen Demon, Jyaki	修験鬼・ジャキ	3	5	25	0	
+830	Protection Demon of Dark, Jyaki	闇の守護鬼・ジャキ	4	5	70	2	
+831	Top Droidragon	トップ・ドロイドラゴン	6	3	99	9	
+832	Kozukura	コズクラ	2	2	15	0	
+833	Fukuragi	フクラギ	3	2	25	0	
+834	Amberjack	ブリ	4	2	70	0	
+835	King of Toyama Bay, Amberjack	富山湾の王者・ブリ	5	2	99	2	
+836	Firefly Squid	ホタルイカ	3	4	25	0	
+837	Mystery of Toyama Bay, Firefly Squid	富山湾の神秘・ホタルイカ	4	4	70	2	
+838	Velvet Shrimp	シロエビ	3	1	25	0	
+839	Jewel of Toyama Bay, Velvet Shrimp	富山湾の宝石・シロエビ	4	1	70	2	
+840	Amitan	あみたん	5	3	50	0	
+841	Amitaka & Kanon & Cecil	阿弥貴＆カノン＆セシル	6	3	99	3	
+882	Rumbling Blazing King Apollo	騎迅轟破灼炎王アポロ	6	1	99	2	
+883	Light Dragon Emperor Saiga	光龍帝サイガ	7	4	99	2	
+884	Stray Soul Beast Izuna	はぐれ魂獣イヅナ	4	5	50	0	
+885	Nine-Tailed Izuna	白面金剛九尾イヅナ	5	5	99	2	
+886	Emperor Masterion	皇帝マステリオン	5	5	50	0	
+887	Demon King Masterion	魔王マステリオン	6	5	99	2	
+888	Feline Deity of Harmony, Bastet	響奏の愛猫神・バステト	7	3	99	6	
+889	War Deity of Fury, Ares	狂荒の戦軍神・アレス	7	1	99	6	
+890	Commerce Deity of Dreams, Hermes	夢来の商業神・ヘルメス	7	2	99	6	
+891	Hunt God of the Holy Bow, Artemis	聖弓の狩猟神・アルテミス	7	3	99	6	
+892	Solar God of Heaven's Bow, Apollo	天弓の光明神・アポロン	7	4	99	6	
+893	Queen of Condemnation, Persephone	断罪の冥府神・ペルセポネ	7	5	99	6	
+894	Dark Liege, Vampire Duke	闇黒魔王・ヴァンパイアデューク	6	5	99	3	
+895	Arcane Monarch, Vampire Duke	魔焉皇帝・ヴァンパイアデューク	6	2	99	4	
+896	Red Chaser	レッドチェイサー	3	1	25	0	
+897	Flame Chaser	フレイムチェイサー	4	1	70	0	
+898	Blue Chaser	ブルーチェイサー	3	2	25	0	
+899	Aqua Chaser	アクアチェイサー	4	2	70	0	
+900	Green Chaser	グリーンチェイサー	3	3	25	0	
+901	Wind Chaser	ウィンドチェイサー	4	3	70	0	
+902	Yellow Chaser	イエローチェイサー	3	4	25	0	
+903	Lightning Chaser	ライトニングチェイサー	4	4	70	0	
+904	Purple Chaser	パープルチェイサー	3	5	25	0	
+905	Phantom Chaser	ファントムチェイサー	4	5	70	0	
+906	Flame Baron	フレイムバロン	4	1	99	2	
+907	Aqua Baron	アクアバロン	4	2	99	2	
+908	Earth Baron	アースバロン	4	3	99	2	
+909	White Baron	ホワイトバロン	4	4	99	2	
+910	Black Baron	ブラックバロン	4	5	99	2	
+911	Red Dragon Caller, Sonia	赤龍喚士・ソニア	5	1	50	0	
+912	Extant Red Dragon Caller, Sonia	現世の赤龍喚士・ソニア	6	1	99	5	
+913	Jade Dragon Caller, Sonia	緑龍喚士・ソニア	6	3	50	0	
+914	Eternal Jade Dragon Caller, Sonia	悠久の緑龍喚士・ソニア	7	3	99	6	
+915	Angelit	エンジェリット	7	4	1	0	
+916	Devilit	デビリット	7	5	1	0	
+917	Awoken Zeus Olympios	超覚醒ゼウス	8	4	99	3	
+918	Awoken Zeus Stratios	暗黒覚醒ゼウス	8	5	99	3	
+919	Elemental of Harsh Flame, Shaitan	炎戒の大精霊・シャイターン	6	1	99	8	
+920	Elemental of Kind Waters, Undine	慈水の大精霊・ウンディーネ	6	2	99	8	
+921	Elemental of Levity, Sylph	風来の大精霊・シルフ	6	3	99	8	
+922	Elemental of Gold Glimmer, Genie	宝輝の大精霊・ジーニャ	6	4	99	8	
+923	Elemental of True Death, Thanatos	死兆の大精霊・タナトス	6	5	99	8	
+924	Firefly	ファイヤーフライ	3	1	25	0	
+925	Firefly + Flamethrower	ファイヤーフライ＋火炎放射	4	1	70	2	
+926	Solomon Grundy	ソロモングランディ	3	2	25	0	
+927	Solomon Grundy, Born on a Monday	ソロモングランディ＋月曜生まれ	4	2	70	2	
+928	Copperhead	カッパーヘッド	3	3	25	0	
+929	Venomous Copperhead	カッパーヘッド＋毒爪	4	3	70	2	
+930	Bane	ベイン	3	4	25	0	
+931	Venom-Enhanced Bane	ベイン＋ヴェノム	4	4	70	2	
+932	Deathstroke	デスストローク	5	4	50	0	
+933	Deathstroke + B. Staff	デスストローク＋ウェポン	6	4	99	2	
+934	Exiled Apollo	亡国のアポロ	4	1	50	0	
+935	Blazing Apollo	灼炎のアポロ	5	1	99	2	
+948	AB Red	AB・レッド	3	1	25	0	
+949	AB Red Bird Red	AB・レッドバード・レッド	4	1	70	2	
+950	AB The Blues	AB・ザ・ブルース	3	2	25	0	
+951	AB Bluebird Blues	AB・ブルーバード・ブルース	4	2	70	2	
+952	AB Hal	AB・ハル	3	3	25	0	
+953	AB Green Bird Hal	AB・グリーンバード・ハル	4	3	70	2	
+954	AB Chuck	AB・チャック	3	4	25	0	
+955	AB Yellow Bird Chuck	AB・イエローバード・チャック	4	4	70	2	
+956	AB Matilda	AB・マチルダ	4	4	50	0	
+957	AB White Bird Matilda	AB・ホワイトバード・マチルダ	5	4	99	2	
+958	AB Bomb	AB・ボム	3	5	25	0	
+959	AB Black Bird Bomb	AB・ブラックバード・ボム	4	5	70	2	
+960	AB Wingman	AB・ウィングマン	4	1	50	0	
+961	AB Dashing Wingman	AB・突撃・ウィングマン	5	1	99	3	
+962	Melagon	メラゴン	3	1	25	0	
+963	Melaburn	メラバーン	4	1	50	0	
+964	Hellfire Dragon, Inferno	獄炎龍・インフェルノ	5	1	99	2	
+965	Zabgon	ザブゴン	3	2	25	0	
+966	Zabshark	ザブシャーク	4	2	50	0	
+967	Stormy Sea Dragon, Levia	嵐海龍・レヴィア	5	2	99	2	
+968	Morigon	モリゴン	3	3	25	0	
+969	Morigannon	モリガノン	4	3	50	0	
+970	Boulder Dragon, Garmut	重岩龍・ガルムット	5	3	99	2	
+971	Dark Wood Skydragon, Horai	裏樹天龍・ホウライ	6	3	99	7	
+972	Lovely Maiden, Princess Valkyrie	麗乙女・プリンセスヴァルキリー	6	2	99	3	
+973	Azure Maiden, Graceful Valkyrie	蒼翔麗姫・グレイスヴァルキリー	7	2	99	3	
+974	Red Pirate Dragon, Bartholomew	紅の海賊龍・バーソロミュー	6	1	99	2	
+975	Blue Pirate Dragon, Awilda	蒼の海賊龍・アルビダ	6	2	99	2	
+976	Green Pirate Dragon, Captain Kidd	碧の海賊龍・キャプテンキッド	6	3	99	2	
+977	Gold Pirate Dragon, Anne & Mary	金の海賊龍・アン＆メアリー	6	4	99	2	
+978	Black Pirate Dragon, Blackbeard	黒の海賊龍・黒髭ティーチ	6	5	99	2	
+979	Red Pirate	レッドパイレーツ	2	1	30	0	
+980	Blue Pirate	ブルーパイレーツ	2	2	30	0	
+981	Green Pirate	グリーンパイレーツ	2	3	30	0	
+982	Blazing Maiden, Princess Valkyrie	熾乙女・プリンセスヴァルキリー	6	5	99	3	
+983	Black Blaze, Graceful Valkyrie	黒翼熾姫・グレイスヴァルキリー	7	5	99	3	
+984	Gigas the Great	剛腕無双・ギガンテスグレイト	6	1	99	3	
+985	Divine Queen Hera	神王妃・ヘラ	8	5	99	3	
+986	Serpent God Demon, Viper Orochi	八界蛇神・ヤマタノオロチ	7	2	99	6	
+987	Warded Storm God, Susano no Mikoto	護封嵐神・スサノオノミコト	7	3	99	6	
+988	Dancing Light, Amaterasu Ohkami	光臨舞神・アマテラスオオカミ	7	4	99	6	
+989	War Deity of the Night, Tsukuyomi	夜刻武神・ツクヨミ	7	5	99	6	
+990	Nocturne Chanter, Tsukuyomi	夜想詠神・ツクヨミ	7	5	99	6	
+994	Inferno Deity Falcon, Horus	爆熱炎隼神・ホルス	7	1	99	6	
+995	Blazing Deity Falcon, Horus	白光炎隼神・ホルス	7	1	99	6	
+996	Blue Moon Sea Deity, Isis	蒼月聖海神・イシス	7	2	99	6	
+997	Shining Sea Deity, Isis	煌命聖海神・イシス	7	2	99	6	
+998	Dark Sun Deity, Ra	暗黒太陽神・ラー	7	4	99	6	
+999	Pure Light Sun Deity, Ra	極光太陽神・ラー	7	4	99	6	
+1000	Abyssal Hell Deity Jackal, Anubis	闇獄冥狼神・アヌビス	7	5	99	6	
+1001	Deathly Hell Deity Jackal, Anubis	天臨冥狼神・アヌビス	7	5	99	6	
+1002	Baby TAMADRA	たまドラベビー	4	4	1	0	
+1003	Present Egg	プレゼントＢＯＸ	4	4	15	0	
+1004	Present Egg	プレゼントＢＯＸ	4	4	15	0	
+1005	Snow Globe Dragon Blanc	ノエルドラゴン・ブラン	5	4	50	0	
+1006	Snow Globe Dragon Noir	ノエルドラゴン・ノワール	5	5	50	0	
+1007	Gold Pirate	ゴールドパイレーツ	2	4	30	0	
+1008	Black Pirate	ブラックパイレーツ	2	5	30	0	
+1049	Sacred Dragon King Saiga	聖龍王サイガ	5	3	50	0	
+1050	Light Dragon King Saiga	光龍王サイガ	6	3	99	2	
+1051	Banchack	バンチャック	3	4	25	0	
+1052	KOB Leonhart	KOBレオンハート	4	4	70	2	
+1053	Kobokkle	コボックル	3	5	25	0	
+1054	Bokkle	ボックル	4	5	70	2	
+1055	Kaguya	カグヤ	3	3	25	0	
+1056	Blooming Flower Princess Kaguya	狂華咲乱 花媛香具耶	4	3	70	2	
+1057	Wafer Man	ウエハーマン	4	4	1	0	
+1058	Holy Dragon Stone	聖龍石	5	5	1	0	
+1059	Blazing Sun God Apollo	灼炎太陽神アポロ	6	1	99	2	
+1060	Demon God Masterion	魔神マステリオン	7	5	99	5	
+1061	Dragon Zombie	ドラゴンゾンビ	6	5	50	0	
+1062	Corpse Wyrm, Dragon Zombie	屍霊龍・ドラゴンゾンビ	7	5	99	3	
+1063	Bone Fish	ボーンフィッシュ	2	5	25	0	
+1064	Devil Fish	デビルフィッシュ	3	5	70	0	
+1065	Yamato Takeru	ヤマトタケル	5	1	50	0	
+1066	Martial God-Emperor, Yamato Takeru	武皇の剣神・ヤマトタケル	6	1	99	4	
+1067	Andromeda	アンドロメダ	5	2	50	0	
+1068	Starsea Goddess, Andromeda	星海の女神・アンドロメダ	6	2	99	4	
+1069	Perseus	ペルセウス	5	3	50	0	
+1070	Vanquishing Deity, Perseus	破邪の勇神・ペルセウス	6	3	99	4	
+1071	Sun Wukong	孫悟空	5	4	50	0	
+1072	Golden Monkey King, Sun Wukong	金毛の猿神・孫悟空	6	4	99	4	
+1073	Pandora	パンドラ	5	5	50	0	
+1074	Goddess of the Bleak Night, Pandora	冥夜の女神・パンドラ	6	5	99	4	
+1075	Strawberry Dragon	いちドラ	4	1	50	0	
+1076	Red Sky Fruit, Strawberry Dragon	紅天の果実・いちごドラゴン	5	1	99	9	
+1077	Berry Dragon	べりドラ	4	2	50	0	
+1078	Blue Sky Fruit, Berry Dragon	蒼天の果実・ベリードラゴン	5	2	99	9	
+1079	Melon Dragon	めろドラ	4	3	50	0	
+1080	Green Sky Fruit, Melon Dragon	碧天の果実・メロンドラゴン	5	3	99	9	
+1081	Lemon Dragon	れもドラ	4	4	50	0	
+1082	Yellow Sky Fruit, Lemon Dragon	黄天の果実・レモンドラゴン	5	4	99	9	
+1083	Grape Dragon	ぶどドラ	4	5	50	0	
+1084	Purple Sky Fruit, Grape Dragon	紫天の果実・ぶどうドラゴン	5	5	99	9	
+1085	Red Dragon Fruit	レッドドラゴンフルーツ	6	1	1	0	
+1086	Blue Dragon Fruit	ブルードラゴンフルーツ	6	2	1	0	
+1087	Green Dragon Fruit	グリーンドラゴンフルーツ	6	3	1	0	
+1088	Blue Dragon Caller, Sonia	青龍喚士・ソニア	6	2	50	0	
+1089	Endless Blue Dragon Caller, Sonia	永劫の青龍喚士・ソニア	7	2	99	6	
+1090	Hurricane Volcano Dragon	ハリケーンボルケーノドラゴン	6	1	99	3	
+1091	Blast Aurora Dragon	ブラストオーロラドラゴン	6	2	99	3	
+1092	Generate Earth Dragon	ジェネレイトアースドラゴン	6	3	99	3	
+1093	Tornado Holy Dragon	トルネードホーリードラゴン	6	4	99	3	
+1094	Cyclone Devil Dragon	サイクロンデビルドラゴン	6	5	99	3	
+1095	Water Twin Star Leviathan	水天双極星・リヴァイアサン	6	2	99	4	
+1096	Wind Twin Star Fafnir	風天双極星・ファフニール	6	3	99	6	
+1097	Heracles	ヘラクレス	6	3	50	0	
+1098	Champion of Olympus, Heracles	試練の剛神・ヘラクレス	7	3	99	3	
+1099	Crimson Lotus Mistress, Echidna	紅蓮華の女傑・エキドナ	6	1	99	3	
+1100	Sea God's Songstress, Siren	綿津見の歌姫・セイレーン	6	2	99	3	
+1101	World Tree Sprite, Alraune	世界樹の精霊・アルラウネ	6	3	99	3	
+1102	Creation Tree Spirit, Alraune	神創樹の聖霊・アルラウネ	6	3	99	4	
+1103	Heavenly Herald, Archangel	天上界の使徒・エンジェル	6	4	99	3	
+1104	Sanctuary Guardian, Archangel	聖天地の守神・エンジェル	6	4	99	4	
+1105	Moonbeam Fang Witch, Lilith	月光牙の魔女・リリス	6	5	99	4	
+1106	Pitch Black Night Princess, Lilith	漆黒夜の魔姫・リリス	6	5	99	3	
+1107	Phantom God, Odin	幻神・オーディン	6	1	50	0	
+1108	Awoken Phantom God, Odin	覚醒幻神・オーディン	7	1	99	6	
+1109	Flame Twin Star Ifrit	炎天双極星・イフリート	6	1	99	4	
+1110	Light Twin Star Divinegon	光天双極星・神龍	6	4	99	4	
+1111	Dark Twin Star Tiamat	闇天双極星・ティアマット	6	5	99	4	
+1112	Karmic Destroyer, Shiva	宿業の破壊神・シヴァ	7	1	99	6	
+1113	Demolishing Creator, Shiva	破戒の創造神・シヴァ	7	1	99	6	
+1114	Heavenly Fortune Goddess, Lakshmi	招福の天女神・ラクシュミー	7	2	99	6	
+1115	Purple Lotus Chanter, Lakshmi	紫蓮の吟女神・ラクシュミー	7	2	99	6	
+1116	White Hot Dancing Goddess, Parvati	白火の舞女神・パールヴァティー	7	3	99	6	
+1117	Jade Oracle, Parvati	翠金の仙女神・パールヴァティー	7	3	99	6	
+1118	Sandalphon	サンダルフォン	6	4	50	0	
+1119	Awoken Sandalphon	覚醒サンダルフォン	7	4	99	3	
+1120	Berserker Z	バーサーカーＺ	4	1	50	0	
+1121	Blazing Hammer Brute, Prometheus	炎鎚の蛮勇・プロメテウス	5	1	99	3	
+1122	Ur-Chimera	ウル・キマイラ	4	2	50	0	
+1123	Guivre Chimera	ギーブル・キマイラ	5	2	99	3	
+1124	GrimRock	グリムロック	4	3	50	0	
+1125	GrimCrystal	グリムクリストル	5	3	99	3	
+1126	Radious	ラディウス	4	4	50	0	
+1127	Angelious	アンジェリウス	5	4	99	3	
+1128	Dragon Samurai	ドラゴン・サムライ	4	5	50	0	
+1129	Dragon Shogun	ドラゴン・ショウグン	5	5	99	3	
+1130	Avalon Drake	アヴァロンドレイク	5	3	50	0	
+1131	Guardian Dragon, Avalon Drake	守護龍・アヴァロンドレイク	6	3	99	4	
+1132	Dark Red Skydragon, El Dorado	裏緋天龍・エルドラド	6	1	99	7	
+1133	Dark Blue Skydragon, Nirai Kanai	裏蒼天龍・ニライカナイ	6	2	99	7	
+1134	Dark Holy Skydragon, Shangri-La	裏聖天龍・シャングリラ	6	4	99	7	
+1135	Dark Night Skydragon, Elysium	裏夜天龍・エリュシオン	6	5	99	7	
+1136	Kitty Flamie	キティホノりん	3	1	25	0	
+1137	Kitty FlaBaddie	キティホノワルりん	4	1	70	2	
+1138	Kitty Bubblie	キティアワりん	3	2	25	0	
+1139	Kitty BubFlamie	キティアワホノりん	4	2	70	2	
+1140	Kitty Woodie	キティモリりん	3	3	25	0	
+1141	Kitty WoodBubblie	キティモリアワりん	4	3	70	2	
+1142	Kitty Shynee	キティヒカりん	3	4	25	0	
+1143	Kitty ShyWoodie	キティヒカモリりん	4	4	70	2	
+1144	Kitty Baddie	キティワルりん	3	5	25	0	
+1145	Kitty BadShynee	キティワルヒカりん	4	5	70	2	
+1146	Kittyn & Mimmyna	キティン＆ミミーナ	5	2	50	0	
+1147	Apple Springs Kittyn & Mimmyna	リンゴの泉のキティン＆ミミーナ	6	2	99	2	
+1148	Apple Drawn	アップルドラウン	4	5	50	0	
+1149	Hello Kitty World Joker	ハローキティワールド★ジョーカー	5	5	99	2	
+1150	Hello Kitty	ハローキティ	4	1	50	0	
+1151	Kitty & Tyrra	キティ＆ティラ	5	1	99	4	
+1152	Kerokerokeroppi	けろけろけろっぴ	4	2	50	0	
+1153	Keroppi & Plessie	けろっぴ＆プレシィ	5	2	99	4	
+1154	My Melody	マイメロディ	4	3	50	0	
+1155	Melody & Brachy	メロディ＆ブラッキィ	5	3	99	4	
+1156	Bad Badtz-Maru	バッドばつ丸	4	5	50	0	
+1157	Pierdra Badtz-Maru	ピエドラばつ丸	5	5	99	4	
+1158	Kuromi	クロミ	4	5	50	0	
+1159	Lilith Kuromi	リリスクロミ	5	5	99	4	
+1160	Cinnamoroll	シナモロール	4	4	50	0	
+1161	Angel Cinnamon	エンジェルシナモン	5	4	99	4	
+1162	Pompompurin	ポムポムプリン	5	4	50	0	
+1163	TAMADRApurin	たまドラプリン	6	4	99	4	
+1164	Goddess Hello Kitty	女神ハローキティ	5	4	50	0	
+1165	Princess Valkitty	プリンセス・ヴァルキティ	6	4	99	4	
+1166	Red Flower Dragon, Barbados	紅の華龍・バルバドス	6	1	99	2	
+1167	Blue Flower Dragon, Starling	蒼の華龍・スターリング	6	2	99	2	
+1168	Green Flower Dragon, Casablanca	翠の華龍・カサブランカ	6	3	99	2	
+1169	Orange Flower Dragon, Helianthus	橙の華龍・ヘリアンタス	6	4	99	2	
+1170	Purple Flower Dragon, Orchid	紫の華龍・オーキッド	6	5	99	2	
+1171	Puchilip	プチリップ	2	1	30	0	
+1172	Puchirose	プチローズ	2	2	30	0	
+1173	Puchilium	プチリウム	2	3	30	0	
+1174	Puchianthus	プチアンサス	2	4	30	0	
+1175	Puchiorchid	プチラン	2	5	30	0	
+1176	Keeper of Gold	黄金の番人	7	4	1	0	
+1178	Red Fairy	レッドフェアリー	3	1	25	0	
+1179	Fire Sprite, Parrot	火の精・パロット	4	1	70	0	
+1180	Blue Fairy	ブルーフェアリー	3	2	25	0	
+1181	Water Sprite, Sharulu	水の精・シャルル	4	2	70	0	
+1182	Green Fairy	グリーンフェアリー	3	3	25	0	
+1183	Wood Sprite, Lily	木の精・リリー	4	3	70	0	
+1184	Yellow Fairy	イエローフェアリー	3	4	25	0	
+1185	Light Sprite, Sunrich	光の精・サンリッチ	4	4	70	0	
+1186	Black Fairy	ブラックフェアリー	3	5	25	0	
+1187	Dark Sprite, Cattleya	闇の精・カトレヤ	4	5	70	0	
+1188	Hera-Beorc	ヘラ・ベオーク	6	3	50	0	
+1189	Awoken Hera-Beorc	覚醒ヘラ・ベオーク	7	3	99	3	
+1190	Ancient Draggie Knight, Zeal	エンシェントドラりんナイト・せろ	5	3	70	2	
+1191	Blazing Shrine Maiden, Chiyome	紅焔の舞巫女・望月千代女	7	1	99	8	
+1192	Blue Wind Ninja Princess, Hatsume	蒼扇の夜叉姫・初芽局	7	2	99	8	
+1193	Gusting Prodigy, Sasuke	時津風の神童・猿飛佐助	7	3	99	8	
+1194	Thunder Horn Master, Fuma Kotaro	轟雷角の頭領・風魔小太郎	7	4	99	8	
+1195	Moonlit Shadow, Hattori Hanzo	朧月夜の幻影・服部半蔵	7	5	99	8	
+1200	Asuka&Upgraded Eva Unit-02, Code 777	アスカ＆エヴァ改2号機・コード777	6	1	99	5	
+1201	Shinji&Kaworu&Unit-13, FI	シンジ＆カヲル＆第13号機・FI	7	2	99	8	
+1202	Misato&AAA Wunder	ミサト＆AAAヴンダー	5	1	50	0	
+1203	Misato&AAA Wunder, Powered Up	ミサト＆AAAヴンダー・主機点火	6	1	99	4	
+1204	The Ninth Angel	第9の使徒	4	5	50	0	
+1205	The Ninth Angel - Assault Mode	第9の使徒・戦闘形態	5	5	99	2	
+1206	5 Mechdragon Fusion, God Canopus	五機龍合体・ゴッドカノープス	7	3	99	4	
+1207	5 Mechdragon Combo, Demon Hadar	五機龍融合・デモンハダル	7	5	99	4	
+1208	Dragon Emperor, Buster Siegfried	輝龍皇帝・バスタージークフリート	7	2	99	4	
+1209	Wolf Hero, Ignis Cu Chulainn	皇狼英雄・イグニスクーフーリン	7	3	99	4	
+1210	The Eternal Bird, Phoenix	久遠の不死鳥・フェニックス	6	1	99	3	
+1211	Devil of the Depths, Kraken	溟海の大悪魔・クラーケン	6	2	99	3	
+1212	Royal Hunting Beast, Griffin	王家の狩猟獣・グリフォン	6	3	99	3	
+1213	Saintly Maidens' Protector, Unicorn	聖女の衛騎士・ユニコーン	6	4	99	3	
+1214	Underworld Guard Dog, Cerberus	冥界の闇番犬・ケルベロス	6	5	99	3	
+1215	Maleficent Dragon Lord Zaerog	黒天の真龍王・ゼローグ	8	5	99	6	
+1216	Rebel Seraph Lucifer	反逆の熾天使・ルシファー	7	5	99	4	
+1217	Keeper of the Sacred Texts, Metatron	神書の管理者・メタトロン	7	4	99	6	
+1218	Kirin of the Sacred Gleam, Sakuya	聖煌天の麒麟・サクヤ	7	4	99	7	
+1219	Himi Udon	氷見うどん	4	4	50	0	
+1220	Toyama Bay Tradition, Himi Udon	富山湾の伝統・氷見うどん	5	4	99	2	
+1221	Batman+S. Gloves Act FB	バットマン＋SGAct・FB	7	5	99	8	
+1222	Gaia	ガイア	6	3	50	0	
+1223	Awoken Gaia	覚醒ガイア	7	3	99	3	
+1224	Twin Dragon, Wangren	双子龍・ワングレン	5	1	50	0	
+1225	Flamewing Twin Dragon King, Wangren	灼翼の双龍帝・ワングレン	6	1	99	3	
+1226	Twin Dragon, Beyzul	双子龍・ベイツール	5	2	50	0	
+1227	Icewing Twin Dragon King, Beyzul	凍翼の双龍帝・ベイツール	6	2	99	3	
+1228	Awoken Odin TAMADRA	覚醒オーディンたまドラ	5	3	99	2	
+1229	Awoken Odin TAMADRA, the War Deity	覚醒秘神・オーディンたまドラ	6	2	99	2	
+1230	Awoken Phantom God, Odin TAMADRA	覚醒幻神・オーディンたまドラ	6	1	99	2	
+1231	Cao Cao	曹操	5	1	50	0	
+1232	Conquering Martial Deity, Cao Cao	求覇の武王神・曹操	6	1	99	4	
+1233	Sun Quan	孫権	5	2	50	0	
+1234	Courageous Divine General, Sun Quan	秘勇の将軍神・孫権	6	2	99	4	
+1235	Liu Bei	劉備	5	3	50	0	
+1236	Moral Commanding Deity, Liu Bei	明徳の英傑神・劉備	6	3	99	4	
+1237	Da Qiao & Xiao Qiao	大喬＆小喬	5	4	50	0	
+1238	Divine Flowers, Da Qiao & Xiao Qiao	凛聖の双華神・大喬＆小喬	6	4	99	4	
+1239	Lu Bu	呂布	5	5	50	0	
+1240	Divine Flying General, Lu Bu	羅刹の飛将神・呂布	6	5	99	4	
+1241	Bearded Deity, Guan Yu	美髯神・関羽	5	3	50	0	
+1242	Steadfast Bearded Deity, Guan Yu	義篤の美髯神・関羽	6	3	99	8	
+1243	Loyal Deity, Guan Yu	忠義神・関羽	6	1	50	0	
+1244	Valiant & Loyal Deity, Guan Yu	奮起の忠義神・関羽	7	1	99	9	
+1245	Shining Monk, Xuanzang	光僧・三蔵法師	6	4	50	0	
+1246	Gleaming-Eyed Dragon Monk, Xuanzang	輝眼の龍僧・三蔵法師	7	4	99	3	
+1247	Shadow Monk, Xuanzang	影僧・三蔵法師	6	5	50	0	
+1248	Dark-Eyed Dragon Monk, Xuanzang	冥眼の龍僧・三蔵法師	7	5	99	3	
+1249	Hera-Sowilo	ヘラ・ソエル	6	4	50	0	
+1250	Awoken Hera-Sowilo	覚醒ヘラ・ソエル	7	4	99	3	
+1251	Zeus Vulcan	ゼウス・ヴァルカン	6	1	50	0	
+1252	Awoken Zeus Vulcan	覚醒ゼウス・ヴァルカン	7	1	99	3	
+1253	Blazing Dragonfire Angel, Uriel	龍焔の熾天使・ウリエル	7	1	99	4	
+1254	Guiding Archangel, Gabriel	神導の大天使・ガブリエル	7	2	99	4	
+1255	Unyielding Archangel, Michael	退滅の大天使・ミカエル	7	3	99	4	
+1256	Savior Archangel, Raphael	救聖の大天使・ラファエル	7	4	99	4	
+1257	Surging Demon Lord, Belial	爆進の魔神卿・ベリアル	7	1	99	4	
+1258	Chivalrous Demon Lord, Amon	漢気の魔神卿・アモン	7	2	99	4	
+1259	Dreaming Archdemon, Astaroth	夢見の魔神将・アスタロト	7	3	99	6	
+1260	Pure Demon Lord, Astaroth	天真の魔神卿・アスタロト	7	3	99	6	
+1261	Haughty Demon Lord, Baal	傲慢の魔神卿・バアル	7	4	99	4	
+1262	Divine Flower Suzaku, Leilan	天樹華の朱雀・レイラン	7	1	99	6	
+1263	Divine Harbinger Suzaku, Leilan	天聖導の朱雀・レイラン	7	1	99	7	
+1264	Life Protector Seiryuu, Karin	守護命の青龍・カリン	7	2	99	6	
+1265	Ethereal Guardian Seiryuu, Karin	妙霊護の青龍・カリン	7	2	99	7	
+1266	Underworld Protector Genbu, Meimei	冥地鎮の玄武・メイメイ	7	3	99	6	
+1267	Doumyou Guardian Genbu, Meimei	道明守の玄武・メイメイ	7	3	99	7	
+1268	Lunar Corona Byakko, Haku	焔月輪の白虎・ハク	7	5	99	6	
+1269	Banishing Claw Byakko, Haku	退魔爪の白虎・ハク	7	5	99	7	
+1270	Burning Maiden, Princess Valkyrie	烈乙女・プリンセスヴァルキリー	6	1	99	3	
+1271	Phoenix Blossom, Graceful Valkyrie	凰華烈姫・グレイスヴァルキリー	7	1	99	3	
+1272	Red Mech General, Elder Jotunn	紅の機神将・エルダーヨトゥン	6	1	99	4	
+1273	Blue Mech General, Mar Midgard	蒼の機神将・マールミズガルズ	6	2	99	4	
+1274	Green Mech General, Viz Asgard	碧の機神将・ヴィズアースガル	6	3	99	4	
+1275	Judge Golem	ジャッジゴーレム	4	1	70	2	
+1276	Slumbering Dragon	マドロミドラゴン	5	5	50	0	
+1277	Awoken Dragon	カクセイドラゴン	6	5	99	2	
+1278	Yo Minazuki	水無月ヨウ	5	2	50	0	
+1279	Yo & King Siegfried	ヨウ＆カイゼルジークフリート	6	2	99	6	
+1280	Chika Makimura	牧村チカ	4	1	50	0	
+1281	Chika & War Deity Minerva	チカ＆戦女神・ミネルヴァ	5	1	99	6	
+1282	Murakumo Takeda	武田ムラクモ	4	1	50	0	
+1283	Murakumo & Red Giant Gigas	ムラクモ＆剛腕の巨人・ギガンテス	5	1	99	6	
+1284	Leona Okita	沖田リオナ	4	2	50	0	
+1285	Leona & Enchantress of the Sea, Siren	リオナ＆大海の歌姫・セイレーン	5	2	99	6	
+1286	Folen Lazule	フォーレン・ラズール	4	3	50	0	
+1287	Folen & Hunting Deity Artemis	フォーレン＆狩猟神・アルテミス	5	3	99	6	
+1288	Patricia Ezel	パトリシア・エゼル	4	4	50	0	
+1289	Patricia & Valkyrie	パトリシア＆ヴァルキリー	5	4	99	6	
+1290	Henry Boram	アンリ・ボーラム	4	5	50	0	
+1291	Henry & Chaos Devil Dragon	アンリ＆カオスデビルドラゴン	5	5	99	6	
+1292	Tinnin	ティンニン	5	4	50	0	
+1293	Tinnin & Angel	ティンニン＆エンジェル	6	4	99	5	
+1294	Ancient Blue Sacred Mask	古代の蒼神面	6	2	1	0	
+1295	Ancient Green Sacred Mask	古代の碧神面	6	3	1	0	
+1296	Iwato's Dancing Goddess, Amenouzume	岩戸の芸女神・アメノウズメ	7	1	99	6	
+1297	Divine Wardens, Umisachi&Yamasachi	護恵の漁猟神・ウミサチヤマサチ	7	2	99	7	
+1298	Devoted Miko Goddess, Kushinadahime	献身の巫女神・クシナダヒメ	7	3	99	7	
+1299	Radiant God of Creation, Izanagi	天道の皇祖神・イザナギ	7	4	99	8	
+1300	Roaming National Founder, Okuninushi	漫遊の国造神・オオクニヌシ	7	5	99	6	
+1301	Dino Rider, Wild Drake	ディノライダー・ワイルドドレーク	7	1	99	7	
+1302	Beast Rider, Wiz Merlin	ビーストライダー・ウィズマーリン	7	2	99	7	
+1303	Marine Rider, Bard Robin	マリンライダー・バードロビン	7	3	99	7	
+1304	Dragon Rider, King Arthur	ドラゴンライダー・キングアーサー	7	4	99	7	
+1305	Gryps Rider, Vector Finn	グリプスライダー・ベクターフィン	7	5	99	7	
+1306	Wadatsumi	ワダツミ	6	2	50	0	
+1307	Awoken Wadatsumi	覚醒ワダツミ	7	2	99	3	
+1308	Wolyafa	月夜花	3	1	25	0	
+1309	Golden Fox Spirit, Wolyafa	金色の妖狐・月夜花	4	1	70	2	
+1310	Hati Bebe	ハティーベベ	3	2	25	0	
+1311	Gale Wolf, Hati	暴風の牙狼・ハティー	4	2	70	2	
+1312	Mistress	ミストレス	3	3	25	0	
+1313	Purple Queen Bee, Mistress	紫電の女王蜂・ミストレス	4	3	70	2	
+1314	Skeggiold	スケゴルト	3	4	1	0	
+1315	Baphomet	バフォメット	4	5	50	0	
+1316	Underworld Tyrant, Baphomet	冥界の邪神・バフォメット	5	5	99	2	
+1317	King Mastering	キングマスターリング	6	1	99	2	
+1318	ECO Super Tiny Alma	ECO・スーパータイニー・アルマ	6	4	99	2	
+1319	I Love PAD Bear	I LOVE パズドラベア	4	4	99	8	
+1322	GC CRAB Ver.3	GC CRAB Ver.3	7	4	99	2	
+1323	King DeviTAMA	キングデビたま	6	5	1	0	
+1324	Extreme King Metal Dragon	超絶キングメタルドラゴン	7	5	1	0	
+1325	Jewel of Fire	火の宝玉	7	1	1	0	
+1326	Jewel of Water	水の宝玉	7	2	1	0	
+1327	Jewel of Wood	木の宝玉	7	3	1	0	
+1328	Jewel of Light	光の宝玉	7	4	1	0	
+1329	Jewel of Darkness	闇の宝玉	7	5	1	0	
+1330	Krishna	クリシュナ	5	1	50	0	
+1331	Divine Brave General, Krishna	勇将神・クリシュナ	6	1	99	4	
+1332	Sarasvati	サラスヴァティ	5	2	50	0	
+1333	Blessed River Goddess, Sarasvati	聖流の女神・サラスヴァティ	6	2	99	4	
+1334	Vishnu	ヴィシュヌ	5	3	50	0	
+1335	Creator God, Vishnu	創界神・ヴィシュヌ	6	3	99	4	
+1336	Ganesha	ガネーシャ	5	4	50	0	
+1337	Scholarly God, Ganesha	学問神・ガネーシャ	6	4	99	4	
+1338	Durga	ドゥルガー	5	5	50	0	
+1339	Demon Slaying Goddess, Durga	魔討の女神・ドゥルガー	6	5	99	4	
+1342	Gleaming Kouryu Emperor, Fagan	星輝の黄龍帝・ファガン	8	4	99	8	
+1343	Dark Kouryu Emperor, Fagan	絶冥の黄龍神・ファガン	8	5	99	8	
+1344	Sword-Wielding God of Victory, Freyr	龍剣の勝利神・フレイ	7	1	99	6	
+1345	Eternal Twin Stars, Idunn&Idunna	永久の双星神・イズン＆イズーナ	7	2	99	6	
+1346	Bountiful Arbor Goddess, Freyja	煌樹の豊麗神・フレイヤ	7	3	99	6	
+1347	The Retriever of Mjolnir, Thor	奪還の雷戦神・トール	7	4	99	6	
+1348	Cunning Trickster God, Loki	暗躍の狡知神・ロキ	7	5	99	6	
+1349	Exa-Hydra	エクサ・ヒドラ	4	1	50	0	
+1350	Zeta Hydra	ゼータ・ヒドラ	5	1	99	3	
+1351	WoodBahn	ウッドバーン	4	3	50	0	
+1352	ForestBahn	フォレストバーン	5	3	99	3	
+1353	Storm Dragon, Mistrain	雷龍・キリサメ	4	4	50	0	
+1354	Phantom Thunder Dragon, Sagirinokami	幻雷龍・サギリノカミ	5	4	99	3	
+1355	Anima	アニマ	5	1	50	0	
+1356	Phantom Dragon, Anima	幻影龍・アニマ	6	1	99	4	
+1357	Cursed Dragon	カースドラゴン	5	5	50	0	
+1358	Immortal Dragon, Cursed Wyrm	不死龍・カースドラゴン	6	5	99	4	
+1359	Apocalypse	アポカリプス	5	4	50	0	
+1360	Destroyer Dragon, Apocalypse	破壊龍・アポカリプス	6	4	99	5	
+1361	Scorched Land Dragon Knight, Himiko	焔土の龍騎姫・卑弥呼	6	1	99	2	
+1362	Hidden Sea Dragon Knight, Cleopatra	秘海の龍騎姫・クレオパトラ	6	2	99	2	
+1363	Heavenly Wind Dragon Knight, Ishtar	天風の龍騎姫・イシュタル	6	3	99	2	
+1364	Holy Hour Dragon Knight, Jeanne d'Arc	聖刻の龍騎姫・ジャンヌダルク	6	4	99	2	
+1365	Shadow Moon Dragon Knight, Mulan	月影の龍騎姫・ムーラン	6	5	99	2	
+1366	Firon	ファイロン	2	1	30	0	
+1367	Waron	ウォーロン	2	2	30	0	
+1368	Winron	ウィンロン	2	3	30	0	
+1369	Shiron	シャイロン	2	4	30	0	
+1370	Shadron	シャドロン	2	5	30	0	
+1371	Crazed King of Purgatory, Beelzebub	獄羅苦狂魔皇・ベルゼブブ	8	5	99	8	
+1372	Sleeping Dragon, Zhuge Liang	臥龍神・諸葛亮	5	3	50	0	
+1373	Genius Sleeping Dragon, Zhuge Liang	俊才の臥龍神・諸葛亮	6	3	99	8	
+1374	Life Dragon, Zhuge Liang	命龍神・諸葛亮	6	4	50	0	
+1375	Celestial Life Dragon, Zhuge Liang	天星の命龍神・諸葛亮	7	4	99	9	
+1412	Red Riding Hood	赤ずきん	4	1	50	0	
+1413	Happy Forest Maiden, Red Riding Hood	森の元気娘・赤ずきん	5	1	99	8	
+1414	Snow White	白雪姫	4	2	50	0	
+1415	Queen of the Dwarfs, Snow White	小人の王女・白雪姫	5	2	99	8	
+1416	Thumbelina	おやゆび姫	4	3	50	0	
+1417	Four Leaf Clover Princess, Thumbelina	四つ葉の王女・おやゆび姫	5	3	99	8	
+1418	Cinderella	シンデレラ	4	4	50	0	
+1419	White Coach Princess, Cinderella	白馬車の姫君・シンデレラ	5	4	99	8	
+1420	Sleeping Beauty	ねむり姫	4	5	50	0	
+1421	Thorn Princess, Sleeping Beauty	イバラの王女・ねむり姫	5	5	99	8	
+1422	Guardian of the Sacred City, Athena	聖都の守護神・アテナ	8	4	99	6	
+1423	Shining Lance Wielder, Odin	光槍の魔術神・オーディン	7	3	99	8	
+1424	Zhang Fei	張飛	5	3	50	0	
+1425	Decisive General, Zhang Fei	決死の燕将軍・張飛	6	3	99	3	
+1458	Mystic Pentad Dragon, Folklore	五天の神秘龍・フォークロア	7	2	99	4	
+1459	Mystic Pentad Dragon, Kotodama	五晶の神秘龍・コトダマ	7	4	99	4	
+1460	Noah	ノア	6	2	50	0	
+1461	Awoken Noah	覚醒ノア	7	2	99	3	
+1462	Sopdet	ソティス	6	4	50	0	
+1463	Awoken Sopdet	覚醒ソティス	7	4	99	3	
+1464	Thoth	トト	6	5	50	0	
+1465	Awoken Thoth	覚醒トト	7	5	99	3	
+1466	Ra TAMADRA	ラーたまドラ	5	4	99	2	
+1467	Amaterasu Ohkami TAMADRA	アマテラスオオカミたまドラ	5	4	99	2	
+1468	Tsukuyomi TAMADRA	ツクヨミたまドラ	5	5	99	2	
+1469	Voice of God, Metatron TAMADRA	神輝の代行者・メタトロンたまドラ	6	4	99	2	
+1470	Hand of the Dark God, Metatron TAMADRA	神魔の執行者・メタトロンたまドラ	7	5	99	2	
+1471	Swift Dragon Emperor, Threedia	迅龍帝・スリーディア	5	3	50	0	
+1472	Stormwing Dragon Emperor, Threedia	嵐翼の迅龍帝・スリーディア	6	3	99	3	
+1473	Bold Pirate Dragon King, Zaerog	不倒の海賊龍王・ゼローグ	8	2	99	4	
+1474	Yatagarasu	ヤタガラス	3	4	1	0	
+1476	Batman+BW Stealth	バットマン＋BWステルス	7	5	99	8	
+1502	Fire Dragon Swordsman	火の龍剣士	4	1	70	0	
+1503	Fire Dragon Knight	ファイアドラゴンナイト	5	1	99	4	
+1504	Water Dragon Swordsman	水の龍剣士	4	2	70	0	
+1505	Water Dragon Knight	ウォータードラゴンナイト	5	2	99	4	
+1506	Shining Dragon Swordsman	光の龍剣士	4	4	70	0	
+1507	Shining Dragon Knight	シャインドラゴンナイト	5	4	99	4	
+1509	Mephistopheles	メフィストフェレス	6	4	50	0	
+1510	Awoken Mephistopheles	覚醒メフィストフェレス	7	4	99	3	
+1511	Bonfire Fox, Mitsuki	燎火の天狐・ミツキ	7	1	99	8	
+1512	Distant Sea Talent, Ruka	絶海の才女・ルカ	7	2	99	8	
+1513	Shrine Priestess, Kano	祭祀の神子・カノ	7	3	99	8	
+1514	Nomadic Dancer, Fuu	遊牧の舞姫・フウ	7	4	99	8	
+1515	Cryptic Feline, Kurone	幽幻の猫又・クロネ	7	5	99	8	
+1516	Lively Maiden, Princess Valkyrie	爽乙女・プリンセスヴァルキリー	6	3	99	3	
+1517	Thorned Guardian, Graceful Valkyrie	茨戒爽姫・グレイスヴァルキリー	7	3	99	3	
+1518	Keeper of Paradise, Metatron	楽園の管理者・メタトロン	7	2	99	6	
+1519	Spirit	よりしろ	1	4	1	0	
+1520	Metabon	めたぼん	3	5	1	0	
+1521	Royal Green Hawk	ロイヤルグリーンホーク	3	3	1	0	
+1522	Picosuke	ピコスケ	3	1	25	0	
+1523	Flame Knight Areon	炎騎士アレイオーン	4	1	70	2	
+1524	Noble Dragon, Yoroku	義信龍・ヨロク	6	4	50	0	
+1525	Honorable Dragon General, Kanetsugu	義愛の知将龍・カネツグ	7	4	99	3	
+1526	High Fire Ninja	火の上忍	4	1	99	2	
+1527	High Water Ninja	水の上忍	4	2	99	2	
+1528	High Wood Ninja	木の上忍	4	3	99	2	
+1529	High Light Ninja	光の上忍	4	4	99	2	
+1530	High Dark Ninja	闇の上忍	4	5	99	2	
+1531	Zeus Mercury	ゼウス・マーキュリー	6	2	50	0	
+1532	Awoken Zeus Mercury	覚醒ゼウス・マーキュリー	7	2	99	3	
+1533	Awoken Minerva	覚醒ミネルヴァ	7	1	99	9	
+1534	Awoken Neptune	覚醒ネプチューン	7	2	99	9	
+1535	Awoken Ceres	覚醒セレス	7	3	99	9	
+1536	Awoken Dancing Queen Hera-Ur	覚醒ヘラ・ウルズ↑↑	8	1	99	6	
+1537	Red Shieldra	レッドシードラ	3	1	25	0	
+1538	Flame Shield Knight	フレイムシールドナイト	4	1	70	0	
+1539	Blue Shieldra	ブルーシードラ	3	2	25	0	
+1540	Aqua Shield Knight	アクアシールドナイト	4	2	70	0	
+1543	Yellow Shieldra	イエローシードラ	3	4	25	0	
+1544	Light Shield Knight	ライトシールドナイト	4	4	70	0	
+1545	Purple Shieldra	パープルシードラ	3	5	25	0	
+1546	Shadow Shield Knight	シャドウシールドナイト	4	5	70	0	
+1547	Flampy	ホノピィ	7	1	1	0	
+1548	Bubpy	ミズピィ	7	2	1	0	
+1549	Woodpy	モクピィ	7	3	1	0	
+1550	Shynpy	ヒカピィ	7	4	1	0	
+1551	Badpy	ヤミピィ	7	5	1	0	
+1552	Heaven-Shaking Archdemon, Lucifer	天滅の神魔王・ルシファー	7	5	99	6	
+1553	Hell-Creating Archdemon, Lucifer	創獄の神魔王・ルシファー	7	5	99	6	
+1554	Ultimate Taiko God Don-chan	太鼓神どんちゃん・極	6	4	99	2	
+1555	Eight-Headed Dragon God, Viper Orochi	八相龍神・ヤマタノオロチ	7	2	99	6	
+1556	Demon Slayer, Susano no Mikoto	斬魔閃神・スサノオノミコト	7	3	99	6	
+1557	Dancing Flame, Amaterasu Ohkami	焔天舞神・アマテラスオオカミ	7	4	99	6	
+1585	Goddess of Secrets, Kali	秘女神・カーリー	5	4	50	0	
+1586	Shining Goddess of Secrets, Kali	輝耀の秘女神・カーリー	6	4	99	5	
+1587	Goddess of Power, Kali	威女神・カーリー	6	5	50	0	
+1588	Destroying Goddess of Power, Kali	暴滅の威女神・カーリー	7	5	99	6	
+1589	Guan Yinping	関銀屏	5	1	50	0	
+1590	Peach Garden General, Guan Yinping	桃園の義将姫・関銀屏	6	1	99	3	
+1591	Flame Insect Dragon, Flammesickle	炎の蟲龍・フラムシックル	5	1	99	2	
+1592	Water Insect Dragon, Deadjumper	水の蟲龍・デッドジャンパー	5	2	99	2	
+1593	Earth Insect Dragon, Gigarock	地の蟲龍・ギガロック	5	3	99	2	
+1594	Light Insect Dragon, Pulseneedle	光の蟲龍・パルスニードル	5	4	99	2	
+1595	Dark Insect Dragon, Mutecocoon	闇の蟲龍・ミュートコクーン	5	5	99	2	
+1596	Oneton	ワントン	2	1	30	0	
+1597	Twinton	ツィントン	2	2	30	0	
+1598	Tripton	トリプトン	2	3	30	0	
+1599	Cuaton	クアトン	2	4	30	0	
+1600	Quinton	クィントン	2	5	30	0	
+1601	Vibrant Butterfly Dragon, Swallowtail	極艶の蝶龍・スワロウテイル	6	5	99	2	
+1602	Apex Blue Flower Dragon, Starling	蒼頂の華龍・スターリング	7	2	99	4	
+1613	Moonlit Feline Goddess, Bastet	月下の愛猫神・バステト	7	3	99	6	
+1614	Fire Wizard, Laila	火の魔法使い・ライラ	5	1	50	0	
+1615	Inferno Sorcerer, Laila	猛炎の魔道士・ライラ	6	1	99	6	
+1616	Water Wizard, Sharon	水の魔法使い・シャロン	5	2	50	0	
+1617	Pure Water Sorcerer, Sharon	錬水の魔道士・シャロン	6	2	99	6	
+1618	Wood Wizard, Leeza	木の魔法使い・リーザ	5	3	50	0	
+1619	Sacred Tree Sorcerer, Leeza	神木の魔道士・リーザ	6	3	99	6	
+1620	Light Wizard, Rei Sirius	光の魔法使い・レイ＝シリウス	5	4	50	0	
+1621	Flash Sorcerer, Rei Sirius	閃光の魔道士・レイ＝シリウス	6	4	99	8	
+1622	Dark Wizard, Dill Sirius	闇の魔法使い・ディル＝シリウス	5	5	50	0	
+1623	Ebon Sorcerer, Dill Sirius	冥闇の魔道士・ディル＝シリウス	6	5	99	8	
+1624	Wandering Wizard, Wee Jas	放浪の魔法使い・ウィジャス	5	4	50	0	
+1625	Space-Time Sorcerer, Wee Jas	時空の魔術師・ウィジャス	6	4	99	8	
+1626	Jester Wizard, Chester	道化の魔法使い・チェスター	5	5	50	0	
+1627	Dimensional Sorcerer, Chester	次元の魔術師・チェスター	6	5	99	8	
+1628	Cauchemar	コシュまる	6	3	70	0	
+1629	Chivalric Demon Prince, Cauchemar	姫護の魔公子・コシュまる	7	3	99	3	
+1630	Star Dragon Emperor, Defoud	星龍帝・デフォード	5	4	50	0	
+1631	Dark Sky Star Dragon Emperor, Defoud	天冥の星龍帝・デフォード	6	4	99	8	
+1632	ABE Fencer Red	ABE・フェンサー・レッド	3	1	25	0	
+1633	ABE Knight Red	ABE・ナイト・レッド	4	1	70	2	
+1634	ABE Trickster Blues	ABE・遊び人・ブルース	3	2	25	0	
+1635	ABE Archer Blues	ABE・アーチャー・ブルース	4	2	70	2	
+1636	ABE Mage Chuck	ABE・マジシャン・チャック	3	4	25	0	
+1637	ABE Wizard Chuck	ABE・ウィザード・チャック	4	4	70	2	
+1638	ABE Cleric Matilda	ABE・ヒーラー・マチルダ	3	4	25	0	
+1639	ABE Priest Matilda	ABE・プリースト・マチルダ	4	4	70	2	
+1640	ABE Pirate Bomb	ABE・パイレーツ・ボム	3	5	25	0	
+1641	ABE Capt'n Bomb	ABE・キャプテン・ボム	4	5	70	2	
+1642	ABE Guard Captain Pig	ABE・ガード・ピグ	4	3	50	0	
+1643	ABE Royal Guard Pig	ABE・ロイヤルガード・ピグ	5	3	99	3	
+1644	Arbiter of Judgement, Metatron	神罰の審理者・メタトロン	8	5	99	9	
+1645	Marvelous Red Dragon Caller, Sonia	絶世の紅龍喚士・ソニア	7	1	99	6	
+1646	King of Hell, Satan	地獄の魔神王・サタン	8	5	99	3	
+1647	Dark Knight, Gravis	暗黒騎士・グラヴィス	5	5	50	0	
+1648	Corpse Armor Dark Knight, Gravis	骸甲の暗黒騎士・グラヴィス	6	5	99	3	
+1649	Red Knight, Nim	赤騎士・ニム	5	1	50	0	
+1650	Armored Blue Flame Knight, Nim	蒼炎の鎧騎士・ニム	6	1	99	4	
+1651	Blue Knight, Muse	青騎士・ミューズ	5	2	50	0	
+1652	Armored Green Ice Knight, Muse	翠氷の鎧騎士・ミューズ	6	2	99	4	
+1653	Green Knight, Delgado	緑騎士・デルガド	5	3	50	0	
+1654	Armored Red Storm Knight, Delgado	紅嵐の鎧騎士・デルガド	6	3	99	4	
+1655	Holy Knight, Arcline	聖騎士・アークライン	5	4	50	0	
+1656	Armored Blue Blade Knight, Arcline	蒼大剣の鎧騎士・アークライン	6	4	99	4	
+1657	Evil Knight, Creuse	魔騎士・クレーゼ	5	5	50	0	
+1658	Armored Dual Blade Knight, Creuse	蒼対剣の鎧騎士・クレーゼ	6	5	99	4	
+1659	Set	セト	5	1	50	0	
+1660	Burning God, Set	焦炎神・セト	6	1	99	4	
+1661	Nut	ヌト	5	2	50	0	
+1662	Goddess of the Starry Sky, Nut	星雲神・ヌト	6	2	99	4	
+1663	Osiris	オシリス	5	3	50	0	
+1664	God of Dark Riches, Osiris	冥穣神・オシリス	6	3	99	4	
+1665	Hathor	ハトホル	5	4	50	0	
+1666	Sacred Life Goddess, Hathor	聖命神・ハトホル	6	4	99	4	
+1667	Nephthys	ネフティス	5	5	50	0	
+1668	Goddess of the Dead, Nephthys	冥霊神・ネフティス	6	5	99	4	
+1669	The Norn Urd	時女神・ウルド	5	1	50	0	
+1670	Norn of the Past, Urd	過去の時女神・ウルド	6	1	99	6	
+1671	The Norn Verdandi	時女神・ヴェルダンディ	5	3	50	0	
+1672	Norn of the Present, Verdandi	現在の時女神・ヴェルダンディ	6	3	99	6	
+1673	The Norn Skuld	時女神・スクルド	6	2	50	0	
+1674	Norn of the Future, Skuld	未来の時女神・スクルド	7	2	99	7	
+1675	Superman	スーパーマン	5	4	50	0	
+1676	Last Son of Krypton, Superman	クリプトンの末裔・スーパーマン	6	4	99	4	
+1677	Supergirl	スーパーガール	5	4	50	0	
+1678	Survivor of Krypton, Supergirl	クリプトンの遺児・スーパーガール	6	4	99	4	
+1679	Aquaman	アクアマン	4	2	50	0	
+1680	King of Atlantis, Aquaman	アトランティスの王・アクアマン	5	2	99	3	
+1681	Green Arrow	グリーンアロー	4	3	50	0	
+1682	Ace Archer, Green Arrow	エースアーチャー・グリーンアロー	5	3	99	9	
+1683	The Flash	フラッシュ	4	4	50	0	
+1684	Crimson Speedster, The Flash	深紅のスピードスター・フラッシュ	5	4	99	3	
+1685	Batgirl & Batwoman	バットガール＆バットウーマン	4	5	50	0	
+1686	Vigilantes, Batgirl & Batwoman	自警団員・Bガール＆Bウーマン	5	5	99	3	
+1687	Wonder Woman	ワンダーウーマン	4	3	50	0	
+1688	Wisdom of Athena, Wonder Woman	アテナの知恵・ワンダーウーマン	5	3	99	3	
+1689	Harley Quinn	ハーレイクイン	3	1	25	0	
+1690	Mad Love, Harley Quinn	マッドラブ・ハーレイクイン	4	1	70	2	
+1691	Silver Banshee	シルバーバンシー	3	2	25	0	
+1692	Wail of Death, Silver Banshee	死の嘆き・シルバーバンシー	4	2	70	2	
+1693	Lex Luthor	レックスルーサー	3	5	25	0	
+1694	Evil Genius, Lex Luthor	悪の天才・レックスルーサー	4	5	99	2	
+1695	Doomsday	ドゥームズデイ	3	3	25	0	
+1696	Ultimate Lifeform, Doomsday	究極の生命体・ドゥームズデイ	4	3	99	2	
+1697	Poison Ivy	ポイズンアイビー	3	3	25	0	
+1698	Master Toxicologist, Poison Ivy	毒物学者・ポイズンアイビー	4	3	70	2	
+1699	Darkseid	ダークサイド	4	5	50	0	
+1700	Dread Lord, Darkseid	恐るべき君主・ダークサイド	5	5	99	2	
+1701	ChibiDra	ちびドラ	2	5	1	0	
+1702	Memorial TAMADRA	メモリアルたまドラ	7	4	1	0	
+1704	Drifting Wizard, Wee Jas	彷徨の魔法使い・ウィジャス	5	3	50	0	
+1705	Endless Era Sorcerer, Wee Jas	永世の魔術師・ウィジャス	6	3	99	8	
+1706	Red Sky Wizard, Chester	茜空の魔法使い・チェスター	5	1	50	0	
+1707	Twilight Sorcerer, Chester	黄昏の魔術師・チェスター	6	1	99	8	
+1709	Extra Latent Slot TAMADRA	潜在拡張たまドラ	8	4	1	0	
+1710	Zhao Yun	趙雲	6	3	70	0	
+1711	Mighty Dragon General, Zhao Yun	龍威の勇将軍・趙雲	7	3	99	3	
+1712	Unyielding Samurai Dragon King, Zaerog	不屈の戦国龍王・ゼローグ	8	1	99	4	
+1713	5-Ore Magic Stone Dragon, Mithril Edge	五鉱の魔石龍・ミスリルエッジ	6	2	99	3	
+1714	sleeping dragon, zhuge liang	臥龍神・ミニ諸葛亮	4	3	50	0	
+1715	genius sleeping dragon, zhuge liang	俊才の臥龍神・ミニ諸葛亮	5	3	99	2	
+1716	bearded deity, guan yu	美髯神・ミニ関羽	4	3	50	0	
+1717	steadfast bearded deity, guan yu	義篤の美髯神・ミニ関羽	5	3	99	2	
+1726	Awoken Hino Kagutsuchi	覚醒ヒノカグツチ	7	1	99	9	
+1727	Divine Law Goddess, Valkyrie Rose	神命姫神・ヴァルキリーローズ	8	4	99	6	
+1728	Phoenix Goddess, Valkyrie Femme	凰華姫神・ヴァルキリーファム	8	1	99	9	
+1729	Azure Goddess, Valkyrie Reine	蒼翔姫神・ヴァルキリーレイン	8	2	99	9	
+1730	Thorned Goddess, Valkyrie Elize	茨戒姫神・ヴァルキリーエリーゼ	8	3	99	9	
+1731	Black-Winged Goddess, Valkyrie Claire	黒翼姫神・ヴァルキリークレール	8	5	99	9	
+1732	Stormy God-Emperor, Yamato Takeru	荒天の武皇神・ヤマトタケル	7	1	99	7	
+1733	Blue Chain Starsea Goddess, Andromeda	蒼鎖の星海神・アンドロメダ	7	2	99	7	
+1734	Green Star Vanquishing Deity, Perseus	翠星の破邪神・ペルセウス	7	3	99	7	
+1735	Revered Monkey King, Sun Wukong	大聖の金猿神・孫悟空	7	4	99	7	
+1736	Wailing Bleak Night Goddess, Pandora	魔哭の冥夜神・パンドラ	7	5	99	7	
+1737	Permafrost Queen, Hera-Is	澪王妃・ヘラ・イース	8	2	99	6	
+1738	Dominating Warrior King, Cao Cao	覇征の龍武王・曹操	7	1	99	7	
+1739	Unifying Martial Deity, Cao Cao	統覇の武王神・曹操	7	1	99	6	
+1740	Bold Divine General, Sun Quan	勇壮の将軍神・孫権	7	2	99	6	
+1741	Soaring Dragon General, Sun Quan	雄飛の龍将軍・孫権	7	2	99	7	
+1742	Guardian Divine Emperor, Liu Bei	護誓の英帝神・劉備	7	3	99	6	
+1743	Restrained Dragon Hero, Liu Bei	克己の龍英傑・劉備	7	3	99	7	
+1744	Sacred Dragon Princess, Da Qiao	天禄の龍聖姫・大喬	7	4	99	7	
+1745	Sacred Divine Flower, Xiao Qiao	天奏の聖華神・小喬	7	4	99	6	
+1746	Chaotic Flying General, Lu Bu	修羅の飛翔神・呂布	7	5	99	7	
+1747	Sparkling Goddess of Secrets, Kali	綺羅の秘女神・カーリー	7	4	99	6	
+1748	Awoken Hades	覚醒ハーデス	7	5	99	9	
+1749	Red Grimoire, Theurgia	赤の魔導書・テウルギア	5	1	50	0	
+1750	Red Ring Sorceress, Theurgia	紅輪の魔導姫・テウルギア	6	1	99	4	
+1751	Blue Grimoire, Ars Paulina	青の魔導書・アルス＝パウリナ	5	2	50	0	
+1752	Blue Time Sorceress, Ars Paulina	蒼刻の魔導姫・アルス＝パウリナ	6	2	99	4	
+1753	Green Grimoire, Armadel	緑の魔導書・アルマデル	5	3	50	0	
+1754	Green Essence Sorceress, Armadel	碧精の魔導姫・アルマデル	6	3	99	4	
+1755	Yellow Grimoire, Ars Nova	黄の魔導書・アルス＝ノウァ	5	4	50	0	
+1756	Gleaming Light Sorceress, Ars Nova	煌灯の魔導姫・アルス＝ノウァ	6	4	99	7	
+1757	Purple Grimoire, Goetia	紫の魔導書・ゴエティア	5	5	50	0	
+1758	Black Flying Sorceress, Goetia	闇翔の魔導姫・ゴエティア	6	5	99	7	
+1759	Dragon Caller, Sonia Gran	龍喚士・ソニア＝グラン	7	4	99	3	
+1760	Dawning Dragon Caller, Sonia Gran	始まりの龍喚士・ソニア＝グラン	8	4	99	9	
+1761	Burning Bowl Dragon, Gyundo	火熱の丼龍・ギュンド	5	1	99	2	
+1762	Fragrant Bowl Dragon, Happo	香彩の丼龍・ハッポウ	5	2	99	2	
+1763	Rich Bowl Dragon, Katsumin	芳醇の丼龍・カツミン	5	3	99	2	
+1764	Sunrise Bowl Dragon, Gasho	日出の丼龍・ガショウ	5	4	99	2	
+1765	Moon Kettle Bowl Dragon, Hagamar	月釜の丼龍・ハガマル	5	5	99	2	
+1766	Mugtea	マグティー	2	1	30	0	
+1767	Mugmil	マグミル	2	2	30	0	
+1768	Mugcha	マグチャ	2	3	30	0	
+1769	Mugcorn	マグコーン	2	4	30	0	
+1770	Mugcoffee	マグカフィ	2	5	30	0	
+1771	Galbowl	カルドン	3	1	25	0	
+1772	Flame Bowl Demon, Galbowl	炎の丼魔・カルドン	4	1	70	0	
+1773	Tunabowl	ツナドン	3	2	25	0	
+1774	Sea Bowl Demon, Tunabowl	海の丼魔・ツナドン	4	2	70	0	
+1775	Soybowl	ソイドン	3	3	25	0	
+1776	Land Bowl Demon, Soybowl	地の丼魔・ソイドン	4	3	70	0	
+1777	Chickenbowl	トリドン	3	4	25	0	
+1778	Gold Bowl Demon, Chickenbowl	金の丼魔・トリドン	4	4	70	0	
+1779	Sukibowl	スキドン	3	5	25	0	
+1780	Purple Bowl Demon, Sukibowl	紫の丼魔・スキドン	4	5	70	0	
+1781	Holy Night Santa Claus, Hera	聖夜のサンタクロース・ヘラ	7	1	99	3	
+1782	Holy Night Divine Elemental, Genie	聖夜の神精霊・ジーニャ	6	4	99	9	
+1783	Holy Night Kirin Princess, Sakuya	聖夜の麒麟姫・サクヤ	7	4	99	7	
+1784	moonbeam fang witch, lilith	月光牙の魔女・ミニりりす	5	5	99	3	
+1785	warrior rose, graceful valkyrie	薔薇戦姫・ミニぐれいすばるきりー	5	4	99	3	
+1786	incarnation of suzaku, leilan	朱雀の化身・ミニれいらん	4	1	70	3	
+1787	incarnation of seiryuu, karin	青龍の化身・ミニかりん	4	2	70	3	
+1788	incarnation of genbu, meimei	玄武の化身・ミニめいめい	4	3	70	3	
+1789	incarnation of kirin, sakuya	麒麟の化身・ミニさくや	4	4	70	3	
+1790	incarnation of byakko, haku	白虎の化身・ミニはく	4	5	70	3	
+1791	war deity of the night, tsukuyomi	夜刻武神・ミニつくよみ	5	5	99	4	
+1792	keeper of the sacred texts, metatron	神書の管理者・ミニめたとろん	6	4	99	4	
+1793	extant red dragon caller, sonia	現世の赤龍喚士・ミニそにあ	6	1	99	4	
+1794	rebel seraph lucifer	反逆の熾天使・ミニるしふぁー	5	5	99	4	
+1811	cao cao	ミニ曹操	4	1	50	0	
+1812	conquering martial deity, cao cao	求覇の武王神・ミニ曹操	5	1	99	2	
+1813	sun quan	ミニ孫権	4	2	50	0	
+1814	courageous divine general, sun quan	秘勇の将軍神・ミニ孫権	5	2	99	2	
+1815	liu bei	ミニ劉備	4	3	50	0	
+1816	moral commanding deity, liu bei	明徳の英傑神・ミニ劉備	5	3	99	2	
+1817	da qiao & xiao qiao	ミニ大喬＆小喬	4	4	50	0	
+1818	divine flowers, da qiao & xiao qiao	凛聖の双華神・ミニ大喬＆小喬	5	4	99	2	
+1819	lu bu	ミニ呂布	4	5	50	0	
+1820	divine flying general, lu bu	羅刹の飛翔神・ミニ呂布	5	5	99	2	
+1821	guan yu	忠義神・ミニ関羽	5	1	50	0	
+1822	valiant & loyal deity, guan yu	奮起の忠義神・ミニ関羽	6	1	99	3	
+1823	life dragon, zhuge liang	命龍神・ミニ諸葛亮	5	4	50	0	
+1824	celestial life dragon, zhuge liang	天星の命龍神・ミニ諸葛亮	6	4	99	3	
+1825	I Love DeviBear	I LOVE デビベア	4	5	99	8	
+1826	Red Angel, Rozuel	紅天使・ロズエル	5	1	50	0	
+1827	Red-Winged Star Angel, Rozuel	紅翼の星天使・ロズエル	6	1	99	4	
+1828	Blue Angel, Famiel	蒼天使・ファミエル	5	2	50	0	
+1829	Blue-Winged Star Angel, Famiel	蒼翼の星天使・ファミエル	6	2	99	4	
+1830	Green Angel, Ruel	翠天使・リュエル	5	3	50	0	
+1831	Green-Winged Star Angel, Ruel	翠翼の星天使・リュエル	6	3	99	4	
+1832	Holy Angel, Ariel	聖天使・アリエル	5	4	50	0	
+1833	Holy-Winged Star Angel, Ariel	聖翼の星天使・アリエル	6	4	99	4	
+1834	Dark Angel, Lumiel	魔天使・ルミエル	5	5	50	0	
+1835	Dark-Winged Star Angel, Lumiel	魔翼の星天使・ルミエル	6	5	99	4	
+1836	Medjedra	メジェドラ	6	3	50	0	
+1837	Guardian of Dark Riches, Medjedra	冥穣の守護神・メジェドラ	7	3	99	3	
+1838	Stubborn Dragon King, Gainaut	頑龍王・ガイノウト	7	1	99	3	
+1839	Lightning Sky Stubborn Dragon King, Gainaut	雷天の頑龍王・ガイノウト	8	1	99	9	
+1840	Sea Dragon King, Volsung	海龍王・ヴォルスーン	7	2	99	3	
+1841	Giant Arched Sea Dragon King, Volsung	大弯の海龍王・ヴォルスーン	8	2	99	9	
+1842	Wind Dragon Queen, Linthia	風龍王・リンシア	7	3	99	3	
+1843	Crystal Wind Dragon Queen, Linthia	玻璃の風龍王・リンシア	8	3	99	9	
+1844	Knight Dragon King, Nordis	騎龍王・ノルディス	7	4	99	3	
+1845	Unleashed Knight Dragon King, Nordis	解放の騎龍王・ノルディス	8	4	99	9	
+1846	Phantom Dragon King, Zaerog∞	幻龍王・ゼローグ∞	7	5	99	3	
+1847	Maleficent Phantom Dragon King, Zaerog∞	黒天の幻龍王・ゼローグ∞	8	5	99	9	
+1848	Angel of Secret Destiny, Elia	密命の天使・イーリア	7	4	99	6	
+1849	Psychopomp of Oblivion, Grisar	忘却の死神・グリザル	7	5	99	6	
+1850	Jagi	ジャギ	3	5	25	0	
+1851	Tyrannical Pupil, Jagi	暴虐の徒・ジャギ	4	5	70	2	
+1852	Amiba	アミバ	3	5	25	0	
+1853	Hokuto Shinken Imposter, Amiba	偽りの北斗神拳・アミバ	4	5	70	2	
+1854	Uighur	ウイグル	3	5	25	0	
+1855	The Warden, Uighur	獄長・ウイグル	4	5	70	2	
+1856	Ken-Oh, Raoh	拳王・ラオウ	5	5	50	0	
+1857	Ruler of the Century's End, Raoh	世紀末覇者・ラオウ	6	5	99	2	
+1858	Raoh	ラオウ	5	1	50	0	
+1859	Conqueror of the Heavens, Raoh	天の覇者・ラオウ	6	1	99	4	
+1860	Kenshiro	ケンシロウ	5	1	50	0	
+1861	Hokuto Shinken Master, Kenshiro	北斗神拳・ケンシロウ	6	1	99	4	
+1862	Toki	トキ	5	2	50	0	
+1863	Gentle Fist Master, Toki	柔の拳・トキ	6	2	99	4	
+1864	Shin	シン	4	4	50	0	
+1865	Nanto Seiken Master, Shin	南斗聖拳・シン	5	4	99	3	
+1866	Rei	レイ	4	2	50	0	
+1867	Nanto Suichoken Master, Rei	南斗水鳥拳・レイ	5	2	99	3	
+1868	Juda	ユダ	4	3	50	0	
+1869	Nanto Kokakuken Master, Juda	南斗紅鶴拳・ユダ	5	3	99	3	
+1870	Shew	シュウ	4	3	50	0	
+1871	Nanto Hakuroken Master, Shew	南斗白鷺拳・シュウ	5	3	99	3	
+1872	Thouzer	サウザー	4	4	50	0	
+1873	Holy Emperor, Thouzer	聖帝・サウザー	5	4	99	3	
+1874	Mamiya	マミヤ	4	1	50	0	
+1875	Unrequited Warrior Woman, Mamiya	秘愛の女戦士・マミヤ	5	1	99	9	
+1876	zhao yun	ミニ趙雲	5	3	70	0	
+1877	mighty dragon general, zhao yun	龍威の勇将軍・ミニ趙雲	6	3	99	3	
+1878	Diagoldos	ディアゴルドス	6	1	50	0	
+1879	Armored Blade Dragon, Diagoldos	重装剣龍・ディアゴルドス	7	1	99	3	
+1880	Ruler of Toyama Bay, Cold Amberjack	富山湾の絶対王者・寒ブリ	6	2	99	3	
+1881	Twin Blade Brave, Shotel	双曲剣の勇士・ショーテル	5	1	99	5	
+1882	Double-Edged Blade Brave, Claymore	両刃剣の勇士・クレイモア	5	2	99	5	
+1883	Nameless Blade Brave, Masamune	無銘刀の勇士・正宗	5	3	99	5	
+1884	Curved Blade Brave, Kopis	曲刃剣の勇士・コピス	5	4	99	5	
+1885	Massive Blade Brave, Zweihander	巨重剣の勇士・ツヴァイハンダー	5	5	99	5	
+1891	Raoh ChibiDra	ラオウちびドラ	3	5	1	0	
+1896	Earth Dragon Swordsman	地の龍剣士	4	3	50	0	
+1897	Earth Dragon Knight	アースドラゴンナイト	5	3	99	4	
+1898	Dark Dragon Swordsman	闇の龍剣士	4	5	50	0	
+1899	Shadow Dragon Knight	シャドウドラゴンナイト	5	5	99	4	
+1916	Music Dragon, Legelonte	音楽龍・レジェロンテ	5	2	99	3	
+1917	Hungry Peko Dragon	ハラペコ・ペコどら	4	1	99	3	
+1918	Battle Flower Spirit, Mandrake	戦華の精霊・マンドレイク	4	3	99	3	
+1919	Rumbling Firedragon, Armored Tyrannos	轟炎龍・アームドティラノス	6	1	99	5	
+1920	Phantom Icedragon, Mirage Plesios	幻氷龍・ミラージュプレシオス	6	2	99	5	
+1921	Wild Flowerdragon, Howling Brachys	猛花龍・ハウルブラキオス	6	3	99	5	
+1922	Zeus & Hera	ゼウス＆ヘラ	7	4	99	3	
+1923	Loving Heavenly Deities, Zeus & Hera	相思の天界神・ゼウス＆ヘラ	8	4	99	8	
+1925	War Deity of the Magic Spear, Odin	魔槍の秘術神・オーディン	8	2	99	9	
+1926	Heaven-Shaking Thunderdragon, Indra	破天の雷霆龍・インドラ	7	4	99	6	
+1927	Abyssal Darkdragon, Vritra	深獄の暗黒龍・ヴリトラ	7	5	99	6	
+1928	Awoken Venus	覚醒ヴィーナス	7	4	99	9	
+1929	Tyrra-bean	まめティラ	1	1	5	0	
+1930	Plessie-bean	まめプレシィ	1	2	5	0	
+1931	Brachy-bean	まめブラッキィ	1	3	5	0	
+1936	Kapibara-san & White-san	カピバラさんとホワイトさん	5	3	99	2	
+1944	Kaguya-Hime	かぐや姫	6	3	50	0	
+1945	Bamboo Cutter's Blossom, Kaguya-Hime	竹取の翠月花・かぐや姫	7	3	99	3	
+1946	Red Dragonbound, Gadius	赤龍契士・ガディウス	5	1	50	0	
+1947	Lightning Red Dragonbound, Gadius	浄雷の赤龍契士・ガディウス	6	1	99	5	
+1948	Black Dragonbound, Typhon	黒龍契士・ティフォン	6	5	50	0	
+1949	Lightning Black Dragonbound, Typhon	滅雷の黒龍契士・ティフォン	7	5	99	6	
+1950	White Beast Demon, Ilm	白獣魔・イルム	6	4	50	0	
+1951	Tome-Creating White Phantom Demon, Ilm	創書の白幻魔・イルム	7	4	99	6	
+1952	Black Beast Demon, Zuoh	黒獣魔・ズオー	5	5	50	0	
+1953	Enraged Black Phantom Demon, Zuoh	憤激の黒幻魔・ズオー	6	5	99	5	
+1954	Awoken Shiva	覚醒シヴァ	7	1	99	8	
+1955	Awoken Lakshmi	覚醒ラクシュミー	7	2	99	8	
+1956	Awoken Parvati	覚醒パールヴァティー	7	3	99	8	
+1957	Fire Cat Dragon, Tabby Nyadra	火の猫龍・シマニャドラ	5	1	99	2	
+1958	Water Cat Dragon, Russian Nyadra	水の猫龍・ロシニャドラ	5	2	99	2	
+1959	Wood Cat Dragon, Calico Nyadra	木の猫龍・ミケニャドラ	5	3	99	2	
+1960	Light Cat Dragon, Persian Nyadra	光の猫龍・ペルニャドラ	5	4	99	2	
+1961	Dark Cat Dragon, Black Nyadra	闇の猫龍・クロニャドラ	5	5	99	2	
+1962	Red DeviNyan	アカデビニャン	3	1	30	0	
+1963	Blue DeviNyan	アオデビニャン	3	2	30	0	
+1964	Green DeviNyan	ミドリデビニャン	3	3	30	0	
+1965	White DeviNyan	シロデビニャン	3	4	30	0	
+1966	Black DeviNyan	クロデビニャン	3	5	30	0	
+1967	Sacred Dragon King Saiga Another	聖龍王サイガ アナザー	5	3	50	0	
+1968	Light Dragon King Saiga Another	光龍王サイガ アナザー	6	3	99	4	
+1969	Shinra Dragon God Saiga Another	神羅聖龍神サイガ アナザー	7	3	99	7	
+1970	War Princess Asmodeus Another	魔戦姫アスモディエス アナザー	5	5	50	0	
+1971	Phantom Demon Queen Asmo-Deus Another	幻魔王アスモ・デウス アナザー	6	5	99	4	
+1972	Fire Hammer Kiriko Another	炎鎚のキリコ アナザー	5	1	50	0	
+1973	Shining Wing Kiriko Another	光翼聖天キリコ アナザー	6	1	99	4	
+1974	Shinra Sorcerer God Moebius	神羅魔導神メビウス	4	5	99	3	
+1975	Shinra Sacred Demon God Ark	神羅聖魔神アーク	4	5	99	6	
+1976	Shinra Light Dragon God Ryuga	神羅光龍神リュウガ	4	4	99	6	
+1977	Shinra Golden God Maxius	神羅黄金神マキシウス	4	4	99	6	
+1978	Shinra Ultimate God Kai	神羅終極神カイ	4	5	99	3	
+1979	Shinra Soul Beast Sai	神羅魂獣神サイ	4	1	99	3	
+1980	Shinra Sun God Apollo	神羅太陽神アポロ	4	1	99	6	
+1981	Shinra Sacred Dragon God Saiga	神羅聖龍神サイガ	4	3	99	6	
+1982	Shinjo Kagato	真城火牙刀	4	1	50	0	
+1983	Raging Kagato	烈火の火牙刀	5	1	99	2	
+1984	Crystal Ruler Hikari - Tenchi	水晶天子ヒカリ・天地	4	4	50	0	
+1985	Crystal Ruler Hikari - Itsuki	水晶天子ヒカリ・一鬼	5	4	99	2	
+1986	Flo Gist	フロギスト	3	1	25	0	
+1987	Bem Gist	ベム・ギスト	4	1	70	2	
+1988	Snow Beast Yeye	雪獣イエイエ	3	2	25	0	
+1989	Gon Yeye	ゴン・イエイエ	4	2	70	2	
+1990	Gardener Pochika	ガードナー・ポーチカ	3	3	25	0	
+1991	Lulu Pochika	ルル・ポーチカ	4	3	70	2	
+1992	Lard	ラード	3	5	25	0	
+1993	Hell Lard	ヘル・ラード	4	5	70	2	
+1994	Asmodeus Another Card	アスモディエス アナザー カード	4	5	1	0	
+1995	Fire Hammer Kiriko Another Card	炎鎚のキリコ アナザー カード	4	1	1	0	
+1996	Shinra Sorcerer God Moebius Card	神羅魔導神メビウス カード	4	5	1	0	
+1997	Shinra Sacred Demon God Ark Card	神羅聖魔神アーク カード	4	5	1	0	
+1998	Shinra Light Dragon God Ryuga Card	神羅光龍神リュウガ カード	4	4	1	0	
+1999	Shinra Golden God Maxius Card	神羅黄金神マキシウス カード	4	4	1	0	
+2000	Shinra Ultimate God Kai Card	神羅終極神カイ カード	4	5	1	0	
+2001	Shinra Soul Beast Sai Card	神羅魂獣神サイ カード	4	1	1	0	
+2002	Shinra Sun God Apollo Card	神羅太陽神アポロ カード	4	1	1	0	
+2003	Shinra Sacred Dragon God Saiga Card	神羅聖龍神サイガ カード	4	3	1	0	
+2004	Wafer Man Papa	ウエハーマンパパ	4	4	1	0	
+2006	Avowed Thief, Ishikawa Goemon	天下御免の大泥棒・石川五右衛門	8	1	99	4	
+2007	Sphinx	スフィンクス	5	1	50	0	
+2008	Awoken Sphinx	覚醒スフィンクス	6	1	99	3	
+2009	Awoken Horus	覚醒ホルス	7	1	99	8	
+2010	Awoken Isis	覚醒イシス	7	2	99	8	
+2011	Awoken Bastet	覚醒バステト	7	3	99	8	
+2012	Awoken Ra	覚醒ラー	7	4	99	8	
+2013	Awoken Anubis	覚醒アヌビス	7	5	99	8	
+2014	Student Council President, Lucifer	生徒会長・ルシファー	7	4	99	9	
+2015	Discipline Committee Chair, Athena	風紀委員長・アテナ	7	3	99	6	
+2016	Class Monitor, Athena	学級委員長・アテナ	7	3	99	6	
+2017	Scholarship Student, Isis	特待生・イシス	7	2	99	8	
+2018	Hera-Ur-Senpai	↑↑先輩・ヘラ・ウルズ	6	1	99	3	
+2019	School Gang Leader, Gigas	剛腕番長・ギガンテス	6	1	99	3	
+2020	blazing shrine maiden, chiyome	紅焔の舞巫女・ミニちよめ	6	1	99	3	
+2021	phantom god, odin	幻神・ミニおーでぃん	6	1	99	6	
+2022	amaterasu ohkami	ミニあまてらすおおかみ	4	4	70	3	
+2023	water deity, holy isis	聖海神・ミニいしす	4	2	70	3	
+2024	yamato takeru	ミニやまとたける	4	1	70	3	
+2025	andromeda	ミニあんどろめだ	4	2	70	3	
+2026	perseus	ミニぺるせうす	4	3	70	3	
+2027	sun wukong	ミニそんごくう	4	4	70	3	
+2028	pandora	ミニぱんどら	4	5	70	3	
+2029	Cloud	クラウド	6	4	50	0	
+2030	Cloud & Hardy-Daytona	クラウド＆ハーディ＝デイトナ	7	4	99	4	
+2031	Sephiroth	セフィロス	6	5	50	0	
+2032	Renegade Hero, Sephiroth	堕ちた英雄・セフィロス	7	5	99	4	
+2033	Squall	スコール	5	1	50	0	
+2034	Solitary Lion, Squall	孤高の獅子・スコール	6	1	99	7	
+2035	Rinoa	リノア	5	2	50	0	
+2036	Sorceress's Successor, Rinoa	魔女の継承者・リノア	6	2	99	9	
+2037	Zidane	ジタン	5	3	50	0	
+2038	Trance Zidane	トランス・ジタン	6	3	99	9	
+2039	Vivi	ビビ	4	5	50	0	
+2040	Trance Vivi	トランス・ビビ	5	5	99	3	
+2041	Tidus	ティーダ	5	2	50	0	
+2042	Fayth's Dream, Tidus	祈り子の夢・ティーダ	6	2	99	9	
+2043	Yuna	ユウナ	6	4	50	0	
+2044	Determined Summoner, Yuna	決意の召喚士・ユウナ	7	4	99	4	
+2045	Ace	エース	4	1	50	0	
+2046	Agito Cadet, Ace	アギト候補生・エース	5	1	99	3	
+2047	Aemo	エモ	4	3	50	0	
+2048	Dimensional Travelers, Aemo & Mootie	時空ノ水晶・エモ＆タツノコ	5	3	99	9	
+2049	Wol	ウォル	4	4	50	0	
+2050	Knight of the Dawn, Wol	黎明のナイト・ウォル	5	4	99	3	
+2051	Fat Chocobo	でぶチョコボ	4	4	35	0	
+2052	Chaos	カオス	5	5	99	2	
+2053	Emperor of Palamecia	パラメキア皇帝	5	2	99	2	
+2054	Cloud of Darkness	暗闇の雲	5	3	99	2	
+2055	Zeromus	ゼロムス	5	5	99	2	
+2056	Neo Exdeath	ネオエクスデス	5	4	99	2	
+2057	Gilgamesh	ギルガメッシュ	6	1	99	2	
+2058	Kefka	ケフカ	5	5	50	0	
+2059	Dancing Mad, Kefka	妖星乱舞・ケフカ	6	5	99	2	
+2060	Cloud's Buster Sword	クラウドのバスターソード	5	4	1	0	
+2061	Sephiroth's Masamune	セフィロスの正宗	5	5	1	0	
+2062	Squall's Gunblade	スコールのガンブレード	5	1	1	0	
+2063	Rinoa's Pinwheel	リノアの円月輪	5	2	1	0	
+2064	Zidane's Mage Masher	ジタンのメイジマッシャー	5	3	1	0	
+2065	Tidus's Brotherhood	ティーダのフラタニティ	5	4	1	0	
+2066	Yuna's Staff	ユウナのロッド	5	2	1	0	
+2067	Extreme King Metal TAMADRA	超絶キンメタたまドラ	7	5	1	0	
+2068	Aamir	アーミル	5	5	50	0	
+2069	Black Beast Demon's Servant, Aamir	黒獣魔の子分・アーミル	6	5	99	3	
+2070	Tinnin & Metatron	ティンニン＆メタトロン	7	4	99	9	
+2071	Yo TAMADRA	ヨウたまドラ	5	2	1	0	
+2072	Tinnin TAMADRA	ティンニンたまドラ	5	4	1	0	
+2073	Awoken Leilan	覚醒レイラン	7	1	99	8	
+2074	Awoken Karin	覚醒カリン	7	2	99	8	
+2075	Awoken Meimei	覚醒メイメイ	7	3	99	8	
+2076	Awoken Haku	覚醒ハク	7	5	99	8	
+2077	Green Gleaming Star Kirin, Sakuya	翠輝星の麒麟・サクヤ	8	4	99	9	
+2078	Blazing Goddess of Power, Kali	劫火の威女神・カーリー	8	5	99	9	
+2079	Divine General of the Sun, Krishna	日輪の勇将神・クリシュナ	7	1	99	4	
+2080	Wise and Moral Goddess, Sarasvati	知徳の麗女神・サラスヴァティ	7	2	99	4	
+2081	Divine Creator of Order, Vishnu	秩序の創界神・ヴィシュヌ	7	3	99	7	
+2082	Scholarly God of Fortune, Ganesha	招財の学問神・ガネーシャ	7	4	99	7	
+2083	Magic Hand Slayer Goddess, Durga	魔掌の討女神・ドゥルガー	7	5	99	4	
+2084	Capricious Summon, Fat Chocobo	きまぐれ召喚・でぶチョコボ	5	4	99	9	
+2085	Kitty's Festa Joker	キティズフェスタ★ジョーカー	6	5	99	2	
+2086	Hello Kitty & Tyrannos	キティ＆ティラノス	6	1	99	5	
+2087	Kerokerokeroppi & Plesios	けろっぴ＆プレシオス	6	2	99	5	
+2088	My Melody & Brachys	メロディ＆ブラキオス	6	3	99	5	
+2089	TAMADRApurin A La Mode	たまドラプリン☆アラモード	7	4	99	9	
+2090	Princess Valkitty Heart	プリンセス・ヴァルキティハート	7	4	99	9	
+2091	Mighty Dragon Emperor, Lifive	剛龍帝・リファイブ	6	1	99	3	
+2092	Storm Mighty Dragon Emperor, Lifive	爆天の剛龍帝・リファイブ	7	1	99	5	
+2093	Phoenix Rider	フェニックスライダー	5	1	50	0	
+2094	Phoenix Rider, Valen	フェニックスライダー・ヴァレン	6	1	99	6	
+2095	Kraken Rider	クラーケンライダー	5	2	50	0	
+2096	Kraken Rider, Nell	クラーケンライダー・ネル	6	2	99	6	
+2097	Griffin Rider	グリフォンライダー	5	3	50	0	
+2098	Griffin Rider, Gilliam	グリフォンライダー・ギリアム	6	3	99	6	
+2099	Unicorn Rider	ユニコーンライダー	5	4	50	0	
+2100	Unicorn Rider, Liene	ユニコーンライダー・リーネ	6	4	99	6	
+2101	Cerberus Rider	ケルベロスライダー	5	5	50	0	
+2102	Cerberus Rider, Jize	ケルベロスライダー・ジゼ	6	5	99	6	
+2103	Zhou Yu	周瑜	5	2	70	0	
+2104	Graceful General, Zhou Yu	秀麗の智将軍・周瑜	6	2	99	3	
+2105	Toyama Taste, Himi Udon	富山の色彩・氷見うどん	6	4	99	7	
+2106	Archer, Zell	弓使い・ゼル	3	3	50	0	
+2107	Hunter, Zell	ハンター・ゼル	4	3	99	2	
+2108	Esper, No.41	エスパー・41号	3	4	50	0	
+2109	Superhuman, No.41	超人・41号	4	4	99	2	
+2110	Vampire	ドラキュラ・イベリ公	3	5	50	0	
+2111	Nightstar Vampire	ナイトスター・イベリ公	4	5	99	2	
+2112	Kyubi	キュウビ	4	1	50	0	
+2113	White Flame Fox, Kyubi	白炎狐・キュウビ	5	1	99	2	
+2114	Ancient Wooden Beast	古の木獣	4	3	50	0	
+2115	Wooden Cow, Gavlen	木牛ガヴナン	5	3	99	2	
+2116	Pianis	ピアニース	6	2	50	0	
+2117	Enticing Water Princess, Pianis	誘水姫・ピアニース	7	2	99	4	
+2118	Scythe-Wielder, Yukari	鎌士ユカリ	4	5	50	0	
+2119	Scythe-Wielder of Darkness, Yukari	闇鎌士ユカリ	5	5	99	2	
+2120	Arthur	アーサー	6	4	50	0	
+2121	Holy King Arthur	聖王アーサー	7	4	99	4	
+2127	Light Mech General, Sherospada	光の機神将・シェロスパーダ	6	4	99	7	
+2128	Dark Mech General, Hysferzen	闇の機神将・ハイスフェルゼン	6	5	99	7	
+2129	Relentless Destroyer, Grand Tengu	無間の破戒神・大天狗	7	3	99	6	
+2130	Unwavering Demon Dragon, Nobunaga	義憤の天魔龍・ノブナガ	7	5	99	7	
+2133	Batman+Disruptor	バットマン＋ディスラプター	7	5	99	6	
+2134	Batman+Batmobile	バットマン＋バットモービル	7	5	99	6	
+2135	Harley Quinn	ハーレークイン	4	1	50	0	
+2136	Final Nightmare Harley Quinn	最後の悪夢・ハーレークイン	5	1	99	9	
+2137	Scarecrow	スケアクロウ	5	5	50	0	
+2138	Scarecrow+Fear Gas	スケアクロウ＋フィアーガス	6	5	99	2	
+2139	Arkham Knight	アーカムナイト	5	5	50	0	
+2140	Private Military Arkham Knight	私設軍隊・アーカムナイト	6	5	99	2	
+2141	Scarlet Dragon Caller, Tsubaki	緋龍喚士・ツバキ	5	1	50	0	
+2142	Dusk Scarlet Dragon Caller, Tsubaki	黄昏の緋龍喚士・ツバキ	6	1	99	7	
+2143	Indigo Dragon Caller, Sumire	藍龍喚士・スミレ	5	2	50	0	
+2144	Dawn Calm Indigo Dragon Caller, Sumire	朝凪の藍龍喚士・スミレ	6	2	99	7	
+2145	Jasper Dragon Caller, Kaede	碧龍喚士・カエデ	6	3	50	0	
+2146	Fall Wind Jasper Dragon Caller, Kaede	金風の碧龍喚士・カエデ	7	3	99	6	
+2147	Sun Dragon Caller, Kanna	日龍喚士・カンナ	6	4	50	0	
+2148	Dawn Sky Sun Dragon Caller, Kanna	早天の日龍喚士・カンナ	7	4	99	6	
+2149	Moon Dragon Caller, Satsuki	月龍喚士・サツキ	5	5	50	0	
+2150	Ominous Moon Dragon Caller, Satsuki	禍時の月龍喚士・サツキ	6	5	99	5	
+2179	God of the Destroying Lance, Odin	滅槍の幻術神・オーディン	8	1	99	9	
+2180	Pacifying Yomi Goddess, Izanami	平定の黄泉神・イザナミ	8	5	99	5	
+2181	Sha Wujing	沙悟浄	6	2	50	0	
+2182	Liusha River Mystic, Sha Wujing	流砂の妖仙・沙悟浄	7	2	99	3	
+2183	Zhu Bajie	猪八戒	6	1	50	0	
+2184	Gluttonous Mystic, Zhu Bajie	大食の妖仙・猪八戒	7	1	99	3	
+2185	Blazing CyberDragon, Thuban	暴炎機導龍・トゥバン	5	1	99	8	
+2186	Abyssal CyberDragon, Sadalmelik	深海機導龍・サダルメリク	5	2	99	8	
+2187	Gale CyberDragon, Alnair	烈風機導龍・アルナイル	5	3	99	8	
+2188	Thundering CyberDragon, Shedar	天雷機導龍・シェザル	5	4	99	8	
+2189	Destroying CyberDragon, Diadem	刻滅機導龍・ディアデム	5	5	99	8	
+2190	Flame-Winged CyberBeast, Markab	灼翼機導獣・マルカブ	5	1	99	8	
+2191	Frost-Fanged CyberBeast, Alfecca	氷牙機導獣・アルフェッカ	5	2	99	8	
+2192	Swoop-Winged CyberBeast, Phact	風翼機導獣・ファクト	5	3	99	8	
+2193	Flashing-Clawed CyberBeast, Leonis	閃爪機導獣・レオニス	5	4	99	8	
+2194	Evil Eye CyberBeast, Kakkab	冥眼機導獣・カッカブ	5	5	99	8	
+2195	Flame Gear	フレイムギア	3	1	30	0	
+2196	Aqua Gear	アクアギア	3	2	30	0	
+2197	Wind Gear	ウィンドギア	3	3	30	0	
+2198	Thunder Gear	サンダーギア	3	4	30	0	
+2199	Dark Gear	ダークギア	3	5	30	0	
+2205	Hell Demon, Scarlet	灼冥魔・スカーレット	6	1	99	4	
+2206	Broad-Minded Hell Demon, Scarlet	闊達の灼冥魔・スカーレット	7	1	99	8	
+2207	Latent TAMADRA (Imp. HP)	潜在たまドラ☆HP強化	6	4	1	0	
+2208	Latent TAMADRA (Imp. ATK)	潜在たまドラ☆攻撃強化	6	4	1	0	
+2209	Latent TAMADRA (Imp. RCV)	潜在たまドラ☆回復強化	6	4	1	0	
+2210	Latent TAMADRA (Auto-Heal)	潜在たまドラ☆自動回復	6	4	1	0	
+2211	Latent TAMADRA (Ext. Move Time)	潜在たまドラ☆操作時間延長	6	4	1	0	
+2212	Latent TAMADRA (Fire Dmg. Red.)	潜在たまドラ☆火ダメージ軽減	7	4	1	0	
+2213	Latent TAMADRA (Water Dmg. Red.)	潜在たまドラ☆水ダメージ軽減	7	4	1	0	
+2214	Latent TAMADRA (Wood Dmg. Red.)	潜在たまドラ☆木ダメージ軽減	7	4	1	0	
+2215	Latent TAMADRA (Light Dmg. Red.)	潜在たまドラ☆光ダメージ軽減	7	4	1	0	
+2216	Latent TAMADRA (Dark Dmg. Red.)	潜在たまドラ☆闇ダメージ軽減	7	4	1	0	
+2233	Deus ex Machina	デウス＝エクス＝マキナ	6	4	50	0	
+2234	Awoken Deus ex Machina	覚醒デウス＝エクス＝マキナ	7	4	99	3	
+2235	Avenging War Deity, Ares	復仇の戦軍神・アレス	7	1	99	7	
+2236	Psychopomp Commerce Deity, Hermes	還魂の商業神・ヘルメス	7	2	99	7	
+2237	Moon Flower Huntress, Artemis	月華の狩猟神・アルテミス	7	3	99	7	
+2238	Brilliant Sun Deity, Apollo	渾天の光明神・アポロン	7	4	99	7	
+2239	Cradle of Hell Goddess, Persephone	揺籃の冥府神・ペルセポネ	7	5	99	7	
+2240	Demon Flamedragon Kagato	鬼炎龍火牙刀	6	1	99	2	
+2241	Sleeping Princess, Alma	眠り姫アルマ	5	1	50	0	
+2242	Sacred Princess, Alma	聖姫アルマ	6	1	99	2	
+2243	Alma & Kapibara-san	アルマとカピバラさん	7	1	99	2	
+2244	Harmony Goddess, Balancile Another	調和神バランシール アナザー	5	4	50	0	
+2245	Omnipotent Harmony Goddess, Balancile Another	万能の調和神バランシール アナザー	6	4	99	4	
+2246	Lightweight Armor Queen, Polaris	鎧羅王ポラリス	4	2	99	3	
+2247	Awoken Lightweight Armor Queen, Polaris	完全覚醒・鎧羅王ポラリス	5	2	99	3	
+2248	Polaris & Kapibara-san	ポラリスとカピバラさん	5	2	99	3	
+2249	Pure-Blooded Demon Queen, Asmodeus Another	純血の魔王アスモ・デウス アナザー	7	5	99	4	
+2250	PreDRA	ぷれドラ	3	4	1	0	
+2252	Shiva Dragon	シヴァ＝ドラゴン	8	1	99	4	
+2253	Destroyer God, Shiva Dragon	破壊神・シヴァ＝ドラゴン	9	1	99	8	
+2254	Neptune Dragon	ネプチューン＝ドラゴン	8	2	99	4	
+2255	Sea Deity, Neptune Dragon	海王神・ネプチューン＝ドラゴン	9	2	99	8	
+2256	Odin Dragon	オーディン＝ドラゴン	8	3	99	5	
+2257	Light Lance God, Odin Dragon	光槍神・オーディン＝ドラゴン	9	3	99	9	
+2258	Ra Dragon	ラー＝ドラゴン	8	4	99	4	
+2259	Sun God, Ra Dragon	太陽神・ラー＝ドラゴン	9	4	99	8	
+2260	Yomi Dragon	ヨミ＝ドラゴン	8	5	99	4	
+2261	God of the Night, Tsukuyomi Dragon	夜刻神・ツクヨミ＝ドラゴン	9	5	99	9	
+2262	Frozen Hell Demon, Indigo	凍冥魔・インディゴ	5	2	50	0	
+2263	Cruel Frozen Hell Demon, Indigo	刻薄の凍冥魔・インディゴ	6	2	99	3	
+2264	Sanada Yukimura	真田幸村	5	1	50	0	
+2265	Fierce Warrior, Sanada Yukimura	苛烈の勇猛神・真田幸村	6	1	99	4	
+2266	Mori Motonari	毛利元就	5	2	50	0	
+2267	Peerless Strategist, Mori Motonari	稀代の智謀神・毛利元就	6	2	99	4	
+2268	Ishida Mitsunari	石田三成	5	3	50	0	
+2269	Diligent Spy, Ishida Mitsunari	克明の諜報神・石田三成	6	3	99	4	
+2270	Maeda Keiji	前田慶次	5	4	50	0	
+2271	Dashing Dandy, Maeda Keiji	絢爛の傾奇神・前田慶次	6	4	99	4	
+2272	Akechi Mitsuhide	明智光秀	5	5	50	0	
+2273	Deliberate Rebel, Akechi Mitsuhide	深慮の謀略神・明智光秀	6	5	99	4	
+2274	Balancile Another Card	バランシール アナザー カード	4	4	1	0	
+2275	Polaris Card	ポラリス カード	4	2	1	0	
+2276	Frost Dragon Emperor, Ilsix	霜龍帝・イルシックス	6	2	99	3	
+2277	Barbed Frost Dragon Emperor, Ilsix	紫棘の霜龍帝・イルシックス	7	2	99	5	
+2278	Art Goddess of Entertainment, Ame no Uzume	笑覧の芸女神・アメノウズメ	7	1	99	7	
+2279	Vigorous Hunt Gods, Umisachi & Yamasachi	賦活の漁猟神・ウミサチヤマサチ	8	2	99	9	
+2280	Miko Goddess of Protection, Kushinadahime	庇護の巫女神・クシナダヒメ	8	3	99	9	
+2281	Creator God of Twin Skies, Izanagi	双天の皇祖神・イザナギ	7	4	99	8	
+2282	Placating Founder, Okuninushi	鎮撫の国造神・オオクニヌシ	7	5	99	7	
+2283	Paradise Celeb, Hera-Is	楽園のセレブ・ヘラ・イース	6	2	99	3	
+2284	Shaved Ice Specialist, Frost Demon	夏氷の名人・フロストデーモン	4	2	99	2	
+2285	Beach Café Waitress, High Water Ninja	浜茶屋の娘・水の上忍	4	2	99	2	
+2286	Incognito Queen, Awilda	お忍びの王女・アルビダ	4	2	99	9	
+2287	Paradise Jade Dragon Caller, Sonia	楽園の緑龍喚士・ソニア	7	3	99	8	
+2288	Resting Norn, Urd	休息の時女神・ウルド	6	2	99	8	
+2289	Paradise Norn, Urd	楽園の時女神・ウルド	6	2	99	8	
+2290	Snow-White Beauty, Valkyrie Claire	雪白の美姫・ヴァルキリークレール	8	5	99	7	
+2291	Summery Tourist, Chester	夏色の旅行者・チェスター	6	2	99	6	
+2292	Bleak Night Daughter, Pandora	冥夜の令嬢・パンドラ	7	5	99	9	
+2293	Red Puppeteer, Pure	赤の人形使い・ピュール	7	1	50	0	
+2294	Red Puppet Master of Destruction, Pure Machina	破壊の赤機操士・ピュール＝マキナ	8	1	99	7	
+2295	Blue Puppeteer, Charité	青の人形使い・シャリテ	7	2	50	0	
+2296	Blue Puppet Master of Rebirth, Charité Machina	再生の青機操士・シャリテ＝マキナ	8	2	99	7	
+2297	Green Puppeteer, Courage	緑の人形使い・クラジュ	7	3	50	0	
+2298	Green Puppet Master of Creation, Courage Machina	創造の緑機操士・クラジュ＝マキナ	8	3	99	7	
+2299	Fire PreDRA	ホノぷれドラ	2	1	1	0	
+2300	Water PreDRA	ミズぷれドラ	2	2	1	0	
+2301	Wood PreDRA	モクぷれドラ	2	3	1	0	
+2302	Light PreDRA	ヒカぷれドラ	2	4	1	0	
+2303	Dark PreDRA	ヤミぷれドラ	2	5	1	0	
+2304	Red Cap	レッドキャップ	2	1	25	0	
+2305	Red-Eyed Ghost, Red Cap	赤目の幽鬼・レッドキャップ	3	1	70	0	
+2306	Kappa	河童	2	2	25	0	
+2307	Divine Water Messenger, Kappa	水皿の神使・河童	3	2	70	0	
+2308	Furi	風狸	2	3	25	0	
+2309	Leopard-Spotted Mystery, Furi	豹紋の妖異・風狸	3	3	70	0	
+2310	Zlatorog	ズラトロク	2	4	25	0	
+2311	Gleaming Horned Protector Beast, Zlatorog	煌角の番獣・ズラトロク	3	4	70	0	
+2312	Cath Palug	キャスパリーグ	2	5	25	0	
+2313	Demon-Clawed Monster Cat, Cath Palug	魔爪の怪猫・キャスパリーグ	3	5	70	0	
+2314	awoken dancing queen hera-ur	覚醒・ミニへらうるず↑↑	5	1	99	6	
+2315	divine queen hera	神王妃・ミニへら	5	5	99	4	
+2316	arbiter of judgement, metatron	神罰の審理者・ミニめたとろん	6	5	99	4	
+2317	marvelous red dragon caller, sonia	絶世の紅龍喚士・ミニそにあ	7	1	99	6	
+2318	Bronzed Beauty, Valkyrie Claire	琥珀の美姫・ヴァルキリークレール	8	5	99	7	
+2319	Jord	ヨルズ	5	3	50	0	
+2320	Awoken Jord	覚醒ヨルズ	6	3	99	3	
+2321	divine law goddess, valkyrie rose	神命姫神・ミニばるきりーろーず	6	4	99	5	
+2322	Awoken Viper Orochi	覚醒ヤマタノオロチ	7	2	99	8	
+2323	Awoken Susano no Mikoto	覚醒スサノオノミコト	7	3	99	8	
+2324	Awoken Amaterasu Ohkami	覚醒アマテラスオオカミ	7	4	99	8	
+2325	Awoken Tsukuyomi	覚醒ツクヨミ	7	5	99	8	
+2326	Shinji&Eva Unit-01, First Awoken Form	シンジ＆初号機・第1覚醒形態	6	2	99	7	
+2327	Rei&Eva Unit-00, Core Fusion	レイ＆零号機・コア融合	6	4	99	7	
+2328	Misato&AAA Wunder, Main Battery Gunfire	ミサト＆AAAヴンダー・主砲斉射	7	1	99	8	
+2329	Eva Unit-01 TAMADRA	初号機たまドラ	4	2	1	0	
+2330	Eva Unit-02 TAMADRA	2号機たまドラ	4	1	1	0	
+2331	Eva Unit-13 TAMADRA	13号機たまドラ	4	2	1	0	
+2332	Misato TAMADRA	ミサトたまドラ	4	1	1	0	
+2333	Fire Armor Dragon, Sador	火の機甲龍・サドル	5	1	99	2	
+2334	Water Armor Dragon, Gienah	水の機甲龍・ギェナー	5	2	99	2	
+2335	Thunder Armor Dragon, Albireo	雷の機甲龍・アルビレオ	5	4	99	2	
+2336	Wood Armor Dragon, Becrux	木の機甲龍・ベクルックス	5	3	99	2	
+2337	Light Armor Dragon, Acrux	光の機甲龍・アクルックス	5	4	99	2	
+2338	Dark Armor Dragon, Gacrux	闇の機甲龍・ガクルックス	5	5	99	2	
+2382	Aegir	エーギル	5	2	50	0	
+2383	Awoken Aegir	覚醒エーギル	6	2	99	3	
+2384	Ruling Firestorm God, Set	統嵐焦炎神・セト	7	1	99	8	
+2385	Divine Galaxy Goddess, Nut	占命星雲神・ヌト	7	2	99	8	
+2386	Soul-Judging God of Dark Riches, Osiris	裁魂冥穣神・オシリス	7	3	99	8	
+2387	Sacred Life Goddess of the Colored Sky, Hathor	彩天聖命神・ハトホル	7	4	99	8	
+2388	Soaring Night Goddess of the Dead, Nephthys	翔夜冥霊神・ネフティス	7	5	99	8	
+2389	Awoken Sakuya	覚醒サクヤ	7	4	99	9	
+2390	Thought Spinner Norn, Verdandi	想紡の時女神・ヴェルダンディ	7	3	99	9	
+2391	White Rainbow Ark, Noah	白虹の聖舶神・ノア	8	2	99	5	
+2392	Awoken Freyr	覚醒フレイ	7	1	99	8	
+2393	Awoken Idunn&Idunna	覚醒イズン＆イズーナ	7	2	99	8	
+2394	Awoken Freyja	覚醒フレイヤ	7	3	99	8	
+2395	Awoken Thor	覚醒トール	7	4	99	8	
+2396	Awoken Loki	覚醒ロキ	7	5	99	8	
+2397	Surtr	スルト	5	1	50	0	
+2398	Awoken Surtr	覚醒スルト	6	1	99	3	
+2399	Heimdallr	ヘイムダル	5	4	50	0	
+2400	Awoken Heimdallr	覚醒ヘイムダル	6	4	99	3	
+2401	Hel	ヘル	5	5	50	0	
+2402	Awoken Hel	覚醒ヘル	6	5	99	3	
+2403	Master of the Masquerade, Pumpkin Joker	仮装祭の主・パンプキンジョーカー	6	5	99	3	
+2404	Bewitching Demon Bird, Cockatrice	奇術の珍鳥・コカトリス	3	2	99	2	
+2405	Master Candy Collector, Wicked Lady	菓子集めの達人・ダークレディ	3	5	99	2	
+2406	Old Castle Blue Dragon Caller, Sonia	古城の青龍喚士・ソニア	7	5	99	8	
+2407	Mistress of the Old Castle, Kali	古城の女主神・カーリー	8	5	99	6	
+2408	Masquerade Guest, Izanami	仮装祭の来賓・イザナミ	4	5	99	9	
+2409	Mysterious Guest, Laila	好奇の客人・ライラ	6	5	99	6	
+2410	Moonlit Prowler, Vampire Lord	月夜の魔狼・ヴァンパイアロード	6	5	99	6	
+2411	Spirit of the Masquerade, Alraune	仮装祭の精霊・アルラウネ	6	5	99	7	
+2412	Playful Star Gods, Thoth & Sopdet	遊戯の星知神・トト＆ソティス	4	5	99	9	
+2413	Metalit	メタリット	4	5	1	0	
+2414	Dub-Metalit	ダブメタリット	5	5	1	0	
+2415	Antares	アンタレス	5	1	50	0	
+2416	Thorned Mechanical Star God, Antares	灼棘の星機神・アンタレス	6	1	99	6	
+2417	Alrescha	アルレシャ	5	2	50	0	
+2418	Milky Way Mechanical Star God, Alrescha	天河の星機神・アルレシャ	6	2	99	6	
+2419	Spica	スピカ	5	3	50	0	
+2420	Dark Plant Mechanical Star God, Spica	冥樹の星機神・スピカ	6	3	99	6	
+2421	Pollux	ポルックス	5	4	50	0	
+2422	Musical Winged Mechanical Star God, Pollux	奏翼の星機神・ポルックス	6	4	99	6	
+2423	Castor	カストル	5	5	50	0	
+2424	Destruction Palm Mechanical Star God, Castor	滅掌の星機神・カストル	6	5	99	6	
+2425	Latent TAMADRA (Skill Delay Resist.)	潜在たまドラ☆スキル遅延耐性	7	4	1	0	
+2429	Fire Dog Dragon, Tosawandra	火の犬龍・トサワンドラ	5	1	99	2	
+2430	Water Dog Dragon, Tosabowdra	水の犬龍・トサバウドラ	5	2	99	2	
+2431	Wood Dog Dragon, Shibawandra	木の犬龍・シバワンドラ	5	3	99	2	
+2432	Shadow Dog Dragon, Shibabowdra	影の犬龍・シババウドラ	5	5	99	2	
+2433	Dark Dog Dragon, Chinwandra	闇の犬龍・チンワンドラ	5	5	99	2	
+2434	Light Dog Dragon, Chinbowdra	光の犬龍・チンバウドラ	5	4	99	2	
+2435	Fire Shibamaru	ホノシバマル	3	1	30	0	
+2436	Water Shibamaru	ミズシバマル	3	2	30	0	
+2437	Wood Shibamaru	モクシバマル	3	3	30	0	
+2438	Light Shibamaru	ヒカシバマル	3	4	30	0	
+2439	Dark Shibamaru	ヤミシバマル	3	5	30	0	
+2440	Orange Dragonbound, Saria	橙龍契士・サリア	5	4	50	0	
+2441	Judging-Claw Orange Dragonbound, Saria	裁爪の橙龍契士・サリア	6	4	99	5	
+2442	Blue Dragonbound, Ryune	青龍契士・リューネ	6	2	50	0	
+2443	Returning-Claw Blue Dragonbound, Ryune	還爪の青龍契士・リューネ	7	2	99	7	
+2444	Hokuto Shinken's Successor, Kenshiro	北斗神拳伝承者・ケンシロウ	7	1	99	9	
+2445	The Greatest Enemy, Raoh	最大の強敵・ラオウ	7	1	99	9	
+2446	Yuria	南斗最後の将	6	4	50	0	
+2447	Last Nanto General, Yuria	南斗最後の将・ユリア	7	4	99	5	
+2448	Juza	ジュウザ	4	4	50	0	
+2449	Five Stars of Nanto, Juza of the Clouds	南斗五車星・雲のジュウザ	5	4	99	4	
+2450	Fudo	フドウ	4	3	50	0	
+2451	Five Stars of Nanto, Fudo of the Mountains	南斗五車星・山のフドウ	5	3	99	4	
+2452	Rihaku	リハク	4	2	50	0	
+2453	Five Stars of Nanto, Rihaku of the Ocean	南斗五車星・海のリハク	5	2	99	4	
+2454	Kenshiro TAMADRA	ケンシロウたまドラ	4	1	1	0	
+2455	Yuria TAMADRA	ユリアたまドラ	4	4	1	0	
+2456	Toki TAMADRA	トキたまドラ	4	2	1	0	
+2493	Protective Star Angel, Rozuel	愛護の星天使・ロズエル	7	1	99	7	
+2494	Patrolling Star Angel, Famiel	巡警の星天使・ファミエル	7	2	99	7	
+2495	Demon Destroying Star Angel, Ruel	魔壊の星天使・リュエル	7	3	99	7	
+2496	Gleaming Axe Star Angel, Ariel	煌斧の星天使・アリエル	7	4	99	7	
+2497	Dark Bell Star Angel, Lumiel	冥鈴の星天使・ルミエル	7	5	99	7	
+2498	Scorching Dragon Angel, Uriel	灼龍の熾天使・ウリエル	8	1	99	9	
+2499	Divinized Archangel, Gabriel	神成の大天使・ガブリエル	8	2	99	9	
+2500	Archangel of Annihilation, Michael	滅尽の大天使・ミカエル	8	3	99	9	
+2501	Archangel of Creation, Raphael	創智の大天使・ラファエル	8	4	99	9	
+2502	Seraph of Corruption, Lucifer	背徳の熾天使・ルシファー	8	5	99	9	
+2503	Explosive Demon Lord, Belial	爆轟の魔神卿・ベリアル	8	1	99	9	
+2504	Resolved Demon Lord, Amon	我道の魔神卿・アモン	8	2	99	9	
+2505	Awoken Astaroth	覚醒アスタロト	7	3	99	8	
+2506	King's Gaze Demon Lord, Baal	王眼の魔神卿・バアル	8	4	99	9	
+2507	Awoken Archdemon Lucifer	覚醒神魔王ルシファー	7	5	99	8	
+2508	Green Dragonbound, Sylvie	緑龍契士・シルヴィ	6	3	50	0	
+2509	Cutting-Claw Green Dragonbound, Sylvie	伐爪の緑龍契士・シルヴィ	7	3	99	6	
+2510	Astral Bell Kirin Princess, Sakuya	星鐘の麒麟姫・サクヤ	8	4	99	9	
+2511	Mistress of the Sanctuary, Kali	聖堂の女主神・カーリー	8	1	99	9	
+2512	Holy Night Red Dragon Caller, Sonia	聖夜の赤龍喚士・ソニア	8	1	99	7	
+2513	Snow Star Byakko, Haku	星雪の白虎・ハク	6	5	99	9	
+2514	Lively Banquet Dragon Hero, Liu Bei	熱宴の龍英傑・劉備	7	1	99	7	
+2515	Holy Rites Mistress, Echidna	聖祭の女傑・エキドナ	4	1	99	4	
+2516	Enchantress of the Sanctuary, Siren	聖堂の歌姫・セイレーン	4	2	99	4	
+2517	Christmas Tree Spirit, Alraune	聖樹の精霊・アルラウネ	4	3	99	4	
+2518	Sanctuary Messenger, Archangel	聖天の使徒・エンジェル	4	4	99	4	
+2519	Holy Night Witch, Lilith	聖夜の魔女・リリス	4	5	99	4	
+2520	Sightseeing Sorceress, Ars Paulina	遊覧の魔導姫・アルス＝パウリナ	4	2	99	9	
+2521	Festival Sage Treant	祝祭の賢樹・トレント	3	3	99	2	
+2522	Beast of the Sanctuary, Minotaur	聖堂の番獣・ミノタウロス	3	1	99	2	
+2523	Santa Claus	サンタクロース	5	4	50	0	
+2524	Holy Night Messenger, Santa Claus	聖夜の使者・サンタクロース	6	4	99	3	
+2525	Machine Hera	マシンヘラ	7	5	99	3	
+2526	Awoken Machine Hera	覚醒マシンヘラ	8	5	99	9	
+2527	Machine Zeus	マシンゼウス	7	4	99	3	
+2528	Awoken Machine Zeus	覚醒マシンゼウス	8	4	99	9	
+2529	Blue Earth Armor Dragon, Caph	蒼地の機甲龍・カフ	5	3	99	2	
+2530	Dark Crimson Armor Dragon, Ruchbah	紅冥の機甲龍・ルクバー	5	5	99	2	
+2531	Green Flame Armor Dragon, Shedir	翠炎の機甲龍・シェダル	5	1	99	2	
+2532	Yellow Ice Armor Dragon, Tsih	黄氷の機甲龍・ツィー	5	2	99	2	
+2533	Excursion Dancing Goddess, Amaterasu Ohkami	遊山の天舞神・アマテラスオオカミ	8	4	99	7	
+2534	Crimson Sun Longevity Dragon Caller, Kanna	紅日の寿龍喚士・カンナ	8	4	99	9	
+2535	First Sunrise Princess Suzaku, Leilan	初日の朱雀姫・レイラン	6	1	99	9	
+2536	Long-Standing Desire God-Emperor, Yamato Takeru	宿願の武皇神・ヤマトタケル	7	1	99	9	
+2537	Year's First Dream God of Luck, Horus	初夢招福神・ホルス	7	1	99	9	
+2538	First Sunshine's Shadow, Hattori Hanzo	初日影の幻光・服部半蔵	5	4	99	6	
+2539	Shinto Deity's Blossom, Kaguya-Hime	鎮守の翠月花・かぐや姫	4	4	99	7	
+2540	Traditional Daruma, Grand Tengu	伝統のだるま・大天狗	4	3	99	6	
+2541	Guardian of Good Fortune, Medjedra	開運の守り神・メジェドラ	4	3	99	9	
+2542	Yamatogoto Playing God, Sandalphon	和琴の瞑奏神・サンダルフォン	4	4	99	9	
+2543	Shinto Shrine's Dragon Knight, Himiko	神宮の龍騎姫・卑弥呼	5	1	99	2	
+2544	Prayer's Sacred Bird, Yatagarasu	祈願の霊鳥・ヤタガラス	3	4	1	0	
+2545	A-Gyo	アギョウ	3	4	99	2	
+2546	Un-Gyo	ウンギョウ	3	5	99	2	
+2547	Mugamazake	マグカンシュ	3	4	99	2	
+2548	Yamatsumi	ヤマツミ	5	3	50	0	
+2549	Awoken Yamatsumi	覚醒ヤマツミ	6	3	99	3	
+2550	Takemikazuchi	タケミカヅチ	5	4	50	0	
+2551	Awoken Takemikazuchi	覚醒タケミカヅチ	6	4	99	3	
+2552	Denebola	デネボラ	5	1	50	0	
+2553	Sharp Cane Mechanical Star God, Denebola	煉杖の星機神・デネボラ	6	1	99	4	
+2554	Acubens	アクベンス	5	2	50	0	
+2555	Pincers Mechanical Star God, Acubens	双鋏の星機神・アクベンス	6	2	99	6	
+2556	Algedi	アルゲディ	5	3	50	0	
+2557	Quick Blade Mechanical Star God, Algedi	疾刀の星機神・アルゲディ	6	3	99	4	
+2558	Alcyone	アルキオネ	5	4	50	0	
+2559	Waking Up Mechanical Star God, Alcyone	寝覚の星機神・アルキオネ	6	4	99	5	
+2560	Hamal	ハマル	5	5	50	0	
+2561	Dream Scythe Mechanical Star God, Hamal	夢鎌の星機神・ハマル	6	5	99	5	
+2562	Australis	アウストラリス	5	3	50	0	
+2563	Destroying Bow Steel Star God, Australis	滅弓の鋼星神・アウストラリス	6	3	99	5	
+2564	Scheat	シェアト	6	2	50	0	
+2565	Protecting Vials Steel Star Goddess, Scheat	衛瓶の鋼星神・シェアト	7	2	99	6	
+2566	Ancestral Blue Dragon Caller, Sonia	隔世の蒼龍喚士・ソニア	8	2	99	9	
+2567	Past Life Jade Dragon Caller, Sonia	宿世の翠龍喚士・ソニア	8	3	99	9	
+2568	Guardian of the Sacred City, Athena Another	聖都の守護神・アテナ アナザー	7	4	99	8	
+2569	Green Gleaming Star Kirin, Sakuya Another	翠輝星の麒麟・サクヤ アナザー	8	4	99	9	
+2570	Marvelous Red Dragon Caller, Sonia Another	絶世の紅龍喚士・ソニア アナザー	7	1	99	8	
+2571	Holy Radiant Sky Goddess, Hikari	天聖輝神ヒカリ	6	4	99	2	
+2572	Baby PreDRA	ぷれドラベビー	2	4	1	0	
+2574	Osechi Party Fox, Mitsuki	節会の稲荷・ミツキ	5	1	99	7	
+2575	Ancient Fire Dragon, Anomalocaris	火の古代龍・アノマロカリス	5	1	99	2	
+2576	Ancient Wood Dragon, Anomalocaris	木の古代龍・アノマロカリス	5	3	99	2	
+2577	Ancient Flame Dragon, Ammonite	炎の古代龍・アンモナイト	5	1	99	2	
+2578	Ancient Lightning Dragon, Ammonite	雷の古代龍・アンモナイト	5	4	99	2	
+2579	Ancient Lake Dragon, Coelacanth	湖の古代龍・シーラカンス	5	2	99	2	
+2580	Ancient Ocean Dragon, Coelacanth	海の古代龍・シーラカンス	5	5	99	2	
+2581	Red Keeper	レッドキーパー	3	1	25	0	
+2582	Flame Keeper	フレイムキーパー	4	1	70	0	
+2583	Blue Keeper	ブルーキーパー	3	2	25	0	
+2584	Aqua Keeper	アクアキーパー	4	2	70	0	
+2585	Green Keeper	グリーンキーパー	3	3	25	0	
+2586	Wind Keeper	ウィンドキーパー	4	3	70	0	
+2587	Yellow Keeper	イエローキーパー	3	4	25	0	
+2588	Lightning Keeper	ライトニングキーパー	4	4	70	0	
+2589	Purple Keeper	パープルキーパー	3	5	25	0	
+2590	Phantom Keeper	ファントムキーパー	4	5	70	0	
+2591	Eschamali	エスカマリ	6	5	50	0	
+2592	Judging Scale Steel Star Goddess, Eschamali	裁秤の鋼星神・エスカマリ	7	5	99	9	
+2593	Ragnarok Dragon	ラグナロク＝ドラゴン	8	3	99	4	
+2594	Anti-God Machine, Ragnarok Dragon	抗神機・ラグナロク＝ドラゴン	9	3	99	9	
+2598	Guardian of the Sacred City, Athena Another Card	聖都の守護神・アテナ アナザー カード	4	4	1	0	
+2599	Green Gleaming Star Kirin, Sakuya Another Card	翠輝星の麒麟・サクヤ アナザー カード	4	4	1	0	
+2600	Marvelous Red Dragon Caller, Sonia Another Card	絶世の紅龍喚士・ソニア アナザー カード	4	1	1	0	
+2601	Voltron	N/A	6	1	50	0	
+2602	Voltron & Shoulder Cannon	N/A	7	1	99	5	
+2603	Legendary Defender, Voltron	N/A	8	1	99	9	
+2604	Shiro	N/A	5	5	50	0	
+2605	Paladin of the Black Lion, Shiro	N/A	6	5	99	5	
+2606	Princess Allura	N/A	5	4	50	0	
+2607	Guardian of the Universe, Allura	N/A	6	4	99	5	
+2608	Castle of Lions Ruler, Allura	N/A	7	4	99	9	
+2609	Keith	N/A	4	1	50	0	
+2610	Paladin of the Red Lion, Keith	N/A	5	1	99	4	
+2611	Lance	N/A	4	2	50	0	
+2612	Paladin of the Blue Lion, Lance	N/A	5	2	99	4	
+2613	Pidge	N/A	4	3	50	0	
+2614	Paladin of the Green Lion, Pidge	N/A	5	3	99	9	
+2615	Hunk	N/A	4	4	50	0	
+2616	Paladin of the Yellow Lion, Hunk	N/A	5	4	99	4	
+2617	Coran	N/A	4	2	50	0	
+2618	Royal Advisor, Coran	N/A	5	2	99	4	
+2619	Emperor Zarkon	N/A	4	5	50	0	
+2620	Conqueror of the Universe, Emperor Zarkon	N/A	5	5	99	2	
+2621	Haggar	N/A	3	4	50	0	
+2622	Space Witch, Haggar	N/A	4	4	99	2	
+2623	Drazil Robeast	N/A	3	1	50	0	
+2624	Full Laser Strike, Drazil Robeast	N/A	4	1	99	2	
+2625	Sendak	N/A	3	5	50	0	
+2626	Commander Sendak	N/A	4	5	99	2	
+2627	Myzax	N/A	3	3	50	0	
+2628	Robeast, Myzax	N/A	4	3	99	2	
+2629	Voltron's Sword	N/A	4	1	1	0	
+2630	Shiro's Helmet	N/A	4	5	1	0	
+2631	Balmeran Crystal	N/A	4	4	1	0	
+2636	Heavenly Fire God, Agni	天火神・アグニ	6	1	99	3	
+2637	Scorching Horned Heavenly Fire God, Agni	焦角の天火神・アグニ	7	1	99	6	
+2638	Jormungandr	ヨルムンガンド	6	3	99	3	
+2639	Gods' Threat Venomous Snake, Jormungandr	神脅の毒蛇・ヨルムンガンド	7	3	99	6	
+2640	Fenrir	フェンリル	5	5	50	0	
+2641	Gods' Enemy Monstrous Wolf, Fenrir	神仇の魔狼・フェンリル	6	5	99	6	
+2642	Metallic Star Dragon, Scorpio	天蝎の鉄星龍・スコルピオ	5	1	99	2	
+2643	Metallic Star Dragon, Pisces	双魚の鉄星龍・ピスケス	5	2	99	2	
+2644	Metallic Star Dragon, Virgo	乙女の鉄星龍・バルゴ	5	3	99	2	
+2645	Metallic Star Dragon, Light Gemini	双児の鉄星龍・ジェミニ＝ヨウ	5	4	99	2	
+2646	Metallic Star Dragon, Dark Gemini	双児の鉄星龍・ジェミニ＝イン	5	5	99	2	
+2647	Metallic Star Dragon, Leo	獅子の鉄星龍・レオ	5	1	99	2	
+2648	Metallic Star Dragon, Cancer	巨蟹の鉄星龍・キャンサー	5	2	99	2	
+2649	Metallic Star Dragon, Capricorn	磨羯の鉄星龍・カプリコン	5	3	99	2	
+2650	Metallic Star Dragon, Taurus	金牛の鉄星龍・タウラス	5	4	99	2	
+2651	Metallic Star Dragon, Aries	白羊の鉄星龍・アリエス	5	5	99	2	
+2652	Red Gadget	レッドガジェット	3	1	30	0	
+2653	Blue Gadget	ブルーガジェット	3	2	30	0	
+2654	Green Gadget	グリーンガジェット	3	3	30	0	
+2655	Yellow Gadget	イエローガジェット	3	4	30	0	
+2656	Purple Gadget	パープルガジェット	3	5	30	0	
+2657	Heroic God-Emperor, Yamato Takeru	義烈の武皇神・ヤマトタケル	8	1	99	9	
+2658	Adored Starsea Goddess, Andromeda	敬愛の星海神・アンドロメダ	8	2	99	9	
+2659	Brave Vanquishing Deity, Perseus	勇武の破邪神・ペルセウス	8	3	99	9	
+2660	Fervent Monkey King, Sun Wukong	功徳の金猿神・孫悟空	8	4	99	9	
+2661	Cruel Bleak Night Goddess, Pandora	冷刻の冥夜神・パンドラ	8	5	99	9	
+2662	Awoken Pandora	覚醒パンドラ	7	5	99	8	
+2663	Reminiscent Norn, Urd	追憶の時女神・ウルド	7	1	99	9	
+2664	Creation Empress God, Izanami	万象の皇妃神・イザナミ	8	4	99	5	
+2665	Silk	シルク	5	1	50	0	
+2666	Scarlet Jewel Princess, Silk	深紅の宝石姫・シルク	6	1	99	7	
+2667	Carat	カラット	5	2	50	0	
+2668	Azure Jewel Princess, Carat	深蒼の宝石姫・カラット	6	2	99	6	
+2669	Cameo	カメオ	5	3	50	0	
+2670	Jade Jewel Princess, Cameo	深翠の宝石姫・カメオ	6	3	99	6	
+2671	Facet	ファセット	5	4	50	0	
+2672	Adamantine Jewel Princess, Facet	金剛の宝石姫・ファセット	6	4	99	6	
+2673	Sheen	シーン	5	5	50	0	
+2674	Cymophane Jewel Princess, Sheen	金緑の宝石姫・シーン	6	5	99	6	
+2675	Ichigo Kurosaki	黒崎一護	6	5	50	0	
+2676	Substitute Soul Reaper, Ichigo Kurosaki	死神代行・黒崎一護	7	5	99	4	
+2677	Hollow, Ichigo Kurosaki	虚化・黒崎一護	8	5	99	5	
+2678	Rukia Kuchiki	朽木ルキア	6	2	50	0	
+2679	A member of Squad 13, Rukia Kuchiki	十三番隊隊士・朽木ルキア	7	2	99	4	
+2680	Orihime Inoue	井上織姫	4	3	50	0	
+2681	SantenKesshun, Orihime Inoue	三天結盾・井上織姫	5	3	99	3	
+2682	Uryu Ishida	石田雨竜	4	4	50	0	
+2683	Quincy, Uryu Ishida	滅却師・石田雨竜	5	4	99	3	
+2684	Yasutora Sado	茶渡泰虎	4	1	50	0	
+2685	La Muerte, Yasutora Sado	魔人の一撃・茶渡泰虎	5	1	99	3	
+2686	Yoruichi	四楓院夜一	4	3	50	0	
+2687	Former Cmdr of Stealth Force, Yoruichi	元隠密機動総司令官・四楓院夜一	5	3	99	5	
+2688	Kisuke Urahara	浦原喜助	5	3	50	0	
+2689	Former R&D Chief, Kisuke Urahara	元技術開発局局長・浦原喜助	6	3	99	8	
+2690	Toshiro Hitsugaya	日番谷冬獅郎	5	2	50	0	
+2691	Squad 10 Captain, Toshiro Hitsugaya	十番隊隊長・日番谷冬獅郎	6	2	99	6	
+2692	Rangiku Matsumoto	松本乱菊	4	3	50	0	
+2693	Squad 10 Lieutenant, Rangiku Matsumoto	十番隊副隊長・松本乱菊	5	3	99	3	
+2694	Kenpachi Zaraki	更木剣八	5	5	50	0	
+2695	Squad 11 Captain, Kenpachi Zaraki	十一番隊隊長・更木剣八	6	5	99	7	
+2696	Ikkaku Madarame	斑目一角	4	3	50	0	
+2697	Squad 11, 3rd Seat, Ikkaku Madarame	十一番隊第三席・斑目一角	5	3	99	2	
+2698	Renji Abarai	阿散井恋次	4	1	50	0	
+2699	Squad 6 Lieutenant, Renji Abarai	六番隊副隊長・阿散井恋次	5	1	99	2	
+2700	Mayuri Kurotsuchi	涅マユリ	5	5	50	0	
+2701	Squad 12 Captain, Mayuri Kurotsuchi	十二番隊隊長・涅マユリ	6	5	99	2	
+2702	Byakuya Kuchiki	朽木白哉	5	4	50	0	
+2703	Squad 6 Captain, Byakuya Kuchiki	六番隊隊長・朽木白哉	6	4	99	2	
+2704	Zangetsu	斬月	5	5	99	2	
+2705	Zanpakuto, Zangetsu	斬魄刀・斬月	4	5	1	0	
+2706	Zanpakuto, Sodenoshirayuki	斬魄刀・袖白雪	4	2	1	0	
+2707	Zanpakuto, Benihime	斬魄刀・紅姫	4	3	1	0	
+2708	Zanpakuto, Hyorinmaru	斬魄刀・氷輪丸	4	2	1	0	
+2709	Kenpachi's Zanpakuto	剣八の斬魄刀	4	5	1	0	
+2710	Sherias	シェリアス	5	2	50	0	
+2711	Winged Savior Dragon Knight God, Sherias	救翼の龍騎神・シェリアス	6	2	99	5	
+2712	Baldin	バルディン	6	1	50	0	
+2713	Radiant Blade Mechdragon God, Baldin	灼刃の龍機神・バルディン	7	1	99	6	
+2714	Prophetic Norn, Skuld	予知の時女神・スクルド	8	2	99	9	
+2716	Smithing God, Hephaestus Dragon	鍛煉神・ヘパイストス＝ドラゴン	10	1	99	4	
+2717	White Rainbow Ark, Noah Dragon	聖舶神・ノア＝ドラゴン	10	2	99	4	
+2718	Original Goddess, Gaia Dragon	起源神・ガイア＝ドラゴン	10	3	99	4	
+2719	Almighty God, Zeus Dragon	全能神・ゼウス＝ドラゴン	10	4	99	4	
+2720	Darkness Goddess, Hera Dragon	暗黒神・ヘラ＝ドラゴン	10	5	99	4	
+2721	Hephaestus	ヘパイストス	5	1	50	0	
+2722	Awoken Hephaestus	覚醒ヘパイストス	6	1	99	3	
+2723	Flamtan	ホノタン	8	1	1	0	
+2724	Bubtan	ミズタン	8	2	1	0	
+2725	Woodtan	モクタン	8	3	1	0	
+2726	Shyntan	ヒカタン	8	4	1	0	
+2727	Badtan	ヤミタン	8	5	1	0	
+2728	Maple	メイプル	4	5	50	0	
+2729	Donder Legend, Maple	伝説のドンだー・メイプル	5	5	99	2	
+2730	Takkun	タックン	4	2	50	0	
+2731	Time Guardians, Takkun & Tikkun	時の守護者・タックン＆チックン	5	2	99	2	
+2732	Princess Soprano	ソプラノ姫	5	4	99	3	
+2733	Princess Soprano and the Mysterious Orbs	ソプラノ姫と不思議なオーブ	6	4	99	7	
+2734	LINKA	リンカ	6	4	99	4	
+2735	GC Navigator, LINKA	GCナビゲーター・リンカ	7	4	99	7	
+2736	Dragon Caller, Sonia Gran Reverse	龍喚士・ソニア＝グラン＝リバース	7	5	99	3	
+2737	Dusking Dragon Caller, Sonia Gran Reverse	最果ての龍喚士・ソニア＝グラン＝リバース	8	5	99	9	
+2738	Original Goddess of Decision, Gaia	断決の起源神・ガイア	8	3	99	5	
+2739	Reincarnated Burning Phoenix Knight, Homura	転生バーンフェニックスナイト・ホムラ	7	1	99	5	
+2740	Reincarnated Torrential Fenrir Knight, Kamui	転生フラッドフェンリルナイト・カムイ	7	2	99	5	
+2741	Reincarnated Ancient Dragon Knight, Zeal	転生エンシェントドラゴンナイト・セロ	7	3	99	5	
+2742	Reincarnated Godly Knight of the Sky, Verche	転生スカイゴッドナイト・ヴァーチェ	7	4	99	5	
+2743	Reincarnated Chaos Dragon Knight, Voice	転生カオスドラゴンナイト・ヴォイス	7	5	99	5	
+2744	Enthusiast Red Dragonbound, Gadius	忘我の赤龍契士・ガディウス	7	1	99	8	
+2745	Chaotic Black Dragonbound, Typhon	滅法の黒龍契士・ティフォン	8	5	99	9	
+2746	One-Eyed Hell Phantom Demon, Zuoh	隻眼の獄幻魔・ズオー	7	5	99	8	
+2747	Awoken Ares	覚醒アレス	7	1	99	8	
+2748	Awoken Hermes	覚醒ヘルメス	7	2	99	8	
+2749	Awoken Artemis	覚醒アルテミス	7	3	99	8	
+2750	Awoken Apollo	覚醒アポロン	7	4	99	8	
+2751	Awoken Persephone	覚醒ペルセポネ	7	5	99	8	
+2752	Celestial Guardian Dragon, Avalon Drake	天空の守護龍・アヴァロンドレイク	7	3	99	8	
+2753	Whirlwind Dragon Emperor, Sevenzard	旋龍帝・セブンザード	6	3	99	3	
+2754	Rainbow Wing Whirlwind Dragon Emperor, Sevenzard	虹翼の旋龍帝・セブンザード	7	3	99	6	
+2755	Four Noble Ones, Xiang Mei	四君子・シャンメイ	8	1	99	4	
+2756	Crimson Orchid Virtue, Xiang Mei	紅蘭の君子・シャンメイ	9	1	99	8	
+2757	Four Noble Ones, You Yu	四君子・ヨウユウ	8	2	99	4	
+2758	Blue Bamboo Virtue, You Yu	蒼竹の君子・ヨウユウ	9	2	99	9	
+2759	Four Noble Ones, Xiu Min	四君子・シュウミン	8	4	99	4	
+2760	Yellow Chrysanthemum Virtue, Xiu Min	黄菊の君子・シュウミン	9	4	99	8	
+2761	Four Noble Ones, Xin Hua	四君子・シンファ	8	5	99	4	
+2762	Purple Plum Virtue, Xin Hua	紫梅の君子・シンファ	9	5	99	8	
+2763	Moogle	モーグリ	4	4	99	9	
+2764	Cloud & Fenrir	クラウド＆フェンリル	8	4	99	7	
+2765	One-Winged Angel, Sephiroth	片翼の天使・セフィロス	8	5	99	7	
+2766	Unwavering Summoner, Yuna	覚悟の召喚士・ユウナ	8	4	99	7	
+2767	Cecil	セシル	6	5	99	4	
+2768	Dark Knight, Cecil	暗黒騎士・セシル	7	5	99	9	
+2769	Paladin, Cecil	パラディン・セシル	7	4	99	9	
+2770	Bartz	バッツ	5	3	50	0	
+2771	Adventurous Wind, Bartz	探求の風・バッツ	6	3	99	9	
+2772	Terra	ティナ	5	1	50	0	
+2773	Trance Terra	トランス・ティナ	6	1	99	9	
+2774	Shantotto	シャントット	5	5	50	0	
+2775	Menacing Black Mage, Shantotto	最凶の黒魔道士・シャントット	6	5	99	9	
+2776	Vaan	ヴァン	5	4	50	0	
+2777	Novice Sky Pirate, Vaan	かけだしの空賊・ヴァン	6	4	99	9	
+2778	Lightning	ライトニング	6	4	50	0	
+2779	Knight of Etro, Lightning	女神の騎士・ライトニング	7	4	99	4	
+2780	Savior, Lightning	解放者・ライトニング	8	4	99	9	
+2781	Y'shtola	ヤ・シュトラ	5	2	50	0	
+2782	Scion of the Seventh Dawn, Y'shtola	暁の血盟・ヤ・シュトラ	6	2	99	5	
+2783	Rain	レイン	4	1	50	0	
+2784	Royal Knight, Rain	王国の騎士・レイン	5	1	99	3	
+2785	Ultimecia	アルティミシア	5	5	99	2	
+2786	Trance Kuja	トランス・クジャ	5	1	99	2	
+2787	Braska's Final Aeon	ブラスカの究極召喚	5	2	99	2	
+2788	Shadow Lord	闇の王	5	5	99	2	
+2789	Gabranth	ガブラス	5	3	99	2	
+2790	Orphan, First Form	オーファン・第1形態	5	4	50	0	
+2791	Orphan, Second Form	オーファン・第2形態	6	4	99	2	
+2792	Cecil's Dark Sword	セシルの暗黒の剣	5	5	1	0	
+2793	Bartz's Brave Blade	バッツのブレイブブレイド	5	3	1	0	
+2794	Terra's Enhancer	ティナのエンハンスソード	5	1	1	0	
+2795	Shantotto's Iridal Staff	シャントットのイリダルスタッフ	5	5	1	0	
+2796	Vaan's Zwill Crossblade	ヴァンのゾーリンシェイプ	5	4	1	0	
+2797	Lightning's Blazefire Saber	ライトニングのブレイズエッジ	5	4	1	0	
+2798	Y'shtola's Thyrus	ヤ・シュトラのタイラス	5	2	1	0	
+2804	Shuten-doji	酒呑童子	6	1	99	3	
+2805	Demon Leader, Shuten-doji	悪鬼の首領・酒呑童子	7	1	99	7	
+2806	War God of Protection, Takeminakata	鎮護の大軍神・タケミナカタ	7	4	99	6	
+2807	Colorful Queen, Hera-Beorc	彩王妃・ヘラ・ベオーク	8	3	99	6	
+2808	Green Light's Blossom, Kaguya-Hime	翠光の月天花・かぐや姫	8	3	99	5	
+2809	Ecstatic Mythical Beast Demon, Aamir	恍惚の幻獣魔・アーミル	7	5	99	5	
+2810	Sincere Class Monitor, Athena	誠意の学級委員長・アテナ	8	3	99	9	
+2811	Sacred Discipline Committee Chair, Athena	神聖の風紀委員長・アテナ	8	3	99	9	
+2812	Beautiful and Intelligent Scholarship Student, Isis	才色兼備の特待生・イシス	7	2	99	8	
+2813	Light Music Club's Kirin Princess, Sakuya	軽音部の麒麟姫・サクヤ	8	2	99	9	
+2814	Library Room's Manager God, Kali	図書室の管理神・カーリー	8	3	99	9	
+2815	Newspaper Club's Reporter, Sarutobi Sasuke	新聞部の特命記者・猿飛佐助	5	2	99	6	
+2816	Pet Caretaking's Club, Red Riding Hood	飼育部の元気娘・赤ずきん	4	1	99	6	
+2817	Fortune-telling Club President, Snow White	占い部の名物部長・白雪姫	4	2	99	6	
+2818	Go-Home Club's Tomboy, Thumbelina	帰宅部のおてんば娘・おやゆび姫	4	3	99	6	
+2819	Drama Club's Heroine, Cinderella	演劇部のヒロイン・シンデレラ	4	4	99	6	
+2820	Book Club's Literary Princess, Sleeping Beauty	読書部の才媛・ねむり姫	4	5	99	6	
+2821	Volleyball Club's Devil, Theurgia	バレー部の悪魔・テウルギア	5	1	99	9	
+2822	Newspaper Club's New Member, Waron	新聞部の新人・ウォーロン	3	2	99	2	
+2823	Aloof Delinquent, Dark Dragon Swordsman	孤高のヤンキー・闇の龍剣士	3	5	99	2	
+2824	Guardian of Metropolis, Superman	メトロポリスの守護者・スーパーマン	7	4	99	7	
+2825	Invincible Heroine, Wonder Woman	無敵の戦士・ワンダーウーマン	6	3	99	6	
+2826	Knightmare Batman	ナイトメアバットマン	5	5	50	0	
+2827	Armored Batman	アーマード・バットマン	6	5	99	5	
+2828	Charging Superman Soldier	突撃・スーパーマンの信者	3	5	70	0	
+2829	Assault Superman Soldier	銃撃・スーパーマンの信者	3	5	70	0	
+2830	Entrepreneur, Lex Luthor	企業家・レックス・ルーサー	5	4	50	0	
+2831	Genius Scientist, Lex Luthor	天才科学者・レックス・ルーサー	6	4	99	2	
+2832	Artificial Lifeform, Doomsday	人工生命体・ドゥームズデイ	5	5	50	0	
+2833	Immortal Enemy, Doomsday	不死身の敵・ドゥームズデイ	6	5	99	2	
+2834	Superman's Emblem	スーパーマンのエンブレム	5	4	1	0	
+2835	Supergirl's Emblem	スーパーガールのエンブレム	5	4	1	0	
+2836	Batman's Emblem	バットマンのエンブレム	5	5	1	0	
+2837	Hanuman	ハヌマーン	6	3	99	3	
+2838	White Monkey Retainer, Hanuman	忠心の白猿臣・ハヌマーン	7	3	99	7	
+2875	Purifying Thunder Dragon, Sedin	浄雷龍・セディン	6	1	99	2	
+2876	Abyssal Shark Dragon, Toa	溟鮫龍・トア	6	2	99	2	
+2877	Storm Hawk Dragon, Kuarje	嵐鷹龍・クァージェ	6	3	99	2	
+2878	Gleaming Rabbit Dragon, Fragrem	煌兎龍・フラグレム	6	4	99	2	
+2879	Destroying Thunder Dragon, Dorva	滅雷龍・ドルヴァ	6	5	99	2	
+2880	Flamzeal	ファジール	3	1	30	0	
+2881	Icezeal	アイジール	3	2	30	0	
+2882	Woodzeal	ウィジール	3	3	30	0	
+2883	Shynzeal	ライジール	3	4	30	0	
+2884	Badzeal	シャジール	3	5	30	0	
+2885	Machine Star's Memory, Windsor	機星の記憶・ウィンザー	7	4	1	0	
+2886	Machine Star's Right Hand, Aquor	機星の右手・アクオル	7	4	1	0	
+2887	Machine Star's Left Hand, Frahje	機星の左手・フラージ	7	4	1	0	
+2888	Machine Star's Right Leg, Trigo	機星の右足・トライゴ	7	4	1	0	
+2889	Machine Star's Left Leg, Dukdey	機星の左足・ダクディ	7	4	1	0	
+2890	Heaven Winged Machine, Seraphis	天翼機・セラフィス	7	4	99	4	
+2891	Light Guiding Star Machine, Orpharion	光の星導機・オルファリオン	8	4	99	9	
+2892	Enlightened Meditating God, Sandalphon	開眼の瞑想神・サンダルフォン	8	4	99	5	
+2893	Soul Binding Princess of Darkness, Hel	魂縛の黒冥姫・ヘル	7	5	99	6	
+2894	Loyal Demon Prince, Cauchemar	忠実の魔公子・コシュまる	8	3	99	5	
+2895	Infernal Ice Demon, Agni	獄氷魔・アグニ	7	5	99	3	
+2896	Infernal Ice Demon's Frozen Horn, Agni	凍角の獄氷魔・アグニ	8	5	99	8	
+2899	Fenrir Viz	フェンリル＝ヴィズ	6	4	50	0	
+2900	God Destroyer Monstrous Wolf, Fenrir Viz	神討の魔狼・フェンリル＝ヴィズ	7	4	99	7	
+2901	Awoken Cao Cao	覚醒曹操	7	1	99	8	
+2902	Awoken Sun Quan	覚醒孫権	7	2	99	8	
+2903	Awoken Liu Bei	覚醒劉備	7	3	99	8	
+2904	Awoken Da Qiao & Xiao Qiao	覚醒大喬＆小喬	7	4	99	8	
+2905	Evil Star Flying General, Lu Bu	凶星の飛将神・呂布	8	5	99	9	
+2906	black-winged goddess, valkyrie claire	黒翼姫神・ミニばるきりーくれーる	6	5	99	4	
+2907	the norn urd	時女神・ミニうるど	5	1	99	3	
+2908	the norn verdandi	時女神・ミニべるだんでぃ	5	3	99	3	
+2909	the norn skuld	時女神・ミニすくるど	6	2	99	4	
+2910	wailing bleak night goddess, pandora	魔哭の冥夜神・ミニぱんどら	5	5	99	4	
+2911	awoken isis	覚醒ミニいしす	5	2	99	4	
+2912	awoken bastet	覚醒ミニばすてと	5	3	99	3	
+2913	awoken amaterasu	覚醒ミニあまてらす	5	4	99	4	
+2914	awoken tsukuyomi	覚醒ミニつくよみ	5	5	99	3	
+2915	Napoleon	ナポレオン	6	1	99	5	
+2916	Emperor Veteran, Napoleon	歴戦の皇帝・ナポレオン	7	1	99	9	
+2917	Barbarossa	バルバロッサ	6	2	99	4	
+2918	Brute Force of the Redbeard, Barbarossa	蛮力の赤髭・バルバロッサ	7	2	99	8	
+2919	Robin Hood	ロビンフッド	6	3	99	4	
+2920	Godlike Chivalrous Thief, Robin Hood	神業の義賊・ロビンフッド	7	3	99	8	
+2921	Yang Guifei	楊貴妃	6	4	99	4	
+2922	Beautiful Favorite Mistress, Yang Guifei	美玉の寵姫・楊貴妃	7	4	99	8	
+2923	Oda Nobunaga	織田信長	6	5	99	4	
+2924	Rebellious Demon, Oda Nobunaga	反乱の天魔・織田信長	7	5	99	8	
+2925	Afterglow Destroyer Dragon, Apocalypse	残光の破壊龍・アポカリプス	7	4	99	8	
+2926	Passionate Dragon Caller, Ace	熱き龍喚士・エース	6	1	99	3	
+2927	Blazing Deity Falcon Armor, Ace	白光炎隼神のアーマーＸ龍喚士・エース	8	1	99	7	
+2928	Awoken Zeus Olympios Armor, Ace	超覚醒ゼウスのアーマーＸ龍喚士・エース	9	4	99	7	
+2929	Moonlit Feline Goddess Armor, Ace	月下の愛猫神のアーマーＸ龍喚士・エース	8	3	99	7	
+2930	Ouka	オウカ	3	1	25	0	
+2931	Lowen	ロウエン	4	1	70	0	
+2932	Burning Tail, Goukami	焦尾・ゴウカミ	5	1	99	2	
+2933	Mizuha	ミズハ	3	2	25	0	
+2934	Mizuarashi	ミズアラシ	4	2	70	0	
+2935	Water Blade, Aoyaiba	水刀・アオヤイバ	5	2	99	2	
+2936	Enju	エンジュ	3	3	25	0	
+2937	Trihayate	トリハヤテ	4	3	70	0	
+2938	Wind Wing, Kodachinotsukai	風翼・コダチノツカイ	5	3	99	2	
+2942	Sherias Roots	シェリアス＝ルーツ	6	4	50	0	
+2943	Destroying Wing Dragon Emperor, Sherias Roots	滅翼の龍帝王・シェリアス＝ルーツ	7	4	99	6	
+2944	Balboa	バルボワ	5	3	50	0	
+2945	Steel Wand Mechdragon God, Balboa	鋼杖の龍機神・バルボワ	6	3	99	5	
+2946	Gleaming Queen, Hera-Sowilo	煌王妃・ヘラ・ソエル	8	4	99	6	
+2947	Nocturnal Corpse Wyrm, Dragon Zombie	夜行の屍霊龍・ドラゴンゾンビ	8	5	99	5	
+2948	Almighty Awoken Zeus-Dios	超覚醒ゼウス・ディオス	8	3	99	6	
+2949	Saintly Bell Bride, Eschamali	聖鐘の花嫁・エスカマリ	8	4	99	9	
+2950	Scampering Newlywed, Gadius	疾走する新郎・赤龍契士ガディウス	8	4	99	8	
+2951	Innocent Newlywed, Satsuki	無邪気な新婦・月龍喚士サツキ	7	4	99	5	
+2952	Lovely Bride, Bastet	可憐な花嫁・バステト	6	4	99	8	
+2953	Passionate Sun Deity, Ra	情熱の太陽神・ラー	6	1	99	8	
+2954	Deeply in Love Newlywed, Akechi Mitsuhide	深愛の新郎・明智光秀	5	4	99	4	
+2955	Saintly Ocean Newlywed, Ruka	聖洋の新婦・ルカ	5	2	99	9	
+2956	White Kimono Bride, Kano	白無垢の花嫁・カノ	5	3	99	9	
+2957	Dawn Bride, Izanami	有明の花嫁・イザナミ	4	4	99	9	
+2958	Pure and Innocent Bride, Sopdet	純真な花嫁・ソティス	4	4	99	9	
+2959	Crimson Lotus Bride, Echidna	紅蓮華の花嫁・エキドナ	4	1	99	4	
+2960	Miracle Heroine, Cinderella	奇跡のヒロイン・シンデレラ	4	4	99	6	
+2961	Covenant Witch, Lilith	誓約の魔女・リリス	4	5	99	4	
+2962	White Roses Bride, Hera-Beorc	白薔薇の花嫁・ヘラ・ベオーク	6	3	99	3	
+2963	Church's Minister, Aegir	教会の神父・エーギル	5	2	99	3	
+2964	Ceremony Photographer, Yellow Gadget	式典カメラマン・イエローガジェット	3	4	99	2	
+2965	Bringer of Happiness, Cuaton	幸福の運び手・クアトン	3	4	99	2	
+2966	Shy Waiter, Dark Shibamaru	寡黙なウェイター・ヤミシバマル	3	5	99	2	
+2967	Dragonbound, Myr	龍契士・ミル	6	4	99	3	
+2968	Illusionless Time Dragonbound, Myr	無幻の時龍契士・ミル	7	4	99	9	
+2969	Star Cutting Time Dragonbound, Myr	星刻の時龍契士・ミル	8	4	99	9	
+2970	Scarlet Sky Flame Dragon Caller, Tsubaki	緋空の焔龍喚士・ツバキ	7	1	99	9	
+2971	Indigo Ocean Water Dragon Caller, Sumire	藍海の水龍喚士・スミレ	7	2	99	9	
+2972	Green Earth Wind Dragon Caller, Kaede	碧地の風龍喚士・カエデ	8	3	99	9	
+2978	Dragon Caller, Ace	龍喚士・エース	5	1	50	0	
+2979	Awoken Indra	覚醒インドラ	7	4	99	8	
+2980	Awoken Vritra	覚醒ヴリトラ	7	5	99	8	
+2981	Awoken Ame no Uzume	覚醒アメノウズメ	7	1	99	8	
+2982	Awoken Umisachi&Yamasachi	覚醒ウミサチヤマサチ	7	2	99	9	
+2983	Awoken Kushinadahime	覚醒クシナダヒメ	7	3	99	8	
+2984	Awoken Izanagi	覚醒イザナギ	7	4	99	8	
+2985	Awoken Okuninushi	覚醒オオクニヌシ	7	5	99	8	
+2986	Star Justice	スタージャスティス	6	3	99	3	
+2987	Iron Machine King, Star Justice	鉄機王・スタージャスティス	7	3	99	6	
+2988	Another Justice	アナザージャスティス	7	2	99	3	
+2989	Iron Machine Emperor, Another Justice	鉄機帝・アナザージャスティス	8	2	99	7	
+2990	Great Duke of Hell, Dantalion	魔公爵・ダンタリオン	6	1	50	0	
+2991	Confusing Face Great Duke of Hell, Dantalion	狂面の魔公爵・ダンタリオン	7	1	99	8	
+2992	Princess of Hell, Sitri	魔君主・シトリー	5	2	50	0	
+2993	Desiring Princess of Hell, Sitri	愛楽の魔君主・シトリー	6	2	99	6	
+2994	Great Earl of Hell, Ronove	魔伯爵・ロノウェ	5	3	50	0	
+2995	Bursting Great Earl of Hell, Ronove	爆叫の魔伯爵・ロノウェ	6	3	99	5	
+2996	Sacred King of Hell, Paimon	聖魔王・パイモン	6	4	50	0	
+2997	Crowned Sacred King of Hell, Paimon	宝冠の聖魔王・パイモン	7	4	99	8	
+2998	Evil Duchess, Gremory	魔神爵・グレモリー	6	5	50	0	
+2999	Hell Eye's Evil Duchess, Gremory	冥瞳の魔神爵・グレモリー	7	5	99	9	
+3000	Scarlet Sky Ruler, Yamato Takeru Dragon	緋空司・ヤマトタケル＝ドラゴン	6	1	99	2	
+3001	Indigo Ocean Ruler, Wadatsumi Dragon	藍海司・ワダツミ＝ドラゴン	6	2	99	2	
+3002	Green Earth Ruler, Yamatsumi Dragon	碧地司・ヤマツミ＝ドラゴン	6	3	99	2	
+3005	Adventure Lover, Van Crow	冒険野郎ヴァン・クロウ	5	4	50	0	
+3006	Strong Arm Adventure Lover, Van Crow	鉄腕の冒険野郎ヴァン・クロウ	6	4	99	5	
+3007	Flash Adventure Lover, Van Crow	閃光の冒険野郎ヴァン・クロウ	7	4	99	8	
+3008	Giselle Alstar	ジゼル・アルスター	4	4	50	0	
+3009	Giselle and Giant Dokuro	ジゼルと巨大ドクロウくん	5	4	99	2	
+3010	Adventure Lover, Van Crow Card	冒険野郎ヴァン・クロウ カード	4	4	1	0	
+3011	Achtros	アハトロス	6	2	99	8	
+3012	Deighk	ディエイク	6	4	99	8	
+3013	Stone Scales Dragon Emperor, Deightros	岩鱗の海龍帝・ディエイトロス	7	4	99	8	
+3014	Liberty Geist	リバティーガイスト	6	1	99	3	
+3015	War Machine King, Liberty Geist	闘機王・リバティーガイスト	7	1	99	6	
+3016	Another Geist	アナザーガイスト	7	5	99	3	
+3017	War Machine Emperor, Another Geist	闘機帝・アナザーガイスト	8	5	99	7	
+3018	Himura Kenshin	緋村剣心	6	1	99	6	
+3019	Rurouni, Himura Kenshin	流浪人・緋村剣心	7	1	99	9	
+3020	Kamiya Kaoru	神谷薫	4	2	50	0	
+3021	Kamiya Kasshin-ryu Instructor, Kamiya Kaoru	神谷活心流師範代・神谷薫	5	2	99	9	
+3022	Myojin Yahiko	明神弥彦	4	4	50	0	
+3023	Kamiya Kasshin-ryu Student, Myojin Yahiko	神谷活心流門下生・明神弥彦	5	4	99	4	
+3024	Sagara Sanosuke	相楽左之助	5	3	50	0	
+3025	Fight Merchant, Sagara Sanosuke	喧嘩屋・相楽左之助	6	3	99	5	
+3026	Takani Megumi	高荷恵	4	3	50	0	
+3027	Doctor Takani Megumi	薬師・高荷恵	5	3	99	4	
+3028	Shinomori Aoshi	四乃森蒼紫	5	2	50	0	
+3029	Onmitsu Oniwabanshu Okashira, Shinomori Aoshi	隠密御庭番衆御頭・四乃森蒼紫	6	2	99	5	
+3030	Makimachi Misao	巻町操	4	1	50	0	
+3031	Oniwabanshu Kunoichi, Makimachi Misao	御庭番衆くノ一・巻町操	5	1	99	4	
+3032	Saito Hajime	斎藤一	6	5	99	6	
+3033	3rd Shinsengumi Unit Capt., Saito Hajime	新撰組三番隊組長・斎藤一	7	5	99	9	
+3034	Seta Sojiro	瀬田宗次郎	5	4	50	0	
+3035	Juppongatana Heaven's Sword, Seta Sojiro	十本刀”天剣”・瀬田宗次郎	6	4	99	5	
+3036	Honjo Kamatari	本条鎌足	4	3	50	0	
+3037	Juppongatana The Scythe, Honjo Kamatari	十本刀”大鎌”・本条鎌足	5	3	99	4	
+3038	Shishio Makoto	志々雄真実	5	1	50	0	
+3039	Demon Who Commands Flames, Shishio Makoto	炎を統べる悪鬼・志々雄真実	6	1	99	3	
+3040	Sadojima Hoji	佐渡島方治	4	3	50	0	
+3041	Juppongatana All Knowing, Sadojima Hoji	十本刀”百識”・佐渡島方治	5	3	99	2	
+3042	Uonuma Usui	魚沼宇水	4	2	50	0	
+3043	Juppongatana Blind Sword, Uonuma Usui	十本刀”盲剣”・魚沼宇水	5	2	99	2	
+3044	Yukyuzan Anji	悠久山安慈	4	5	50	0	
+3045	Juppongatana Myo-o, Yukyuzan Anji	十本刀”明王”・悠久山安慈	5	5	99	2	
+3046	Sawagejo Cho	沢下条張	4	5	50	0	
+3047	Juppongatana Sword Hunter, Sawagejo Cho	十本刀”刀狩”・沢下条張	5	5	99	2	
+3048	Sakabato Shinuchi	逆刃刀・真打	4	1	1	0	
+3049	Secret Art of Destruction	口伝・破壊の極意	4	3	1	0	
+3050	Oniwaban-Style Kodachi Nito-ryu	御庭番式 二刀小太刀	4	2	1	0	
+3051	Unnamed Sword	無銘業物	4	5	1	0	
+3052	Kikuichimonji, Norimune	菊一文字則宗	4	4	1	0	
+3053	Sphere Protected Mechanical Star God, Antares	灼球の星機神・アンタレス	7	1	99	7	
+3054	Scythe Wielding Mechanical Star God, Antares	灼鎌の星機神・アンタレス	7	1	99	9	
+3055	Clear River Mechanical Star God, Alrescha	爽河の星機神・アルレシャ	7	2	99	7	
+3056	Ghost River Mechanical Star God, Alrescha	霊河の星機神・アルレシャ	7	2	99	9	
+3057	Spirit Tree Mechanical Star God, Spica	幽樹の星機神・スピカ	7	3	99	7	
+3058	Life Tree Mechanical Star God, Spica	命樹の星機神・スピカ	7	3	99	9	
+3059	Musical Heaven Mechanical Star God, Pollux	奏空の星機神・ポルックス	7	4	99	7	
+3060	Musical Hell Mechanical Star God, Pollux	奏冥の星機神・ポルックス	7	4	99	9	
+3061	Destruction Cannon Mechanical Star God, Castor	滅砲の星機神・カストル	7	5	99	7	
+3062	Destruction Blade Mechanical Star God, Castor	滅刃の星機神・カストル	7	5	99	9	
+3063	Extant Red Dragon Caller, Sonia TAMADRA	現世の赤龍喚士・ソニアたまドラ	6	1	99	2	
+3064	Endless Blue Dragon Caller, Sonia TAMADRA	永劫の青龍喚士・ソニアたまドラ	7	2	99	2	
+3065	Eternal Jade Dragon Caller, Sonia TAMADRA	悠久の緑龍喚士・ソニアたまドラ	7	3	99	2	
+3068	Divine General of the Radiant Heaven, Krishna	灼天の勇将神・クリシュナ	8	1	99	9	
+3069	Heavenly Virtuous Goddess, Sarasvati	聖徳の麗女神・サラスヴァティ	8	2	99	9	
+3070	Divine Creator of Equilibrium, Vishnu	均衡の創界神・ヴィシュヌ	8	3	99	9	
+3071	Scholarly God of Wealth Building, Ganesha	財成の学問神・ガネーシャ	8	4	99	9	
+3072	Smiting Hand Slayer Goddess, Durga	殲掌の討女神・ドゥルガー	8	5	99	9	
+3073	Machine Athena	マシンアテナ	7	3	99	3	
+3074	Awoken Machine Athena	覚醒マシンアテナ	8	3	99	9	
+3075	The Successor of Nanto Suicho Ken, Rei	南斗水鳥拳伝承者・レイ	6	2	99	3	
+3076	The Man who aimed to be the Ken-oh, Toki	拳王をめざした男・トキ	7	2	99	9	
+3077	Huey	ヒューイ	4	3	50	0	
+3078	Nanto Goshasei, Huey of the Wind	南斗五車星・風のヒューイ	5	3	99	5	
+3079	Shuren	シュレン	4	1	50	0	
+3080	Nanto Goshasei, Shuren of the Flames	南斗五車星・炎のシュレン	5	1	99	5	
+3081	Rin	リン	5	4	50	0	
+3082	The Girl who yearns for Ken, Rin	ケンを慕う少女・リン	6	4	99	4	
+3083	Disaster Phantom Dragon, Anima	凶災の幻影龍・アニマ	7	1	99	4	
+3084	Calamity Immortal Dragon, Cursed Wyrm	禍乱の不死龍・カースドラゴン	7	5	99	4	
+3085	Destruction Army, Dragon Shogun	破軍・ドラゴン・ショウグン	6	5	99	3	
+3086	Dragon Caller, Ana	龍喚士・アナ	5	4	50	0	
+3087	Lovely Dragon Caller, Ana	可憐な龍喚士・アナ	6	4	99	3	
+3088	Divine Law Goddess Armor, Ana	神命姫神のアーマーＸ龍喚士・アナ	9	4	99	7	
+3089	Holy Ceres Armor, Ana	ホーリーセレスのアーマーＸ龍喚士・アナ	8	3	99	7	
+3090	Chaotic Black Dragonbound Armor, Ana	滅法の黒龍契士のアーマーＸ龍喚士・アナ	9	5	99	9	
+3091	Great Scorching Heat, Kurenai Goukami	大灼熱・クレナイゴウカミ	6	1	99	3	
+3092	Iceberg Sword, Shiraha	剣氷山・シラハ	6	2	99	3	
+3093	Green Whirlwind, Adekazakiri	碧辻風・アデカザキリ	6	3	99	3	
+3095	Tamazo X Awoken Odin	タマゾーＸ覚醒オーディン	6	3	99	9	
+3096	blue dragonbound, ryune	青龍契士・ミニりゅーね	7	2	99	6	
+3097	green dragonbound, sylvie	緑龍契士・ミニしるびぃ	7	3	99	6	
+3098	orange dragonbound, saria	橙龍契士・ミニさりあ	6	4	99	5	
+3099	goddess of secrets, kali	秘女神・ミニかーりー	6	4	99	3	
+3100	dragon caller, sonia gran reverse	龍喚士・ミニそにあ＝ぐらん＝りばーす	5	5	99	4	
+3101	Patriot Warrior, Sanada Yukimura	烈士の勇猛神・真田幸村	7	1	99	8	
+3102	Dreadful Warrior, Sanada Yukimura	鬼気の勇猛神・真田幸村	7	1	99	7	
+3103	Contemplative Strategist, Mori Motonari	観想の智謀神・毛利元就	7	2	99	7	
+3104	Resolute Strategist, Mori Motonari	果断の智謀神・毛利元就	7	2	99	5	
+3105	Humanistic Spy, Ishida Mitsunari	情義の諜報神・石田三成	7	3	99	7	
+3106	Tyrannical Spy, Ishida Mitsunari	圧制の諜報神・石田三成	7	3	99	5	
+3107	Radiant Dandy, Maeda Keiji	燦爛の傾奇神・前田慶次	7	4	99	7	
+3108	Imposing Dandy, Maeda Keiji	豪壮の傾奇神・前田慶次	7	4	99	5	
+3109	Meticulous Rebel, Akechi Mitsuhide	周到の謀略神・明智光秀	7	5	99	7	
+3110	Melancholic Rebel, Akechi Mitsuhide	憂愁の謀略神・明智光秀	7	5	99	6	
+3111	Guardian of Paradise, Metatron	楽園の守護者・メタトロン	8	2	99	8	
+3112	Sniper at Rest, Myr	休息の狙撃手・時龍契士ミル	8	2	99	9	
+3113	Beach Star Goddess, Eschamali	渚の星女神・エスカマリ	8	2	99	9	
+3114	Genbu Princess of Paradise, Meimei	楽園の玄武姫・メイメイ	6	2	99	9	
+3115	Goddess of Beach Volley, Lakshmi	ビーチバレーの女神・ラクシュミー	6	2	99	8	
+3116	Amusement Dancer, Fuu	遊楽の舞姫・フウ	5	4	99	9	
+3117	Swimming Feline, Kurone	遊泳の猫又・クロネ	5	5	99	9	
+3118	Unprecedented Surfer, Ishikawa Goemon	破天荒の波乗り・石川五右衛門	4	1	99	4	
+3119	Cool Evening Sorceress, Armadel	夕涼の魔導姫・アルマデル	4	3	99	9	
+3120	Resting Wings Dragon Caller, Navi	休翼の龍喚士・ナヴィ	4	2	99	9	
+3121	Beach Lifeguard, Aqua Chaser	海の監視員・アクアチェイサー	3	2	99	2	
+3122	Ice Cream Master, Cockatrice	氷菓の巨匠・コカトリス	3	2	99	2	
+3123	Marine Diver, Blue Gadget	マリンダイバー・ブルーガジェット	3	2	99	2	
+3151	Genbu Princess of Leisure, Meimei	優遊の玄武姫・メイメイ	6	3	99	9	
+3152	Kuramitsuha	クラミツハ	6	5	99	3	
+3153	Azure Spring Dragon Goddess, Kuramitsuha	蒼水の泉龍神・クラミツハ	7	5	99	7	
+3154	Cosmo Crusader	コスモクルセイダー	6	4	99	3	
+3155	Flash Machine King, Cosmo Crusader	閃機王・コスモクルセイダー	7	4	99	7	
+3156	Another Crusader	アナザークルセイダー	7	3	99	3	
+3157	Flash Machine Emperor, Another Crusader	閃機帝・アナザークルセイダー	8	3	99	7	
+3158	Khepri	ケプリ	6	2	99	3	
+3159	Blue Sky Goddess of Dawn, Khepri	暁天の蒼空神・ケプリ	7	2	99	7	
+3162	Tamazo X Awoken Phantom God, Odin	タマゾーＸ覚醒幻神・オーディン	6	1	99	9	
+3163	Tamazo X Awoken Deity Odin	タマゾーＸ覚醒秘神・オーディン	6	2	99	9	
+3164	Tamazo X Batman	タマゾーＸバットマン	4	5	99	9	
+3193	Guardian of the Imperial Capital, Athena	帝都の守護神・アテナ	10	5	99	8	
+3197	Trailokyavijaya	降三世明王	5	1	50	0	
+3198	Goddess of Demon Conquest, Trailokyavijaya	降魔の神・降三世明王	6	1	99	6	
+3199	Kundali	軍荼利明王	5	2	50	0	
+3200	God of Good Health, Kundali	息災の神・軍荼利明王	6	2	99	6	
+3201	Acala	不動明王	5	3	50	0	
+3202	Goddess of Great Compassion, Acala	慈悲の神・不動明王	6	3	99	6	
+3203	Vajrayaksa	金剛夜叉明王	5	4	50	0	
+3204	God of Divine Insight, Vajrayaksa	智慧の神・金剛夜叉明王	6	4	99	6	
+3205	Vajrabhairava	大威徳明王	5	5	50	0	
+3206	God of Awe and Fear, Vajrabhairava	畏怖の神・大威徳明王	6	5	99	6	
+3207	Fire Guardian Dragon, Touen	火の護神龍・トーエン	5	1	99	2	
+3208	Water Guardian Dragon, Naro	水の護神龍・ナロ	5	2	99	2	
+3209	Wood Guardian Dragon, Ouju	木の護神龍・オウジュ	5	3	99	2	
+3210	Light Guardian Dragon, Hokurai	光の護神龍・ホクライ	5	4	99	2	
+3211	Dark Guardian Dragon, Scion	闇の護神龍・サイオン	5	5	99	2	
+3212	Fire Imp	火の小鬼	3	1	30	0	
+3213	Water Imp	水の小鬼	3	2	30	0	
+3214	Wind Imp	風の小鬼	3	3	30	0	
+3215	Thunder Imp	雷の小鬼	3	4	30	0	
+3216	Dark Imp	闇の小鬼	3	5	30	0	
+3220	Mion	ミオン	6	2	99	3	
+3221	Draconic Songstress of Blue Echoes, Mion	蒼響の龍楽士・ミオン	7	2	99	7	
+3222	Crimson Orchid Black Witch, Xiang Mei	紅蘭の黒魔女・シャンメイ	8	5	99	8	
+3223	Old Castle Freeloader, Sonia Gran	古城の居候・龍喚士ソニア＝グラン	8	4	99	6	
+3224	Dancing Seiryuu Princess, Karin	演舞の青龍姫・カリン	6	2	99	9	
+3225	Masquerade Devil, Rozuel	仮装祭の小悪魔・ロズエル	6	5	99	7	
+3226	Tea House Girl, Chiyome	御茶屋の看板娘・望月千代女	5	5	99	6	
+3227	Masquerade Goddess, Parvati	仮装祭の女神・パールヴァティー	5	3	99	6	
+3228	Old Castle Patissiere, Undine	古城のパティシエール・ウンディーネ	4	2	99	9	
+3229	Masquerade Pumpkineer, Mulan	仮装祭のカボチャ職人・ムーラン	4	5	99	5	
+3230	Masquerade Rock Singer, Misery	仮装祭のロックシンガー・ミザリィ	4	3	99	9	
+3231	Earl of Halloween Fever, Count Pumpkin	ハロウィンマニア・ペポ伯爵	3	5	99	2	
+3232	Old Castle Lantern, Flemin	古城の燭台・フレミン	3	1	99	2	
+3233	Morning Sun Dragon Caller, Kanna	朝陽の日龍喚士・カンナ	8	4	99	9	
+3234	Nightshade Sun Dragon Caller, Kanna	夜陰の日龍喚士・カンナ	8	5	99	7	
+3235	Maniacal Phantom Demon, Ilm	魔究の狂幻魔・イルム	8	4	99	7	
+3236	Bewitching Earth Phantom Demon, Ilm	人世の妖幻魔・イルム	8	4	99	9	
+3237	Windrunner Dragon Knight, Ishtar	疾速の龍騎姫・イシュタル	7	3	99	5	
+3238	Reincarnated Minerva	転生ミネルヴァ	8	1	99	9	
+3239	Reincarnated Neptune	転生ネプチューン	8	2	99	9	
+3240	Reincarnated Ceres	転生セレス	8	3	99	9	
+3241	Reincarnated Shiva	転生シヴァ	8	1	99	9	
+3242	Reincarnated Lakshmi	転生ラクシュミー	8	2	99	9	
+3243	Reincarnated Parvati	転生パールヴァティー	8	3	99	9	
+3244	Steel Dragon Emperor, Ninegaruda	鉄龍帝・ナインガルダ	6	5	99	3	
+3245	Wrathful Steel Dragon Emperor, Ninegaruda	爆怒の鉄龍帝・ナインガルダ	7	5	99	9	
+3246	Coloring Book, Kali	カーリー【塗り絵コンテスト】	7	2	99	6	
+3247	Coloring Book, Sakuya	サクヤ【塗り絵コンテスト】	7	1	99	9	
+3248	Archdemon Beelzebub TAMADRA	奈落の狂皇子・ベルゼブブたまドラ	7	5	99	2	
+3249	Phantasm Seiryuu Princess, Karin	霊幻の青龍姫・カリン	6	5	99	9	
+3250	Hinomitsuha	ヒノミツハ	7	5	99	3	
+3251	Crimson Spring Dragon Goddess, Hinomitsuha	紅水の泉龍神・ヒノミツハ	8	5	99	8	
+3252	awoken archdemon lucifer	覚醒神魔王ミニるしふぁー	6	5	99	6	
+3258	Serket	セルケト	6	5	99	3	
+3259	Falcon Guardian's Dark Scorpion Goddess, Serket	隼護の冥蝎神・セルケト	7	5	99	9	
+3260	Yamato Flame Dragon Caller, Tsubaki	大和の焔龍喚士・ツバキ	7	1	99	9	
+3262	Smithing God, Shiva Dragon	鍛煉神・シヴァ＝ドラゴン	10	1	99	9	
+3263	White Rainbow Ark, Neptune Dragon	聖舶神・ネプチューン＝ドラゴン	10	2	99	9	
+3264	Original God Odin Dragon, Light Lance Form	起源神・オーディン＝ドラゴン・光槍型	10	3	99	9	
+3265	Almighty God, Ra Dragon	全能神・ラー＝ドラゴン	10	4	99	9	
+3266	Dark God, Tsukuyomi Dragon	暗黒神・ツクヨミ＝ドラゴン	10	5	99	9	
+3267	Aten	アテン	6	4	50	0	
+3268	Sunset God of Purifying Light, Aten	浄光の天陽神・アテン	7	4	99	8	
+3269	Reincarnated Venus	転生ヴィーナス	8	4	99	9	
+3270	Reincarnated Hades	転生ハーデス	8	5	99	9	
+3271	Reincarnated Hino Kagutsuchi	転生ヒノカグツチ	8	1	99	9	
+3272	Reincarnated Horus	転生ホルス	8	1	99	9	
+3273	Reincarnated Ra	転生ラー	8	4	99	9	
+3274	Phantom Demon of the Grimoire, Ilmina	魔導書の幻魔・イルミナ	7	1	99	9	
+3275	Judgment Scale Steel Star Goddess, Elgenubi	裁盤の鋼星神・エルゲヌビ	6	1	99	9	
+3276	Conquest Bow Steel Star Goddess, Meridionalis	討弓の鋼星神・メリディオナリス	6	2	99	6	
+3277	Daughter of the Hell Phantom Demon, Romia	獄幻魔の愛娘・ロミア	6	3	99	6	
+3278	Blue-Winged Ray Dragon Caller, Navi	蒼翼の閃龍喚士・ナヴィ	6	4	99	6	
+3279	Dark Mechdragon Technician, Barbara	冥装の龍機工士・バーバラ	6	5	99	6	
+3280	Assault Vessel Steel Star Goddess, Kuvia	撃瓶の鋼星神・クヴィア	5	1	99	5	
+3281	Cold Mask Demon Princess, Mel	冷面の魔公女・メル	5	2	99	8	
+3282	Sacred Texts Researcher, Mito	神書の検索者・ミト	5	3	99	5	
+3283	Green Earth Dragon Miko, Momiji	碧地司の龍巫女・モミジ	5	4	99	5	
+3284	Dragon Caller's Disciple, Sheena	龍喚士の弟子・シーナ	5	5	99	5	
+3285	Psychopomp Princess of Oblivion, Grida	忘却の死神姫・グリーダ	6	5	99	6	
+3286	Soul Reaper's Disciple, Melissa	求魂師の弟子・メリッサ	5	4	99	2	
+3287	Pyromare	パイロメア	2	1	99	2	
+3288	Frostmare	フロストメア	2	2	99	2	
+3289	Taurmare	タウロスメア	2	3	99	2	
+3290	Harpimare	ハーピィメア	2	4	99	2	
+3291	Bloodmare	ブラッドメア	2	5	99	2	
+3292	Beast of the Climactic Night, Minotauria	極夜の獣人・ミノタウリア	3	1	99	2	
+3293	Witch of the Climactic Night, Werewolfie	極夜の魔人・ワーウルフィ	3	5	99	2	
+3294	Sharlayan Sage, Y'shtola	シャーレアンの賢者・ヤ・シュトラ	7	2	99	8	
+3295	Onion Knight	オニオンナイト	5	1	50	0	
+3296	Warrior of Light, Onion Knight	光の戦士・オニオンナイト	6	1	99	5	
+3297	Tifa	ティファ	6	4	99	4	
+3298	7th Heaven's Owner, Tifa	セブンスヘブンの看板娘・ティファ	7	4	99	6	
+3299	Holder of Concealed Feelings, Tifa	想い秘めし者・ティファ	8	4	99	9	
+3300	Auron	アーロン	4	1	50	0	
+3301	Legendary Guardian, Auron	伝説のガード・アーロン	5	1	99	3	
+3302	Penelo	パンネロ	4	3	50	0	
+3303	Dalmascan Dancer, Penelo	ダルマスカの踊り子・パンネロ	5	3	99	3	
+3304	Noctis	ノクティス	6	5	99	4	
+3305	The Chosen King, Noctis	託されし未来の王・ノクティス	7	5	99	9	
+3306	Glauca	グラウカ	5	5	99	4	
+3307	Onion Knight's Onion Sword	オニオンナイトのオニオンソード	5	1	1	0	
+3308	Tifa's Leather Glove	ティファのレザーグローブ	5	4	1	0	
+3309	Noctis's Ring of the Lucii	ノクティスの光耀の指輪	5	5	1	0	
+3312	King Flamtan	キングホノタン	9	1	1	0	
+3313	King Bubtan	キングミズタン	9	2	1	0	
+3314	King Woodtan	キングモクタン	9	3	1	0	
+3315	King Shyntan	キングヒカタン	9	4	1	0	
+3316	King Badtan	キングヤミタン	9	5	1	0	
+3317	Latent TAMADRA (Imp. All Stats)	潜在たまドラ☆全パラメータ強化	7	4	1	0	
+3318	Latent TAMADRA (God Killer)	潜在たまドラ☆神キラー	7	4	1	0	
+3319	Latent TAMADRA (Dragon Killer)	潜在たまドラ☆ドラゴンキラー	7	4	1	0	
+3320	Latent TAMADRA (Devil Killer)	潜在たまドラ☆悪魔キラー	7	4	1	0	
+3321	Latent TAMADRA (Machine Killer)	潜在たまドラ☆マシンキラー	7	4	1	0	
+3322	Latent TAMADRA (Balanced Killer)	潜在たまドラ☆バランスキラー	7	4	1	0	
+3323	Latent TAMADRA (Attacker Killer)	潜在たまドラ☆攻撃キラー	7	4	1	0	
+3324	Latent TAMADRA (Physical Killer)	潜在たまドラ☆体力キラー	7	4	1	0	
+3325	Latent TAMADRA (Healer Killer)	潜在たまドラ☆回復キラー	7	4	1	0	
+3326	Titania	ティターニア	5	3	70	0	
+3327	Queen of the Fairy Forest, Titania	妖精森の女王・ティターニア	6	3	99	3	
+3328	Ras	ラス	5	3	70	0	
+3329	Serpent Steel Star Healer, Ras	救蛇の鋼星医・ラス	6	3	99	3	
+3331	Elder of Fire, Eldora	火の古老＝龍喚士・エルドラ	8	1	99	9	
+3332	Ancient Fire Dragon, Eldora	火古龍＝龍喚士・エルドラ	8	1	99	9	
+3343	Xiahou Dun	夏侯惇	6	1	99	4	
+3344	Brutal Warrior General, Xiahou Dun	厳烈の猛将神・夏侯惇	7	1	99	6	
+3345	Gan Ning	甘寧	6	2	99	4	
+3346	Golden Bell Marauder, Gan Ning	金鈴の水兵神・甘寧	7	2	99	6	
+3347	Ma Chao	馬超	6	3	99	4	
+3348	Shining Spear Dragoon, Ma Chao	煌槍の錦龍神・馬超	7	3	99	6	
+3349	Diaochan	貂蝉	6	4	99	4	
+3350	Alluring Songstress, Diaochan	傾国の歌姫神・貂蝉	7	4	99	7	
+3351	Sima Yi	司馬懿	6	5	99	4	
+3352	Devious King Usurper, Sima Yi	鬼謀の宣王神・司馬懿	7	5	99	6	
+3353	The Final Getsugatensho, Ichigo Kurosaki	最後の月牙天衝・黒崎一護	8	5	99	8	
+3354	Full Hollow, Ichigo Kurosaki	完全虚化・黒崎一護	9	5	99	9	
+3355	Tsuginomai Hakuren, Rukia Kuchiki	次の舞『白漣』・朽木ルキア	8	2	99	7	
+3356	Shigekuni Genryusai Yamamoto	山本元柳斎重國	6	1	99	4	
+3357	Head Captain of 13 Court Guard Squads, Genryusai	護廷十三隊総隊長・山本元柳斎重國	7	1	99	7	
+3358	Sosuke Aizen	藍染惣右介	6	2	99	4	
+3359	Former Captain of Squad 5, Sosuke Aizen	元五番隊隊長・藍染惣右介	7	2	99	9	
+3360	Ulquiorra Shifar	ウルキオラ・シファー	5	5	50	0	
+3361	The 4th Espada, Ulquiorra Shifar	第4十刃・ウルキオラ・シファー	6	5	99	8	
+3362	Grimmjow Jeagerjaques	グリムジョー・ジャガージャック	5	2	50	0	
+3363	The 6th Espada, Grimmjow Jeagerjaques	第6十刃・グリムジョー・ジャガージャック	6	2	99	6	
+3364	Gin Ichimaru	市丸ギン	5	4	50	0	
+3365	Former Captain of Squad 3, Gin Ichimaru	元三番隊隊長・市丸ギン	6	4	99	2	
+3366	Zanpakuto, Ryujinjakka	斬魄刀・流刃若火	4	1	1	0	
+3367	Zanpakuto, Kyokasuigetsu	斬魄刀・鏡花水月	4	2	1	0	
+3368	Resurreccion, Murcielago	帰刃・黒翼大魔	4	5	1	0	
+3369	Resurreccion, Pantera	帰刃・豹王	4	2	1	0	
+3370	Hellbrand Mechdragon God, Baldin	獄刃の龍機神・バルディン	8	1	99	9	
+3371	Scorchblade Mechdragon God, Baldin	灼剣の龍機神・バルディン	8	1	99	7	
+3372	Radiant Staff Mechdragon God, Balboa	清杖の龍機神・バルボワ	7	3	99	8	
+3373	Steel Chronicle Mechdragon God, Balboa	鋼書の龍機神・バルボワ	7	3	99	6	
+3374	Powder Snow Byakko, Haku	淡雪の白虎・ハク	6	1	99	9	
+3375	Dragon Hero of the Holy Feast, Liu Bei	聖宴の龍英傑・劉備	8	1	99	9	
+3376	Goddess of the Sanctuary, Freyja	聖堂の豊麗神・フレイヤ	5	3	99	6	
+3377	Holy Ritual Ninja Princess, Hatsume	聖祭の夜叉姫・初芽局	5	1	99	6	
+3378	Holy Night Siblings, Castor & Pollux	聖夜の兄妹・ポルックス＆カストル	5	4	99	9	
+3379	Holy Night Visitor, Gremory	聖夜の来訪者・グレモリー	8	1	99	9	
+3380	Sprite of the Sanctuary, Pixie	聖堂の妖精・ピクシー	4	4	99	2	
+3381	Holy Ritual Guard, High Fire Ninja	聖祭の警備員・火の上忍	4	1	99	2	
+3382	Sanctuary Chef, Pyro Demon	聖堂の料理魔・パイロデーモン	4	1	99	2	
+3384	Reincarnated Bastet	転生バステト	8	3	99	9	
+3385	Reincarnated Anubis	転生アヌビス	8	5	99	9	
+3386	Reincarnated Viper Orochi	転生ヤマタノオロチ	8	2	99	9	
+3387	Reincarnated Susano no Mikoto	転生スサノオノミコト	8	3	99	9	
+3388	Reincarnated Amaterasu Ohkami	転生アマテラスオオカミ	8	4	99	9	
+3389	Reincarnated Tsukuyomi	転生ツクヨミ	8	5	99	9	
+3390	Asgardian Warlock, Odin	神国の魔術神・オーディン	7	3	99	8	
+3391	War Deity of the Wisdom Well, Odin	賢泉の秘術神・オーディン	8	2	99	9	
+3392	God of the Battlefield, Odin	戦域の幻術神・オーディン	8	1	99	9	
+3393	Myr Regalia, Rei	レイ＆ミルスーツ	6	4	99	9	
+3394	Kali Regalia, Kaworu	カヲル＆カーリースーツ	6	5	99	9	
+3395	Leilan Regalia, Misato	ミサト＆レイランドレス	5	1	99	6	
+3396	Yamato Takeru Regalia, Asuka	アスカ＆ヤマトタケルスーツ	5	1	99	6	
+3397	Scheat Regalia, Shinji	シンジ＆シェアトスーツ	5	2	99	6	
+3398	Ceres Regalia, Mari	マリ＆セレススーツ	5	3	99	6	
+3399	Rei Ayanami (temp. name) & Mark.09	アヤナミレイ(仮称)＆Mark.09	4	5	50	0	
+3400	Rei Ayanami (temp. name) & Awoken Mark.09	アヤナミレイ(仮称)＆Mark.09 覚醒後	5	5	99	8	
+3401	Eva Unit 00 Plushie	エヴァ零号機のぬいぐるみ	4	4	1	0	
+3402	Mark.06 Plushie	Mark.06のぬいぐるみ	4	5	1	0	
+3403	Penpen Plushie	ペンペンのぬいぐるみ	4	1	1	0	
+3404	Eva Unit 02 Plushie	エヴァ2号機のぬいぐるみ	4	1	1	0	
+3405	Eva Unit 01 Plushie	エヴァ初号機のぬいぐるみ	4	2	1	0	
+3406	Eva Unit 08 Plushie	エヴァ8号機のぬいぐるみ	4	3	1	0	
+3407	Daughter of the Tentei, Rin	天帝の子・リン	7	4	99	6	
+3408	Kaioh	カイオウ	6	5	99	5	
+3409	Creator of the New Century, Kaioh	新世紀創造主・カイオウ	7	5	99	9	
+3410	Bat	バット	5	4	50	0	
+3411	Leader of the Hokuto Army, Bat	北斗軍のリーダー・バット	6	4	99	9	
+3412	Kaioh Devidra	カイオウデビドラ	4	5	1	0	
+3413	Fujin	風神	6	3	50	0	
+3414	Green-Horned Demon Princess, Fujin	翠角の天鬼姫・風神	7	3	99	6	
+3415	Raijin	雷神	6	4	50	0	
+3416	Yellow-Horned Demon Princess, Raijin	黄角の天鬼姫・雷神	7	4	99	6	
+3417	Daylight Suzaku Princess, Leilan	白日の朱雀姫・レイラン	6	4	99	9	
+3418	Gazing Moonlight Princess, Tsukuyomi	物見の夜月神・ツクヨミ	8	4	99	9	
+3419	Shrine Tour Mechstar Princess, Spica	参詣の星機姫・スピカ	5	4	99	9	
+3420	Karuta Queen, Jeanne d'Arc	かるた取りの女王・ジャンヌダルク	4	4	99	9	
+3421	Monyako, Fortune Cat of the New Year	新春の福猫・モニャコ	4	4	99	2	
+3423	Meteor King, Ginga	流星王ギンガ	5	3	50	0	
+3424	Resplendent Meteor King, Ginga	煌天流星王ギンガ	6	3	99	5	
+3425	Green Earth Wind Dragon Caller, Kaede Another	碧地の風龍喚士・カエデ アナザー	7	3	99	9	
+3426	Meteor King, Ginga Card	流星王ギンガ カード	4	3	1	0	
+3427	Green Earth Wind Dragon Caller, Kaede Another Card	碧地の風龍喚士・カエデ アナザー カード	4	3	1	0	
+3447	Ancient Fire Dragon Armor, Ana	火古龍のアーマーＸ龍喚士・アナ	9	1	99	9	
+3448	Light Lance God Odin Dragon, Stormwing Form	光槍神・オーディン＝ドラゴン・嵐翼型	10	3	99	9	
+3449	Reincarnated Indra	転生インドラ	8	4	99	9	
+3450	Reincarnated Vritra	転生ヴリトラ	8	5	99	9	
+3451	Desert Fist Firestorm God, Set	掌砂焦炎神・セト	7	1	99	6	
+3452	Skyformer Galaxy Goddess, Nut	創空星雲神・ヌト	7	2	99	6	
+3453	Soul Reclaimer God of Dark Riches, Osiris	還魂冥穣神・オシリス	7	3	99	6	
+3454	Shining Fist Sacred Life Goddess, Hathor	煌拳聖命神・ハトホル	7	4	99	6	
+3455	Night Voyager Death Goddess, Nephthys	航夜冥霊神・ネフティス	7	5	99	6	
+3456	Demonic Gentleman, Azazel	魔紳士・アザゼル	6	5	99	3	
+3457	Lawless Demonic Gentleman, Azazel	不法の魔紳士・アザゼル	7	5	99	5	
+3482	Reincarnated Freyr	転生フレイ	8	1	99	9	
+3484	Reincarnated Freyja	転生フレイヤ	8	3	99	9	
+3486	Reincarnated Loki	転生ロキ	8	5	99	9	
+3487	Reincarnated Leilan	転生レイラン	8	1	99	9	
+3489	Reincarnated Meimei	転生メイメイ	8	3	99	9	
+3490	Reincarnated Sakuya	転生サクヤ	8	4	99	9	
+3491	Reincarnated Haku	転生ハク	8	5	99	9	
+3493	Reincarnated Hermes	転生ヘルメス	8	2	99	9	
+3494	Reincarnated Artemis	転生アルテミス	8	3	99	9	
+3495	Reincarnated Apollo	転生アポロン	8	4	99	9	
+3496	Reincarnated Persephone	転生ペルセポネ	8	5	99	9	
+3498	Reincarnated Sun Quan	転生孫権	8	2	99	9	
+3499	Reincarnated Liu Bei	転生劉備	8	3	99	9	
+3500	Reincarnated Da Qiao & Xiao Qiao	転生大喬＆小喬	8	4	99	9	
+3501	Reincarnated Ame no Uzume	転生アメノウズメ	8	1	99	9	
+3503	Reincarnated Kushinadahime	転生クシナダヒメ	8	3	99	9	
+3504	Reincarnated Izanagi	転生イザナギ	8	4	99	9	
+3506	Reincarnated Pandora	転生パンドラ	8	5	99	9	
+3507	Reincarnated Astaroth	転生アスタロト	8	3	99	9	
+3509	Awoken Yamato Takeru	覚醒ヤマトタケル	7	1	99	8	
+3510	Awoken Andromeda	覚醒アンドロメダ	7	2	99	8	
+3511	Awoken Perseus	覚醒ペルセウス	7	3	99	8	
+3512	Awoken Sun Wukong	覚醒孫悟空	7	4	99	8	
+3513	Ash Phantom Demon of Deliverance, Ilmina	救書の灰幻魔・イルミナ	7	4	99	9	
+3514	Judgehammer Steel Star Goddess, Elgenubi	裁槌の鋼星神・エルゲヌビ	7	1	99	9	
+3515	Pureshaft Steel Star Goddess, Meridionalis	浄弓の鋼星神・メリディオナリス	7	2	99	7	
+3516	Inquisitive Hell Phantom Heiress, Romia	探訪の獄幻姫・ロミア	7	3	99	7	
+3517	Lightwing Ray Dragon Caller, Navi	輝翼の閃龍喚士・ナヴィ	7	4	99	7	
+3518	Hellbrand Mechdragon Technician, Barbara	獄刃の龍機工士・バーバラ	7	5	99	7	
+3519	Cannon Sweeper Steel Star Goddess, Kuvia	掃瓶の鋼星神・クヴィア	6	1	99	6	
+3520	Sly Masquerade Demon Princess, Mel	怪面の魔公女・メル	6	2	99	9	
+3521	Holy War Chronicler, Mito	聖戦の記録者・ミト	6	3	99	6	
+3522	Dragon Miko Summitkeeper, Momiji	山守神の龍巫女・モミジ	6	4	99	6	
+3523	Newly Anointed Dragon Caller, Sheena	近世の紫龍喚士・シーナ	6	5	99	6	
+3524	Aqualily Goddess of Bliss, Uruka	水華の喜女神・ウルカ	7	2	99	9	
+3525	Darkstar Goddess of Bliss, Uruka	冥星の喜女神・ウルカ	7	5	99	9	
+3526	Silent Mechdragon Technician, Julie	静装の龍機博士・ジュリ	6	2	99	6	
+3527	Radiant Mechdragon Technician, Julie	清杖の龍機博士・ジュリ	7	2	99	7	
+3531	Awoken Belial	覚醒ベリアル	7	1	99	8	
+3532	Awoken Amon	覚醒アモン	7	2	99	8	
+3533	Awoken Baal	覚醒バアル	7	4	99	8	
+3534	Holy War Mediator, Metatron	聖戦の調停者・メタトロン	7	4	99	8	
+3535	Arbiter of Divine Truth, Metatron	神理の裁断者・メタトロン	8	5	99	9	
+3536	Sorceress of Purging Light, Ars Nova	浄灯の魔導姫・アルス＝ノウァ	7	4	99	8	
+3537	Sorceress of Sinister Flight, Goetia	邪翔の魔導姫・ゴエティア	7	5	99	8	
+3538	Clever Egg Dragon, Nerva	賢玉龍・ネルヴァ	5	1	99	0	
+3539	Flame Wing Wisedragon, Nerva	灼羽の大賢龍・ネルヴァ	6	1	1	4	
+3540	Clever Egg Dragon, Mercuria	賢玉龍・メルクリア	5	2	99	0	
+3541	Ocean Horn Wisedragon, Mercuria	海角の大賢龍・メルクリア	6	2	1	4	
+3542	Clever Egg Dragon, Bacches	賢玉龍・バッケス	5	3	99	0	
+3543	Summit Horn Wisedragon, Bacches	峰角の大賢龍・バッケス	6	3	1	4	
+3544	Clever Egg Dragon, Apolluo	賢玉龍・アポルォ	5	4	99	0	
+3545	Sun Crown Wisedragon, Apolluo	陽輪の大賢龍・アポルォ	6	4	1	4	
+3546	Clever Egg Dragon, Diena	賢玉龍・ディエナ	5	5	99	0	
+3547	Crescent Moon Wisedragon, Diena	月角の大賢龍・ディエナ	6	5	1	4	
+3548	Heroic Firelight Sword, Claiomh Solais	煌炎剣の勇士・クラウソラス	6	1	99	6	
+3549	Heroic Sword of the Alluring Lake, Arondight	麗湖剣の勇士・アロンダイト	6	2	99	6	
+3550	Heroic Thunderstone Edge, Caladbolg	雷石剣の勇士・カラドボルグ	6	3	99	6	
+3551	Heroic Yinyang Swordpair, Gan Jiang & Mo Ye	陰陽剣の勇士・干将莫耶	6	4	99	6	
+3552	Heroic Woodghost Spear, Misteltein	樹霊槍の勇士・ミストルテイン	6	5	99	6	
+3553	The One Chosen by the Era, Himura Kenshin	時代の選びし者・緋村剣心	7	1	99	9	
+3554	Wolf of Mibu, Saito Hajime	壬生の狼・斎藤一	7	5	99	9	
+3555	Ni'itsu Kakunoshin	新津覚之進	6	4	99	6	
+3556	Hiko Seijuro	比古清十郎	7	4	99	9	
+3557	Kashiwazaki Nenji	柏崎念至	5	5	50	0	
+3558	Okina of the Oniwabanshu, Kashiwazaki Nenji	隠密御庭番衆翁・柏崎念至	6	5	99	5	
+3559	Komagata Yumi	駒形由美	4	1	50	0	
+3560	"Caretaker", Komagata Yumi	”夜伽”・駒形由美	5	1	99	0	
+3561	Udo Jin-e	鵜堂刃衛	4	5	50	0	
+3562	Kurogasa, Udo Jin-e	黒笠・鵜堂刃衛	5	5	99	4	
+3563	Ni'itsu Kakunoshin's Pottery	新津覚之進の陶芸作品	4	4	1	0	
+3564	Steel Tonfa	鋼鉄製の鉤棍	4	5	1	0	
+3569	Redemption Flame Star Angel, Rozuel	救炎の星天使・ロズエル	7	1	99	7	
+3571	Spiral Fist Star Angel, Ruel	旋掌の星天使・リュエル	7	3	99	7	
+3573	Resonant Staff Star Angel, Lumiel	響杖の星天使・ルミエル	7	5	99	7	
+3580	Demonic Moon Dragon Caller, Satsuki	天魔の月龍喚士・サツキ	7	5	99	6	
+3581	Morning Moon Dragon Caller, Satsuki	明時の月龍喚士・サツキ	7	5	99	8	
+3586	Flashblade Mechanical Star God, Algedi	瞬刀の星機神・アルゲディ	7	3	99	5	
+3587	Twinblade Mechanical Star God, Algedi	双刀の星機神・アルゲディ	7	3	99	7	
+3588	Slumbering Mechanical Star God, Alcyone	微睡の星機神・アルキオネ	7	4	99	8	
+3589	Sunny Side Mechanical Star God, Alcyone	陽気の星機神・アルキオネ	7	4	99	6	
+3596	Awoken Durga	覚醒ドゥルガー	7	5	99	8	
+3597	Dark Winged Machine, Demonius	冥翼機・デモニアス	7	5	99	4	
+3598	Dark Star Crusher Machine, Despharion	闇の星壊機・デスファリオン	8	5	99	9	
+3637	Cthulhu	クトゥルフ	7	2	99	3	
+3638	Cthulhu, the Nightmare Incarnate	悪夢なるもの・クトゥルフ	8	2	99	6	
+3639	Nyarlathotep	ニャルラトホテプ	7	3	99	3	
+3640	Nyarlathotep, the Faceless God	無貌なるもの・ニャルラトホテプ	8	3	99	6	
+3641	Azathoth	アザトース	8	5	99	3	
+3642	Azathoth, the Primal Chaos	無形なるもの・アザトース	9	5	99	7	

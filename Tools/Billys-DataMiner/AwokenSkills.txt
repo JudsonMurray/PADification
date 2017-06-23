@@ -1,0 +1,46 @@
+ID	Name	Description	Value
+3	Enhanced HP	Increase HP by 200	200	
+4	Enhanced Attack	Increase ATK by 100	100	
+5	Enhanced Heal	Increase RCV by 50	50	
+6	Reduce Fire Damage	Reduce damage from Fire enemies by 5%	5	
+7	Reduce Water Damage	Reduce damage from Water enemies by 5%	5	
+8	Reduce Wood Damage	Reduce damage from Wood enemies by 5%	5	
+9	Reduce Light Damage	Reduce damage from Light enemies by 5%	5	
+10	Reduce Dark Damage	Reduce damage from Dark enemies by 5%	5	
+11	Auto-Recover	Heal for 800 HP when you clear any drops	800	
+12	Resistance-Bind	50% Chance for this monster to resist bind	50	
+13	Resistance-Dark	20% Chance to resist darkness and blind orb spawns	20	
+14	Resistance-Jammers	20% Chance to resist jammer spawns	20	
+15	Resistance-Poison	20% Chance to resist poison spawns	20	
+16	Enhanced Fire Orbs	Enhanced "+" fire orbs have a 20% chance of appearing and increase "+" fire orbs damage by 5%	20	
+17	Enhanced Water Orbs	Enhanced "+" water orbs have a 20% chance of appearing and increase "+" water orbs damage by 5%	20	
+18	Enhanced Wood Orbs	Enhanced "+" wood orbs have a 20% chance of appearing and increase "+" wood orbs damage by 5%	20	
+19	Enhanced Light Orbs	Enhanced "+" light orbs have a 20% chance of appearing and increase "+" light orbs damage by 5%	20	
+20	Enhanced Dark Orbs	Enhanced "+" dark orbs have a 20% chance of appearing and increase "+" dark orbs damage by 5%	20	
+21	Extend Time	The time you can move orbs is increased by 0.5 seconds	5	
+22	Recover Bind	Eliminating 1 row of hearts will reduce binds by 3 turns	3	
+23	Skill Boost	The entire team starts with 1 turn worth of skills charged	1	
+24	Enhanced Fire Attribute	Eliminating 1 row of fire orbs will increase your fire damage by 10%	10	
+25	Enhanced Water Attribute	Eliminating 1 row of water orbs will increase your water damage by 10%	10	
+26	Enhanced Wood Attribute	Eliminating 1 row of wood orbs will increase your wood damage by 10%	10	
+27	Enhanced Light Attribute	Eliminating 1 row of light orbs will increase your light damage by 10%	10	
+28	Enhanced Dark Attribute	Eliminating 1 row of dark orbs will increase your dark damage by 10%	10	
+29	Two-Pronged Attack	Eliminating exactly 4 connected orbs of the same color for 1.5x ATK on 2 enemies	15	
+30	Resistance-Skill Bind	20% chance to resist team skill-lock	20	
+31	Enhanced Heart Orbs	Enhanced "+" heart orbs have a 20% chance of appearing and increase "+" heart orbs heal amount	20	
+32	Multi Boost	1.5x stat boost in Multiplayer Dungeons	150	
+33	Dragon Killer	3x ATK against Dragon type enemies ( for this card only )	300	
+34	God Killer	3x ATK against God type enemies ( for this card only )	300	
+35	Devil Killer	3x ATK against Devil type enemies ( for this card only )	300	
+36	Machine Killer	3x ATK against Machine type enemies ( for this card only )	300	
+37	Attacker Killer	3x ATK against Attacker type enemies ( for this card only )	300	
+38	Physical Killer	3x ATK against Physical type enemies ( for this card only )	300	
+39	Healer Killer	3x ATK against Healer type enemies ( for this card only )	300	
+40	Balanced Killer	3x ATK against Balanced type enemies ( for this card only )	300	
+41	Awaken Material Killer	3x ATK against Awaken Material type enemies ( for this card only )	300	
+42	Enhance Material Killer	3x ATK against Enhance Material type enemies ( for this card only )	300	
+43	Vendor Material Killer	3x ATK against Vendor Material type enemies ( for this card only )	300	
+44	Evolve Material Killer	3x ATK against Evolve Material type enemies ( for this card only )	300	
+45	Enhanced Combo	2x ATK for this card with 7 or more combos	200	
+46	Guard Break	Card with this will ignore 100% of enemy DEF when team attacks with Fire, Water, Wood, Light, and Dark attributes	100	
+47	Follow-up Attack	Card with this will deal 1 fixed damage follow-up attack when matching 1 column of heal orbs	0	
