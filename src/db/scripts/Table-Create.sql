@@ -150,7 +150,7 @@ GO
 
 CREATE TABLE PADification.dbo.LeaderSkill (
   LeaderSkillName NVARCHAR(100) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL,
-  LeaderSKillDesc NVARCHAR(MAX) NOT NULL,
+  LeaderSkillDesc NVARCHAR(MAX) NOT NULL,
   CONSTRAINT PK_LeaderSkill PRIMARY KEY (LeaderSkillName)
 )
 GO

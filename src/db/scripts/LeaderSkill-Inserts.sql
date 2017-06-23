@@ -5,7 +5,7 @@
 -- DATE: 2017-06-22
 -- PURPOSE:			Insert Monster LeaderSkill into Database
 Use PADification
-INSERT INTO "LeaderSkill"("LeaderSkillName", "LeaderSKillDesc") VALUES
+INSERT INTO LeaderSkill (LeaderSkillName, LeaderSkillDesc) VALUES
 (N'Fire Power', N'Fire attribute cards ATK x1.5.'),
 (N'Power of Explosion', N'Fire attribute cards ATK x2.'),
 (N'Water Power', N'Water attribute cards ATK x1.5.'),

@@ -1,7 +1,7 @@
 -- Attribute and type inserts --
 USE PADification
 
-INSERT INTO PADification.dbo.Attribute ("AttributeName") VALUES 
+INSERT INTO PADification.dbo.Attribute (AttributeName) VALUES 
 ('Fire'),
 ('Water'),
 ('Wood'),
