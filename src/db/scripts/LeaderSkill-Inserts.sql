@@ -1,10 +1,11 @@
---
+﻿--
 -- North America Monster LeaderSkill Insert 
 --
 -- NAME: Billy
 -- DATE: 2017-06-22
 -- PURPOSE:			Insert Monster LeaderSkill into Database
 Use PADification
+
 INSERT INTO LeaderSkill (LeaderSkillName, LeaderSkillDesc) VALUES
 (N'Fire Power', N'Fire attribute cards ATK x1.5.'),
 (N'Power of Explosion', N'Fire attribute cards ATK x2.'),
@@ -996,8 +997,9 @@ INSERT INTO LeaderSkill (LeaderSkillName, LeaderSkillDesc) VALUES
 (N'Everlasting Moon Darkness', N'Matched attribute ATK x4 when matching exactly 5 connected orbs with at least 1 enhanced orb. God type cards ATK x1.5, RCV x1.5.'),
 (N'Hailstone of Refusal', N'Devil type cards ATK x3. 20% Water, Wood, Light & Dark damage reduction.'),
 (N'Six Coin Crest', N'Attacker type cards HP x1.5. Matched attribute ATK x4 when matching exactly 5 connected orbs with at least 1 enhanced orb.'),
-(N'One Line, Three Star Crest', N'Physical type cards HP x1.5. Physical attribute cards ATK x4 on the turn a skill is used.( Multiple skills will not stack )')
-INSERT INTO "LeaderSkill"("LeaderSkillName", "LeaderSKillDesc") VALUES
+(N'One Line, Three Star Crest', N'Physical type cards HP x1.5. Physical attribute cards ATK x4 on the turn a skill is used.( Multiple skills will not stack )');
+
+INSERT INTO LeaderSkill(LeaderSkillName, LeaderSKillDesc) VALUES
 (N'Daiichi Daiman Daikichi Crest', N'Attacker type cards HP x1.5. Attacker attribute cards ATK x4 on the turn a skill is used.( Multiple skills will not stack )'),
 (N'Plum Blossom Crest', N'All attribute cards ATK x3.5 when reaching 6 combos or above. All attribute cards ATK x1.5 when attacking with 4 of following orb types: Fire, Water, Wood, Light, Dark & Heart.'),
 (N'Bellflower Crest', N'Devil type cards HP x1.5. Matched attribute ATK x4 when matching exactly 5 connected orbs with at least 1 enhanced orb.'),
