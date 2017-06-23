@@ -210,17 +210,16 @@ CREATE TABLE PADification.dbo.MonsterClass (
 GO
 
 CREATE TABLE PADification.dbo.EvolutionTree (
+  EvoID INT IDENTITY(1,1) NOT NULL,
   NextMonsterID INT NOT NULL,
   BaseMonsterID INT NOT NULL,
-  EvoMaterialIDOne INT NOT NULL,
-  EvoMaterialIDTwo INT NOT NULL,
-  EvoMaterialIDThree INT NOT NULL,
-  EvoMaterialIDFour INT NOT NULL,
-  EvoMaterialIDFive INT NOT NULL,
-  MinLevel INT NOT NULL,
-  Devolveable BIT NOT NULL,
-  LevelReset BIT NOT NULL,
-  CONSTRAINT PK_EvolutionTree PRIMARY KEY (NextMonsterID)
+  EvoMaterialIDOne INT,
+  EvoMaterialIDTwo INT,
+  EvoMaterialIDThree INT,
+  EvoMaterialIDFour INT,
+  EvoMaterialIDFive INT,
+  Ultimate BIT NOT NULL,
+  CONSTRAINT PK_EvolutionTree PRIMARY KEY (EvoID)
 )
 GO
 
@@ -400,6 +399,11 @@ GO
 ALTER TABLE EvolutionTree
   ADD CONSTRAINT FK_EvolutionTree_MonsterClass6
   FOREIGN KEY (EvoMaterialIDFive) REFERENCES MonsterClass (MonsterClassID)
+GO
+
+ALTER TABLE EvolutionTree
+  ADD CONSTRAINT FK_EvolutionTree_MonsterClass7
+  FOREIGN KEY (NextMonsterID) REFERENCES MonsterClass (MonsterClassID)
 GO
 
 ALTER TABLE LatentSkillList
