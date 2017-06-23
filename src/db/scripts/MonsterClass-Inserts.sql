@@ -7,7 +7,7 @@
 
 
 Use PADification
-INSERT INTO "MonsterClass" (MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, LSSlots) 
+INSERT INTO MonsterClass (MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, LSSlots) 
 VALUES 
 (1, N'Tyrra', 2, 'Fire', NULL, 'Dragon', NULL, NULL, 1500000, 5, 2, NULL, N'Fire Power', N'Heat Breath', 144, 52, 1, 71, 57, 1, 13, 8, 1, 700, 400, 1, 5),
 (2, N'Tyran', 3, 'Fire', NULL, 'Dragon', NULL, NULL, 1500000, 15, 4, NULL, N'Fire Power', N'Heat Breath', 490, 115, 1, 231, 64, 1, 50, 12, 1, 1000, 700, 1, 5),
@@ -968,7 +968,7 @@ VALUES
 (1145, N'Kitty BadShynee', 4, 'Dark', NULL, 'Healer', NULL, NULL, 3000000, 70, 11, 1145, N'Kitty''s Ribbon - Dark', N'Grape Shower', 1395, 558, 1, 830, 292, 1, 386, 184, 1, 2550, 2250, 1, 5),
 (1146, N'Kittyn & Mimmyna', 5, 'Water', NULL, 'Balanced', NULL, NULL, 3000000, 50, 20, NULL, N'Two Pals', N'Water Enhancement', 1202, 267, 1, 477, 106, 1, 166, 79, 1, 4050, 3750, 1, 5),
 (1147, N'Apple Springs Kittyn & Mimmyna', 6, 'Water', NULL, 'Balanced', NULL, NULL, 3000000, 99, 30, 1147, N'Two Pals', N'Water Enhancement', 2405, 962, 1, 1073, 429, 1, 313, 149, 1, 5700, 5400, 1, 5)
-INSERT INTO "MonsterClass" (MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, LSSlots) 
+INSERT INTO MonsterClass (MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, LSSlots) 
 VALUES 
 (1148, N'Apple Drawn', 4, 'Dark', NULL, 'Dragon', NULL, NULL, 3000000, 50, 10, NULL, N'Let''s Party!!', N'Lucky(?) Ribbon', 1152, 256, 1, 369, 82, 1, 179, 85, 1, 2400, 2100, 5, 5),
 (1149, N'Hello Kitty World Joker', 5, 'Dark', NULL, 'Dragon', NULL, NULL, 3000000, 99, 15, 1149, N'Let''s Party!!', N'Lucky(?) Ribbon', 2305, 922, 1, 830, 332, 1, 338, 161, 1, 3300, 3000, 5, 5),
@@ -1967,7 +1967,7 @@ VALUES
 (2452, N'Rihaku', 4, 'Water', NULL, 'Balanced', NULL, NULL, 3000000, 50, 10, NULL, N'Stubbornness to Sadness', N'Five Chariots Wave Barrier', 1253, 522, 1.5, 882, 519, 1.5, 218, 128, 1.5, 2400, 2100, 3000, 5),
 (2453, N'Five Stars of Nanto, Rihaku of the Ocean', 5, 'Water', NULL, 'Balanced', NULL, NULL, 3000000, 99, 20, 2453, N'It all ends here and now!', N'Five Chariots Wave Barrier', 2505, 1002, 1.5, 1429, 794, 1.5, 353, 196, 1.5, 4050, 3750, 3000, 5),
 (2454, N'Kenshiro TAMADRA', 4, 'Fire', NULL, 'Enhance Material', NULL, NULL, 2000000, 1, 1, NULL, NULL, N'You Are Already Dead', 351, 351, 1, 162, 162, 1, 7, 7, 1, 1050, 40000, 1, 5)
-INSERT INTO "MonsterClass" (MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, LSSlots) 
+INSERT INTO MonsterClass (MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, LSSlots) 
 VALUES 
 (2455, N'Yuria TAMADRA', 4, 'Light', NULL, 'Enhance Material', NULL, NULL, 2000000, 1, 1, NULL, NULL, N'Merciful Mother Star', 214, 214, 1, 182, 182, 1, 74, 74, 1, 1050, 40000, 1, 5),
 (2456, N'Toki TAMADRA', 4, 'Water', NULL, 'Enhance Material', NULL, NULL, 2000000, 1, 1, NULL, NULL, N'Tokei Koho', 232, 232, 1, 177, 177, 1, 53, 53, 1, 1050, 40000, 1, 5),
@@ -2861,7 +2861,7 @@ VALUES
 
 
 --Defective Inserts
---INSERT INTO "MonsterClass" (MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, LSSlots) 
+--INSERT INTO MonsterClass (MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, LSSlots) 
 --VALUES 
 --(669, N'Joker', 4, 'Fire', NULL, NULL, NULL, NULL, 934, 50, 15, NULL, N'Olympus Battle Tactics', N'Flame of Olympus', 1296, 288, 1, 828, 184, 1, 0, 0, 1, 2400, 2100, 1, 5),
 --(670, N'Joker+A. Blossom', 5, 'Fire', NULL, NULL, NULL, NULL, 935, 99, 20, 670, N'Sunshine Burst', N'Flame of Olympus', 2593, 1037, 1, 1863, 745, 1, 0, 0, 1, 4050, 3750, 1, 5),
