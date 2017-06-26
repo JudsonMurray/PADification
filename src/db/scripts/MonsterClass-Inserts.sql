@@ -1,4 +1,4 @@
---
+﻿--
 -- North America Monster Class Insert 
 --
 -- NAME: Billy

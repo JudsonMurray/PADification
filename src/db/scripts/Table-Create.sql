@@ -239,7 +239,7 @@ CREATE TABLE PADification.dbo.LatentSkillList (
   LatentSkillThree VARCHAR(50) NOT NULL,
   LatentSkillFour VARCHAR(50) NOT NULL,
   LatentSkillFive VARCHAR(50) NOT NULL,
-  LatentSkillSix VARCHAR(50) NOT NULL,
+  LatentSkillSix VARCHAR(50),
   ExtraSlot BIT NOT NULL,
   CONSTRAINT PK_LatentSkillList PRIMARY KEY (InstanceID)
 )
