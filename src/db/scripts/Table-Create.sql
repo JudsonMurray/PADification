@@ -4,15 +4,15 @@
 /*  Title    : Padification DataBase                                              */
 /*  FileName : PADification database schema.ecm                                   */
 /*  Platform : SQL Server 2014                                                    */
-/*  Version  : 0.02                                                               */
+/*  Version  : 0.03                                                               */
 /*  Date     : June 26, 2017                                                      */
 /*================================================================================*/
 --Revision History
 --June 22, 2017 - Integrated Drop table functions from Table-Drop.sql.
 --June 26, 2017 - Added tags & tag list table for monsters and teams.
 --              - Added tags fields to MonsterClass & Team tables.
---              - Added favorites field to MonsterInstance table
---              - Added Follower table.
+--June 26, 2017 - Added Follower table. 
+--              - Added favorites field to MonsterInstance table.
 
 USE PADification
 /*================================================================================*/
@@ -45,6 +45,14 @@ if OBJECT_ID('PADification.dbo.LatentSkillList', 'U') is not null
 	ALTER TABLE LatentSkillList DROP CONSTRAINT PK_LatentSkillList
 	GO
 	DROP TABLE LatentSkillList;
+	GO
+
+--v.0.03
+--Drop Follower table
+if OBJECT_ID('PADification.dbo.Follower', 'U') is not null
+	ALTER TABLE Follower DROP CONSTRAINT PK_Follower
+	GO
+	DROP TABLE Follower;
 	GO
 
 --Drop Player table
@@ -281,6 +289,15 @@ CREATE TABLE PADification.dbo.EvolutionTree (
 )
 GO
 
+--v.0.03
+CREATE TABLE PADification.dbo.Follower (
+  FID INT IDENTITY(1,1) NOT NULL,
+  Username VARCHAR(15) NOT NULL,
+  FollowerName VARCHAR(15),
+  CONSTRAINT PK_Follower PRIMARY KEY (FID)
+)
+GO
+
 CREATE TABLE PADification.dbo.Player (
   PlayerID INT NOT NULL,
   Password VARCHAR(10) NOT NULL,
@@ -315,6 +332,7 @@ CREATE TABLE PADification.dbo.MonsterInstance (
   AssistMonsterID INT,
   SkillLevel INT,
   LSListID INT,
+  Favorites BIT DEFAULT 0 NOT NULL,		-- added from v.0.03
   CONSTRAINT PK_MonsterInstance PRIMARY KEY (InstanceID)
 )
 GO
@@ -575,4 +593,10 @@ GO
 ALTER TABLE Team
   ADD CONSTRAINT FK_Team_TeamTagsList
   FOREIGN KEY (TeamInstanceID) REFERENCES TeamTagsList (TeamInstanceID)
+GO
+
+-- version 0.03
+ALTER TABLE Follower
+  ADD CONSTRAINT FK_Follower_Player
+  FOREIGN KEY (Username) REFERENCES Player (UserName)
 GO
