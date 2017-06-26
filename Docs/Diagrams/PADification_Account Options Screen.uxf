@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>352</x>
+      <y>96</y>
+      <w>936</w>
+      <h>776</h>
+    </coordinates>
+    <panel_attributes>Player Account Options Page
+halign=left
+layer=-2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>384</x>
+      <y>128</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Main Menu
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>344</x>
+      <y>96</y>
+      <w>960</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;90.0;1030.0;90.0;1030.0;20.0;1160.0;20.0;1160.0;90.0;1180.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>512</x>
+      <y>128</y>
+      <w>88</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Player's Monster
+Viewer
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>128</y>
+      <w>88</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Monster Book
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>784</x>
+      <y>128</y>
+      <w>88</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Edit Teams
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>128</y>
+      <w>88</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>View Other
+Player's Info
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1056</x>
+      <y>128</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>View Team
+Ranking
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1184</x>
+      <y>128</y>
+      <w>72</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Account
+Options
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>184</y>
+      <w>920</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Account Options
+Access to various actions you may perform upon your account
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>832</y>
+      <w>920</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>PADification application information
+Version number, release date, authors, help screen, etc.
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>224</y>
+      <w>920</w>
+      <h>600</h>
+    </coordinates>
+    <panel_attributes>valign=center
+bg=pink
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>752</x>
+      <y>248</y>
+      <w>144</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Player ID
+bg=gray
+valign=center
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>776</x>
+      <y>288</y>
+      <w>120</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lw=0
+In-Game ID Number
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>752</x>
+      <y>320</y>
+      <w>152</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Username
+valign=center
+bg=gray
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>768</x>
+      <y>360</y>
+      <w>128</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lw=0
+Name on PADification</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>752</x>
+      <y>464</y>
+      <w>152</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Change Email
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>776</x>
+      <y>488</y>
+      <w>104</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Enter new email
+bg=red
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>752</x>
+      <y>520</y>
+      <w>152</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lw=0
+Modify current email address</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>752</x>
+      <y>560</y>
+      <w>152</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Change Password
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>760</x>
+      <y>576</y>
+      <w>136</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Enter New Password
+layer=1
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>760</x>
+      <y>600</y>
+      <w>136</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Confirm New Password
+layer=1
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>752</x>
+      <y>392</y>
+      <w>152</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>valign=center
+Email
+layer=1
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>768</x>
+      <y>432</y>
+      <w>120</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lw=0
+Current email address</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>752</x>
+      <y>704</y>
+      <w>152</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>valign=center
+Apply Changes
+layer=1
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>144</x>
+      <y>104</y>
+      <w>192</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Legend
+--
+Cyan = information about PADification
+Blue = Buttons
+gray = Monster informaion
+Red = Edit fields
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>208</x>
+      <y>800</y>
+      <w>136</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>*Version*
+--
+*Player Account Options*
+version 1.0
+Date: 06/26/2017
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
