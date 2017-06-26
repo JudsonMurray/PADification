@@ -4,7 +4,7 @@
 /*  Title    : Padification DataBase                                              */
 /*  FileName : PADification database schema.ecm                                   */
 /*  Platform : SQL Server 2014                                                    */
-/*  Version  : 0.03                                                               */
+/*  Version  : 0.04                                                               */
 /*  Date     : June 26, 2017                                                      */
 /*================================================================================*/
 --Revision History
@@ -13,6 +13,7 @@
 --              - Added tags fields to MonsterClass & Team tables.
 --June 26, 2017 - Added Follower table. 
 --              - Added favorites field to MonsterInstance table.
+--June 26, 2017 - Added a WishList field to MonsterInstance.
 
 USE PADification
 /*================================================================================*/
@@ -332,7 +333,8 @@ CREATE TABLE PADification.dbo.MonsterInstance (
   AssistMonsterID INT,
   SkillLevel INT,
   LSListID INT,
-  Favorites BIT DEFAULT 0 NOT NULL,		-- added from v.0.03
+  Favorites BIT DEFAULT 0 NOT NULL,
+  WishList BIT DEFAULT 0 NOT NULL,	--added from v.0.04
   CONSTRAINT PK_MonsterInstance PRIMARY KEY (InstanceID)
 )
 GO
