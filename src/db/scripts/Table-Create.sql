@@ -246,7 +246,7 @@ CREATE TABLE PADification.dbo.MonsterClass (
   ExpCurve INT NOT NULL,
   MaxLevel INT NOT NULL,
   MonsterCost INT NOT NULL,
-  ASListID INT NOT NULL,
+  ASListID INT,
   LeaderSkillName NVARCHAR(100) COLLATE SQL_Latin1_General_CP1_CS_AS,
   ActiveSkillName NVARCHAR(100) COLLATE SQL_Latin1_General_CP1_CS_AS,
   MaxHP INT NOT NULL,
