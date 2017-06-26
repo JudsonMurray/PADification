@@ -4,11 +4,15 @@
 /*  Title    : Padification DataBase                                              */
 /*  FileName : PADification database schema.ecm                                   */
 /*  Platform : SQL Server 2014                                                    */
-/*  Version  : 0.01                                                               */
-/*  Date     : June 21, 2017                                                      */
+/*  Version  : 0.02                                                               */
+/*  Date     : June 26, 2017                                                      */
 /*================================================================================*/
 --Revision History
 --June 22, 2017 - Integrated Drop table functions from Table-Drop.sql.
+--June 26, 2017 - Added tags & tag list table for monsters and teams.
+--              - Added tags fields to MonsterClass & Team tables.
+--              - Added favorites field to MonsterInstance table
+--              - Added Follower table.
 
 USE PADification
 /*================================================================================*/
@@ -113,6 +117,37 @@ if OBJECT_ID('PADification.dbo.LatentSkill', 'U') is not null
 	DROP TABLE LatentSkill;
 	GO
 
+--v.0.02
+--Drop Monster Tags List table
+if OBJECT_ID('PADification.dbo.MonsterTagsList', 'U') is not null
+	ALTER TABLE MonsterTagsList DROP CONSTRAINT PK_MonsterTagsList
+	GO
+	DROP TABLE MonsterTagsList;
+	GO
+
+--v.0.02
+--Drop Monster Tags table
+if OBJECT_ID('PADification.dbo.MonsterTags', 'U') is not null
+	ALTER TABLE MonsterTags DROP CONSTRAINT PK_MonsterTags
+	GO
+	DROP TABLE MonsterTags;
+	GO
+
+--v.0.02
+--Drop Team Tags List table
+if OBJECT_ID('PADification.dbo.TeamTagsList', 'U') is not null
+	ALTER TABLE TeamTagsList DROP CONSTRAINT PK_TeamTagsList
+	GO
+	DROP TABLE TeamTagsList;
+	GO
+
+--v.0.02
+--Drop Team Tags table
+if OBJECT_ID('PADification.dbo.TeamTags', 'U') is not null
+	ALTER TABLE TeamTags DROP CONSTRAINT PK_TeamTags
+	GO
+	DROP TABLE TeamTags;
+	GO
 
 USE PADification
 /*================================================================================*/
@@ -177,21 +212,43 @@ CREATE TABLE PADification.dbo.AwokenSkillList (
 )
 GO
 
+--Version 0.02 Monster Tags 
+CREATE TABLE PADification.dbo.MonsterTags (
+  MonsterTagName VARCHAR(50) NOT NULL,
+  CONSTRAINT PK_MonsterTags PRIMARY KEY (MonsterTagName)
+)
+GO
+
+--Version 0.02 Team Tags 
+CREATE TABLE PADification.dbo.TeamTags (
+  TeamTagName VARCHAR(50) NOT NULL,
+  CONSTRAINT PK_TeamTags PRIMARY KEY (TeamTagName)
+)
+GO
+
+--Version 0.02 MonsterTagsList
+CREATE TABLE PADification.dbo.MonsterTagsList (
+  MTListID INT NOT NULL,
+  MonsterTagOne VARCHAR(50) NOT NULL,
+  CONSTRAINT PK_MonsterTagsList PRIMARY KEY (MTListID)
+)
+GO
+
 CREATE TABLE PADification.dbo.MonsterClass (
   MonsterClassID INT NOT NULL,
   MonsterName NVARCHAR(100) NOT NULL,
   Rarity INT NOT NULL,
   PriAttribute VARCHAR(50) NOT NULL,
-  SecAttribute VARCHAR(50) NULL,
+  SecAttribute VARCHAR(50),
   MonsterTypeOne VARCHAR(50) NOT NULL,
-  MonsterTypeTwo VARCHAR(50) NULL,
-  MonsterTypeThree VARCHAR(50) NULL,
+  MonsterTypeTwo VARCHAR(50),
+  MonsterTypeThree VARCHAR(50),
   ExpCurve INT NOT NULL,
   MaxLevel INT NOT NULL,
   MonsterCost INT NOT NULL,
-  ASListID INT NULL,
-  LeaderSkillName NVARCHAR(100) COLLATE SQL_Latin1_General_CP1_CS_AS NULL,
-  ActiveSkillName NVARCHAR(100) COLLATE SQL_Latin1_General_CP1_CS_AS NULL,
+  ASListID INT,
+  LeaderSkillName NVARCHAR(100) COLLATE SQL_Latin1_General_CP1_CS_AS,
+  ActiveSkillName NVARCHAR(100) COLLATE SQL_Latin1_General_CP1_CS_AS,
   MaxHP INT NOT NULL,
   MinHP INT NOT NULL,
   GrowthRateHP REAL NOT NULL,
@@ -200,11 +257,12 @@ CREATE TABLE PADification.dbo.MonsterClass (
   GrowthRateATK REAL NOT NULL,
   MaxRCV INT NOT NULL,
   MinRCV INT NOT NULL,
-  GrowthRateRCV REAL NOT NULL,
+  GrowthRateRCV REAL,
   CurSell INT NOT NULL,
   CurFodder INT NOT NULL,
   MonsterPointValue INT,
   LSSlots INT DEFAULT 5 NOT NULL,
+  MTListID INT NOT NULL,	--added from v.0.02
   CONSTRAINT PK_MonsterClass PRIMARY KEY (MonsterClassID)
 )
 GO
@@ -246,7 +304,7 @@ CREATE TABLE PADification.dbo.LatentSkillList (
 GO
 
 CREATE TABLE PADification.dbo.MonsterInstance (
-  InstanceID INT NOT NULL,
+  InstanceID INT IDENTITY(100000000,1) NOT NULL,
   Username VARCHAR(15) NOT NULL,
   MonsterClassID INT NOT NULL,
   CurrentExperience INT NOT NULL,
@@ -256,7 +314,7 @@ CREATE TABLE PADification.dbo.MonsterInstance (
   SkillsAwoke INT NOT NULL,
   AssistMonsterID INT,
   SkillLevel INT,
-  LSListID INT NOT NULL,
+  LSListID INT,
   CONSTRAINT PK_MonsterInstance PRIMARY KEY (InstanceID)
 )
 GO
@@ -267,6 +325,15 @@ CREATE TABLE PADification.dbo.AwokenBadge (
   CONSTRAINT PK_AwokenBadge PRIMARY KEY (AwokenBadgeName)
 )
 GO
+
+--Version 0.02 Team Tags List 
+CREATE TABLE PADification.dbo.TeamTagsList (
+  TeamInstanceID INT NOT NULL,
+  TeamTagOne VARCHAR(50) NOT NULL,
+  CONSTRAINT PK_TeamTagsList PRIMARY KEY (TeamInstanceID)
+)
+GO
+
 
 CREATE TABLE PADification.dbo.Team (
   TeamInstanceID INT NOT NULL,
@@ -369,6 +436,12 @@ GO
 ALTER TABLE MonsterClass
   ADD CONSTRAINT FK_MonsterClass_AwokenSkillList
   FOREIGN KEY (ASListID) REFERENCES AwokenSkillList (ASListID)
+GO
+
+--v.0.02 tags field
+ALTER TABLE MonsterClass
+  ADD CONSTRAINT FK_MonsterClass_MonsterTagsList
+  FOREIGN KEY (MTListID) REFERENCES MonsterTagsList (MTListID)
 GO
 
 ALTER TABLE EvolutionTree
@@ -484,4 +557,22 @@ GO
 ALTER TABLE Team
   ADD CONSTRAINT FK_Team_MonsterClass5
   FOREIGN KEY (SubMonsterFour) REFERENCES MonsterClass (MonsterClassID)
+GO
+
+--version 0.02
+ALTER TABLE MonsterTagsList
+  ADD CONSTRAINT FK_MonsterTagsList_MonsterTags
+  FOREIGN KEY (MonsterTagOne) REFERENCES MonsterTags (MonsterTagName)
+GO
+
+--version 0.02
+ALTER TABLE TeamTagsList
+  ADD CONSTRAINT FK_TeamTagsList_TeamTags
+  FOREIGN KEY (TeamTagOne) REFERENCES TeamTags (TeamTagName)
+GO
+
+--version 0.02
+ALTER TABLE Team
+  ADD CONSTRAINT FK_Team_TeamTagsList
+  FOREIGN KEY (TeamInstanceID) REFERENCES TeamTagsList (TeamInstanceID)
 GO
