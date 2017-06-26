@@ -262,7 +262,7 @@ CREATE TABLE PADification.dbo.MonsterClass (
   CurFodder INT NOT NULL,
   MonsterPointValue INT,
   LSSlots INT DEFAULT 5 NOT NULL,
-  MTListID INT NOT NULL,	--added from v.0.02
+  MTListID INT,	--added from v.0.02
   CONSTRAINT PK_MonsterClass PRIMARY KEY (MonsterClassID)
 )
 GO
