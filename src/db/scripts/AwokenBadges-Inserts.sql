@@ -2,7 +2,7 @@
 
 use PADification;
 
-insert into PADification.dbo.Badge (BadgeName, BadgeDesc)
+insert into PADification.dbo.AwokenBadge (AwokenBadgeName, AwokenBadgeDesc)
 Values
 ('Team Cost +100', 'Increases Max Team Cost by 100'),
 ('Move Time +1 second', 'Extends Orb move time by 1 second'),
