@@ -2,7 +2,11 @@
 #   Name:    Ryan Breau
 #   Date:    06/23/17
 #   Purpose: Functionality for the player collection screen
-#   Note: If using this in a new project, either change the paths for the images and ui or add the image folders into the and the ui into the project 
+#   V.1.0   RB  Created base functionality for the player collection screen, known bugs are monster summary image is wrongly sized and type images not showing up
+#   V.1.1   RB  Monster summary image now sized correctly and type images are now being displayed
+#
+#   Note: If using this in a new project, either change the paths for the images and ui or add the image folders into the and the ui into the project
+#   Note: Most of the select queries will be changed from MonsterClass to MonsterInstance
 
 from tkinter import *
 import tkinter as tk
@@ -31,37 +35,44 @@ class MonsterFrame:
         global myMonsterList
         global connection
         global cursor
-
-        #print("i by clicked")
-        #print(monsterClassIDs[self.i])
         
         #Creates photoimages for neccessary 
-        s = PhotoImage(file = "thumbnails/" + str(monsterClassIDs[self.i]) +'.png')
-        #e = PhotoImage(file = 'godly.png')
+        self.s = PhotoImage(file = "thumbnails/" + str(monsterClassIDs[self.i]) +'.png')
         
-        #Retrieves information from database
+        #Retrieves monster information from database
         h = int(monsterClassIDs[self.i])
-        sql = "Select MonsterName From MonsterClass where MonsterClassID = {}".format(h)
+        sql = "Select MonsterName, Rarity, MaxHP, MaxATK, MaxRCV, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree From MonsterClass where MonsterClassID = {}".format(h)
         q = cursor.execute(sql)
-        monsterName = q.fetchall()
-        monsterName = str(monsterName).replace("(", "")
-        monsterName = monsterName.replace(",)", "")
-        monsterName = monsterName.replace("[", "")
-        monsterName = monsterName.replace("]", "")
-        monsterName = monsterName.replace("\'", "")
+        monster = q.fetchall()
 
+        #Types
+        self.e = PhotoImage(file = str(monster[0][5]) + '.png')
+
+        self.mastermaster.get_object("canType2").delete("all")
+        self.mastermaster.get_object("canType3").delete("all")
+
+        if not monster[0][6] is None:
+            self.f = PhotoImage(file = str(monster[0][6]) + '.png')
+        else:
+            self.f = None
+
+        if not monster[0][7] is None:
+            self.g = PhotoImage(file = str(monster[0][7]) + '.png')
+        else:
+            self.g = None
 
         #Populates fields with neccessary information
-        self.mastermaster.get_object("canMonsterSummary").create_image(7,7, image = myMonsterList[self.i], anchor = tk.NW)
-        self.mastermaster.get_object("lblName").config(text = "Monster Name: " + str(monsterName))
-        
-        #Failed attempts to add images for monster types
-        #self.mastermaster.get_object("canType1").create_image(7,7, image = e, anchor = tk.NW)
-        #canType1 = Label(self.mastermaster.get_object("frmTypes"), image = e)
-        #canType1.pack()
+        self.mastermaster.get_object("canMonsterSummary").create_image(7,7, image = self.s, anchor = tk.NW)
+        self.mastermaster.get_object("lblName").config(text = "Monster Name: " + str(monster[0][0]))
+        self.mastermaster.get_object("lblRarity").config(text = "Rarity: " + str(monster[0][1]))
+        self.mastermaster.get_object("lblHP").config(text = "HP: " + str(monster[0][2]))
+        self.mastermaster.get_object("lblATK").config(text = "ATK: " + str(monster[0][3]))
+        self.mastermaster.get_object("lblRCV").config(text = "RCV: " + str(monster[0][4]))
+        self.mastermaster.get_object("lblID").config(text = "Monster ID: " + str(h))
+        self.mastermaster.get_object("canType1").create_image(2,2, image = self.e, anchor = tk.NW)
+        self.mastermaster.get_object("canType2").create_image(2,2, image = self.f, anchor = tk.NW)
+        self.mastermaster.get_object("canType3").create_image(2,2, image = self.g, anchor = tk.NW)
 
-
-        
 class Testing:
     def __init__(self, master):
         #Creates globals
@@ -69,6 +80,7 @@ class Testing:
         global cursor
         global monsterClassIDs
         global myMonsterList
+        global monsterInstance
 
         #Connects to local database
         NotConnected = True
@@ -86,6 +98,10 @@ class Testing:
 
         playerTable = cursor.execute(sql)
         myMonsters = playerTable.fetchall()
+
+        #sql = "Select InstanceID From MonsterInstance Where PlayerID = 350520414 Order By MonsterClassID ASC"
+        #a = cursor.execute(sql)
+        #monsterInstance = a.fetchall()
 
         monsterClassIDs = []
         myMonsterList = []
@@ -119,7 +135,6 @@ class Testing:
         self.buttons = []
         for i in range(0,b):
             self.buttons.append(MonsterFrame(self.container, self.builder, i))
-            #print('.', end = '')
             self.buttons[i].monbut.grid(row=i // 10,column = i % 10)
             self.buttons[i].builder.get_object('FrameLabel').create_image(2,2, image = myMonsterList[i], anchor = tk.NW)
 
