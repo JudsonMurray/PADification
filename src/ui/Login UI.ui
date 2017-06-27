@@ -36,6 +36,7 @@
     </child>
     <child>
       <object class="tk.Button" id="Create Account">
+        <property name="command">onCreateAccountClick</property>
         <property name="text" translatable="yes">Create Account</property>
         <layout>
           <property name="column">0</property>
