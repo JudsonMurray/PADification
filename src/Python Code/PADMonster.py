@@ -77,6 +77,7 @@ class Monster():
         self.updateStats()
 
     def getSaveDict(self):
+        """Returns a Dictionary of instance table """
         savingItems = ['InstanceID', 'Username', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID', 'MonsterClassID']
         savedict = {}
         for i in savingItems:
@@ -163,10 +164,116 @@ class Monster():
             self.SkillsAwoke = 9
 
 class Team():
-    def __init__(self, TeamInstance = None):
+    def __init__(self, PADSQL, TeamInstanceDict = None):
+        self.PADSQL = PADSQL
+        #Instance Variables
+        self.TeamInstanceID = None
+        self.Username = None
+        self.TeamName = ""
+        self.LeaderMonster = None
+        self.SubMonsterOne = None
+        self.SubMonsterTwo = None
+        self.SubMonsterThree = None
+        self.SubMonsterFour = None
+        self.BadgeName = ""
 
-        pass
+        #Objects
+        self.Monsters = []
 
-#print(calcStat(20,5000,40,99,1.5))
-#print(calcLevel(505,1500000)) 
-#print(calcXP(5,1500000))
+        #Calculated Values
+        self.TeamHP = 0
+        self.TeamRCV = 0
+        self.FireATK = 0
+        self.WaterATK = 0
+        self.WoodATK = 0
+        self.LightATK = 0
+        self.DarkATK = 0
+        self.TeamCost = 0
+
+        if TeamInstanceDict != None:
+            for i in TeamInstanceDict:
+                setattr(self,i,TeamInstanceDict[i])
+            update()
+
+    def update(self):
+        """Updates the Team."""
+        self.Monsters = []
+        if self.LeaderMonster != None:
+            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.LeaderMonster)[0]))
+        if self.SubMonsterOne != None:
+            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterOne)[0]))
+        if self.SubMonsterTwo != None:
+            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterTwo)[0]))
+        if self.SubMonsterThree != None:
+            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterThree)[0]))
+        if self.SubMonsterFour != None:
+            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterFour)[0]))
+
+        self.TeamHP = 0
+        self.TeamRCV = 0
+        self.FireATK = 0
+        self.WaterATK = 0
+        self.WoodATK = 0
+        self.LightATK = 0
+        self.DarkATK = 0
+        self.TeamCost = 0
+
+        for i in self.Monsters:
+            self.TeamHP += i.TotalHP
+            self.TeamRCV += i.TotalRCV
+            self.TeamCost += i.MonsterCost
+
+            for a in ['Fire','Water','Wood','Light', 'Dark']:
+                if i.PriAttribute == a and i.SecAttribute == a:
+                    setattr(self,a + 'ATK', getattr(self, a + 'ATK') + (i.TotalATK + (i.TotalATK // 10)))
+                elif i.PriAttribute == a:
+                    setattr(self,a + 'ATK', getattr(self, a + 'ATK') + (i.TotalATK))
+                elif i.SecAttribute == a:
+                    setattr(self,a + 'ATK', getattr(self, a + 'ATK') + (i.TotalATK // 3))
+
+    def getSaveDict(self):
+        saveDict = {}
+        saveVars = ['TeamInstanceID','Username', 'TeamName', 'LeaderMonster',
+                    'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 'BadgeName' ]
+        if self.LeaderMonster != None:
+            for i in saveVars:
+                saveDict[i] = getattr(self, i)
+
+            return saveDict
+        else:
+            print('Team requires a Leader')
+
+    def getTeamName(self):
+        return self.TeamName
+
+    def setTeamName(self, Value):
+        if type(Value) == str and len(Value) <= 50:
+            self.TeamName = Value
+        else:
+            print("Team Name invalid not set")
+
+    def setBadge(self, badge):
+        self.BadgeName = badge
+
+    def getBadge(self):
+        return self.BadgeName
+
+    def setLeaderMonster(self, InstanceID = None):
+        self.LeaderMonster = InstanceID
+        self.update()
+
+    def setSubMonsterOne(self, InstanceID = None):
+        self.SubMonsterOne = InstanceID
+        self.update()
+
+    def setSubMonsterTwo(self, InstanceID = None):
+        self.SubMonsterTwo = InstanceID
+        self.update()
+    
+    def setSubMonsterThree(self, InstanceID = None):
+        self.SubMonsterThree = InstanceID
+        self.update()
+
+    def setSubMonsterFour(self, InstanceID = None):
+        self.SubMonsterFour = InstanceID
+        self.update()

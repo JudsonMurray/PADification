@@ -159,7 +159,9 @@ class PADSQL():
         if monSearch == None:
             SQLCommand += " ORDER BY InstanceID ASC"
         elif type(monSearch) == int:
-            SQLCommand += "WHERE InstanceID = " + str(monSearch)
+            SQLCommand += " AND InstanceID = " + str(monSearch)
+        elif type(monSearch) == str:
+            SQLCommand += " AND MonsterName LIKE '%" + monSearch + "%'"
 
         self.cursor.execute(SQLCommand)
 
@@ -190,4 +192,20 @@ class PADSQL():
         SQLCommand = "DELETE FROM MonsterInstance WHERE InstanceID = " + str(InstanceID)
         self.cursor.execute(SQLCommand)
         self.cursor.commit()
+
+    def saveTeam(self, TeamDict):
+        pass
+
+    def selectTeamInstance(self, teamsearch = None, dictionary = True):
+        """Selects Teams"""
+        SQLCommand = ("SELECT "
+                "FROM Team"
+                "WHERE MonsterInstance.Username = '" + str(self.Username) + "'" )
+
+    def deleteTeam(self, TeamInstanceID):
+        """Delete a Team Instance from Team Table"""
+        SQLCommand = "DELETE FROM Team WHERE TeamInstanceID = " + str(TeamInstanceID)
+        self.cursor.execute(SQLCommand)
+        self.cursor.commit()
+
                       
