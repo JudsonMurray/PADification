@@ -71,6 +71,11 @@ class PADSQL():
             print("Login Failed")
             self.closeConnection()
 
+    def closeConnection(self):
+        """Closes Connection to PADification Database"""
+        self.connection.close()
+        self.signedIn = False
+
     def selectMonsterClass(self, monSearch = None, dictionary = True):
         """Retrieve Monster Class Info from MonsterClassTable, monSearch can be an INT Single ID,
            a tuple of 2 INT for Range, a string of monsterName for a like search or empty for entire collection.
@@ -105,48 +110,6 @@ class PADSQL():
             return monstercollection
         else:
             return self.cursor.fetchall()
-
-    def closeConnection(self):
-        """Closes Connection to PADification Database"""
-        self.connection.close()
-        self.signedIn = False
-
-    def saveMonster(self, InstanceDict):
-        """Save Monster Instance Record"""
-        keys = ['Username', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID', 'MonsterClassID']
-        if InstanceDict["InstanceID"] == None:
-            """If it is a new Monster"""
-            InstanceDict.pop("InstanceID")
-            InstanceDict["Username"] = self.Username
-
-            values = []
-            for i in keys:
-                values.append(InstanceDict[i])
-                    
-
-            SQLCommand = ("INSERT INTO MonsterInstance (Username, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, AssistMonsterID, SkillLevel, LSListID, MonsterClassID) "
-                          "VALUES (?,?,?,?,?,?,?,?,?,?)")
-
-            self.cursor.execute(SQLCommand,values)
-            self.connection.commit()
-            print("Monster save Successful")
-
-        else:
-            """If it is a existing Monster instance"""
-
-            setstr = 'SET '
-            values = []
-            for i in keys:
-                values.append(InstanceDict[i])
-                setstr += i + " = ?"  
-                setstr += ", " if i != 'MonsterClassID' else " "
-            values.append(InstanceDict["InstanceID"])
-
-            SQLCommand = ("UPDATE MonsterInstance " + setstr +
-                          "WHERE InstanceID = ?")
-
-            self.cursor.execute(SQLCommand,values)
-            self.connection.commit()
 
     def selectMonsterInstance(self, monSearch = None, dictionary = True):
 
@@ -187,20 +150,119 @@ class PADSQL():
         else:
             return self.cursor.fetchall()
 
+    def saveMonster(self, InstanceDict):
+        """Save Monster Instance Record"""
+        keys = ['Username', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID', 'MonsterClassID']
+        if InstanceDict["InstanceID"] == None:
+            """If it is a new Monster"""
+            InstanceDict.pop("InstanceID")
+            InstanceDict["Username"] = self.Username
+
+            values = []
+            for i in keys:
+                values.append(InstanceDict[i])
+                    
+
+            SQLCommand = ("INSERT INTO MonsterInstance (Username, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, AssistMonsterID, SkillLevel, LSListID, MonsterClassID) "
+                          "VALUES (?,?,?,?,?,?,?,?,?,?)")
+
+            self.cursor.execute(SQLCommand,values)
+            self.connection.commit()
+            #print("Monster save Successful")
+
+        else:
+            """If it is a existing Monster instance"""
+
+            setstr = 'SET '
+            values = []
+            for i in keys:
+                values.append(InstanceDict[i])
+                setstr += i + " = ?"  
+                setstr += ", " if i != 'MonsterClassID' else " "
+            values.append(InstanceDict["InstanceID"])
+
+            SQLCommand = ("UPDATE MonsterInstance " + setstr +
+                          "WHERE InstanceID = ?")
+
+            self.cursor.execute(SQLCommand,values)
+            self.connection.commit()
+
     def deleteMonster(self, InstanceID):
         """Delete a Monster Instance from MonsterInstance Table"""
         SQLCommand = "DELETE FROM MonsterInstance WHERE InstanceID = " + str(InstanceID)
         self.cursor.execute(SQLCommand)
         self.cursor.commit()
 
-    def saveTeam(self, TeamDict):
-        pass
-
     def selectTeamInstance(self, teamsearch = None, dictionary = True):
-        """Selects Teams"""
-        SQLCommand = ("SELECT "
-                "FROM Team"
-                "WHERE MonsterInstance.Username = '" + str(self.Username) + "'" )
+        """Selects all teams, or by TeamInstanceID, or TeamName returns a list of dictionarys or tuples."""
+        SQLCommand = ("SELECT TeamInstanceID, Username, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, BadgeName "
+                "FROM Team "
+                "WHERE Username = '" + str(self.Username) + "'" )
+        if teamsearch == None:
+            SQLCommand += " ORDER BY TeamInstanceID ASC"
+        elif type(teamsearch) == int:
+            SQLCommand += " AND TeamInstanceID = " + str(teamsearch)
+        elif type(teamsearch) == str:
+            SQLCommand += " AND TeamName LIKE '%" + teamsearch + "%'"
+
+        self.cursor.execute(SQLCommand)
+
+        if dictionary:
+            properties = ['TeamInstanceID', 'Username', 'TeamName', 'LeaderMonster',
+                          'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 
+                          'BadgeName' ]
+            teamcollection = []
+            results = self.cursor.fetchone()
+            while results:
+                #Cycle through all results one by one.
+                teamDict = {}      
+                count = 0
+                for i in results:
+                    teamDict[properties[count]] = i
+                    count += 1
+                teamcollection.append(teamDict)
+                results = self.cursor.fetchone()
+            return teamcollection
+        else:
+            return self.cursor.fetchall()
+
+    def saveTeam(self, TeamDict):
+        """Save Team Instance Record"""
+        keys = [ 'Username', 'TeamName', 'LeaderMonster',
+                          'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 
+                          'BadgeName' ]
+        if TeamDict["TeamInstanceID"] == None:
+            """If it is a new Team"""
+            TeamDict.pop("TeamInstanceID")
+            TeamDict["Username"] = self.Username
+
+            values = []
+            for i in keys:
+                values.append(TeamDict[i])
+                    
+
+            SQLCommand = ("INSERT INTO Team (Username, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, BadgeName) "
+                          "VALUES (?,?,?,?,?,?,?,?)")
+
+            self.cursor.execute(SQLCommand,values)
+            self.connection.commit()
+
+        else:
+            """If it is a existing Monster instance"""
+
+            setstr = 'SET '
+            values = []
+            for i in keys:
+                values.append(TeamDict[i])
+                setstr += i + " = ?"  
+                setstr += ", " if i != 'BadgeName' else " "
+            values.append(TeamDict["TeamInstanceID"])
+
+            SQLCommand = ("UPDATE Team " + setstr +
+                          "WHERE TeamInstanceID = ?")
+
+            self.cursor.execute(SQLCommand,values)
+            self.connection.commit()
 
     def deleteTeam(self, TeamInstanceID):
         """Delete a Team Instance from Team Table"""
@@ -208,4 +270,46 @@ class PADSQL():
         self.cursor.execute(SQLCommand)
         self.cursor.commit()
 
-                      
+    def getAwokenSkills(self):
+
+        SQLCommand = "SELECT * FROM AwokenSkill"
+        self.cursor.execute(SQLCommand)
+
+        results = self.cursor.fetchone()
+        AwokenSkills = []
+        while results:
+            AwokenSkills.append(results[0])
+            results = self.cursor.fetchone()
+        return AwokenSkills
+
+    def getLatentAwokenSkills(self):
+
+        SQLCommand = "SELECT * FROM LatentSkill"
+        self.cursor.execute(SQLCommand)
+
+        results = self.cursor.fetchone()
+        LatentSkills = []
+        while results:
+            LatentSkills.append(results[0])
+            results = self.cursor.fetchone()
+        return LatentSkills
+
+    def getAwokenSkillList(self, MonsterClassID):
+        """Returns a Tuple of a MonsterClass Awoken skills, listed in order starting with MonsterClassID"""
+        
+        SQLCommand = "SELECT * FROM AwokenSkillList WHERE ASListID = " + str(MonsterClassID)
+        self.cursor.execute(SQLCommand)
+        return self.cursor.fetchone()
+
+
+    def getLatentAwokenSkillList(self):
+        SQLCommand = "SELECT * FROM AwokenSkillList WHERE ASListID = " + str(MonsterClassID)
+        self.cursor.execute(SQLCommand)
+        return list[self.cursor.fetchone()]
+
+    def getAwokenBadges(self):
+        pass
+
+    def getEvolutionTree():
+        pass
+

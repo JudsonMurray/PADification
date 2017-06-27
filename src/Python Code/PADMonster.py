@@ -105,7 +105,7 @@ class Monster():
 
     def calcStat(self, minStat, maxStat, curLevel, maxLevel, growthRate):
         """Calculated the Value of a stat at a given level"""
-        return int(minStat + (maxStat - minStat) * ((curLevel - 1) / (maxLevel - 1)) ** growthRate)
+        return math.ceil(minStat + (maxStat - minStat) * ((curLevel - 1) / (maxLevel - 1 if maxLevel - 1 > 0 else 1)) ** growthRate)
 
     def setCurrentExperience(self, value):
         """Set CurrentExperience and Update Stats to relect changes."""
@@ -175,7 +175,7 @@ class Team():
         self.SubMonsterTwo = None
         self.SubMonsterThree = None
         self.SubMonsterFour = None
-        self.BadgeName = ""
+        self.BadgeName = None
 
         #Objects
         self.Monsters = []
@@ -193,7 +193,7 @@ class Team():
         if TeamInstanceDict != None:
             for i in TeamInstanceDict:
                 setattr(self,i,TeamInstanceDict[i])
-            update()
+            self.update()
 
     def update(self):
         """Updates the Team."""
