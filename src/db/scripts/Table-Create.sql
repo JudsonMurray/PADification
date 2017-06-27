@@ -4,7 +4,7 @@
 /*  Title    : Padification DataBase                                              */
 /*  FileName : PADification database schema.ecm                                   */
 /*  Platform : SQL Server 2014                                                    */
-/*  Version  : 0.04                                                               */
+/*  Version  : 0.05                                                               */
 /*  Date     : June 26, 2017                                                      */
 /*================================================================================*/
 --Revision History
@@ -14,6 +14,7 @@
 --June 26, 2017 - Added Follower table. 
 --              - Added favorites field to MonsterInstance table.
 --June 26, 2017 - Added a WishList field to MonsterInstance.
+--June 27, 2017 - Updated the Monster and Team Tags List tables to hold up to three tags.
 
 USE PADification
 /*================================================================================*/
@@ -238,7 +239,9 @@ GO
 --Version 0.02 MonsterTagsList
 CREATE TABLE PADification.dbo.MonsterTagsList (
   MTListID INT NOT NULL,
-  MonsterTagOne VARCHAR(50) NOT NULL,
+  MonsterTagOne VARCHAR(50),
+  MonsterTagTwo VARCHAR(50),	--added from v.0.05
+  MonsterTagThree VARCHAR(50),	--added from v.0.05
   CONSTRAINT PK_MonsterTagsList PRIMARY KEY (MTListID)
 )
 GO
@@ -266,10 +269,10 @@ CREATE TABLE PADification.dbo.MonsterClass (
   GrowthRateATK REAL NOT NULL,
   MaxRCV INT NOT NULL,
   MinRCV INT NOT NULL,
-  GrowthRateRCV REAL,
+  GrowthRateRCV REAL NOT NULL,
   CurSell INT NOT NULL,
   CurFodder INT NOT NULL,
-  MonsterPointValue INT,
+  MonsterPointValue INT NOT NULL,
   LSSlots INT DEFAULT 5 NOT NULL,
   MTListID INT,	--added from v.0.02
   CONSTRAINT PK_MonsterClass PRIMARY KEY (MonsterClassID)
@@ -349,22 +352,24 @@ GO
 --Version 0.02 Team Tags List 
 CREATE TABLE PADification.dbo.TeamTagsList (
   TeamInstanceID INT NOT NULL,
-  TeamTagOne VARCHAR(50) NOT NULL,
+  TeamTagOne VARCHAR(50),
+  TeamTagTwo VARCHAR(50),		--added from v.0.05
+  TeamTagThree VARCHAR(50),		--added from v.0.05
   CONSTRAINT PK_TeamTagsList PRIMARY KEY (TeamInstanceID)
 )
 GO
 
 
 CREATE TABLE PADification.dbo.Team (
-  TeamInstanceID INT NOT NULL,
+  TeamInstanceID INT IDENTITY(100000, 1) NOT NULL,
   Username VARCHAR(15) NOT NULL,
   TeamName VARCHAR(50),
   LeaderMonster INT NOT NULL,
-  SubMonsterOne INT NOT NULL,
-  SubMonsterTwo INT NOT NULL,
-  SubMonsterThree INT NOT NULL,
-  SubMonsterFour INT NOT NULL,
-  BadgeName VARCHAR(50) NOT NULL,
+  SubMonsterOne INT,
+  SubMonsterTwo INT,
+  SubMonsterThree INT,
+  SubMonsterFour INT,
+  BadgeName VARCHAR(50),
   CONSTRAINT PK_Team PRIMARY KEY (TeamInstanceID)
 )
 GO
@@ -601,4 +606,28 @@ GO
 ALTER TABLE Follower
   ADD CONSTRAINT FK_Follower_Player
   FOREIGN KEY (Username) REFERENCES Player (UserName)
+GO
+
+--version 0.05
+ALTER TABLE MonsterTagsList
+  ADD CONSTRAINT FK_MonsterTagsList_MonsterTags2
+  FOREIGN KEY (MonsterTagTwo) REFERENCES MonsterTags (MonsterTagName)
+GO
+
+--version 0.05
+ALTER TABLE MonsterTagsList
+  ADD CONSTRAINT FK_MonsterTagsList_MonsterTags3
+  FOREIGN KEY (MonsterTagThree) REFERENCES MonsterTags (MonsterTagName)
+GO
+
+--version 0.05
+ALTER TABLE TeamTagsList
+  ADD CONSTRAINT FK_TeamTagsList_TeamTags2
+  FOREIGN KEY (TeamTagTwo) REFERENCES TeamTags (TeamTagName)
+GO
+
+--version 0.05
+ALTER TABLE TeamTagsList
+  ADD CONSTRAINT FK_TeamTagsList_TeamTags3
+  FOREIGN KEY (TeamTagThree) REFERENCES TeamTags (TeamTagName)
 GO
