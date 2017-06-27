@@ -280,7 +280,6 @@ CREATE TABLE PADification.dbo.MonsterClass (
 GO
 
 CREATE TABLE PADification.dbo.EvolutionTree (
-  EvoID INT IDENTITY(1,1) NOT NULL,
   NextMonsterID INT NOT NULL,
   BaseMonsterID INT NOT NULL,
   EvoMaterialIDOne INT,
@@ -289,7 +288,7 @@ CREATE TABLE PADification.dbo.EvolutionTree (
   EvoMaterialIDFour INT,
   EvoMaterialIDFive INT,
   Ultimate BIT NOT NULL,
-  CONSTRAINT PK_EvolutionTree PRIMARY KEY (EvoID)
+  CONSTRAINT PK_EvolutionTree PRIMARY KEY (NextMonsterID)
 )
 GO
 
