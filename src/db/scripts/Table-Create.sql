@@ -560,28 +560,28 @@ ALTER TABLE Team
 GO
 
 ALTER TABLE Team
-  ADD CONSTRAINT FK_Team_MonsterClass
-  FOREIGN KEY (LeaderMonster) REFERENCES MonsterClass (MonsterClassID)
+  ADD CONSTRAINT FK_Team_MonsterInstance
+  FOREIGN KEY (LeaderMonster) REFERENCES MonsterInstance (InstanceID)
 GO
 
 ALTER TABLE Team
-  ADD CONSTRAINT FK_Team_MonsterClass2
-  FOREIGN KEY (SubMonsterOne) REFERENCES MonsterClass (MonsterClassID)
+  ADD CONSTRAINT FK_Team_MonsterInstance2
+  FOREIGN KEY (SubMonsterOne) REFERENCES MonsterInstance (InstanceID)
 GO
 
 ALTER TABLE Team
-  ADD CONSTRAINT FK_Team_MonsterClass3
-  FOREIGN KEY (SubMonsterTwo) REFERENCES MonsterClass (MonsterClassID)
+  ADD CONSTRAINT FK_Team_MonsterInstance3
+  FOREIGN KEY (SubMonsterTwo) REFERENCES MonsterInstance (InstanceID)
 GO
 
 ALTER TABLE Team
-  ADD CONSTRAINT FK_Team_MonsterClass4
-  FOREIGN KEY (SubMonsterThree) REFERENCES MonsterClass (MonsterClassID)
+  ADD CONSTRAINT FK_Team_MonsterInstance5
+  FOREIGN KEY (SubMonsterThree) REFERENCES MonsterInstance (InstanceID)
 GO
 
 ALTER TABLE Team
-  ADD CONSTRAINT FK_Team_MonsterClass5
-  FOREIGN KEY (SubMonsterFour) REFERENCES MonsterClass (MonsterClassID)
+  ADD CONSTRAINT FK_Team_MonsterInstance4
+  FOREIGN KEY (SubMonsterFour) REFERENCES MonsterInstance (InstanceID)
 GO
 
 --version 0.02
