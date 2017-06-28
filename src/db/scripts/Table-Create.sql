@@ -4,8 +4,8 @@
 /*  Title    : Padification DataBase                                              */
 /*  FileName : PADification database schema.ecm                                   */
 /*  Platform : SQL Server 2014                                                    */
-/*  Version  : 0.05                                                               */
-/*  Date     : June 26, 2017                                                      */
+/*  Version  : 0.06                                                               */
+/*  Date     : June 28, 2017                                                      */
 /*================================================================================*/
 --Revision History
 --June 22, 2017 - Integrated Drop table functions from Table-Drop.sql.
@@ -15,6 +15,7 @@
 --              - Added favorites field to MonsterInstance table.
 --June 26, 2017 - Added a WishList field to MonsterInstance.
 --June 27, 2017 - Updated the Monster and Team Tags List tables to hold up to three tags.
+--June 28, 2017 - Removed the creation, deletion of tags tables.
 
 USE PADification
 /*================================================================================*/
@@ -127,37 +128,41 @@ if OBJECT_ID('PADification.dbo.LatentSkill', 'U') is not null
 	DROP TABLE LatentSkill;
 	GO
 
---v.0.02
---Drop Monster Tags List table
-if OBJECT_ID('PADification.dbo.MonsterTagsList', 'U') is not null
-	ALTER TABLE MonsterTagsList DROP CONSTRAINT PK_MonsterTagsList
-	GO
-	DROP TABLE MonsterTagsList;
-	GO
+--Removed from v.0.06
+----v.0.02
+----Drop Monster Tags List table
+--if OBJECT_ID('PADification.dbo.MonsterTagsList', 'U') is not null
+--	ALTER TABLE MonsterTagsList DROP CONSTRAINT PK_MonsterTagsList
+--	GO
+--	DROP TABLE MonsterTagsList;
+--	GO
 
---v.0.02
---Drop Monster Tags table
-if OBJECT_ID('PADification.dbo.MonsterTags', 'U') is not null
-	ALTER TABLE MonsterTags DROP CONSTRAINT PK_MonsterTags
-	GO
-	DROP TABLE MonsterTags;
-	GO
+--Removed from v.0.06
+----v.0.02
+----Drop Monster Tags table
+--if OBJECT_ID('PADification.dbo.MonsterTags', 'U') is not null
+--	ALTER TABLE MonsterTags DROP CONSTRAINT PK_MonsterTags
+--	GO
+--	DROP TABLE MonsterTags;
+--	GO
 
---v.0.02
---Drop Team Tags List table
-if OBJECT_ID('PADification.dbo.TeamTagsList', 'U') is not null
-	ALTER TABLE TeamTagsList DROP CONSTRAINT PK_TeamTagsList
-	GO
-	DROP TABLE TeamTagsList;
-	GO
+--Removed from v.0.06
+----v.0.02
+----Drop Team Tags List table
+--if OBJECT_ID('PADification.dbo.TeamTagsList', 'U') is not null
+--	ALTER TABLE TeamTagsList DROP CONSTRAINT PK_TeamTagsList
+--	GO
+--	DROP TABLE TeamTagsList;
+--	GO
 
---v.0.02
---Drop Team Tags table
-if OBJECT_ID('PADification.dbo.TeamTags', 'U') is not null
-	ALTER TABLE TeamTags DROP CONSTRAINT PK_TeamTags
-	GO
-	DROP TABLE TeamTags;
-	GO
+--Removed from v.0.06
+----v.0.02
+----Drop Team Tags table
+--if OBJECT_ID('PADification.dbo.TeamTags', 'U') is not null
+--	ALTER TABLE TeamTags DROP CONSTRAINT PK_TeamTags
+--	GO
+--	DROP TABLE TeamTags;
+--	GO
 
 USE PADification
 /*================================================================================*/
@@ -222,29 +227,32 @@ CREATE TABLE PADification.dbo.AwokenSkillList (
 )
 GO
 
---Version 0.02 Monster Tags 
-CREATE TABLE PADification.dbo.MonsterTags (
-  MonsterTagName VARCHAR(50) NOT NULL,
-  CONSTRAINT PK_MonsterTags PRIMARY KEY (MonsterTagName)
-)
-GO
+--Removed from v.0.06
+----Version 0.02 Monster Tags 
+--CREATE TABLE PADification.dbo.MonsterTags (
+--  MonsterTagName VARCHAR(50) NOT NULL,
+--  CONSTRAINT PK_MonsterTags PRIMARY KEY (MonsterTagName)
+--)
+--GO
 
---Version 0.02 Team Tags 
-CREATE TABLE PADification.dbo.TeamTags (
-  TeamTagName VARCHAR(50) NOT NULL,
-  CONSTRAINT PK_TeamTags PRIMARY KEY (TeamTagName)
-)
-GO
+--Removed from v.0.06
+----Version 0.02 Team Tags 
+--CREATE TABLE PADification.dbo.TeamTags (
+--  TeamTagName VARCHAR(50) NOT NULL,
+--  CONSTRAINT PK_TeamTags PRIMARY KEY (TeamTagName)
+--)
+--GO
 
---Version 0.02 MonsterTagsList
-CREATE TABLE PADification.dbo.MonsterTagsList (
-  MTListID INT NOT NULL,
-  MonsterTagOne VARCHAR(50),
-  MonsterTagTwo VARCHAR(50),	--added from v.0.05
-  MonsterTagThree VARCHAR(50),	--added from v.0.05
-  CONSTRAINT PK_MonsterTagsList PRIMARY KEY (MTListID)
-)
-GO
+--Removed from v.0.06
+----Version 0.02 MonsterTagsList
+--CREATE TABLE PADification.dbo.MonsterTagsList (
+--  MTListID INT NOT NULL,
+--  MonsterTagOne VARCHAR(50),
+--  MonsterTagTwo VARCHAR(50),	--added from v.0.05
+--  MonsterTagThree VARCHAR(50),	--added from v.0.05
+--  CONSTRAINT PK_MonsterTagsList PRIMARY KEY (MTListID)
+--)
+--GO
 
 CREATE TABLE PADification.dbo.MonsterClass (
   MonsterClassID INT NOT NULL,
@@ -274,7 +282,7 @@ CREATE TABLE PADification.dbo.MonsterClass (
   CurFodder INT NOT NULL,
   MonsterPointValue INT NOT NULL,
   LSSlots INT DEFAULT 5 NOT NULL,
-  MTListID INT,	--added from v.0.02
+  --MTListID INT,	----Removed from v.0.06
   CONSTRAINT PK_MonsterClass PRIMARY KEY (MonsterClassID)
 )
 GO
@@ -348,15 +356,16 @@ CREATE TABLE PADification.dbo.AwokenBadge (
 )
 GO
 
---Version 0.02 Team Tags List 
-CREATE TABLE PADification.dbo.TeamTagsList (
-  TeamInstanceID INT NOT NULL,
-  TeamTagOne VARCHAR(50),
-  TeamTagTwo VARCHAR(50),		--added from v.0.05
-  TeamTagThree VARCHAR(50),		--added from v.0.05
-  CONSTRAINT PK_TeamTagsList PRIMARY KEY (TeamInstanceID)
-)
-GO
+--Removed from v.0.06
+----Version 0.02 Team Tags List 
+--CREATE TABLE PADification.dbo.TeamTagsList (
+--  TeamInstanceID INT NOT NULL,
+--  TeamTagOne VARCHAR(50),
+--  TeamTagTwo VARCHAR(50),		--added from v.0.05
+--  TeamTagThree VARCHAR(50),		--added from v.0.05
+--  CONSTRAINT PK_TeamTagsList PRIMARY KEY (TeamInstanceID)
+--)
+--GO
 
 
 CREATE TABLE PADification.dbo.Team (
@@ -462,11 +471,12 @@ ALTER TABLE MonsterClass
   FOREIGN KEY (ASListID) REFERENCES AwokenSkillList (ASListID)
 GO
 
---v.0.02 tags field
-ALTER TABLE MonsterClass
-  ADD CONSTRAINT FK_MonsterClass_MonsterTagsList
-  FOREIGN KEY (MTListID) REFERENCES MonsterTagsList (MTListID)
-GO
+--Removed from v.0.06
+----v.0.02 tags field
+--ALTER TABLE MonsterClass
+--  ADD CONSTRAINT FK_MonsterClass_MonsterTagsList
+--  FOREIGN KEY (MTListID) REFERENCES MonsterTagsList (MTListID)
+--GO
 
 ALTER TABLE EvolutionTree
   ADD CONSTRAINT FK_EvolutionTree_MonsterClass
@@ -583,23 +593,26 @@ ALTER TABLE Team
   FOREIGN KEY (SubMonsterFour) REFERENCES MonsterInstance (InstanceID)
 GO
 
---version 0.02
-ALTER TABLE MonsterTagsList
-  ADD CONSTRAINT FK_MonsterTagsList_MonsterTags
-  FOREIGN KEY (MonsterTagOne) REFERENCES MonsterTags (MonsterTagName)
-GO
+--Removed from v.0.06
+----version 0.02
+--ALTER TABLE MonsterTagsList
+--  ADD CONSTRAINT FK_MonsterTagsList_MonsterTags
+--  FOREIGN KEY (MonsterTagOne) REFERENCES MonsterTags (MonsterTagName)
+--GO
 
---version 0.02
-ALTER TABLE TeamTagsList
-  ADD CONSTRAINT FK_TeamTagsList_TeamTags
-  FOREIGN KEY (TeamTagOne) REFERENCES TeamTags (TeamTagName)
-GO
+--Removed from v.0.06
+----version 0.02
+--ALTER TABLE TeamTagsList
+--  ADD CONSTRAINT FK_TeamTagsList_TeamTags
+--  FOREIGN KEY (TeamTagOne) REFERENCES TeamTags (TeamTagName)
+--GO
 
---version 0.02
-ALTER TABLE Team
-  ADD CONSTRAINT FK_Team_TeamTagsList
-  FOREIGN KEY (TeamInstanceID) REFERENCES TeamTagsList (TeamInstanceID)
-GO
+--Removed from v.0.06
+----version 0.02
+--ALTER TABLE Team
+--  ADD CONSTRAINT FK_Team_TeamTagsList
+--  FOREIGN KEY (TeamInstanceID) REFERENCES TeamTagsList (TeamInstanceID)
+--GO
 
 -- version 0.03
 ALTER TABLE Follower
@@ -607,26 +620,30 @@ ALTER TABLE Follower
   FOREIGN KEY (Username) REFERENCES Player (UserName)
 GO
 
---version 0.05
-ALTER TABLE MonsterTagsList
-  ADD CONSTRAINT FK_MonsterTagsList_MonsterTags2
-  FOREIGN KEY (MonsterTagTwo) REFERENCES MonsterTags (MonsterTagName)
-GO
+--Removed from v.0.06
+----version 0.05
+--ALTER TABLE MonsterTagsList
+--  ADD CONSTRAINT FK_MonsterTagsList_MonsterTags2
+--  FOREIGN KEY (MonsterTagTwo) REFERENCES MonsterTags (MonsterTagName)
+--GO
 
---version 0.05
-ALTER TABLE MonsterTagsList
-  ADD CONSTRAINT FK_MonsterTagsList_MonsterTags3
-  FOREIGN KEY (MonsterTagThree) REFERENCES MonsterTags (MonsterTagName)
-GO
+--Removed from v.0.06
+----version 0.05
+--ALTER TABLE MonsterTagsList
+--  ADD CONSTRAINT FK_MonsterTagsList_MonsterTags3
+--  FOREIGN KEY (MonsterTagThree) REFERENCES MonsterTags (MonsterTagName)
+--GO
 
---version 0.05
-ALTER TABLE TeamTagsList
-  ADD CONSTRAINT FK_TeamTagsList_TeamTags2
-  FOREIGN KEY (TeamTagTwo) REFERENCES TeamTags (TeamTagName)
-GO
+--Removed from v.0.06
+----version 0.05
+--ALTER TABLE TeamTagsList
+--  ADD CONSTRAINT FK_TeamTagsList_TeamTags2
+--  FOREIGN KEY (TeamTagTwo) REFERENCES TeamTags (TeamTagName)
+--GO
 
---version 0.05
-ALTER TABLE TeamTagsList
-  ADD CONSTRAINT FK_TeamTagsList_TeamTags3
-  FOREIGN KEY (TeamTagThree) REFERENCES TeamTags (TeamTagName)
-GO
+--Removed from v.0.06
+----version 0.05
+--ALTER TABLE TeamTagsList
+--  ADD CONSTRAINT FK_TeamTagsList_TeamTags3
+--  FOREIGN KEY (TeamTagThree) REFERENCES TeamTags (TeamTagName)
+--GO
