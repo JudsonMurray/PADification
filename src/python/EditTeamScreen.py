@@ -1,9 +1,11 @@
 #!/USR/BIN/ENV PYTHON 3.5
 #   NAME:    KYLE GUNTON
-#   DATE:    06/26/17
+#   DATE:    06/28/17
 #   PURPOSE: FUNCTIONALITY FOR THE EDIT TEAM SCREEN 
 
 #   -V. 0.0.1 -Created base functionality of selection monsters in player collection.
+#   -V. 0.0.2 -Updated functionality of monster selection, added team slots, added remove monster
+#   -V. 0.0.2 -Updated Screen display, updated File Paths
 
 import pygame
 import tkinter as tk
@@ -13,6 +15,22 @@ from tkinter import *
 import tkinter as tk
 import pypyodbc
 import sys
+import PADSQL
+import PADMonster
+
+
+#variables to tell which monsters are selected within the collection
+global leadMon
+global sub1
+global sub2
+global sub3
+global sub4
+
+leadMon = -1
+sub1 = -1
+sub2 = -1
+sub3 = -1
+sub4 = -1
 
 class MonsterFrame:
     def __init__(self, master, mastermaster, i):
