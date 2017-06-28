@@ -4,24 +4,14 @@
 #   V.1.0   RB  Created base functionality, changes needed are: Cancel brings user to home screen when confirmed, CreateAccount brings user to a 
 #                                                               different screen when successful, conditions for each input need to be determined
 #   Note:   Only works if PADification was created on your current device
+#   V.1.1   WG  Integrated with PADification.py Using the SQL object within the Master.
+
 from tkinter import *
 import tkinter as tk
 import pygubu
-import pypyodbc
-import sys
 
-class Testing:
+class AccountCreation:
     def __init__(self, master):
-        NotConnected = True
-        while NotConnected:
-            self.connection = pypyodbc.connect('Driver={SQL Server};' 
-                                            'Server=localhost;'
-                                            'Database=PADification;' 
-                                            'uid=PADmin;pwd=PADmin;')
-            NotConnected = False
-        self.cursor = self.connection.cursor()
-        self.connection.commit()
-
 
         self.master = master
         #1: Creates a builder
@@ -91,17 +81,14 @@ class Testing:
         if self.Email == '':
             self.Email = 'Null'
 
-        #Creates the user's account if none of the fields are invalid
+        #Creates the user's account if none of the fields are invalid [Username, Password, Email, PlayerID]
         if self.Account:
-            sql = "Insert into Player(PlayerID, [Password], Email, Username) Values ('" + str(self.ID) +"', '" + str(self.Password) +"', '" + str(self.Email) +"', '" + str(self.Name) +"')"
-            q = self.cursor.execute(sql)
-            print('Account Created Successfully')
-            self.connection.commit()
+            self.master.PADsql.signup([self.Name, self.Password, self.Email, self.ID])
+            self.master.showLoginScreen()
 
     def Cancel(self):
         '''Occurs when the cancel button is clicked'''
-        #Ends the program, for now
-        sys.exit()
+        self.master.showLoginScreen()
 
 
 #root = tk.Tk()

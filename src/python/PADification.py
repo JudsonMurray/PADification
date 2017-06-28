@@ -32,10 +32,11 @@ class PADification(tk.Tk):
         self.minsize(width=1280, height=960)
         self.resizable(width=False, height=False)
         
-        
+        #pypyodbc SQl Object
         self.PADsql = PADSQL.PADSQL()
+        
         self.loginScreen = LoginScreen.LoginScreen(self)
-        self.accountCreation = AccountCreation.Testing(self)
+        self.accountCreation = AccountCreation.AccountCreation(self)
         self.homeScreen = Home_Screen.HomeScreen(self)
         self.accountOptions = Account_Options_Screen.AccountOptions(self)
         #self.playerCollection = PlayeCollection.Testing(self)
