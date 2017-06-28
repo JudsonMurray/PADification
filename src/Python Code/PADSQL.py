@@ -188,7 +188,12 @@ class PADSQL():
             self.connection.commit()
 
     def deleteMonster(self, InstanceID):
-        """Delete a Monster Instance from MonsterInstance Table"""
+        """Delete a Monster Instance from MonsterInstance Table and the correspondin Latent Skill List"""
+        self.cursor.execute("SELECT * FROM LatentSkillList WHERE InstanceID = " + str(InstanceID))
+        LSL = self.cursor.fetchone()
+        if LSL:
+            self.cursor.execute("DELETE FROM LatentSkillList WHERE InstanceID = " + str(InstanceID))
+
         SQLCommand = "DELETE FROM MonsterInstance WHERE InstanceID = " + str(InstanceID)
         self.cursor.execute(SQLCommand)
         self.cursor.commit()
@@ -271,7 +276,7 @@ class PADSQL():
         self.cursor.commit()
 
     def getAwokenSkills(self):
-
+        """Returns a List of AwokenSkills"""
         SQLCommand = "SELECT * FROM AwokenSkill"
         self.cursor.execute(SQLCommand)
 
@@ -301,15 +306,67 @@ class PADSQL():
         self.cursor.execute(SQLCommand)
         return self.cursor.fetchone()
 
-
-    def getLatentAwokenSkillList(self):
-        SQLCommand = "SELECT * FROM AwokenSkillList WHERE ASListID = " + str(MonsterClassID)
+    def getLatentAwokenSkillList(self, InstanceID):
+        """Returns a List of Latent Awoken Skills a monster Instance has"""
+        SQLCommand = "SELECT * FROM LatentSkillList WHERE InstanceID = " + str(InstanceID)
         self.cursor.execute(SQLCommand)
         return list[self.cursor.fetchone()]
 
     def getAwokenBadges(self):
-        pass
+        """Returns a List of Awoken Badges"""
+        SQLCommand = "SELECT * FROM AwokenBadge"
+        self.cursor.execute(SQLCommand)
 
-    def getEvolutionTree():
-        pass
+        results = self.cursor.fetchone()
+        AwokenBadges = []
+        while results:
+            AwokenBadges.append(results[0])
+            results = self.cursor.fetchone()
+        return AwokenBadges
+
+    def getEvolutionTree(self, nextMonsterID):
+        """Returns a Collection of Evolutions a list of lists of tuples to seperate Normal Ultimate and reincarnated"""
+        Evolutions = []
+        lowestID = nextMonsterID
+        
+        # Find Start of Tree.
+        SQLCommand = ("SELECT NextMonsterID, BaseMonsterID FROM EvolutionTree "
+                      "WHERE NextMonsterID = " + str(nextMonsterID) )
+        self.cursor.execute(SQLCommand)
+        results = self.cursor.fetchall()
+
+        while results:
+            lowestID = results[0][1]
+            SQLCommand = ("SELECT NextMonsterID, BaseMonsterID FROM EvolutionTree "
+                          "WHERE NextMonsterID = " + str(lowestID))
+            self.cursor.execute(SQLCommand)
+            results = self.cursor.fetchall()
+
+        Evolutions.append([lowestID])
+        # Iterate through tree and Add results
+        SQLCommand = ("SELECT * FROM EvolutionTree "
+                          "WHERE BaseMonsterID = " + str(lowestID))
+        self.cursor.execute(SQLCommand)
+        results = self.cursor.fetchall()
+        Evolutions.append(results)
+        
+        while results:
+            subResults = []
+            SQLCommand = ("SELECT * FROM EvolutionTree "
+                          "WHERE BaseMonsterID = " + str(results[0][0]))
+            self.cursor.execute(SQLCommand)
+            results = self.cursor.fetchall()
+
+            if results and len(results) > 1:
+                Evolutions.append(results)
+                for i in results:
+                    SQLCommand = ("SELECT * FROM EvolutionTree "
+                          "WHERE BaseMonsterID = " + str(i[0]))
+                    self.cursor.execute(SQLCommand)
+                    subResults.append(self.cursor.fetchone())
+
+                if subResults:
+                    Evolutions.append(subResults)
+
+        return Evolutions
 

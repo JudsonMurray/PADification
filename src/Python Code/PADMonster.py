@@ -116,6 +116,10 @@ class Monster():
             self.CurrentExperience = self.MaxExperience
         self.updateStats()
 
+    def setLevel(self, value):
+        """set CurrentExperience to the appropriate value for a specified level"""
+        self.setCurrentExperience(self.calcXP(value,self.ExpCurve))
+
     def getCurrentExperience(self):
         """Return Current Experience"""
         return self.CurrentExperience
@@ -232,6 +236,7 @@ class Team():
                     setattr(self,a + 'ATK', getattr(self, a + 'ATK') + (i.TotalATK // 3))
 
     def getSaveDict(self):
+        """Returns a Dictionary to represent an instance"""
         saveDict = {}
         saveVars = ['TeamInstanceID','Username', 'TeamName', 'LeaderMonster',
                     'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 'BadgeName' ]
@@ -244,36 +249,48 @@ class Team():
             print('Team requires a Leader')
 
     def getTeamName(self):
+        """Returns TeamName"""
         return self.TeamName
 
     def setTeamName(self, Value):
+        """Sets TeamName"""
         if type(Value) == str and len(Value) <= 50:
             self.TeamName = Value
         else:
             print("Team Name invalid not set")
 
     def setBadge(self, badge):
-        self.BadgeName = badge
+        """Sets badge"""
+        if type(badge) == str:
+            self.BadgeName = badge
+        else:
+            print("Badge must be a string")
 
     def getBadge(self):
+        """Gets Team Awoken Badge"""
         return self.BadgeName
 
     def setLeaderMonster(self, InstanceID = None):
+        """Sets Leader Monster requires instanceID"""
         self.LeaderMonster = InstanceID
         self.update()
 
     def setSubMonsterOne(self, InstanceID = None):
+        """Sets Leader Monster requires instanceID"""
         self.SubMonsterOne = InstanceID
         self.update()
 
     def setSubMonsterTwo(self, InstanceID = None):
+        """Sets Leader Monster requires instanceID"""
         self.SubMonsterTwo = InstanceID
         self.update()
     
     def setSubMonsterThree(self, InstanceID = None):
+        """Sets Leader Monster requires instanceID"""
         self.SubMonsterThree = InstanceID
         self.update()
 
     def setSubMonsterFour(self, InstanceID = None):
+        """Sets Leader Monster requires instanceID"""
         self.SubMonsterFour = InstanceID
         self.update()
