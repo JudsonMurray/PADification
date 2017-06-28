@@ -14,7 +14,7 @@ class AccountOptions:
         self.master = master
         self.builder = pygubu.Builder()
 
-        self.builder.add_from_file("Account Options UI.ui")
+        self.builder.add_from_file("src/ui/Account Options UI.ui")
         self.mainwindow = self.builder.get_object("Account Options",master)
 
     def onMainMenuClick(self):

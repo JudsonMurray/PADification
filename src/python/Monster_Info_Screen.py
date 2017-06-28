@@ -14,15 +14,15 @@ class MonsterInfo:
         self.master = master
         self.builder = pygubu.Builder()
 
-        self.builder.add_from_file(r"C:\Users\Tester\Documents\PADification Python stuff\PADification UI\Monster Info UI.ui")
+        self.builder.add_from_file(r"src\ui\Monster Info UI.ui")
         self.monsterinfo = self.builder.get_object('Monster Info',master)
 
-class PADification(tk.Tk):
-    def __init__(self, screenName = None, baseName = None, className = 'Tk', useTk = 1, sync = 0, use = None):
-        super().__init__(screenName, baseName, className, useTk, sync, use)
+#class PADification(tk.Tk):
+#    def __init__(self, screenName = None, baseName = None, className = 'Tk', useTk = 1, sync = 0, use = None):
+#        super().__init__(screenName, baseName, className, useTk, sync, use)
 
-        self.monsterinfo = MonsterInfo(self)
+#        self.monsterinfo = MonsterInfo(self)
 
-        super().mainloop()
+#        super().mainloop()
 
-PADification()
+#PADification()

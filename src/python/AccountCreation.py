@@ -28,12 +28,12 @@ class Testing:
         self.builder = builder = pygubu.Builder()
 
         #2: Loads an ui file
-        builder.add_from_file('Account Creation.ui')
+        builder.add_from_file('src/ui/Account Creation.ui')
 
         #3: Creates the widget using a master as parent
         self.mainwindow = builder.get_object('frmSignUp')
         builder.connect_callbacks(self)
-        self.a = PhotoImage(file = 'PADification Title.png')
+        self.a = PhotoImage(file = 'Resource/PAD/Images/PADification Title.png')
 
         self.passw = self.builder.get_object('entPassword')
         self.repassw = self.builder.get_object('entPasswordConfirm')
@@ -104,7 +104,7 @@ class Testing:
         sys.exit()
 
 
-root = tk.Tk()
-app = Testing(root)
+#root = tk.Tk()
+#app = Testing(root)
 
-root.mainloop()
+#root.mainloop()

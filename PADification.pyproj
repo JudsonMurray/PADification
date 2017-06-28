@@ -6,7 +6,7 @@
     <ProjectGuid>478b11ce-3095-47f8-bab5-b12fd3c9405b</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>src\python\EditTeamScreen.py</StartupFile>
+    <StartupFile>src\python\PADification.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -7748,6 +7748,7 @@
     <Content Include="src\db\scripts\Table-Drop.sql" />
     <Content Include="src\db\scripts\Team-inserts.sql" />
     <Content Include="src\Python Integration Testing\Account Creation.ui" />
+    <Content Include="src\Python Integration Testing\Account Options UI.ui" />
     <Content Include="src\Python Integration Testing\EditTeam.ui" />
     <Content Include="src\Python Integration Testing\HomeScreen.ui" />
     <Content Include="src\Python Integration Testing\Login UI.ui" />
@@ -7757,6 +7758,7 @@
     <Content Include="src\Python Integration Testing\PlayerCollection.ui" />
     <Content Include="src\Python Integration Testing\Test Integration.pyproj" />
     <Content Include="src\ui\Account Creation.ui" />
+    <Content Include="src\ui\Account Options UI.ui" />
     <Content Include="src\ui\EditTeam.ui" />
     <Content Include="src\ui\HomeScreen.ui" />
     <Content Include="src\ui\Login UI.ui" />
@@ -7772,6 +7774,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\Python Code\AccountCreation.py" />
+    <Compile Include="src\Python Code\Account_Options_Screen.py" />
     <Compile Include="src\Python Code\EditTeamScreen.py" />
     <Compile Include="src\Python Code\Home_Screen.py" />
     <Compile Include="src\Python Code\LoginScreen.py" />
@@ -7781,9 +7784,10 @@
     <Compile Include="src\Python Code\PADSQL.py" />
     <Compile Include="src\Python Code\PlayerCollection.py" />
     <Compile Include="src\Python Integration Testing\AccountCreation.py" />
+    <Compile Include="src\Python Integration Testing\Account_Options_Screen.py" />
     <Compile Include="src\Python Integration Testing\EditTeamScreen.py" />
     <Compile Include="src\Python Integration Testing\Home_Screen.py" />
-    <Compile Include="src\Python Integration Testing\LoginScreen.py" />
+    <Compile Include="src\python\LoginScreen.py" />
     <Compile Include="src\Python Integration Testing\MonsterEditScreen.py" />
     <Compile Include="src\Python Integration Testing\Monster_Info_Screen.py" />
     <Compile Include="src\Python Integration Testing\PADMonster.py" />
@@ -7791,9 +7795,9 @@
     <Compile Include="src\Python Integration Testing\PlayerCollection.py" />
     <Compile Include="src\Python Integration Testing\Test_Integration.py" />
     <Compile Include="src\python\AccountCreation.py" />
+    <Compile Include="src\python\Account_Options_Screen.py" />
     <Compile Include="src\python\EditTeamScreen.py" />
     <Compile Include="src\python\Home_Screen.py" />
-    <Compile Include="src\python\LoginScreen.py" />
     <Compile Include="src\python\MonsterEditScreen.py" />
     <Compile Include="src\python\Monster_Info_Screen.py" />
     <Compile Include="src\python\PADification.py" />

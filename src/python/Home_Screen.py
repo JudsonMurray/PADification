@@ -18,21 +18,24 @@ import sys
 class HomeScreen():
     """Displays Home Screen Frame and widgets"""
     def __init__(self, master):
-        
+        self.master = master
         #Load GUI
         self.builder = builder = pygubu.Builder()
-        builder.add_from_file('C:/Users/kyleg/Documents/Visual Studio 2015/SWTS1102/Home Screen/ui/HomeScreen.ui')
-        self.titleImg = tk.PhotoImage(file = 'C:/Users/kyleg/Documents/Visual Studio 2015/SWTS1102/Home Screen/PADification Title.png')
+        builder.add_from_file('src/ui/HomeScreen.ui')
+        self.titleImg = tk.PhotoImage(file = 'Resource/PAD/Images/PADification Title.png')
         self.mainwindow = builder.get_object('homePageFrame', master)
-
+        
         #Add Title Image
         self.builder.get_object('titleImage').create_image(0,0, image =self.titleImg , anchor = tk.NW, tag = "pic")
     
         self.builder.connect_callbacks(self)
         #self.master.showSceen
 
+    def onAccountOptionsClick(self):
+        """Occurs When Account Options Button Is Clicked"""
+        self.master.showAccountOptions()
 
-if __name__ == '__main__':
-    root = tk.Tk()
-    app = HomeScreen(root)
-    root.mainloop()
+#if __name__ == '__main__':
+#    root = tk.Tk()
+#    app = HomeScreen(root)
+#    root.mainloop()

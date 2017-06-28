@@ -11,21 +11,24 @@ import pygubu
 class LoginScreen:
     def __init__(self, master):
         self.master = master
+
+        #Create builder
         self.builder = pygubu.Builder()
 
-        self.builder.add_from_file(r"C:\Users\Tester\Documents\PADification Python stuff\PADification UI\Login UI.ui")
-        self.loginscreen = self.builder.get_object('Login Screen',master)
-        self.PICTURES = r'C:\Users\Tester\Documents\PADification Python stuff\LoginScreen\pictures/'
+        #Load UI file
+        self.builder.add_from_file("src/ui/Login UI.ui")
+
+        #Create widget and add title image
+        self.mainwindow = self.builder.get_object('Login Screen',master)
+        #self.PICTURES = 'PADification Title.png'
         self.builder.connect_callbacks(self)
-        self.image1 = PhotoImage(file = self.PICTURES + 'PADificationTitle.gif')
+        self.image1 = PhotoImage(file = 'Resource/PAD/Images/PADification Title.png')
         item = self.builder.get_object('TitleCanvas').create_image(10,0,image = self.image1,anchor = NW,tag="Title")
 
-class PADification(tk.Tk):
-    def __init__(self, screenName = None, baseName = None, className = 'Tk', useTk = 1, sync = 0, use = None):
-        super().__init__(screenName, baseName, className, useTk, sync, use)
-
-        self.loginscreen = LoginScreen(self)
-
-        super().mainloop()
-
-PADification()
+    #Activates next screen when button is clicked
+    def onCreateAccountClick(self):
+        """Occurs When Create Account Button Is Clicked"""
+        self.master.showAccountCreation()
+    def onLoginClick(self, event):
+        """Occurs When Login Button Is Clicked"""
+        self.master.showHomeScreen()
