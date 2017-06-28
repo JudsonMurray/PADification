@@ -370,3 +370,31 @@ class PADSQL():
 
         return Evolutions
 
+    def getEvolutions(self, MonsterClassID):
+        """Returns a Collection of Evolutions and devolutions a that a monster can access"""
+        Evolutions = []
+        SQLCommand = ("SELECT * FROM EvolutionTree "
+                      "WHERE NextMonsterID = " + str(MonsterClassID) )
+        self.cursor.execute(SQLCommand)
+        results = self.cursor.fetchone()
+        #Evolutions.append(results)
+
+        if results[7]: # if Ultimate
+            SQLCommand = ("SELECT * FROM EvolutionTree "
+                      "WHERE NextMonsterID = " + str(results[1]) )
+
+            self.cursor.execute(SQLCommand)
+            subresults = self.cursor.fetchone()
+            dev = (results[1], results[0], 155, 156, 157, 158, 159, True)
+            Evolutions.insert(0, dev)
+
+        SQLCommand = ("SELECT * FROM EvolutionTree "
+                      "WHERE BaseMonsterID = " + str(MonsterClassID) )
+        self.cursor.execute(SQLCommand)
+        results = self.cursor.fetchall()
+
+        if results:
+            for i in results:
+                Evolutions.append(i)
+
+        return Evolutions
