@@ -9,7 +9,7 @@
       <property name="column">0</property>
       <property name="columnspan">1</property>
       <property name="ipadx">640</property>
-      <property name="ipady">480</property>
+      <property name="ipady">400</property>
       <property name="propagate">False</property>
       <property name="rowspan">1</property>
     </layout>
@@ -23,7 +23,7 @@
         <property name="width">1261</property>
         <layout>
           <property name="column">0</property>
-          <property name="columnspan">2</property>
+          <property name="columnspan">7</property>
           <property name="propagate">True</property>
           <property name="row">0</property>
           <property name="sticky">w</property>
@@ -39,7 +39,7 @@
         <property name="width">170</property>
         <layout>
           <property name="column">0</property>
-          <property name="columnspan">2</property>
+          <property name="columnspan">7</property>
           <property name="padx">40</property>
           <property name="pady">20</property>
           <property name="propagate">True</property>
@@ -55,11 +55,11 @@
         <property name="scrolltype">vertical</property>
         <layout>
           <property name="column">0</property>
+          <property name="columnspan">3</property>
           <property name="ipadx">300</property>
-          <property name="ipady">200</property>
+          <property name="ipady">250</property>
           <property name="propagate">False</property>
-          <property name="row">1</property>
-          <property name="sticky">n</property>
+          <property name="row">2</property>
         </layout>
         <child>
           <object class="tk.Canvas" id="canMonsterCollection">
@@ -75,108 +75,126 @@
       </object>
     </child>
     <child>
-      <object class="ttk.Frame" id="TeamEditFrame">
-        <property name="height">600</property>
-        <property name="relief">groove</property>
-        <property name="width">400</property>
+      <object class="tk.Frame" id="teamEditFrame">
+        <property name="height">100</property>
+        <property name="width">200</property>
         <layout>
-          <property name="column">1</property>
+          <property name="column">3</property>
+          <property name="columnspan">4</property>
           <property name="propagate">True</property>
-          <property name="row">1</property>
-          <property name="sticky">s</property>
+          <property name="row">2</property>
         </layout>
         <child>
-          <object class="tk.Canvas" id="canEditTeam">
-            <property name="height">520</property>
-            <property name="insertborderwidth">0</property>
-            <property name="width">680</property>
+          <object class="tk.Frame" id="Frame_1">
+            <property name="height">150</property>
+            <property name="width">20</property>
             <layout>
               <property name="column">0</property>
-              <property name="columnspan">10</property>
-              <property name="propagate">True</property>
+              <property name="ipadx">80</property>
+              <property name="ipady">180</property>
+              <property name="propagate">False</property>
               <property name="row">0</property>
-              <property name="rowspan">10</property>
+              <property name="rowspan">20</property>
             </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Canvas" id="canLeadMon">
-            <property name="background">#decbf3</property>
-            <property name="borderwidth">5</property>
-            <property name="height">70</property>
-            <property name="relief">raised</property>
-            <property name="width">70</property>
-            <bind add="True" handler="leadClick" sequence="&lt;1&gt;" />
-            <layout>
-              <property name="column">0</property>
-              <property name="padx">20</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Canvas" id="canSubMon1">
-            <property name="background">#d3baef</property>
-            <property name="borderwidth">5</property>
-            <property name="height">70</property>
-            <property name="relief">raised</property>
-            <property name="width">70</property>
-            <bind add="True" handler="sub1Click" sequence="&lt;1&gt;" />
-            <layout>
-              <property name="column">1</property>
-              <property name="padx">20</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Canvas" id="canSubMon2">
-            <property name="background">#a470de</property>
-            <property name="borderwidth">5</property>
-            <property name="height">70</property>
-            <property name="relief">raised</property>
-            <property name="width">70</property>
-            <bind add="True" handler="sub2Click" sequence="&lt;1&gt;" />
-            <layout>
-              <property name="column">2</property>
-              <property name="padx">20</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Canvas" id="canSubMon3">
-            <property name="background">#6d2bb7</property>
-            <property name="borderwidth">5</property>
-            <property name="height">70</property>
-            <property name="relief">raised</property>
-            <property name="width">70</property>
-            <bind add="True" handler="sub3Click" sequence="&lt;1&gt;" />
-            <layout>
-              <property name="column">3</property>
-              <property name="padx">20</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Canvas" id="canSubMon4">
-            <property name="background">#3e1867</property>
-            <property name="borderwidth">5</property>
-            <property name="height">70</property>
-            <property name="relief">raised</property>
-            <property name="width">70</property>
-            <bind add="True" handler="sub4Click" sequence="&lt;1&gt;" />
-            <layout>
-              <property name="column">4</property>
-              <property name="padx">20</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
+            <child>
+              <object class="tk.Canvas" id="canLeadMon">
+                <property name="background">#decbf3</property>
+                <property name="borderwidth">5</property>
+                <property name="height">70</property>
+                <property name="relief">raised</property>
+                <property name="width">70</property>
+                <bind add="True" handler="leadClick" sequence="&lt;1&gt;" />
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">20</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="rowspan">3</property>
+                  <property name="sticky">nw</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Canvas" id="canSubMon1">
+                <property name="background">#d3baef</property>
+                <property name="borderwidth">5</property>
+                <property name="height">70</property>
+                <property name="relief">raised</property>
+                <property name="width">70</property>
+                <bind add="True" handler="sub1Click" sequence="&lt;1&gt;" />
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">20</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">4</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Canvas" id="canSubMon2">
+                <property name="background">#a470de</property>
+                <property name="borderwidth">5</property>
+                <property name="height">70</property>
+                <property name="relief">raised</property>
+                <property name="width">70</property>
+                <bind add="True" handler="sub2Click" sequence="&lt;1&gt;" />
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">20</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">5</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Canvas" id="canSubMon3">
+                <property name="background">#6d2bb7</property>
+                <property name="borderwidth">5</property>
+                <property name="height">70</property>
+                <property name="relief">raised</property>
+                <property name="width">70</property>
+                <bind add="True" handler="sub3Click" sequence="&lt;1&gt;" />
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">20</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">6</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Canvas" id="canSubMon4">
+                <property name="background">#3e1867</property>
+                <property name="borderwidth">5</property>
+                <property name="height">70</property>
+                <property name="relief">raised</property>
+                <property name="width">70</property>
+                <bind add="True" handler="sub4Click" sequence="&lt;1&gt;" />
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">20</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">7</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Button" id="btnRemoveMonster">
+                <property name="text" translatable="yes">Remove Monster</property>
+                <bind add="True" handler="removeMonster" sequence="&lt;1&gt;" />
+                <layout>
+                  <property name="column">0</property>
+                  <property name="columnspan">2</property>
+                  <property name="propagate">True</property>
+                  <property name="row">8</property>
+                </layout>
+              </object>
+            </child>
           </object>
         </child>
         <child>
@@ -186,8 +204,8 @@
             <property name="value">0</property>
             <property name="variable">string:monsterSelected</property>
             <layout>
-              <property name="column">6</property>
-              <property name="padx">100</property>
+              <property name="column">20</property>
+              <property name="padx">1000</property>
               <property name="propagate">False</property>
               <property name="row">0</property>
             </layout>
@@ -195,22 +213,46 @@
         </child>
         <child>
           <object class="ttk.Label" id="lblTeamHP">
-            <property name="text" translatable="yes">HP:</property>
+            <property name="text" translatable="yes">HP: 0</property>
+            <property name="width">20</property>
             <layout>
-              <property name="column">0</property>
+              <property name="column">2</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="sticky">w</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Label" id="lblTeamCost">
+            <property name="text" translatable="yes">Cost: 0</property>
+            <layout>
+              <property name="column">2</property>
               <property name="propagate">True</property>
               <property name="row">1</property>
+              <property name="sticky">w</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Label" id="recoveryImg">
+            <property name="text" translatable="yes">Label_1</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">2</property>
               <property name="sticky">e</property>
             </layout>
           </object>
         </child>
         <child>
-          <object class="ttk.Label" id="lblTeamRcv">
-            <property name="text" translatable="yes">RCV:</property>
+          <object class="ttk.Label" id="lblTeamRCV">
+            <property name="text" translatable="yes">RCV: 0</property>
+            <property name="width">20</property>
             <layout>
-              <property name="column">1</property>
+              <property name="column">2</property>
               <property name="propagate">True</property>
-              <property name="row">1</property>
+              <property name="row">2</property>
               <property name="sticky">w</property>
             </layout>
           </object>
@@ -219,20 +261,22 @@
           <object class="ttk.Label" id="fireImg">
             <property name="text" translatable="yes">Label_3</property>
             <layout>
-              <property name="column">0</property>
+              <property name="column">1</property>
+              <property name="padx">5</property>
               <property name="propagate">False</property>
-              <property name="row">2</property>
+              <property name="row">3</property>
               <property name="sticky">e</property>
             </layout>
           </object>
         </child>
         <child>
           <object class="ttk.Label" id="lblFireATK">
-            <property name="text" translatable="yes">Fire ATK:</property>
+            <property name="text" translatable="yes">Fire ATK: 0</property>
+            <property name="width">20</property>
             <layout>
-              <property name="column">1</property>
+              <property name="column">2</property>
               <property name="propagate">False</property>
-              <property name="row">2</property>
+              <property name="row">3</property>
               <property name="sticky">w</property>
             </layout>
           </object>
@@ -240,20 +284,22 @@
         <child>
           <object class="ttk.Label" id="waterImg">
             <layout>
-              <property name="column">0</property>
+              <property name="column">1</property>
+              <property name="padx">5</property>
               <property name="propagate">True</property>
-              <property name="row">3</property>
+              <property name="row">4</property>
               <property name="sticky">e</property>
             </layout>
           </object>
         </child>
         <child>
           <object class="ttk.Label" id="lblWaterATK">
-            <property name="text" translatable="yes">Water ATK:</property>
+            <property name="text" translatable="yes">Water ATK: 0</property>
+            <property name="width">20</property>
             <layout>
-              <property name="column">1</property>
+              <property name="column">2</property>
               <property name="propagate">False</property>
-              <property name="row">3</property>
+              <property name="row">4</property>
               <property name="sticky">w</property>
             </layout>
           </object>
@@ -262,20 +308,22 @@
           <object class="ttk.Label" id="woodImg">
             <property name="text" translatable="yes">Label_5</property>
             <layout>
-              <property name="column">0</property>
+              <property name="column">1</property>
+              <property name="padx">5</property>
               <property name="propagate">False</property>
-              <property name="row">4</property>
+              <property name="row">5</property>
               <property name="sticky">e</property>
             </layout>
           </object>
         </child>
         <child>
           <object class="ttk.Label" id="lblWoodATK">
-            <property name="text" translatable="yes">Wood ATK:</property>
+            <property name="text" translatable="yes">Wood ATK: 0</property>
+            <property name="width">20</property>
             <layout>
-              <property name="column">1</property>
+              <property name="column">2</property>
               <property name="propagate">False</property>
-              <property name="row">4</property>
+              <property name="row">5</property>
               <property name="sticky">w</property>
             </layout>
           </object>
@@ -284,20 +332,22 @@
           <object class="ttk.Label" id="lightImg">
             <property name="text" translatable="yes">Label_9</property>
             <layout>
-              <property name="column">0</property>
+              <property name="column">1</property>
+              <property name="padx">5</property>
               <property name="propagate">True</property>
-              <property name="row">5</property>
+              <property name="row">6</property>
               <property name="sticky">e</property>
             </layout>
           </object>
         </child>
         <child>
           <object class="ttk.Label" id="lblLightATK">
-            <property name="text" translatable="yes">Light ATK:</property>
+            <property name="text" translatable="yes">Light ATK: 0</property>
+            <property name="width">20</property>
             <layout>
-              <property name="column">01</property>
+              <property name="column">2</property>
               <property name="propagate">True</property>
-              <property name="row">5</property>
+              <property name="row">6</property>
               <property name="sticky">w</property>
             </layout>
           </object>
@@ -306,32 +356,23 @@
           <object class="ttk.Label" id="darkImg">
             <property name="text" translatable="yes">Label_7</property>
             <layout>
-              <property name="column">0</property>
+              <property name="column">1</property>
+              <property name="padx">5</property>
               <property name="propagate">False</property>
-              <property name="row">6</property>
+              <property name="row">7</property>
               <property name="sticky">e</property>
             </layout>
           </object>
         </child>
         <child>
           <object class="ttk.Label" id="lblDarkATK">
-            <property name="text" translatable="yes">Dark ATK:</property>
+            <property name="text" translatable="yes">Dark ATK: 0</property>
+            <property name="width">20</property>
             <layout>
-              <property name="column">01</property>
-              <property name="propagate">True</property>
-              <property name="row">6</property>
-              <property name="sticky">w</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="ttk.Button" id="btnRemoveMonster">
-            <property name="text" translatable="yes">Remove Monster</property>
-            <bind add="True" handler="removeMonster" sequence="&lt;1&gt;" />
-            <layout>
-              <property name="column">0</property>
+              <property name="column">2</property>
               <property name="propagate">True</property>
               <property name="row">7</property>
+              <property name="sticky">w</property>
             </layout>
           </object>
         </child>

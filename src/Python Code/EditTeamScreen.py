@@ -122,11 +122,17 @@ class MonsterFrame:
 
             buttons[self.i].monbut.config(relief=SUNKEN)
                 
-            self.mastermaster.get_object('lblFireATK').config(text='Fire ATK: ' + str(destroyerTeam.FireATK))
-            self.mastermaster.get_object('lblWaterATK').config(text='Water ATK: ' + str(destroyerTeam.WaterATK))
-            self.mastermaster.get_object('lblWoodATK').config(text='Wood ATK: ' + str(destroyerTeam.WoodATK))
-            self.mastermaster.get_object('lblLightATK').config(text='Light ATK: ' + str(destroyerTeam.LightATK))
-            self.mastermaster.get_object('lblDarkATK').config(text='Dark ATK: ' + str(destroyerTeam.DarkATK))
+            self.updateTeamLabels()
+
+    def updateTeamLabels(self):
+        self.mastermaster.get_object('lblTeamHP').config(text='HP: ' + str(destroyerTeam.TeamHP))
+        self.mastermaster.get_object('lblTeamCost').config(text='Cost: ' + str(destroyerTeam.TeamCost))
+        self.mastermaster.get_object('lblTeamRCV').config(text='RCV: ' + str(destroyerTeam.TeamRCV))
+        self.mastermaster.get_object('lblFireATK').config(text='Fire ATK: ' + str(destroyerTeam.FireATK))
+        self.mastermaster.get_object('lblWaterATK').config(text='Water ATK: ' + str(destroyerTeam.WaterATK))
+        self.mastermaster.get_object('lblWoodATK').config(text='Wood ATK: ' + str(destroyerTeam.WoodATK))
+        self.mastermaster.get_object('lblLightATK').config(text='Light ATK: ' + str(destroyerTeam.LightATK))
+        self.mastermaster.get_object('lblDarkATK').config(text='Dark ATK: ' + str(destroyerTeam.DarkATK))
 
 class EditTeam():
     """Displays Edit Team Frame and Widgets"""
@@ -163,7 +169,7 @@ class EditTeam():
         #PADification APP signup/login
         #PADsql.signup(['PADTest','PADTest','A@a.ap',100000000])
         PADsql.login('PADTest','PADTest')
-        
+        self.master = master
         #Create GUI and add title image
         self.builder = builder = pygubu.Builder()
         builder.add_from_file('ui/EditTeam.ui')
@@ -171,8 +177,19 @@ class EditTeam():
         self.titleImg = tk.PhotoImage(file = 'C:/Users/kyleg/Documents/Visual Studio 2015/SWTS1102/Home Screen/PADification Title.png')
         self.builder.get_object('titleImage').create_image(0,0, image =self.titleImg , anchor = tk.NW, tag = "pic")
         self.canvas = builder.get_object('canMonsterCollection')
-        self.teamCanvas = builder.get_object('canEditTeam')
-
+        self.teamCanvas = builder.get_object('Frame_1')
+        self.recoveryImg = tk.PhotoImage(file='RCVSymbol.png') 
+        self.fireImg = tk.PhotoImage(file='FireSymbol.png')
+        self.waterImg = tk.PhotoImage(file='WaterSymbol.png')
+        self.woodImg = tk.PhotoImage(file='WoodSymbol.png')
+        self.lightImg = tk.PhotoImage(file='LightSymbol.png') 
+        self.darkImg = tk.PhotoImage(file='DarkSymbol.png') 
+        self.builder.get_object('recoveryImg').config(image=self.recoveryImg) 
+        self.builder.get_object('fireImg').config(image=self.fireImg) 
+        self.builder.get_object('waterImg').config(image=self.waterImg)
+        self.builder.get_object('woodImg').config(image=self.woodImg)
+        self.builder.get_object('lightImg').config(image=self.lightImg)
+        self.builder.get_object('darkImg').config(image=self.darkImg)
         #for i in range (0,500):
         #    leadMonster = PADMonster.Monster(PADsql.selectMonsterClass(393)[0])
         #    leadMonster.setCurrentExperience(4000000)
@@ -343,6 +360,10 @@ class EditTeam():
 
     def updateTeamLabels(self):
         """Updates team information labels"""
+        x = destroyerTeam.TeamHP
+        self.builder.get_object('lblTeamHP').config(text='HP: ' + str(destroyerTeam.TeamHP))
+        self.builder.get_object('lblTeamCost').config(text='Cost: ' + str(destroyerTeam.TeamCost))
+        self.builder.get_object('lblTeamRCV').config(text='RCV: ' + str(destroyerTeam.TeamRCV))
         self.builder.get_object('lblFireATK').config(text='Fire ATK: ' + str(destroyerTeam.FireATK))
         self.builder.get_object('lblWaterATK').config(text='Water ATK: ' + str(destroyerTeam.WaterATK))
         self.builder.get_object('lblWoodATK').config(text='Wood ATK: ' + str(destroyerTeam.WoodATK))
