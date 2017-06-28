@@ -1,0 +1,359 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <object class="tk.Frame" id="Monster Info">
+    <property name="height">960</property>
+    <property name="width">1280</property>
+    <layout>
+      <property name="column">0</property>
+      <property name="columnspan">10</property>
+      <property name="propagate">False</property>
+      <property name="row">0</property>
+      <property name="rowspan">10</property>
+    </layout>
+    <child>
+      <object class="tk.Frame" id="Navigation">
+        <property name="height">100</property>
+        <property name="width">1280</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">4</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+        </layout>
+        <child>
+          <object class="tk.Button" id="Main Menu">
+            <property name="text" translatable="yes">Main Menu</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">40</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="Player's Monster Viewer">
+            <property name="text" translatable="yes">Player's Monster Viewer</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="padx">40</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="Monster Book">
+            <property name="text" translatable="yes">Monster Book</property>
+            <layout>
+              <property name="column">2</property>
+              <property name="padx">40</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="Edit Teams">
+            <property name="text" translatable="yes">Edit Teams</property>
+            <layout>
+              <property name="column">3</property>
+              <property name="padx">40</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="View Other Player's Info">
+            <property name="text" translatable="yes">View Other Player's Info</property>
+            <layout>
+              <property name="column">4</property>
+              <property name="padx">40</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="View Team Ranking">
+            <property name="text" translatable="yes">View Team Ranking</property>
+            <layout>
+              <property name="column">5</property>
+              <property name="padx">40</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="Account Options">
+            <property name="text" translatable="yes">Account Info</property>
+            <layout>
+              <property name="column">6</property>
+              <property name="padx">40</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="ScreenInfo">
+        <property name="borderwidth">5</property>
+        <property name="height">50</property>
+        <property name="relief">raised</property>
+        <property name="width">1280</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">4</property>
+          <property name="pady">15</property>
+          <property name="propagate">False</property>
+          <property name="row">1</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Info Label">
+            <property name="text" translatable="yes">Monster View
+View and edit your monster's properties</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">590</property>
+              <property name="pady">3</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Monster Profile">
+        <property name="borderwidth">5</property>
+        <property name="height">200</property>
+        <property name="relief">raised</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+          <property name="rowspan">1</property>
+          <property name="sticky">e</property>
+        </layout>
+        <child>
+          <object class="tk.Canvas" id="Monster Pic">
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Monster ID/Name/Rarity">
+        <property name="borderwidth">5</property>
+        <property name="height">50</property>
+        <property name="relief">raised</property>
+        <property name="width">600</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="propagate">False</property>
+          <property name="row">2</property>
+          <property name="sticky">nw</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="ID/Name/Rarity">
+            <property name="text" translatable="yes">Monster ID / Monster Name/ Monster Rarity</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">180</property>
+              <property name="pady">10</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Monster Attribute/Type">
+        <property name="borderwidth">5</property>
+        <property name="height">50</property>
+        <property name="relief">raised</property>
+        <property name="width">600</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="propagate">False</property>
+          <property name="row">2</property>
+          <property name="sticky">w</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Attribute/Type">
+            <property name="text" translatable="yes">Monster Attribute / Monster Type</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">210</property>
+              <property name="pady">10</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Awoken Skills">
+        <property name="borderwidth">5</property>
+        <property name="height">250</property>
+        <property name="relief">raised</property>
+        <property name="width">150</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">5</property>
+          <property name="propagate">False</property>
+          <property name="row">4</property>
+          <property name="sticky">e</property>
+          <rows>
+            <row id="0">
+              <property name="pad">0</property>
+            </row>
+          </rows>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Awoken Skills_1">
+            <property name="text" translatable="yes">Awoken Skills</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">32.5</property>
+              <property name="pady">100</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Monster Stats">
+        <property name="borderwidth">5</property>
+        <property name="height">150</property>
+        <property name="relief">raised</property>
+        <property name="width">600</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="pady">5</property>
+          <property name="propagate">False</property>
+          <property name="row">4</property>
+          <property name="sticky">nw</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Monster Stats_2">
+            <property name="text" translatable="yes">Monster Stats</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">260</property>
+              <property name="pady">60</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Active/Leader SKill">
+        <property name="borderwidth">5</property>
+        <property name="height">100</property>
+        <property name="relief">raised</property>
+        <property name="width">600</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="propagate">False</property>
+          <property name="row">4</property>
+          <property name="sticky">sw</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Active Skill/Leader Skill">
+            <property name="text" translatable="yes">Active Skill / Leader Skill</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">240</property>
+              <property name="pady">30</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="Add To Collection">
+        <property name="text" translatable="yes">Add Monster To Collection</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="ipadx">30</property>
+          <property name="ipady">50</property>
+          <property name="propagate">True</property>
+          <property name="row">6</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="Add To Wishlist">
+        <property name="text" translatable="yes">Add Monster To Wishlist</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="ipadx">40</property>
+          <property name="ipady">50</property>
+          <property name="pady">20</property>
+          <property name="propagate">True</property>
+          <property name="row">6</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="Return">
+        <property name="text" translatable="yes">Return</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="ipadx">85</property>
+          <property name="ipady">50</property>
+          <property name="pady">20</property>
+          <property name="propagate">True</property>
+          <property name="row">6</property>
+          <property name="sticky">e</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Application Info">
+        <property name="borderwidth">5</property>
+        <property name="height">75</property>
+        <property name="relief">raised</property>
+        <property name="width">600</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="propagate">False</property>
+          <property name="row">7</property>
+          <property name="sticky">w</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="App Info">
+            <property name="text" translatable="yes">PADification application information
+Version number, release date,authors,help screen,etc.</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">150</property>
+              <property name="pady">15</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
