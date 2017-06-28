@@ -16,7 +16,7 @@ class LoginScreen:
         self.builder = pygubu.Builder()
 
         #Load UI file
-        self.builder.add_from_file(r"C:\Users\Tester\Documents\PADification\src\ui\Login UI.ui")
+        self.builder.add_from_file("Login UI.ui")
 
         #Create widget and add title image
         self.mainwindow = self.builder.get_object('Login Screen',master)

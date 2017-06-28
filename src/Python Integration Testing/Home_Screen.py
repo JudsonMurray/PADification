@@ -18,19 +18,22 @@ import sys
 class HomeScreen():
     """Displays Home Screen Frame and widgets"""
     def __init__(self, master):
-        
+        self.master = master
         #Load GUI
         self.builder = builder = pygubu.Builder()
         builder.add_from_file('HomeScreen.ui')
         self.titleImg = tk.PhotoImage(file = 'PADification Title.png')
         self.mainwindow = builder.get_object('homePageFrame', master)
-
+        
         #Add Title Image
         self.builder.get_object('titleImage').create_image(0,0, image =self.titleImg , anchor = tk.NW, tag = "pic")
     
         self.builder.connect_callbacks(self)
         #self.master.showSceen
 
+    def onAccountOptionsClick(self):
+        """Occurs When Account Options Button Is Clicked"""
+        self.master.showAccountOptions()
 
 #if __name__ == '__main__':
 #    root = tk.Tk()

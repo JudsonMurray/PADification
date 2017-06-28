@@ -1,17 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <interface>
-  <object class="pygubu.builder.widgets.tkscrolledframe" id="homePageFrame">
-    <property name="padx">0</property>
-    <property name="scrolltype">vertical</property>
-    <property name="takefocus">true</property>
+  <object class="ttk.Frame" id="homePageFrame">
+    <property name="height">200</property>
+    <property name="width">200</property>
     <layout>
       <property name="column">0</property>
-      <property name="columnspan">1</property>
-      <property name="ipadx">640</property>
-      <property name="ipady">480</property>
-      <property name="propagate">False</property>
+      <property name="propagate">True</property>
       <property name="row">0</property>
-      <property name="rowspan">1</property>
     </layout>
     <child>
       <object class="tk.Canvas" id="titleImage">
@@ -163,6 +158,7 @@
     </child>
     <child>
       <object class="tk.Button" id="accountButton">
+        <property name="command">onAccountOptionsClick</property>
         <property name="text" translatable="yes">My Account</property>
         <property name="width">12</property>
         <layout>
