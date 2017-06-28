@@ -5,6 +5,8 @@
 
 #   -V. 0.0.1 -Created base functionality of selection monsters in player collection.
 #   -V. 0.0.2 -Updated functionality of monster selection, added team slots, added remove monster
+#   -V. 0.0.2 -Updated Screen display, updated File Paths
+
 import pygame
 import tkinter as tk
 import pygubu
@@ -36,7 +38,7 @@ class MonsterFrame:
         self.mastermaster = mastermaster
         self.i = i
         self.builder = pygubu.Builder()
-        self.builder.add_from_file('ui/PlayerCollection.ui')
+        self.builder.add_from_file('src/ui/PlayerCollection.ui')
         self.monbut = self.builder.get_object('MonsFrame', self.master)
         self.builder.connect_callbacks(self)
         
@@ -70,7 +72,7 @@ class MonsterFrame:
             monsterName = monsterName.replace("]", "")
             monsterName = monsterName.replace("\'", "")
 
-            self.builder.add_from_file('ui/EditTeam.ui')
+            self.builder.add_from_file('src/ui/EditTeam.ui')
 
             data = range(60)
             
@@ -172,18 +174,18 @@ class EditTeam():
         self.master = master
         #Create GUI and add title image
         self.builder = builder = pygubu.Builder()
-        builder.add_from_file('ui/EditTeam.ui')
+        builder.add_from_file('src/ui/EditTeam.ui')
         self.mainwindow = builder.get_object('EditTeamFrame', master)    
-        self.titleImg = tk.PhotoImage(file = 'C:/Users/kyleg/Documents/Visual Studio 2015/SWTS1102/Home Screen/PADification Title.png')
+        self.titleImg = tk.PhotoImage(file = 'Resource/PAD/Images/PADification Title.png')
         self.builder.get_object('titleImage').create_image(0,0, image =self.titleImg , anchor = tk.NW, tag = "pic")
         self.canvas = builder.get_object('canMonsterCollection')
         self.teamCanvas = builder.get_object('Frame_1')
-        self.recoveryImg = tk.PhotoImage(file='RCVSymbol.png') 
-        self.fireImg = tk.PhotoImage(file='FireSymbol.png')
-        self.waterImg = tk.PhotoImage(file='WaterSymbol.png')
-        self.woodImg = tk.PhotoImage(file='WoodSymbol.png')
-        self.lightImg = tk.PhotoImage(file='LightSymbol.png') 
-        self.darkImg = tk.PhotoImage(file='DarkSymbol.png') 
+        self.recoveryImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/RCVSymbol.png') 
+        self.fireImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/FireSymbol.png')
+        self.waterImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/WaterSymbol.png')
+        self.woodImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/WoodSymbol.png')
+        self.lightImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/LightSymbol.png') 
+        self.darkImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/DarkSymbol.png') 
         self.builder.get_object('recoveryImg').config(image=self.recoveryImg) 
         self.builder.get_object('fireImg').config(image=self.fireImg) 
         self.builder.get_object('waterImg').config(image=self.waterImg)
@@ -219,7 +221,7 @@ class EditTeam():
             myMonster = str(myMonster).replace("(", "")
             monsterClass = myMonster.replace(",)", "")
             monsterClassIDs += monsterClass,
-            myMonster= tk.PhotoImage(file = 'thumbnails/'+ str(monsterClass) + '.png').zoom(15)
+            myMonster= tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(monsterClass) + '.png').zoom(15)
             myMonster = myMonster.subsample(30)
             myMonsterList.append(myMonster)
             x+=1
