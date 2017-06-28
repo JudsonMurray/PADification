@@ -5,7 +5,8 @@
 
 #   -V. 0.0.1 -Created base functionality of selection monsters in player collection.
 #   -V. 0.0.2 -Updated functionality of monster selection, added team slots, added remove monster
-#   -V. 0.0.2 -Updated Screen display, updated File Paths
+#   -V. 0.0.3 -Updated Screen display, updated File Paths
+#   -V. 0.0.4 -Added functionality billy overwrote. Fixed multiple selection of one monster.
 
 import pygame
 import tkinter as tk
@@ -18,19 +19,13 @@ import sys
 import PADSQL
 import PADMonster
 
-
 #variables to tell which monsters are selected within the collection
-global leadMon
-global sub1
-global sub2
-global sub3
-global sub4
-
-leadMon = -1
-sub1 = -1
-sub2 = -1
-sub3 = -1
-sub4 = -1
+global leadMon, sub1, sub2, sub3, sub4
+leadMon = None
+sub1 = None
+sub2 = None
+sub3 = None
+sub4 = None
 
 class MonsterFrame:
     def __init__(self, master, mastermaster, i):
@@ -51,80 +46,61 @@ class MonsterFrame:
 
     def clickMe(self, event):
         '''Method for selection of a monster in the player collection'''
+            #Call globals to be used in method
         global monsterClassIDs, myMonsterList, connection, cursor, teamMonsterSelected, var
         global leadMon, sub1, sub2, sub3, sub4
         global myMonsters, destroyerTeam
-        if state[self.i] == 'on':
-            #Call globals to be used in method
 
-            #global rowFull
-            #global teamCanvasWidth 
-            #global teamCanvasHeight 
-        
+        if state[self.i] == 'on':   #Only executes if a monster is notalready in use
             #Retrieves information from database and removes excess string content
-            h = int(monsterClassIDs[self.i])
-            sql = "Select MonsterName From MonsterClass where MonsterClassID = {}".format(h)
-            y = cursor.execute(sql)
-            monsterName = y.fetchall()
-            monsterName = str(monsterName).replace("(", "")
-            monsterName = monsterName.replace(",)", "")
-            monsterName = monsterName.replace("[", "")
-            monsterName = monsterName.replace("]", "")
-            monsterName = monsterName.replace("\'", "")
-
             self.builder.add_from_file('src/ui/EditTeam.ui')
 
-            data = range(60)
-            
             h = myMonsters[self.i]
             if var.get() == 0:
-                self.image = myMonsterList[self.i].zoom(10).subsample(7)
+                self.image =myMonsterList[self.i].zoom(10).subsample(7)
                 self.canLeadMon.create_image(7, 7, image = self.image, anchor = tk.NW)
-                buttons[leadMon].monbut.config(relief=RAISED)
-                state[leadMon] = 'on'
-                state[self.i] = 'off'
+                if leadMon != None and leadMon != sub1 and leadMon != sub2 and leadMon != sub3 and leadMon != sub4:
+                    buttons[leadMon].monbut.config(relief=FLAT)
+                    state[leadMon] = 'on'
                 leadMon = self.i
                 destroyerTeam.setLeaderMonster(int(h))
-
             elif var.get() == 1:
                 self.image = myMonsterList[self.i].zoom(10).subsample(7)
                 self.canSubMon1.create_image(7, 7, image = self.image, anchor = tk.NW)
-                buttons[sub1].monbut.config(relief=RAISED)
-                state[sub1] = 'on'
-                state[self.i] = 'off'
+                if sub1 != None and sub1 != leadMon and sub1 != sub2 and sub1 != sub3 and sub1 != sub4:
+                    buttons[sub1].monbut.config(relief=FLAT)
+                    state[sub1] = 'on'
                 sub1 = self.i
                 destroyerTeam.setSubMonsterOne(int(h))
-
             elif var.get() == 2:
                 self.image = myMonsterList[self.i].zoom(10).subsample(7)
                 self.canSubMon2.create_image(7, 7, image = self.image, anchor = tk.NW)
-                buttons[sub2].monbut.config(relief=RAISED)
-                state[sub2] = 'on'
-                state[self.i] = 'off'
+                if sub2 != None and sub2 != leadMon and sub2!= sub1 and sub2 != sub3 and sub2 != sub4:
+                    buttons[sub2].monbut.config(relief=FLAT)
+                    state[sub2] = 'on'
                 sub2 = self.i
                 destroyerTeam.setSubMonsterTwo(int(h))
-
             elif var.get() == 3:
                 self.image = myMonsterList[self.i].zoom(10).subsample(7)
                 self.canSubMon3.create_image(7, 7, image = self.image, anchor = tk.NW)
-                buttons[sub3].monbut.config(relief=RAISED)
-                state[sub3] = 'on'
-                state[self.i] = 'off'
+                if sub3 != None and sub3 != leadMon and sub3 != sub1 and sub3 != sub2 and sub3 != sub4:
+                    buttons[sub3].monbut.config(relief=FLAT)
+                    state[sub3] = 'on'
                 sub3 = self.i
                 destroyerTeam.setSubMonsterThree(int(h))
-
             elif var.get() == 4:
                 self.image = myMonsterList[self.i].zoom(10).subsample(7)
                 self.canSubMon4.create_image(7, 7, image = self.image, anchor = tk.NW)
-                buttons[sub4].monbut.config(relief=RAISED)
-                state[sub4] = 'on'
-                state[self.i] = 'off'
+                if sub4 != None and sub4 != leadMon and sub4 != sub1 and sub4 != sub2 and sub4 != sub3:
+                    buttons[sub4].monbut.config(relief=FLAT)
+                    state[sub4] = 'on'
                 sub4 = self.i
                 destroyerTeam.setSubMonsterFour(int(h))
 
+            state[self.i] = 'off'
             buttons[self.i].monbut.config(relief=SUNKEN)
-                
             self.updateTeamLabels()
+            return
 
     def updateTeamLabels(self):
         self.mastermaster.get_object('lblTeamHP').config(text='HP: ' + str(destroyerTeam.TeamHP))
@@ -140,15 +116,10 @@ class EditTeam():
     """Displays Edit Team Frame and Widgets"""
     def __init__(self, master):
         #Declare Global Variables
-        global monsterClassIDs
-        global myMonsterList
-        global connection 
-        global cursor
-        global teamMonsterSelected
-        global state
-        global myMonsters
-        global destroyerTeam
-        global var
+        global monsterClassIDs, myMonsterList, teamMonsterSelected, myMonsters
+        global connection, cursor
+        global state, destroyerTeam, var, buttons
+        buttons = []
         state = []
         monsterClassIDs = []
         myMonsterList = []
@@ -240,8 +211,6 @@ class EditTeam():
         teamMonsterSelected.config(value=0)
         
         #Creates a list of buttons for the monsters in a players collection
-        global buttons
-        buttons = []
         b = len(myMonsterList)
 
         leader = self.builder.get_object('canLeadMon')
@@ -259,58 +228,52 @@ class EditTeam():
         
         self.builder.connect_callbacks(self)
 
-    def leadClick(self, event):
-        """Command invoked when leader monster is selected"""
-        global var
-        var.set(0)
-        self.canLeadMon.config(relief=SUNKEN)
+    def raiseTeam(self):
+        """returns team selection to raised relief"""
+        self.canLeadMon.config(relief=RAISED)
         self.canSubMon1.config(relief=RAISED)
         self.canSubMon2.config(relief=RAISED)
         self.canSubMon3.config(relief=RAISED)
         self.canSubMon4.config(relief=RAISED)
+        return
+
+    def leadClick(self, event):
+        """Command invoked when leader monster is selected"""
+        global var
+        var.set(0)
+        self.raiseTeam()
+        self.canLeadMon.config(relief=SUNKEN)
         return
 
     def sub1Click(self, event):
         """Command invoked when sub monster 1 is selected"""
         global var
         var.set(1)
-        self.canLeadMon.config(relief=RAISED)
+        self.raiseTeam()
         self.canSubMon1.config(relief=SUNKEN)
-        self.canSubMon2.config(relief=RAISED)
-        self.canSubMon3.config(relief=RAISED)
-        self.canSubMon4.config(relief=RAISED)
         return
 
     def sub2Click(self, event):
         """Command invoked when sub monster 2 is selected"""
         global var
         var.set(2)
-        self.canLeadMon.config(relief=RAISED)
-        self.canSubMon1.config(relief=RAISED)
+        self.raiseTeam()
         self.canSubMon2.config(relief=SUNKEN)
-        self.canSubMon3.config(relief=RAISED)
-        self.canSubMon4.config(relief=RAISED)
         return
 
     def sub3Click(self, event):
         """Command invoked when sub monster 3 is selected"""
         global var
         var.set(3)
-        self.canLeadMon.config(relief=RAISED)
-        self.canSubMon1.config(relief=RAISED)
-        self.canSubMon2.config(relief=RAISED)
+        self.raiseTeam()
         self.canSubMon3.config(relief=SUNKEN)
-        self.canSubMon4.config(relief=RAISED)
         return
 
     def sub4Click(self, event):
         """Command invoked when sub monster 4 is selected"""
         global var
         var.set(4)
-        self.canLeadMon.config(relief=RAISED)
-        self.canSubMon1.config(relief=RAISED)
-        self.canSubMon2.config(relief=RAISED)
-        self.canSubMon3.config(relief=RAISED)
+        self.raiseTeam()
         self.canSubMon4.config(relief=SUNKEN)
         return
 
@@ -326,37 +289,32 @@ class EditTeam():
             self.canLeadMon.delete('all')
             if destroyerTeam.LeaderMonster != destroyerTeam.setLeaderMonster():
                 destroyerTeam.setLeaderMonster()
-                buttons[leadMon].monbut.config(relief=RAISED)
+                buttons[leadMon].monbut.config(relief=FLAT)
                 state[leadMon] = 'on'
-
         elif var.get() == 1:
             self.canSubMon1.delete('all')
             if destroyerTeam.SubMonsterOne != destroyerTeam.setSubMonsterOne():
                 destroyerTeam.setSubMonsterOne()
-                buttons[sub1].monbut.config(relief=RAISED)
+                buttons[sub1].monbut.config(relief=FLAT)
                 state[sub1] = 'on'
-
         elif var.get() == 2:
             self.canSubMon2.delete('all')
             if destroyerTeam.SubMonsterTwo != destroyerTeam.setSubMonsterTwo():
                 destroyerTeam.setSubMonsterTwo()
-                buttons[sub2].monbut.config(relief=RAISED)
+                buttons[sub2].monbut.config(relief=FLAT)
                 state[sub2] = 'on'
-
         elif var.get() == 3:
             self.canSubMon3.delete('all')
             if destroyerTeam.SubMonsterThree != destroyerTeam.setSubMonsterThree():
                 destroyerTeam.setSubMonsterThree()
-                buttons[sub3].monbut.config(relief=RAISED)
+                buttons[sub3].monbut.config(relief=FLAT)
                 state[sub3] = 'on'   
-
         elif var.get() == 4:
             self.canSubMon4.delete('all')
             if destroyerTeam.SubMonsterFour != destroyerTeam.setSubMonsterFour():
                 destroyerTeam.setSubMonsterFour()
-                buttons[sub4].monbut.config(relief=RAISED)
+                buttons[sub4].monbut.config(relief=FLAT)
                 state[sub4] = 'on'
-
         self.updateTeamLabels()
         return
 
