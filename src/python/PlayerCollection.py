@@ -4,9 +4,10 @@
 #   Purpose: Functionality for the player collection screen
 #   V.1.0   RB  Created base functionality for the player collection screen, known bugs are monster summary image is wrongly sized and type images not showing up
 #   V.1.1   RB  Monster summary image now sized correctly and type images are now being displayed
+#   V.1.2   RB  Changed the collection of information from the DB to use the PADSQL and PADMonster classes
+#   V.1.3   RB  Remove monster functionality works, Monsters now stored in a dictionary
 #
 #   Note: If using this in a new project, either change the paths for the images and ui or add the image folders into the and the ui into the project
-#   Note: Most of the select queries will be changed from MonsterClass to MonsterInstance
 
 from tkinter import *
 import tkinter as tk
@@ -15,110 +16,93 @@ import random
 import pypyodbc
 import sys
 import time
+import PADMonster
+import PADSQL
 
 
 class MonsterFrame:
-    def __init__(self, master, mastermaster, i):
+    def __init__(self, master, masterbuilder, i, ids, currentMonster):
         self.master = master
-        self.mastermaster = mastermaster
+        self.masterbuilder = masterbuilder
         self.i = i
         self.builder = pygubu.Builder()
         self.builder.add_from_file('PlayerCollection.ui')
         self.monbut = self.builder.get_object('MonsFrame', self.master)
         self.builder.connect_callbacks(self)
+        self.ids = ids
+        self.currentMonster = currentMonster
         
     def clickMe(self, event):
         '''Occurs everytime a monster in the player collection is clicked'''
-
-        #Creates globals to be used in method
-        global monsterClassIDs
-        global myMonsterList
-        global connection
-        global cursor
         
-        #Creates photoimages for neccessary 
-        self.s = PhotoImage(file = "thumbnails/" + str(monsterClassIDs[self.i]) +'.png')
+        global k
+        global selectedMonster
+
+        self.buttons = buttons
         
-        #Retrieves monster information from database
-        h = int(monsterClassIDs[self.i])
-        sql = "Select MonsterName, Rarity, MaxHP, MaxATK, MaxRCV, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree From MonsterClass where MonsterClassID = {}".format(h)
-        q = cursor.execute(sql)
-        monster = q.fetchall()
+        #Creates photoimages for selected monster 
+        self.s = PhotoImage(file = "thumbnails/" + str(monsters[self.ids[self.i]]["MonsterClassID"]) +'.png')
 
-        #Types
-        self.e = PhotoImage(file = str(monster[0][5]) + '.png')
+        #Creates photimages for the types of the selected monster
+        self.e = PhotoImage(file = str(monsters[self.ids[self.i]]["MonsterTypeOne"]) + '.png')
 
-        self.mastermaster.get_object("canType2").delete("all")
-        self.mastermaster.get_object("canType3").delete("all")
+        self.masterbuilder.get_object("canType2").delete("all")
+        self.masterbuilder.get_object("canType3").delete("all")
 
-        if not monster[0][6] is None:
-            self.f = PhotoImage(file = str(monster[0][6]) + '.png')
+        if not monsters[self.ids[self.i]]["MonsterTypeTwo"] is None:
+            self.f = PhotoImage(file = str(monsters[self.ids[self.i]]["MonsterTypeTwo"]) + '.png')
         else:
             self.f = None
 
-        if not monster[0][7] is None:
-            self.g = PhotoImage(file = str(monster[0][7]) + '.png')
+        if not monsters[self.ids[self.i]]["MonsterTypeThree"] is None:
+            self.g = PhotoImage(file = str(monsters[self.ids[self.i]]["MonsterTypeThree"]) + '.png')
         else:
             self.g = None
 
-        #Populates fields with neccessary information
-        self.mastermaster.get_object("canMonsterSummary").create_image(7,7, image = self.s, anchor = tk.NW)
-        self.mastermaster.get_object("lblName").config(text = "Monster Name: " + str(monster[0][0]))
-        self.mastermaster.get_object("lblRarity").config(text = "Rarity: " + str(monster[0][1]))
-        self.mastermaster.get_object("lblHP").config(text = "HP: " + str(monster[0][2]))
-        self.mastermaster.get_object("lblATK").config(text = "ATK: " + str(monster[0][3]))
-        self.mastermaster.get_object("lblRCV").config(text = "RCV: " + str(monster[0][4]))
-        self.mastermaster.get_object("lblID").config(text = "Monster ID: " + str(h))
-        self.mastermaster.get_object("canType1").create_image(2,2, image = self.e, anchor = tk.NW)
-        self.mastermaster.get_object("canType2").create_image(2,2, image = self.f, anchor = tk.NW)
-        self.mastermaster.get_object("canType3").create_image(2,2, image = self.g, anchor = tk.NW)
+        #Changes the relief of the 'buttons' to signify a selected 'button'
+        #Prevents the program from trying to change the releif of a 'button' if it doesn't exist
+        if len(self.buttons) - 1 >= k:
+            self.buttons[k].monbut.config(relief = FLAT)
+        k = self.i
+        
+        self.buttons[self.i].monbut.config(relief = SUNKEN)
 
-class Testing:
-    def __init__(self, master):
+
+        #Populates fields with neccessary information
+        self.masterbuilder.get_object("canMonsterSummary").create_image(7,7, image = self.s, anchor = tk.NW)
+        self.masterbuilder.get_object("lblName").config(text = "Monster Name: " + str(monsters[self.ids[self.i]]["MonsterName"]))
+        self.masterbuilder.get_object("lblRarity").config(text = "Rarity: " + str(monsters[self.ids[self.i]]["Rarity"]))
+        self.masterbuilder.get_object("lblHP").config(text = "HP: " + str(self.currentMonster.HP))
+        self.masterbuilder.get_object("lblATK").config(text = "ATK: " + str(self.currentMonster.ATK))
+        self.masterbuilder.get_object("lblRCV").config(text = "RCV: " + str(self.currentMonster.RCV))
+        #self.masterbuilder.get_object("lblHP").config(text = "HP: " + str(monsters[self.ids[self.i]]["HP"]))
+        #self.masterbuilder.get_object("lblATK").config(text = "ATK: " + str(monsters[self.ids[self.i]]["ATK"]))
+        #self.masterbuilder.get_object("lblRCV").config(text = "RCV: " + str(monsters[self.ids[self.i]]["RCV"]))
+        self.masterbuilder.get_object("lblID").config(text = "Monster ID: " + str(monsters[self.ids[self.i]]["MonsterClassID"]))
+        self.masterbuilder.get_object("canType1").create_image(2,2, image = self.e, anchor = tk.NW)
+        self.masterbuilder.get_object("canType2").create_image(2,2, image = self.f, anchor = tk.NW)
+        self.masterbuilder.get_object("canType3").create_image(2,2, image = self.g, anchor = tk.NW)
+
+        #Saves the instanceid of the selected monster for later use
+        selectedMonster = monsters[self.ids[self.i]]["InstanceID"]
+
+class PlayerCollection:
+    def __init__(self, master, instantList, padsql):
         #Creates globals
         global connection 
         global cursor
-        global monsterClassIDs
-        global myMonsterList
-        global monsterInstance
+        global k
+        global buttons
 
-        #Connects to local database
-        NotConnected = True
-        while NotConnected:
-            connection = pypyodbc.connect('Driver={SQL Server};' 
-                                            'Server=localhost;'
-                                            'Database=SWTS1103;' 
-                                            'uid=PADmin;pwd=PADmin;')
-            NotConnected = False
-        cursor = connection.cursor()
-        connection.commit()
+        self.padsql = padsql
 
-        #Retrieves monster IDs from database
-        sql = "SELECT MonsterClassID FROM monsterInstance WHERE PlayerID = 350520414 ORDER BY MonsterClassID ASC"
+        self.instantList = instantList
+        buttons =[]
 
-        playerTable = cursor.execute(sql)
-        myMonsters = playerTable.fetchall()
-
-        #sql = "Select InstanceID From MonsterInstance Where PlayerID = 350520414 Order By MonsterClassID ASC"
-        #a = cursor.execute(sql)
-        #monsterInstance = a.fetchall()
-
-        monsterClassIDs = []
-        myMonsterList = []
-        x=0
-
-        #Populates lists with monsterIDs
-        for i in myMonsters:
-            myMonster = str(myMonsters[x]).replace("(", "")
-            myMonster = myMonster.replace(",)", "")
-            monsterClassIDs += myMonster,
-            myMonster= tk.PhotoImage(file = 'thumbnails/'+ str(myMonster) + '.png').zoom(15)
-            myMonster = myMonster.subsample(30)
-            myMonsterList.append(myMonster)
-            x+=1
-        b = len(myMonsterList)
+        k=-1
 
         self.master = master
+
         #1: Creates a builder
         self.builder = builder = pygubu.Builder()
 
@@ -129,19 +113,88 @@ class Testing:
         self.mainwindow = builder.get_object('frmPlayerCollection')
         builder.connect_callbacks(self)
 
-        self.container = self.builder.get_object('canMonsterList')
+        self.__populateList()
 
+    def __populateList(self):
+        '''Populates the player collection list'''
+
+        global buttons
+        self.myMonsterList = []
+
+        #Creates the photoimage for each monster instance of the user and stores them in a list
+        for i in self.instantList:
+            myMonster = tk.PhotoImage(file = 'thumbnails/'+ str(monsters[i]["MonsterClassID"]) + '.png')
+            myMonster = myMonster.subsample(2)
+            self.myMonsterList.append(myMonster)
+
+        self.container = self.builder.get_object('canMonsterList')
+        
+
+        for i in self.container.grid_slaves():
+            i.grid_forget()
+        
         #Creates a graphical list of monsters
-        self.buttons = []
-        for i in range(0,b):
-            self.buttons.append(MonsterFrame(self.container, self.builder, i))
-            self.buttons[i].monbut.grid(row=i // 10,column = i % 10)
-            self.buttons[i].builder.get_object('FrameLabel').create_image(2,2, image = myMonsterList[i], anchor = tk.NW)
+        buttons = []
+        self.buttons = buttons = []
+        self.count = 0
+        #print(len(monsters))
+        for i in monsters:
+            b = self.instantList[self.count]
+            a = PADMonster.Monster(monsters[b])
+            self.buttons.append(MonsterFrame(self.container, self.builder, self.count, self.instantList, a))
+            self.buttons[self.count].monbut.grid(row=self.count // 10,column = self.count % 10)
+            self.buttons[self.count].builder.get_object('FrameLabel').create_image(2,2, image = self.myMonsterList[self.count], anchor = tk.NW)
+            self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(a.Level)+ '\nID: ' + str(monsters[i]["MonsterClassID"]))
+            self.count += 1
 
         self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
+    
+    def RemoveMonster(self):
+        '''Removes the selected monster from the DB and all its references, occurs when remove monster button is clicked'''
 
+        #print('You chose to remove: ' + str(selectedMonster))
+
+        #Removes monster instance from DB
+        self.padsql.deleteMonster(selectedMonster)
+
+        #Removes references to the monster
+        monsters.pop(selectedMonster)
+        self.instantList.remove(selectedMonster)
+        
+        #print(len(monsters))
+
+        self.__RemoveInformation()
+        self.__populateList()
+
+    def __RemoveInformation(self):
+        '''Removes the information in the monster summary, runs during RemoveMonster'''
+        self.builder.get_object("canMonsterSummary").delete('all')
+        self.builder.get_object("lblName").config(text = "Monster Name: ")
+        self.builder.get_object("lblRarity").config(text = "Rarity: ")
+        self.builder.get_object("lblHP").config(text = "HP: ")
+        self.builder.get_object("lblATK").config(text = "ATK: ")
+        self.builder.get_object("lblRCV").config(text = "RCV: ")
+        self.builder.get_object("lblID").config(text = "Monster ID: ")
+        self.builder.get_object("canType1").delete("all")
+        self.builder.get_object("canType2").delete("all")
+        self.builder.get_object("canType3").delete("all")
+
+global monsters
+
+#DB connection for unit testing
+pds = PADSQL.PADSQL()
+pds.login('Barbarous', 'No')
+
+monster = pds.selectMonsterInstance()
+instanceIDs = []
+
+# JBM - Modifying collection to Dictionary from List to make Monster Lookup easier
+monsters = dict()
+for i in monster:
+    monsters[i["InstanceID"]] = i
+    instanceIDs.append(i["InstanceID"])
 
 root = tk.Tk()
-app = Testing(root)
+app = PlayerCollection(root, instanceIDs, pds)
 
 root.mainloop()

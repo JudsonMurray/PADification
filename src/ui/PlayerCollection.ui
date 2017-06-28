@@ -21,6 +21,7 @@
         </layout>
         <child>
           <object class="tk.Button" id="btnMainMenu">
+            <property name="command">MainMenu</property>
             <property name="text" translatable="yes">Main Menu</property>
             <layout>
               <property name="column">0</property>
@@ -266,6 +267,7 @@
             </child>
             <child>
               <object class="tk.Button" id="btnRemove">
+                <property name="command">RemoveMonster</property>
                 <property name="text" translatable="yes">Remove Monster</property>
                 <layout>
                   <property name="column">4</property>
@@ -294,7 +296,6 @@
                 <property name="anchor">w</property>
                 <property name="borderwidth">5</property>
                 <property name="padx">0</property>
-                <property name="relief">raised</property>
                 <property name="text" translatable="yes">Monster ID: </property>
                 <property name="width">14</property>
                 <layout>
@@ -310,7 +311,6 @@
                 <property name="anchor">w</property>
                 <property name="borderwidth">5</property>
                 <property name="padx">0</property>
-                <property name="relief">raised</property>
                 <property name="text" translatable="yes">Monster Name:</property>
                 <property name="width">47</property>
                 <layout>
@@ -326,7 +326,6 @@
               <object class="tk.Label" id="lblType">
                 <property name="borderwidth">5</property>
                 <property name="padx">0</property>
-                <property name="relief">raised</property>
                 <property name="text" translatable="yes">Type:</property>
                 <layout>
                   <property name="column">0</property>
@@ -340,7 +339,6 @@
               <object class="tk.Label" id="lblAttribute">
                 <property name="borderwidth">5</property>
                 <property name="padx">0</property>
-                <property name="relief">raised</property>
                 <property name="text" translatable="yes">Attribute:</property>
                 <layout>
                   <property name="column">0</property>
@@ -355,7 +353,6 @@
                 <property name="anchor">w</property>
                 <property name="borderwidth">5</property>
                 <property name="padx">0</property>
-                <property name="relief">raised</property>
                 <property name="text" translatable="yes">Rarity:</property>
                 <property name="width">14</property>
                 <layout>
@@ -371,7 +368,6 @@
                 <property name="anchor">w</property>
                 <property name="borderwidth">5</property>
                 <property name="padx">0</property>
-                <property name="relief">raised</property>
                 <property name="text" translatable="yes">HP:</property>
                 <property name="width">9</property>
                 <layout>
@@ -387,7 +383,6 @@
                 <property name="anchor">w</property>
                 <property name="borderwidth">5</property>
                 <property name="padx">0</property>
-                <property name="relief">raised</property>
                 <property name="text" translatable="yes">ATK:</property>
                 <property name="width">9</property>
                 <layout>
@@ -403,7 +398,6 @@
                 <property name="anchor">w</property>
                 <property name="borderwidth">5</property>
                 <property name="padx">0</property>
-                <property name="relief">raised</property>
                 <property name="text" translatable="yes">RCV:</property>
                 <property name="width">9</property>
                 <layout>
@@ -494,24 +488,39 @@
   <object class="tk.Frame" id="MonsFrame">
     <property name="borderwidth">5</property>
     <property name="cursor">arrow</property>
-    <property name="height">60</property>
-    <property name="relief">raised</property>
-    <property name="width">60</property>
+    <property name="height">103</property>
+    <property name="width">62</property>
     <bind add="" handler="clickMe" sequence="&lt;1&gt;" />
     <layout>
       <property name="column">0</property>
+      <property name="padx">2</property>
+      <property name="pady">2</property>
       <property name="propagate">False</property>
       <property name="row">0</property>
     </layout>
     <child>
       <object class="tk.Canvas" id="FrameLabel">
-        <property name="height">60</property>
-        <property name="width">60</property>
+        <property name="height">50</property>
+        <property name="width">50</property>
         <bind add="" handler="clickMe" sequence="&lt;1&gt;" />
         <layout>
           <property name="column">0</property>
           <property name="propagate">False</property>
           <property name="row">0</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="lblMonsterBrief">
+        <property name="height">2</property>
+        <property name="height">2</property>
+        <property name="text" translatable="yes">LVL:
+ID:</property>
+        <bind add="True" handler="clickMe" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">False</property>
+          <property name="row">1</property>
         </layout>
       </object>
     </child>
