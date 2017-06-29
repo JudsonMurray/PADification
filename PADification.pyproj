@@ -7764,6 +7764,7 @@
     <Content Include="src\ui\Login UI.ui" />
     <Content Include="src\ui\Monster Edit UI.ui" />
     <Content Include="src\ui\Monster Info UI.ui" />
+    <Content Include="src\ui\MonsterBook.ui" />
     <Content Include="src\ui\PlayerCollection.ui" />
     <Content Include="Tools\Infranview Batch Image editor\iview444_x64_setup.exe" />
     <Content Include="Tools\Infranview Batch Image editor\Kyle Batch Resize settings.ini" />
@@ -7787,6 +7788,7 @@
     <Compile Include="src\Python Integration Testing\Account_Options_Screen.py" />
     <Compile Include="src\Python Integration Testing\EditTeamScreen.py" />
     <Compile Include="src\Python Integration Testing\Home_Screen.py" />
+    <Compile Include="src\Python Integration Testing\LoginScreen.py" />
     <Compile Include="src\python\LoginScreen.py" />
     <Compile Include="src\Python Integration Testing\MonsterEditScreen.py" />
     <Compile Include="src\Python Integration Testing\Monster_Info_Screen.py" />
@@ -7798,6 +7800,9 @@
     <Compile Include="src\python\Account_Options_Screen.py" />
     <Compile Include="src\python\EditTeamScreen.py" />
     <Compile Include="src\python\Home_Screen.py" />
+    <Compile Include="src\python\MonsterBook.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\python\MonsterEditScreen.py" />
     <Compile Include="src\python\Monster_Info_Screen.py" />
     <Compile Include="src\python\PADification.py" />

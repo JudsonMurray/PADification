@@ -24,6 +24,7 @@ import LoginScreen
 import AccountCreation
 import Home_Screen
 import Account_Options_Screen
+import MonsterBook
 
 class PADification(tk.Tk):
     def __init__(self, screenName = None, baseName = None, className = 'Tk', useTk = 1, sync = 0, use = None):
@@ -34,7 +35,9 @@ class PADification(tk.Tk):
         
         #pypyodbc SQl Object
         self.PADsql = PADSQL.PADSQL()
-        
+
+        #screens
+        self.MonsterBook = MonsterBook.MonsterBook(self)
         self.loginScreen = LoginScreen.LoginScreen(self)
         self.accountCreation = AccountCreation.AccountCreation(self)
         self.homeScreen = Home_Screen.HomeScreen(self)
@@ -67,6 +70,11 @@ class PADification(tk.Tk):
         self.forgetAll()
         self.accountOptions.mainwindow.grid()
 
+    def showMonsterBook(self):
+        self.forgetAll()
+        self.MonsterBook.mainwindow.grid()
+        self.MonsterBook.update()
+
     #def showPlayerCollection(self)
     #    """Show Player Collection Screen"""
     #    self.forgetAll()
@@ -75,6 +83,7 @@ class PADification(tk.Tk):
     #Removes all frames from the screen
     def forgetAll(self):
         """Forgets all frames"""
+        self.MonsterBook.mainwindow.grid_forget()
         self.loginScreen.mainwindow.grid_forget()
         self.accountCreation.mainwindow.grid_forget()
         self.homeScreen.mainwindow.grid_forget()

@@ -1,17 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <interface>
-  <object class="pygubu.builder.widgets.tkscrolledframe" id="homePageFrame">
-    <property name="padx">0</property>
-    <property name="scrolltype">vertical</property>
-    <property name="takefocus">true</property>
+  <object class="tk.Frame" id="homePageFrame">
+    <property name="height">200</property>
+    <property name="width">200</property>
     <layout>
       <property name="column">0</property>
-      <property name="columnspan">1</property>
-      <property name="ipadx">640</property>
-      <property name="ipady">480</property>
-      <property name="propagate">False</property>
+      <property name="propagate">True</property>
       <property name="row">0</property>
-      <property name="rowspan">1</property>
     </layout>
     <child>
       <object class="tk.Canvas" id="titleImage">
@@ -33,13 +28,12 @@
       <object class="tk.Text" id="newsTextbox">
         <property name="height">10</property>
         <property name="text" translatable="yes">PAD News</property>
-        <property name="width">150</property>
+        <property name="width">75</property>
         <layout>
           <property name="column">0</property>
-          <property name="columnspan">7</property>
           <property name="pady">20</property>
           <property name="propagate">True</property>
-          <property name="row">8</property>
+          <property name="row">2</property>
         </layout>
       </object>
     </child>
@@ -47,131 +41,38 @@
       <object class="tk.Text" id="playerHistoryTextbox">
         <property name="height">10</property>
         <property name="text" translatable="yes">Player/Monster History</property>
-        <property name="width">150</property>
+        <property name="width">75</property>
         <layout>
           <property name="column">0</property>
-          <property name="columnspan">7</property>
           <property name="pady">29</property>
           <property name="propagate">True</property>
-          <property name="row">9</property>
+          <property name="row">3</property>
         </layout>
       </object>
     </child>
     <child>
       <object class="tk.Listbox" id="followersListbox">
-        <property name="height">40</property>
-        <property name="width">80</property>
+        <property name="height">25</property>
+        <property name="width">40</property>
         <layout>
-          <property name="column">0</property>
-          <property name="columnspan">3</property>
+          <property name="column">1</property>
           <property name="pady">28</property>
           <property name="propagate">True</property>
-          <property name="row">10</property>
+          <property name="row">2</property>
+          <property name="rowspan">2</property>
         </layout>
       </object>
     </child>
     <child>
       <object class="tk.Listbox" id="followingListbox">
-        <property name="height">40</property>
-        <property name="width">80</property>
-        <layout>
-          <property name="column">4</property>
-          <property name="columnspan">3</property>
-          <property name="pady">20</property>
-          <property name="propagate">True</property>
-          <property name="row">10</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Button" id="homeButton">
-        <property name="text" translatable="yes">Home</property>
-        <property name="width">12</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="padx">40</property>
-          <property name="pady">20</property>
-          <property name="propagate">True</property>
-          <property name="row">1</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Button" id="myMonstersButton">
-        <property name="text" translatable="yes">My Monsters</property>
-        <property name="width">12</property>
-        <layout>
-          <property name="column">1</property>
-          <property name="padx">40</property>
-          <property name="pady">20</property>
-          <property name="propagate">True</property>
-          <property name="row">1</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Button" id="monsterBookButton">
-        <property name="text" translatable="yes">Monster Book</property>
-        <property name="width">12</property>
+        <property name="height">25</property>
+        <property name="width">40</property>
         <layout>
           <property name="column">2</property>
-          <property name="padx">40</property>
-          <property name="pady">20</property>
+          <property name="pady">10</property>
           <property name="propagate">True</property>
-          <property name="row">1</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Button" id="myTeamsButton">
-        <property name="command">showTeamBrowserFrame</property>
-        <property name="text" translatable="yes">My Teams</property>
-        <property name="width">12</property>
-        <layout>
-          <property name="column">3</property>
-          <property name="padx">40</property>
-          <property name="pady">20</property>
-          <property name="propagate">True</property>
-          <property name="row">1</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Button" id="playersButton">
-        <property name="text" translatable="yes">Players</property>
-        <property name="width">12</property>
-        <layout>
-          <property name="column">4</property>
-          <property name="padx">40</property>
-          <property name="pady">20</property>
-          <property name="propagate">True</property>
-          <property name="row">1</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Button" id="teamRankingsButton">
-        <property name="text" translatable="yes">Team Ranking</property>
-        <property name="width">12</property>
-        <layout>
-          <property name="column">5</property>
-          <property name="padx">40</property>
-          <property name="pady">20</property>
-          <property name="propagate">True</property>
-          <property name="row">1</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Button" id="accountButton">
-        <property name="text" translatable="yes">My Account</property>
-        <property name="width">12</property>
-        <layout>
-          <property name="column">6</property>
-          <property name="padx">40</property>
-          <property name="pady">20 </property>
-          <property name="propagate">True</property>
-          <property name="row">1</property>
+          <property name="row">2</property>
+          <property name="rowspan">2</property>
         </layout>
       </object>
     </child>
@@ -189,6 +90,111 @@
           <property name="propagate">True</property>
           <property name="row">12</property>
         </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="frmNavigation">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">3</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+        </layout>
+        <child>
+          <object class="tk.Button" id="homeButton">
+            <property name="text" translatable="yes">Home</property>
+            <property name="width">12</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">40</property>
+              <property name="pady">20</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="myMonstersButton">
+            <property name="text" translatable="yes">My Monsters</property>
+            <property name="width">12</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="padx">40</property>
+              <property name="pady">20</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="monsterBookButton">
+            <property name="text" translatable="yes">Monster Book</property>
+            <property name="width">12</property>
+            <bind add="True" handler="onMonsterBookClick" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">2</property>
+              <property name="padx">40</property>
+              <property name="pady">20</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="myTeamsButton">
+            <property name="text" translatable="yes">My Teams</property>
+            <property name="width">12</property>
+            <layout>
+              <property name="column">3</property>
+              <property name="padx">40</property>
+              <property name="pady">20</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="playersButton">
+            <property name="text" translatable="yes">Players</property>
+            <property name="width">12</property>
+            <layout>
+              <property name="column">4</property>
+              <property name="padx">40</property>
+              <property name="pady">20</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="teamRankingsButton">
+            <property name="text" translatable="yes">Team Ranking</property>
+            <property name="width">12</property>
+            <layout>
+              <property name="column">5</property>
+              <property name="padx">40</property>
+              <property name="pady">20</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="accountButton">
+            <property name="command">onAccountOptionsClick</property>
+            <property name="text" translatable="yes">My Account</property>
+            <property name="width">12</property>
+            <layout>
+              <property name="column">6</property>
+              <property name="padx">40</property>
+              <property name="pady">20 </property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
       </object>
     </child>
   </object>
