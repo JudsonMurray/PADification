@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <object class="tk.Frame" id="frmNavigation">
+    <property name="height">50</property>
+    <property name="width">1280</property>
+    <layout>
+      <property name="column">0</property>
+      <property name="columnspan">3</property>
+      <property name="propagate">False</property>
+      <property name="row">1</property>
+    </layout>
+    <child>
+      <object class="tk.Button" id="frmHomeButton">
+        <property name="text" translatable="yes">Home</property>
+        <property name="width">12</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="padx">40</property>
+          <property name="pady">20</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="frmMyMonstersButton">
+        <property name="text" translatable="yes">My Monsters</property>
+        <property name="width">12</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="padx">40</property>
+          <property name="pady">20</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="frmMonsterBookButton">
+        <property name="text" translatable="yes">Monster Book</property>
+        <property name="width">12</property>
+        <layout>
+          <property name="column">2</property>
+          <property name="padx">40</property>
+          <property name="pady">20</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="frmMyTeamsButton">
+        <property name="text" translatable="yes">My Teams</property>
+        <property name="width">12</property>
+        <layout>
+          <property name="column">3</property>
+          <property name="padx">40</property>
+          <property name="pady">20</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="frmPlayersButton">
+        <property name="text" translatable="yes">Players</property>
+        <property name="width">12</property>
+        <layout>
+          <property name="column">4</property>
+          <property name="padx">40</property>
+          <property name="pady">20</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="frmTeamRankingsButton">
+        <property name="text" translatable="yes">Team Ranking</property>
+        <property name="width">12</property>
+        <layout>
+          <property name="column">5</property>
+          <property name="padx">40</property>
+          <property name="pady">20</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="frmAccountButton">
+        <property name="command">onAccountOptionsClick</property>
+        <property name="text" translatable="yes">My Account</property>
+        <property name="width">12</property>
+        <layout>
+          <property name="column">6</property>
+          <property name="padx">40</property>
+          <property name="pady">20 </property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+</interface>
