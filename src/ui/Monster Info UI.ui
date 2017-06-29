@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <interface>
   <object class="tk.Frame" id="Monster Info">
-    <property name="height">960</property>
+    <property name="height">910</property>
     <property name="width">1280</property>
     <layout>
       <property name="column">0</property>
@@ -10,95 +10,6 @@
       <property name="row">0</property>
       <property name="rowspan">10</property>
     </layout>
-    <child>
-      <object class="tk.Frame" id="Navigation">
-        <property name="height">100</property>
-        <property name="width">1280</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="columnspan">4</property>
-          <property name="propagate">True</property>
-          <property name="row">0</property>
-        </layout>
-        <child>
-          <object class="tk.Button" id="Main Menu">
-            <property name="text" translatable="yes">Main Menu</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="padx">40</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="Player's Monster Viewer">
-            <property name="text" translatable="yes">Player's Monster Viewer</property>
-            <layout>
-              <property name="column">1</property>
-              <property name="padx">40</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="Monster Book">
-            <property name="text" translatable="yes">Monster Book</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="padx">40</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="Edit Teams">
-            <property name="text" translatable="yes">Edit Teams</property>
-            <layout>
-              <property name="column">3</property>
-              <property name="padx">40</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="View Other Player's Info">
-            <property name="text" translatable="yes">View Other Player's Info</property>
-            <layout>
-              <property name="column">4</property>
-              <property name="padx">40</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="View Team Ranking">
-            <property name="text" translatable="yes">View Team Ranking</property>
-            <layout>
-              <property name="column">5</property>
-              <property name="padx">40</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="Account Options">
-            <property name="text" translatable="yes">Account Info</property>
-            <layout>
-              <property name="column">6</property>
-              <property name="padx">40</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-      </object>
-    </child>
     <child>
       <object class="tk.Frame" id="ScreenInfo">
         <property name="borderwidth">5</property>

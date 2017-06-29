@@ -31,11 +31,12 @@ class HomeScreen():
         self.builder.connect_callbacks(self)
         #self.master.showSceen
 
-    def onAccountOptionsClick(self):
+    def onAccountOptionsClick(self, event):
         """Occurs When Account Options Button Is Clicked"""
         self.master.showAccountOptions()
 
-#if __name__ == '__main__':
-#    root = tk.Tk()
-#    app = HomeScreen(root)
-#    root.mainloop()
+    def onMonsterBookClick(self, event):
+        self.master.showMonsterBook()
+
+    def onMyMonstersClick(self):
+        self.master.showPlayerCollection()
