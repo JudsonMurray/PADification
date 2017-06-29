@@ -194,6 +194,23 @@ class Team():
         self.DarkATK = 0
         self.TeamCost = 0
 
+        self.teamBindResist= 0
+        self.fireDmgReduction = 0
+        self.waterDmgReduction = 0
+        self.woodDmgReduction = 0
+        self.lightDmgReduction = 0
+        self.darkDmgReduction = 0
+        self.darkResist = 0
+        self.jammerResist = 0
+        self.poisonResist = 0
+        self.enhancedFireChance = 0
+        self.enhancedWaterChance = 0
+        self.enhancedWoodChance = 0
+        self.enhancedLightChance = 0
+        self.enhancedDarkChance = 0
+        self.enhancedHealChance = 0
+        self.moveTime = 4.0
+
         if TeamInstanceDict != None:
             for i in TeamInstanceDict:
                 setattr(self,i,TeamInstanceDict[i])
@@ -221,6 +238,22 @@ class Team():
         self.LightATK = 0
         self.DarkATK = 0
         self.TeamCost = 0
+        self.teamBindResist= 0
+        self.fireDmgReduction = 0
+        self.waterDmgReduction = 0
+        self.woodDmgReduction = 0
+        self.lightDmgReduction = 0
+        self.darkDmgReduction = 0
+        self.darkResist = 0
+        self.jammerResist = 0
+        self.poisonResist = 0
+        self.enhancedFireChance = 0
+        self.enhancedWaterChance = 0
+        self.enhancedWoodChance = 0
+        self.enhancedLightChance = 0
+        self.enhancedDarkChance = 0
+        self.enhancedHealChance = 0
+        self.moveTime = 4.0
 
         for i in self.Monsters:
             self.TeamHP += i.TotalHP
@@ -234,6 +267,42 @@ class Team():
                     setattr(self,a + 'ATK', getattr(self, a + 'ATK') + (i.TotalATK))
                 elif i.SecAttribute == a:
                     setattr(self,a + 'ATK', getattr(self, a + 'ATK') + (i.TotalATK // 3))
+
+            i.ASList = self.PADSQL.getAwokenSKills()
+            for b in i.ASList:
+                if b == 'Resistance-Skill Bind':
+                    self.teamBindResist += 20
+                if b == 'Enhanced Fire Orbs':
+                    self.enhancedFireChance += 20
+                if b == 'EEnhanced Water Orbs':
+                    self.enhancedWaterChance += 20
+                if b == 'Enhanced Wood Orbs':
+                    self.enhancedWoodChance += 20
+                if b == 'Enhanced Light Orbs':
+                    self.enhancedLightChance += 20
+                if b == 'Enhanced Dark Orbs':
+                    self.enhancedDarkChance += 20
+                if b == 'Enhanced Heal Orbs':
+                    self.enhancedHealChance += 20
+                if b == 'Reduce Fire Damage':
+                    self.fireDmgReduction += 20
+                if b == 'Reduce Water Damage':
+                    self.waterDmgReduction += 20
+                if b == 'Reduce Wood Damage':
+                    self.woodDmgReduction += 20
+                if b == 'Reduce Light Damage':
+                    self.lightDmgReduction += 20
+                if b == 'Reduce Dark Damage':
+                    self.darkDmgReduction += 20
+                if b == 'Extend Time':
+                    self.moveTime += 0.5
+                if b == 'Resistance-Dark':
+                    self.darkResist += 20
+                if b == 'Resistance-Jammers':
+                    self.jammerResist += 20
+                if b == 'Resistance-Poison':
+                    self.poisonResist += 20
+
 
     def getSaveDict(self):
         """Returns a Dictionary to represent an instance"""

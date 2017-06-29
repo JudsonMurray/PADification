@@ -7,6 +7,7 @@
 #   -V. 0.0.2 -Updated functionality of monster selection, added team slots, added remove monster
 #   -V. 0.0.3 -Updated Screen display, updated File Paths
 #   -V. 0.0.4 -Added functionality billy overwrote. Fixed multiple selection of one monster.
+#   -V. 0.0.5 -MAde many miscellaneous bug fixes
 
 import pygame
 import tkinter as tk
@@ -21,11 +22,7 @@ import PADMonster
 
 #variables to tell which monsters are selected within the collection
 global leadMon, sub1, sub2, sub3, sub4
-leadMon = None
-sub1 = None
-sub2 = None
-sub3 = None
-sub4 = None
+leadMon = sub1 = sub2 = sub3 = sub4 = None
 
 class MonsterFrame:
     def __init__(self, master, mastermaster, i):
@@ -46,7 +43,7 @@ class MonsterFrame:
 
     def clickMe(self, event):
         '''Method for selection of a monster in the player collection'''
-            #Call globals to be used in method
+        #Call globals to be used in method
         global monsterClassIDs, myMonsterList, connection, cursor, teamMonsterSelected, var
         global leadMon, sub1, sub2, sub3, sub4
         global myMonsters, destroyerTeam
@@ -54,7 +51,6 @@ class MonsterFrame:
         if state[self.i] == 'on':   #Only executes if a monster is notalready in use
             #Retrieves information from database and removes excess string content
             self.builder.add_from_file('src/ui/EditTeam.ui')
-
             h = myMonsters[self.i]
             if var.get() == 0:
                 self.image =myMonsterList[self.i].zoom(10).subsample(7)
