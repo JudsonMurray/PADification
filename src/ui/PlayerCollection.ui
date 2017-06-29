@@ -1,104 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <interface>
   <object class="tk.Frame" id="frmPlayerCollection">
-    <property name="height">960</property>
+    <property name="height">910</property>
     <property name="width">1280</property>
     <layout>
       <property name="column">0</property>
       <property name="propagate">False</property>
       <property name="row">0</property>
     </layout>
-    <child>
-      <object class="tk.Frame" id="frmNavigation">
-        <property name="height">200</property>
-        <property name="width">200</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="columnspan">4</property>
-          <property name="pady">20</property>
-          <property name="propagate">True</property>
-          <property name="row">0</property>
-        </layout>
-        <child>
-          <object class="tk.Button" id="btnMainMenu">
-            <property name="command">MainMenu</property>
-            <property name="text" translatable="yes">Main Menu</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="padx">30</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="btnMonsterViewer">
-            <property name="text" translatable="yes">Player's Monster Viewer</property>
-            <layout>
-              <property name="column">1</property>
-              <property name="padx">30</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="btnMonsterBook">
-            <property name="text" translatable="yes">Monster Book</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="padx">30</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="btnEditTeams">
-            <property name="text" translatable="yes">Edit Teams</property>
-            <layout>
-              <property name="column">3</property>
-              <property name="padx">30</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="btnOtherPlayers">
-            <property name="text" translatable="yes">View Other Players' Info</property>
-            <layout>
-              <property name="column">4</property>
-              <property name="padx">30</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="btnTeamRanking">
-            <property name="text" translatable="yes">View Team Ranking</property>
-            <layout>
-              <property name="column">5</property>
-              <property name="padx">30</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="btnAccountOptions">
-            <property name="text" translatable="yes">Account Options</property>
-            <layout>
-              <property name="column">6</property>
-              <property name="padx">30</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-      </object>
-    </child>
     <child>
       <object class="tk.Frame" id="frmScreenInfo">
         <property name="borderwidth">5</property>
