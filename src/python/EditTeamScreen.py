@@ -99,14 +99,30 @@ class MonsterFrame:
             return
 
     def updateTeamLabels(self):
-        self.mastermaster.get_object('lblTeamHP').config(text='HP: ' + str(destroyerTeam.TeamHP))
+        self.mastermaster.get_object('lblTeamHP').config(text=  'HP:    ' + str(destroyerTeam.TeamHP))
         self.mastermaster.get_object('lblTeamCost').config(text='Cost: ' + str(destroyerTeam.TeamCost))
-        self.mastermaster.get_object('lblTeamRCV').config(text='RCV: ' + str(destroyerTeam.TeamRCV))
-        self.mastermaster.get_object('lblFireATK').config(text='Fire ATK: ' + str(destroyerTeam.FireATK))
+        self.mastermaster.get_object('lblTeamRCV').config(text= 'RCV:  ' + str(destroyerTeam.TeamRCV))
+        self.mastermaster.get_object('lblFireATK').config(text= 'Fire ATK:     ' + str(destroyerTeam.FireATK))
         self.mastermaster.get_object('lblWaterATK').config(text='Water ATK: ' + str(destroyerTeam.WaterATK))
-        self.mastermaster.get_object('lblWoodATK').config(text='Wood ATK: ' + str(destroyerTeam.WoodATK))
-        self.mastermaster.get_object('lblLightATK').config(text='Light ATK: ' + str(destroyerTeam.LightATK))
-        self.mastermaster.get_object('lblDarkATK').config(text='Dark ATK: ' + str(destroyerTeam.DarkATK))
+        self.mastermaster.get_object('lblWoodATK').config(text= 'Wood ATK: ' + str(destroyerTeam.WoodATK))
+        self.mastermaster.get_object('lblLightATK').config(text='Light ATK:   ' + str(destroyerTeam.LightATK))
+        self.mastermaster.get_object('lblDarkATK').config(text= 'Dark ATK:    ' + str(destroyerTeam.DarkATK))
+
+        self.mastermaster.get_object('lblTeamBindResist').config(text=  'Skill Bind Resist: ' + str(destroyerTeam.skillBindResist) + '%')
+        self.mastermaster.get_object('lblTeamBindResist').config(text=  'Skill Bind Resist: ' + str(destroyerTeam.skillBindResist) + '%')
+        self.mastermaster.get_object('lblTeamBindResist').config(text=  'Skill Bind Resist: ' + str(destroyerTeam.skillBindResist) + '%')
+        self.mastermaster.get_object('lblTeamBindResist').config(text=  'Skill Bind Resist: ' + str(destroyerTeam.skillBindResist) + '%')
+        self.mastermaster.get_object('lblTeamBindResist').config(text=  'Skill Bind Resist: ' + str(destroyerTeam.skillBindResist) + '%')
+        self.mastermaster.get_object('lblTeamBindResist').config(text=  'Skill Bind Resist: ' + str(destroyerTeam.skillBindResist) + '%')
+        self.mastermaster.get_object('lblTeamBindResist').config(text=  'Skill Bind Resist: ' + str(destroyerTeam.skillBindResist) + '%')
+        self.mastermaster.get_object('lblTeamBindResist').config(text=  'Skill Bind Resist: ' + str(destroyerTeam.skillBindResist) + '%')
+        self.mastermaster.get_object('lblFireDR').config(text=  'Fire Dmg Reduction: ' + str(destroyerTeam.fireDmgReduction) + '%')
+        self.mastermaster.get_object('lblWaterDR').config(text=  'Water Dmg Reduction: ' + str(destroyerTeam.waterDmgReduction) + '%')
+        self.mastermaster.get_object('lblWoodDR').config(text=  'Wood Dmg Reduction: ' + str(destroyerTeam.woodDmgReduction) + '%')
+        self.mastermaster.get_object('lblLightDR').config(text=  'Light Dmg Reduction: ' + str(destroyerTeam.lightDmgReduction) + '%')
+        self.mastermaster.get_object('lblDarkDR').config(text=  'Dark Dmg Reduction: ' + str(destroyerTeam.darkDmgReduction) + '%')
+
+        return
 
 class EditTeam():
     """Displays Edit Team Frame and Widgets"""
@@ -146,19 +162,9 @@ class EditTeam():
         self.titleImg = tk.PhotoImage(file = 'Resource/PAD/Images/PADification Title.png')
         self.builder.get_object('titleImage').create_image(0,0, image =self.titleImg , anchor = tk.NW, tag = "pic")
         self.canvas = builder.get_object('canMonsterCollection')
-        self.teamCanvas = builder.get_object('Frame_1')
-        self.recoveryImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/RCVSymbol.png') 
-        self.fireImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/FireSymbol.png')
-        self.waterImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/WaterSymbol.png')
-        self.woodImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/WoodSymbol.png')
-        self.lightImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/LightSymbol.png') 
-        self.darkImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/DarkSymbol.png') 
-        self.builder.get_object('recoveryImg').config(image=self.recoveryImg) 
-        self.builder.get_object('fireImg').config(image=self.fireImg) 
-        self.builder.get_object('waterImg').config(image=self.waterImg)
-        self.builder.get_object('woodImg').config(image=self.woodImg)
-        self.builder.get_object('lightImg').config(image=self.lightImg)
-        self.builder.get_object('darkImg').config(image=self.darkImg)
+        self.teamCanvas = builder.get_object('teamMonstersFrame')
+        self.updateTeamImageLabels()
+
         #for i in range (0,500):
         #    leadMonster = PADMonster.Monster(PADsql.selectMonsterClass(393)[0])
         #    leadMonster.setCurrentExperience(4000000)
@@ -317,16 +323,35 @@ class EditTeam():
     def updateTeamLabels(self):
         """Updates team information labels"""
         x = destroyerTeam.TeamHP
-        self.builder.get_object('lblTeamHP').config(text='HP: ' + str(destroyerTeam.TeamHP))
+        self.builder.get_object('lblTeamHP').config(text=  'HP:    ' + str(destroyerTeam.TeamHP))
         self.builder.get_object('lblTeamCost').config(text='Cost: ' + str(destroyerTeam.TeamCost))
-        self.builder.get_object('lblTeamRCV').config(text='RCV: ' + str(destroyerTeam.TeamRCV))
-        self.builder.get_object('lblFireATK').config(text='Fire ATK: ' + str(destroyerTeam.FireATK))
+        self.builder.get_object('lblTeamRCV').config(text= 'RCV:  ' + str(destroyerTeam.TeamRCV))
+        self.builder.get_object('lblFireATK').config(text= 'Fire ATK:     ' + str(destroyerTeam.FireATK))
         self.builder.get_object('lblWaterATK').config(text='Water ATK: ' + str(destroyerTeam.WaterATK))
-        self.builder.get_object('lblWoodATK').config(text='Wood ATK: ' + str(destroyerTeam.WoodATK))
-        self.builder.get_object('lblLightATK').config(text='Light ATK: ' + str(destroyerTeam.LightATK))
-        self.builder.get_object('lblDarkATK').config(text='Dark ATK: ' + str(destroyerTeam.DarkATK))
-        return
+        self.builder.get_object('lblWoodATK').config(text= 'Wood ATK: ' + str(destroyerTeam.WoodATK))
+        self.builder.get_object('lblLightATK').config(text='Light ATK:   ' + str(destroyerTeam.LightATK))
+        self.builder.get_object('lblDarkATK').config(text= 'Dark ATK:    ' + str(destroyerTeam.DarkATK))
 
+        self.builder.get_object('lblFireDR').config(text=  'Fire Dmg Reduction: ' + str(destroyerTeam.fireDmgReduction) + '%')
+        self.builder.get_object('lblWaterDR').config(text=  'Water Dmg Reduction: ' + str(destroyerTeam.waterDmgReduction) + '%')
+        self.builder.get_object('lblWoodDR').config(text=  'Wood Dmg Reduction: ' + str(destroyerTeam.woodDmgReduction) + '%')
+        self.builder.get_object('lblLightDR').config(text=  'Light Dmg Reduction: ' + str(destroyerTeam.lightDmgReduction) + '%')
+        self.builder.get_object('lblDarkDR').config(text=  'Dark Dmg Reduction: ' + str(destroyerTeam.darkDmgReduction) + '%')
+        return
+    def updateTeamLabelImages(self):
+            self.recoveryImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/RCVSymbol.png') 
+            self.fireImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/FireSymbol.png')
+            self.waterImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/WaterSymbol.png')
+            self.woodImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/WoodSymbol.png')
+            self.lightImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/LightSymbol.png') 
+            self.darkImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/DarkSymbol.png') 
+            self.builder.get_object('hpImg').config(image=self.recoveryImg) 
+            self.builder.get_object('recoveryImg').config(image=self.recoveryImg) 
+            self.builder.get_object('fireImg').config(image=self.fireImg) 
+            self.builder.get_object('waterImg').config(image=self.waterImg)
+            self.builder.get_object('woodImg').config(image=self.woodImg)
+            self.builder.get_object('lightImg').config(image=self.lightImg)
+            self.builder.get_object('darkImg').config(image=self.darkImg)
 if __name__ == '__main__':
     root = tk.Tk()
     app = EditTeam(root)

@@ -85,7 +85,7 @@
           <property name="row">2</property>
         </layout>
         <child>
-          <object class="tk.Frame" id="Frame_1">
+          <object class="tk.Frame" id="teamMonstersFrame">
             <property name="height">150</property>
             <property name="width">20</property>
             <layout>
@@ -212,168 +212,630 @@
           </object>
         </child>
         <child>
-          <object class="ttk.Label" id="lblTeamHP">
-            <property name="text" translatable="yes">HP: 0</property>
-            <property name="width">20</property>
+          <object class="ttk.Frame" id="teamStatsFrame">
+            <property name="height">250</property>
+            <property name="width">250</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <rows>
+                <row id="1">
+                  <property name="minsize">0</property>
+                </row>
+              </rows>
+              <columns>
+                <column id="0">
+                  <property name="minsize">0</property>
+                </column>
+              </columns>
+            </layout>
+            <child>
+              <object class="ttk.Label" id="hpImg">
+                <property name="text" translatable="yes">RCV: 0</property>
+                <property name="width">25</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblTeamHP">
+                <property name="text" translatable="yes">HP: 0</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="recoveryImg">
+                <property name="text" translatable="yes">Label_1</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblTeamRCV">
+                <property name="text" translatable="yes">RCV: 0</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="fireImg">
+                <property name="text" translatable="yes">Label_3</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="propagate">False</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblFireATK">
+                <property name="text" translatable="yes">Fire ATK: 0</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">False</property>
+                  <property name="row">2</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="waterImg">
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">3</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblWaterATK">
+                <property name="text" translatable="yes">Water ATK: 0</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">False</property>
+                  <property name="row">3</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="woodImg">
+                <property name="text" translatable="yes">Label_5</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="propagate">False</property>
+                  <property name="row">4</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblWoodATK">
+                <property name="text" translatable="yes">Wood ATK: 0</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">False</property>
+                  <property name="row">4</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lightImg">
+                <property name="text" translatable="yes">Label_9</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">5</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblLightATK">
+                <property name="text" translatable="yes">Light ATK: 0</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">5</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="darkImg">
+                <property name="text" translatable="yes">Label_7</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="propagate">False</property>
+                  <property name="row">6</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblDarkATK">
+                <property name="text" translatable="yes">Dark ATK: 0</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">6</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="widthHolder">
+                <property name="width">25</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">7</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Frame" id="teamAwokenBoostsFrame">
+            <property name="height">200</property>
+            <property name="width">200</property>
             <layout>
               <property name="column">2</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
-              <property name="sticky">w</property>
             </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Label" id="lblTeamCost">
-            <property name="text" translatable="yes">Cost: 0</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="propagate">True</property>
-              <property name="row">1</property>
-              <property name="sticky">w</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Label" id="recoveryImg">
-            <property name="text" translatable="yes">Label_1</property>
-            <layout>
-              <property name="column">1</property>
-              <property name="propagate">True</property>
-              <property name="row">2</property>
-              <property name="sticky">e</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="ttk.Label" id="lblTeamRCV">
-            <property name="text" translatable="yes">RCV: 0</property>
-            <property name="width">20</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="propagate">True</property>
-              <property name="row">2</property>
-              <property name="sticky">w</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="ttk.Label" id="fireImg">
-            <property name="text" translatable="yes">Label_3</property>
-            <layout>
-              <property name="column">1</property>
-              <property name="padx">5</property>
-              <property name="propagate">False</property>
-              <property name="row">3</property>
-              <property name="sticky">e</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="ttk.Label" id="lblFireATK">
-            <property name="text" translatable="yes">Fire ATK: 0</property>
-            <property name="width">20</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="propagate">False</property>
-              <property name="row">3</property>
-              <property name="sticky">w</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="ttk.Label" id="waterImg">
-            <layout>
-              <property name="column">1</property>
-              <property name="padx">5</property>
-              <property name="propagate">True</property>
-              <property name="row">4</property>
-              <property name="sticky">e</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="ttk.Label" id="lblWaterATK">
-            <property name="text" translatable="yes">Water ATK: 0</property>
-            <property name="width">20</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="propagate">False</property>
-              <property name="row">4</property>
-              <property name="sticky">w</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="ttk.Label" id="woodImg">
-            <property name="text" translatable="yes">Label_5</property>
-            <layout>
-              <property name="column">1</property>
-              <property name="padx">5</property>
-              <property name="propagate">False</property>
-              <property name="row">5</property>
-              <property name="sticky">e</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="ttk.Label" id="lblWoodATK">
-            <property name="text" translatable="yes">Wood ATK: 0</property>
-            <property name="width">20</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="propagate">False</property>
-              <property name="row">5</property>
-              <property name="sticky">w</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="ttk.Label" id="lightImg">
-            <property name="text" translatable="yes">Label_9</property>
-            <layout>
-              <property name="column">1</property>
-              <property name="padx">5</property>
-              <property name="propagate">True</property>
-              <property name="row">6</property>
-              <property name="sticky">e</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="ttk.Label" id="lblLightATK">
-            <property name="text" translatable="yes">Light ATK: 0</property>
-            <property name="width">20</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="propagate">True</property>
-              <property name="row">6</property>
-              <property name="sticky">w</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="ttk.Label" id="darkImg">
-            <property name="text" translatable="yes">Label_7</property>
-            <layout>
-              <property name="column">1</property>
-              <property name="padx">5</property>
-              <property name="propagate">False</property>
-              <property name="row">7</property>
-              <property name="sticky">e</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="ttk.Label" id="lblDarkATK">
-            <property name="text" translatable="yes">Dark ATK: 0</property>
-            <property name="width">20</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="propagate">True</property>
-              <property name="row">7</property>
-              <property name="sticky">w</property>
-            </layout>
+            <child>
+              <object class="tk.Label" id="lblTeamCost">
+                <property name="text" translatable="yes">Cost: 0</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="tbrImg">
+                <property name="text" translatable="yes">Label_1</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblTBR">
+                <property name="text" translatable="yes">Label_4</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="fireDRImg">
+                <property name="text" translatable="yes">Label_5</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblFireDR">
+                <property name="text" translatable="yes">Label_6</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="waterDRImg">
+                <property name="text" translatable="yes">Label_7</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">3</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblWaterDR">
+                <property name="text" translatable="yes">Label_8</property>
+                <property name="width">23</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">3</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="woodDRImg">
+                <property name="text" translatable="yes">Label_9</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">4</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblWoodDR">
+                <property name="text" translatable="yes">Label_10</property>
+                <property name="width">23</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">4</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lightDRImg">
+                <property name="text" translatable="yes">Label_11</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">5</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblLightDR">
+                <property name="text" translatable="yes">Label_12</property>
+                <property name="width">23</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">5</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="darkDRImg">
+                <property name="text" translatable="yes">Label_13</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">6</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblDarkDR">
+                <property name="text" translatable="yes">Label_14</property>
+                <property name="width">23</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">6</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="teamBindResistImg">
+                <property name="text" translatable="yes">Label_15</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">7</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblTeamBindResist">
+                <property name="text" translatable="yes">Label_16</property>
+                <property name="width">24</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">7</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="skillBoostImg">
+                <property name="text" translatable="yes">Label_17</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">8</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblSkillBoost">
+                <property name="text" translatable="yes">Label_18</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">8</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="moveTimeImg">
+                <property name="text" translatable="yes">Label_19</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">9</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblMoveTime">
+                <property name="text" translatable="yes">Label_20</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">9</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="darkResistImg">
+                <property name="text" translatable="yes">Label_21</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">10</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblDarkResist">
+                <property name="text" translatable="yes">Label_22</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">10</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="jammerResistImg">
+                <property name="text" translatable="yes">Label_23</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">11</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblJammerResist">
+                <property name="text" translatable="yes">Label_25</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">11</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="poisonResistImg">
+                <property name="text" translatable="yes">Label_26</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">12</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblPoisonResist">
+                <property name="text" translatable="yes">Label_27</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">12</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="enhancedFireChanceImg">
+                <property name="text" translatable="yes">Label_28</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">13</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblEnhancedFireChance">
+                <property name="text" translatable="yes">Label_29</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">13</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="enhancedWaterChanceImg">
+                <property name="text" translatable="yes">Label_30</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">14</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblEnhancedWaterChance">
+                <property name="text" translatable="yes">Label_31</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">14</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="enhancedWoodChanceImg">
+                <property name="text" translatable="yes">Label_32</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">15</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblEnhancedWoodChance">
+                <property name="text" translatable="yes">Label_33</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">15</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="enhancedLightChanceImg">
+                <property name="text" translatable="yes">Label_34</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">16</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblEnhancedLightChance">
+                <property name="text" translatable="yes">Label_35</property>
+                <property name="width">23</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">16</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="enhancedDarkChanceImg">
+                <property name="text" translatable="yes">Label_36</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">17</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="lblEnhancedDarkChance">
+                <property name="text" translatable="yes">Label_37</property>
+                <property name="width">20</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">17</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="widthHolder_24">
+                <property name="takefocus">false</property>
+                <property name="width">30</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">99</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
           </object>
         </child>
       </object>
