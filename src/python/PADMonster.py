@@ -209,7 +209,7 @@ class Team():
         self.enhancedLightChance = 0
         self.enhancedDarkChance = 0
         self.enhancedHealChance = 0
-        self.moveTime = 4.0
+        self.moveTime = 4.00
         self.skillBoost = 0
 
         if TeamInstanceDict != None:
@@ -254,7 +254,7 @@ class Team():
         self.enhancedLightChance = 0
         self.enhancedDarkChance = 0
         self.enhancedHealChance = 0
-        self.moveTime = 4.0
+        self.moveTime = 4.00
         self.skillBoost = 0
 
         for i in self.Monsters:
@@ -270,8 +270,12 @@ class Team():
                 elif i.SecAttribute == a:
                     setattr(self,a + 'ATK', getattr(self, a + 'ATK') + (i.TotalATK // 3))
 
-            i.ASList = self.PADSQL.getAwokenSkillList(i.MonsterClassID)
-            for b in i.ASList:
+            i.ASList= self.PADSQL.getAwokenSkillList(i.MonsterClassID) 
+            i.awokenSkills = []
+            for x in range(1, i.SkillsAwoke - 1):
+                i.awokenSkills.append(i.ASList[x])
+
+            for b in i.awokenSkills:
                 if b == 'Resistance-Skill Bind':
                     self.skillBindResist += 20
                 if b == 'Enhanced Fire Orbs':
@@ -297,7 +301,7 @@ class Team():
                 if b == 'Reduce Dark Damage':
                     self.darkDmgReduction += 1
                 if b == 'Extend Time':
-                    self.moveTime += 0.5
+                    self.moveTime += 0.50
                 if b == 'Resistance-Dark':
                     self.darkResist += 20
                 if b == 'Resistance-Jammers':
@@ -312,13 +316,11 @@ class Team():
         saveDict = {}
         saveVars = ['TeamInstanceID','Username', 'TeamName', 'LeaderMonster',
                     'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 'BadgeName' ]
-        if self.LeaderMonster != None:
-            for i in saveVars:
-                saveDict[i] = getattr(self, i)
+        
+        for i in saveVars:
+            saveDict[i] = getattr(self, i)
 
-            return saveDict
-        else:
-            print('Team requires a Leader')
+        return saveDict
 
     def getTeamName(self):
         """Returns TeamName"""

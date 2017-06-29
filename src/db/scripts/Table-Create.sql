@@ -372,7 +372,7 @@ CREATE TABLE PADification.dbo.Team (
   TeamInstanceID INT IDENTITY(100000, 1) NOT NULL,
   Username VARCHAR(15) NOT NULL,
   TeamName VARCHAR(50),
-  LeaderMonster INT NOT NULL,
+  LeaderMonster INT,
   SubMonsterOne INT,
   SubMonsterTwo INT,
   SubMonsterThree INT,
