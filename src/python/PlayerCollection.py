@@ -6,8 +6,9 @@
 #   V.1.1   RB  Monster summary image now sized correctly and type images are now being displayed
 #   V.1.2   RB  Changed the collection of information from the DB to use the PADSQL and PADMonster classes
 #   V.1.3   RB  Remove monster functionality works, Monsters now stored in a dictionary
+#   V.1.4   RB  Integrated with the PADification.py
+#   V.1.5   RB  Added currently awoken awoken skills and disabled the monster summary buttons when a monster is not selected
 #
-#   Note: If using this in a new project, either change the paths for the images and ui or add the image folders into the and the ui into the project
 
 from tkinter import *
 import tkinter as tk
@@ -21,7 +22,7 @@ import PADSQL
 
 
 class MonsterFrame:
-    def __init__(self, master, masterbuilder, i, ids, currentMonster, buttons):
+    def __init__(self, master, masterbuilder, i, ids, currentMonster, buttons, padsql):
         self.master = master
         self.masterbuilder = masterbuilder
         self.i = i
@@ -32,19 +33,47 @@ class MonsterFrame:
         self.ids = ids
         self.currentMonster = currentMonster
         self.buttons = buttons
+        self.padsql = padsql
         
     def clickMe(self, event):
         '''Occurs everytime a monster in the player collection is clicked'''
         
         global k
         global selectedMonster
+
+        self.masterbuilder.get_object("btnFavoriteWishlist").config(state = NORMAL)
+        self.masterbuilder.get_object("btnEdit").config(state = NORMAL)
+        self.masterbuilder.get_object("btnRemove").config(state = NORMAL)
         
         #Creates photoimages for selected monster 
         self.s = PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(monsters[self.ids[self.i]]["MonsterClassID"]) +'.png')
 
+        #Creates the photo image for the selected monster's awoken awoken skills
+        self.aSList = self.padsql.getAwokenSkillList(monsters[self.ids[self.i]]["MonsterClassID"])
+        self.aSListImg = []
+
+        for i in range(1, len(self.aSList)):
+            if i <= self.currentMonster.SkillsAwoke:
+                if self.aSList[i] is not None:
+                    self.aSListImg.append(PhotoImage(file = "Resource/PAD/Images/Awoken Skills/" + str(self.aSList[i]) +'.png'))
+            else:
+                self.aSListImg.append(None)
+
+        #Removes all the previously selected monster's, if there was one, awoken awoken skills
+        self.masterbuilder.get_object("canASOne").delete("all")
+        self.masterbuilder.get_object("canASTwo").delete("all")
+        self.masterbuilder.get_object("canASThree").delete("all")
+        self.masterbuilder.get_object("canASFour").delete("all")
+        self.masterbuilder.get_object("canASFive").delete("all")
+        self.masterbuilder.get_object("canASSix").delete("all")
+        self.masterbuilder.get_object("canASSeven").delete("all")
+        self.masterbuilder.get_object("canASEight").delete("all")
+        self.masterbuilder.get_object("canASNine").delete("all")
+
         #Creates photimages for the types of the selected monster
         self.e = PhotoImage(file = "Resource/PAD/Images/Types/" + str(monsters[self.ids[self.i]]["MonsterTypeOne"]) + '.png')
 
+        #Removes all the previously selected monster's, if there was one, secondary and tertiary types
         self.masterbuilder.get_object("canType2").delete("all")
         self.masterbuilder.get_object("canType3").delete("all")
 
@@ -57,6 +86,8 @@ class MonsterFrame:
             self.g = PhotoImage(file = "Resource/PAD/Images/Types/" + str(monsters[self.ids[self.i]]["MonsterTypeThree"]) + '.png')
         else:
             self.g = None
+
+        
 
         #Changes the relief of the 'buttons' to signify a selected 'button'
         #Prevents the program from trying to change the releif of a 'button' if it doesn't exist
@@ -81,6 +112,15 @@ class MonsterFrame:
         self.masterbuilder.get_object("canType1").create_image(2,2, image = self.e, anchor = tk.NW)
         self.masterbuilder.get_object("canType2").create_image(2,2, image = self.f, anchor = tk.NW)
         self.masterbuilder.get_object("canType3").create_image(2,2, image = self.g, anchor = tk.NW)
+        self.masterbuilder.get_object("canASOne").create_image(2,2, image = self.aSListImg[0], anchor = tk.NW)
+        self.masterbuilder.get_object("canASTwo").create_image(2,2, image = self.aSListImg[1], anchor = tk.NW)
+        self.masterbuilder.get_object("canASThree").create_image(2,2, image = self.aSListImg[2], anchor = tk.NW)
+        self.masterbuilder.get_object("canASFour").create_image(2,2, image = self.aSListImg[3], anchor = tk.NW)
+        self.masterbuilder.get_object("canASFive").create_image(2,2, image = self.aSListImg[4], anchor = tk.NW)
+        self.masterbuilder.get_object("canASSix").create_image(2,2, image = self.aSListImg[5], anchor = tk.NW)
+        self.masterbuilder.get_object("canASSeven").create_image(2,2, image = self.aSListImg[6], anchor = tk.NW)
+        self.masterbuilder.get_object("canASEight").create_image(2,2, image = self.aSListImg[7], anchor = tk.NW)
+        self.masterbuilder.get_object("canASNine").create_image(2,2, image = self.aSListImg[8], anchor = tk.NW)
 
         #Saves the instanceid of the selected monster for later use
         selectedMonster = monsters[self.ids[self.i]]["InstanceID"]
@@ -110,6 +150,9 @@ class PlayerCollection:
 
     def populateList(self):
         '''Populates the player collection list'''
+        self.builder.get_object("btnFavoriteWishlist").config(state = DISABLED)
+        self.builder.get_object("btnEdit").config(state = DISABLED)
+        self.builder.get_object("btnRemove").config(state = DISABLED)
 
         global monsters
         
@@ -143,7 +186,7 @@ class PlayerCollection:
         for i in monsters:
             b = self.instantList[self.count]
             a = PADMonster.Monster(monsters[b])
-            self.buttons.append(MonsterFrame(self.container, self.builder, self.count, self.instantList, a, self.buttons))
+            self.buttons.append(MonsterFrame(self.container, self.builder, self.count, self.instantList, a, self.buttons, self.pds))
             self.buttons[self.count].monbut.grid(row=self.count // 10,column = self.count % 10)
             self.buttons[self.count].builder.get_object('FrameLabel').create_image(2,2, image = self.myMonsterList[self.count], anchor = tk.NW)
             self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(a.Level)+ '\nID: ' + str(a.MonsterClassID))
@@ -176,3 +219,12 @@ class PlayerCollection:
         self.builder.get_object("canType1").delete("all")
         self.builder.get_object("canType2").delete("all")
         self.builder.get_object("canType3").delete("all")
+        self.builder.get_object("canASOne").delete("all")
+        self.builder.get_object("canASTwo").delete("all")
+        self.builder.get_object("canASThree").delete("all")
+        self.builder.get_object("canASFour").delete("all")
+        self.builder.get_object("canASFive").delete("all")
+        self.builder.get_object("canASSix").delete("all")
+        self.builder.get_object("canASSeven").delete("all")
+        self.builder.get_object("canASEight").delete("all")
+        self.builder.get_object("canASNine").delete("all")
