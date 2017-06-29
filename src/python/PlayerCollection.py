@@ -21,7 +21,7 @@ import PADSQL
 
 
 class MonsterFrame:
-    def __init__(self, master, masterbuilder, i, ids, currentMonster):
+    def __init__(self, master, masterbuilder, i, ids, currentMonster, buttons):
         self.master = master
         self.masterbuilder = masterbuilder
         self.i = i
@@ -31,14 +31,13 @@ class MonsterFrame:
         self.builder.connect_callbacks(self)
         self.ids = ids
         self.currentMonster = currentMonster
+        self.buttons = buttons
         
     def clickMe(self, event):
         '''Occurs everytime a monster in the player collection is clicked'''
         
         global k
         global selectedMonster
-
-        self.buttons = buttons
         
         #Creates photoimages for selected monster 
         self.s = PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(monsters[self.ids[self.i]]["MonsterClassID"]) +'.png')
@@ -88,17 +87,13 @@ class MonsterFrame:
 
 class PlayerCollection:
     def __init__(self, master):
-        #Creates globals
-        global connection 
+        #Creates globals 
         global monsters
-        global cursor
         global k
         global buttons
 
         self.pds = master.PADsql
         
-
-        #self.instantList = instantList
         buttons =[]
 
         k=-1
@@ -113,14 +108,12 @@ class PlayerCollection:
         self.mainwindow = builder.get_object('frmPlayerCollection')
         builder.connect_callbacks(self)
 
-        #self.populateList()
-
     def populateList(self):
         '''Populates the player collection list'''
 
-        global buttons
         global monsters
-
+        
+        # JBM - Modifying collection to Dictionary from List to make Monster Lookup easier
         instanceIDs = []
         monster = self.pds.selectMonsterInstance()
 
@@ -147,14 +140,13 @@ class PlayerCollection:
         buttons = []
         self.buttons = buttons = []
         self.count = 0
-        #print(len(monsters))
         for i in monsters:
             b = self.instantList[self.count]
             a = PADMonster.Monster(monsters[b])
-            self.buttons.append(MonsterFrame(self.container, self.builder, self.count, self.instantList, a))
+            self.buttons.append(MonsterFrame(self.container, self.builder, self.count, self.instantList, a, self.buttons))
             self.buttons[self.count].monbut.grid(row=self.count // 10,column = self.count % 10)
             self.buttons[self.count].builder.get_object('FrameLabel').create_image(2,2, image = self.myMonsterList[self.count], anchor = tk.NW)
-            self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(a.Level)+ '\nID: ' + str(monsters[i]["MonsterClassID"]))
+            self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(a.Level)+ '\nID: ' + str(a.MonsterClassID))
             self.count += 1
 
         self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
@@ -162,16 +154,12 @@ class PlayerCollection:
     def RemoveMonster(self):
         '''Removes the selected monster from the DB and all its references, occurs when remove monster button is clicked'''
 
-        #print('You chose to remove: ' + str(selectedMonster))
-
         #Removes monster instance from DB
         self.pds.deleteMonster(selectedMonster)
 
         #Removes references to the monster
         monsters.pop(selectedMonster)
         self.instantList.remove(selectedMonster)
-        
-        #print(len(monsters))
 
         self.__RemoveInformation()
         self.populateList()
@@ -188,23 +176,3 @@ class PlayerCollection:
         self.builder.get_object("canType1").delete("all")
         self.builder.get_object("canType2").delete("all")
         self.builder.get_object("canType3").delete("all")
-
-#global monsters
-
-##DB connection for unit testing
-##pds = PADSQL.PADSQL()
-##pds.login('Barbarous', 'No')
-
-##monster = pds.selectMonsterInstance()
-##instanceIDs = []
-
-## JBM - Modifying collection to Dictionary from List to make Monster Lookup easier
-#monsters = dict()
-#for i in monster:
-#    monsters[i["InstanceID"]] = i
-#    instanceIDs.append(i["InstanceID"])
-
-#root = tk.Tk()
-#app = PlayerCollection(root, instanceIDs, pds)
-
-#root.mainloop()
