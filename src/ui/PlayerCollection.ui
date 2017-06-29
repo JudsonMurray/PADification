@@ -130,9 +130,9 @@
         <child>
           <object class="tk.Canvas" id="canMonsterSummary">
             <property name="borderwidth">5</property>
-            <property name="height">100</property>
+            <property name="height">80</property>
             <property name="relief">raised</property>
-            <property name="width">100</property>
+            <property name="width">80</property>
             <layout>
               <property name="column">0</property>
               <property name="propagate">False</property>
@@ -152,7 +152,6 @@
             </layout>
             <child>
               <object class="tk.Button" id="btnFavoriteWishlist">
-                <property name="default">disabled</property>
                 <property name="text" translatable="yes">Favorite/Add to Whishlist</property>
                 <layout>
                   <property name="column">2</property>
@@ -165,7 +164,6 @@
             </child>
             <child>
               <object class="tk.Button" id="btnEdit">
-                <property name="default">disabled</property>
                 <property name="text" translatable="yes">Edit Monster Properties</property>
                 <layout>
                   <property name="column">3</property>
@@ -179,8 +177,8 @@
             <child>
               <object class="tk.Button" id="btnRemove">
                 <property name="command">RemoveMonster</property>
-                <property name="default">disabled</property>
                 <property name="text" translatable="yes">Remove Monster</property>
+                <property name="underline">0</property>
                 <layout>
                   <property name="column">4</property>
                   <property name="padx">5</property>

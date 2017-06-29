@@ -46,7 +46,8 @@ class MonsterFrame:
         self.masterbuilder.get_object("btnRemove").config(state = NORMAL)
         
         #Creates photoimages for selected monster 
-        self.s = PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(monsters[self.ids[self.i]]["MonsterClassID"]) +'.png')
+        self.s = PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(monsters[self.ids[self.i]]["MonsterClassID"]) +'.png').zoom(4)
+        self.s = self.s.subsample(5)
 
         #Creates the photo image for the selected monster's awoken awoken skills
         self.aSList = self.padsql.getAwokenSkillList(monsters[self.ids[self.i]]["MonsterClassID"])
