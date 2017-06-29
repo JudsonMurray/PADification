@@ -26,7 +26,7 @@ class MonsterFrame:
         self.masterbuilder = masterbuilder
         self.i = i
         self.builder = pygubu.Builder()
-        self.builder.add_from_file('PlayerCollection.ui')
+        self.builder.add_from_file('src/ui/PlayerCollection.ui')
         self.monbut = self.builder.get_object('MonsFrame', self.master)
         self.builder.connect_callbacks(self)
         self.ids = ids
@@ -41,21 +41,21 @@ class MonsterFrame:
         self.buttons = buttons
         
         #Creates photoimages for selected monster 
-        self.s = PhotoImage(file = "thumbnails/" + str(monsters[self.ids[self.i]]["MonsterClassID"]) +'.png')
+        self.s = PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(monsters[self.ids[self.i]]["MonsterClassID"]) +'.png')
 
         #Creates photimages for the types of the selected monster
-        self.e = PhotoImage(file = str(monsters[self.ids[self.i]]["MonsterTypeOne"]) + '.png')
+        self.e = PhotoImage(file = "Resource/PAD/Images/Types/" + str(monsters[self.ids[self.i]]["MonsterTypeOne"]) + '.png')
 
         self.masterbuilder.get_object("canType2").delete("all")
         self.masterbuilder.get_object("canType3").delete("all")
 
         if not monsters[self.ids[self.i]]["MonsterTypeTwo"] is None:
-            self.f = PhotoImage(file = str(monsters[self.ids[self.i]]["MonsterTypeTwo"]) + '.png')
+            self.f = PhotoImage(file = "Resource/PAD/Images/Types/" + str(monsters[self.ids[self.i]]["MonsterTypeTwo"]) + '.png')
         else:
             self.f = None
 
         if not monsters[self.ids[self.i]]["MonsterTypeThree"] is None:
-            self.g = PhotoImage(file = str(monsters[self.ids[self.i]]["MonsterTypeThree"]) + '.png')
+            self.g = PhotoImage(file = "Resource/PAD/Images/Types/" + str(monsters[self.ids[self.i]]["MonsterTypeThree"]) + '.png')
         else:
             self.g = None
 
@@ -87,43 +87,53 @@ class MonsterFrame:
         selectedMonster = monsters[self.ids[self.i]]["InstanceID"]
 
 class PlayerCollection:
-    def __init__(self, master, instantList, padsql):
+    def __init__(self, master):
         #Creates globals
         global connection 
+        global monsters
         global cursor
         global k
         global buttons
 
-        self.padsql = padsql
+        self.pds = master.PADsql
+        
 
-        self.instantList = instantList
+        #self.instantList = instantList
         buttons =[]
 
         k=-1
-
-        self.master = master
 
         #1: Creates a builder
         self.builder = builder = pygubu.Builder()
 
         #2: Loads an ui file
-        builder.add_from_file('PlayerCollection.ui')
+        builder.add_from_file('src/ui/PlayerCollection.ui')
 
         #3: Creates the widget using a master as parent
         self.mainwindow = builder.get_object('frmPlayerCollection')
         builder.connect_callbacks(self)
 
-        self.__populateList()
+        #self.populateList()
 
-    def __populateList(self):
+    def populateList(self):
         '''Populates the player collection list'''
 
         global buttons
+        global monsters
+
+        instanceIDs = []
+        monster = self.pds.selectMonsterInstance()
+
+        monsters = dict()
+        for i in monster:
+            monsters[i["InstanceID"]] = i
+            instanceIDs.append(i["InstanceID"])
+        self.instantList = instanceIDs
         self.myMonsterList = []
 
         #Creates the photoimage for each monster instance of the user and stores them in a list
         for i in self.instantList:
-            myMonster = tk.PhotoImage(file = 'thumbnails/'+ str(monsters[i]["MonsterClassID"]) + '.png')
+            myMonster = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(monsters[i]["MonsterClassID"]) + '.png')
             myMonster = myMonster.subsample(2)
             self.myMonsterList.append(myMonster)
 
@@ -155,7 +165,7 @@ class PlayerCollection:
         #print('You chose to remove: ' + str(selectedMonster))
 
         #Removes monster instance from DB
-        self.padsql.deleteMonster(selectedMonster)
+        self.pds.deleteMonster(selectedMonster)
 
         #Removes references to the monster
         monsters.pop(selectedMonster)
@@ -164,7 +174,7 @@ class PlayerCollection:
         #print(len(monsters))
 
         self.__RemoveInformation()
-        self.__populateList()
+        self.populateList()
 
     def __RemoveInformation(self):
         '''Removes the information in the monster summary, runs during RemoveMonster'''
@@ -179,22 +189,22 @@ class PlayerCollection:
         self.builder.get_object("canType2").delete("all")
         self.builder.get_object("canType3").delete("all")
 
-global monsters
+#global monsters
 
-#DB connection for unit testing
-pds = PADSQL.PADSQL()
-pds.login('Barbarous', 'No')
+##DB connection for unit testing
+##pds = PADSQL.PADSQL()
+##pds.login('Barbarous', 'No')
 
-monster = pds.selectMonsterInstance()
-instanceIDs = []
+##monster = pds.selectMonsterInstance()
+##instanceIDs = []
 
-# JBM - Modifying collection to Dictionary from List to make Monster Lookup easier
-monsters = dict()
-for i in monster:
-    monsters[i["InstanceID"]] = i
-    instanceIDs.append(i["InstanceID"])
+## JBM - Modifying collection to Dictionary from List to make Monster Lookup easier
+#monsters = dict()
+#for i in monster:
+#    monsters[i["InstanceID"]] = i
+#    instanceIDs.append(i["InstanceID"])
 
-root = tk.Tk()
-app = PlayerCollection(root, instanceIDs, pds)
+#root = tk.Tk()
+#app = PlayerCollection(root, instanceIDs, pds)
 
-root.mainloop()
+#root.mainloop()
