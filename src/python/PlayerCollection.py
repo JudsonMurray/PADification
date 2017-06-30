@@ -57,8 +57,13 @@ class MonsterFrame:
             if i <= self.currentMonster.SkillsAwoke:
                 if self.aSList[i] is not None:
                     self.aSListImg.append(PhotoImage(file = "Resource/PAD/Images/Awoken Skills/" + str(self.aSList[i]) +'.png'))
+                else:
+                    self.aSListImg.append(None)
             else:
-                self.aSListImg.append(None)
+                if self.aSList[i] is not None:
+                    self.aSListImg.append(PhotoImage(file = "Resource/PAD/Images/Awoken Skills/not " + str(self.aSList[i]) +'.png'))
+                else:
+                    self.aSListImg.append(None)
 
         #Removes all the previously selected monster's, if there was one, awoken awoken skills
         self.masterbuilder.get_object("canASOne").delete("all")
