@@ -150,14 +150,14 @@ class EditTeam():
         connection = self.PADsql.connection
 
         #Retrieves monster Instance IDs from database
-        sql = "SELECT InstanceID FROM monsterInstance WHERE Username = 'PADTest'"
+        sql = "SELECT InstanceID FROM monsterInstance WHERE Username = 'KyleTD'"
         playerTable = cursor.execute(sql)
         myMonsters = playerTable.fetchall()
         connection.commit()
 
         #PADification APP signup/login
         #self.PADsql.signup(['PADTest','PADTest','A@a.ap',100000000])
-        self.PADsql.login('PADTest','PADTest')
+        self.PADsql.login('KyleTD','KyleTD')
         self.master = master
         #Create GUI and add title image
         self.builder = builder = pygubu.Builder()
@@ -407,11 +407,18 @@ class EditTeam():
         self.builder.get_object('skillBoostImg').config(image=self.skillBoostImg)
         return
 
+    def selectBadge(self, event):
+        pass
+
+    def cancelTeamEdit(self, event):
+        pass
+
     def saveTeam(self, event):
         x = self.builder.get_variable('teamName').get()
         destroyerTeam.setTeamName(x)
         saveThisTeam = destroyerTeam.getSaveDict()
         self.PADsql.saveTeam(saveThisTeam)
+
 if __name__ == '__main__':
     root = tk.Tk()
     app = EditTeam(root)

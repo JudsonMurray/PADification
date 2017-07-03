@@ -513,11 +513,12 @@ Monster</property>
             <child>
               <object class="tk.Label" id="lblTeamCost">
                 <property name="text" translatable="yes">Cost: 0</property>
-                <property name="width">20</property>
+                <property name="width">25</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
+                  <property name="sticky">w</property>
                 </layout>
               </object>
             </child>
