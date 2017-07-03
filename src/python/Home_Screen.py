@@ -37,3 +37,6 @@ class HomeScreen():
 
     def onMonsterBookClick(self, event):
         self.master.showMonsterBook()
+
+    def onMyMonstersClick(self):
+        self.master.showPlayerCollection()

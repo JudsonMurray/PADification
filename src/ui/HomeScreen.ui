@@ -117,6 +117,7 @@
         </child>
         <child>
           <object class="tk.Button" id="myMonstersButton">
+            <property name="command">onMyMonstersClick</property>
             <property name="text" translatable="yes">My Monsters</property>
             <property name="width">12</property>
             <layout>

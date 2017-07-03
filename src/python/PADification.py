@@ -16,7 +16,7 @@ import pygubu
 #1st Party Modules
 import PADSQL
 import PADMonster
-#import PlayerCollection
+import PlayerCollection
 import MonsterEditScreen
 import Monster_Info_Screen
 import EditTeamScreen
@@ -42,7 +42,7 @@ class PADification(tk.Tk):
         self.accountCreation = AccountCreation.AccountCreation(self)
         self.homeScreen = Home_Screen.HomeScreen(self)
         self.accountOptions = Account_Options_Screen.AccountOptions(self)
-        #self.playerCollection = PlayeCollection.Testing(self)
+        self.playerCollection = PlayerCollection.PlayerCollection(self)
         self.showLoginScreen()
         super().mainloop()
         
@@ -76,10 +76,11 @@ class PADification(tk.Tk):
         self.MonsterBook.mainwindow.grid()
         self.MonsterBook.update()
 
-    #def showPlayerCollection(self)
-    #    """Show Player Collection Screen"""
-    #    self.forgetAll()
-    #    self.playerCollection.mainwindow.grid()
+    def showPlayerCollection(self):
+        """Show Player Collection Screen"""
+        self.forgetAll()
+        self.playerCollection.mainwindow.grid()
+        self.playerCollection.populateList()
 
     #Removes all frames from the screen
     def forgetAll(self):
@@ -89,6 +90,6 @@ class PADification(tk.Tk):
         self.accountCreation.mainwindow.grid_forget()
         self.homeScreen.mainwindow.grid_forget()
         self.accountOptions.mainwindow.grid_forget()
-        #self.playerCollection.mainwindow.grid_forget()
+        self.playerCollection.mainwindow.grid_forget()
 
 PADification()

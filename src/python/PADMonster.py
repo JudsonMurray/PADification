@@ -194,7 +194,7 @@ class Team():
         self.DarkATK = 0
         self.TeamCost = 0
 
-        self.teamBindResist= 0
+        self.skillBindResist= 0
         self.fireDmgReduction = 0
         self.waterDmgReduction = 0
         self.woodDmgReduction = 0
@@ -209,7 +209,8 @@ class Team():
         self.enhancedLightChance = 0
         self.enhancedDarkChance = 0
         self.enhancedHealChance = 0
-        self.moveTime = 4.0
+        self.moveTime = 4.00
+        self.skillBoost = 0
 
         if TeamInstanceDict != None:
             for i in TeamInstanceDict:
@@ -238,7 +239,7 @@ class Team():
         self.LightATK = 0
         self.DarkATK = 0
         self.TeamCost = 0
-        self.teamBindResist= 0
+        self.skillBindResist= 0
         self.fireDmgReduction = 0
         self.waterDmgReduction = 0
         self.woodDmgReduction = 0
@@ -253,7 +254,8 @@ class Team():
         self.enhancedLightChance = 0
         self.enhancedDarkChance = 0
         self.enhancedHealChance = 0
-        self.moveTime = 4.0
+        self.moveTime = 4.00
+        self.skillBoost = 0
 
         for i in self.Monsters:
             self.TeamHP += i.TotalHP
@@ -268,10 +270,14 @@ class Team():
                 elif i.SecAttribute == a:
                     setattr(self,a + 'ATK', getattr(self, a + 'ATK') + (i.TotalATK // 3))
 
-            i.ASList = self.PADSQL.getAwokenSKills()
-            for b in i.ASList:
+            i.ASList= self.PADSQL.getAwokenSkillList(i.MonsterClassID) 
+            i.awokenSkills = []
+            for x in range(1, i.SkillsAwoke - 1):
+                i.awokenSkills.append(i.ASList[x])
+
+            for b in i.awokenSkills:
                 if b == 'Resistance-Skill Bind':
-                    self.teamBindResist += 20
+                    self.skillBindResist += 20
                 if b == 'Enhanced Fire Orbs':
                     self.enhancedFireChance += 20
                 if b == 'EEnhanced Water Orbs':
@@ -285,37 +291,36 @@ class Team():
                 if b == 'Enhanced Heal Orbs':
                     self.enhancedHealChance += 20
                 if b == 'Reduce Fire Damage':
-                    self.fireDmgReduction += 20
+                    self.fireDmgReduction += 1
                 if b == 'Reduce Water Damage':
-                    self.waterDmgReduction += 20
+                    self.waterDmgReduction += 1
                 if b == 'Reduce Wood Damage':
-                    self.woodDmgReduction += 20
+                    self.woodDmgReduction += 1
                 if b == 'Reduce Light Damage':
-                    self.lightDmgReduction += 20
+                    self.lightDmgReduction += 1
                 if b == 'Reduce Dark Damage':
-                    self.darkDmgReduction += 20
+                    self.darkDmgReduction += 1
                 if b == 'Extend Time':
-                    self.moveTime += 0.5
+                    self.moveTime += 0.50
                 if b == 'Resistance-Dark':
                     self.darkResist += 20
                 if b == 'Resistance-Jammers':
                     self.jammerResist += 20
                 if b == 'Resistance-Poison':
                     self.poisonResist += 20
-
+                if b == 'Skill Boost':
+                    self.skillBoost += 1
 
     def getSaveDict(self):
         """Returns a Dictionary to represent an instance"""
         saveDict = {}
         saveVars = ['TeamInstanceID','Username', 'TeamName', 'LeaderMonster',
                     'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 'BadgeName' ]
-        if self.LeaderMonster != None:
-            for i in saveVars:
-                saveDict[i] = getattr(self, i)
+        
+        for i in saveVars:
+            saveDict[i] = getattr(self, i)
 
-            return saveDict
-        else:
-            print('Team requires a Leader')
+        return saveDict
 
     def getTeamName(self):
         """Returns TeamName"""
