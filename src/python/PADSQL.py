@@ -86,12 +86,13 @@ class PADSQL():
                       "FROM (MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName)")
 
         if type(monSearch) == tuple and len(monSearch) == 2:
-            SQLCommand += "WHERE MonsterClassID BETWEEN " + str(monSearch[0]) + " AND " + str(monSearch[1]) + " ORDER BY MonsterClassID ASC"
+            SQLCommand += "WHERE MonsterClassID BETWEEN " + str(monSearch[0]) + " AND " + str(monSearch[1])
         elif type(monSearch) == int:
             SQLCommand += "WHERE MonsterClassID = " + str(monSearch)
         elif type(monSearch) == str:
-            SQLCommand += "WHERE MonsterName LIKE '%" + monSearch + "%'" + " ORDER BY MonsterClassID ASC"
+            SQLCommand += "WHERE MonsterName LIKE '%" + monSearch + "%'"
 
+        SQLCommand += " ORDER BY MonsterClassID ASC"
         self.cursor.execute(SQLCommand)
 
         if dictionary:
@@ -398,3 +399,23 @@ class PADSQL():
                 Evolutions.append(i)
 
         return Evolutions
+
+    def getLeaderSkillDesc(self, LeaderSkillName):
+        """Return LeaderSkill Desc"""
+        if LeaderSkillName != None:
+            if "'" in LeaderSkillName:
+                LeaderSkillName = LeaderSkillName.replace("'", "''")
+
+            SQLCommand = "SELECT LeaderSkillDesc FROM LeaderSkill Where LeaderSkillName = '" + LeaderSkillName + "'"
+            self.cursor.execute(SQLCommand)
+            return self.cursor.fetchone()[0]
+
+    def getActiveSkillDesc(self, ActiveSkillName):
+        """Return ActiveSkill Desc"""
+        if ActiveSkillName != None:
+            if "'" in ActiveSkillName:
+                ActiveSkillName = ActiveSkillName.replace("'", "''")
+
+            SQLCommand = "SELECT ActiveSkillDesc FROM ActiveSkill Where ActiveSkillName = '" + ActiveSkillName + "'"
+            self.cursor.execute(SQLCommand)
+            return self.cursor.fetchone()[0]

@@ -45,6 +45,7 @@ class PADification(tk.Tk):
         #self.playerCollection = PlayeCollection.Testing(self)
         self.showLoginScreen()
         super().mainloop()
+        
 
     #Displays the login screen
     def showLoginScreen(self):
