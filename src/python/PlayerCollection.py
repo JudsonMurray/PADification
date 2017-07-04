@@ -8,6 +8,7 @@
 #   V.1.3   RB  Remove monster functionality works, Monsters now stored in a dictionary
 #   V.1.4   RB  Integrated with the PADification.py
 #   V.1.5   RB  Added currently awoken awoken skills and disabled the monster summary buttons when a monster is not selected
+#   V.1.6   RB  Added a okcancel messagebox when remove monster is clicked and now able to load Edit Monster screen when edit monster is clicked
 #
 
 from tkinter import *
@@ -19,6 +20,7 @@ import sys
 import time
 import PADMonster
 import PADSQL
+import MonsterEditScreen
 
 
 class MonsterFrame:
@@ -139,7 +141,8 @@ class PlayerCollection:
         global buttons
 
         self.pds = master.PADsql
-        
+        self.master = master
+
         buttons =[]
 
         k=-1
@@ -200,18 +203,26 @@ class PlayerCollection:
 
         self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
     
+    def showEditMonster(self):
+        self.monsterEdit = MonsterEditScreen.MonsterEdit(self)
+        self.master.forgetAll()
+        self.monsterEdit.monsteredit.grid()
+
     def RemoveMonster(self):
         '''Removes the selected monster from the DB and all its references, occurs when remove monster button is clicked'''
 
-        #Removes monster instance from DB
-        self.pds.deleteMonster(selectedMonster)
+        tkMessageBox = messagebox.askokcancel("Confirm", "Are your sure you want to remove this monster?")
 
-        #Removes references to the monster
-        monsters.pop(selectedMonster)
-        self.instantList.remove(selectedMonster)
+        if tkMessageBox:
+            #Removes monster instance from DB
+            self.pds.deleteMonster(selectedMonster)
 
-        self.__RemoveInformation()
-        self.populateList()
+            #Removes references to the monster
+            monsters.pop(selectedMonster)
+            self.instantList.remove(selectedMonster)
+
+            self.__RemoveInformation()
+            self.populateList()
 
     def __RemoveInformation(self):
         '''Removes the information in the monster summary, runs during RemoveMonster'''

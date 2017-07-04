@@ -15,7 +15,7 @@ class MonsterEdit:
         self.builder = pygubu.Builder()
 
         self.builder.add_from_file(r"src\ui\Monster Edit UI.ui")
-        self.monsteredit = self.builder.get_object("Monster Edit",master)
+        self.monsteredit = self.builder.get_object("Monster Edit")
 
 #class PADification(tk.Tk):
 #    def __init__(self, screenName = None, baseName = None, className = 'Tk', useTk = 1, sync = 0, use = None):

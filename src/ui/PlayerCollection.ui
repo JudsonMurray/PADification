@@ -164,6 +164,7 @@
             </child>
             <child>
               <object class="tk.Button" id="btnEdit">
+                <property name="command">showEditMonster</property>
                 <property name="text" translatable="yes">Edit Monster Properties</property>
                 <layout>
                   <property name="column">3</property>
