@@ -120,14 +120,14 @@ class MonsterBook():
         count = 0
         for i in range( start , end ):
             self.MonsterFrames[count].update(self.MonsterResults[i])
-            self.MonsterFrames[count].frame.grid(row = count, sticky = tk.W)
+            self.MonsterFrames[count].frame.grid(row = count)
             count += 1
 
         #Ensures canvas does not get to small.
-        size = (end - start) * 108
-        if size < 750:
-            size = 750
-        self.resultsFrame.config(height = size)
+        #size = (end - start) * 108
+        #if size < 750:
+        #    size = 750
+        #self.resultsFrame.config(height = size)
 
         #Update Page Number
         self.builder.get_object("lblPageNumber").config(text = str(self.curPage) + " / " + str(self.maxPage))

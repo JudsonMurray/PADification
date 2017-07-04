@@ -31,6 +31,7 @@ class PADification(tk.Tk):
         super().__init__(screenName, baseName, className, useTk, sync, use)
         # Fix the Size of the Application
         self.minsize(width=1280, height=960)
+        self.maxsize(width=1280, height=960)
         self.resizable(width=False, height=False)
         
         #pypyodbc SQl Object
