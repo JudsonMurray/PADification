@@ -45,7 +45,7 @@ class PADification(tk.Tk):
         self.playerCollection = PlayerCollection.PlayerCollection(self)
         self.teamBrowser = TeamBrowserScreen.TeamBrowser(self)
         self.editTeam = EditTeamScreen.EditTeam(self)
-        self.showTeamBrowser()
+        self.loginScreen()
         super().mainloop()
         
 

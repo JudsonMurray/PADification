@@ -1,13 +1,14 @@
 #!/USR/BIN/ENV PYTHON 3.5
 #   NAME:    KYLE GUNTON
-#   DATE:    06/28/17
+#   DATE:    07/04/17
 #   PURPOSE: FUNCTIONALITY FOR THE EDIT TEAM SCREEN 
 
 #   -V. 0.0.1 -Created base functionality of selection monsters in player collection.
 #   -V. 0.0.2 -Updated functionality of monster selection, added team slots, added remove monster
 #   -V. 0.0.3 -Updated Screen display, updated File Paths
 #   -V. 0.0.4 -Added functionality billy overwrote. Fixed multiple selection of one monster.
-#   -V. 0.0.5 -MAde many miscellaneous bug fixes
+#   -V. 0.0.5 -Made many miscellaneous bug fixes
+#   -V. 0.0.6 -Added save team functionality, started integration with Team Browser Screen 
 
 import pygame
 import tkinter as tk
