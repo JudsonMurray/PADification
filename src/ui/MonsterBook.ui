@@ -142,7 +142,8 @@
             <layout>
               <property name="column">0</property>
               <property name="columnspan">1</property>
-              <property name="padx">6</property>
+              <property name="ipadx">2</property>
+              <property name="padx">12</property>
               <property name="pady">2</property>
               <property name="propagate">True</property>
               <property name="row">1</property>
@@ -159,7 +160,7 @@
               <property name="columnspan">2</property>
               <property name="ipadx">7</property>
               <property name="ipady">4</property>
-              <property name="padx">310</property>
+              <property name="padx">320</property>
               <property name="propagate">True</property>
               <property name="row">1</property>
               <property name="rowspan">1</property>
@@ -170,25 +171,28 @@
         <child>
           <object class="tk.Frame" id="frmPageButtons">
             <property name="height">30</property>
+            <property name="padx">20</property>
             <property name="width">160</property>
             <layout>
               <property name="column">0</property>
               <property name="padx">150</property>
-              <property name="pady">10</property>
-              <property name="propagate">False</property>
+              <property name="pady">5</property>
+              <property name="propagate">True</property>
               <property name="row">3</property>
               <property name="sticky">nw</property>
             </layout>
             <child>
               <object class="tk.Label" id="lblPageNumber">
                 <property name="borderwidth">4</property>
-                <property name="font">{YU} 10 {}</property>
+                <property name="font">{YU} 12 {}</property>
                 <property name="relief">ridge</property>
                 <property name="text" translatable="yes">000 / 000</property>
                 <property name="width">12</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">25</property>
+                  <property name="ipadx">14</property>
+                  <property name="ipady">6</property>
+                  <property name="padx">55</property>
                   <property name="pady">0</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
@@ -198,11 +202,12 @@
             </child>
             <child>
               <object class="tk.Button" id="btnNextPage">
+                <property name="font">{yu} 14 {}</property>
                 <property name="text" translatable="yes">Next</property>
                 <bind add="True" handler="nextPage" sequence="&lt;1&gt;" />
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">125</property>
+                  <property name="padx">200</property>
                   <property name="pady">1</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
@@ -212,6 +217,7 @@
             </child>
             <child>
               <object class="tk.Button" id="btnPrevPage">
+                <property name="font">{yu} 14 {}</property>
                 <property name="text" translatable="yes">Prev</property>
                 <bind add="True" handler="prevPage" sequence="&lt;1&gt;" />
                 <layout>
@@ -230,47 +236,19 @@
           <object class="tk.Label" id="lblResults">
             <property name="anchor">e</property>
             <property name="borderwidth">4</property>
-            <property name="font">{yu} 10 {}</property>
+            <property name="font">{yu} 12 {}</property>
             <property name="relief">ridge</property>
+            <property name="text" translatable="yes">0000 Results Found.</property>
             <property name="width">16</property>
             <layout>
               <property name="column">0</property>
+              <property name="ipadx">3</property>
+              <property name="ipady">6</property>
               <property name="padx">10</property>
-              <property name="pady">10</property>
+              <property name="pady">5</property>
               <property name="propagate">True</property>
               <property name="row">3</property>
               <property name="sticky">nw</property>
-            </layout>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="pygubu.builder.widgets.tkscrolledframe" id="frmMonsterList">
-        <property name="borderwidth">4</property>
-        <property name="relief">groove</property>
-        <property name="scrolltype">vertical</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="columnspan">1</property>
-          <property name="ipadx">338</property>
-          <property name="ipady">378</property>
-          <property name="padx">10</property>
-          <property name="pady">10</property>
-          <property name="propagate">False</property>
-          <property name="row">2</property>
-          <property name="rowspan">2</property>
-          <property name="sticky">n</property>
-        </layout>
-        <child>
-          <object class="tk.Canvas" id="canMonsterList">
-            <property name="height">750</property>
-            <property name="insertofftime">0</property>
-            <property name="width">660</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="propagate">False</property>
-              <property name="row">0</property>
             </layout>
           </object>
         </child>
@@ -805,11 +783,12 @@
       <object class="tk.LabelFrame" id="frmEvoTree">
         <property name="borderwidth">4</property>
         <property name="font">{yu} 14 {}</property>
-        <property name="height">480</property>
+        <property name="height">405</property>
         <property name="text" translatable="yes">Evolution Tree</property>
-        <property name="width">568</property>
+        <property name="width">565</property>
         <layout>
           <property name="column">1</property>
+          <property name="pady">75</property>
           <property name="propagate">False</property>
           <property name="row">3</property>
           <property name="sticky">n</property>
@@ -818,7 +797,7 @@
           <object class="tk.Canvas" id="canEvoTree">
             <property name="background">#c0c0c0</property>
             <property name="borderwidth">5</property>
-            <property name="height">425</property>
+            <property name="height">350</property>
             <property name="relief">raised</property>
             <property name="width">530</property>
             <layout>
@@ -830,6 +809,46 @@
             </layout>
           </object>
         </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Canvas" id="canMonsterList">
+        <property name="borderwidth">0</property>
+        <property name="height">758</property>
+        <property name="insertofftime">0</property>
+        <property name="relief">groove</property>
+        <property name="width">660</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">1</property>
+          <property name="padx">20</property>
+          <property name="pady">5</property>
+          <property name="propagate">False</property>
+          <property name="row">2</property>
+          <property name="rowspan">2</property>
+          <property name="sticky">nw</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="btnAddMonster">
+        <property name="activebackground">#62ff51</property>
+        <property name="background">#c0c0c0</property>
+        <property name="font">{yu} 14 {}</property>
+        <property name="highlightbackground">#62ff51</property>
+        <property name="relief">raised</property>
+        <property name="text" translatable="yes">Add To Collection</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="columnspan">2</property>
+          <property name="ipadx">199</property>
+          <property name="ipady">10</property>
+          <property name="pady">295</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+          <property name="rowspan">2</property>
+          <property name="sticky">nw</property>
+        </layout>
       </object>
     </child>
   </object>
