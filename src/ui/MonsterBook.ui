@@ -143,9 +143,10 @@
               <property name="column">0</property>
               <property name="columnspan">1</property>
               <property name="padx">6</property>
+              <property name="pady">2</property>
               <property name="propagate">True</property>
               <property name="row">1</property>
-              <property name="sticky">w</property>
+              <property name="sticky">nw</property>
             </layout>
           </object>
         </child>
@@ -158,10 +159,87 @@
               <property name="columnspan">2</property>
               <property name="ipadx">7</property>
               <property name="ipady">4</property>
+              <property name="padx">310</property>
               <property name="propagate">True</property>
               <property name="row">1</property>
               <property name="rowspan">1</property>
-              <property name="sticky">e</property>
+              <property name="sticky">nw</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Frame" id="frmPageButtons">
+            <property name="height">30</property>
+            <property name="width">160</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">150</property>
+              <property name="pady">10</property>
+              <property name="propagate">False</property>
+              <property name="row">3</property>
+              <property name="sticky">nw</property>
+            </layout>
+            <child>
+              <object class="tk.Label" id="lblPageNumber">
+                <property name="borderwidth">4</property>
+                <property name="font">{YU} 10 {}</property>
+                <property name="relief">ridge</property>
+                <property name="text" translatable="yes">000 / 000</property>
+                <property name="width">12</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">25</property>
+                  <property name="pady">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">nw</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Button" id="btnNextPage">
+                <property name="text" translatable="yes">Next</property>
+                <bind add="True" handler="nextPage" sequence="&lt;1&gt;" />
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">125</property>
+                  <property name="pady">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">nw</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Button" id="btnPrevPage">
+                <property name="text" translatable="yes">Prev</property>
+                <bind add="True" handler="prevPage" sequence="&lt;1&gt;" />
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">0</property>
+                  <property name="pady">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">nw</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Label" id="lblResults">
+            <property name="anchor">e</property>
+            <property name="borderwidth">4</property>
+            <property name="font">{yu} 10 {}</property>
+            <property name="relief">ridge</property>
+            <property name="width">16</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">10</property>
+              <property name="pady">10</property>
+              <property name="propagate">True</property>
+              <property name="row">3</property>
+              <property name="sticky">nw</property>
             </layout>
           </object>
         </child>
@@ -202,7 +280,7 @@
       <object class="tk.LabelFrame" id="frmMonsterSummary">
         <property name="borderwidth">4</property>
         <property name="font">{yu} 14 {}</property>
-        <property name="height">375</property>
+        <property name="height">285</property>
         <property name="text" translatable="yes">Monster Summary</property>
         <property name="width">568</property>
         <layout>
@@ -217,11 +295,11 @@
             <property name="borderwidth">4</property>
             <property name="height">108</property>
             <property name="relief">ridge</property>
-            <property name="width">108</property>
+            <property name="width">115</property>
             <layout>
               <property name="column">0</property>
-              <property name="padx">20</property>
-              <property name="pady">30</property>
+              <property name="padx">5</property>
+              <property name="pady">5</property>
               <property name="propagate">False</property>
               <property name="row">0</property>
               <property name="rowspan">1</property>
@@ -230,37 +308,23 @@
           </object>
         </child>
         <child>
-          <object class="tk.Label" id="lblID">
+          <object class="tk.Label" id="lblIDName">
             <property name="anchor">w</property>
-            <property name="borderwidth">5</property>
+            <property name="background">#c0c0c0</property>
+            <property name="borderwidth">4</property>
             <property name="font">{yu} 12 {}</property>
             <property name="padx">0</property>
+            <property name="relief">ridge</property>
             <property name="text" translatable="yes">----</property>
-            <property name="width">4</property>
+            <property name="width">45</property>
             <layout>
               <property name="column">0</property>
               <property name="columnspan">1</property>
-              <property name="padx">150</property>
-              <property name="pady">25</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-              <property name="sticky">nw</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Label" id="lblName">
-            <property name="anchor">w</property>
-            <property name="borderwidth">5</property>
-            <property name="font">{yu} 12 {}</property>
-            <property name="padx">0</property>
-            <property name="text" translatable="yes">---</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="columnspan">1</property>
-              <property name="padx">200</property>
-              <property name="pady">25</property>
-              <property name="propagate">True</property>
+              <property name="ipadx">2</property>
+              <property name="ipady">3</property>
+              <property name="padx">135</property>
+              <property name="pady">7</property>
+              <property name="propagate">False</property>
               <property name="row">0</property>
               <property name="sticky">nw</property>
             </layout>
@@ -270,18 +334,19 @@
           <object class="tk.Label" id="lblRarity">
             <property name="anchor">w</property>
             <property name="background">#c0c0c0</property>
-            <property name="borderwidth">2</property>
-            <property name="font">{Yu} 14 {}</property>
+            <property name="borderwidth">4</property>
+            <property name="font">{Yu} 17 {}</property>
             <property name="padx">0</property>
             <property name="relief">ridge</property>
             <property name="text" translatable="yes">---</property>
-            <property name="width">25</property>
+            <property name="width">23</property>
             <layout>
               <property name="column">0</property>
               <property name="columnspan">1</property>
-              <property name="padx">150</property>
-              <property name="pady">55</property>
-              <property name="propagate">True</property>
+              <property name="ipady">3</property>
+              <property name="padx">135</property>
+              <property name="pady">45</property>
+              <property name="propagate">False</property>
               <property name="row">0</property>
               <property name="sticky">nw</property>
             </layout>
@@ -289,47 +354,56 @@
         </child>
         <child>
           <object class="tk.Frame" id="frmTypes">
-            <property name="height">32</property>
-            <property name="width">102</property>
+            <property name="background">#c0c0c0</property>
+            <property name="borderwidth">4</property>
+            <property name="height">42</property>
+            <property name="relief">ridge</property>
+            <property name="width">112</property>
             <layout>
               <property name="column">0</property>
               <property name="columnspan">1</property>
-              <property name="padx">150</property>
-              <property name="pady">85</property>
+              <property name="padx">440</property>
+              <property name="pady">45</property>
               <property name="propagate">False</property>
               <property name="row">0</property>
               <property name="sticky">nw</property>
             </layout>
             <child>
               <object class="tk.Canvas" id="canType1">
+                <property name="background">#c0c0c0</property>
                 <property name="height">32</property>
                 <property name="width">31</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
+                  <property name="sticky">nw</property>
                 </layout>
               </object>
             </child>
             <child>
               <object class="tk.Canvas" id="canType2">
+                <property name="background">#c0c0c0</property>
                 <property name="height">32</property>
                 <property name="width">31</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
+                  <property name="sticky">nw</property>
                 </layout>
               </object>
             </child>
             <child>
               <object class="tk.Canvas" id="canType3">
+                <property name="background">#c0c0c0</property>
                 <property name="height">32</property>
                 <property name="width">31</property>
                 <layout>
                   <property name="column">2</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
+                  <property name="sticky">nw</property>
                 </layout>
               </object>
             </child>
@@ -338,26 +412,33 @@
         <child>
           <object class="tk.Frame" id="frmStatFrame">
             <property name="borderwidth">4</property>
-            <property name="height">150</property>
+            <property name="height">121</property>
             <property name="relief">ridge</property>
-            <property name="width">200</property>
+            <property name="width">125</property>
             <layout>
               <property name="column">0</property>
               <property name="columnspan">2</property>
-              <property name="padx">20</property>
-              <property name="pady">175</property>
+              <property name="padx">5</property>
+              <property name="pady">130</property>
               <property name="propagate">False</property>
               <property name="row">0</property>
-              <property name="sticky">w</property>
+              <property name="sticky">nw</property>
             </layout>
             <child>
               <object class="tk.Label" id="lblLevel">
-                <property name="font">{yu} 14 {}</property>
-                <property name="text" translatable="yes">Level</property>
+                <property name="anchor">w</property>
+                <property name="background">#c0c0c0</property>
+                <property name="borderwidth">1</property>
+                <property name="font">{yu} 12 {}</property>
+                <property name="relief">groove</property>
+                <property name="text" translatable="yes">LVL</property>
+                <property name="width">3</property>
                 <layout>
                   <property name="column">0</property>
+                  <property name="ipadx">3</property>
+                  <property name="padx">2</property>
                   <property name="pady">25</property>
-                  <property name="propagate">True</property>
+                  <property name="propagate">False</property>
                   <property name="row">0</property>
                   <property name="sticky">nw</property>
                 </layout>
@@ -366,14 +447,17 @@
             <child>
               <object class="tk.Label" id="lblHP">
                 <property name="anchor">w</property>
-                <property name="font">{yu} 14 {}</property>
+                <property name="borderwidth">1</property>
+                <property name="font">{yu} 12 {}</property>
                 <property name="padx">0</property>
-                <property name="text" translatable="yes">HP: </property>
-                <property name="width">9</property>
+                <property name="relief">groove</property>
+                <property name="text" translatable="yes">HP   </property>
+                <property name="width">3</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">0</property>
-                  <property name="pady">50</property>
+                  <property name="ipadx">4</property>
+                  <property name="padx">2</property>
+                  <property name="pady">45</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
                   <property name="sticky">nw</property>
@@ -383,13 +467,18 @@
             <child>
               <object class="tk.Label" id="lblATK">
                 <property name="anchor">w</property>
-                <property name="font">{yu} 14 {}</property>
+                <property name="background">#c0c0c0</property>
+                <property name="borderwidth">1</property>
+                <property name="font">{yu} 12 {}</property>
                 <property name="padx">0</property>
-                <property name="text" translatable="yes">ATK: </property>
-                <property name="width">9</property>
+                <property name="relief">groove</property>
+                <property name="text" translatable="yes">ATK</property>
+                <property name="width">3</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="pady">75</property>
+                  <property name="ipadx">4</property>
+                  <property name="padx">2</property>
+                  <property name="pady">65</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
                   <property name="sticky">nw</property>
@@ -399,13 +488,17 @@
             <child>
               <object class="tk.Label" id="lblRCV">
                 <property name="anchor">w</property>
-                <property name="font">{yu} 14 {}</property>
+                <property name="borderwidth">1</property>
+                <property name="font">{yu} 12 {}</property>
                 <property name="padx">0</property>
-                <property name="text" translatable="yes">RCV: </property>
-                <property name="width">9</property>
+                <property name="relief">groove</property>
+                <property name="text" translatable="yes">RCV</property>
+                <property name="width">3</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="pady">100</property>
+                  <property name="ipadx">4</property>
+                  <property name="padx">2</property>
+                  <property name="pady">85</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
                   <property name="sticky">nw</property>
@@ -415,14 +508,17 @@
             <child>
               <object class="tk.Label" id="lblMinLevel">
                 <property name="anchor">e</property>
-                <property name="font">{yu} 14 {}</property>
+                <property name="background">#c0c0c0</property>
+                <property name="borderwidth">1</property>
+                <property name="font">{yu} 12 {}</property>
+                <property name="relief">groove</property>
                 <property name="text" translatable="yes">1</property>
                 <property name="width">4</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">60</property>
+                  <property name="padx">38</property>
                   <property name="pady">25</property>
-                  <property name="propagate">True</property>
+                  <property name="propagate">False</property>
                   <property name="row">0</property>
                   <property name="sticky">nw</property>
                 </layout>
@@ -431,14 +527,16 @@
             <child>
               <object class="tk.Label" id="lblMinHP">
                 <property name="anchor">e</property>
-                <property name="font">{yu} 14 {}</property>
+                <property name="borderwidth">1</property>
+                <property name="font">{yu} 12 {}</property>
                 <property name="padx">0</property>
+                <property name="relief">groove</property>
                 <property name="text" translatable="yes">----</property>
                 <property name="width">4</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">60</property>
-                  <property name="pady">50</property>
+                  <property name="padx">38</property>
+                  <property name="pady">45</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
                   <property name="sticky">nw</property>
@@ -448,14 +546,17 @@
             <child>
               <object class="tk.Label" id="lblMinATK">
                 <property name="anchor">e</property>
-                <property name="font">{yu} 14 {}</property>
+                <property name="background">#c0c0c0</property>
+                <property name="borderwidth">1</property>
+                <property name="font">{yu} 12 {}</property>
                 <property name="padx">0</property>
+                <property name="relief">groove</property>
                 <property name="text" translatable="yes">----</property>
                 <property name="width">4</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">60</property>
-                  <property name="pady">75</property>
+                  <property name="padx">38</property>
+                  <property name="pady">65</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
                   <property name="sticky">nw</property>
@@ -465,14 +566,16 @@
             <child>
               <object class="tk.Label" id="lblMinRCV">
                 <property name="anchor">e</property>
-                <property name="font">{yu} 14 {}</property>
+                <property name="borderwidth">1</property>
+                <property name="font">{yu} 12 {}</property>
                 <property name="padx">0</property>
+                <property name="relief">groove</property>
                 <property name="text" translatable="yes">----</property>
                 <property name="width">4</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">60</property>
-                  <property name="pady">100</property>
+                  <property name="padx">38</property>
+                  <property name="pady">85</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
                   <property name="sticky">nw</property>
@@ -482,12 +585,15 @@
             <child>
               <object class="tk.Label" id="lblMaxLevel">
                 <property name="anchor">e</property>
-                <property name="font">{yu} 14 {}</property>
+                <property name="background">#c0c0c0</property>
+                <property name="borderwidth">1</property>
+                <property name="font">{yu} 12 {}</property>
+                <property name="relief">groove</property>
                 <property name="text" translatable="yes">----</property>
                 <property name="width">4</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">120</property>
+                  <property name="padx">76</property>
                   <property name="pady">25</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
@@ -498,14 +604,17 @@
             <child>
               <object class="tk.Label" id="lblMaxHP">
                 <property name="anchor">e</property>
-                <property name="font">{yu} 14 {}</property>
+                <property name="borderwidth">1</property>
+                <property name="font">{yu} 12 {}</property>
                 <property name="padx">0</property>
+                <property name="relief">groove</property>
                 <property name="text" translatable="yes">----</property>
                 <property name="width">4</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">120</property>
-                  <property name="pady">50</property>
+                  <property name="ipadx">1</property>
+                  <property name="padx">76</property>
+                  <property name="pady">45</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
                   <property name="sticky">nw</property>
@@ -515,14 +624,18 @@
             <child>
               <object class="tk.Label" id="lblMaxATK">
                 <property name="anchor">e</property>
-                <property name="font">{yu} 14 {}</property>
+                <property name="background">#c0c0c0</property>
+                <property name="borderwidth">1</property>
+                <property name="font">{yu} 12 {}</property>
                 <property name="padx">0</property>
+                <property name="relief">groove</property>
                 <property name="text" translatable="yes">----</property>
                 <property name="width">4</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">120</property>
-                  <property name="pady">75</property>
+                  <property name="ipadx">1</property>
+                  <property name="padx">76</property>
+                  <property name="pady">65</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
                   <property name="sticky">nw</property>
@@ -532,14 +645,17 @@
             <child>
               <object class="tk.Label" id="lblMaxRCV">
                 <property name="anchor">e</property>
-                <property name="font">{yu} 14 {}</property>
+                <property name="borderwidth">1</property>
+                <property name="font">{yu} 12 {}</property>
                 <property name="padx">0</property>
+                <property name="relief">groove</property>
                 <property name="text" translatable="yes">----</property>
                 <property name="width">4</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">120</property>
-                  <property name="pady">100</property>
+                  <property name="ipadx">1</property>
+                  <property name="padx">76</property>
+                  <property name="pady">85</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
                   <property name="sticky">nw</property>
@@ -548,11 +664,16 @@
             </child>
             <child>
               <object class="tk.Label" id="Min">
-                <property name="font">{yu} 14 {}</property>
+                <property name="anchor">center</property>
+                <property name="borderwidth">1</property>
+                <property name="font">{yu} 12 {}</property>
+                <property name="relief">groove</property>
                 <property name="text" translatable="yes">Min</property>
+                <property name="width">4</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">75</property>
+                  <property name="padx">38</property>
+                  <property name="pady">3</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
                   <property name="sticky">nw</property>
@@ -561,11 +682,16 @@
             </child>
             <child>
               <object class="tk.Label" id="Max">
-                <property name="font">{yu} 14 {}</property>
+                <property name="anchor">center</property>
+                <property name="borderwidth">1</property>
+                <property name="font">{yu} 12 {}</property>
+                <property name="relief">groove</property>
                 <property name="text" translatable="yes">Max</property>
+                <property name="width">4</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">130</property>
+                  <property name="padx">76</property>
+                  <property name="pady">3</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
                   <property name="sticky">nw</property>
@@ -577,13 +703,13 @@
         <child>
           <object class="tk.Frame" id="frmSkills">
             <property name="borderwidth">4</property>
-            <property name="height">200</property>
+            <property name="height">160</property>
             <property name="relief">ridge</property>
-            <property name="width">290</property>
+            <property name="width">417</property>
             <layout>
               <property name="column">0</property>
-              <property name="padx">260</property>
-              <property name="pady">125</property>
+              <property name="padx">135</property>
+              <property name="pady">91</property>
               <property name="propagate">False</property>
               <property name="row">0</property>
               <property name="sticky">nw</property>
@@ -620,7 +746,7 @@
                 <property name="font">{yu} 8 {}</property>
                 <property name="justify">left</property>
                 <property name="text" translatable="yes">---</property>
-                <property name="wraplength">280</property>
+                <property name="wraplength">380</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="propagate">True</property>
@@ -662,7 +788,7 @@
                 <property name="font">{yu} 8 {}</property>
                 <property name="justify">left</property>
                 <property name="text" translatable="yes">---</property>
-                <property name="wraplength">280</property>
+                <property name="wraplength">380</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="propagate">True</property>
@@ -679,7 +805,7 @@
       <object class="tk.LabelFrame" id="frmEvoTree">
         <property name="borderwidth">4</property>
         <property name="font">{yu} 14 {}</property>
-        <property name="height">380</property>
+        <property name="height">480</property>
         <property name="text" translatable="yes">Evolution Tree</property>
         <property name="width">568</property>
         <layout>
@@ -690,14 +816,15 @@
         </layout>
         <child>
           <object class="tk.Canvas" id="canEvoTree">
-            <property name="borderwidth">2</property>
-            <property name="height">320</property>
-            <property name="relief">groove</property>
+            <property name="background">#c0c0c0</property>
+            <property name="borderwidth">5</property>
+            <property name="height">425</property>
+            <property name="relief">raised</property>
             <property name="width">530</property>
             <layout>
               <property name="column">0</property>
-              <property name="padx">10</property>
-              <property name="pady">10</property>
+              <property name="padx">5</property>
+              <property name="pady">5</property>
               <property name="propagate">False</property>
               <property name="row">0</property>
             </layout>
@@ -720,6 +847,7 @@
       <property name="pady">0</property>
       <property name="propagate">False</property>
       <property name="row">0</property>
+      <property name="sticky">w</property>
     </layout>
     <child>
       <object class="tk.Canvas" id="FrameLabel">
@@ -740,17 +868,21 @@
     </child>
     <child>
       <object class="tk.Label" id="lblMonsterName">
+        <property name="anchor">w</property>
         <property name="background">#a6bbb9</property>
+        <property name="borderwidth">2</property>
         <property name="font">{@Yu Gothic UI} 14 {}</property>
         <property name="padx">1</property>
+        <property name="relief">ridge</property>
         <property name="text" translatable="yes">name</property>
+        <property name="width">42</property>
         <bind add="True" handler="onFrameClick" sequence="&lt;1&gt;" />
         <layout>
           <property name="column">2</property>
           <property name="columnspan">1</property>
           <property name="ipadx">0</property>
           <property name="ipady">0</property>
-          <property name="propagate">True</property>
+          <property name="propagate">False</property>
           <property name="row">0</property>
           <property name="rowspan">1</property>
           <property name="sticky">sw</property>
@@ -765,14 +897,14 @@
         <property name="font">{@Yu Gothic UI} 14 {}</property>
         <property name="relief">ridge</property>
         <property name="text" translatable="yes">Rarity</property>
-        <property name="width">20</property>
+        <property name="width">42</property>
         <bind add="True" handler="onFrameClick" sequence="&lt;1&gt;" />
         <layout>
           <property name="column">2</property>
           <property name="columnspan">1</property>
           <property name="ipadx">0</property>
           <property name="ipady">0</property>
-          <property name="propagate">True</property>
+          <property name="propagate">False</property>
           <property name="row">1</property>
           <property name="rowspan">1</property>
           <property name="sticky">w</property>
@@ -786,6 +918,7 @@
         <property name="font">{Yu} 24 {}</property>
         <property name="text" translatable="yes">0</property>
         <property name="width">4</property>
+        <bind add="True" handler="onFrameClick" sequence="&lt;1&gt;" />
         <layout>
           <property name="column">0</property>
           <property name="propagate">False</property>
@@ -799,6 +932,7 @@
         <property name="background">#a6bbb9</property>
         <property name="height">32</property>
         <property name="width">102</property>
+        <bind add="True" handler="onFrameClick" sequence="&lt;1&gt;" />
         <layout>
           <property name="column">2</property>
           <property name="columnspan">1</property>
@@ -812,6 +946,7 @@
             <property name="borderwidth">0</property>
             <property name="height">32</property>
             <property name="width">31</property>
+            <bind add="True" handler="onFrameClick" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">0</property>
               <property name="propagate">False</property>
@@ -825,6 +960,7 @@
             <property name="borderwidth">0</property>
             <property name="height">32</property>
             <property name="width">31</property>
+            <bind add="True" handler="onFrameClick" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">1</property>
               <property name="propagate">False</property>
@@ -837,6 +973,7 @@
             <property name="background">#a6bbb9</property>
             <property name="height">32</property>
             <property name="width">31</property>
+            <bind add="True" handler="onFrameClick" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">2</property>
               <property name="propagate">False</property>
