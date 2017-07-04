@@ -45,9 +45,8 @@ class PADification(tk.Tk):
         self.playerCollection = PlayerCollection.PlayerCollection(self)
         self.teamBrowser = TeamBrowserScreen.TeamBrowser(self)
         self.editTeam = EditTeamScreen.EditTeam(self)
-        self.loginScreen()
+        self.showLoginScreen()
         super().mainloop()
-        
 
     #Displays the login screen
     def showLoginScreen(self):
@@ -63,7 +62,7 @@ class PADification(tk.Tk):
 
     #Displays the home screen
     def showHomeScreen(self):
-        """Show Home Screen"""
+        """Show Home Screen""" 
         self.forgetAll()
         self.homeScreen.mainwindow.grid()
 

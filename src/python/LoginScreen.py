@@ -38,7 +38,7 @@ class LoginScreen:
 
     def onLoginClick(self, event):
         """Occurs When Login Button Is Clicked"""
-        self.master.PADsql.login(self.builder.get_variable('Username').get(), self.builder.get_variable('Password').get())
+        self.master.PADsql.login(self.builder.get_variable('isUsername').get(), self.builder.get_variable('isPassword').get())
         if self.master.PADsql.signedIn:
             self.master.showHomeScreen()
         else:

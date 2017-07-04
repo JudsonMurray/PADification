@@ -1,6 +1,6 @@
 #!/USR/BIN/ENV PYTHON 3.5
 #   NAME:    KYLE GUNTON
-#   DATE:    07/04/17
+#   DATE:    07/02/17
 #   PURPOSE: FUNCTIONALITY FOR THE BROWSE TEAM SCREEN 
 
 
@@ -14,7 +14,7 @@ import pypyodbc
 import sys
 import PADSQL
 import PADMonster
-import EditTeamScreen
+
 #variables to tell which monsters are selected within the collection
 global leadMon, sub1, sub2, sub3, sub4
 leadMon = sub1 = sub2 = sub3 = sub4 = None

@@ -1,14 +1,13 @@
 #!/USR/BIN/ENV PYTHON 3.5
 #   NAME:    KYLE GUNTON
-#   DATE:    07/04/17
+#   DATE:    06/28/17
 #   PURPOSE: FUNCTIONALITY FOR THE EDIT TEAM SCREEN 
 
 #   -V. 0.0.1 -Created base functionality of selection monsters in player collection.
 #   -V. 0.0.2 -Updated functionality of monster selection, added team slots, added remove monster
 #   -V. 0.0.3 -Updated Screen display, updated File Paths
 #   -V. 0.0.4 -Added functionality billy overwrote. Fixed multiple selection of one monster.
-#   -V. 0.0.5 -Made many miscellaneous bug fixes
-#   -V. 0.0.6 -Added save team functionality, started integration with Team Browser Screen 
+#   -V. 0.0.5 -MAde many miscellaneous bug fixes
 
 import pygame
 import tkinter as tk
@@ -20,7 +19,7 @@ import pypyodbc
 import sys
 import PADSQL
 import PADMonster
-import TeamBrowserScreen
+
 #variables to tell which monsters are selected within the collection
 global leadMon, sub1, sub2, sub3, sub4
 leadMon = sub1 = sub2 = sub3 = sub4 = None
@@ -142,8 +141,9 @@ class EditTeam():
         myMonsterList = []
         var = IntVar(0)
         teamMonsterSelected = Radiobutton(text='', variable=var, value=0)
+        self.master = master
         
-        self.PADsql = PADSQL.PADSQL()
+        self.PADsql = self.master.PADsql
 
         #Connect to Database
         self.PADsql.connect()
@@ -151,15 +151,14 @@ class EditTeam():
         connection = self.PADsql.connection
 
         #Retrieves monster Instance IDs from database
-        sql = "SELECT InstanceID FROM monsterInstance WHERE Username = 'KyleTD'"
+        sql = "SELECT InstanceID FROM monsterInstance WHERE Username = ''"
         playerTable = cursor.execute(sql)
         myMonsters = playerTable.fetchall()
         connection.commit()
 
         #PADification APP signup/login
         #self.PADsql.signup(['PADTest','PADTest','A@a.ap',100000000])
-        self.PADsql.login('KyleTD','KyleTD')
-        self.master = master
+        #self.PADsql.login('KyleTD','KyleTD')
         #Create GUI and add title image
         self.builder = builder = pygubu.Builder()
         builder.add_from_file('src/ui/EditTeam.ui')
