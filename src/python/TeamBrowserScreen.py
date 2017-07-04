@@ -1,6 +1,6 @@
 #!/USR/BIN/ENV PYTHON 3.5
 #   NAME:    KYLE GUNTON
-#   DATE:    07/02/17
+#   DATE:    07/04/17
 #   PURPOSE: FUNCTIONALITY FOR THE BROWSE TEAM SCREEN 
 
 
@@ -14,7 +14,7 @@ import pypyodbc
 import sys
 import PADSQL
 import PADMonster
-
+import EditTeamScreen
 #variables to tell which monsters are selected within the collection
 global leadMon, sub1, sub2, sub3, sub4
 leadMon = sub1 = sub2 = sub3 = sub4 = None
@@ -32,7 +32,6 @@ class TeamBrowser():
         myMonsterList = []
         var = IntVar(0)
         teamMonsterSelected = Radiobutton(text='', variable=var, value=0)
-        
         self.PADsql = PADSQL.PADSQL()
         #Connect to Database
         self.PADsql.connect()
@@ -51,7 +50,7 @@ class TeamBrowser():
         
         destroyerTeamBase = self.PADsql.selectTeamInstance(teamID[0][0])
         destroyerTeam = PADMonster.Team(self.PADsql)
-
+        
         #PADification APP signup/login
         #self.PADsql.signup(['PADTest','PADTest','A@a.ap',100000000])
         self.master = master
@@ -66,17 +65,35 @@ class TeamBrowser():
 
         #Populates lists with monsterIDs
         self.teamListBox = builder.get_object('teamListBox')
+
         for i in range(0,len(teamID)):
             qq = str(teamID[i][0])
             self.teamListBox.insert(END, qq)
+        
+        self.updateTeam(int(self.teamListBox.get(0)))
         self.teamListBox.bind("<ButtonRelease-1>", self.teamSelect)
+        self.builder.connect_callbacks(self)
+
+    def newTeam(self, event):
+        """Show Login Screen"""
+        self.master.showEditTeamScreen(None)
+
+    def btnEditTeam(self, event):
+        edit = self.master.editTeam
+        edit.loadTeam(destroyerTeam.TeamInstanceID)
+        self.master.showEditTeamScreen(destroyerTeam.TeamInstanceID)
+
     def teamSelect(self, event):
         teamID = self.teamListBox.get(ANCHOR)
+        if teamID == '': 
+            teamID = self.teamListBox.get(0)
         self.updateTeam(int(teamID))
         print('s')
+
     def updateTeam(self, i):
         global myMonsters
         global monsterClassIDs
+        destroyerTeam.TeamInstanceID = i
         sql = "SELECT LeaderMonster, SubMonsterOne ,SubMonsterTwo, SubMonsterThree, SubMonsterFour FROM team WHERE TeamInstanceID = {}".format(str(i))
         playerTable = cursor.execute(sql)
         myMonsters = playerTable.fetchall()
@@ -105,6 +122,7 @@ class TeamBrowser():
         monsterClassIDs = []
         global myMonsterList
         myMonsterList = []
+
         for i in myMonsters[0]:
             
             if i != None:

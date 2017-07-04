@@ -36,6 +36,16 @@
           <property name="rowspan">5</property>
         </layout>
         <child>
+          <object class="tk.Label" id="Label_5">
+            <property name="text" translatable="yes">Label_5</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
           <object class="tk.Listbox" id="teamListBox">
             <property name="height">17</property>
             <property name="listvariable">string:teamSelected</property>
@@ -45,7 +55,29 @@
             <layout>
               <property name="column">0</property>
               <property name="propagate">True</property>
-              <property name="row">0</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="btnNewTeam">
+            <property name="text" translatable="yes">Add New Team</property>
+            <bind add="True" handler="newTeam" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">2</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="Button_2">
+            <property name="text" translatable="yes">Edit Team</property>
+            <bind add="True" handler="btnEditTeam" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">3</property>
             </layout>
           </object>
         </child>

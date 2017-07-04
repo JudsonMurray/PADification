@@ -25,7 +25,7 @@ import AccountCreation
 import Home_Screen
 import Account_Options_Screen
 import MonsterBook
-
+import TeamBrowserScreen
 class PADification(tk.Tk):
     def __init__(self, screenName = None, baseName = None, className = 'Tk', useTk = 1, sync = 0, use = None):
         super().__init__(screenName, baseName, className, useTk, sync, use)
@@ -44,7 +44,9 @@ class PADification(tk.Tk):
         self.homeScreen = Home_Screen.HomeScreen(self)
         self.accountOptions = Account_Options_Screen.AccountOptions(self)
         self.playerCollection = PlayerCollection.PlayerCollection(self)
-        self.showLoginScreen()
+        self.teamBrowser = TeamBrowserScreen.TeamBrowser(self)
+        self.editTeam = EditTeamScreen.EditTeam(self)
+        self.loginScreen()
         super().mainloop()
         
 
@@ -83,6 +85,17 @@ class PADification(tk.Tk):
         self.playerCollection.mainwindow.grid()
         self.playerCollection.populateList()
 
+    def showTeamBrowser(self):
+        """Show Login Screen"""
+        self.forgetAll()
+        self.teamBrowser.mainwindow.grid()
+
+    def showEditTeamScreen(self, instance):
+        """Show Login Screen"""
+        self.forgetAll()
+        self.editTeam.mainwindow.grid()
+
+
     #Removes all frames from the screen
     def forgetAll(self):
         """Forgets all frames"""
@@ -92,5 +105,7 @@ class PADification(tk.Tk):
         self.homeScreen.mainwindow.grid_forget()
         self.accountOptions.mainwindow.grid_forget()
         self.playerCollection.mainwindow.grid_forget()
+        self.teamBrowser.mainwindow.grid_forget()
+        self.editTeam.mainwindow.grid_forget()
 
 PADification()

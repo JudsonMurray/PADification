@@ -37,9 +37,7 @@
     </child>
     <child>
       <object class="tk.Button" id="Create Account">
-        <property name="command">onCreateAccountClick</property>
         <property name="text" translatable="yes">Create Account</property>
-        <bind add="True" handler="onCreateAccountClick" sequence="&lt;1&gt;" />
         <layout>
           <property name="column">0</property>
           <property name="columnspan">1</property>
@@ -52,7 +50,9 @@
     <child>
       <object class="tk.Entry" id="Username">
         <property name="text" translatable="yes">Username</property>
-        <property name="textvariable">string:Username</property>
+        <property name="textvariable">string:isUsername</property>
+        <bind add="True" handler="onUsernameFocusIn" sequence="&lt;FocusIn&gt;" />
+        <bind add="True" handler="onUsernameFocusOut" sequence="&lt;FocusOut&gt;" />
         <layout>
           <property name="column">0</property>
           <property name="columnspan">1</property>
@@ -64,7 +64,9 @@
     <child>
       <object class="tk.Entry" id="Password">
         <property name="text" translatable="yes">Password</property>
-        <property name="textvariable">string:Password</property>
+        <property name="textvariable">string:isPassword</property>
+        <bind add="True" handler="onPasswordFocusIn" sequence="&lt;FocusIn&gt;" />
+        <bind add="True" handler="onPasswordFocusOut" sequence="&lt;FocusOut&gt;" />
         <layout>
           <property name="column">0</property>
           <property name="columnspan">1</property>
