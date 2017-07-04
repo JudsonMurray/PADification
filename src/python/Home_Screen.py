@@ -40,3 +40,6 @@ class HomeScreen():
 
     def onMyMonstersClick(self):
         self.master.showPlayerCollection()
+
+    def onMyTeamsClick(self, event):
+        self.master.showTeamBrowser()

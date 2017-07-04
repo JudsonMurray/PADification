@@ -31,11 +31,11 @@ class PADification(tk.Tk):
         super().__init__(screenName, baseName, className, useTk, sync, use)
         # Fix the Size of the Application
         self.minsize(width=1280, height=960)
-        self.maxsize(width=1280, height=960)
         self.resizable(width=False, height=False)
         
         #pypyodbc SQl Object
         self.PADsql = PADSQL.PADSQL()
+
 
         #screens
         self.MonsterBook = MonsterBook.MonsterBook(self)
@@ -87,6 +87,7 @@ class PADification(tk.Tk):
     def showTeamBrowser(self):
         """Show Login Screen"""
         self.forgetAll()
+        self.teamBrowser.loadUserTeams()
         self.teamBrowser.mainwindow.grid()
 
     def showEditTeamScreen(self, instance):

@@ -24,7 +24,6 @@ class TeamBrowser():
     def __init__(self, master):
         #Declare Global Variables
         global monsterClassIDs, myMonsterList, teamMonsterSelected, myMonsters
-        global connection, cursor
         global state, destroyerTeam, var, buttons
         buttons = []
         state = []
@@ -32,24 +31,8 @@ class TeamBrowser():
         myMonsterList = []
         var = IntVar(0)
         teamMonsterSelected = Radiobutton(text='', variable=var, value=0)
-        self.PADsql = PADSQL.PADSQL()
-        #Connect to Database
-        self.PADsql.connect()
-        cursor = self.PADsql.cursor
-        connection = self.PADsql.connection
-        self.PADsql.login('KyleTD','KyleTD')
+        self.PADsql = master.PADsql
 
-        sql = ("SELECT TeamInstanceID FROM team WHERE Username = {}").format("'"+self.PADsql.Username+"'")
-        team = cursor.execute(sql)
-        teamID = team.fetchall()
-        #Retrieves monster Instance IDs from database
-        sql = "SELECT LeaderMonster, SubMonsterOne ,SubMonsterTwo, SubMonsterThree, SubMonsterFour FROM team WHERE TeamInstanceID = {}".format(teamID[0][0])
-        playerTable = cursor.execute(sql)
-        myMonsters = playerTable.fetchall()
-        connection.commit()
-        
-        destroyerTeamBase = self.PADsql.selectTeamInstance(teamID[0][0])
-        destroyerTeam = PADMonster.Team(self.PADsql)
         
         #PADification APP signup/login
         #self.PADsql.signup(['PADTest','PADTest','A@a.ap',100000000])
@@ -64,15 +47,34 @@ class TeamBrowser():
         x=0
 
         #Populates lists with monsterIDs
-        self.teamListBox = builder.get_object('teamListBox')
+        self.builder.connect_callbacks(self)
 
-        for i in range(0,len(teamID)):
-            qq = str(teamID[i][0])
+    def loadUserTeams(self):
+        global destroyerTeam
+        self.connection = self.PADsql.connection
+        teams = self.PADsql.selectTeamInstance()
+
+        if len(teams) == 0:
+            sql = ("INSERT INTO team (Username, TeamName,LeaderMonster,SubMonsterOne,SubMonsterTwo,SubMonsterThree,SubMonsterFour,BadgeName) Values" "('" + self.PADsql.Username + "','Noctis',NULL,NULL,NULL,NULL,NULL,NULL)")
+            self.PADsql.cursor.execute(sql)
+            teams = self.PADsql.selectTeamInstance()
+        #Retrieves monster Instance IDs from database
+        sql = "SELECT LeaderMonster, SubMonsterOne ,SubMonsterTwo, SubMonsterThree, SubMonsterFour FROM team WHERE TeamInstanceID = {}".format(teams[0]['TeamInstanceID'])
+        playerTable = self.PADsql.cursor.execute(sql)
+        myMonsters = playerTable.fetchall()
+        self.PADsql.connection.commit()
+        
+        destroyerTeamBase = self.PADsql.selectTeamInstance(teams[0]['TeamInstanceID'])
+        destroyerTeam = PADMonster.Team(self.PADsql)
+        self.teamListBox = self.builder.get_object('teamListBox')
+        self.teamListBox.delete(0, END)
+        for i in range(0,len(teams)):
+            qq = str(teams[i]['TeamInstanceID'])
             self.teamListBox.insert(END, qq)
         
-        self.updateTeam(int(self.teamListBox.get(0)))
         self.teamListBox.bind("<ButtonRelease-1>", self.teamSelect)
-        self.builder.connect_callbacks(self)
+        self.updateTeam(int(self.teamListBox.get(0)))
+        return
 
     def newTeam(self, event):
         """Show Login Screen"""
@@ -95,7 +97,7 @@ class TeamBrowser():
         global monsterClassIDs
         destroyerTeam.TeamInstanceID = i
         sql = "SELECT LeaderMonster, SubMonsterOne ,SubMonsterTwo, SubMonsterThree, SubMonsterFour FROM team WHERE TeamInstanceID = {}".format(str(i))
-        playerTable = cursor.execute(sql)
+        playerTable = self.PADsql.cursor.execute(sql)
         myMonsters = playerTable.fetchall()
 
         destroyerTeamBase = self.PADsql.selectTeamInstance(i)
@@ -128,7 +130,7 @@ class TeamBrowser():
             if i != None:
                 sql = "SELECT MonsterClassID FROM monsterInstance WHERE InstanceID = {}".format(i)
             
-                myMonster = cursor.execute(sql)
+                myMonster = self.PADsql.cursor.execute(sql)
                 myMonster = myMonster.fetchone()
                 myMonster = str(myMonster).replace("(", "")
                 monsterClass = myMonster.replace(",)", "")

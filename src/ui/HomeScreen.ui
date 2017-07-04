@@ -147,6 +147,7 @@
           <object class="tk.Button" id="myTeamsButton">
             <property name="text" translatable="yes">My Teams</property>
             <property name="width">12</property>
+            <bind add="True" handler="onMyTeamsClick" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">3</property>
               <property name="padx">40</property>

@@ -482,10 +482,11 @@ class EditTeam():
         x = self.builder.get_variable('teamName').get()
         destroyerTeam.setTeamName(x)
         saveThisTeam = destroyerTeam.getSaveDict()
+        saveThisTeam['TeamInstanceID'] = self.teamInstance
+        saveThisTeam['Username'] = self.PADsql.Username
         self.PADsql.saveTeam(saveThisTeam)
         tb = self.master.teamBrowser
         #self.builder.get_object('')
-        tb.teamListBox.insert(END, str(destroyerTeam.TeamInstanceID))
         zz =destroyerTeam.TeamInstanceID
         self.master.showTeamBrowser()
 
