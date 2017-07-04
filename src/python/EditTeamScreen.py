@@ -19,7 +19,7 @@ import pypyodbc
 import sys
 import PADSQL
 import PADMonster
-
+import TeamBrowserScreen
 #variables to tell which monsters are selected within the collection
 global leadMon, sub1, sub2, sub3, sub4
 leadMon = sub1 = sub2 = sub3 = sub4 = None
@@ -233,6 +233,71 @@ class EditTeam():
             self.canvas.config(height=1000) 
         
         self.builder.connect_callbacks(self)
+        
+    def loadTeam(self, instance):
+        self.teamInstance = instance
+        self.updateTeam(self.teamInstance)
+        for i in buttons:
+            i.monbut
+            x = 1
+        return
+
+    def updateTeam(self, i):
+        sql = "SELECT LeaderMonster, SubMonsterOne ,SubMonsterTwo, SubMonsterThree, SubMonsterFour FROM team WHERE TeamInstanceID = {}".format(str(i))
+        playerTable = cursor.execute(sql)
+        monMonsters = playerTable.fetchall()
+
+        destroyerTeamBase = self.PADsql.selectTeamInstance(i)
+        if destroyerTeamBase[0]['LeaderMonster'] != None:
+            destroyerTeam.setLeaderMonster(destroyerTeamBase[0]['LeaderMonster'])
+        else:
+            destroyerTeam.setLeaderMonster()
+        if destroyerTeamBase[0]['SubMonsterOne'] != None:
+            destroyerTeam.setSubMonsterOne(destroyerTeamBase[0]['SubMonsterOne'])
+        else:
+            destroyerTeam.setSubMonsterOne()
+        if destroyerTeamBase[0]['SubMonsterTwo'] != None:
+            destroyerTeam.setSubMonsterTwo(destroyerTeamBase[0]['SubMonsterTwo'])
+        else:
+            destroyerTeam.setSubMonsterTwo()
+        if destroyerTeamBase[0]['SubMonsterThree'] != None:
+            destroyerTeam.setSubMonsterThree(destroyerTeamBase[0]['SubMonsterThree'])
+        else:
+            destroyerTeam.setSubMonsterThree()
+        if destroyerTeamBase[0]['SubMonsterFour'] != None:
+            destroyerTeam.setSubMonsterFour(destroyerTeamBase[0]['SubMonsterFour'])
+        else:
+            destroyerTeam.setSubMonsterFour()
+        mClassIDs = []
+        global myMonsterList
+        self.myMonsterL = []
+
+        for i in monMonsters[0]:
+            
+            if i != None:
+                sql = "SELECT MonsterClassID FROM monsterInstance WHERE InstanceID = {}".format(i)
+            
+                self.myMonster = cursor.execute(sql)
+                self.myMonster = self.myMonster.fetchone()
+                self.myMonster = str(self.myMonster).replace("(", "")
+                monsterClass = self.myMonster.replace(",)", "")
+                mClassIDs += monsterClass,
+                self.myMonster= tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(monsterClass) + '.png')
+            else:
+                self.myMonster = None
+            self.myMonsterL.append(self.myMonster)
+        self.canLeadMon = self.builder.get_object('canLeadMon')
+        self.canSubMon1 = self.builder.get_object('canSubMon1')
+        self.canSubMon2 = self.builder.get_object('canSubMon2')
+        self.canSubMon3 = self.builder.get_object('canSubMon3')
+        self.canSubMon4 = self.builder.get_object('canSubMon4')
+        self.canLeadMon.create_image(7,7,image = self.myMonsterL[0], anchor = tk.NW, tag = "pic")
+        self.canSubMon1.create_image(7,7,image = self.myMonsterL[1], anchor = tk.NW, tag = "pic")
+        self.canSubMon2.create_image(7,7,image = self.myMonsterL[2], anchor = tk.NW, tag = "pic")
+        self.canSubMon3.create_image(7,7,image = self.myMonsterL[3], anchor = tk.NW, tag = "pic")
+        self.canSubMon4.create_image(7,7,image = self.myMonsterL[4], anchor = tk.NW, tag = "pic")
+        self.updateTeamLabels()
+        self.updateTeamLabelImages()
 
     def raiseTeam(self):
         """returns team selection to raised relief"""
@@ -411,13 +476,18 @@ class EditTeam():
         pass
 
     def cancelTeamEdit(self, event):
-        pass
+        self.master.showTeamBrowser()
 
     def saveTeam(self, event):
         x = self.builder.get_variable('teamName').get()
         destroyerTeam.setTeamName(x)
         saveThisTeam = destroyerTeam.getSaveDict()
         self.PADsql.saveTeam(saveThisTeam)
+        tb = self.master.teamBrowser
+        #self.builder.get_object('')
+        tb.teamListBox.insert(END, str(destroyerTeam.TeamInstanceID))
+        zz =destroyerTeam.TeamInstanceID
+        self.master.showTeamBrowser()
 
 if __name__ == '__main__':
     root = tk.Tk()
