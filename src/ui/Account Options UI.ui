@@ -11,6 +11,17 @@
       <property name="rowspan">10</property>
     </layout>
     <child>
+      <object class="tk.Canvas" id="TitleCanvas">
+        <property name="height">200</property>
+        <property name="width">1280</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
       <object class="tk.Frame" id="ScreenInfo">
         <property name="borderwidth">5</property>
         <property name="height">50</property>
@@ -21,7 +32,7 @@
           <property name="columnspan">4</property>
           <property name="pady">15</property>
           <property name="propagate">False</property>
-          <property name="row">1</property>
+          <property name="row">2</property>
         </layout>
         <child>
           <object class="tk.Label" id="Info Label">
@@ -41,13 +52,13 @@ Various actions you may perform upon your account</property>
     <child>
       <object class="tk.Frame" id="Player Options">
         <property name="borderwidth">5</property>
-        <property name="height">700</property>
+        <property name="height">550</property>
         <property name="relief">raised</property>
-        <property name="width">1200</property>
+        <property name="width">900</property>
         <layout>
           <property name="column">0</property>
           <property name="propagate">False</property>
-          <property name="row">2</property>
+          <property name="row">3</property>
         </layout>
         <child>
           <object class="tk.Frame" id="ID">
@@ -57,8 +68,8 @@ Various actions you may perform upon your account</property>
             <property name="width">200</property>
             <layout>
               <property name="column">0</property>
-              <property name="padx">500</property>
-              <property name="pady">15</property>
+              <property name="padx">350</property>
+              <property name="pady">10</property>
               <property name="propagate">False</property>
               <property name="row">0</property>
             </layout>
@@ -84,7 +95,7 @@ Various actions you may perform upon your account</property>
             <property name="width">200</property>
             <layout>
               <property name="column">0</property>
-              <property name="pady">15</property>
+              <property name="pady">10</property>
               <property name="propagate">False</property>
               <property name="row">1</property>
             </layout>
@@ -110,7 +121,7 @@ Various actions you may perform upon your account</property>
             <property name="width">200</property>
             <layout>
               <property name="column">0</property>
-              <property name="pady">15</property>
+              <property name="pady">10</property>
               <property name="propagate">False</property>
               <property name="row">2</property>
             </layout>
@@ -119,6 +130,8 @@ Various actions you may perform upon your account</property>
                 <property name="text" translatable="yes">Email</property>
                 <layout>
                   <property name="column">0</property>
+                  <property name="padx">80</property>
+                  <property name="pady">8</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
                 </layout>
@@ -134,7 +147,7 @@ Various actions you may perform upon your account</property>
             <property name="width">200</property>
             <layout>
               <property name="column">0</property>
-              <property name="pady">15</property>
+              <property name="pady">10</property>
               <property name="propagate">False</property>
               <property name="row">3</property>
             </layout>
@@ -155,6 +168,8 @@ Various actions you may perform upon your account</property>
               <object class="tk.Entry" id="New Email">
                 <property name="text" translatable="yes">New Email</property>
                 <property name="width">30</property>
+                <bind add="True" handler="onEmailFocusIn" sequence="&lt;FocusIn&gt;" />
+                <bind add="True" handler="onEmailFocusOut" sequence="&lt;FocusOut&gt;" />
                 <layout>
                   <property name="column">0</property>
                   <property name="propagate">True</property>
@@ -173,7 +188,7 @@ Various actions you may perform upon your account</property>
             <property name="width">200</property>
             <layout>
               <property name="column">0</property>
-              <property name="pady">15</property>
+              <property name="pady">10</property>
               <property name="propagate">False</property>
               <property name="row">4</property>
             </layout>
@@ -194,6 +209,8 @@ Various actions you may perform upon your account</property>
               <object class="tk.Entry" id="New Password">
                 <property name="text" translatable="yes">New Password</property>
                 <property name="width">30</property>
+                <bind add="True" handler="onPasswordFocusIn" sequence="&lt;FocusIn&gt;" />
+                <bind add="" handler="onPasswordFocusOut" sequence="&lt;FocusOut&gt;" />
                 <layout>
                   <property name="column">0</property>
                   <property name="propagate">True</property>
@@ -206,6 +223,8 @@ Various actions you may perform upon your account</property>
               <object class="tk.Entry" id="Confirm New Password">
                 <property name="text" translatable="yes">Confirm New Password</property>
                 <property name="width">30</property>
+                <bind add="True" handler="onNewPassFocusIn" sequence="&lt;FocusIn&gt;" />
+                <bind add="True" handler="onNewPassFocusOut" sequence="&lt;FocusOut&gt;" />
                 <layout>
                   <property name="column">0</property>
                   <property name="propagate">True</property>
@@ -221,10 +240,10 @@ Various actions you may perform upon your account</property>
             <property name="text" translatable="yes">Apply Changes</property>
             <layout>
               <property name="column">0</property>
-              <property name="ipadx">30</property>
-              <property name="ipady">20</property>
-              <property name="pady">30</property>
-              <property name="propagate">True</property>
+              <property name="ipadx">20</property>
+              <property name="ipady">5</property>
+              <property name="pady">10</property>
+              <property name="propagate">False</property>
               <property name="row">5</property>
             </layout>
           </object>
@@ -239,9 +258,9 @@ Various actions you may perform upon your account</property>
         <property name="width">1280</property>
         <layout>
           <property name="column">0</property>
-          <property name="pady">40</property>
+          <property name="pady">25</property>
           <property name="propagate">False</property>
-          <property name="row">3</property>
+          <property name="row">4</property>
         </layout>
         <child>
           <object class="tk.Label" id="Label_7">
