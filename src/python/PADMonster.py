@@ -38,6 +38,8 @@ class Monster():
         self.CurFodder = None
         self.MonsterPointValue = None
         self.LSSlots = None
+        self.ActiveSkillDesc = None
+        self.LeaderSkillDesc = None
 
         #ActiveSkill Variables
         self.ActiveSkillMaxLevel = 0

@@ -81,21 +81,22 @@ class PADSQL():
            a tuple of 2 INT for Range, a string of monsterName for a like search or empty for entire collection.
            Returns a List of Tuples"""
 
-        SQLCommand = ("SELECT MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, LSSlots, "
-                      "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown "
-                      "FROM (MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName)")
+        SQLCommand = ("SELECT MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSKill.LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, LSSlots, "
+                      "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, ActiveSkill.ActiveSkillDesc, LeaderSKill.LeaderSkillDesc "
+                      "FROM ((MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) LEFT OUTER JOIN LeaderSkill ON MonsterClass.LeaderSkillName = LeaderSKill.LeaderSkillName) ")
 
         if type(monSearch) == tuple and len(monSearch) == 2:
-            SQLCommand += "WHERE MonsterClassID BETWEEN " + str(monSearch[0]) + " AND " + str(monSearch[1]) + " ORDER BY MonsterClassID ASC"
+            SQLCommand += "WHERE MonsterClassID BETWEEN " + str(monSearch[0]) + " AND " + str(monSearch[1])
         elif type(monSearch) == int:
             SQLCommand += "WHERE MonsterClassID = " + str(monSearch)
         elif type(monSearch) == str:
-            SQLCommand += "WHERE MonsterName LIKE '%" + monSearch + "%'" + " ORDER BY MonsterClassID ASC"
+            SQLCommand += "WHERE MonsterName LIKE '%" + monSearch + "%'"
 
+        SQLCommand += " ORDER BY MonsterClassID ASC"
         self.cursor.execute(SQLCommand)
 
         if dictionary:
-            properties = ['MonsterClassID', 'MonsterName', 'Rarity', 'PriAttribute', 'SecAttribute', 'MonsterTypeOne', 'MonsterTypeTwo', 'MonsterTypeThree', 'ExpCurve', 'MaxLevel', 'MonsterCost', 'ASListID', 'LeaderSkillName', 'ActiveSkillName', 'MaxHP', 'MinHP', 'GrowthRateHP', 'MaxATK', 'MinATK', 'GrowthRateATK', 'MaxRCV', 'MinRCV', 'GrowthRateRCV', 'CurSell', 'CurFodder', 'MonsterPointValue', 'LSSlots', 'ActiveSkillMaxLevel', 'ActiveSkillMaxCoolDown']
+            properties = ['MonsterClassID', 'MonsterName', 'Rarity', 'PriAttribute', 'SecAttribute', 'MonsterTypeOne', 'MonsterTypeTwo', 'MonsterTypeThree', 'ExpCurve', 'MaxLevel', 'MonsterCost', 'ASListID', 'LeaderSkillName', 'ActiveSkillName', 'MaxHP', 'MinHP', 'GrowthRateHP', 'MaxATK', 'MinATK', 'GrowthRateATK', 'MaxRCV', 'MinRCV', 'GrowthRateRCV', 'CurSell', 'CurFodder', 'MonsterPointValue', 'LSSlots', 'ActiveSkillMaxLevel', 'ActiveSkillMaxCoolDown', 'ActiveSkillDesc', 'LeaderSkillDesc']
             monstercollection = []
             results = self.cursor.fetchone()
             while results:
@@ -398,3 +399,25 @@ class PADSQL():
                 Evolutions.append(i)
 
         return Evolutions
+
+    def getLeaderSkillDesc(self, LeaderSkillName):
+        """Return LeaderSkill Desc"""
+        if LeaderSkillName != None:
+            if "'" in LeaderSkillName:
+                LeaderSkillName = LeaderSkillName.replace("'", "''")
+            
+            SQLCommand = "SELECT LeaderSkillDesc FROM LeaderSkill Where LeaderSkillName = '" + LeaderSkillName + "'"
+            #print(SQLCommand.encode('ASCII','ignore'))
+            self.cursor.execute(SQLCommand.encode('ASCII','ignore'))
+            
+            return self.cursor.fetchone()[0]
+
+    def getActiveSkillDesc(self, ActiveSkillName):
+        """Return ActiveSkill Desc"""
+        if ActiveSkillName != None:
+            if "'" in ActiveSkillName:
+                ActiveSkillName = ActiveSkillName.replace("'", "''")
+
+            SQLCommand = "SELECT ActiveSkillDesc FROM ActiveSkill Where ActiveSkillName = '" + ActiveSkillName + "'"
+            self.cursor.execute(SQLCommand)
+            return self.cursor.fetchone()[0]

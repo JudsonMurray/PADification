@@ -47,6 +47,7 @@ class PADification(tk.Tk):
         self.editTeam = EditTeamScreen.EditTeam(self)
         self.showTeamBrowser()
         super().mainloop()
+        
 
     #Displays the login screen
     def showLoginScreen(self):
