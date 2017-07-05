@@ -31,7 +31,7 @@ class HomeScreen():
         self.builder.connect_callbacks(self)
         #self.master.showSceen
 
-    def onAccountOptionsClick(self, event):
+    def onAccountOptionsClick(self):
         """Occurs When Account Options Button Is Clicked"""
         self.master.showAccountOptions()
 

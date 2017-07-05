@@ -21,6 +21,10 @@ class AccountOptions:
 
         self.builder.connect_callbacks(self)
 
+        self.obj1 = self.builder.get_object('New Email',master)
+        self.obj2 = self.builder.get_object('New Password',master)
+        self.obj3 = self.builder.get_object("Confirm New Password",master)
+
     def onMainMenuClick(self):
         """Displays Main Menu"""
         self.master.showHomeScreen()
@@ -33,13 +37,13 @@ class AccountOptions:
 
     def onEmailFocusIn(self,event):
         """Clears New Email Entry Field"""
-        if self.obj2.get() == "New Email":
-            self.obj2.delete(0,END)
+        if self.obj1.get() == "New Email":
+            self.obj1.delete(0,END)
 
     def onEmailFocusOut(self,event):
         """Repopulates New Email Entry Field"""
-        if self.obj2.get() == "":
-            self.obj2.insert(0,"New Email")
+        if self.obj1.get() == "":
+            self.obj1.insert(0,"New Email")
 
     def onPasswordFocusIn(self,event):
         """Clears New Password Entry Field"""
@@ -49,14 +53,14 @@ class AccountOptions:
     def onPasswordFocusOut(self,event):
         """Repopulates New Password Entry Field"""
         if self.obj2.get() == "":
-            self.obj2.insert(0,"Password")
+            self.obj2.insert(0,"New Password")
 
     def onNewPassFocusIn(self,event):
         """Clears New Password Confirmation Entry Field"""
-        if self.obj2.get() == "Confirm New Password":
-            self.obj2.delete(0,END)
+        if self.obj3.get() == "Confirm New Password":
+            self.obj3.delete(0,END)
 
     def onNewPassFocusOut(self,event):
         """Repopulates New Password Confirmation Entry Field"""
-        if self.obj2.get() == "":
-            self.obj2.insert(0,"Confirm New Password")
+        if self.obj3.get() == "":
+            self.obj3.insert(0,"Confirm New Password")
