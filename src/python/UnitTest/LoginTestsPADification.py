@@ -5,6 +5,7 @@
 #       DATE: 2017-07-04
 #       PURPOSE: TestCases for PADification Account Creation and Login.
 
+import datetime
 import unittest
 import PADSQL
 from PADMonster import *
@@ -49,4 +50,13 @@ class TC2(unittest.TestCase):
         self.assertFalse(self.padsql.signedIn, "Login with no credentials what?")
 
 if __name__ == '__main__':
-    unittest.main(verbosity=2)
+    log_file = 'Login_Test_log_' + '{:%Y-%m-%d %H-%M-%S}'.format(datetime.datetime.now()) + '.txt'
+    f = open(log_file, "w")
+    runner = unittest.TextTestRunner(f,verbosity = 2)
+    unittest.main(testRunner=runner,verbosity=2,exit=False)
+    f.close()
+
+
+f = open(log_file, "r")
+print(f.read())
+f.close()

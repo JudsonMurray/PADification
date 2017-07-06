@@ -15,7 +15,7 @@ padsql.connect()
 MonsterID = 572
 
 testmonster = Monster(padsql.selectMonsterClass(MonsterID)[0])
-f = open("Statchart.csv", "w")
+f = open("StatchartMonID" + str(MonsterID) + ".csv", "w")
 f.write("CurXP,")
 for i in range (1,testmonster.MaxLevel + 1):
     testmonster.setLevel(i)

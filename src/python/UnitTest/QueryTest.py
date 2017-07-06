@@ -6,7 +6,7 @@
 #       PURPOSE: TestCases For PADification
 #
 #
-
+import datetime
 import unittest
 import PADSQL
 import random
@@ -187,11 +187,13 @@ class TC3(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    log_file = 'Query_Test_log_file.txt'
+    log_file = 'Query_Test_log_' + '{:%Y-%m-%d %H-%M-%S}'.format(datetime.datetime.now()) + '.txt'
     f = open(log_file, "w")
     runner = unittest.TextTestRunner(f,verbosity = 2)
-    unittest.main(testRunner=runner,verbosity=2)
+    unittest.main(testRunner=runner,verbosity=2,exit=False)
     f.close()
-    f = open(log_file, "r")
-    print(f.read())
-    f.close()
+
+
+f = open(log_file, "r")
+print(f.read())
+f.close()

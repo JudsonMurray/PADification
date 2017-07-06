@@ -6,7 +6,7 @@
 #       PURPOSE: TestCase for Connection Testing in PADification Database
 #
 #
-
+import datetime
 import unittest
 import PADSQL
 from PADMonster import *
@@ -33,4 +33,12 @@ class TC1(unittest.TestCase):
         self.assertFalse(self.padsql.connection.connected)
 
 if __name__ == '__main__':
-    unittest.main()
+    log_file = 'Connection_Test_log_' + '{:%Y-%m-%d %H-%M-%S}'.format(datetime.datetime.now()) + '.txt'
+    f = open(log_file, "w")
+    runner = unittest.TextTestRunner(f,verbosity = 2)
+    unittest.main(testRunner=runner,verbosity=2,exit=False)
+    f.close()
+
+f = open(log_file, "r")
+print(f.read())
+f.close()
