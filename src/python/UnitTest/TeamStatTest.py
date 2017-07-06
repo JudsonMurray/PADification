@@ -6,7 +6,7 @@
 
 import PADSQL
 from PADMonster import *
-
+import csv
 
 
 class teamstat:
@@ -15,20 +15,33 @@ class teamstat:
         self.padsql = PADSQL.PADSQL()
         self.padsql.login('Username', 'Password')
 
-        self.LeaderMonsterID = 1
-        self.SubMonsterOneID = 1
-        self.SubMonsterTwoID = None
-        self.SubMonsterThreeID = 1
-        self.SubMonsterFourID = 1
+        with open('src/python/UnitTest/TeamStatTestInput.csv') as csvfile:
+            self.reader = csv.DictReader(csvfile)
+            self.dicts = []
+            for row in self.reader:
+                self.dicts.append(row)
 
-        self.LeaderMonsterLevel = 1
-        self.SubMonsterOneLevel = 1
-        self.SubMonsterTwoLevel = 1
-        self.SubMonsterThreeLevel = 1
-        self.SubMonsterFourLevel = 1
+        self.LeaderMonsterID = int(self.dicts[0]["ID"])
+        self.LeaderMonsterLevel = int(self.dicts[0]["Level"])
+
+        self.SubMonsterOneID = int(self.dicts[1]["ID"])
+        self.SubMonsterOneLevel = int(self.dicts[1]["Level"])
+
+        self.SubMonsterTwoID = int(self.dicts[2]["ID"])
+        self.SubMonsterTwoLevel = int(self.dicts[2]["Level"])
+
+        self.SubMonsterThreeID = int(self.dicts[3]["ID"])
+        self.SubMonsterThreeLevel = int(self.dicts[3]["Level"])
+
+        self.SubMonsterFourID = int(self.dicts[4]["ID"])
+        self.SubMonsterFourLevel = int(self.dicts[4]["Level"])
+
+
 
         self.MonstersinstanceIDs = []
         self.testTeam = Team(self.padsql)
+
+
         f = open("src/python/UnitTest/Log/TeamStats.csv", "w")
         count = 0
         for i in [  'LeaderMonster',
@@ -44,7 +57,7 @@ class teamstat:
                 self.MonstersinstanceIDs.append(self.padsql.selectMonsterInstance()[-1]["InstanceID"])
                 eval('self.testTeam.set' + i +"(" +str(self.MonstersinstanceIDs[-1]) +")")
        
-                f.write(i + ","+str(self.testTeam.Monsters[0].MonsterName) + ",Level,"+ str(self.testTeam.Monsters[count].Level) +"\n")
+                f.write(i + ","+str(self.testTeam.Monsters[count].MonsterName) + ",Level,"+ str(self.testTeam.Monsters[count].Level) +"\n")
                 count += 1
             else:
                 f.write(i + ",None\n")
@@ -63,6 +76,11 @@ class teamstat:
         for i in self.MonstersinstanceIDs:
             print(i)
             self.padsql.deleteMonster(i)
+
+
+
+
+
 
 
 teamstat()

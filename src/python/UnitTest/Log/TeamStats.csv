@@ -1,13 +1,13 @@
-LeaderMonster,Tyrra,Level,1
-SubMonsterOne,Tyrra,Level,1
-SubMonsterTwo,None
-SubMonsterThree,Tyrra,Level,1
-SubMonsterFour,Tyrra,Level,1
-TeamHP,208
-TeamRCV,32
-TeamFireATK,228
-TeamWaterATK,0
+LeaderMonster,Tyrra,Level,5
+SubMonsterOne,Volcano Dragon,Level,70
+SubMonsterTwo,Tyran,Level,15
+SubMonsterThree,Blue Dragon,Level,25
+SubMonsterFour,Sniper at Rest, Myr,Level,99
+TeamHP,7251
+TeamRCV,908
+TeamFireATK,1358
+TeamWaterATK,1982
 TeamWoodATK,0
 TeamLightATK,0
 TeamDarkATK,0
-TeamCost,8
+TeamCost,121
