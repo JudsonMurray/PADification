@@ -1,0 +1,42 @@
+test_Signup_Duplicate_Information (__main__.TC2)
+Test Fails to sign up duplicate account ... ok
+test_Signup_Invalid_Information (__main__.TC2)
+No rules set up to test yet ... skipped 'No Rules set up to Test yet.'
+test_Signup_Valid_Information (__main__.TC2)
+Test account signup, Ensure Information Does not Exist in Database ... ERROR
+test_login (__main__.TC2)
+Valid Username and Password sign in ... ok
+test_login_Casesensitivity (__main__.TC2) ... FAIL
+test_login_Empty (__main__.TC2) ... ok
+test_login_invalid (__main__.TC2)
+Invalid Username and Password sign in ... ok
+
+======================================================================
+ERROR: test_Signup_Valid_Information (__main__.TC2)
+Test account signup, Ensure Information Does not Exist in Database
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\LoginTestsPADification.py", line 22, in test_Signup_Valid_Information
+    self.padsql.signup(['Username','Password','TestEmail1@test.test', 300000000])
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 52, in signup
+    self.cursor.execute(SQLCommand, listValues)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1617, in execute
+    check_success(self, ret)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1007, in check_success
+    ctrl_err(SQL_HANDLE_STMT, ODBC_obj.stmt_h, ret, ODBC_obj.ansi)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 979, in ctrl_err
+    raise IntegrityError(state,err_text)
+pypyodbc.IntegrityError: ('23000', "[23000] [Microsoft][ODBC SQL Server Driver][SQL Server]Violation of PRIMARY KEY constraint 'PK_Player'. Cannot insert duplicate key in object 'dbo.Player'. The duplicate key value is (Username).")
+
+======================================================================
+FAIL: test_login_Casesensitivity (__main__.TC2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\LoginTestsPADification.py", line 46, in test_login_Casesensitivity
+    self.assertFalse(self.padsql.signedIn, "Case Sensitivity is not functioning")
+AssertionError: True is not false : Case Sensitivity is not functioning
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.083s
+
+FAILED (failures=1, errors=1, skipped=1)

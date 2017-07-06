@@ -6,7 +6,7 @@
     <ProjectGuid>478b11ce-3095-47f8-bab5-b12fd3c9405b</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>src\python\UnitTest\ConnectionTest.py</StartupFile>
+    <StartupFile>src\python\PADification.py</StartupFile>
     <SearchPath>src\python\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -7902,6 +7902,9 @@
     <Compile Include="src\python\TeamBrowserScreen.py" />
     <Compile Include="src\python\UnitTest\ConnectionTest.py" />
     <Compile Include="src\python\UnitTest\LoginTestsPADification.py" />
+    <Compile Include="src\python\UnitTest\TeamStatTest.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\python\UnitTest\QueryTest.py" />
     <Compile Include="src\python\UnitTest\StatCalculationChartGenerator.py" />
   </ItemGroup>

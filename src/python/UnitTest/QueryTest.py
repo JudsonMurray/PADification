@@ -187,7 +187,7 @@ class TC3(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    log_file = 'Query_Test_log_' + '{:%Y-%m-%d %H-%M-%S}'.format(datetime.datetime.now()) + '.txt'
+    log_file = 'src/python/UnitTest/Log/Query_Test_log_' + '{:%Y-%m-%d %H-%M-%S}'.format(datetime.datetime.now()) + '.txt'
     f = open(log_file, "w")
     runner = unittest.TextTestRunner(f,verbosity = 2)
     unittest.main(testRunner=runner,verbosity=2,exit=False)

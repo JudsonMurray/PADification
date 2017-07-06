@@ -1,0 +1,34 @@
+test_Create_Monster_Object (__main__.TC3)
+Instantiates a Monster from PADSQL query ... ok
+test_Create_Team_Object (__main__.TC3)
+Tests Teams can be instantiated ... ok
+test_SelectMonsterClass_All (__main__.TC3)
+returns a collection of ~2846 dictionaries ... ok
+test_SelectMonsterClass_Int (__main__.TC3)
+Returns a collection of a single dictionary by MonsterClassID ... ok
+test_SelectMonsterClass_Range (__main__.TC3)
+returns a collection of within a range and ensure all monsterIds are in the Range ... ok
+test_SelectMonsterClass_String (__main__.TC3)
+Returns the collection with MonsterName Containing the string and verifies results ... ok
+test_Team_Create_Update_Delete (__main__.TC3)
+Creates a Team of 5 new monsters, verifys its created, alters and updates then verifies, then deletes ... ok
+test_deleteMonster (__main__.TC3)
+deletes a monster instance from the MonsterInstance Table ... ERROR
+test_getActiveSkillDesc (__main__.TC3) ... ok
+test_getAwokenBadges (__main__.TC3)
+Test method getAwokenBadges that it does not raise an integrity exception ... ok
+test_getAwokenSkillList (__main__.TC3)
+Test method getAwokenSkillList that it does not raise an integrity exception ... ok
+test_getAwokenSkills (__main__.TC3)
+Test method getAwokenSkills that it does not raise an integrity exception ... ok
+test_getEvolutionTree (__main__.TC3)
+Test method getEvolutionTree that it does not raise an integrity exception ... ok
+test_getEvolutions (__main__.TC3)
+Test method getEvolutions that it does not raise an integrity exception ... ERROR
+test_getLatentAwokenSkillList (__main__.TC3)
+Test method getLatentAwokenSkillList that it does not raise an integrity exception ... skipped 'No saving of latent skill lists Implemented yet.'
+test_getLatentAwokenSkills (__main__.TC3)
+Test method getLatentAwokenSkills that it does not raise an integrity exception ... ok
+test_getLeaderSkillDesc (__main__.TC3) ... ERROR
+test_saveMonsterInstance_NewMonster (__main__.TC3)
+Creates a Monster Instance and inserts it into MonsterInstance Table ... 

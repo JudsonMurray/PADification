@@ -50,7 +50,7 @@ class TC2(unittest.TestCase):
         self.assertFalse(self.padsql.signedIn, "Login with no credentials what?")
 
 if __name__ == '__main__':
-    log_file = 'Login_Test_log_' + '{:%Y-%m-%d %H-%M-%S}'.format(datetime.datetime.now()) + '.txt'
+    log_file = 'src/python/UnitTest/Log/Login_Test_log_' + '{:%Y-%m-%d %H-%M-%S}'.format(datetime.datetime.now()) + '.txt'
     f = open(log_file, "w")
     runner = unittest.TextTestRunner(f,verbosity = 2)
     unittest.main(testRunner=runner,verbosity=2,exit=False)

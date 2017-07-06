@@ -1,0 +1,13 @@
+LeaderMonster,Tyrra,Level,1
+SubMonsterOne,Tyrra,Level,1
+SubMonsterTwo,None
+SubMonsterThree,Tyrra,Level,1
+SubMonsterFour,Tyrra,Level,1
+TeamHP,208
+TeamRCV,32
+TeamFireATK,228
+TeamWaterATK,0
+TeamWoodATK,0
+TeamLightATK,0
+TeamDarkATK,0
+TeamCost,8
