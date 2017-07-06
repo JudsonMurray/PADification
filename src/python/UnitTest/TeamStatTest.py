@@ -43,7 +43,7 @@ class teamstat:
 
 
         f = open("src/python/UnitTest/Log/TeamStats.csv", "w")
-        count = 0
+        count =0
         for i in [  'LeaderMonster',
                     'SubMonsterOne',
                     'SubMonsterTwo',
@@ -70,7 +70,23 @@ class teamstat:
         f.write("TeamLightATK,"+str(self.testTeam.LightATK) + "\n")
         f.write("TeamDarkATK,"+str(self.testTeam.DarkATK) + "\n")
         f.write("TeamCost,"+str(self.testTeam.TeamCost) + "\n")
-        
+        f.write("skillBindResist,"+str(self.testTeam.skillBindResist) + "\n")
+        f.write("fireDmgReduction,"+str(self.testTeam.fireDmgReduction)+ "\n")
+        f.write("waterDmgReduction,"+str(self.testTeam.waterDmgReduction) + "\n")
+        f.write("woodDmgReduction,"+str(self.testTeam.woodDmgReduction) + "\n")
+        f.write("lightDmgReduction,"+str(self.testTeam.lightDmgReduction) + "\n")
+        f.write("darkDmgReduction,"+str(self.testTeam.darkDmgReduction) + "\n")
+        f.write("darkResist,"+str(self.testTeam.darkResist) + "\n")
+        f.write("jammerResist,"+str(self.testTeam.jammerResist) + "\n")
+        f.write("poisonResist,"+str(self.testTeam.poisonResist) + "\n")
+        f.write("enhancedFireChance,"+str(self.testTeam.enhancedFireChance) + "\n")
+        f.write("enhancedWaterChance,"+str(self.testTeam.enhancedWaterChance) + "\n")
+        f.write("enhancedWoodChance,"+str(self.testTeam.enhancedWoodChance) + "\n")
+        f.write("enhancedLightChance,"+str(self.testTeam.enhancedLightChance) + "\n")
+        f.write("enhancedDarkChance,"+str(self.testTeam.enhancedDarkChance) + "\n")
+        f.write("enhancedHealChance,"+str(self.testTeam.enhancedHealChance) + "\n")
+        f.write("moveTime,"+str(self.testTeam.moveTime) + "\n")
+        f.write("skillBoost,"+str(self.testTeam.skillBoost) + "\n")
         f.close()
 
         for i in self.MonstersinstanceIDs:
