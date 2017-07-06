@@ -74,7 +74,7 @@ class teamstat:
         f.close()
 
         for i in self.MonstersinstanceIDs:
-            print(i)
+            #print(i)
             self.padsql.deleteMonster(i)
 
 

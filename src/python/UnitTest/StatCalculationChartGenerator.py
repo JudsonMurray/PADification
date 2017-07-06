@@ -12,10 +12,12 @@ padsql = PADSQL.PADSQL()
 padsql.connect()
 
 #MonsterId to check
-MonsterID = 572
+MonsterID = int(input("Enter Monster ID: "))
 
 testmonster = Monster(padsql.selectMonsterClass(MonsterID)[0])
-f = open("src/python/UnitTest/Log/StatchartMonID" + str(MonsterID) + ".csv", "w")
+
+file_path = "src/python/UnitTest/Log/StatchartMonID" + str(MonsterID) + ".csv"
+f = open(file_path, "w")
 f.write("CurXP,")
 for i in range (1,testmonster.MaxLevel + 1):
     testmonster.setLevel(i)
@@ -40,5 +42,5 @@ for i in range (1,testmonster.MaxLevel + 1):
     testmonster.setLevel(i)
     f.write(str(testmonster.RCV) + ",")
 f.write("\n")
-
+print("Stats printed to", file_path)
 f.close()
