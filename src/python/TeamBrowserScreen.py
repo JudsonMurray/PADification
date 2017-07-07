@@ -45,10 +45,9 @@ class TeamBrowser():
         self.builder.get_object('titleImage').create_image(0,0, image =self.titleImg , anchor = tk.NW, tag = "pic")
         self.teamCanvas = builder.get_object('teamMonstersFrame')
         x=0
-
         #Populates lists with monsterIDs
         self.builder.connect_callbacks(self)
-
+        
     def loadUserTeams(self):
         global destroyerTeam
         self.connection = self.PADsql.connection
@@ -74,11 +73,14 @@ class TeamBrowser():
         
         self.teamListBox.bind("<ButtonRelease-1>", self.teamSelect)
         self.updateTeam(int(self.teamListBox.get(0)))
+        self.newteam = self.builder.get_object('btnNewTeam')
         return
 
     def newTeam(self, event):
+        edit = self.master.editTeam
         """Show Login Screen"""
-        self.master.showEditTeamScreen(None)
+        edit.loadTeam(0)
+        self.master.showEditTeamScreen(0)
 
     def btnEditTeam(self, event):
         edit = self.master.editTeam
@@ -90,7 +92,7 @@ class TeamBrowser():
         if teamID == '': 
             teamID = self.teamListBox.get(0)
         self.updateTeam(int(teamID))
-        print('s')
+        #print('s')
 
     def updateTeam(self, i):
         global myMonsters
@@ -236,6 +238,25 @@ class TeamBrowser():
         self.builder.get_object('lblLightDR').config(text=  'Light Dmg Reduction: ' + str(destroyerTeam.lightDmgReduction) + '%')
         self.builder.get_object('lblDarkDR').config(text=  'Dark Dmg Reduction: ' + str(destroyerTeam.darkDmgReduction) + '%')
         return
+
+    def onHomeClick(self, event):
+        self.master.showHomeScreen()
+        
+    def onMonsterBookClick(self):
+        self.master.showMonsterBook()
+
+    def onAccountOptionsClick(self):
+        """Occurs When Account Options Button Is Clicked"""
+        self.master.showAccountOptions()
+
+    def onMonsterBookClick(self, event):
+        self.master.showMonsterBook()
+
+    def onMyMonstersClick(self):
+        self.master.showPlayerCollection()
+
+    def onMyTeamsClick(self, event):
+        self.master.showTeamBrowser()
 
 if __name__ == '__main__':
     root = tk.Tk()

@@ -57,7 +57,7 @@
           <property name="row">2</property>
         </layout>
         <child>
-          <object class="tk.Canvas" id="canMonsterCollection">
+          <object class="tk.Canvas" id="canMonsterList">
             <property name="height">520</property>
             <property name="width">640</property>
             <layout>
