@@ -344,7 +344,7 @@ CREATE TABLE PADification.dbo.MonsterInstance (
   PlusRCV INT NOT NULL,
   PlusHP INT NOT NULL,
   SkillsAwoke INT NOT NULL,
-  AssistMonsterID INT NOT NULL,
+  AssistMonsterID INT,
   SkillLevel INT,
   LSListID INT,
   Favorites BIT DEFAULT 0 NOT NULL,
