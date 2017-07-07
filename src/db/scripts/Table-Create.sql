@@ -4,7 +4,7 @@
 /*  Title    : Padification DataBase                                              */
 /*  FileName : PADification database schema.ecm                                   */
 /*  Platform : SQL Server 2014                                                    */
-/*  Version  : 0.07                                                               */
+/*  Version  : 0.1                                                               */
 /*  Date     : July 7, 2017                                                      */
 /*================================================================================*/
 --Revision History
@@ -17,6 +17,7 @@
 --June 27, 2017 - Updated the Monster and Team Tags List tables to hold up to three tags.
 --June 28, 2017 - Removed the creation, deletion of tags tables.
 --July 7, 2017 - Removed the deletion functions for all tables
+--July 7, 2017 - Updated multiple tables: MonsterClass, EvolutionTree, MonsterInstance, Player, Follower & team.
 
 USE PADification
 /*================================================================================*/
@@ -255,6 +256,7 @@ GO
 --)
 --GO
 
+--updated from version 0.1
 CREATE TABLE PADification.dbo.MonsterClass (
   MonsterClassID INT NOT NULL,
   MonsterName NVARCHAR(100) NOT NULL,
@@ -282,16 +284,15 @@ CREATE TABLE PADification.dbo.MonsterClass (
   CurSell INT NOT NULL,
   CurFodder INT NOT NULL,
   MonsterPointValue INT NOT NULL,
-  LSSlots INT DEFAULT 5 NOT NULL,
-  --MTListID INT,	----Removed from v.0.06
   CONSTRAINT PK_MonsterClass PRIMARY KEY (MonsterClassID)
 )
 GO
 
+--updated from version 0.1
 CREATE TABLE PADification.dbo.EvolutionTree (
   NextMonsterID INT NOT NULL,
   BaseMonsterID INT NOT NULL,
-  EvoMaterialIDOne INT,
+  EvoMaterialIDOne INT NOT NULL,
   EvoMaterialIDTwo INT,
   EvoMaterialIDThree INT,
   EvoMaterialIDFour INT,
@@ -301,21 +302,22 @@ CREATE TABLE PADification.dbo.EvolutionTree (
 )
 GO
 
---v.0.03
+--updated from version 0.1
 CREATE TABLE PADification.dbo.Follower (
   FID INT IDENTITY(1,1) NOT NULL,
-  Username VARCHAR(15) NOT NULL,
-  FollowerName VARCHAR(15),
+  Email VARCHAR(50) NOT NULL,
+  FollowerEmail VARCHAR(50) NOT NULL,
   CONSTRAINT PK_Follower PRIMARY KEY (FID)
 )
 GO
 
+--updated from version 0.1
 CREATE TABLE PADification.dbo.Player (
+  Email VARCHAR(50) NOT NULL,
   PlayerID INT NOT NULL,
   Password VARCHAR(10) NOT NULL,
-  Email VARCHAR(50),
   Username VARCHAR(15) NOT NULL,
-  CONSTRAINT PK_Player PRIMARY KEY (UserName)
+  CONSTRAINT PK_Player PRIMARY KEY (Email)
 )
 GO
 
@@ -332,20 +334,21 @@ CREATE TABLE PADification.dbo.LatentSkillList (
 )
 GO
 
+--updated from version 0.1
 CREATE TABLE PADification.dbo.MonsterInstance (
   InstanceID INT IDENTITY(100000000,1) NOT NULL,
-  Username VARCHAR(15) NOT NULL,
+  Email VARCHAR(50) NOT NULL,
   MonsterClassID INT NOT NULL,
   CurrentExperience INT NOT NULL,
   PlusATK INT NOT NULL,
   PlusRCV INT NOT NULL,
   PlusHP INT NOT NULL,
   SkillsAwoke INT NOT NULL,
-  AssistMonsterID INT,
+  AssistMonsterID INT NOT NULL,
   SkillLevel INT,
   LSListID INT,
   Favorites BIT DEFAULT 0 NOT NULL,
-  WishList BIT DEFAULT 0 NOT NULL,	--added from v.0.04
+  WishList BIT DEFAULT 0 NOT NULL,
   CONSTRAINT PK_MonsterInstance PRIMARY KEY (InstanceID)
 )
 GO
@@ -368,17 +371,17 @@ GO
 --)
 --GO
 
-
+--updated from version 0.1
 CREATE TABLE PADification.dbo.Team (
-  TeamInstanceID INT IDENTITY(100000, 1) NOT NULL,
-  Username VARCHAR(15) NOT NULL,
-  TeamName VARCHAR(50),
+  TeamInstanceID INT IDENTITY(100000,1) NOT NULL,
+  Email VARCHAR(50) NOT NULL,
+  TeamName VARCHAR(20),
   LeaderMonster INT,
   SubMonsterOne INT,
   SubMonsterTwo INT,
   SubMonsterThree INT,
   SubMonsterFour INT,
-  BadgeName VARCHAR(50),
+  AwokenBadgeName VARCHAR(50),
   CONSTRAINT PK_Team PRIMARY KEY (TeamInstanceID)
 )
 GO
@@ -432,6 +435,7 @@ ALTER TABLE AwokenSkillList
   FOREIGN KEY (AwokenSkillNine) REFERENCES AwokenSkill (AwokenSkillName)
 GO
 
+--all MonsterClass alters updated from version 0.1
 ALTER TABLE MonsterClass
   ADD CONSTRAINT FK_MonsterClass_ActiveSkill
   FOREIGN KEY (ActiveSkillName) REFERENCES ActiveSkill (ActiveSkillName)
@@ -472,13 +476,7 @@ ALTER TABLE MonsterClass
   FOREIGN KEY (ASListID) REFERENCES AwokenSkillList (ASListID)
 GO
 
---Removed from v.0.06
-----v.0.02 tags field
---ALTER TABLE MonsterClass
---  ADD CONSTRAINT FK_MonsterClass_MonsterTagsList
---  FOREIGN KEY (MTListID) REFERENCES MonsterTagsList (MTListID)
---GO
-
+--All EvolutionTree alter updated from version 0.1
 ALTER TABLE EvolutionTree
   ADD CONSTRAINT FK_EvolutionTree_MonsterClass
   FOREIGN KEY (BaseMonsterID) REFERENCES MonsterClass (MonsterClassID)
@@ -544,6 +542,7 @@ ALTER TABLE LatentSkillList
   FOREIGN KEY (LatentSkillSix) REFERENCES LatentSkill (LatentSkillName)
 GO
 
+--all MonsterInstance alter updated from version 0.1
 ALTER TABLE MonsterInstance
   ADD CONSTRAINT FK_MonsterInstance_MonsterClass
   FOREIGN KEY (MonsterClassID) REFERENCES MonsterClass (MonsterClassID)
@@ -551,7 +550,7 @@ GO
 
 ALTER TABLE MonsterInstance
   ADD CONSTRAINT FK_MonsterInstance_Player
-  FOREIGN KEY (Username) REFERENCES Player (UserName)
+  FOREIGN KEY (Email) REFERENCES Player (Email)
 GO
 
 ALTER TABLE MonsterInstance
@@ -559,14 +558,20 @@ ALTER TABLE MonsterInstance
   FOREIGN KEY (LSListID) REFERENCES LatentSkillList (InstanceID)
 GO
 
+ALTER TABLE MonsterInstance
+  ADD CONSTRAINT FK_MonsterInstance_MonsterInstance
+  FOREIGN KEY (AssistMonsterID) REFERENCES MonsterInstance (InstanceID)
+GO
+
+--all Team alter updated from version 0.1
 ALTER TABLE Team
   ADD CONSTRAINT FK_Team_Player
-  FOREIGN KEY (Username) REFERENCES Player (UserName)
+  FOREIGN KEY (Email) REFERENCES Player (Email)
 GO
 
 ALTER TABLE Team
   ADD CONSTRAINT FK_Team_Badge
-  FOREIGN KEY (BadgeName) REFERENCES AwokenBadge (AwokenBadgeName)
+  FOREIGN KEY (AwokenBadgeName) REFERENCES AwokenBadge (AwokenBadgeName)
 GO
 
 ALTER TABLE Team
@@ -585,14 +590,21 @@ ALTER TABLE Team
 GO
 
 ALTER TABLE Team
+  ADD CONSTRAINT FK_Team_MonsterInstance4
+  FOREIGN KEY (SubMonsterFour) REFERENCES MonsterInstance (InstanceID)
+GO
+
+ALTER TABLE Team
   ADD CONSTRAINT FK_Team_MonsterInstance5
   FOREIGN KEY (SubMonsterThree) REFERENCES MonsterInstance (InstanceID)
 GO
 
-ALTER TABLE Team
-  ADD CONSTRAINT FK_Team_MonsterInstance4
-  FOREIGN KEY (SubMonsterFour) REFERENCES MonsterInstance (InstanceID)
-GO
+--Removed from v.0.06
+----v.0.02 tags field
+--ALTER TABLE MonsterClass
+--  ADD CONSTRAINT FK_MonsterClass_MonsterTagsList
+--  FOREIGN KEY (MTListID) REFERENCES MonsterTagsList (MTListID)
+--GO
 
 --Removed from v.0.06
 ----version 0.02
@@ -615,10 +627,15 @@ GO
 --  FOREIGN KEY (TeamInstanceID) REFERENCES TeamTagsList (TeamInstanceID)
 --GO
 
--- version 0.03
+--All Follower alter updated from version 0.1
 ALTER TABLE Follower
   ADD CONSTRAINT FK_Follower_Player
-  FOREIGN KEY (Username) REFERENCES Player (UserName)
+  FOREIGN KEY (Email) REFERENCES Player (Email)
+GO
+
+ALTER TABLE Follower
+  ADD CONSTRAINT FK_Follower_Player2
+  FOREIGN KEY (FollowerEmail) REFERENCES Player (Email)
 GO
 
 --Removed from v.0.06
