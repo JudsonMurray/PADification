@@ -315,7 +315,7 @@ GO
 CREATE TABLE PADification.dbo.Player (
   Email VARCHAR(50) NOT NULL,
   PlayerID INT NOT NULL,
-  Password VARCHAR(10) NOT NULL,
+  Password NVARCHAR(10) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL,
   Username VARCHAR(15) NOT NULL,
   CONSTRAINT PK_Player PRIMARY KEY (Email)
 )
