@@ -26,10 +26,8 @@ class LoginScreen:
         item = self.builder.get_object('TitleCanvas').create_image(10,0,image = self.image1,anchor = NW,tag="Title")
         self.builder.connect_callbacks(self)
 
-        self.obj1 = self.builder.get_object('Username',master)
-        self.obj2 = self.builder.get_object('Password',master)
-        self.isUsername = self.obj1.get()
-        self.isPassword = self.obj2.get()
+        self.Email = self.builder.get_variable('varEmail')
+        self.Password = self.builder.get_variable('varPassword')
 
     #Activates next screen when button is clicked
     def onCreateAccountClick(self, event):
@@ -38,28 +36,32 @@ class LoginScreen:
 
     def onLoginClick(self, event):
         """Occurs When Login Button Is Clicked"""
-        self.master.PADsql.login(self.builder.get_variable('isUsername').get(), self.builder.get_variable('isPassword').get())
+        self.master.PADsql.login(self.Email.get(), self.Password.get())
         if self.master.PADsql.signedIn:
             self.master.showHomeScreen()
         else:
-            mb.showwarning('Login Error', 'Username and Password Do not exist!')
+            mb.showwarning('Login Error', 'Email and Password Do not exist!')
 
-    def onUsernameFocusIn(self,event):
+    def onEmailFocusIn(self,event):
         """Clears Username Entry Field"""
-        if self.obj1.get() == self.isUsername:
-            self.obj1.delete(0,END)
+        if self.Email.get() == ("Enter Email"):
+            self.builder.get_object('entEmail').config(foreground="#000000")
+            self.Email.set("")
 
-    def onUsernameFocusOut(self,event):
-        """Clears Username Entry Field"""
-        if self.obj1.get() == "":
-            self.obj1.insert(0,"Username")
+    def onEmailFocusOut(self,event):
+        """Fills Empty Field with Enter Email"""
+        if self.Email.get() == "":
+            self.builder.get_object('entEmail').config(foreground="#c6caca")
+            self.Email.set("Enter Email")
 
     def onPasswordFocusIn(self,event):
         """Clears Password Entry Field"""
-        if self.obj2.get() == self.isPassword:
-            self.obj2.delete(0,END)
+        if self.Password.get() == ("Enter Password"):
+            self.builder.get_object('entPassword').config(foreground="#000000")
+            self.Password.set("")
 
     def onPasswordFocusOut(self,event):
-        """Clears Password Entry Field"""
-        if self.obj2.get() == "":
-            self.obj2.insert(0,"Password")
+        """Fills Password Entry Field with Enter Password"""
+        if self.Password.get() == (""):
+            self.builder.get_object('entPassword').config(foreground="#c6caca")
+            self.Password.set("Enter Password")

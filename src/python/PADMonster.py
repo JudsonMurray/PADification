@@ -37,7 +37,6 @@ class Monster():
         self.CurSell = None
         self.CurFodder = None
         self.MonsterPointValue = None
-        self.LSSlots = None
         self.ActiveSkillDesc = None
         self.LeaderSkillDesc = None
 
@@ -47,7 +46,7 @@ class Monster():
         
         #Instance Variables
         self.InstanceID = None
-        self.Username = None
+        self.Email = None
         self.CurrentExperience = 0
         self.PlusATK = 0
         self.PlusRCV = 0
@@ -80,7 +79,7 @@ class Monster():
 
     def getSaveDict(self):
         """Returns a Dictionary of instance table """
-        savingItems = ['InstanceID', 'Username', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID', 'MonsterClassID']
+        savingItems = ['InstanceID', 'Email', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID', 'MonsterClassID']
         savedict = {}
         for i in savingItems:
             savedict[i] = getattr(self,i)
@@ -174,14 +173,14 @@ class Team():
         self.PADSQL = PADSQL
         #Instance Variables
         self.TeamInstanceID = None
-        self.Username = None
+        self.Email = None
         self.TeamName = ""
         self.LeaderMonster = None
         self.SubMonsterOne = None
         self.SubMonsterTwo = None
         self.SubMonsterThree = None
         self.SubMonsterFour = None
-        self.BadgeName = None
+        self.AwokenBadgeName = None
 
         #Objects
         self.Monsters = []
@@ -316,8 +315,8 @@ class Team():
     def getSaveDict(self):
         """Returns a Dictionary to represent an instance"""
         saveDict = {}
-        saveVars = ['TeamInstanceID','Username', 'TeamName', 'LeaderMonster',
-                    'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 'BadgeName' ]
+        saveVars = ['TeamInstanceID','Email', 'TeamName', 'LeaderMonster',
+                    'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 'AwokenBadgeName' ]
         
         for i in saveVars:
             saveDict[i] = getattr(self, i)

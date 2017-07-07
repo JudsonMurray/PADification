@@ -24,19 +24,19 @@ class TeamBrowser():
     def __init__(self, master):
         #Declare Global Variables
         global monsterClassIDs, myMonsterList, teamMonsterSelected, myMonsters
-        global state, destroyerTeam, var, buttons
+        global state, var, buttons
         buttons = []
         state = []
         monsterClassIDs = []
         myMonsterList = []
         var = IntVar(0)
         teamMonsterSelected = Radiobutton(text='', variable=var, value=0)
-        self.PADsql = master.PADsql
 
-        
-        #PADification APP signup/login
-        #self.PADsql.signup(['PADTest','PADTest','A@a.ap',100000000])
+        #Variables
+        self.PADsql = master.PADsql
         self.master = master
+        self.SelectedTeam = PADMonster.Team(self.PADsql)
+
         #Create GUI and add title image
         self.builder = builder = pygubu.Builder()
         builder.add_from_file('src/ui/Team Browser.ui')
@@ -44,37 +44,45 @@ class TeamBrowser():
         self.titleImg = tk.PhotoImage(file = 'Resource/PAD/Images/PADification Title.png')
         self.builder.get_object('titleImage').create_image(0,0, image =self.titleImg , anchor = tk.NW, tag = "pic")
         self.teamCanvas = builder.get_object('teamMonstersFrame')
-        x=0
-        #Populates lists with monsterIDs
         self.builder.connect_callbacks(self)
+
+        #Widgets to access
+        self.teamListBox = self.builder.get_object('teamListBox')
+
+        #sets permanent images
+        self.setImages()
+        self.updateTeamLabels()
+        
         
     def loadUserTeams(self):
-        global destroyerTeam
         self.connection = self.PADsql.connection
         teams = self.PADsql.selectTeamInstance()
 
         if len(teams) == 0:
-            sql = ("INSERT INTO team (Username, TeamName,LeaderMonster,SubMonsterOne,SubMonsterTwo,SubMonsterThree,SubMonsterFour,BadgeName) Values" "('" + self.PADsql.Username + "','Noctis',NULL,NULL,NULL,NULL,NULL,NULL)")
-            self.PADsql.cursor.execute(sql)
-            teams = self.PADsql.selectTeamInstance()
+            self.teamListBox.delete(0, END)
+            return
+            #sql = ("INSERT INTO team (Username, TeamName,LeaderMonster,SubMonsterOne,SubMonsterTwo,SubMonsterThree,SubMonsterFour,BadgeName) Values" "('" + self.PADsql.Username + "','Noctis',NULL,NULL,NULL,NULL,NULL,NULL)")
+            #self.PADsql.cursor.execute(sql)
+            #teams = self.PADsql.selectTeamInstance()
+            #self.PADsql.connection.commit()
         #Retrieves monster Instance IDs from database
-        sql = "SELECT LeaderMonster, SubMonsterOne ,SubMonsterTwo, SubMonsterThree, SubMonsterFour FROM team WHERE TeamInstanceID = {}".format(teams[0]['TeamInstanceID'])
-        playerTable = self.PADsql.cursor.execute(sql)
-        myMonsters = playerTable.fetchall()
-        self.PADsql.connection.commit()
+        else:
+            #sql = "SELECT LeaderMonster, SubMonsterOne ,SubMonsterTwo, SubMonsterThree, SubMonsterFour FROM team WHERE TeamInstanceID = {}".format(teams[0]['TeamInstanceID'])
+            #playerTable = self.PADsql.cursor.execute(sql)
+            #myMonsters = playerTable.fetchall()
         
-        destroyerTeamBase = self.PADsql.selectTeamInstance(teams[0]['TeamInstanceID'])
-        destroyerTeam = PADMonster.Team(self.PADsql)
-        self.teamListBox = self.builder.get_object('teamListBox')
-        self.teamListBox.delete(0, END)
-        for i in range(0,len(teams)):
-            qq = str(teams[i]['TeamInstanceID'])
-            self.teamListBox.insert(END, qq)
+            destroyerTeamBase = self.PADsql.selectTeamInstance(teams[0]['TeamInstanceID'])
+            self.SelectedTeam = PADMonster.Team(self.PADsql)
+            self.teamListBox.delete(0, END)
         
-        self.teamListBox.bind("<ButtonRelease-1>", self.teamSelect)
-        self.updateTeam(int(self.teamListBox.get(0)))
-        self.newteam = self.builder.get_object('btnNewTeam')
-        return
+            for i in range(0,len(teams)):
+                qq = str(teams[i]['TeamInstanceID'])
+                self.teamListBox.insert(END, qq)
+        
+            self.teamListBox.bind("<ButtonRelease-1>", self.teamSelect)
+            self.updateTeam(int(self.teamListBox.get(0)))
+            self.newteam = self.builder.get_object('btnNewTeam')
+            return
 
     def newTeam(self, event):
         edit = self.master.editTeam
@@ -84,68 +92,73 @@ class TeamBrowser():
 
     def btnEditTeam(self, event):
         edit = self.master.editTeam
-        edit.loadTeam(destroyerTeam.TeamInstanceID)
-        self.master.showEditTeamScreen(destroyerTeam.TeamInstanceID)
+        edit.loadTeam(self.SelectedTeam.TeamInstanceID)
+        self.master.showEditTeamScreen(self.SelectedTeam.TeamInstanceID)
 
     def teamSelect(self, event):
         teamID = self.teamListBox.get(ANCHOR)
         if teamID == '': 
             teamID = self.teamListBox.get(0)
         self.updateTeam(int(teamID))
-        #print('s')
 
     def updateTeam(self, i):
         global myMonsters
         global monsterClassIDs
-        destroyerTeam.TeamInstanceID = i
-        sql = "SELECT LeaderMonster, SubMonsterOne ,SubMonsterTwo, SubMonsterThree, SubMonsterFour FROM team WHERE TeamInstanceID = {}".format(str(i))
-        playerTable = self.PADsql.cursor.execute(sql)
-        myMonsters = playerTable.fetchall()
+        self.SelectedTeam = PADMonster.Team(self.PADsql, self.PADsql.selectTeamInstance(int(i))[0])
 
-        destroyerTeamBase = self.PADsql.selectTeamInstance(i)
-        if destroyerTeamBase[0]['LeaderMonster'] != None:
-            destroyerTeam.setLeaderMonster(destroyerTeamBase[0]['LeaderMonster'])
-        else:
-            destroyerTeam.setLeaderMonster()
-        if destroyerTeamBase[0]['SubMonsterOne'] != None:
-            destroyerTeam.setSubMonsterOne(destroyerTeamBase[0]['SubMonsterOne'])
-        else:
-            destroyerTeam.setSubMonsterOne()
-        if destroyerTeamBase[0]['SubMonsterTwo'] != None:
-            destroyerTeam.setSubMonsterTwo(destroyerTeamBase[0]['SubMonsterTwo'])
-        else:
-            destroyerTeam.setSubMonsterTwo()
-        if destroyerTeamBase[0]['SubMonsterThree'] != None:
-            destroyerTeam.setSubMonsterThree(destroyerTeamBase[0]['SubMonsterThree'])
-        else:
-            destroyerTeam.setSubMonsterThree()
-        if destroyerTeamBase[0]['SubMonsterFour'] != None:
-            destroyerTeam.setSubMonsterFour(destroyerTeamBase[0]['SubMonsterFour'])
-        else:
-            destroyerTeam.setSubMonsterFour()
+        #sql = "SELECT LeaderMonster, SubMonsterOne ,SubMonsterTwo, SubMonsterThree, SubMonsterFour FROM team WHERE TeamInstanceID = {}".format(str(i))
+        #playerTable = self.PADsql.cursor.execute(sql)
+        #myMonsters = playerTable.fetchall()
+
+        #destroyerTeamBase = self.PADsql.selectTeamInstance(i)
+        #if destroyerTeamBase[0]['LeaderMonster'] != None:
+        #    self.SelectedTeam.setLeaderMonster(destroyerTeamBase[0]['LeaderMonster'])
+        #else:
+        #    self.SelectedTeam.setLeaderMonster()
+        #if destroyerTeamBase[0]['SubMonsterOne'] != None:
+        #    self.SelectedTeam.setSubMonsterOne(destroyerTeamBase[0]['SubMonsterOne'])
+        #else:
+        #    self.SelectedTeam.setSubMonsterOne()
+        #if destroyerTeamBase[0]['SubMonsterTwo'] != None:
+        #    self.SelectedTeam.setSubMonsterTwo(destroyerTeamBase[0]['SubMonsterTwo'])
+        #else:
+        #    self.SelectedTeam.setSubMonsterTwo()
+        #if destroyerTeamBase[0]['SubMonsterThree'] != None:
+        #    self.SelectedTeam.setSubMonsterThree(destroyerTeamBase[0]['SubMonsterThree'])
+        #else:
+        #    self.SelectedTeam.setSubMonsterThree()
+        #if destroyerTeamBase[0]['SubMonsterFour'] != None:
+        #    self.SelectedTeam.setSubMonsterFour(destroyerTeamBase[0]['SubMonsterFour'])
+        #else:
+        #    self.SelectedTeam.setSubMonsterFour()
+
         monsterClassIDs = []
         global myMonsterList
         myMonsterList = []
 
-        for i in myMonsters[0]:
-            
+        for i in ['LeaderMonster', 'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour']:
             if i != None:
-                sql = "SELECT MonsterClassID FROM monsterInstance WHERE InstanceID = {}".format(i)
+                myMonsterList.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(getattr(self.SelectedTeam,i).MonsterClassID) + '.png'))
+
+        #for i in myMonsters[0]:
             
-                myMonster = self.PADsql.cursor.execute(sql)
-                myMonster = myMonster.fetchone()
-                myMonster = str(myMonster).replace("(", "")
-                monsterClass = myMonster.replace(",)", "")
-                monsterClassIDs += monsterClass,
-                myMonster= tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(monsterClass) + '.png')
-            else:
-                myMonster = None
-            myMonsterList.append(myMonster)
+        #    if i != None:
+        #        sql = "SELECT MonsterClassID FROM monsterInstance WHERE InstanceID = {}".format(i)
+            
+        #        myMonster = self.PADsql.cursor.execute(sql)
+        #        myMonster = myMonster.fetchone()
+        #        myMonster = str(myMonster).replace("(", "")
+        #        monsterClass = myMonster.replace(",)", "")
+        #        monsterClassIDs += monsterClass,
+        #        myMonster= tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(monsterClass) + '.png')
+        #    else:
+        #        myMonster = None
+        #    myMonsterList.append(myMonster)
         self.updateTeamLabels()
 
     def updateTeamLabels(self):
         """Updates team information labels"""
-        destroyerTeam.update()
+        self.SelectedTeam.update()
         self.canLeadMon = self.builder.get_object('canLeadMon')
         self.canSubMon1 = self.builder.get_object('canSubMon1')
         self.canSubMon2 = self.builder.get_object('canSubMon2')
@@ -156,13 +169,61 @@ class TeamBrowser():
         self.canSubMon2.delete('pic')
         self.canSubMon3.delete('pic')
         self.canSubMon4.delete('pic')
+        if len(myMonsterList) != 0:
+            self.canLeadMon.create_image(7,7,image = myMonsterList[0], anchor = tk.NW, tag = "pic")
+            self.canSubMon1.create_image(7,7,image = myMonsterList[1], anchor = tk.NW, tag = "pic")
+            self.canSubMon2.create_image(7,7,image = myMonsterList[2], anchor = tk.NW, tag = "pic")
+            self.canSubMon3.create_image(7,7,image = myMonsterList[3], anchor = tk.NW, tag = "pic")
+            self.canSubMon4.create_image(7,7,image = myMonsterList[4], anchor = tk.NW, tag = "pic")
 
-        self.canLeadMon.create_image(7,7,image = myMonsterList[0], anchor = tk.NW, tag = "pic")
-        self.canSubMon1.create_image(7,7,image = myMonsterList[1], anchor = tk.NW, tag = "pic")
-        self.canSubMon2.create_image(7,7,image = myMonsterList[2], anchor = tk.NW, tag = "pic")
-        self.canSubMon3.create_image(7,7,image = myMonsterList[3], anchor = tk.NW, tag = "pic")
-        self.canSubMon4.create_image(7,7,image = myMonsterList[4], anchor = tk.NW, tag = "pic")
+        self.builder.get_object('lblTeamHP').config(text=  'HP:    ' + str(self.SelectedTeam.TeamHP))
+        self.builder.get_object('lblTeamCost').config(text='Cost: ' + str(self.SelectedTeam.TeamCost))
+        self.builder.get_object('lblTeamRCV').config(text= 'RCV:  ' + str(self.SelectedTeam.TeamRCV))
+        self.builder.get_object('lblFireATK').config(text= 'Fire ATK:     ' + str(self.SelectedTeam.FireATK))
+        self.builder.get_object('lblWaterATK').config(text='Water ATK: ' + str(self.SelectedTeam.WaterATK))
+        self.builder.get_object('lblWoodATK').config(text= 'Wood ATK: ' + str(self.SelectedTeam.WoodATK))
+        self.builder.get_object('lblLightATK').config(text='Light ATK:   ' + str(self.SelectedTeam.LightATK))
+        self.builder.get_object('lblDarkATK').config(text= 'Dark ATK:    ' + str(self.SelectedTeam.DarkATK))
+        self.builder.get_object('lblSkillBindResist').config(text=  'Skill Bind Resist: ' + str(self.SelectedTeam.skillBindResist) + '%')
+        self.builder.get_object('lblSkillBoost').config(text=   'Skill Boost: ' + str(self.SelectedTeam.skillBoost))
+        self.builder.get_object('lblMoveTime').config(text=  'Move Time: ' + str(self.SelectedTeam.moveTime) + 's')
+        self.builder.get_object('lblDarkResist').config(text=  'Dark Resist: ' + str(self.SelectedTeam.darkResist) + '%')
+        self.builder.get_object('lblJammerResist').config(text=  'Jammer Resist: ' + str(self.SelectedTeam.jammerResist) + '%')
+        self.builder.get_object('lblPoisonResist').config(text=  'Poison Resist: ' + str(self.SelectedTeam.poisonResist) + '%')
+        self.builder.get_object('lblEnhancedFireChance').config(text=  'Enhanced Fire Chance: ' + str(self.SelectedTeam.enhancedFireChance) + '%')
+        self.builder.get_object('lblEnhancedWaterChance').config(text=  'Enhanced Water Chance: ' + str(self.SelectedTeam.enhancedWaterChance) + '%')
+        self.builder.get_object('lblEnhancedWoodChance').config(text=  'Enhanced Wood Chance: ' + str(self.SelectedTeam.enhancedWoodChance) + '%')
+        self.builder.get_object('lblEnhancedLightChance').config(text=  'Enhanced Light Chance: ' + str(self.SelectedTeam.enhancedLightChance) + '%')
+        self.builder.get_object('lblEnhancedDarkChance').config(text=  'Enhanced Dark Chance: ' + str(self.SelectedTeam.enhancedDarkChance) + '%')
+        self.builder.get_object('lblEnhancedHealChance').config(text=  'Enhanced Heal Chance: ' + str(self.SelectedTeam.enhancedHealChance) + '%')
+        self.builder.get_object('lblFireDR').config(text=  'Fire Dmg Reduction: ' + str(self.SelectedTeam.fireDmgReduction) + '%')
+        self.builder.get_object('lblWaterDR').config(text=  'Water Dmg Reduction: ' + str(self.SelectedTeam.waterDmgReduction) + '%')
+        self.builder.get_object('lblWoodDR').config(text=  'Wood Dmg Reduction: ' + str(self.SelectedTeam.woodDmgReduction) + '%')
+        self.builder.get_object('lblLightDR').config(text=  'Light Dmg Reduction: ' + str(self.SelectedTeam.lightDmgReduction) + '%')
+        self.builder.get_object('lblDarkDR').config(text=  'Dark Dmg Reduction: ' + str(self.SelectedTeam.darkDmgReduction) + '%')
+        return
 
+    def onHomeClick(self, event):
+        self.master.showHomeScreen()
+        
+    def onMonsterBookClick(self):
+        self.master.showMonsterBook()
+
+    def onAccountOptionsClick(self):
+        """Occurs When Account Options Button Is Clicked"""
+        self.master.showAccountOptions()
+
+    def onMonsterBookClick(self, event):
+        self.master.showMonsterBook()
+
+    def onMyMonstersClick(self):
+        self.master.showPlayerCollection()
+
+    def onMyTeamsClick(self, event):
+        self.master.showTeamBrowser()
+
+    def setImages(self):
+        """Set Images"""
         self.recoveryImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/RCVSymbol.png') 
         self.fireImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/FireSymbol.png')
         self.waterImg = tk.PhotoImage(file='Resource/PAD/Images/Attributes/WaterSymbol.png')
@@ -211,54 +272,7 @@ class TeamBrowser():
         self.builder.get_object('enhancedHealChanceImg').config(image=self.enhancedHealChanceImg)
         self.builder.get_object('moveTimeImg').config(image=self.moveTimeImg)
         self.builder.get_object('skillBoostImg').config(image=self.skillBoostImg)
-        
-        self.builder.get_object('lblTeamHP').config(text=  'HP:    ' + str(destroyerTeam.TeamHP))
-        self.builder.get_object('lblTeamCost').config(text='Cost: ' + str(destroyerTeam.TeamCost))
-        self.builder.get_object('lblTeamRCV').config(text= 'RCV:  ' + str(destroyerTeam.TeamRCV))
-        self.builder.get_object('lblFireATK').config(text= 'Fire ATK:     ' + str(destroyerTeam.FireATK))
-        self.builder.get_object('lblWaterATK').config(text='Water ATK: ' + str(destroyerTeam.WaterATK))
-        self.builder.get_object('lblWoodATK').config(text= 'Wood ATK: ' + str(destroyerTeam.WoodATK))
-        self.builder.get_object('lblLightATK').config(text='Light ATK:   ' + str(destroyerTeam.LightATK))
-        self.builder.get_object('lblDarkATK').config(text= 'Dark ATK:    ' + str(destroyerTeam.DarkATK))
-        self.builder.get_object('lblSkillBindResist').config(text=  'Skill Bind Resist: ' + str(destroyerTeam.skillBindResist) + '%')
-        self.builder.get_object('lblSkillBoost').config(text=   'Skill Boost: ' + str(destroyerTeam.skillBoost))
-        self.builder.get_object('lblMoveTime').config(text=  'Move Time: ' + str(destroyerTeam.moveTime) + 's')
-        self.builder.get_object('lblDarkResist').config(text=  'Dark Resist: ' + str(destroyerTeam.darkResist) + '%')
-        self.builder.get_object('lblJammerResist').config(text=  'Jammer Resist: ' + str(destroyerTeam.jammerResist) + '%')
-        self.builder.get_object('lblPoisonResist').config(text=  'Poison Resist: ' + str(destroyerTeam.poisonResist) + '%')
-        self.builder.get_object('lblEnhancedFireChance').config(text=  'Enhanced Fire Chance: ' + str(destroyerTeam.enhancedFireChance) + '%')
-        self.builder.get_object('lblEnhancedWaterChance').config(text=  'Enhanced Water Chance: ' + str(destroyerTeam.enhancedWaterChance) + '%')
-        self.builder.get_object('lblEnhancedWoodChance').config(text=  'Enhanced Wood Chance: ' + str(destroyerTeam.enhancedWoodChance) + '%')
-        self.builder.get_object('lblEnhancedLightChance').config(text=  'Enhanced Light Chance: ' + str(destroyerTeam.enhancedLightChance) + '%')
-        self.builder.get_object('lblEnhancedDarkChance').config(text=  'Enhanced Dark Chance: ' + str(destroyerTeam.enhancedDarkChance) + '%')
-        self.builder.get_object('lblEnhancedHealChance').config(text=  'Enhanced Heal Chance: ' + str(destroyerTeam.enhancedHealChance) + '%')
-        self.builder.get_object('lblFireDR').config(text=  'Fire Dmg Reduction: ' + str(destroyerTeam.fireDmgReduction) + '%')
-        self.builder.get_object('lblWaterDR').config(text=  'Water Dmg Reduction: ' + str(destroyerTeam.waterDmgReduction) + '%')
-        self.builder.get_object('lblWoodDR').config(text=  'Wood Dmg Reduction: ' + str(destroyerTeam.woodDmgReduction) + '%')
-        self.builder.get_object('lblLightDR').config(text=  'Light Dmg Reduction: ' + str(destroyerTeam.lightDmgReduction) + '%')
-        self.builder.get_object('lblDarkDR').config(text=  'Dark Dmg Reduction: ' + str(destroyerTeam.darkDmgReduction) + '%')
-        return
-
-    def onHomeClick(self, event):
-        self.master.showHomeScreen()
-        
-    def onMonsterBookClick(self):
-        self.master.showMonsterBook()
-
-    def onAccountOptionsClick(self):
-        """Occurs When Account Options Button Is Clicked"""
-        self.master.showAccountOptions()
-
-    def onMonsterBookClick(self, event):
-        self.master.showMonsterBook()
-
-    def onMyMonstersClick(self):
-        self.master.showPlayerCollection()
-
-    def onMyTeamsClick(self, event):
-        self.master.showTeamBrowser()
-
-if __name__ == '__main__':
-    root = tk.Tk()
-    app = TeamBrowser(root)
-    root.mainloop()
+#if __name__ == '__main__':
+#    root = tk.Tk()
+#    app = TeamBrowser(root)
+#    root.mainloop()

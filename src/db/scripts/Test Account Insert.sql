@@ -18,4 +18,4 @@ insert into MonsterInstance(Email, MonsterClassID, CurrentExperience, PlusHP, Pl
 ('PADmin',	2496,	4000000,	4,	5,	5,	7,	NULL,	2,	NULL),
 ('PADmin', 2968, 2166960, 6, 13, 6, 2, NULL, 1, NULL),
 ('PADmin', 3277, 2346643, 59, 10, 13, 6, NULL, 2, NULL),
-('PADmin', 2495, 4000000, 99, 99, 99, 7, 40025, 2, null);
+('PADmin', 2495, 4000000, 99, 99, 99, 7, null, 2, null);

@@ -83,7 +83,7 @@ class AccountCreation:
 
         #Creates the user's account if none of the fields are invalid [Username, Password, Email, PlayerID]
         if self.Account:
-            self.master.PADsql.signup([self.Name, self.Password, self.Email, self.ID])
+            self.master.PADsql.signup(self.Email, self.Password, self.Name, self.ID)
             self.master.showLoginScreen()
 
     def Cancel(self):

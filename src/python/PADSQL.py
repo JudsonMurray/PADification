@@ -17,7 +17,7 @@ class PADSQL():
     def __init__(self):
         self.connection = None
         self.cursor = None
-        self.Username = None
+        self.Email = None
         self.Password = None
         self.signedIn = False
 
@@ -39,14 +39,13 @@ class PADSQL():
         else:
             print("Connection Failed.")
 
-    def signup(self, listValues):
+    def signup(self, Email, Password, Username, PlayerID):
         """Function will execute TSQL command to insert into Table Player"""
-        self.connect()
-        if len(listValues) != 4:
-            raise ValueError(str(len(listValues)) + "given")
 
+        self.connect()
+        listValues = [Email, Password, Username, PlayerID]
         SQLCommand = ("INSERT INTO Player "
-                      "(Username, Password, Email, PlayerID) "
+                      "(Email, Password, Username, PlayerID) "
                       "VALUES (?,?,?,?)")
 
         self.cursor.execute(SQLCommand, listValues)
@@ -54,17 +53,19 @@ class PADSQL():
         print("Sign up Successful")
         self.closeConnection()
 
-    def login(self, Username, Password):
+    def login(self, Email, Password):
         """Log in with login Info"""
         self.connect()
-        SQLCommand = ("SELECT [Username], [Password] "
+        SQLCommand = ("SELECT [Email], [Password] "
                         "FROM Player "
-                        "WHERE [Username] = '" + Username + "' AND [Password] = '" + Password + "'")
-        self.cursor.execute(SQLCommand)
+                        "WHERE [Email] = ? "
+                        "AND [Password] = ?")
+        values = [Email, Password]
+        self.cursor.execute(SQLCommand, values)
         results = self.cursor.fetchone()
         if results:
             print("User login Successful")
-            self.Username = Username
+            self.Email = Email
             self.Password = Password
             self.signedIn = True
         else:
@@ -74,6 +75,8 @@ class PADSQL():
     def closeConnection(self):
         """Closes Connection to PADification Database"""
         self.connection.close()
+        self.Email = None
+        self.Password = None
         self.signedIn = False
 
     def selectMonsterClass(self, monSearch = None, dictionary = True):
@@ -81,7 +84,7 @@ class PADSQL():
            a tuple of 2 INT for Range, a string of monsterName for a like search or empty for entire collection.
            Returns a List of Tuples"""
 
-        SQLCommand = ("SELECT MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSKill.LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, LSSlots, "
+        SQLCommand = ("SELECT MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSKill.LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, "
                       "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, ActiveSkill.ActiveSkillDesc, LeaderSKill.LeaderSkillDesc "
                       "FROM ((MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) LEFT OUTER JOIN LeaderSkill ON MonsterClass.LeaderSkillName = LeaderSKill.LeaderSkillName) ")
 
@@ -96,7 +99,7 @@ class PADSQL():
         self.cursor.execute(SQLCommand)
 
         if dictionary:
-            properties = ['MonsterClassID', 'MonsterName', 'Rarity', 'PriAttribute', 'SecAttribute', 'MonsterTypeOne', 'MonsterTypeTwo', 'MonsterTypeThree', 'ExpCurve', 'MaxLevel', 'MonsterCost', 'ASListID', 'LeaderSkillName', 'ActiveSkillName', 'MaxHP', 'MinHP', 'GrowthRateHP', 'MaxATK', 'MinATK', 'GrowthRateATK', 'MaxRCV', 'MinRCV', 'GrowthRateRCV', 'CurSell', 'CurFodder', 'MonsterPointValue', 'LSSlots', 'ActiveSkillMaxLevel', 'ActiveSkillMaxCoolDown', 'ActiveSkillDesc', 'LeaderSkillDesc']
+            properties = ['MonsterClassID', 'MonsterName', 'Rarity', 'PriAttribute', 'SecAttribute', 'MonsterTypeOne', 'MonsterTypeTwo', 'MonsterTypeThree', 'ExpCurve', 'MaxLevel', 'MonsterCost', 'ASListID', 'LeaderSkillName', 'ActiveSkillName', 'MaxHP', 'MinHP', 'GrowthRateHP', 'MaxATK', 'MinATK', 'GrowthRateATK', 'MaxRCV', 'MinRCV', 'GrowthRateRCV', 'CurSell', 'CurFodder', 'MonsterPointValue', 'ActiveSkillMaxLevel', 'ActiveSkillMaxCoolDown', 'ActiveSkillDesc', 'LeaderSkillDesc']
             monstercollection = []
             results = self.cursor.fetchone()
             while results:
@@ -115,10 +118,10 @@ class PADSQL():
     def selectMonsterInstance(self, monSearch = None, dictionary = True):
 
 
-        SQLCommand = ("SELECT MonsterInstance.MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, LSSlots, "
-                "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, InstanceID, Username, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, AssistMonsterID, SkillLevel, LSListID "
+        SQLCommand = ("SELECT MonsterInstance.MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, "
+                "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, InstanceID, Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, AssistMonsterID, SkillLevel, LSListID "
                 "FROM (MonsterInstance LEFT OUTER JOIN (MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) ON MonsterInstance.MonsterClassID = MonsterClass.MonsterClassID)"
-                "WHERE MonsterInstance.Username = '" + str(self.Username) + "'" )
+                "WHERE MonsterInstance.Email = '" + str(self.Email) + "'" )
 
         if monSearch == None:
             SQLCommand += " ORDER BY InstanceID ASC"
@@ -134,8 +137,8 @@ class PADSQL():
                           'MonsterTypeOne', 'MonsterTypeTwo', 'MonsterTypeThree', 'ExpCurve', 'MaxLevel',
                           'MonsterCost', 'ASListID', 'LeaderSkillName', 'ActiveSkillName', 'MaxHP', 
                           'MinHP', 'GrowthRateHP', 'MaxATK', 'MinATK', 'GrowthRateATK', 'MaxRCV', 'MinRCV', 
-                          'GrowthRateRCV', 'CurSell', 'CurFodder', 'MonsterPointValue', 'LSSlots', 'ActiveSkillMaxLevel', 'ActiveSkillMaxCoolDown', 
-                          'InstanceID', 'Username', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID']
+                          'GrowthRateRCV', 'CurSell', 'CurFodder', 'MonsterPointValue', 'ActiveSkillMaxLevel', 'ActiveSkillMaxCoolDown', 
+                          'InstanceID', 'Email', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID']
             monstercollection = []
             results = self.cursor.fetchone()
             while results:
@@ -153,18 +156,18 @@ class PADSQL():
 
     def saveMonster(self, InstanceDict):
         """Save Monster Instance Record"""
-        keys = ['Username', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID', 'MonsterClassID']
+        keys = ['Email', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID', 'MonsterClassID']
         if InstanceDict["InstanceID"] == None:
             """If it is a new Monster"""
             InstanceDict.pop("InstanceID")
-            InstanceDict["Username"] = self.Username
+            InstanceDict["Email"] = self.Email
 
             values = []
             for i in keys:
                 values.append(InstanceDict[i])
                     
 
-            SQLCommand = ("INSERT INTO MonsterInstance (Username, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, AssistMonsterID, SkillLevel, LSListID, MonsterClassID) "
+            SQLCommand = ("INSERT INTO MonsterInstance (Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, AssistMonsterID, SkillLevel, LSListID, MonsterClassID) "
                           "VALUES (?,?,?,?,?,?,?,?,?,?)")
 
             self.cursor.execute(SQLCommand,values)
@@ -201,9 +204,9 @@ class PADSQL():
 
     def selectTeamInstance(self, teamsearch = None, dictionary = True):
         """Selects all teams, or by TeamInstanceID, or TeamName returns a list of dictionarys or tuples."""
-        SQLCommand = ("SELECT TeamInstanceID, Username, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, BadgeName "
+        SQLCommand = ("SELECT TeamInstanceID, Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, AwokenBadgeName "
                 "FROM Team "
-                "WHERE Username = '" + str(self.Username) + "'" )
+                "WHERE Email = '" + str(self.Email) + "'" )
         if teamsearch == None:
             SQLCommand += " ORDER BY TeamInstanceID ASC"
         elif type(teamsearch) == int:
@@ -214,9 +217,9 @@ class PADSQL():
         self.cursor.execute(SQLCommand)
 
         if dictionary:
-            properties = ['TeamInstanceID', 'Username', 'TeamName', 'LeaderMonster',
+            properties = ['TeamInstanceID', 'Email', 'TeamName', 'LeaderMonster',
                           'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 
-                          'BadgeName' ]
+                          'AwokenBadgeName' ]
             teamcollection = []
             results = self.cursor.fetchone()
             while results:
@@ -234,20 +237,20 @@ class PADSQL():
 
     def saveTeam(self, TeamDict):
         """Save Team Instance Record"""
-        keys = [ 'Username', 'TeamName', 'LeaderMonster',
+        keys = [ 'Email', 'TeamName', 'LeaderMonster',
                           'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 
                           'BadgeName' ]
         if TeamDict["TeamInstanceID"] == None:
             """If it is a new Team"""
             TeamDict.pop("TeamInstanceID")
-            TeamDict["Username"] = self.Username
+            TeamDict["Email"] = self.Email
 
             values = []
             for i in keys:
                 values.append(TeamDict[i])
                     
 
-            SQLCommand = ("INSERT INTO Team (Username, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, BadgeName) "
+            SQLCommand = ("INSERT INTO Team (Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, BadgeName) "
                           "VALUES (?,?,?,?,?,?,?,?)")
 
             self.cursor.execute(SQLCommand,values)
@@ -379,6 +382,12 @@ class PADSQL():
         self.cursor.execute(SQLCommand)
         results = self.cursor.fetchone()
         #Evolutions.append(results)
+        if len(results) == 0:
+            SQLCommand = ("SELECT * FROM EvolutionTree "
+                      "WHERE BaseMonsterID = " + str(MonsterClassID) )
+            self.cursor.execute(SQLCommand)
+            results = self.cursor.fetchone()
+            return results
 
         if results[7]: # if Ultimate
             SQLCommand = ("SELECT * FROM EvolutionTree "
