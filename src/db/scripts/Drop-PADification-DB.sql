@@ -145,8 +145,6 @@ if OBJECT_ID('PADification.dbo.LatentSkill', 'U') is not null
 --	DROP TABLE TeamTags;
 --	GO
 
-USE MASTER
-
 --Drop PADification Database
 if DB_ID('PADification') is not null
 	 Use Master
