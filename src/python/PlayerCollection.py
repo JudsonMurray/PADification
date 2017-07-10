@@ -24,7 +24,7 @@ import MonsterEditScreen
 
 
 class MonsterFrame:
-    def __init__(self, master, masterbuilder, i, ids, currentMonster, buttons, padsql):
+    def __init__(self, master, masterbuilder, i, ids, currentMonster, buttons, padsql, selButton):
         self.master = master
         self.masterbuilder = masterbuilder
         self.i = i
@@ -36,16 +36,26 @@ class MonsterFrame:
         self.currentMonster = currentMonster
         self.buttons = buttons
         self.padsql = padsql
+        self.selButton = selButton
+        self.myMonster = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(monsters[self.ids[self.i]]["MonsterClassID"]) + '.png').subsample(2)
+        self.builder.get_object("FrameLabel").create_image(2,2, image = self.myMonster, anchor = tk.NW)
         
     def clickMe(self, event):
         '''Occurs everytime a monster in the player collection is clicked'''
         
         global k
         global selectedMonster
-
-        self.masterbuilder.get_object("btnFavoriteWishlist").config(state = NORMAL)
+        
+        #if monsters[self.ids[self.i]]["Favorites"]:
+        #   self.masterbuilder.get_object("btnFavorite").config(state = Disabled)
+        #else:
+        self.masterbuilder.get_object("btnFavorite").config(state = NORMAL)
         self.masterbuilder.get_object("btnEdit").config(state = NORMAL)
         self.masterbuilder.get_object("btnRemove").config(state = NORMAL)
+        #if monsters[self.ids[self.i]]["Favorites"]:
+        #    self.masterbuilder.get_object("btnUnfavorite").config(state = NORMAL)
+        #if monsters[self.ids[self.i]]["WishList"]:
+        #    self.masterbuilder.get_object("btnAddFromWishlist").config(state = NORMAL)
         
         #Creates photoimages for selected monster 
         self.s = PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(monsters[self.ids[self.i]]["MonsterClassID"]) +'.png').zoom(4)
@@ -101,9 +111,9 @@ class MonsterFrame:
         #Prevents the program from trying to change the releif of a 'button' if it doesn't exist
         if len(self.buttons) - 1 >= k:
             self.buttons[k].monbut.config(relief = FLAT)
-        k = self.i
+        k = self.selButton
         
-        self.buttons[self.i].monbut.config(relief = SUNKEN)
+        self.buttons[self.selButton].monbut.config(relief = SUNKEN)
 
 
         #Populates fields with neccessary information
@@ -142,10 +152,13 @@ class PlayerCollection:
 
         self.pds = master.PADsql
         self.master = master
+        self.startMonster = 0
 
         buttons =[]
+        self.currentPage = 1
 
         k=-1
+        #self.__UpdateMonsters()
 
         #1: Creates a builder
         self.builder = builder = pygubu.Builder()
@@ -159,13 +172,66 @@ class PlayerCollection:
 
     def populateList(self):
         '''Populates the player collection list'''
-        self.builder.get_object("btnFavoriteWishlist").config(state = DISABLED)
+        self.builder.get_object("btnFavorite").config(state = DISABLED)
         self.builder.get_object("btnEdit").config(state = DISABLED)
         self.builder.get_object("btnRemove").config(state = DISABLED)
+        self.builder.get_object("btnUnfavorite").config(state = DISABLED)
+        self.builder.get_object("btnAddFromWishlist").config(state = DISABLED)
 
         global monsters
         
+        self.builder.get_object("canMonsterList").delete("All")
+
         # JBM - Modifying collection to Dictionary from List to make Monster Lookup easier
+        instanceIDs = []
+        monster = self.pds.selectMonsterInstance()
+
+        monsters = dict()
+        for i in monster:
+            monsters[i["InstanceID"]] = i
+            instanceIDs.append(i["InstanceID"])
+        self.instantList = instanceIDs
+        #self.myMonsterList = []
+
+        ##Creates the photoimage for each monster instance of the user and stores them in a list
+        #for i in self.instantList:
+        #    myMonster = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(monsters[i]["MonsterClassID"]) + '.png')
+        #    myMonster = myMonster.subsample(2)
+        #    self.myMonsterList.append(myMonster)
+
+        self.container = self.builder.get_object('canMonsterList')
+        
+
+        for i in self.container.grid_slaves():
+            i.grid_forget()
+        
+        #Creates a graphical list of monsters
+        buttons = []
+        self.buttons = buttons = []
+        self.count = 0
+        
+
+        for i in monsters:
+            if self.startMonster < 50 * self.currentPage and ((self.startMonster >= 50 * (self.currentPage - 1)) and not(self.startMonster == len(self.instantList))):
+                b = self.instantList[self.startMonster]
+                a = PADMonster.Monster(monsters[b])
+                self.buttons.append(MonsterFrame(self.container, self.builder, self.startMonster, self.instantList, a, self.buttons, self.pds, self.count))
+                self.buttons[self.count].monbut.grid(row=self.count // 10,column = self.count % 10)
+                #self.buttons[self.count].builder.get_object('FrameLabel').create_image(2,2, image = self.myMonsterList[self.startMonster], anchor = tk.NW)
+                self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(a.Level)+ '\nID: ' + str(a.MonsterClassID))
+                self.count += 1
+                self.startMonster += 1
+
+        self.pages = (len(self.instantList) // 50) + 1
+
+        self.builder.get_object('lblCurPage').config(text = "Page " + str(self.currentPage) + "/" + str(self.pages))
+
+        self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
+    
+    def __UpdateMonsters(self):
+        # JBM - Modifying collection to Dictionary from List to make Monster Lookup easier
+        global monsters
+
         instanceIDs = []
         monster = self.pds.selectMonsterInstance()
 
@@ -182,31 +248,48 @@ class PlayerCollection:
             myMonster = myMonster.subsample(2)
             self.myMonsterList.append(myMonster)
 
-        self.container = self.builder.get_object('canMonsterList')
-        
-
-        for i in self.container.grid_slaves():
-            i.grid_forget()
-        
-        #Creates a graphical list of monsters
-        buttons = []
-        self.buttons = buttons = []
-        self.count = 0
-        for i in monsters:
-            b = self.instantList[self.count]
-            a = PADMonster.Monster(monsters[b])
-            self.buttons.append(MonsterFrame(self.container, self.builder, self.count, self.instantList, a, self.buttons, self.pds))
-            self.buttons[self.count].monbut.grid(row=self.count // 10,column = self.count % 10)
-            self.buttons[self.count].builder.get_object('FrameLabel').create_image(2,2, image = self.myMonsterList[self.count], anchor = tk.NW)
-            self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(a.Level)+ '\nID: ' + str(a.MonsterClassID))
-            self.count += 1
-
-        self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
-    
-    def showEditMonster(self):
+    def onEditMonsterClick(self):
         self.monsterEdit = MonsterEditScreen.MonsterEdit(self)
         self.master.forgetAll()
         self.monsterEdit.monsteredit.grid()
+
+    def onHomeClick(self):
+        self.master.showHomeScreen()
+
+    def onMyMonsterClick(self):
+        self.master.showPlayerCollection()
+
+    def onMonsterBookClick(self):
+        self.master.showMonsterBook()
+
+    def onMyTeamsClick(self):
+        self.master.showTeamBrowser()
+
+    def onPlayersClick(self):
+        pass
+
+    def onTeamRankingClick(self):
+        pass
+
+    def onAccountOptionsClick(self):
+        self.master.showAccountOptions()
+
+    def next(self):
+        self.builder.get_object("btnPrev").config(state = NORMAL)
+        self.currentPage += 1
+        if self.currentPage == self.pages:
+            self.builder.get_object("btnNext").config(state = DISABLED)
+        self.__RemoveInformation()
+        self.populateList()
+
+    def prev(self):
+        self.builder.get_object("btnNext").config(state = NORMAL)
+        self.currentPage -= 1
+        self.startMonster -= self.count + 50
+        if self.currentPage == 1:
+            self.builder.get_object("btnPrev").config(state = DISABLED)
+        self.__RemoveInformation()
+        self.populateList()
 
     def RemoveMonster(self):
         '''Removes the selected monster from the DB and all its references, occurs when remove monster button is clicked'''
@@ -221,7 +304,9 @@ class PlayerCollection:
             monsters.pop(selectedMonster)
             self.instantList.remove(selectedMonster)
 
+            self.__UpdateMonsters()
             self.__RemoveInformation()
+            self.startMonster -= self.count
             self.populateList()
 
     def __RemoveInformation(self):
