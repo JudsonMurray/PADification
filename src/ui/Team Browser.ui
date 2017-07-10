@@ -162,7 +162,6 @@
             <property name="height">100</property>
             <property name="relief">raised</property>
             <property name="width">100</property>
-            <bind add="True" handler="leadClick" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">0</property>
               <property name="padx">20</property>
@@ -181,7 +180,6 @@
             <property name="height">100</property>
             <property name="relief">raised</property>
             <property name="width">100</property>
-            <bind add="True" handler="sub1Click" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">1</property>
               <property name="padx">20</property>
@@ -198,7 +196,6 @@
             <property name="height">100</property>
             <property name="relief">raised</property>
             <property name="width">100</property>
-            <bind add="True" handler="sub2Click" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">2</property>
               <property name="padx">20</property>
@@ -215,7 +212,6 @@
             <property name="height">100</property>
             <property name="relief">raised</property>
             <property name="width">100</property>
-            <bind add="True" handler="sub3Click" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">3</property>
               <property name="padx">20</property>
@@ -232,7 +228,6 @@
             <property name="height">100</property>
             <property name="relief">raised</property>
             <property name="width">100</property>
-            <bind add="True" handler="sub4Click" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">4</property>
               <property name="padx">20</property>
