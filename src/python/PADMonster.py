@@ -55,6 +55,8 @@ class Monster():
         self.AssistMonsterID = None
         self.SkillLevel = 1
         self.LSListID = None
+        self.WishList = 0 
+        self.Favorites = 0
 
         #Calculated Variables
         self.MaxExperience = 0
@@ -79,7 +81,7 @@ class Monster():
 
     def getSaveDict(self):
         """Returns a Dictionary of instance table """
-        savingItems = ['InstanceID', 'Email', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID', 'MonsterClassID']
+        savingItems = ['InstanceID', 'Email', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID', 'MonsterClassID', 'Favorites', 'WishList' ]
         savedict = {}
         for i in savingItems:
             savedict[i] = getattr(self,i)
@@ -106,7 +108,7 @@ class Monster():
 
     def calcStat(self, minStat, maxStat, curLevel, maxLevel, growthRate):
         """Calculated the Value of a stat at a given level"""
-        return math.ceil(minStat + (maxStat - minStat) * ((curLevel - 1) / (maxLevel - 1 if maxLevel - 1 > 0 else 1)) ** growthRate)
+        return round(minStat + (maxStat - minStat) * ((curLevel - 1) / (maxLevel - 1 if maxLevel - 1 > 0 else 1)) ** growthRate)
 
     def setCurrentExperience(self, value):
         """Set CurrentExperience and Update Stats to relect changes."""

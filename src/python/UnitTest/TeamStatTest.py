@@ -13,7 +13,7 @@ class teamstat:
     def __init__(self, **kwargs):
         
         self.padsql = PADSQL.PADSQL()
-        self.padsql.login('Username', 'Password')
+        self.padsql.login('TestEmail1@test.test', 'Password')
 
         with open('src/python/UnitTest/TeamStatTestInput.csv') as csvfile:
             self.reader = csv.DictReader(csvfile)

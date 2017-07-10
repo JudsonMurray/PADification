@@ -19,12 +19,12 @@ class TC2(unittest.TestCase):
 
     def test_Signup_Valid_Information(self):
         """Test account signup, Ensure Information Does not Exist in Database"""
-        self.padsql.signup(['Username','Password','TestEmail1@test.test', 300000000])
+        self.padsql.signup('TestEmail1@test.test', 'Password', 'Username', 300000000)
 
     def test_Signup_Duplicate_Information(self):
         """Test Fails to sign up duplicate account"""
         with self.assertRaises(PADSQL.pypyodbc.IntegrityError):
-            self.padsql.signup(['Usertest1','PassTest1','TestEmail1@test.test', 300000000])
+            self.padsql.signup('TestEmail1@test.test', 'PassTest1','Usertest1', 300000000)
     
     @unittest.skip("No Rules set up to Test yet.")
     def test_Signup_Invalid_Information(self):
@@ -33,7 +33,7 @@ class TC2(unittest.TestCase):
 
     def test_login(self):
         """Valid Username and Password sign in"""
-        self.padsql.login('Username', 'Password')
+        self.padsql.login('TestEmail1@test.test', 'Password')
         self.assertTrue(self.padsql.signedIn)
 
     def test_login_invalid(self):
@@ -42,7 +42,7 @@ class TC2(unittest.TestCase):
         self.assertFalse(self.padsql.signedIn)
 
     def test_login_Casesensitivity(self):
-        self.padsql.login('USERNAME', 'PASSWORD')
+        self.padsql.login('TestEmail1@test.test', 'PASSWORD')
         self.assertFalse(self.padsql.signedIn, "Case Sensitivity is not functioning")
 
     def test_login_Empty(self):
