@@ -118,10 +118,14 @@ class PADSQL():
     def selectMonsterInstance(self, monSearch = None, dictionary = True):
 
 
-        SQLCommand = ("SELECT MonsterInstance.MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, "
-                "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, InstanceID, Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, AssistMonsterID, SkillLevel, LSListID "
-                "FROM (MonsterInstance LEFT OUTER JOIN (MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) ON MonsterInstance.MonsterClassID = MonsterClass.MonsterClassID)"
-                "WHERE MonsterInstance.Email = '" + str(self.Email) + "'" )
+        SQLCommand = ("SELECT MonsterInstance.MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, "
+                      "MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, "
+                      "GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, "
+                      "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, InstanceID, Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, "
+                      "AssistMonsterID, SkillLevel, LSListID, Favorites, WishList "
+                      "FROM (MonsterInstance LEFT OUTER JOIN (MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) "
+                      "ON MonsterInstance.MonsterClassID = MonsterClass.MonsterClassID)"
+                      "WHERE MonsterInstance.Email = '" + str(self.Email) + "'" )
 
         if monSearch == None:
             SQLCommand += " ORDER BY InstanceID ASC"
@@ -138,7 +142,7 @@ class PADSQL():
                           'MonsterCost', 'ASListID', 'LeaderSkillName', 'ActiveSkillName', 'MaxHP', 
                           'MinHP', 'GrowthRateHP', 'MaxATK', 'MinATK', 'GrowthRateATK', 'MaxRCV', 'MinRCV', 
                           'GrowthRateRCV', 'CurSell', 'CurFodder', 'MonsterPointValue', 'ActiveSkillMaxLevel', 'ActiveSkillMaxCoolDown', 
-                          'InstanceID', 'Email', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID']
+                          'InstanceID', 'Email', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID', 'Favorites', 'WishList' ]
             monstercollection = []
             results = self.cursor.fetchone()
             while results:
@@ -156,7 +160,7 @@ class PADSQL():
 
     def saveMonster(self, InstanceDict):
         """Save Monster Instance Record"""
-        keys = ['Email', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID', 'MonsterClassID']
+        keys = ['Email', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID', 'MonsterClassID', 'Favorites', 'WishList' ]
         if InstanceDict["InstanceID"] == None:
             """If it is a new Monster"""
             InstanceDict.pop("InstanceID")
@@ -167,8 +171,8 @@ class PADSQL():
                 values.append(InstanceDict[i])
                     
 
-            SQLCommand = ("INSERT INTO MonsterInstance (Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, AssistMonsterID, SkillLevel, LSListID, MonsterClassID) "
-                          "VALUES (?,?,?,?,?,?,?,?,?,?)")
+            SQLCommand = ("INSERT INTO MonsterInstance (Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, AssistMonsterID, SkillLevel, LSListID, MonsterClassID, Favorites, WishList) "
+                          "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)")
 
             self.cursor.execute(SQLCommand,values)
             self.connection.commit()
@@ -182,7 +186,7 @@ class PADSQL():
             for i in keys:
                 values.append(InstanceDict[i])
                 setstr += i + " = ?"  
-                setstr += ", " if i != 'MonsterClassID' else " "
+                setstr += ", " if i != 'WishList' else " "
             values.append(InstanceDict["InstanceID"])
 
             SQLCommand = ("UPDATE MonsterInstance " + setstr +
