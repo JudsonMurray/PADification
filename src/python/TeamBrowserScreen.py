@@ -59,17 +59,10 @@ class TeamBrowser():
 
         if len(teams) == 0:
             self.teamListBox.delete(0, END)
+            self.setImages(None)
+            self.updateTeamLabels(self.builder)
             return
-            #sql = ("INSERT INTO team (Username, TeamName,LeaderMonster,SubMonsterOne,SubMonsterTwo,SubMonsterThree,SubMonsterFour,BadgeName) Values" "('" + self.PADsql.Username + "','Noctis',NULL,NULL,NULL,NULL,NULL,NULL)")
-            #self.PADsql.cursor.execute(sql)
-            #teams = self.PADsql.selectTeamInstance()
-            #self.PADsql.connection.commit()
-        #Retrieves monster Instance IDs from database
         else:
-            #sql = "SELECT LeaderMonster, SubMonsterOne ,SubMonsterTwo, SubMonsterThree, SubMonsterFour FROM team WHERE TeamInstanceID = {}".format(teams[0]['TeamInstanceID'])
-            #playerTable = self.PADsql.cursor.execute(sql)
-            #self.myMonsters = playerTable.fetchall()
-        
             destroyerTeamBase = self.PADsql.selectTeamInstance(teams[0]['TeamInstanceID'])
             self.SelectedTeam = PADMonster.Team(self.PADsql)
             self.teamListBox.delete(0, END)
