@@ -91,7 +91,7 @@ class PADification(tk.Tk):
         self.teamBrowser.loadUserTeams()
         self.teamBrowser.mainwindow.grid()
 
-    def showEditTeamScreen(self, instance):
+    def showEditTeamScreen(self):
         """Show Login Screen"""
         self.forgetAll()
         self.editTeam.mainwindow.grid()

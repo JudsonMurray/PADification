@@ -48,6 +48,11 @@ class TeamBrowser():
 
         #Widgets to access
         self.teamListBox = self.builder.get_object('teamListBox')
+        self.canLeadMon = self.builder.get_object('canLeadMon')
+        self.canSubMon1 = self.builder.get_object('canSubMon1')
+        self.canSubMon2 = self.builder.get_object('canSubMon2')
+        self.canSubMon3 = self.builder.get_object('canSubMon3')
+        self.canSubMon4 = self.builder.get_object('canSubMon4')
 
         #sets permanent images
         self.setImages()
@@ -85,15 +90,13 @@ class TeamBrowser():
             return
 
     def newTeam(self, event):
-        edit = self.master.editTeam
         """Show Login Screen"""
-        edit.loadTeam(0)
-        self.master.showEditTeamScreen(0)
+        self.master.editTeam.loadTeam(PADMonster.Team(self.PADsql))
+        self.master.showEditTeamScreen()
 
     def btnEditTeam(self, event):
-        edit = self.master.editTeam
-        edit.loadTeam(self.SelectedTeam.TeamInstanceID)
-        self.master.showEditTeamScreen(self.SelectedTeam.TeamInstanceID)
+        self.master.editTeam.loadTeam(self.SelectedTeam)
+        self.master.showEditTeamScreen()
 
     def teamSelect(self, event):
         teamID = self.teamListBox.get(ANCHOR)
@@ -136,9 +139,14 @@ class TeamBrowser():
         global myMonsterList
         myMonsterList = []
 
-        for i in ['LeaderMonster', 'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour']:
+        #for i in ['LeaderMonster', 'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour']:
+        for i in self.SelectedTeam.Monsters:
             if i != None:
-                myMonsterList.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(getattr(self.SelectedTeam,i).MonsterClassID) + '.png'))
+                myMonsterList.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(i.MonsterClassID) + '.png'))
+            else:
+                myMonsterList.append(None)
+        while len(myMonsterList) < 5:
+            myMonsterList.append(None)
 
         #for i in myMonsters[0]:
             
@@ -159,22 +167,23 @@ class TeamBrowser():
     def updateTeamLabels(self):
         """Updates team information labels"""
         self.SelectedTeam.update()
-        self.canLeadMon = self.builder.get_object('canLeadMon')
-        self.canSubMon1 = self.builder.get_object('canSubMon1')
-        self.canSubMon2 = self.builder.get_object('canSubMon2')
-        self.canSubMon3 = self.builder.get_object('canSubMon3')
-        self.canSubMon4 = self.builder.get_object('canSubMon4')
+
         self.canLeadMon.delete('pic')
         self.canSubMon1.delete('pic')
         self.canSubMon2.delete('pic')
         self.canSubMon3.delete('pic')
         self.canSubMon4.delete('pic')
         if len(myMonsterList) != 0:
-            self.canLeadMon.create_image(7,7,image = myMonsterList[0], anchor = tk.NW, tag = "pic")
-            self.canSubMon1.create_image(7,7,image = myMonsterList[1], anchor = tk.NW, tag = "pic")
-            self.canSubMon2.create_image(7,7,image = myMonsterList[2], anchor = tk.NW, tag = "pic")
-            self.canSubMon3.create_image(7,7,image = myMonsterList[3], anchor = tk.NW, tag = "pic")
-            self.canSubMon4.create_image(7,7,image = myMonsterList[4], anchor = tk.NW, tag = "pic")
+            if myMonsterList[0] != None:
+                self.canLeadMon.create_image(7,7,image = myMonsterList[0], anchor = tk.NW, tag = "pic")
+            if myMonsterList[1] != None:
+                self.canSubMon1.create_image(7,7,image = myMonsterList[1], anchor = tk.NW, tag = "pic")
+            if myMonsterList[2] != None:    
+                self.canSubMon2.create_image(7,7,image = myMonsterList[2], anchor = tk.NW, tag = "pic")
+            if myMonsterList[3] != None:
+                self.canSubMon3.create_image(7,7,image = myMonsterList[3], anchor = tk.NW, tag = "pic")
+            if myMonsterList[4] != None:
+                self.canSubMon4.create_image(7,7,image = myMonsterList[4], anchor = tk.NW, tag = "pic")
 
         self.builder.get_object('lblTeamHP').config(text=  'HP:    ' + str(self.SelectedTeam.TeamHP))
         self.builder.get_object('lblTeamCost').config(text='Cost: ' + str(self.SelectedTeam.TeamCost))

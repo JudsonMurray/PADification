@@ -175,29 +175,6 @@ class EditTeam():
         self.updateTeamLabelImages()
         self.updateTeamLabels()
         
-        x=0
-        #sql = "SELECT InstanceID FROM monsterInstance WHERE Username = 'KyleTD'"
-        #playerTable = self.PADsql.cursor.execute(sql)
-        #myMonsters = playerTable.fetchall()
-        #self.PADsql.connection.commit()
-        ##Populates lists with monsterIDs
-        #for i in range(0,len(myMonsters)):
-        #    myMonsters[i] = str(myMonsters[i]).replace("(", "")
-        #    myMonsters[i] = str(myMonsters[i]).replace(",)", "")
-                    
-        #    self.PADsql.selectMonsterInstance(myMonsters[i])
-        #    sql = "SELECT MonsterClassID FROM monsterInstance WHERE InstanceID = {}".format(myMonsters[i])
-            
-        #    myMonster = cursor.execute(sql)
-        #    myMonster = myMonster.fetchone()
-        #    myMonster = str(myMonster).replace("(", "")
-        #    monsterClass = myMonster.replace(",)", "")
-        #    monsterClassIDs += monsterClass,
-        #    myMonster= tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(monsterClass) + '.png').zoom(15)
-        #    myMonster = myMonster.subsample(30)
-        #    myMonsterList.append(myMonster)
-        #    x+=1
-
         self.canLeadMon = self.builder.get_object('canLeadMon')
         self.canSubMon1 = self.builder.get_object('canSubMon1')
         self.canSubMon2 = self.builder.get_object('canSubMon2')
@@ -281,82 +258,36 @@ class EditTeam():
             self.count += 1
 
         self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
+
     def loadTeam(self, instance):
-        global leadMon, sub1, sub2, sub3, sub4
         self.teamInstance = instance
         self.updateTeam(self.teamInstance)
         self.populateCollection()
-        return
 
     def updateTeam(self, i):
-        global leadMon, sub1, sub2, sub3, sub4
-        #sql = "SELECT LeaderMonster, SubMonsterOne ,SubMonsterTwo, SubMonsterThree, SubMonsterFour FROM team WHERE TeamInstanceID = {}".format(str(i))
-        #playerTable = self.PADsql.cursor.execute(sql)
-        #monMonsters = playerTable.fetchall()
-
-        #self.destroyerTeamBase = self.PADsql.selectTeamInstance(i)
-        #if len(self.destroyerTeamBase) == 0:
-        #    self.destroyerTeam.setLeaderMonster()
-        #    self.destroyerTeam.setSubMonsterOne()
-        #    self.destroyerTeam.setSubMonsterTwo()
-        #    self.destroyerTeam.setSubMonsterThree()
-        #    self.destroyerTeam.setSubMonsterFour()
-        #    return
-        
-        #if self.destroyerTeamBase[0]['LeaderMonster'] != None:
-        #    self.destroyerTeam.setLeaderMonster(self.destroyerTeamBase[0]['LeaderMonster'])
-        #else:
-        #    self.destroyerTeam.setLeaderMonster()            
-        #if self.destroyerTeamBase[0]['SubMonsterOne'] != None:
-        #    self.destroyerTeam.setSubMonsterOne(self.destroyerTeamBase[0]['SubMonsterOne'])
-        #else:
-        #    self.destroyerTeam.setSubMonsterOne()
-        #if self.destroyerTeamBase[0]['SubMonsterTwo'] != None:
-        #    self.destroyerTeam.setSubMonsterTwo(self.destroyerTeamBase[0]['SubMonsterTwo'])
-        #else:
-        #    self.destroyerTeam.setSubMonsterTwo()
-        #if self.destroyerTeamBase[0]['SubMonsterThree'] != None:
-        #    self.destroyerTeam.setSubMonsterThree(self.destroyerTeamBase[0]['SubMonsterThree'])
-        #else:
-        #    self.destroyerTeam.setSubMonsterThree()
-        #if self.destroyerTeamBase[0]['SubMonsterFour'] != None:
-        #    self.destroyerTeam.setSubMonsterFour(self.destroyerTeamBase[0]['SubMonsterFour'])
-        #else:
-        #    self.destroyerTeam.setSubMonsterFour()
-        #mClassIDs = []
-        #global myMonsterList
-
+        global destroyerTeam
         self.myMonsterL = []
-        self.destroyerTeam = PADMonster.Team(self.PADsql, i)
-        for i in ['LeaderMonster', 'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour']:
-            if i != None:
-                self.myMonsterL.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(getattr(self.SelectedTeam,i).MonsterClassID) + '.png'))
+        self.destroyerTeam = i
+        destroyerTeam = self.destroyerTeam
+        for i in self.destroyerTeam.Monsters:
+            if i.MonsterClassID != None:
+                self.myMonsterL.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(i.MonsterClassID) + '.png'))
+            else:
+                self.myMonsterL.append(None)
+        while len(self.myMonsterL) < 5:
+            self.myMonsterL.append(None)
+ 
+        if self.myMonsterL[0] != None:
+            self.canLeadMon.create_image(7,7,image = self.myMonsterL[0], anchor = tk.NW, tag = "pic")
+        if self.myMonsterL[1] != None:
+            self.canSubMon1.create_image(7,7,image = self.myMonsterL[1], anchor = tk.NW, tag = "pic")
+        if self.myMonsterL[2] != None:
+            self.canSubMon2.create_image(7,7,image = self.myMonsterL[2], anchor = tk.NW, tag = "pic")
+        if self.myMonsterL[3] != None:
+            self.canSubMon3.create_image(7,7,image = self.myMonsterL[3], anchor = tk.NW, tag = "pic")
+        if self.myMonsterL[4] != None:
+            self.canSubMon4.create_image(7,7,image = self.myMonsterL[4], anchor = tk.NW, tag = "pic")
 
-        #for i in monMonsters[0]:
-            
-        #    if i != None:
-        #        sql = "SELECT MonsterClassID FROM monsterInstance WHERE InstanceID = {}".format(i)
-            
-        #        self.myMonster = self.PADsql.cursor.execute(sql)
-        #        self.myMonster = self.myMonster.fetchone()
-        #        self.myMonster = str(self.myMonster).replace("(", "")
-        #        monsterClass = self.myMonster.replace(",)", "")
-        #        mClassIDs += monsterClass,
-        #        self.myMonster= tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(monsterClass) + '.png')
-        #    else:
-        #        self.myMonster = None
-        #    self.myMonsterL.append(self.myMonster)
-
-        self.canLeadMon = self.builder.get_object('canLeadMon')
-        self.canSubMon1 = self.builder.get_object('canSubMon1')
-        self.canSubMon2 = self.builder.get_object('canSubMon2')
-        self.canSubMon3 = self.builder.get_object('canSubMon3')
-        self.canSubMon4 = self.builder.get_object('canSubMon4')
-        self.canLeadMon.create_image(7,7,image = self.myMonsterL[0], anchor = tk.NW, tag = "pic")
-        self.canSubMon1.create_image(7,7,image = self.myMonsterL[1], anchor = tk.NW, tag = "pic")
-        self.canSubMon2.create_image(7,7,image = self.myMonsterL[2], anchor = tk.NW, tag = "pic")
-        self.canSubMon3.create_image(7,7,image = self.myMonsterL[3], anchor = tk.NW, tag = "pic")
-        self.canSubMon4.create_image(7,7,image = self.myMonsterL[4], anchor = tk.NW, tag = "pic")
         self.updateTeamLabels()
         self.updateTeamLabelImages()
 
@@ -411,11 +342,11 @@ class EditTeam():
     
     def removeMonster(self, event):
         """Remove monsterfrom selected team slot"""
-        self.canLeadMon = self.builder.get_object('canLeadMon')
-        self.canSubMon1 = self.builder.get_object('canSubMon1')
-        self.canSubMon2 = self.builder.get_object('canSubMon2')
-        self.canSubMon3 = self.builder.get_object('canSubMon3')
-        self.canSubMon4 = self.builder.get_object('canSubMon4')
+        #self.canLeadMon = self.builder.get_object('canLeadMon')
+        #self.canSubMon1 = self.builder.get_object('canSubMon1')
+        #self.canSubMon2 = self.builder.get_object('canSubMon2')
+        #self.canSubMon3 = self.builder.get_object('canSubMon3')
+        #self.canSubMon4 = self.builder.get_object('canSubMon4')
 
         if var.get() == 0:
             self.canLeadMon.delete('all')
@@ -452,7 +383,6 @@ class EditTeam():
 
     def updateTeamLabels(self):
         """Updates team information labels"""
-        x = self.destroyerTeam.TeamHP
         self.builder.get_object('lblTeamHP').config(text=  'HP:    ' + str(self.destroyerTeam.TeamHP))
         self.builder.get_object('lblTeamCost').config(text='Cost: ' + str(self.destroyerTeam.TeamCost))
         self.builder.get_object('lblTeamRCV').config(text= 'RCV:  ' + str(self.destroyerTeam.TeamRCV))
@@ -540,16 +470,11 @@ class EditTeam():
         self.master.showTeamBrowser()
 
     def saveTeam(self, event):
-        x = self.builder.get_variable('teamName').get()
-        self.destroyerTeam.setTeamName(x)
+        teamName = self.builder.get_variable('teamName').get()
+        self.destroyerTeam.setTeamName(teamName)
         saveThisTeam = self.destroyerTeam.getSaveDict()
-        if self.teamInstance != 0:
-            saveThisTeam['TeamInstanceID'] = self.teamInstance
-        saveThisTeam['Username'] = self.PADsql.Username
+        saveThisTeam['Email'] = self.PADsql.Email
         self.PADsql.saveTeam(saveThisTeam)
-        tb = self.master.teamBrowser
-        #self.builder.get_object('')
-        zz =self.destroyerTeam.TeamInstanceID
         self.master.showTeamBrowser()
 
 if __name__ == '__main__':

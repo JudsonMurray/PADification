@@ -239,7 +239,7 @@ class PADSQL():
         """Save Team Instance Record"""
         keys = [ 'Email', 'TeamName', 'LeaderMonster',
                           'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 
-                          'BadgeName' ]
+                          'AwokenBadgeName' ]
         if TeamDict["TeamInstanceID"] == None:
             """If it is a new Team"""
             TeamDict.pop("TeamInstanceID")
@@ -250,7 +250,7 @@ class PADSQL():
                 values.append(TeamDict[i])
                     
 
-            SQLCommand = ("INSERT INTO Team (Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, BadgeName) "
+            SQLCommand = ("INSERT INTO Team (Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, AwokenBadgeName) "
                           "VALUES (?,?,?,?,?,?,?,?)")
 
             self.cursor.execute(SQLCommand,values)
@@ -264,7 +264,7 @@ class PADSQL():
             for i in keys:
                 values.append(TeamDict[i])
                 setstr += i + " = ?"  
-                setstr += ", " if i != 'BadgeName' else " "
+                setstr += ", " if i != 'AwokenBadgeName' else " "
             values.append(TeamDict["TeamInstanceID"])
 
             SQLCommand = ("UPDATE Team " + setstr +

@@ -1,0 +1,328 @@
+test_Create_Monster_Object (__main__.TC3)
+Instantiates a Monster from PADSQL query ... ERROR
+test_Create_Team_Object (__main__.TC3)
+Tests Teams can be instantiated ... ok
+test_SelectMonsterClass_All (__main__.TC3)
+returns a collection of ~2846 dictionaries ... ERROR
+test_SelectMonsterClass_Int (__main__.TC3)
+Returns a collection of a single dictionary by MonsterClassID ... ERROR
+test_SelectMonsterClass_Range (__main__.TC3)
+returns a collection of within a range and ensure all monsterIds are in the Range ... ERROR
+test_SelectMonsterClass_String (__main__.TC3)
+Returns the collection with MonsterName Containing the string and verifies results ... ERROR
+test_Team_Create_Update_Delete (__main__.TC3)
+Creates a Team of 5 new monsters, verifys its created, alters and updates then verifies, then deletes ... ERROR
+test_deleteMonster (__main__.TC3)
+deletes a monster instance from the MonsterInstance Table ... ERROR
+test_getActiveSkillDesc (__main__.TC3) ... ERROR
+test_getAwokenBadges (__main__.TC3)
+Test method getAwokenBadges that it does not raise an integrity exception ... ERROR
+test_getAwokenSkillList (__main__.TC3)
+Test method getAwokenSkillList that it does not raise an integrity exception ... ERROR
+test_getAwokenSkills (__main__.TC3)
+Test method getAwokenSkills that it does not raise an integrity exception ... ERROR
+test_getEvolutionTree (__main__.TC3)
+Test method getEvolutionTree that it does not raise an integrity exception ... ERROR
+test_getEvolutions (__main__.TC3)
+Test method getEvolutions that it does not raise an integrity exception ... ERROR
+test_getLatentAwokenSkillList (__main__.TC3)
+Test method getLatentAwokenSkillList that it does not raise an integrity exception ... skipped 'No saving of latent skill lists Implemented yet.'
+test_getLatentAwokenSkills (__main__.TC3)
+Test method getLatentAwokenSkills that it does not raise an integrity exception ... ERROR
+test_getLeaderSkillDesc (__main__.TC3) ... ERROR
+test_saveMonsterInstance_NewMonster (__main__.TC3)
+Creates a Monster Instance and inserts it into MonsterInstance Table ... ERROR
+test_saveMonsterInstance_Update (__main__.TC3)
+Retrieves a Monster from MonsterInstance Table then modifies currentXP, ... ERROR
+test_selectMonsterInstance (__main__.TC3)
+Test selectMonsterInstance does not raise integrity exceptions ... ERROR
+test_selectTeamInstance (__main__.TC3)
+Tests if selectTeamInstance raises integrity exceptions ... ERROR
+
+======================================================================
+ERROR: test_Create_Monster_Object (__main__.TC3)
+Instantiates a Monster from PADSQL query
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 55, in test_Create_Monster_Object
+    testmonster = Monster(self.padsql.selectMonsterClass(1)[0])
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 97, in selectMonsterClass
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_SelectMonsterClass_All (__main__.TC3)
+returns a collection of ~2846 dictionaries
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 26, in test_SelectMonsterClass_All
+    self.assertGreater( len(self.padsql.selectMonsterClass()), 2800 )
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 97, in selectMonsterClass
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_SelectMonsterClass_Int (__main__.TC3)
+Returns a collection of a single dictionary by MonsterClassID
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 49, in test_SelectMonsterClass_Int
+    result = self.padsql.selectMonsterClass(value)
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 97, in selectMonsterClass
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_SelectMonsterClass_Range (__main__.TC3)
+returns a collection of within a range and ensure all monsterIds are in the Range
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 33, in test_SelectMonsterClass_Range
+    results = self.padsql.selectMonsterClass((minRange,maxRange))
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 97, in selectMonsterClass
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_SelectMonsterClass_String (__main__.TC3)
+Returns the collection with MonsterName Containing the string and verifies results
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 41, in test_SelectMonsterClass_String
+    results = self.padsql.selectMonsterClass(string)
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 97, in selectMonsterClass
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_Team_Create_Update_Delete (__main__.TC3)
+Creates a Team of 5 new monsters, verifys its created, alters and updates then verifies, then deletes
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 110, in test_Team_Create_Update_Delete
+    samples = self.padsql.selectMonsterClass()
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 97, in selectMonsterClass
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_deleteMonster (__main__.TC3)
+deletes a monster instance from the MonsterInstance Table
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 92, in test_deleteMonster
+    instanceToDelete = random.choice(self.padsql.selectMonsterInstance())["InstanceID"]
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 131, in selectMonsterInstance
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_getActiveSkillDesc (__main__.TC3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 184, in test_getActiveSkillDesc
+    samples = self.padsql.selectMonsterClass()
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 97, in selectMonsterClass
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_getAwokenBadges (__main__.TC3)
+Test method getAwokenBadges that it does not raise an integrity exception
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 164, in test_getAwokenBadges
+    self.padsql.getAwokenBadges()
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 320, in getAwokenBadges
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_getAwokenSkillList (__main__.TC3)
+Test method getAwokenSkillList that it does not raise an integrity exception
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 151, in test_getAwokenSkillList
+    samples = self.padsql.selectMonsterClass()
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 97, in selectMonsterClass
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_getAwokenSkills (__main__.TC3)
+Test method getAwokenSkills that it does not raise an integrity exception
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 143, in test_getAwokenSkills
+    self.padsql.getAwokenSkills()
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 283, in getAwokenSkills
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_getEvolutionTree (__main__.TC3)
+Test method getEvolutionTree that it does not raise an integrity exception
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 168, in test_getEvolutionTree
+    samples = self.padsql.selectMonsterClass()
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 97, in selectMonsterClass
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_getEvolutions (__main__.TC3)
+Test method getEvolutions that it does not raise an integrity exception
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 174, in test_getEvolutions
+    samples = self.padsql.selectMonsterClass()
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 97, in selectMonsterClass
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_getLatentAwokenSkills (__main__.TC3)
+Test method getLatentAwokenSkills that it does not raise an integrity exception
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 147, in test_getLatentAwokenSkills
+    self.padsql.getLatentAwokenSkills()
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 295, in getLatentAwokenSkills
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_getLeaderSkillDesc (__main__.TC3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 179, in test_getLeaderSkillDesc
+    samples = self.padsql.selectMonsterClass()
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 97, in selectMonsterClass
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_saveMonsterInstance_NewMonster (__main__.TC3)
+Creates a Monster Instance and inserts it into MonsterInstance Table
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 69, in test_saveMonsterInstance_NewMonster
+    samples = self.padsql.selectMonsterClass()
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 97, in selectMonsterClass
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_saveMonsterInstance_Update (__main__.TC3)
+Retrieves a Monster from MonsterInstance Table then modifies currentXP,
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 79, in test_saveMonsterInstance_Update
+    monsters = self.padsql.selectMonsterInstance()
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 131, in selectMonsterInstance
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_selectMonsterInstance (__main__.TC3)
+Test selectMonsterInstance does not raise integrity exceptions
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 62, in test_selectMonsterInstance
+    results = self.padsql.selectMonsterInstance()
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 131, in selectMonsterInstance
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+======================================================================
+ERROR: test_selectTeamInstance (__main__.TC3)
+Tests if selectTeamInstance raises integrity exceptions
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\mckensiegit\PADification\src\python\UnitTest\QueryTest.py", line 99, in test_selectTeamInstance
+    results = self.padsql.selectTeamInstance()
+  File "C:\mckensiegit\PADification\src\python\PADSQL.py", line 215, in selectTeamInstance
+    self.cursor.execute(SQLCommand)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1470, in execute
+    self._free_stmt(SQL_CLOSE)
+  File "C:\Users\crono\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1987, in _free_stmt
+    raise ProgrammingError('HY000','Attempt to use a closed connection.')
+pypyodbc.ProgrammingError: ('HY000', 'Attempt to use a closed connection.')
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.010s
+
+FAILED (errors=19, skipped=1)
