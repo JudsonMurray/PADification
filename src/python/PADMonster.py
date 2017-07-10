@@ -106,7 +106,7 @@ class Monster():
 
     def calcStat(self, minStat, maxStat, curLevel, maxLevel, growthRate):
         """Calculated the Value of a stat at a given level"""
-        return math.ceil(minStat + (maxStat - minStat) * ((curLevel - 1) / (maxLevel - 1 if maxLevel - 1 > 0 else 1)) ** growthRate)
+        return round(minStat + (maxStat - minStat) * ((curLevel - 1) / (maxLevel - 1 if maxLevel - 1 > 0 else 1)) ** growthRate)
 
     def setCurrentExperience(self, value):
         """Set CurrentExperience and Update Stats to relect changes."""
