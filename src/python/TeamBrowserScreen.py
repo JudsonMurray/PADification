@@ -91,6 +91,8 @@ class TeamBrowser():
         self.master.showEditTeamScreen()
 
     def teamSelect(self, event):
+        if self.teamListBox.isEmpty():
+            return
         teamID = self.teamListBox.get(ANCHOR)
         if teamID == '': 
             teamID = self.teamListBox.get(0)
@@ -212,6 +214,11 @@ class TeamBrowser():
 
     def onMyTeamsClick(self, event):
         self.master.showTeamBrowser()
+
+    def removeTeam(self,event):
+        self.PADsql.deleteTeam(self.SelectedTeam.TeamInstanceID)
+        self.teamListBox.delete(ANCHOR)
+        self.loadUserTeams()
 
     def setImages(self, build):
         """Set Images"""
