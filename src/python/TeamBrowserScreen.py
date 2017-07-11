@@ -1,6 +1,6 @@
 #!/USR/BIN/ENV PYTHON 3.5
 #   NAME:    KYLE GUNTON
-#   DATE:    07/02/17
+#   DATE:    07/11/17
 #   PURPOSE: FUNCTIONALITY FOR THE BROWSE TEAM SCREEN 
 
 
@@ -91,14 +91,20 @@ class TeamBrowser():
         self.master.showEditTeamScreen()
 
     def teamSelect(self, event):
+        if self.teamListBox.get(0) == '':
+            self.updateTeam((0))
+            return
         teamID = self.teamListBox.get(ANCHOR)
         if teamID == '': 
             teamID = self.teamListBox.get(0)
-        teamID = teamID[-6:]
+        teamID = teamID[-10:].strip(' ')
         self.updateTeam(int(teamID))
 
     def updateTeam(self, i):
-        self.SelectedTeam = PADMonster.Team(self.PADsql, self.PADsql.selectTeamInstance(int(i))[0])
+        if i == 0:
+            self.SelectedTeam = PADMonster.Team(self.PADsql)
+        else:
+            self.SelectedTeam = PADMonster.Team(self.PADsql, self.PADsql.selectTeamInstance(int(i))[0])
 
         self.monsterClassIDs = []
         self.myMonsterList = []
@@ -164,9 +170,8 @@ class TeamBrowser():
             self.canSubMon3.create_image(7,7,image = self.myMonsterL[3], anchor = tk.NW, tag = "pic")
         if self.myMonsterL[4] != None:
             self.canSubMon4.create_image(7,7,image = self.myMonsterL[4], anchor = tk.NW, tag = "pic")
-
-
-        self.thisBuild.get_object('lblTeamName').config(text='Team Name: ' + str(self.SelectedTeam.TeamName))
+        if build == self.builder:
+            self.thisBuild.get_object('lblTeamName').config(text='Team Name: ' + str(self.SelectedTeam.TeamName))
         self.thisBuild.get_object('lblTeamHP').config(text=  'HP:    ' + str(self.SelectedTeam.TeamHP))
         self.thisBuild.get_object('lblTeamCost').config(text='Cost: ' + str(self.SelectedTeam.TeamCost))
         self.thisBuild.get_object('lblTeamRCV').config(text= 'RCV:  ' + str(self.SelectedTeam.TeamRCV))
@@ -212,6 +217,13 @@ class TeamBrowser():
 
     def onMyTeamsClick(self, event):
         self.master.showTeamBrowser()
+
+    def removeTeam(self,event):
+        if self.teamListBox.get(ANCHOR) != '':
+            self.PADsql.deleteTeam(self.SelectedTeam.TeamInstanceID)
+            self.teamListBox.delete(ANCHOR)
+            self.loadUserTeams()
+            self.updateTeam(0)
 
     def setImages(self, build):
         """Set Images"""

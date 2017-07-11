@@ -46,16 +46,16 @@ class MonsterFrame:
         global k
         global selectedMonster
         
-        #if monsters[self.ids[self.i]]["Favorites"]:
-        #   self.masterbuilder.get_object("btnFavorite").config(state = Disabled)
-        #else:
-        self.masterbuilder.get_object("btnFavorite").config(state = NORMAL)
+        if monsters[self.ids[self.i]]["Favorites"]:
+           self.masterbuilder.get_object("btnFavorite").config(state = Disabled)
+        else:
+            self.masterbuilder.get_object("btnFavorite").config(state = NORMAL)
         self.masterbuilder.get_object("btnEdit").config(state = NORMAL)
         self.masterbuilder.get_object("btnRemove").config(state = NORMAL)
-        #if monsters[self.ids[self.i]]["Favorites"]:
-        #    self.masterbuilder.get_object("btnUnfavorite").config(state = NORMAL)
-        #if monsters[self.ids[self.i]]["WishList"]:
-        #    self.masterbuilder.get_object("btnAddFromWishlist").config(state = NORMAL)
+        if monsters[self.ids[self.i]]["Favorites"]:
+            self.masterbuilder.get_object("btnUnfavorite").config(state = NORMAL)
+        if monsters[self.ids[self.i]]["WishList"]:
+            self.masterbuilder.get_object("btnAddFromWishlist").config(state = NORMAL)
         
         #Creates photoimages for selected monster 
         self.s = PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(monsters[self.ids[self.i]]["MonsterClassID"]) +'.png').zoom(4)
@@ -170,6 +170,11 @@ class PlayerCollection:
         self.mainwindow = builder.get_object('frmPlayerCollection')
         builder.connect_callbacks(self)
 
+    def pageOne(self):
+        self.startMonster = 0
+        self.currentPage = 1
+        self.populateList()
+
     def populateList(self):
         '''Populates the player collection list'''
         self.builder.get_object("btnFavorite").config(state = DISABLED)
@@ -223,30 +228,21 @@ class PlayerCollection:
                 self.startMonster += 1
 
         self.pages = (len(self.instantList) // 50) + 1
+        if len(self.instantList) % 50 == 0:
+            self.pages -= 1
+
+        if self.currentPage > self.pages:
+            self.prev()
+
+        if self.pages > self.currentPage:
+            self.builder.get_object("btnNext").config(state = NORMAL)
+        elif self.pages == self.currentPage:
+            self.builder.get_object("btnNext").config(state = DISABLED)
+            
 
         self.builder.get_object('lblCurPage').config(text = "Page " + str(self.currentPage) + "/" + str(self.pages))
 
         self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
-    
-    def __UpdateMonsters(self):
-        # JBM - Modifying collection to Dictionary from List to make Monster Lookup easier
-        global monsters
-
-        instanceIDs = []
-        monster = self.pds.selectMonsterInstance()
-
-        monsters = dict()
-        for i in monster:
-            monsters[i["InstanceID"]] = i
-            instanceIDs.append(i["InstanceID"])
-        self.instantList = instanceIDs
-        self.myMonsterList = []
-
-        #Creates the photoimage for each monster instance of the user and stores them in a list
-        for i in self.instantList:
-            myMonster = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(monsters[i]["MonsterClassID"]) + '.png')
-            myMonster = myMonster.subsample(2)
-            self.myMonsterList.append(myMonster)
 
     def onEditMonsterClick(self):
         self.monsterEdit = MonsterEditScreen.MonsterEdit(self)
@@ -304,7 +300,7 @@ class PlayerCollection:
             monsters.pop(selectedMonster)
             self.instantList.remove(selectedMonster)
 
-            self.__UpdateMonsters()
+            #self.__UpdateMonsters()
             self.__RemoveInformation()
             self.startMonster -= self.count
             self.populateList()

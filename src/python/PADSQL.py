@@ -212,7 +212,7 @@ class PADSQL():
                 "FROM Team "
                 "WHERE Email = '" + str(self.Email) + "'" )
         if teamsearch == None:
-            SQLCommand += " ORDER BY TeamInstanceID ASC"
+            SQLCommand += " ORDER BY TeamName ASC"
         elif type(teamsearch) == int:
             SQLCommand += " AND TeamInstanceID = " + str(teamsearch)
         elif type(teamsearch) == str:
