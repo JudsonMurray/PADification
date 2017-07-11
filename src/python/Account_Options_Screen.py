@@ -21,7 +21,7 @@ class AccountOptions:
 
         self.builder.connect_callbacks(self)
 
-        self.obj1 = self.builder.get_object('New Email',master)
+        self.obj1 = self.builder.get_object('New Username',master)
         self.obj2 = self.builder.get_object('New Password',master)
         self.obj3 = self.builder.get_object("Confirm New Password",master)
 
@@ -35,15 +35,15 @@ class AccountOptions:
     def onMyMonstersClick(self):
         self.master.showPlayerCollection()
 
-    def onEmailFocusIn(self,event):
-        """Clears New Email Entry Field"""
-        if self.obj1.get() == "New Email":
+    def onUsernameFocusIn(self,event):
+        """Clears New Username Entry Field"""
+        if self.obj1.get() == "New Username":
             self.obj1.delete(0,END)
 
-    def onEmailFocusOut(self,event):
-        """Repopulates New Email Entry Field"""
+    def onUsernameFocusOut(self,event):
+        """Repopulates New Username Entry Field"""
         if self.obj1.get() == "":
-            self.obj1.insert(0,"New Email")
+            self.obj1.insert(0,"New Username")
 
     def onPasswordFocusIn(self,event):
         """Clears New Password Entry Field"""

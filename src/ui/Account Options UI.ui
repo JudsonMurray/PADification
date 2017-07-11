@@ -140,7 +140,7 @@ Various actions you may perform upon your account</property>
           </object>
         </child>
         <child>
-          <object class="tk.Frame" id="Change Email">
+          <object class="tk.Frame" id="Change Username">
             <property name="borderwidth">5</property>
             <property name="height">75</property>
             <property name="relief">raised</property>
@@ -152,11 +152,11 @@ Various actions you may perform upon your account</property>
               <property name="row">3</property>
             </layout>
             <child>
-              <object class="tk.Label" id="Change Active Email">
-                <property name="text" translatable="yes">Change Email</property>
+              <object class="tk.Label" id="Change Active Username">
+                <property name="text" translatable="yes">Change Username</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">55</property>
+                  <property name="padx">47</property>
                   <property name="pady">5</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
@@ -165,11 +165,11 @@ Various actions you may perform upon your account</property>
               </object>
             </child>
             <child>
-              <object class="tk.Entry" id="New Email">
-                <property name="text" translatable="yes">New Email</property>
+              <object class="tk.Entry" id="New Username">
+                <property name="text" translatable="yes">New Username</property>
                 <property name="width">30</property>
-                <bind add="True" handler="onEmailFocusIn" sequence="&lt;FocusIn&gt;" />
-                <bind add="True" handler="onEmailFocusOut" sequence="&lt;FocusOut&gt;" />
+                <bind add="True" handler="onUsernameFocusIn" sequence="&lt;FocusIn&gt;" />
+                <bind add="True" handler="onUsernameFocusOut" sequence="&lt;FocusOut&gt;" />
                 <layout>
                   <property name="column">0</property>
                   <property name="propagate">True</property>
