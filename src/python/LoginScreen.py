@@ -26,6 +26,7 @@ class LoginScreen:
         item = self.builder.get_object('TitleCanvas').create_image(10,0,image = self.image1,anchor = NW,tag="Title")
         self.builder.connect_callbacks(self)
         self.builder.get_object('entPassword').bind('<Return>', self.onLoginClick)
+        self.builder.get_object('entEmail').bind('<Return>', self.onLoginClick)
         self.Email = self.builder.get_variable('varEmail')
         self.Password = self.builder.get_variable('varPassword')
 
