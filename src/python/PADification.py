@@ -83,7 +83,7 @@ class PADification(tk.Tk):
         """Show Player Collection Screen"""
         self.forgetAll()
         self.playerCollection.mainwindow.grid()
-        self.playerCollection.populateList()
+        self.playerCollection.pageOne()
 
     def showTeamBrowser(self):
         """Show Login Screen"""

@@ -1,0 +1,52 @@
+test_Signup_Duplicate_Information (__main__.TC2)
+Test Fails to sign up duplicate account ... FAIL
+test_Signup_Invalid_Information (__main__.TC2)
+No rules set up to test yet ... skipped 'No Rules set up to Test yet.'
+test_Signup_Valid_Information (__main__.TC2)
+Test account signup, Ensure Information Does not Exist in Database ... ERROR
+test_login (__main__.TC2)
+Valid Username and Password sign in ... FAIL
+test_login_Casesensitivity (__main__.TC2) ... ok
+test_login_Empty (__main__.TC2) ... ok
+test_login_invalid (__main__.TC2)
+Invalid Username and Password sign in ... ok
+
+======================================================================
+ERROR: test_Signup_Valid_Information (__main__.TC2)
+Test account signup, Ensure Information Does not Exist in Database
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\elieg\Documents\PADification\src\python\UnitTest\LoginTestsPADification.py", line 22, in test_Signup_Valid_Information
+    self.padsql.signup('TestEmail1@test.test', 'Password', 'Username', 300000000)
+  File "C:\Users\elieg\Documents\PADification\src\python\PADSQL.py", line 51, in signup
+    self.cursor.execute(SQLCommand, listValues)
+  File "C:\Users\elieg\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1617, in execute
+    check_success(self, ret)
+  File "C:\Users\elieg\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 1007, in check_success
+    ctrl_err(SQL_HANDLE_STMT, ODBC_obj.stmt_h, ret, ODBC_obj.ansi)
+  File "C:\Users\elieg\AppData\Local\Programs\Python\Python35\lib\site-packages\pypyodbc.py", line 979, in ctrl_err
+    raise IntegrityError(state,err_text)
+pypyodbc.IntegrityError: ('23000', "[23000] [Microsoft][ODBC SQL Server Driver][SQL Server]Violation of PRIMARY KEY constraint 'PK_Player'. Cannot insert duplicate key in object 'dbo.Player'. The duplicate key value is (TestEmail1@test.test).")
+
+======================================================================
+FAIL: test_Signup_Duplicate_Information (__main__.TC2)
+Test Fails to sign up duplicate account
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\elieg\Documents\PADification\src\python\UnitTest\LoginTestsPADification.py", line 27, in test_Signup_Duplicate_Information
+    self.padsql.signup('TestEmail1@test.test', 'PassTest1','Usertest1', 300000000)
+AssertionError: IntegrityError not raised
+
+======================================================================
+FAIL: test_login (__main__.TC2)
+Valid Username and Password sign in
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\elieg\Documents\PADification\src\python\UnitTest\LoginTestsPADification.py", line 37, in test_login
+    self.assertTrue(self.padsql.signedIn)
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.126s
+
+FAILED (failures=2, errors=1, skipped=1)
