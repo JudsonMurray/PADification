@@ -108,7 +108,6 @@
         <property name="relief">sunken</property>
         <property name="text" translatable="yes">PADification Application Information</property>
         <property name="width">170</property>
-        <bind add="" handler="" sequence="&lt;1&gt;" />
         <layout>
           <property name="column">0</property>
           <property name="columnspan">7</property>
@@ -133,6 +132,7 @@
         <child>
           <object class="ttk.Label" id="lblTeamName">
             <property name="text" translatable="yes">Team Name: </property>
+            <property name="width">20</property>
             <layout>
               <property name="column">0</property>
               <property name="propagate">True</property>
@@ -963,7 +963,6 @@
           <object class="tk.Button" id="playersButton">
             <property name="text" translatable="yes">Players</property>
             <property name="width">12</property>
-            <bind add="" handler="onPlayersClick" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">4</property>
               <property name="padx">40</property>
@@ -991,7 +990,6 @@
             <property name="command">onAccountOptionsClick</property>
             <property name="text" translatable="yes">My Account</property>
             <property name="width">12</property>
-            <bind add="" handler="" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">6</property>
               <property name="padx">40</property>
