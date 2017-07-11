@@ -245,9 +245,7 @@ class PlayerCollection:
         self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
 
     def onEditMonsterClick(self):
-        self.monsterEdit = MonsterEditScreen.MonsterEdit(self)
-        self.master.forgetAll()
-        self.monsterEdit.monsteredit.grid()
+        self.master.showEditMonster()
 
     def onHomeClick(self):
         self.master.showHomeScreen()
