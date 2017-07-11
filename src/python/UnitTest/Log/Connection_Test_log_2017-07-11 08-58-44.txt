@@ -1,0 +1,11 @@
+test_connection (__main__.TC1)
+MsSQL Server Connected ... ok
+test_disconnect (__main__.TC1)
+MsSQL Server Disonnect ... ok
+test_is_istantiated (__main__.TC1)
+PADSQL pypyodbc Instantiation ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+OK
