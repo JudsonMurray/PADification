@@ -91,6 +91,7 @@
             <child>
               <object class="ttk.Label" id="lblTeamName">
                 <property name="text" translatable="yes">Team Name: </property>
+                <property name="width">11</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="propagate">True</property>

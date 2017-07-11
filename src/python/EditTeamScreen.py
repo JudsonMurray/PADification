@@ -1,6 +1,6 @@
 #!/USR/BIN/ENV PYTHON 3.5
 #   NAME:    KYLE GUNTON
-#   DATE:    06/28/17
+#   DATE:    07/11/17
 #   PURPOSE: FUNCTIONALITY FOR THE EDIT TEAM SCREEN 
 
 #   -V. 0.0.1 -Created base functionality of selection monsters in player collection.
@@ -217,7 +217,6 @@ class EditTeam():
         self.canSubMon2.delete('all')
         self.canSubMon3.delete('all')
         self.canSubMon4.delete('all')
-
         i = 0
         if self.destroyerTeam.LeaderMonster != None:
             self.myMonsterL.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(self.destroyerTeam.Monsters[i].MonsterClassID) + '.png').zoom(5).subsample(7))
@@ -259,6 +258,8 @@ class EditTeam():
         if self.myMonsterL[4] != None:
             self.canSubMon4.create_image(7,7,image = self.myMonsterL[4], anchor = tk.NW, tag = "pic")
 
+
+        self.builder.get_variable('teamName').set(self.destroyerTeam.TeamName)
         self.master.teamBrowser.setImages(self.builder)
         self.master.teamBrowser.updateTeamLabels(self.builder)
 
@@ -342,6 +343,7 @@ class EditTeam():
         self.master.teamBrowser.setImages(self.builder)
         self.master.teamBrowser.updateTeamLabels(self.builder)
         return
+
     def selectBadge(self, event):
         pass
 
@@ -349,7 +351,16 @@ class EditTeam():
         self.master.showTeamBrowser()
 
     def saveTeam(self, event):
+        
         teamName = self.builder.get_variable('teamName').get()
+        x=1
+        
+        teamName = teamName.lstrip()
+        for i in self.master.teamBrowser.teamListBox.get(0,END):
+            if i[0:4] == "Team" and i[5:20].strip(' ') == str(x):
+                x+=1
+        if teamName == '':
+            teamName = "Team " + str(x)
         self.destroyerTeam.setTeamName(teamName)
         saveThisTeam = self.destroyerTeam.getSaveDict()
         saveThisTeam['Email'] = self.PADsql.Email
