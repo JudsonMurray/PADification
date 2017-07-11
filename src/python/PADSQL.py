@@ -162,7 +162,7 @@ class PADSQL():
         """Save Monster Instance Record"""
         keys = ['Email', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID', 'MonsterClassID', 'Favorites', 'WishList' ]
         if InstanceDict["InstanceID"] == None:
-            """If it is a new Monster"""
+            #If it is a new Monster
             InstanceDict.pop("InstanceID")
             InstanceDict["Email"] = self.Email
 
@@ -349,33 +349,51 @@ class PADSQL():
                           "WHERE NextMonsterID = " + str(lowestID))
             self.cursor.execute(SQLCommand)
             results = self.cursor.fetchall()
-
         Evolutions.append([lowestID])
+
+
         # Iterate through tree and Add results
         SQLCommand = ("SELECT * FROM EvolutionTree "
                           "WHERE BaseMonsterID = " + str(lowestID))
         self.cursor.execute(SQLCommand)
         results = self.cursor.fetchall()
         Evolutions.append(results)
-        
+
+        subResults = []
         while results:
-            subResults = []
             SQLCommand = ("SELECT * FROM EvolutionTree "
                           "WHERE BaseMonsterID = " + str(results[0][0]))
             self.cursor.execute(SQLCommand)
             results = self.cursor.fetchall()
 
-            if results and len(results) > 1:
-                Evolutions.append(results)
+            if results:
+                if results in Evolutions or results[0] in subResults:
+                    continue
+                else:
+                    Evolutions.append(results)
+            
+            
+                subResults = []
+
                 for i in results:
                     SQLCommand = ("SELECT * FROM EvolutionTree "
                           "WHERE BaseMonsterID = " + str(i[0]))
                     self.cursor.execute(SQLCommand)
-                    subResults.append(self.cursor.fetchone())
+                    tempresult = self.cursor.fetchone()
+                    if tempresult:
+                        subResults.append(tempresult)
+                    else:
+                        subResults.append(None)
 
+                    for i in Evolutions:
+                        for o in subResults:
+                            if o in i:
+                                continue
                 if subResults:
                     Evolutions.append(subResults)
-
+        
+        #for i in Evolutions:
+        #    print(i)
         return Evolutions
 
     def getEvolutions(self, MonsterClassID):
@@ -386,7 +404,7 @@ class PADSQL():
         self.cursor.execute(SQLCommand)
         results = self.cursor.fetchone()
         #Evolutions.append(results)
-        if len(results) == 0:
+        if results == None:
             SQLCommand = ("SELECT * FROM EvolutionTree "
                       "WHERE BaseMonsterID = " + str(MonsterClassID) )
             self.cursor.execute(SQLCommand)
@@ -420,10 +438,13 @@ class PADSQL():
                 LeaderSkillName = LeaderSkillName.replace("'", "''")
             
             SQLCommand = "SELECT LeaderSkillDesc FROM LeaderSkill Where LeaderSkillName = '" + LeaderSkillName + "'"
-            #print(SQLCommand.encode('ASCII','ignore'))
-            self.cursor.execute(SQLCommand.encode('ASCII','ignore'))
-            
-            return self.cursor.fetchone()[0]
+            self.cursor.execute(SQLCommand)
+            result = self.cursor.fetchone()
+            if result:
+                return result[0] 
+            else:
+                print(LeaderSkillName.encode('ASCII', 'ignore'))
+
 
     def getActiveSkillDesc(self, ActiveSkillName):
         """Return ActiveSkill Desc"""
@@ -433,4 +454,8 @@ class PADSQL():
 
             SQLCommand = "SELECT ActiveSkillDesc FROM ActiveSkill Where ActiveSkillName = '" + ActiveSkillName + "'"
             self.cursor.execute(SQLCommand)
-            return self.cursor.fetchone()[0]
+            result = self.cursor.fetchone()
+            if result:
+                return result[0] 
+            else:
+                print(LeaderSkillName.encode('ASCII', 'ignore'))
