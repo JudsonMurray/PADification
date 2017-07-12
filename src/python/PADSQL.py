@@ -19,6 +19,8 @@ class PADSQL():
         self.cursor = None
         self.Email = None
         self.Password = None
+        self.PlayerID = None
+        self.Username = None
         self.signedIn = False
 
     def connect(self):
@@ -56,7 +58,7 @@ class PADSQL():
     def login(self, Email, Password):
         """Log in with login Info"""
         self.connect()
-        SQLCommand = ("SELECT [Email], [Password] "
+        SQLCommand = ("SELECT [Email], [Password], [Username], [PlayerID] "
                         "FROM Player "
                         "WHERE [Email] = ? "
                         "AND [Password] = ?")
@@ -67,6 +69,8 @@ class PADSQL():
             print("User login Successful")
             self.Email = Email
             self.Password = Password
+            self.PlayerID = results[3]
+            self.Username = results[2]
             self.signedIn = True
         else:
             print("Login Failed")
@@ -77,6 +81,8 @@ class PADSQL():
         self.connection.close()
         self.Email = None
         self.Password = None
+        self.PlayerID = None
+        self.Username = None
         self.signedIn = False
 
     def selectMonsterClass(self, monSearch = None, dictionary = True):

@@ -5,7 +5,7 @@
 #
 #
 # 2017-07-03 - WG - v1.0 - Monster Book able to search and Displays a maximum of 50 results on one page.
-
+# 2017-07-12 - WG - v1.1 - Monster book displays all information pertaining to monsters, Shows 7 results per page.
 
 from PADMonster import Monster
 import tkinter as tk
@@ -14,8 +14,6 @@ from tkinter import messagebox as mb
 from tkinter import *
 from ast import literal_eval as le
 import math
-
-
 
 class MonsterFrame():
     def __init__(self, master, mbobject):
@@ -27,7 +25,6 @@ class MonsterFrame():
         self.frame = self.builder.get_object('MonsFrame', master)
         self.FrameLabel = self.builder.get_object('FrameLabel')
         self.builder.connect_callbacks(self)
-
 
         #Variables
         self.MonstertypeOne = None
@@ -94,6 +91,15 @@ class MonsterBook():
         self.MonstertypeOne = None
         self.MonstertypeTwo = None
         self.MonstertypeThree = None
+        self.ASOne = None
+        self.ASTwo = None
+        self.ASThree = None
+        self.ASFour = None
+        self.ASFive = None
+        self.ASSix = None
+        self.ASSeven = None
+        self.ASEight = None
+        self.ASNine = None
 
         #Results Variables
         self.evoFrames = []
@@ -102,7 +108,28 @@ class MonsterBook():
         self.curPage = 1
         self.Results = 0
         self.maxPage = 1
+        self.monster = None
+        self.thumbnail = None
 
+        #Filter Images
+        ##### Atttribute Images #####
+        self.AttributeImages = dict()
+        for i in ["Fire","Water","Wood","Light","Dark"]:
+            self.AttributeImages[i] = PhotoImage(file = 'Resource/PAD/Images/Attributes/' + i + "Symbol.png")
+
+        for i in ["Fire","Water","Wood","Light","Dark"]:
+            self.builder.get_object("chkPri" + i).config(image = self.AttributeImages[i])
+            self.builder.get_object("chkSec" + i).config(image = self.AttributeImages[i])
+
+        ##### TYPE IMAGES #####
+        self.TypeImages = dict()
+        for i in ["Attacker", "Awaken Material", "Balanced", "Devil", "Dragon", "Enhance Material",
+                  "Evo Material", "God", "Healer", "Machine", "Physical", "Redeemable Material" ]:
+            self.TypeImages[i] = PhotoImage(file = 'Resource/PAD/Images/Types/' + i + ".png")
+
+            self.builder.get_object("chkType" + i.replace(" ", "")).config(image = self.TypeImages[i])
+
+        ##### Frame Creation #####
         for i in range( 0 , self.RESULTSPERPAGE ):
             self.MonsterFrames.append(MonsterFrame(self.resultsFrame, self))
 
@@ -131,15 +158,18 @@ class MonsterBook():
         if self.curPage < self.maxPage:
             self.curPage += 1
             self.update()
-            self.clearInfo()
+            #self.clearInfo()
 
     def prevPage(self, event):
         if self.curPage > 1:
             self.curPage -= 1
             self.update()
-            self.clearInfo()
-
+            #self.clearInfo()
+    
     def clearInfo(self):
+        """Clears Monster SUmmary Info"""
+        self.monster = None
+        self.thumbnail = None
         self.builder.get_object("canMonsterSummary")
         self.builder.get_object("lblIDName").config(text = "")
         self.builder.get_object("lblRarity").config(text= "")
@@ -154,13 +184,23 @@ class MonsterBook():
         self.builder.get_object("lblLeaderSkillDesc").config(text = '')
         self.builder.get_object("lblActiveSkillName").config(text = 'None')
         self.builder.get_object("lblActiveSkillDesc").config(text = '')
+        self.builder.get_object("lblActiveSkillMinCooldown").config(text = "Min CD: --")
+        self.builder.get_object("lblActiveSkillMaxCooldown").config(text = "Max CD: --")
 
-        for i in ["MonsterTypeOne", "MonsterTypeTwo", "MonsterTypeThree"]:
+        for i in ["MonsterTypeOne", "MonsterTypeTwo", "MonsterTypeThree",
+                  "ASOne", "ASTwo", "ASThree", "ASFour", "ASFive", "ASSix", "ASSeven", "ASEight", "ASNine"]:
             setattr(self, i, None)
+
 
     def showInfo(self,monster, thumbnail):
         """Shows The Information of the Selected monster"""
-        self.builder.get_object("canMonsterSummary").create_image(10,10, image = thumbnail, anchor = tk.NW)
+
+        ########################
+        #### UPDATE LABELS #####
+        ########################
+        self.monster = monster
+        self.thumbnail = thumbnail
+        self.builder.get_object("canMonsterSummary").create_image(10,10, image = self.thumbnail, anchor = tk.NW)
         self.builder.get_object("lblIDName").config(text = str(monster.MonsterClassID) + " - " + monster.MonsterName)
         rarity = ""
         for i in range(0,monster.Rarity):
@@ -173,7 +213,10 @@ class MonsterBook():
         self.builder.get_object("lblMinHP").config(text = str(monster.MinHP))
         self.builder.get_object("lblMinATK").config(text = str(monster.MinATK))
         self.builder.get_object("lblMinRCV").config(text = str(monster.MinRCV))
-        
+
+        ######################################
+        ##### UPDATE MONSTER TYPE IMAGES #####
+        ######################################
         count = 1
         for i in ["MonsterTypeOne", "MonsterTypeTwo", "MonsterTypeThree"]:
             if getattr(monster, i) != None:
@@ -183,12 +226,32 @@ class MonsterBook():
                 setattr(self, i, None)
             count += 1
 
+        ######################################
+        ##### UPDATE AWOKEN SKILL IMAGES #####
+        ######################################
+        AwokenSkills = self.master.PADsql.getAwokenSkillList(monster.MonsterClassID)
+        count = 1
+        for i in ["ASOne", "ASTwo", "ASThree", "ASFour", "ASFive", "ASSix", "ASSeven", "ASEight", "ASNine"]:
+            if AwokenSkills[count] != None:
+                setattr(self,i, PhotoImage(file = 'Resource/PAD/Images/Awoken Skills/' + AwokenSkills[count] + ".png"))
+                self.builder.get_object("can" + i).create_image(2,2, image = getattr(self, i), anchor = tk.NW)
+            else:
+                setattr(self, i, None)
+            count += 1
+
+        ####################################
+        ##### UPDATE SKILL INFORMATION #####
+        ####################################
         if monster.ActiveSkillName != None:
             self.builder.get_object("lblActiveSkillName").config(text = monster.ActiveSkillName)
             self.builder.get_object("lblActiveSkillDesc").config(text = monster.ActiveSkillDesc)
+            self.builder.get_object("lblActiveSkillMaxCooldown").config(text = "Max CD: " + str(monster.ActiveSkillMaxCoolDown))
+            self.builder.get_object("lblActiveSkillMinCooldown").config(text = "Min CD: " + str(monster.ActiveSkillMaxCoolDown - monster.ActiveSkillMaxLevel + 1))
         else:
             self.builder.get_object("lblActiveSkillName").config(text = 'None')
             self.builder.get_object("lblActiveSkillDesc").config(text = '')
+            self.builder.get_object("lblActiveSkillMinCooldown").config(text = "Min CD: --")
+            self.builder.get_object("lblActiveSkillMaxCooldown").config(text = "Max CD: --")
 
         if monster.LeaderSkillName != None:
             self.builder.get_object("lblLeaderSkillName").config(text = monster.LeaderSkillName)
@@ -196,10 +259,11 @@ class MonsterBook():
         else:
             self.builder.get_object("lblLeaderSkillName").config(text = 'None')
             self.builder.get_object("lblLeaderSkillDesc").config(text = '')
-
-
+        
+        ###############################
+        ##### SHOW EVOLUTION TREE #####
+        ###############################
         evoTree = self.master.PADsql.getEvolutionTree(monster.MonsterClassID)
-
         for i in self.evoFrames:
             i.EvoFrame.grid_forget()
 
@@ -216,16 +280,17 @@ class MonsterBook():
                 self.evoFrames.append(frame)
                 if isinstance(o, int):
                     frame.update(Monster(self.master.PADsql.selectMonsterClass(o)[0]))
-                    
                 else:
                     if o != None:
                         frame.update(Monster(self.master.PADsql.selectMonsterClass(o[0])[0]))
-                frame.EvoFrame.grid(column = evocol, row = evorow, padx = 2, pady = 7)
+                frame.EvoFrame.grid(column = evocol, row = evorow, padx = 4)
                 evorow += 1
             evocol +=1
 
-
     def onSearchClick(self, event):
+        ############################
+        ##### PARSE SEARCH BAR #####
+        ############################
         search = self.builder.get_variable("SearchBar").get()
         if search == self.bgSearchText:
             search = ""
@@ -237,20 +302,88 @@ class MonsterBook():
 
         self.MonsterResults = []
         monsters = self.master.PADsql.selectMonsterClass(search)
+
+        #################################
+        ##### GET ATTRIBUTE FILTERS #####
+        #################################
+        PriAttributes = []
+        for i in ["PriFire", "PriWater", "PriWood", "PriLight", "PriDark"]:
+            if self.builder.get_variable(i).get() != "" and self.builder.get_variable(i).get() != "0":
+                PriAttributes.append(self.builder.get_variable(i).get())
+        SecAttributes = []
+        for i in ["SecFire", "SecWater", "SecWood", "SecLight", "SecDark"]:
+            if self.builder.get_variable(i).get() != "" and self.builder.get_variable(i).get() != "0":
+                SecAttributes.append(self.builder.get_variable(i).get())
+
+        ##### IF NOTHING SELECTED ADD ALL FILTERS #####
+        if len(PriAttributes) == 0 and len(SecAttributes) == 0:
+            PriAttributes = ["Fire","Water","Wood","Light","Dark"]
+            SecAttributes = ["Fire","Water","Wood","Light","Dark"]
+            self.builder.get_variable("varANDOR").set("OR")
+
+        ##### SINGLE ATTRIBUTE SWITCH TO 'OR' #####
+        elif len(PriAttributes) == 0 or len(SecAttributes) == 0:
+            self.builder.get_variable("varANDOR").set("OR")
+
+        ############################
+        ##### GET TYPE FILTERS #####
+        ############################
+        TypeFilters = []
+        for i in ["TypeAttacker", "TypeAwakenMaterial", "TypeBalanced", "TypeDevil", "TypeDragon", "TypeEnhanceMaterial",
+            "TypeEvoMaterial", "TypeGod", "TypeHealer", "TypeMachine", "TypePhysical", "TypeRedeemableMaterial" ]:
+            if self.builder.get_variable(i).get() != "" and self.builder.get_variable(i).get() != "0":
+                TypeFilters.append(self.builder.get_variable(i).get())
+
+        ##### IF NOTHING SELECTED ADD ALL FILTERS #####
+        if len(TypeFilters) == 0:
+            TypeFilters = ["Attacker", "Awaken Material", "Balanced", "Devil", "Dragon", "Enhance Material",
+                "Evo Material", "God", "Healer", "Machine", "Physical", "Redeemable Material" ]
+
+        print("Primary Attributes =", PriAttributes,"\n" +self.builder.get_variable("varANDOR").get())
+        print("Secondary Attributes =", SecAttributes)
+        print("Types =", TypeFilters)
+
+        ############################################
+        ##### ADD FILTERED MONSTERS TO RESULTS #####
+        ############################################
         for i in monsters:
-            self.MonsterResults.append(Monster(i))
+            if self.builder.get_variable("varANDOR").get() == "OR":
+                if i["PriAttribute"] in PriAttributes or i["SecAttribute"] in SecAttributes:
+                    if i["MonsterTypeOne"] in TypeFilters or i["MonsterTypeTwo"] in TypeFilters or i["MonsterTypeThree"] in TypeFilters:
+                        self.MonsterResults.append(Monster(i))
+
+            elif self.builder.get_variable("varANDOR").get() == "AND":
+                if i["PriAttribute"] in PriAttributes and i["SecAttribute"] in SecAttributes:
+                    if i["MonsterTypeOne"] in TypeFilters or i["MonsterTypeTwo"] in TypeFilters or i["MonsterTypeThree"] in TypeFilters:
+                        self.MonsterResults.append(Monster(i))
+
+        ################################################
+        ##### CALCULATE MAXPAGES AND SET PAGE TO 1 #####
+        ################################################
         self.maxPage = math.ceil(len(self.MonsterResults) / self.RESULTSPERPAGE)
         self.curPage = 1
         self.update()
         self.builder.get_object("lblResults").config(text = str(len(self.MonsterResults)) + " Results Found.")
     
     def onSearchBarFocusIn(self, event):
+        #Clears Search Bar on focus
         if self.builder.get_variable("SearchBar").get() == self.bgSearchText:
             self.builder.get_variable("SearchBar").set("")
         
     def onSearchBarFocusOut(self, event):
+        #Populates empty Search bar on focus out
         if self.builder.get_variable("SearchBar").get() == "":
             self.builder.get_variable("SearchBar").set(self.bgSearchText)
+    
+    def onPageEnter(self, event):
+        print(self.builder.get_variable("varPageEnt").get())
+
+    #def validatePageEntry(self, action, index, value_if_allowed,
+    #                   prior_value, text, validation_type, trigger_type, widget_name):
+    #    if text in "0123456789":
+    #        return True
+    #    else:
+    #        return False
 
     def onHomeClick(self,event):
         self.master.showHomeScreen()
@@ -273,6 +406,11 @@ class MonsterBook():
     def onOptionsClick(self,event):
         self.master.showAccountOptions()
 
+    def onAddToCollectionClick(self, event):
+        if isinstance(self.monster, Monster):
+            if mb.askokcancel("Add Monster","Are you sure you want to add " + str(self.monster.MonsterName) ):
+                self.master.PADsql.saveMonster(self.monster.getSaveDict())
+
 class MonEvoFrame():
     def __init__(self, master, mbobject):
         #TK Variables
@@ -291,8 +429,9 @@ class MonEvoFrame():
 
     def update(self, monster):
         self.monster = monster
+        self.smallThumbnail =PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(self.monster.MonsterClassID) + ".png").subsample(2)
         self.thumbnail = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(self.monster.MonsterClassID) + ".png")
-        self.EvoCanvas.create_image(2,2, image = self.thumbnail, anchor = tk.NW)
+        self.EvoCanvas.create_image(2,2, image = self.smallThumbnail, anchor = tk.NW)
 
     def onFrameClick(self, event):
         if self.monster != None:
