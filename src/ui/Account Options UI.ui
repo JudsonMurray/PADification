@@ -17,8 +17,100 @@
         <layout>
           <property name="column">0</property>
           <property name="propagate">True</property>
+          <property name="row">0</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_1">
+        <property name="height">50</property>
+        <property name="width">1280</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">False</property>
           <property name="row">1</property>
         </layout>
+        <child>
+          <object class="tk.Button" id="Home Screen">
+            <property name="command">onMainMenuClick</property>
+            <property name="text" translatable="yes">Home</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">60</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="My Monsters">
+            <property name="command">onMyMonstersClick</property>
+            <property name="text" translatable="yes">Collection</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="padx">60</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="Monster Book">
+            <property name="command">onMonsterBookClick</property>
+            <property name="text" translatable="yes">Book</property>
+            <layout>
+              <property name="column">2</property>
+              <property name="padx">60</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="My Teams">
+            <property name="command">onMyTeamsClick</property>
+            <property name="text" translatable="yes">Teams</property>
+            <layout>
+              <property name="column">3</property>
+              <property name="padx">60</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="Players">
+            <property name="text" translatable="yes">Community</property>
+            <layout>
+              <property name="column">4</property>
+              <property name="padx">60</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="Team Ranking">
+            <property name="text" translatable="yes">Team Ranking</property>
+            <layout>
+              <property name="column">5</property>
+              <property name="padx">60</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="Account">
+            <property name="text" translatable="yes">Options</property>
+            <layout>
+              <property name="column">6</property>
+              <property name="padx">60</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
       </object>
     </child>
     <child>

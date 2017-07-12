@@ -35,6 +35,9 @@ class AccountOptions:
     def onMyMonstersClick(self):
         self.master.showPlayerCollection()
 
+    def onMyTeamsClick(self, event):
+        self.master.showTeamBrowser()
+
     def onUsernameFocusIn(self,event):
         """Clears New Username Entry Field"""
         if self.obj1.get() == "New Username":
