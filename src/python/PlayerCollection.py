@@ -154,6 +154,8 @@ class PlayerCollection:
         self.master = master
         self.startMonster = 0
 
+        self.displayWishlist = 0
+
         buttons =[]
         self.currentPage = 1
 
@@ -189,7 +191,7 @@ class PlayerCollection:
 
         # JBM - Modifying collection to Dictionary from List to make Monster Lookup easier
         instanceIDs = []
-        monster = self.pds.selectMonsterInstance()
+        monster = self.pds.selectMonsterInstance(wishlist = self.displayWishlist)
 
         monsters = dict()
         for i in monster:
@@ -228,7 +230,9 @@ class PlayerCollection:
                 self.startMonster += 1
 
         self.pages = (len(self.instantList) // 50) + 1
-        if len(self.instantList) % 50 == 0:
+        if len(self.instantList) == 0:
+            self.pages = 1
+        elif len(self.instantList) % 50 == 0:
             self.pages -= 1
 
         if self.currentPage > self.pages:
@@ -244,28 +248,50 @@ class PlayerCollection:
 
         self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
 
+    def onWishlistClick(self):
+        self.displayWishlist = 1
+        self.startMonster = 0
+        self.builder.get_object("btnWishlist").config(state = DISABLED)
+        self.builder.get_object("btnMonsterList").config(state = NORMAL)
+        self.__RemoveInformation()
+        self.populateList()
+
+    def onMonsterListClick(self):
+        self.displayWishlist = 0
+        self.startMonster = 0
+        self.builder.get_object("btnMonsterList").config(state = DISABLED)
+        self.builder.get_object("btnWishlist").config(state = NORMAL)
+        self.__RemoveInformation()
+        self.populateList()
+
     def onEditMonsterClick(self):
         self.master.showEditMonster()
 
     def onHomeClick(self):
+        self.displayWishlist = 0 
         self.master.showHomeScreen()
 
     def onMyMonsterClick(self):
         self.master.showPlayerCollection()
 
     def onMonsterBookClick(self):
+        self.displayWishlist = 0
         self.master.showMonsterBook()
 
     def onMyTeamsClick(self):
+        self.displayWishlist = 0
         self.master.showTeamBrowser()
 
     def onPlayersClick(self):
+        self.displayWishlist = 0
         pass
 
     def onTeamRankingClick(self):
+        self.displayWishlist = 0
         pass
 
     def onAccountOptionsClick(self):
+        self.displayWishlist = 0
         self.master.showAccountOptions()
 
     def next(self):
