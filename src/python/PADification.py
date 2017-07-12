@@ -78,6 +78,7 @@ class PADification(tk.Tk):
         """Show Account Options Screen"""
         self.forgetAll()
         self.accountOptions.mainwindow.grid()
+        self.accountOptions.updateLabel()
 
     def showMonsterBook(self):
         self.forgetAll()

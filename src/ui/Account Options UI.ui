@@ -17,8 +17,107 @@
         <layout>
           <property name="column">0</property>
           <property name="propagate">True</property>
+          <property name="row">0</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_1">
+        <property name="height">50</property>
+        <property name="width">1280</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">False</property>
           <property name="row">1</property>
         </layout>
+        <child>
+          <object class="tk.Button" id="Home Screen">
+            <property name="command">onMainMenuClick</property>
+            <property name="text" translatable="yes">Home</property>
+            <property name="width">12</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">45</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="My Monsters">
+            <property name="command">onMyMonstersClick</property>
+            <property name="text" translatable="yes">Collection</property>
+            <property name="width">12</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="padx">45</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="Monster Book">
+            <property name="command">onMonsterBookClick</property>
+            <property name="text" translatable="yes">Book</property>
+            <property name="width">12</property>
+            <layout>
+              <property name="column">2</property>
+              <property name="padx">45</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="My Teams">
+            <property name="command">onMyTeamsClick</property>
+            <property name="text" translatable="yes">Teams</property>
+            <property name="width">12</property>
+            <layout>
+              <property name="column">3</property>
+              <property name="padx">45</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="Players">
+            <property name="text" translatable="yes">Community</property>
+            <property name="width">12</property>
+            <layout>
+              <property name="column">4</property>
+              <property name="padx">45</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="Team Ranking">
+            <property name="text" translatable="yes">Team Ranking</property>
+            <property name="width">12</property>
+            <layout>
+              <property name="column">5</property>
+              <property name="padx">45</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="Account">
+            <property name="text" translatable="yes">Options</property>
+            <property name="width">12</property>
+            <layout>
+              <property name="column">6</property>
+              <property name="padx">45</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
       </object>
     </child>
     <child>
@@ -63,7 +162,7 @@ Various actions you may perform upon your account</property>
         <child>
           <object class="tk.Frame" id="ID">
             <property name="borderwidth">5</property>
-            <property name="height">50</property>
+            <property name="height">55</property>
             <property name="relief">raised</property>
             <property name="width">200</property>
             <layout>
@@ -79,9 +178,19 @@ Various actions you may perform upon your account</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="padx">70</property>
-                  <property name="pady">7</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="IDNum">
+                <property name="text" translatable="yes">ID</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                  <property name="sticky">n</property>
                 </layout>
               </object>
             </child>
@@ -90,7 +199,7 @@ Various actions you may perform upon your account</property>
         <child>
           <object class="tk.Frame" id="Username">
             <property name="borderwidth">5</property>
-            <property name="height">50</property>
+            <property name="height">55</property>
             <property name="relief">raised</property>
             <property name="width">200</property>
             <layout>
@@ -105,9 +214,18 @@ Various actions you may perform upon your account</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="padx">65</property>
-                  <property name="pady">7</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="AccName">
+                <property name="text" translatable="yes">Username</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
                 </layout>
               </object>
             </child>
@@ -116,7 +234,7 @@ Various actions you may perform upon your account</property>
         <child>
           <object class="tk.Frame" id="Email">
             <property name="borderwidth">5</property>
-            <property name="height">50</property>
+            <property name="height">55</property>
             <property name="relief">raised</property>
             <property name="width">200</property>
             <layout>
@@ -131,16 +249,25 @@ Various actions you may perform upon your account</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="padx">80</property>
-                  <property name="pady">8</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="AccEmail">
+                <property name="text" translatable="yes">Email</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
                 </layout>
               </object>
             </child>
           </object>
         </child>
         <child>
-          <object class="tk.Frame" id="Change Email">
+          <object class="tk.Frame" id="Change Username">
             <property name="borderwidth">5</property>
             <property name="height">75</property>
             <property name="relief">raised</property>
@@ -152,11 +279,11 @@ Various actions you may perform upon your account</property>
               <property name="row">3</property>
             </layout>
             <child>
-              <object class="tk.Label" id="Change Active Email">
-                <property name="text" translatable="yes">Change Email</property>
+              <object class="tk.Label" id="Change Active Username">
+                <property name="text" translatable="yes">Change Username</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">55</property>
+                  <property name="padx">47</property>
                   <property name="pady">5</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
@@ -165,11 +292,11 @@ Various actions you may perform upon your account</property>
               </object>
             </child>
             <child>
-              <object class="tk.Entry" id="New Email">
-                <property name="text" translatable="yes">New Email</property>
+              <object class="tk.Entry" id="New Username">
+                <property name="text" translatable="yes">New Username</property>
                 <property name="width">30</property>
-                <bind add="True" handler="onEmailFocusIn" sequence="&lt;FocusIn&gt;" />
-                <bind add="True" handler="onEmailFocusOut" sequence="&lt;FocusOut&gt;" />
+                <bind add="True" handler="onUsernameFocusIn" sequence="&lt;FocusIn&gt;" />
+                <bind add="True" handler="onUsernameFocusOut" sequence="&lt;FocusOut&gt;" />
                 <layout>
                   <property name="column">0</property>
                   <property name="propagate">True</property>
