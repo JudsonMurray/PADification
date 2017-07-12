@@ -364,6 +364,7 @@ Various actions you may perform upon your account</property>
         </child>
         <child>
           <object class="tk.Button" id="Apply Changes">
+            <property name="command">applyChanges</property>
             <property name="text" translatable="yes">Apply Changes</property>
             <layout>
               <property name="column">0</property>
