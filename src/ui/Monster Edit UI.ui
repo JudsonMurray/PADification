@@ -1,577 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <interface>
   <object class="tk.Frame" id="Monster Edit">
-    <property name="height">910</property>
+    <property name="height">960</property>
     <property name="width">1280</property>
     <layout>
       <property name="column">0</property>
-      <property name="columnspan">10</property>
       <property name="propagate">False</property>
       <property name="row">0</property>
-      <property name="rowspan">10</property>
     </layout>
-    <child>
-      <object class="tk.Frame" id="ScreenInfo">
-        <property name="borderwidth">5</property>
-        <property name="height">50</property>
-        <property name="relief">raised</property>
-        <property name="width">1280</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="columnspan">4</property>
-          <property name="pady">15</property>
-          <property name="propagate">False</property>
-          <property name="row">1</property>
-        </layout>
-        <child>
-          <object class="tk.Label" id="Info Label">
-            <property name="text" translatable="yes">Monster View
-View and edit your monster's properties</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="padx">560</property>
-              <property name="pady">3</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Frame" id="Monster Profile">
-        <property name="borderwidth">5</property>
-        <property name="height">200</property>
-        <property name="relief">raised</property>
-        <property name="width">200</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="columnspan">2</property>
-          <property name="propagate">True</property>
-          <property name="row">2</property>
-          <property name="sticky">w</property>
-        </layout>
-        <child>
-          <object class="tk.Canvas" id="Monster Pic">
-            <property name="height">200</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Frame" id="Monster ID/Name/Rarity">
-        <property name="borderwidth">5</property>
-        <property name="height">50</property>
-        <property name="relief">raised</property>
-        <property name="width">600</property>
-        <layout>
-          <property name="column">1</property>
-          <property name="propagate">False</property>
-          <property name="row">2</property>
-          <property name="sticky">nw</property>
-        </layout>
-        <child>
-          <object class="tk.Label" id="ID/Name/Rarity">
-            <property name="text" translatable="yes">Monster ID / Monster Name / Monster Rarity</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="padx">180</property>
-              <property name="pady">10</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Frame" id="Monster Attribute/Type">
-        <property name="borderwidth">5</property>
-        <property name="height">50</property>
-        <property name="relief">raised</property>
-        <property name="width">600</property>
-        <layout>
-          <property name="column">1</property>
-          <property name="propagate">False</property>
-          <property name="row">2</property>
-          <property name="sticky">w</property>
-        </layout>
-        <child>
-          <object class="tk.Label" id="Attribute/Type">
-            <property name="text" translatable="yes">Monster Attribute / Monster Type</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="padx">210</property>
-              <property name="pady">10</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Frame" id="Awoken Skills">
-        <property name="borderwidth">5</property>
-        <property name="height">245</property>
-        <property name="relief">raised</property>
-        <property name="width">180</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="propagate">False</property>
-          <property name="row">3</property>
-          <property name="sticky">w</property>
-        </layout>
-        <child>
-          <object class="tk.Button" id="Awoken Skill 1">
-            <property name="text" translatable="yes">Awoken Skill 1</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="Awoken Skill 2">
-            <property name="text" translatable="yes">Awoken Skill 2</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="propagate">True</property>
-              <property name="row">1</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="Awoken Skill 3">
-            <property name="text" translatable="yes">Awoken Skill 3</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="propagate">True</property>
-              <property name="row">2</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="Awoken Skill 4">
-            <property name="text" translatable="yes">Awoken Skill 4</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="propagate">True</property>
-              <property name="row">3</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="Awoken Skill 5">
-            <property name="text" translatable="yes">Awoken Skill 5</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="propagate">True</property>
-              <property name="row">4</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="Awoken Skill 6">
-            <property name="text" translatable="yes">Awoken Skill 6</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="propagate">True</property>
-              <property name="row">5</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="Awoken Skill 7">
-            <property name="text" translatable="yes">Awoken Skill 7</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="propagate">True</property>
-              <property name="row">6</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="Awoken Skill 8">
-            <property name="text" translatable="yes">Awoken Skill 8</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="propagate">True</property>
-              <property name="row">7</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Button" id="Awoken Skill 9">
-            <property name="text" translatable="yes">Awoken Skill 9</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="propagate">True</property>
-              <property name="row">8</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Canvas" id="Awoken Skill 1_1">
-            <property name="height">15</property>
-            <property name="width">15</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="padx">50</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-              <property name="sticky">e</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Canvas" id="Awoken Skill 2_2">
-            <property name="height">15</property>
-            <property name="width">15</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="padx">50</property>
-              <property name="propagate">True</property>
-              <property name="row">1</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Canvas" id="Awoken Skill 3_3">
-            <property name="height">15</property>
-            <property name="width">15</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="propagate">True</property>
-              <property name="row">2</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Canvas" id="Awoken Skill 4_4">
-            <property name="height">15</property>
-            <property name="width">15</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="propagate">True</property>
-              <property name="row">3</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Canvas" id="Awoken Skill 5_5">
-            <property name="height">15</property>
-            <property name="width">15</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="propagate">True</property>
-              <property name="row">4</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Canvas" id="Awoken Skill 6_6">
-            <property name="height">15</property>
-            <property name="width">15</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="propagate">True</property>
-              <property name="row">5</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Canvas" id="Awoken Skill 7_7">
-            <property name="height">15</property>
-            <property name="width">15</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="propagate">True</property>
-              <property name="row">6</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Canvas" id="Awoken Skill 8_8">
-            <property name="height">15</property>
-            <property name="width">15</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="propagate">True</property>
-              <property name="row">7</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Canvas" id="Awoken Skill 9_9">
-            <property name="height">15</property>
-            <property name="width">15</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="propagate">True</property>
-              <property name="row">8</property>
-            </layout>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Frame" id="Latent Awoken Skills">
-        <property name="borderwidth">5</property>
-        <property name="height">245</property>
-        <property name="relief">raised</property>
-        <property name="width">180</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="padx">175</property>
-          <property name="propagate">False</property>
-          <property name="row">3</property>
-          <property name="sticky">e</property>
-        </layout>
-        <child>
-          <object class="tk.Spinbox" id="Latent Skill 1">
-            <layout>
-              <property name="column">0</property>
-              <property name="padx">15</property>
-              <property name="pady">10</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Spinbox" id="Latent Skill 2">
-            <layout>
-              <property name="column">0</property>
-              <property name="pady">10</property>
-              <property name="propagate">True</property>
-              <property name="row">1</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Spinbox" id="Latent Skill 3">
-            <layout>
-              <property name="column">0</property>
-              <property name="pady">10</property>
-              <property name="propagate">True</property>
-              <property name="row">2</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Spinbox" id="Latent Skill 4">
-            <layout>
-              <property name="column">0</property>
-              <property name="pady">10</property>
-              <property name="propagate">True</property>
-              <property name="row">3</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Spinbox" id="Latent Skill 5">
-            <layout>
-              <property name="column">0</property>
-              <property name="pady">10</property>
-              <property name="propagate">True</property>
-              <property name="row">4</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Spinbox" id="Latent Skill 6">
-            <layout>
-              <property name="column">0</property>
-              <property name="pady">10</property>
-              <property name="propagate">True</property>
-              <property name="row">5</property>
-            </layout>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Frame" id="Assist Monster">
-        <property name="borderwidth">5</property>
-        <property name="height">200</property>
-        <property name="relief">raised</property>
-        <property name="width">392</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="columnspan">2</property>
-          <property name="propagate">False</property>
-          <property name="row">4</property>
-          <property name="sticky">w</property>
-        </layout>
-        <child>
-          <object class="tk.Label" id="Assist Monster Config">
-            <property name="text" translatable="yes">Assist Monster
-Configuration</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="padx">150</property>
-              <property name="pady">75</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Frame" id="Monster Stats">
-        <property name="borderwidth">5</property>
-        <property name="height">250</property>
-        <property name="relief">raised</property>
-        <property name="width">600</property>
-        <layout>
-          <property name="column">1</property>
-          <property name="propagate">False</property>
-          <property name="row">3</property>
-          <property name="sticky">nw</property>
-        </layout>
-        <child>
-          <object class="tk.Label" id="Monster Stats/Plus Stats">
-            <property name="text" translatable="yes">Monster stats / and plus stats</property>
-            <layout>
-              <property name="column">2</property>
-              <property name="padx">130</property>
-              <property name="pady">50</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="tk.Frame" id="Frame_3">
-            <property name="height">235</property>
-            <property name="width">100</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="propagate">False</property>
-              <property name="row">0</property>
-            </layout>
-            <child>
-              <object class="tk.Entry" id="Level Input">
-                <property name="text" translatable="yes">Level</property>
-                <layout>
-                  <property name="column">0</property>
-                  <property name="padx">10</property>
-                  <property name="pady">15</property>
-                  <property name="propagate">True</property>
-                  <property name="row">0</property>
-                </layout>
-              </object>
-            </child>
-            <child>
-              <object class="tk.Entry" id="+HP Input">
-                <property name="text" translatable="yes">+HP</property>
-                <layout>
-                  <property name="column">0</property>
-                  <property name="pady">15</property>
-                  <property name="propagate">True</property>
-                  <property name="row">1</property>
-                </layout>
-              </object>
-            </child>
-            <child>
-              <object class="tk.Entry" id="+ATK Input">
-                <property name="text" translatable="yes">+ATK</property>
-                <layout>
-                  <property name="column">0</property>
-                  <property name="pady">15</property>
-                  <property name="propagate">True</property>
-                  <property name="row">2</property>
-                </layout>
-              </object>
-            </child>
-            <child>
-              <object class="tk.Entry" id="+RCV Input">
-                <property name="text" translatable="yes">+RCV</property>
-                <layout>
-                  <property name="column">0</property>
-                  <property name="pady">15</property>
-                  <property name="propagate">True</property>
-                  <property name="row">3</property>
-                </layout>
-              </object>
-            </child>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Frame" id="Active/Leader Skill">
-        <property name="borderwidth">5</property>
-        <property name="height">100</property>
-        <property name="relief">raised</property>
-        <property name="width">600</property>
-        <layout>
-          <property name="column">1</property>
-          <property name="propagate">False</property>
-          <property name="row">4</property>
-          <property name="sticky">w</property>
-        </layout>
-        <child>
-          <object class="tk.Label" id="Active Skill/Leader Skill">
-            <property name="text" translatable="yes">Active Skill / Leader Skill
-(Secondary skill when added)</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="padx">230</property>
-              <property name="pady">25</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Button" id="Apply Changes">
-        <property name="text" translatable="yes">Apply Changes</property>
-        <layout>
-          <property name="column">1</property>
-          <property name="ipadx">50</property>
-          <property name="ipady">25</property>
-          <property name="propagate">True</property>
-          <property name="row">5</property>
-          <property name="sticky">w</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Button" id="Delete Monster">
-        <property name="text" translatable="yes">Delete Monster</property>
-        <layout>
-          <property name="column">1</property>
-          <property name="ipadx">50</property>
-          <property name="ipady">25</property>
-          <property name="propagate">True</property>
-          <property name="row">5</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Button" id="Return">
-        <property name="text" translatable="yes">Return</property>
-        <layout>
-          <property name="column">1</property>
-          <property name="ipadx">75</property>
-          <property name="ipady">25</property>
-          <property name="propagate">True</property>
-          <property name="row">5</property>
-          <property name="sticky">e</property>
-        </layout>
-      </object>
-    </child>
     <child>
       <object class="tk.Frame" id="Application Info">
         <property name="borderwidth">5</property>
@@ -581,7 +17,7 @@ Configuration</property>
         <layout>
           <property name="column">0</property>
           <property name="columnspan">4</property>
-          <property name="pady">50</property>
+          <property name="pady">20</property>
           <property name="propagate">False</property>
           <property name="row">6</property>
         </layout>
@@ -595,6 +31,1063 @@ Version number, release date, authors, help screen, etc.</property>
               <property name="pady">2</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="frmLeft">
+        <property name="height">810</property>
+        <property name="width">640</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="padx">10</property>
+          <property name="pady">20</property>
+          <property name="propagate">False</property>
+          <property name="row">3</property>
+        </layout>
+        <child>
+          <object class="tk.Frame" id="frmPortrait">
+            <property name="borderwidth">5</property>
+            <property name="height">192</property>
+            <property name="relief">raised</property>
+            <property name="width">320</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="columnspan">2</property>
+              <property name="pady">5</property>
+              <property name="propagate">True</property>
+              <property name="row">2</property>
+              <property name="sticky">nw</property>
+            </layout>
+            <child>
+              <object class="tk.Canvas" id="canPortrait">
+                <property name="borderwidth">5</property>
+                <property name="height">192</property>
+                <property name="width">320</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">False</property>
+                  <property name="row">0</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Frame" id="frmAwokenSkills">
+            <property name="borderwidth">5</property>
+            <property name="height">245</property>
+            <property name="relief">raised</property>
+            <property name="width">180</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">False</property>
+              <property name="row">3</property>
+              <property name="sticky">w</property>
+            </layout>
+            <child>
+              <object class="tk.Label" id="lblAwokenSkills">
+                <property name="text" translatable="yes">Number of Awoken Skills 
+Activated</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Spinbox" id="spbAwokenSkills">
+                <property name="from_">0</property>
+                <property name="state">disabled</property>
+                <property name="to">9</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Frame" id="frmAwokenImages">
+                <property name="height">200</property>
+                <property name="width">200</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="pady">20</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                </layout>
+                <child>
+                  <object class="tk.Canvas" id="canAwokenSkillOne">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canAwokenSkillTwo">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canAwokenSkillThree">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">2</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canAwokenSkillFour">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canAwokenSkillFive">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="propagate">False</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canAwokenSkillSix">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">2</property>
+                      <property name="propagate">False</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canAwokenSkillSeven">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">3</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canAwokenSkillEight">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="propagate">False</property>
+                      <property name="row">3</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canAwokenSkillNine">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">2</property>
+                      <property name="propagate">False</property>
+                      <property name="row">3</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Frame" id="frmSelectAssist">
+            <property name="borderwidth">5</property>
+            <property name="height">300</property>
+            <property name="relief">raised</property>
+            <property name="width">640</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="columnspan">2</property>
+              <property name="pady">5</property>
+              <property name="propagate">False</property>
+              <property name="row">4</property>
+              <property name="sticky">w</property>
+            </layout>
+            <child>
+              <object class="tk.Label" id="lblSelectAssist">
+                <property name="text" translatable="yes">Select an Assistant</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Canvas" id="canSelectAssist">
+                <property name="borderwidth">5</property>
+                <property name="height">230</property>
+                <property name="relief">sunken</property>
+                <property name="width">615</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">False</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Frame" id="frmAssistant">
+            <property name="borderwidth">5</property>
+            <property name="height">245</property>
+            <property name="relief">raised</property>
+            <property name="width">450</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="pady">5</property>
+              <property name="propagate">False</property>
+              <property name="row">3</property>
+              <property name="sticky">e</property>
+            </layout>
+            <child>
+              <object class="tk.Frame" id="frmAssistStats">
+                <property name="height">200</property>
+                <property name="width">200</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                </layout>
+                <child>
+                  <object class="tk.Canvas" id="canAssistantThumb">
+                    <property name="borderwidth">5</property>
+                    <property name="height">100</property>
+                    <property name="relief">raised</property>
+                    <property name="width">100</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                      <property name="rowspan">3</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblAssistName">
+                    <property name="justify">left</property>
+                    <property name="text" translatable="yes">Assist Name: </property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="columnspan">3</property>
+                      <property name="propagate">True</property>
+                      <property name="row">0</property>
+                      <property name="sticky">w</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblAssistID">
+                    <property name="justify">left</property>
+                    <property name="text" translatable="yes">Assist ID: </property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="propagate">True</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblAssistLvl">
+                    <property name="justify">left</property>
+                    <property name="text" translatable="yes">Assist LvL: </property>
+                    <layout>
+                      <property name="column">2</property>
+                      <property name="propagate">True</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblAssistHP">
+                    <property name="justify">left</property>
+                    <property name="text" translatable="yes">Assist HP: </property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="propagate">True</property>
+                      <property name="row">2</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblAssistATK">
+                    <property name="justify">left</property>
+                    <property name="text" translatable="yes">Assist ATK: </property>
+                    <layout>
+                      <property name="column">2</property>
+                      <property name="propagate">True</property>
+                      <property name="row">2</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblAssistRCV">
+                    <property name="justify">left</property>
+                    <property name="text" translatable="yes">Assist RCV: </property>
+                    <layout>
+                      <property name="column">3</property>
+                      <property name="propagate">True</property>
+                      <property name="row">2</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Frame" id="frmAssistSkill">
+                <property name="height">200</property>
+                <property name="width">200</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+                <child>
+                  <object class="tk.Label" id="lblAssistSkillName">
+                    <property name="justify">left</property>
+                    <property name="text" translatable="yes">Assist Skill Name: This message will only 
+appear if there is something wrong 
+with the source code</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">0</property>
+                      <property name="sticky">w</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblAssistSkillLvl">
+                    <property name="justify">left</property>
+                    <property name="text" translatable="yes">LVL: </property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="propagate">True</property>
+                      <property name="row">0</property>
+                      <property name="sticky">n</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblAssistSkillCD">
+                    <property name="justify">left</property>
+                    <property name="text" translatable="yes">Cooldown: </property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="propagate">True</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblAssistSkillDesc">
+                    <property name="justify">left</property>
+                    <property name="text" translatable="yes">This is not a skill description</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="columnspan">2</property>
+                      <property name="propagate">True</property>
+                      <property name="row">3</property>
+                      <property name="sticky">w</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Frame" id="frmMonsterIdentification">
+            <property name="borderwidth">5</property>
+            <property name="height">125</property>
+            <property name="relief">raised</property>
+            <property name="width">280</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">False</property>
+              <property name="row">2</property>
+              <property name="sticky">ne</property>
+            </layout>
+            <child>
+              <object class="tk.Label" id="lblName">
+                <property name="justify">right</property>
+                <property name="text" translatable="yes">Name: </property>
+                <property name="width">13</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="lblPrintName">
+                <property name="width">23</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="columnspan">3</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="lblID">
+                <property name="justify">right</property>
+                <property name="text" translatable="yes">ID: </property>
+                <property name="width">13</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="lblPrintID">
+                <property name="width">23</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="columnspan">3</property>
+                  <property name="propagate">False</property>
+                  <property name="row">1</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="lblAtts">
+                <property name="justify">right</property>
+                <property name="text" translatable="yes">Attribute(s): </property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Canvas" id="canPriAtt">
+                <property name="height">30</property>
+                <property name="width">30</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">False</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Canvas" id="canSecAtt">
+                <property name="height">30</property>
+                <property name="width">30</property>
+                <layout>
+                  <property name="column">2</property>
+                  <property name="propagate">False</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="lblTypes">
+                <property name="justify">right</property>
+                <property name="text" translatable="yes">Type(s): </property>
+                <property name="width">13</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">3</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Canvas" id="canTypeOne">
+                <property name="height">32</property>
+                <property name="width">31</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">False</property>
+                  <property name="row">3</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Canvas" id="canTypeTwo">
+                <property name="height">32</property>
+                <property name="width">31</property>
+                <layout>
+                  <property name="column">2</property>
+                  <property name="propagate">False</property>
+                  <property name="row">3</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Canvas" id="canTypeThree">
+                <property name="height">32</property>
+                <property name="width">31</property>
+                <layout>
+                  <property name="column">3</property>
+                  <property name="propagate">False</property>
+                  <property name="row">3</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="frmRight">
+        <property name="height">810</property>
+        <property name="width">640</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="padx">10</property>
+          <property name="pady">20</property>
+          <property name="propagate">False</property>
+          <property name="row">3</property>
+          <property name="sticky">n</property>
+        </layout>
+        <child>
+          <object class="tk.Frame" id="frmSkillInfo">
+            <property name="borderwidth">5</property>
+            <property name="height">150</property>
+            <property name="relief">raised</property>
+            <property name="width">600</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">False</property>
+              <property name="row">2</property>
+              <property name="sticky">n</property>
+            </layout>
+            <child>
+              <object class="tk.Frame" id="frmSkillName&amp;Desc">
+                <property name="height">140</property>
+                <property name="width">325</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">False</property>
+                  <property name="row">0</property>
+                  <property name="sticky">nw</property>
+                </layout>
+                <child>
+                  <object class="tk.Label" id="lblSkillName">
+                    <property name="justify">left</property>
+                    <property name="text" translatable="yes">Skill Name: This message will only appear if there is 
+something wrong with the source code</property>
+                    <property name="width">40</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblSkillDesc">
+                    <property name="justify">left</property>
+                    <property name="text" translatable="yes">Skill Description: This is not a skill dejscrihjption</property>
+                    <property name="width">40</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="pady">10</property>
+                      <property name="propagate">False</property>
+                      <property name="row">1</property>
+                      <property name="sticky">w</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Frame" id="frmSkillLvl&amp;CD">
+                <property name="height">140</property>
+                <property name="width">200</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="padx">50</property>
+                  <property name="propagate">False</property>
+                  <property name="row">0</property>
+                </layout>
+                <child>
+                  <object class="tk.Label" id="lblSkillLvl">
+                    <property name="text" translatable="yes">Skill LvL: </property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblSkillCooldown">
+                    <property name="text" translatable="yes">Cooldown: </property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="columnspan">2</property>
+                      <property name="propagate">True</property>
+                      <property name="row">2</property>
+                      <property name="sticky">w</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Spinbox" id="spnSkillLvl">
+                    <property name="state">disabled</property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="propagate">True</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Frame" id="frmStats">
+            <property name="borderwidth">5</property>
+            <property name="height">245</property>
+            <property name="relief">raised</property>
+            <property name="width">600</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="pady">30</property>
+              <property name="propagate">False</property>
+              <property name="row">3</property>
+            </layout>
+            <child>
+              <object class="tk.Frame" id="frmLvl&amp;EXP">
+                <property name="height">200</property>
+                <property name="width">200</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="columnspan">3</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                </layout>
+                <child>
+                  <object class="tk.Label" id="lblCurrentLevel">
+                    <property name="text" translatable="yes">Current Level: </property>
+                    <property name="width">17</property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="propagate">True</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblCurrentEXP">
+                    <property name="text" translatable="yes">Current EXP:</property>
+                    <property name="width">23</property>
+                    <layout>
+                      <property name="column">2</property>
+                      <property name="propagate">True</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Frame" id="frmLevel&amp;Stats">
+                <property name="height">160</property>
+                <property name="width">140</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">False</property>
+                  <property name="row">0</property>
+                  <property name="rowspan">5</property>
+                </layout>
+                <child>
+                  <object class="tk.Label" id="lblLevel">
+                    <property name="text" translatable="yes">Level</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Spinbox" id="spnLevel">
+                    <property name="from_">1</property>
+                    <property name="to">99</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lbl+HP">
+                    <property name="text" translatable="yes">+HP</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">2</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Spinbox" id="spn+HP">
+                    <property name="from_">0</property>
+                    <property name="to">99</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">3</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lbl+ATK">
+                    <property name="text" translatable="yes">+ATK</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">4</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Spinbox" id="spn+ATK">
+                    <property name="from_">0</property>
+                    <property name="to">99</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">5</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lbl+RCV">
+                    <property name="text" translatable="yes">+RCV</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">6</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Spinbox" id="spn+RCV">
+                    <property name="from_">0</property>
+                    <property name="to">99</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">7</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="lblBaseHP">
+                <property name="text" translatable="yes">Base HP: </property>
+                <property name="width">19</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">False</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="lblTotalHP">
+                <property name="text" translatable="yes">Total HP: </property>
+                <property name="width">19</property>
+                <layout>
+                  <property name="column">3</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="lblBonusHP">
+                <property name="text" translatable="yes">Bonus HP: </property>
+                <property name="width">19</property>
+                <layout>
+                  <property name="column">2</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="lblBaseATK">
+                <property name="text" translatable="yes">Base ATK: </property>
+                <property name="width">19</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="lblBonusATK">
+                <property name="text" translatable="yes">Bonus ATK: </property>
+                <property name="width">19</property>
+                <layout>
+                  <property name="column">2</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="lblTotalATK">
+                <property name="text" translatable="yes">Total ATK: </property>
+                <property name="width">19</property>
+                <layout>
+                  <property name="column">3</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="lblBaseRCV">
+                <property name="text" translatable="yes">Base RCV: </property>
+                <property name="width">19</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">3</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="lblBonusRCV">
+                <property name="text" translatable="yes">Bonus RCV: </property>
+                <property name="width">19</property>
+                <layout>
+                  <property name="column">2</property>
+                  <property name="propagate">True</property>
+                  <property name="row">3</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="lblTotalRCV">
+                <property name="text" translatable="yes">Total RCV: </property>
+                <property name="width">19</property>
+                <layout>
+                  <property name="column">3</property>
+                  <property name="propagate">True</property>
+                  <property name="row">3</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Frame" id="frmLatentSkills">
+            <property name="height">200</property>
+            <property name="width">200</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="pady">5</property>
+              <property name="propagate">True</property>
+              <property name="row">4</property>
+            </layout>
+            <child>
+              <object class="tk.Frame" id="frmLatents">
+                <property name="borderwidth">5</property>
+                <property name="height">248</property>
+                <property name="relief">raised</property>
+                <property name="width">180</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">False</property>
+                  <property name="row">0</property>
+                  <property name="sticky">e</property>
+                </layout>
+                <child>
+                  <object class="tk.Label" id="lblLatents">
+                    <property name="text" translatable="yes">Latent Awoken Skills</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Listbox" id="lstLatents">
+                    <property name="height">13</property>
+                    <property name="width">27</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Frame" id="frmSelectedLatents">
+                <property name="borderwidth">5</property>
+                <property name="height">248</property>
+                <property name="relief">raised</property>
+                <property name="width">180</property>
+                <layout>
+                  <property name="column">2</property>
+                  <property name="propagate">False</property>
+                  <property name="row">0</property>
+                  <property name="sticky">e</property>
+                </layout>
+                <child>
+                  <object class="tk.Label" id="lblSelectedLatents">
+                    <property name="text" translatable="yes">Selected Latent Awoken Skills</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblLatentSlots">
+                    <property name="text" translatable="yes">Slots Used: 0 / 6</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Listbox" id="lstSelectedLatents">
+                    <property name="height">12</property>
+                    <property name="width">27</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">2</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Button" id="btnAddLS">
+                <property name="state">disabled</property>
+                <property name="text" translatable="yes">Add Latent 
+Awoken Skill</property>
+                <property name="width">12</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="padx">10</property>
+                  <property name="pady">50</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">n</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Button" id="btnRemoveLS">
+                <property name="state">disabled</property>
+                <property name="text" translatable="yes">Remove Latent 
+Awoken Skill</property>
+                <property name="width">12</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="padx">5</property>
+                  <property name="pady">50</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">s</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="frmButtons">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">2</property>
+          <property name="propagate">True</property>
+          <property name="row">4</property>
+        </layout>
+        <child>
+          <object class="tk.Button" id="btnApply">
+            <property name="text" translatable="yes">Apply Changes</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">5</property>
+              <property name="propagate">True</property>
+              <property name="row">5</property>
+              <property name="sticky">w</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="btnCancel">
+            <property name="text" translatable="yes">Cancel</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="padx">5</property>
+              <property name="propagate">True</property>
+              <property name="row">5</property>
+              <property name="sticky">e</property>
             </layout>
           </object>
         </child>
