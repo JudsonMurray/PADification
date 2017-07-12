@@ -121,17 +121,17 @@ class PADSQL():
         else:
             return self.cursor.fetchall()
 
-    def selectMonsterInstance(self, monSearch = None, dictionary = True):
+    def selectMonsterInstance(self, monSearch = None, dictionary = True, wishlist = 0):
 
-
+        
         SQLCommand = ("SELECT MonsterInstance.MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, "
-                      "MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, "
-                      "GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, "
-                      "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, InstanceID, Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, "
-                      "AssistMonsterID, SkillLevel, LSListID, Favorites, WishList "
-                      "FROM (MonsterInstance LEFT OUTER JOIN (MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) "
-                      "ON MonsterInstance.MonsterClassID = MonsterClass.MonsterClassID)"
-                      "WHERE MonsterInstance.Email = '" + str(self.Email) + "'" )
+                        "MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, "
+                        "GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, "
+                        "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, InstanceID, Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, "
+                        "AssistMonsterID, SkillLevel, LSListID, Favorites, WishList "
+                        "FROM (MonsterInstance LEFT OUTER JOIN (MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) "
+                        "ON MonsterInstance.MonsterClassID = MonsterClass.MonsterClassID)"
+                        "WHERE MonsterInstance.Email = '" + str(self.Email) + "'and MonsterInstance.WishList = " + str(wishlist) )
 
         if monSearch == None:
             SQLCommand += " ORDER BY InstanceID ASC"
