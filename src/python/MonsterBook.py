@@ -14,6 +14,8 @@ from tkinter import messagebox as mb
 from tkinter import *
 from ast import literal_eval as le
 import math
+from PIL import Image
+from PIL import ImageTk
 
 class MonsterFrame():
     def __init__(self, master, mbobject):
@@ -152,18 +154,21 @@ class MonsterBook():
                 self.MonsterFrames[count].frame.grid(row = count, padx = 9)
             count += 1
 
-        self.builder.get_object("lblPageNumber").config(text = str(self.curPage) + " / " + str(self.maxPage))
+        self.builder.get_object("lblPageNumber").config(text = "       / " + str(self.maxPage))
+        self.builder.get_variable("varPageEnt").set(str(self.curPage))
 
     def nextPage(self, event):
         if self.curPage < self.maxPage:
             self.curPage += 1
             self.update()
+            self.builder.get_variable("varPageEnt").set(str(self.curPage))
             #self.clearInfo()
 
     def prevPage(self, event):
         if self.curPage > 1:
             self.curPage -= 1
             self.update()
+            self.builder.get_variable("varPageEnt").set(str(self.curPage))
             #self.clearInfo()
     
     def clearInfo(self):
@@ -376,14 +381,35 @@ class MonsterBook():
             self.builder.get_variable("SearchBar").set(self.bgSearchText)
     
     def onPageEnter(self, event):
-        print(self.builder.get_variable("varPageEnt").get())
+        value = self.builder.get_variable("varPageEnt").get()
 
-    #def validatePageEntry(self, action, index, value_if_allowed,
-    #                   prior_value, text, validation_type, trigger_type, widget_name):
-    #    if text in "0123456789":
-    #        return True
-    #    else:
-    #        return False
+        while len(value) >= 1 and value[0] == '0':
+            value = value.replace('0', '', 1)
+
+        if len(value) == 0:
+            value = '1'
+        elif int(value) > self.maxPage:
+            value = str(self.maxPage)
+
+        self.builder.get_variable("varPageEnt").set(value)
+        self.curPage = int(value)
+        self.update()
+        #print(self.builder.get_variable("varPageEnt").get())
+
+    def validatePageEntry(self, action, index, value_if_allowed,
+                       prior_value, text, validation_type, trigger_type, widget_name):
+        if text in "0123456789\b" and len(value_if_allowed) < 4:
+            return True
+        else:
+            return False
+
+    def validateTwoDigit(self, action, index, value_if_allowed,
+                       prior_value, text, validation_type, trigger_type, widget_name):
+
+        if text in "0123456789\b" and len(value_if_allowed) < 3:
+            return True
+        else:
+            return False
 
     def onHomeClick(self,event):
         self.master.showHomeScreen()
@@ -408,8 +434,21 @@ class MonsterBook():
 
     def onAddToCollectionClick(self, event):
         if isinstance(self.monster, Monster):
+            self.monster.WishList = self.builder.get_variable("varWishList").get()
+            self.monster.setLevel(int(self.removeLeadingZeros(self.builder.get_variable("varSetLevel").get())))
+            self.monster.setPlusHP(int(self.removeLeadingZeros(self.builder.get_variable("varPlusHP").get())))
+            self.monster.setPlusATK(int(self.removeLeadingZeros(self.builder.get_variable("varPlusATK").get())))
+            self.monster.setPlusRCV(int(self.removeLeadingZeros(self.builder.get_variable("varPlusRCV").get())))
+            self.monster.setSkillsAwoke(int(self.removeLeadingZeros(self.builder.get_variable("varAwakens").get())))
+            self.monster.setSkillLevel(int(self.removeLeadingZeros(self.builder.get_variable("varSkillLevel").get())))
+
             if mb.askokcancel("Add Monster","Are you sure you want to add " + str(self.monster.MonsterName) ):
                 self.master.PADsql.saveMonster(self.monster.getSaveDict())
+
+    def removeLeadingZeros(self, string):
+        while len(string) > 1 and string[0] == '0':
+            string = string.replace("0", '', 1)
+        return string
 
 class MonEvoFrame():
     def __init__(self, master, mbobject):
