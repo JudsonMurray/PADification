@@ -34,9 +34,10 @@
           <object class="tk.Button" id="Home Screen">
             <property name="command">onMainMenuClick</property>
             <property name="text" translatable="yes">Home</property>
+            <property name="width">12</property>
             <layout>
               <property name="column">0</property>
-              <property name="padx">60</property>
+              <property name="padx">45</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
             </layout>
@@ -46,9 +47,10 @@
           <object class="tk.Button" id="My Monsters">
             <property name="command">onMyMonstersClick</property>
             <property name="text" translatable="yes">Collection</property>
+            <property name="width">12</property>
             <layout>
               <property name="column">1</property>
-              <property name="padx">60</property>
+              <property name="padx">45</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
             </layout>
@@ -58,9 +60,10 @@
           <object class="tk.Button" id="Monster Book">
             <property name="command">onMonsterBookClick</property>
             <property name="text" translatable="yes">Book</property>
+            <property name="width">12</property>
             <layout>
               <property name="column">2</property>
-              <property name="padx">60</property>
+              <property name="padx">45</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
             </layout>
@@ -70,9 +73,10 @@
           <object class="tk.Button" id="My Teams">
             <property name="command">onMyTeamsClick</property>
             <property name="text" translatable="yes">Teams</property>
+            <property name="width">12</property>
             <layout>
               <property name="column">3</property>
-              <property name="padx">60</property>
+              <property name="padx">45</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
             </layout>
@@ -81,9 +85,10 @@
         <child>
           <object class="tk.Button" id="Players">
             <property name="text" translatable="yes">Community</property>
+            <property name="width">12</property>
             <layout>
               <property name="column">4</property>
-              <property name="padx">60</property>
+              <property name="padx">45</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
             </layout>
@@ -92,9 +97,10 @@
         <child>
           <object class="tk.Button" id="Team Ranking">
             <property name="text" translatable="yes">Team Ranking</property>
+            <property name="width">12</property>
             <layout>
               <property name="column">5</property>
-              <property name="padx">60</property>
+              <property name="padx">45</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
             </layout>
@@ -103,9 +109,10 @@
         <child>
           <object class="tk.Button" id="Account">
             <property name="text" translatable="yes">Options</property>
+            <property name="width">12</property>
             <layout>
               <property name="column">6</property>
-              <property name="padx">60</property>
+              <property name="padx">45</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
             </layout>
