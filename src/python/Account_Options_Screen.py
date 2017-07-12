@@ -25,6 +25,18 @@ class AccountOptions:
         self.obj2 = self.builder.get_object('New Password',master)
         self.obj3 = self.builder.get_object("Confirm New Password",master)
 
+
+
+    def updateLabel(self):
+        x = self.master.PADsql.PlayerID
+        self.lab1 = self.builder.get_object("IDNum")
+        self.lab2 = self.builder.get_object("AccName")
+        self.lab3 = self.builder.get_object("AccEmail")
+        self.lab1.config(text = self.master.PADsql.PlayerID)
+        self.lab2.config(text = self.master.PADsql.Username)
+        self.lab3.config(text = self.master.PADsql.Email)
+
+
     def onMainMenuClick(self):
         """Displays Main Menu"""
         self.master.showHomeScreen()

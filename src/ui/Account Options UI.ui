@@ -162,7 +162,7 @@ Various actions you may perform upon your account</property>
         <child>
           <object class="tk.Frame" id="ID">
             <property name="borderwidth">5</property>
-            <property name="height">50</property>
+            <property name="height">55</property>
             <property name="relief">raised</property>
             <property name="width">200</property>
             <layout>
@@ -178,9 +178,19 @@ Various actions you may perform upon your account</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="padx">70</property>
-                  <property name="pady">7</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="IDNum">
+                <property name="text" translatable="yes">ID</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                  <property name="sticky">n</property>
                 </layout>
               </object>
             </child>
@@ -189,7 +199,7 @@ Various actions you may perform upon your account</property>
         <child>
           <object class="tk.Frame" id="Username">
             <property name="borderwidth">5</property>
-            <property name="height">50</property>
+            <property name="height">55</property>
             <property name="relief">raised</property>
             <property name="width">200</property>
             <layout>
@@ -204,9 +214,18 @@ Various actions you may perform upon your account</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="padx">65</property>
-                  <property name="pady">7</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="AccName">
+                <property name="text" translatable="yes">Username</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
                 </layout>
               </object>
             </child>
@@ -215,7 +234,7 @@ Various actions you may perform upon your account</property>
         <child>
           <object class="tk.Frame" id="Email">
             <property name="borderwidth">5</property>
-            <property name="height">50</property>
+            <property name="height">55</property>
             <property name="relief">raised</property>
             <property name="width">200</property>
             <layout>
@@ -230,9 +249,18 @@ Various actions you may perform upon your account</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="padx">80</property>
-                  <property name="pady">8</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="AccEmail">
+                <property name="text" translatable="yes">Email</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
                 </layout>
               </object>
             </child>
