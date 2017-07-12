@@ -36,7 +36,40 @@ class AccountOptions:
         self.lab2.config(text = self.master.PADsql.Username)
         self.lab3.config(text = self.master.PADsql.Email)
 
+    def applyChanges(self):
+        changePassword = None
+        changeUsername = None 
 
+        self.onNewPassFocusIn(self)
+        self.onPasswordFocusIn(self)
+        self.onUsernameFocusIn(self)
+        if self.obj2.get() == self.obj3.get() and self.obj2.get() != '':
+            changePassword = True 
+        elif self.obj2.get() == '':
+            pass
+            
+        else:
+            mb.showerror("Update Error","Passwords do not match!")
+            changePassword = False
+
+        if self.obj1.get() != '' and not self.obj1.get().isspace() :
+            changeUsername = True 
+        elif self.obj1.get() == '':
+            pass
+        else:
+            mb.showerror("Update Error","Incorrect username format!")
+            changeUsername = False
+        if (changePassword == True and changeUsername == True) or (changePassword == True and changeUsername == None) or (changePassword == None and changeUsername == True):
+            if changePassword == True:
+                self.master.PADsql.Password = self.obj2.get()
+            if changeUsername == True:
+                self.master.PADsql.Username = self.obj1.get()
+                print("YES!!!")
+        if (changePassword == None and changeUsername == None):
+            mb.showinfo("No Changes","No changes were implemented")
+        self.onNewPassFocusOut(self)
+        self.onPasswordFocusOut(self)
+        self.onUsernameFocusOut(self)
     def onMainMenuClick(self):
         """Displays Main Menu"""
         self.master.showHomeScreen()
