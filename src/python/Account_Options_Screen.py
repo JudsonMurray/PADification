@@ -64,7 +64,6 @@ class AccountOptions:
                 self.master.PADsql.Password = self.obj2.get()
             if changeUsername == True:
                 self.master.PADsql.Username = self.obj1.get()
-                print("YES!!!")
         if (changePassword == None and changeUsername == None):
             mb.showinfo("No Changes","No changes were implemented")
         self.onNewPassFocusOut(self)
