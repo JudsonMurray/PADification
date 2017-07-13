@@ -48,7 +48,8 @@ class TeamBrowser():
         self.canSubMon2 = self.builder.get_object('canSubMon2')
         self.canSubMon3 = self.builder.get_object('canSubMon3')
         self.canSubMon4 = self.builder.get_object('canSubMon4')
-
+        
+        self.badgeImage = tk.PhotoImage(file="Resource/PAD/Images/Badges/Cost +100.png")
         #sets permanent images
         
         
@@ -60,7 +61,7 @@ class TeamBrowser():
         if len(teams) == 0:
             self.teamListBox.delete(0, END)
             self.setImages(None)
-            self.updateTeamLabels(self.builder)
+            #self.updateTeamLabels(self.builder)
             return
         else:
             destroyerTeamBase = self.PADsql.selectTeamInstance(teams[0]['TeamInstanceID'])
@@ -171,7 +172,13 @@ class TeamBrowser():
         if self.myMonsterL[4] != None:
             self.canSubMon4.create_image(7,7,image = self.myMonsterL[4], anchor = tk.NW, tag = "pic")
         if build == self.builder:
-            self.thisBuild.get_object('lblTeamName').config(text='Team Name: ' + str(self.SelectedTeam.TeamName))
+            self.thisBuild.get_object('lblTeamName').config(text='' + str(self.SelectedTeam.TeamName))
+        if self.SelectedTeam.AwokenBadgeName == None:
+            self.SelectedTeam.AwokenBadgeName = 'No Badge'
+        self.badgeImage = tk.PhotoImage(file = 'Resource/PAD/Images/Badges/'+ str(self.SelectedTeam.AwokenBadgeName).replace('/', '') + '.png')
+
+
+        self.thisBuild.get_object('lblAwokenBadge').config(image = self.badgeImage, anchor = CENTER)
         self.thisBuild.get_object('lblTeamHP').config(text=  'HP:    ' + str(self.SelectedTeam.TeamHP))
         self.thisBuild.get_object('lblTeamCost').config(text='Cost: ' + str(self.SelectedTeam.TeamCost))
         self.thisBuild.get_object('lblTeamRCV').config(text= 'RCV:  ' + str(self.SelectedTeam.TeamRCV))
