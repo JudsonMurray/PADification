@@ -349,6 +349,7 @@
               <object class="tk.Checkbutton" id="chkPriFire">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Fire</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="text" translatable="yes">
 </property>
                 <property name="variable">string:PriFire</property>
@@ -364,6 +365,7 @@
               <object class="tk.Checkbutton" id="chkPriWater">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Water</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:PriWater</property>
                 <layout>
                   <property name="column">2</property>
@@ -377,6 +379,7 @@
               <object class="tk.Checkbutton" id="chkPriWood">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Wood</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:PriWood</property>
                 <layout>
                   <property name="column">3</property>
@@ -390,6 +393,7 @@
               <object class="tk.Checkbutton" id="chkPriLight">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Light</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:PriLight</property>
                 <layout>
                   <property name="column">4</property>
@@ -403,6 +407,7 @@
               <object class="tk.Checkbutton" id="chkPriDark">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Dark</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="text" translatable="yes">
 </property>
                 <property name="variable">string:PriDark</property>
@@ -418,6 +423,7 @@
               <object class="tk.Checkbutton" id="chkSecFire">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Fire</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="text" translatable="yes">
 </property>
                 <property name="variable">string:SecFire</property>
@@ -433,6 +439,7 @@
               <object class="tk.Checkbutton" id="chkSecWater">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Water</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:SecWater</property>
                 <layout>
                   <property name="column">2</property>
@@ -446,6 +453,7 @@
               <object class="tk.Checkbutton" id="chkSecWood">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Wood</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:SecWood</property>
                 <layout>
                   <property name="column">3</property>
@@ -459,6 +467,7 @@
               <object class="tk.Checkbutton" id="chkSecLight">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Light</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:SecLight</property>
                 <layout>
                   <property name="column">4</property>
@@ -472,6 +481,7 @@
               <object class="tk.Checkbutton" id="chkSecDark">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Dark</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="state">normal</property>
                 <property name="variable">string:SecDark</property>
                 <layout>
@@ -536,7 +546,7 @@
                   <property name="column">7</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
-                  <property name="rowspan">2</property>
+                  <property name="rowspan">1</property>
                 </layout>
               </object>
             </child>
@@ -544,12 +554,13 @@
               <object class="tk.Checkbutton" id="chkTypeDragon">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Dragon</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:TypeDragon</property>
                 <layout>
                   <property name="column">8</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
-                  <property name="rowspan">2</property>
+                  <property name="rowspan">1</property>
                 </layout>
               </object>
             </child>
@@ -557,12 +568,13 @@
               <object class="tk.Checkbutton" id="chkTypeAttacker">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Attacker</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:TypeAttacker</property>
                 <layout>
                   <property name="column">9</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
-                  <property name="rowspan">2</property>
+                  <property name="rowspan">1</property>
                 </layout>
               </object>
             </child>
@@ -570,12 +582,13 @@
               <object class="tk.Checkbutton" id="chkTypeAwakenMaterial">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Awaken Material</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:TypeAwakenMaterial</property>
                 <layout>
                   <property name="column">10</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
-                  <property name="rowspan">2</property>
+                  <property name="rowspan">1</property>
                 </layout>
               </object>
             </child>
@@ -583,12 +596,13 @@
               <object class="tk.Checkbutton" id="chkTypeBalanced">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Balanced</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:TypeBalanced</property>
                 <layout>
                   <property name="column">11</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
-                  <property name="rowspan">2</property>
+                  <property name="rowspan">1</property>
                 </layout>
               </object>
             </child>
@@ -596,12 +610,13 @@
               <object class="tk.Checkbutton" id="chkTypeDevil">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Devil</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:TypeDevil</property>
                 <layout>
                   <property name="column">12</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
-                  <property name="rowspan">2</property>
+                  <property name="rowspan">1</property>
                 </layout>
               </object>
             </child>
@@ -609,12 +624,13 @@
               <object class="tk.Checkbutton" id="chkTypeEnhanceMaterial">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Enhance Material</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:TypeEnhanceMaterial</property>
                 <layout>
                   <property name="column">13</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
-                  <property name="rowspan">2</property>
+                  <property name="rowspan">1</property>
                 </layout>
               </object>
             </child>
@@ -622,12 +638,13 @@
               <object class="tk.Checkbutton" id="chkTypeEvoMaterial">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Evo Material</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:TypeEvoMaterial</property>
                 <layout>
                   <property name="column">14</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
-                  <property name="rowspan">2</property>
+                  <property name="rowspan">1</property>
                 </layout>
               </object>
             </child>
@@ -635,12 +652,13 @@
               <object class="tk.Checkbutton" id="chkTypeGod">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">God</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:TypeGod</property>
                 <layout>
                   <property name="column">15</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
-                  <property name="rowspan">2</property>
+                  <property name="rowspan">1</property>
                 </layout>
               </object>
             </child>
@@ -648,12 +666,13 @@
               <object class="tk.Checkbutton" id="chkTypeHealer">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Healer</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:TypeHealer</property>
                 <layout>
                   <property name="column">16</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
-                  <property name="rowspan">2</property>
+                  <property name="rowspan">1</property>
                 </layout>
               </object>
             </child>
@@ -661,12 +680,13 @@
               <object class="tk.Checkbutton" id="chkTypeMachine">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Machine</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:TypeMachine</property>
                 <layout>
                   <property name="column">17</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
-                  <property name="rowspan">2</property>
+                  <property name="rowspan">1</property>
                 </layout>
               </object>
             </child>
@@ -674,12 +694,13 @@
               <object class="tk.Checkbutton" id="chkTypePhysical">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Physical</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:TypePhysical</property>
                 <layout>
                   <property name="column">18</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
-                  <property name="rowspan">2</property>
+                  <property name="rowspan">1</property>
                 </layout>
               </object>
             </child>
@@ -687,12 +708,29 @@
               <object class="tk.Checkbutton" id="chkTypeRedeemableMaterial">
                 <property name="indicatoron">false</property>
                 <property name="onvalue">Redeemable Material</property>
+                <property name="selectcolor">#00ff00</property>
                 <property name="variable">string:TypeRedeemableMaterial</property>
                 <layout>
                   <property name="column">19</property>
                   <property name="propagate">False</property>
                   <property name="row">0</property>
-                  <property name="rowspan">2</property>
+                  <property name="rowspan">1</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Button" id="btnClearFilters">
+                <property name="activebackground">#ff0006</property>
+                <property name="command">clearFilters</property>
+                <property name="font">{Yu} 14 {}</property>
+                <property name="text" translatable="yes">Clear Filters</property>
+                <property name="width">42</property>
+                <layout>
+                  <property name="column">8</property>
+                  <property name="columnspan">20</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                  <property name="sticky">nw</property>
                 </layout>
               </object>
             </child>
@@ -1511,6 +1549,7 @@
         </layout>
         <child>
           <object class="tk.Checkbutton" id="chkWishList">
+            <property name="activebackground">#ffed71</property>
             <property name="background">#b8ccb5</property>
             <property name="font">{yu} 14 {}</property>
             <property name="indicatoron">false</property>

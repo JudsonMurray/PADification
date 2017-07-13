@@ -5,7 +5,7 @@
 #
 #
 # 2017-07-03 - WG - v1.0 - Monster Book able to search and Displays a maximum of 50 results on one page.
-# 2017-07-12 - WG - v1.1 - Monster book displays all information pertaining to monsters, Shows 7 results per page.
+# 2017-07-12 - WG - v1.1 - Monster book displays all information pertaining to monsters, Shows 7 results per page. Filters Are Added, Clear Filters also.
 
 from PADMonster import Monster
 import tkinter as tk
@@ -16,6 +16,7 @@ from ast import literal_eval as le
 import math
 from PIL import Image
 from PIL import ImageTk
+from idlelib import ToolTip
 
 class MonsterFrame():
     def __init__(self, master, mbobject):
@@ -64,6 +65,7 @@ class MonsterFrame():
                 setattr(self, i, PhotoImage(file = 'Resource/PAD/Images/Types/' + getattr(self.monster, i) + ".png") )
                 self.builder.get_object("canFrameType" + str(count)).create_image(2,2, image = getattr(self, i), anchor = tk.NW)
                 self.builder.get_object("canFrameType" + str(count)).grid(row = 0, column = count)
+                ToolTip.ToolTip(self.builder.get_object("canFrameType" + str(count)) , getattr(self.monster, i))
             else:
                 self.builder.get_object("canFrameType" + str(count)).grid_forget()
             count += 1
@@ -102,6 +104,7 @@ class MonsterBook():
         self.ASSeven = None
         self.ASEight = None
         self.ASNine = None
+        self.TTip = None
 
         #Results Variables
         self.evoFrames = []
@@ -112,24 +115,25 @@ class MonsterBook():
         self.maxPage = 1
         self.monster = None
         self.thumbnail = None
-
+        self.portraitImage = None
+        self.portrait = None
         #Filter Images
         ##### Atttribute Images #####
         self.AttributeImages = dict()
         for i in ["Fire","Water","Wood","Light","Dark"]:
             self.AttributeImages[i] = PhotoImage(file = 'Resource/PAD/Images/Attributes/' + i + "Symbol.png")
-
-        for i in ["Fire","Water","Wood","Light","Dark"]:
             self.builder.get_object("chkPri" + i).config(image = self.AttributeImages[i])
+            ToolTip.ToolTip(self.builder.get_object("chkPri" + i) , i)
             self.builder.get_object("chkSec" + i).config(image = self.AttributeImages[i])
+            ToolTip.ToolTip(self.builder.get_object("chkSec" + i) , i)
 
         ##### TYPE IMAGES #####
         self.TypeImages = dict()
         for i in ["Attacker", "Awaken Material", "Balanced", "Devil", "Dragon", "Enhance Material",
                   "Evo Material", "God", "Healer", "Machine", "Physical", "Redeemable Material" ]:
             self.TypeImages[i] = PhotoImage(file = 'Resource/PAD/Images/Types/' + i + ".png")
-
             self.builder.get_object("chkType" + i.replace(" ", "")).config(image = self.TypeImages[i])
+            ToolTip.ToolTip(self.builder.get_object("chkType" + i.replace(" ", "")) , i)
 
         ##### Frame Creation #####
         for i in range( 0 , self.RESULTSPERPAGE ):
@@ -206,6 +210,11 @@ class MonsterBook():
         self.monster = monster
         self.thumbnail = thumbnail
         self.builder.get_object("canMonsterSummary").create_image(10,10, image = self.thumbnail, anchor = tk.NW)
+        
+        self.portraitImage = Image.open("Resource/PAD/Images/portraits/"+ str(self.monster.MonsterClassID) + ".jpg")
+        self.portrait = ImageTk.PhotoImage(self.portraitImage, self.portrait)
+        ImageTooltip(self.builder.get_object("canMonsterSummary"), self.portrait)
+
         self.builder.get_object("lblIDName").config(text = str(monster.MonsterClassID) + " - " + monster.MonsterName)
         rarity = ""
         for i in range(0,monster.Rarity):
@@ -227,8 +236,10 @@ class MonsterBook():
             if getattr(monster, i) != None:
                 setattr(self, i, PhotoImage(file = 'Resource/PAD/Images/Types/' + getattr(monster, i) + ".png") )
                 self.builder.get_object("canType" + str(count)).create_image(2,2, image = getattr(self, i), anchor = tk.NW)
+                ToolTip.ToolTip(self.builder.get_object("canType" + str(count)) , getattr(monster, i))
             else:
                 setattr(self, i, None)
+                ToolTip.ToolTip(self.builder.get_object("canType" + str(count)) , 'None')
             count += 1
 
         ######################################
@@ -240,8 +251,10 @@ class MonsterBook():
             if AwokenSkills[count] != None:
                 setattr(self,i, PhotoImage(file = 'Resource/PAD/Images/Awoken Skills/' + AwokenSkills[count] + ".png"))
                 self.builder.get_object("can" + i).create_image(2,2, image = getattr(self, i), anchor = tk.NW)
+                ToolTip.ToolTip(self.builder.get_object("can" + i) , AwokenSkills[count])
             else:
                 setattr(self, i, None)
+                ToolTip.ToolTip(self.builder.get_object("can" + i) , "None")
             count += 1
 
         ####################################
@@ -450,6 +463,17 @@ class MonsterBook():
             string = string.replace("0", '', 1)
         return string
 
+    def clearFilters(self):
+        """Deselect All Filters"""
+        for i in [  "TypeAttacker", "TypeAwakenMaterial", "TypeBalanced",
+                    "TypeDevil", "TypeDragon", "TypeEnhanceMaterial",
+                    "TypeEvoMaterial", "TypeGod", "TypeHealer",
+                    "TypeMachine", "TypePhysical", "TypeRedeemableMaterial",
+                    "PriFire", "PriWater", "PriWood", "PriLight", "PriDark",
+                    "SecFire", "SecWater", "SecWood", "SecLight", "SecDark" ]:
+            self.builder.get_variable(i).set("")
+
+
 class MonEvoFrame():
     def __init__(self, master, mbobject):
         #TK Variables
@@ -475,3 +499,14 @@ class MonEvoFrame():
     def onFrameClick(self, event):
         if self.monster != None:
             self.Monbookobject.showInfo(self.monster, self.thumbnail)
+
+
+class ImageTooltip(ToolTip.ToolTipBase):
+    def __init__(self, button, Photoimage):
+        super().__init__(button)
+        self.PhotoImage = Photoimage
+
+    def showcontents(self):
+        label = Label(self.tipwindow, image = self.PhotoImage, justify=LEFT,
+                      background="#ffffe0", relief=GROOVE, borderwidth=8)
+        label.pack()
