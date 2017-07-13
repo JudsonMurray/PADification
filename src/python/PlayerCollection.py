@@ -9,6 +9,7 @@
 #   V.1.4   RB  Integrated with the PADification.py
 #   V.1.5   RB  Added currently awoken awoken skills and disabled the monster summary buttons when a monster is not selected
 #   V.1.6   RB  Added a okcancel messagebox when remove monster is clicked and now able to load Edit Monster screen when edit monster is clicked
+#   V.1.7   RB  Added Wishlist functionality
 #
 
 from tkinter import *
@@ -154,6 +155,8 @@ class PlayerCollection:
         self.master = master
         self.startMonster = 0
 
+        self.displayWishlist = 0
+
         buttons =[]
         self.currentPage = 1
 
@@ -175,6 +178,21 @@ class PlayerCollection:
         self.currentPage = 1
         self.populateList()
 
+    def onAddFromWishlistClick(self):
+
+        a = PADMonster.Monster(monsters[selectedMonster])
+        a.WishList = 0
+        b = a.getSaveDict()
+
+        self.pds.saveMonster(b)
+
+        monsters.pop(selectedMonster)
+        self.instantList.remove(selectedMonster)
+
+        self.__RemoveInformation()
+        self.startMonster -= self.count
+        self.populateList()
+
     def populateList(self):
         '''Populates the player collection list'''
         self.builder.get_object("btnFavorite").config(state = DISABLED)
@@ -189,7 +207,7 @@ class PlayerCollection:
 
         # JBM - Modifying collection to Dictionary from List to make Monster Lookup easier
         instanceIDs = []
-        monster = self.pds.selectMonsterInstance()
+        monster = self.pds.selectMonsterInstance(wishlist = self.displayWishlist)
 
         monsters = dict()
         for i in monster:
@@ -228,7 +246,9 @@ class PlayerCollection:
                 self.startMonster += 1
 
         self.pages = (len(self.instantList) // 50) + 1
-        if len(self.instantList) % 50 == 0:
+        if len(self.instantList) == 0:
+            self.pages = 1
+        elif len(self.instantList) % 50 == 0:
             self.pages -= 1
 
         if self.currentPage > self.pages:
@@ -236,7 +256,7 @@ class PlayerCollection:
 
         if self.pages > self.currentPage:
             self.builder.get_object("btnNext").config(state = NORMAL)
-        elif self.pages == self.currentPage:
+        elif self.pages <= self.currentPage:
             self.builder.get_object("btnNext").config(state = DISABLED)
             
 
@@ -244,30 +264,67 @@ class PlayerCollection:
 
         self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
 
+    def onWishlistClick(self):
+        self.displayWishlist = 1
+        self.currentPage = 1
+        self.builder.get_object("btnPrev").config(state = DISABLED)
+        self.startMonster = 0
+        self.builder.get_object("btnWishlist").config(state = DISABLED)
+        self.builder.get_object("btnMonsterList").config(state = NORMAL)
+        self.__RemoveInformation()
+        self.populateList()
+
+    def onMonsterListClick(self):
+        self.displayWishlist = 0
+        self.currentPage = 1
+        self.builder.get_object("btnPrev").config(state = DISABLED)
+        self.startMonster = 0
+        self.builder.get_object("btnMonsterList").config(state = DISABLED)
+        self.builder.get_object("btnWishlist").config(state = NORMAL)
+        self.__RemoveInformation()
+        self.populateList()
+
     def onEditMonsterClick(self):
-        self.monsterEdit = MonsterEditScreen.MonsterEdit(self)
-        self.master.forgetAll()
-        self.monsterEdit.monsteredit.grid()
+        self.master.monsterEdit.receiveInstanceID(selectedMonster)
+        self.master.showEditMonster()
 
     def onHomeClick(self):
+        self.displayWishlist = 0
+        self.builder.get_object("btnWishlist").config(state = NORMAL)
+        self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         self.master.showHomeScreen()
 
     def onMyMonsterClick(self):
         self.master.showPlayerCollection()
 
     def onMonsterBookClick(self):
+        self.displayWishlist = 0
+        self.builder.get_object("btnWishlist").config(state = NORMAL)
+        self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         self.master.showMonsterBook()
 
     def onMyTeamsClick(self):
+        self.displayWishlist = 0
+        self.builder.get_object("btnWishlist").config(state = NORMAL)
+        self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         self.master.showTeamBrowser()
 
     def onPlayersClick(self):
+        self.displayWishlist = 0
+        self.builder.get_object("btnWishlist").config(state = NORMAL)
+        self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         pass
 
     def onTeamRankingClick(self):
+        self.displayWishlist = 0
+        self.builder.get_object("btnWishlist").config(state = NORMAL)
+        self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         pass
 
     def onAccountOptionsClick(self):
+        self.displayWishlist = 0
+        self.builder.get_object("btnWishlist").config(state = NORMAL)
+        self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         self.master.showAccountOptions()
 
     def next(self):

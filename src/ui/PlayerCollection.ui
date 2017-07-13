@@ -222,6 +222,7 @@
         </layout>
         <child>
           <object class="tk.Button" id="btnMonsterList">
+            <property name="command">onMonsterListClick</property>
             <property name="state">disabled</property>
             <property name="text" translatable="yes">Monster List</property>
             <layout>
@@ -235,6 +236,7 @@
         </child>
         <child>
           <object class="tk.Button" id="btnWishlist">
+            <property name="command">onWishlistClick</property>
             <property name="text" translatable="yes">Wishlist</property>
             <layout>
               <property name="column">5</property>
@@ -363,6 +365,7 @@
             </child>
             <child>
               <object class="tk.Button" id="btnAddFromWishlist">
+                <property name="command">onAddFromWishlistClick</property>
                 <property name="state">disabled</property>
                 <property name="text" translatable="yes">Add From Wishlist</property>
                 <property name="underline">0</property>

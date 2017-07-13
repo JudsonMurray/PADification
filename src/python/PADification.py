@@ -47,6 +47,7 @@ class PADification(tk.Tk):
         self.playerCollection = PlayerCollection.PlayerCollection(self)
         self.teamBrowser = TeamBrowserScreen.TeamBrowser(self)
         self.editTeam = EditTeamScreen.EditTeam(self)
+        self.monsterEdit = MonsterEditScreen.MonsterEdit(self)
         self.showLoginScreen()
         super().mainloop()
 
@@ -55,6 +56,10 @@ class PADification(tk.Tk):
         """Show Login Screen"""
         self.forgetAll()
         self.loginScreen.mainwindow.grid()
+
+    def showEditMonster(self):
+        self.forgetAll()
+        self.monsterEdit.monsteredit.grid()
 
     #Displays the account creation screen
     def showAccountCreation(self):
@@ -73,6 +78,7 @@ class PADification(tk.Tk):
         """Show Account Options Screen"""
         self.forgetAll()
         self.accountOptions.mainwindow.grid()
+        self.accountOptions.updateLabel()
 
     def showMonsterBook(self):
         self.forgetAll()
@@ -108,5 +114,7 @@ class PADification(tk.Tk):
         self.playerCollection.mainwindow.grid_forget()
         self.teamBrowser.mainwindow.grid_forget()
         self.editTeam.mainwindow.grid_forget()
+        self.editTeam.mainwindow.grid_forget()
+        self.monsterEdit.monsteredit.grid_forget()
 
 PADification()
