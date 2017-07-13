@@ -4,7 +4,7 @@
 /*  Title    : Padification DataBase                                              */
 /*  FileName : PADification database schema.ecm                                   */
 /*  Platform : SQL Server 2014                                                    */
-/*  Version  : 0.1                                                               */
+/*  Version  : 0.1.1                                                              */
 /*  Date     : July 7, 2017                                                      */
 /*================================================================================*/
 --Revision History
@@ -18,6 +18,7 @@
 --June 28, 2017 - Removed the creation, deletion of tags tables.
 --July 7, 2017 - Removed the deletion functions for all tables
 --July 7, 2017 - Updated multiple tables: MonsterClass, EvolutionTree, MonsterInstance, Player, Follower & team.
+--July 13, 2017 - Added a ProfileImage to Player table.
 
 USE PADification
 /*================================================================================*/
@@ -311,12 +312,13 @@ CREATE TABLE PADification.dbo.Follower (
 )
 GO
 
---updated from version 0.1
+--updated from version 0.1.1
 CREATE TABLE PADification.dbo.Player (
   Email VARCHAR(50) NOT NULL,
   PlayerID INT NOT NULL,
-  Password NVARCHAR(10) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL,
+  Password VARCHAR(10) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL,
   Username VARCHAR(15) NOT NULL,
+  ProfileImage INT,
   CONSTRAINT PK_Player PRIMARY KEY (Email)
 )
 GO
@@ -665,3 +667,9 @@ GO
 --  ADD CONSTRAINT FK_TeamTagsList_TeamTags3
 --  FOREIGN KEY (TeamTagThree) REFERENCES TeamTags (TeamTagName)
 --GO
+
+--Added from version 0.1.1
+ALTER TABLE Player
+  ADD CONSTRAINT FK_Player_MonsterClass
+  FOREIGN KEY (ProfileImage) REFERENCES MonsterClass (MonsterClassID)
+GO
