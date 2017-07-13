@@ -85,7 +85,7 @@ class PADSQL():
                       "[Password] = ? "
                       "WHERE [Email] = ?")
         
-        value = (Username, Password, self.Email)
+        values = (Username, Password, self.Email)
         self.cursor.execute(SQLCommand, values)
         self.connection.commit()
 
@@ -396,6 +396,30 @@ class PADSQL():
         SQLCommand = "SELECT * FROM LatentSkillList WHERE InstanceID = " + str(InstanceID)
         self.cursor.execute(SQLCommand)
         return self.cursor.fetchone()
+
+    def saveLatentAwokenSkillList(self, instanceID ,lsone, lstwo, lsthree, lsfour, lsfive, lssix, extraslot):
+        values = [instanceID ,lsone, lstwo, lsthree, lsfour, lsfive, lssix, extraslot]
+
+        SQLCommand = ("INSERT INTO LatentSkillList (InstanceID, LatentSKillOne, LatentSKillTwo, LatentSKillThree, LatentSKillFour, LatentSKillFive, LatentSKillSix, ExtraSlot)"
+                      "VALUES (?,?,?,?,?,?,?,?)")
+        try:
+            self.cursor.execute(SQLCommand,values)
+            self.cursor.commit()
+            return True
+        except pypyodbc.IntegrityError:
+            try:
+                
+                values.append(values[0])
+                values.pop(0)
+                SQLCommand = ("UPDATE LatentSkillList SET LatentSKillOne = ?, LatentSKillTwo = ?, LatentSKillThree = ?, LatentSKillFour = ?, LatentSKillFive = ?, LatentSKillSix = ?, ExtraSlot = ? "
+                      "WHERE InstanceID = ?")
+                self.cursor.execute(SQLCommand,values)
+                self.cursor.commit()
+                return True
+            except pypyodbc.IntegrityError:
+                print("Something Went Wrong")
+                return False
+        
 
     def getAwokenBadges(self):
         """Returns a List of Awoken Badges"""
