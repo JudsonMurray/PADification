@@ -365,6 +365,7 @@
             </child>
             <child>
               <object class="tk.Button" id="btnAddFromWishlist">
+                <property name="command">onAddFromWishlistClick</property>
                 <property name="state">disabled</property>
                 <property name="text" translatable="yes">Add From Wishlist</property>
                 <property name="underline">0</property>
