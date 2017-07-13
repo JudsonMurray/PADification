@@ -1,7 +1,10 @@
 use PADification
 
 insert into Player(Email,Username, Password, PlayerID) Values 
-('PADmin', 'Test', 'Test', 000000000)
+('PADmin', 'Test', 'Test', 000000000),
+('PADmin2', 'Test2', 'Test2', 000000001),
+('PADmin3', 'Test3', 'Test3', 000000002),
+('PADification@gmail.com', 'Test', 'Test', 1);
 
 insert into MonsterInstance(Email, MonsterClassID, CurrentExperience, PlusHP, PlusATK, PlusRCV, SkillsAwoke, AssistMonsterID, SkillLevel, LSListID) Values
 ('PADmin', 3070, 4000000, 1, 0, 44, 9, null, 1, null),
