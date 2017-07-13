@@ -76,6 +76,16 @@ class PADSQL():
             print("Login Failed")
             self.closeConnection()
 
+    def updateAccountInfo(self, Username, Password):
+        SQLCommand = ("UPDATE Player "
+                      "Set Username = ?, "
+                      "Password = ? "
+                      "WHERE Email = ?")
+        
+        value = (Username, Password, self.Email)
+        self.cursor.execute(SQLCommand, values)
+        self.connection.commit()
+
     def closeConnection(self):
         """Closes Connection to PADification Database"""
         self.connection.close()
