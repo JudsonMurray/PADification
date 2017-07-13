@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <interface>
   <object class="tk.Frame" id="teamBrowserFrame">
-    <property name="height">200</property>
-    <property name="width">200</property>
+    <property name="height">960</property>
+    <property name="width">1280</property>
     <layout>
       <property name="column">0</property>
-      <property name="propagate">True</property>
+      <property name="propagate">False</property>
       <property name="row">0</property>
     </layout>
     <child>
@@ -15,7 +15,7 @@
         <property name="selectbackground">#a5aa97</property>
         <property name="selectforeground">#b6d56c</property>
         <property name="takefocus">true</property>
-        <property name="width">1261</property>
+        <property name="width">1280</property>
         <layout>
           <property name="column">0</property>
           <property name="columnspan">4</property>
@@ -26,19 +26,19 @@
       </object>
     </child>
     <child>
-      <object class="tk.Frame" id="Frame_2">
+      <object class="tk.Frame" id="frmTeamSelect">
         <property name="height">200</property>
         <property name="width">200</property>
         <layout>
           <property name="column">0</property>
           <property name="propagate">True</property>
           <property name="row">2</property>
-          <property name="rowspan">5</property>
+          <property name="rowspan">4</property>
           <property name="sticky">n</property>
         </layout>
         <child>
-          <object class="tk.Label" id="Label_5">
-            <property name="text" translatable="yes">Label_5</property>
+          <object class="tk.Label" id="Team Select">
+            <property name="text" translatable="yes">Team Select</property>
             <layout>
               <property name="column">0</property>
               <property name="propagate">True</property>
@@ -149,7 +149,6 @@
             <property name="text" translatable="yes">       No 
       Badge
      Selected</property>
-            <bind add="True" handler="selectBadge" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">2</property>
               <property name="ipadx">10</property>
@@ -182,7 +181,7 @@
             <property name="width">100</property>
             <layout>
               <property name="column">0</property>
-              <property name="padx">20</property>
+              <property name="padx">30</property>
               <property name="pady">5</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
@@ -200,7 +199,7 @@
             <property name="width">100</property>
             <layout>
               <property name="column">1</property>
-              <property name="padx">20</property>
+              <property name="padx">30</property>
               <property name="pady">5</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
@@ -216,7 +215,7 @@
             <property name="width">100</property>
             <layout>
               <property name="column">2</property>
-              <property name="padx">20</property>
+              <property name="padx">30</property>
               <property name="pady">5</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
@@ -232,7 +231,7 @@
             <property name="width">100</property>
             <layout>
               <property name="column">3</property>
-              <property name="padx">20</property>
+              <property name="padx">30</property>
               <property name="pady">5</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
@@ -248,7 +247,7 @@
             <property name="width">100</property>
             <layout>
               <property name="column">4</property>
-              <property name="padx">20</property>
+              <property name="padx">30</property>
               <property name="pady">5</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
@@ -909,7 +908,7 @@
             <bind add="True" handler="onHomeClick" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">0</property>
-              <property name="padx">40</property>
+              <property name="padx">45</property>
               <property name="pady">20</property>
               <property name="propagate">True</property>
               <property name="row">1</property>
@@ -924,7 +923,7 @@
             <bind add="True" handler="onMyMonstersClick" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">1</property>
-              <property name="padx">40</property>
+              <property name="padx">45</property>
               <property name="pady">20</property>
               <property name="propagate">True</property>
               <property name="row">1</property>
@@ -938,7 +937,7 @@
             <bind add="True" handler="onMonsterBookClick" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">2</property>
-              <property name="padx">40</property>
+              <property name="padx">45</property>
               <property name="pady">20</property>
               <property name="propagate">True</property>
               <property name="row">1</property>
@@ -952,7 +951,7 @@
             <bind add="True" handler="onMyTeamsClick" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">3</property>
-              <property name="padx">40</property>
+              <property name="padx">45</property>
               <property name="pady">20</property>
               <property name="propagate">True</property>
               <property name="row">1</property>
@@ -965,7 +964,7 @@
             <property name="width">12</property>
             <layout>
               <property name="column">4</property>
-              <property name="padx">40</property>
+              <property name="padx">45</property>
               <property name="pady">20</property>
               <property name="propagate">True</property>
               <property name="row">1</property>
@@ -978,7 +977,7 @@
             <property name="width">12</property>
             <layout>
               <property name="column">5</property>
-              <property name="padx">40</property>
+              <property name="padx">45</property>
               <property name="pady">20</property>
               <property name="propagate">True</property>
               <property name="row">1</property>
@@ -992,7 +991,7 @@
             <property name="width">12</property>
             <layout>
               <property name="column">6</property>
-              <property name="padx">40</property>
+              <property name="padx">45</property>
               <property name="pady">20 </property>
               <property name="propagate">True</property>
               <property name="row">1</property>

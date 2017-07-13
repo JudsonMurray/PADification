@@ -22,6 +22,87 @@ import PADMonster
 
 #variables to tell which monsters are selected within the collection
 
+class AwokenBadge:
+    def __init__(self, master, masterframe, builder, i):
+        self.builder = builder
+        self.master= master
+        self.masterframe = masterframe
+        self.i = i
+        self.builder = pygubu.Builder() 
+        self.builder.add_from_file('src/ui/EditTeam.ui')
+        self.badgebut = self.builder.get_object('AwokenBadgeFrame', self.masterframe)
+        self.image = self.builder.get_object('canAwokenBadge', self.builder.get_object('AwokenBadgeFrame'))
+
+        self.badgebut.bind("<Button-1>", self.awokenBadgeClick)
+        self.image.bind("<Button-1>", self.awokenBadgeClick)
+
+    def awokenBadgeClick(self, event):
+        self.master.setBadge = self.master.awokenBadges[self.i]
+        self.master.badgeNum = self.i
+        print(self.i)
+        print(self.master.setBadge)
+        return
+
+class BadgeFrame(tk.Toplevel):
+    def __init__(self, master, masterbuilder, team):
+        tk.Toplevel.__init__(self, master)
+        self.masterbuilder = masterbuilder
+        self.destroyerTeam = team
+        self.builder = pygubu.Builder()
+        self.builder.add_from_file('src/ui/EditTeam.ui')
+        self.mainwidow = self.builder.get_object('frmBadges', self)
+
+        self.badgeNum = None
+
+        # set the dimensions of the screen 
+        # and where it is placed
+        self.transient(master) #set to be on top of the main window
+        self.grab_set() #hijack all commands from the master (clicks on the main window are ignored)
+        self.awokenBadges = self.master.PADsql.getAwokenBadges()
+        self.setBadge = ''
+        self.awokenBadgeImages = []
+        self.awokenBadgeLabels = []
+        for i in range(0, len(self.awokenBadges)):
+            self.awokenBadgeImages.append(tk.PhotoImage(file = 'Resource/PAD/Images/Badges/'+ str(self.awokenBadges[i]).replace("/", '') + '.png'))
+            self.awokenBadgeLabels.append(AwokenBadge(self, self.builder.get_object('frmBadges'), self.builder, i))
+            self.awokenBadgeLabels[i].badgebut.grid(row=i // 7,column = i % 7)
+            self.awokenBadgeLabels[i].image.create_image(7,7,image = self.awokenBadgeImages[i], anchor = tk.NW, tag = "pic")
+
+            w = 420 #width for the Tk root
+            h = 170 # height for the Tk root
+
+            # get screen width and height
+            ws = self.winfo_screenwidth() # width of the screen
+            hs = self.winfo_screenheight() # height of the screen
+
+            # calculate x and y coordinates for the Tk root window
+            x = (ws/2) - (w/2)
+            y = (hs/2) - (h/2)
+
+            self.geometry('%dx%d+%d+%d' % (w,h, x, y))
+
+        self.count = 0
+        for i in self.awokenBadgeLabels:
+            print(i.i)
+            self.count += 1
+        #if (len(self.builder.get_object('frmBadges').grid_slaves()) // 2) * 30 > 500:
+        #    pass
+        #else:
+        #    self.builder.get_object('frmBadges').config(height=100) 
+        self.builder.get_object('okBadge').bind('<Button-1>', self.okBadge)
+        self.builder.connect_callbacks(self)
+        #master.wait_window(self) #pause anything on the main window until this one closes (optional)
+        return
+
+    def okBadge(self, event):
+        self.destroyerTeam.setBadge(self.setBadge)
+        if self.badgeNum != None:
+            self.masterbuilder.get_object('lblAwokenBadge').config(image = self.awokenBadgeImages[self.badgeNum])
+        print('g')
+        self.destroy()
+        return
+
+
 
 class MonsterFrame:
     def __init__(self, master, masterbuilder, i, ids, currentMonster, buttons, padsql, state, team, var, padific):
@@ -155,7 +236,6 @@ class EditTeam():
             pass
         else:
             self.canvas.config(height=1000) 
-        
         self.builder.connect_callbacks(self)
         
     def populateCollection(self):
@@ -345,14 +425,20 @@ class EditTeam():
         return
 
     def selectBadge(self, event):
+
+        inputDialog = BadgeFrame(self.master, self.builder, self.destroyerTeam)
         pass
 
     def cancelTeamEdit(self, event):
         self.master.showTeamBrowser()
+        return
 
     def saveTeam(self, event):
         
         teamName = self.builder.get_variable('teamName').get()
+        if len(teamName) > 20:
+
+            return
         x=1
         
         teamName = teamName.lstrip()
@@ -362,6 +448,7 @@ class EditTeam():
         if teamName == '':
             teamName = "Team " + str(x)
         self.destroyerTeam.setTeamName(teamName)
+        self.destroyerTeam.setBadge(str(self.destroyerTeam.AwokenBadgeName))
         saveThisTeam = self.destroyerTeam.getSaveDict()
         saveThisTeam['Email'] = self.PADsql.Email
         self.PADsql.saveTeam(saveThisTeam)
