@@ -7,73 +7,17 @@
 # 2017-07-03 - WG - v1.0 - Monster Book able to search and Displays a maximum of 50 results on one page.
 # 2017-07-12 - WG - v1.1 - Monster book displays all information pertaining to monsters, Shows 7 results per page. Filters Are Added, Clear Filters also.
 
-from PADMonster import Monster
 import tkinter as tk
 import pygubu
+import math
+from PADMonster import Monster
 from tkinter import messagebox as mb
 from tkinter import *
 from ast import literal_eval as le
-import math
 from PIL import Image
 from PIL import ImageTk
 from idlelib import ToolTip
 
-class MonsterFrame():
-    def __init__(self, master, mbobject):
-        #TK Variables
-        self.Monbookobject = mbobject
-        self.master = master
-        self.builder = pygubu.Builder()
-        self.builder.add_from_file('src/ui/MonsterBook.ui')
-        self.frame = self.builder.get_object('MonsFrame', master)
-        self.FrameLabel = self.builder.get_object('FrameLabel')
-        self.builder.connect_callbacks(self)
-
-        #Variables
-        self.MonstertypeOne = None
-        self.MonstertypeTwo = None
-        self.MonstertypeThree = None
-        self.monster = None
-        self.thumbnail = None
-
-    def update(self, monster):
-        self.monster = monster
-        self.thumbnail = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(self.monster.MonsterClassID) + ".png")
-        self.FrameLabel.create_image(2,2, image = self.thumbnail, anchor = tk.NW)
-
-        #Label Configurations
-        self.builder.get_object("lblMonsterID").config(text=str(self.monster.MonsterClassID))
-
-        self.builder.get_object("lblMonsterName").config(text=str(self.monster.MonsterName))
-        rarity = ""
-        for i in range(0,self.monster.Rarity):
-            rarity += '\u2605'
-        self.builder.get_object("lblMonsterRarity").config(text= rarity, foreground= 'yellow')
-
-        #Background Colors
-        colors = {'Fire' : '#ff9966', 'Water' : '#99bbdd', 'Wood' : '#88ee77', 'Light' : '#ffff77', 'Dark' : '#ee99ee'}
-        self.frame.config(bg = colors[self.monster.PriAttribute])
-        for i in self.frame.grid_slaves():
-            if i == self.builder.get_object("lblMonsterRarity"):
-                continue
-            i.config(background = colors[self.monster.PriAttribute])
-        
-        #MonsterType image loader.
-        count = 1
-        for i in ["MonsterTypeOne", "MonsterTypeTwo", "MonsterTypeThree"]:
-            if getattr(self.monster, i) != None:
-                setattr(self, i, PhotoImage(file = 'Resource/PAD/Images/Types/' + getattr(self.monster, i) + ".png") )
-                self.builder.get_object("canFrameType" + str(count)).create_image(2,2, image = getattr(self, i), anchor = tk.NW)
-                self.builder.get_object("canFrameType" + str(count)).grid(row = 0, column = count)
-                ToolTip.ToolTip(self.builder.get_object("canFrameType" + str(count)) , getattr(self.monster, i))
-            else:
-                self.builder.get_object("canFrameType" + str(count)).grid_forget()
-            count += 1
-        self.frame.config(width = 660)
-
-    def onFrameClick(self, event):
-        if self.monster != None:
-            self.Monbookobject.showInfo(self.monster, self.thumbnail)
 
 class MonsterBook():
     """Displays Home Screen Frame and widgets"""
@@ -117,6 +61,9 @@ class MonsterBook():
         self.thumbnail = None
         self.portraitImage = None
         self.portrait = None
+        self.Tooltips = []
+        self.PortraitTooltip = ImageTooltip(self.builder.get_object("canMonsterSummary"), self.portrait)
+
         #Filter Images
         ##### Atttribute Images #####
         self.AttributeImages = dict()
@@ -203,17 +150,28 @@ class MonsterBook():
 
     def showInfo(self,monster, thumbnail):
         """Shows The Information of the Selected monster"""
+        #########################
+        #### Delete ToolTips ####
+        #########################
 
-        ########################
+        self.Tooltips = []
+
+        #########################
         #### UPDATE LABELS #####
         ########################
         self.monster = monster
         self.thumbnail = thumbnail
         self.builder.get_object("canMonsterSummary").create_image(10,10, image = self.thumbnail, anchor = tk.NW)
-        
+
+        #if self.portraitImage != None:
+        #    print("Clearing")
+        #    self.Tooltips[0].PhotoImage = None
+        #    self.portrait = None
+        #    self.portraitImage.close()
         self.portraitImage = Image.open("Resource/PAD/Images/portraits/"+ str(self.monster.MonsterClassID) + ".jpg")
         self.portrait = ImageTk.PhotoImage(self.portraitImage, self.portrait)
-        ImageTooltip(self.builder.get_object("canMonsterSummary"), self.portrait)
+        self.PortraitTooltip.PhotoImage = self.portrait
+        
 
         self.builder.get_object("lblIDName").config(text = str(monster.MonsterClassID) + " - " + monster.MonsterName)
         rarity = ""
@@ -233,13 +191,15 @@ class MonsterBook():
         ######################################
         count = 1
         for i in ["MonsterTypeOne", "MonsterTypeTwo", "MonsterTypeThree"]:
+            self.builder.get_object("canType" + str(count)).unbind("<Enter>")
+            self.builder.get_object("canType" + str(count)).unbind("<Leave>")
+            self.builder.get_object("canType" + str(count)).unbind("<ButtonPress>")
             if getattr(monster, i) != None:
                 setattr(self, i, PhotoImage(file = 'Resource/PAD/Images/Types/' + getattr(monster, i) + ".png") )
                 self.builder.get_object("canType" + str(count)).create_image(2,2, image = getattr(self, i), anchor = tk.NW)
-                ToolTip.ToolTip(self.builder.get_object("canType" + str(count)) , getattr(monster, i))
+                self.Tooltips.append(ToolTip.ToolTip(self.builder.get_object("canType" + str(count)) , getattr(monster, i)))
             else:
                 setattr(self, i, None)
-                ToolTip.ToolTip(self.builder.get_object("canType" + str(count)) , 'None')
             count += 1
 
         ######################################
@@ -248,15 +208,17 @@ class MonsterBook():
         AwokenSkills = self.master.PADsql.getAwokenSkillList(monster.MonsterClassID)
         count = 1
         for i in ["ASOne", "ASTwo", "ASThree", "ASFour", "ASFive", "ASSix", "ASSeven", "ASEight", "ASNine"]:
+            self.builder.get_object("can" + i).unbind("<Enter>")
+            self.builder.get_object("can" + i).unbind("<Leave>")
+            self.builder.get_object("can" + i).unbind("<ButtonPress>")
             if AwokenSkills[count] != None:
                 setattr(self,i, PhotoImage(file = 'Resource/PAD/Images/Awoken Skills/' + AwokenSkills[count] + ".png"))
                 self.builder.get_object("can" + i).create_image(2,2, image = getattr(self, i), anchor = tk.NW)
-                ToolTip.ToolTip(self.builder.get_object("can" + i) , AwokenSkills[count])
+                self.Tooltips.append(ToolTip.ToolTip(self.builder.get_object("can" + i) , AwokenSkills[count]))
             else:
                 setattr(self, i, None)
-                ToolTip.ToolTip(self.builder.get_object("can" + i) , "None")
             count += 1
-
+            
         ####################################
         ##### UPDATE SKILL INFORMATION #####
         ####################################
@@ -284,6 +246,7 @@ class MonsterBook():
         evoTree = self.master.PADsql.getEvolutionTree(monster.MonsterClassID)
         for i in self.evoFrames:
             i.EvoFrame.grid_forget()
+            i.EvoFrame.destroy()
 
         self.evoFrames = []
         self.canEvoFrame
@@ -473,6 +436,62 @@ class MonsterBook():
                     "SecFire", "SecWater", "SecWood", "SecLight", "SecDark" ]:
             self.builder.get_variable(i).set("")
 
+class MonsterFrame():
+    def __init__(self, master, mbobject):
+        #TK Variables
+        self.Monbookobject = mbobject
+        self.master = master
+        self.builder = pygubu.Builder()
+        self.builder.add_from_file('src/ui/MonsterBook.ui')
+        self.frame = self.builder.get_object('MonsFrame', master)
+        self.FrameLabel = self.builder.get_object('FrameLabel')
+        self.builder.connect_callbacks(self)
+
+        #Variables
+        self.MonstertypeOne = None
+        self.MonstertypeTwo = None
+        self.MonstertypeThree = None
+        self.monster = None
+        self.thumbnail = None
+
+    def update(self, monster):
+        self.monster = monster
+        self.thumbnail = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(self.monster.MonsterClassID) + ".png")
+        self.FrameLabel.create_image(2,2, image = self.thumbnail, anchor = tk.NW)
+
+        #Label Configurations
+        self.builder.get_object("lblMonsterID").config(text=str(self.monster.MonsterClassID))
+
+        self.builder.get_object("lblMonsterName").config(text=str(self.monster.MonsterName))
+        rarity = ""
+        for i in range(0,self.monster.Rarity):
+            rarity += '\u2605'
+        self.builder.get_object("lblMonsterRarity").config(text= rarity, foreground= 'yellow')
+
+        #Background Colors
+        colors = {'Fire' : '#ff9966', 'Water' : '#99bbdd', 'Wood' : '#88ee77', 'Light' : '#ffff77', 'Dark' : '#ee99ee'}
+        self.frame.config(bg = colors[self.monster.PriAttribute])
+        for i in self.frame.grid_slaves():
+            if i == self.builder.get_object("lblMonsterRarity"):
+                continue
+            i.config(background = colors[self.monster.PriAttribute])
+        
+        #MonsterType image loader.
+        count = 1
+        for i in ["MonsterTypeOne", "MonsterTypeTwo", "MonsterTypeThree"]:
+            if getattr(self.monster, i) != None:
+                setattr(self, i, PhotoImage(file = 'Resource/PAD/Images/Types/' + getattr(self.monster, i) + ".png") )
+                self.builder.get_object("canFrameType" + str(count)).create_image(2,2, image = getattr(self, i), anchor = tk.NW)
+                self.builder.get_object("canFrameType" + str(count)).grid(row = 0, column = count)
+                ToolTip.ToolTip(self.builder.get_object("canFrameType" + str(count)) , getattr(self.monster, i))
+            else:
+                self.builder.get_object("canFrameType" + str(count)).grid_forget()
+            count += 1
+        self.frame.config(width = 660)
+
+    def onFrameClick(self, event):
+        if self.monster != None:
+            self.Monbookobject.showInfo(self.monster, self.thumbnail)
 
 class MonEvoFrame():
     def __init__(self, master, mbobject):
@@ -500,13 +519,14 @@ class MonEvoFrame():
         if self.monster != None:
             self.Monbookobject.showInfo(self.monster, self.thumbnail)
 
-
 class ImageTooltip(ToolTip.ToolTipBase):
     def __init__(self, button, Photoimage):
         super().__init__(button)
         self.PhotoImage = Photoimage
+        self.label = None
 
     def showcontents(self):
-        label = Label(self.tipwindow, image = self.PhotoImage, justify=LEFT,
+        self.label = Label(self.tipwindow, image = self.PhotoImage, justify=LEFT,
                       background="#ffffe0", relief=GROOVE, borderwidth=8)
-        label.pack()
+
+        self.label.pack()
