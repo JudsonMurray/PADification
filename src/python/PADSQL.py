@@ -6,6 +6,7 @@
 #           And Login authentication.
 
 import pypyodbc
+import smtplib
 
 # SQL Server information.
 localhost = ('Driver={SQL Server};'
@@ -21,6 +22,7 @@ class PADSQL():
         self.Password = None
         self.PlayerID = None
         self.Username = None
+        self.ProfileImage = None
         self.signedIn = False
 
     def connect(self):
@@ -45,7 +47,7 @@ class PADSQL():
         """Function will execute TSQL command to insert into Table Player"""
 
         self.connect()
-        listValues = [Email, Password, Username, PlayerID]
+        listValues = [Email.lower(), Password, Username, PlayerID]
         SQLCommand = ("INSERT INTO Player "
                       "(Email, Password, Username, PlayerID) "
                       "VALUES (?,?,?,?)")
@@ -58,7 +60,7 @@ class PADSQL():
     def login(self, Email, Password):
         """Log in with login Info"""
         self.connect()
-        SQLCommand = ("SELECT [Email], [Password], [Username], [PlayerID] "
+        SQLCommand = ("SELECT [Email], [Password], [Username], [PlayerID], [ProfileImage] "
                         "FROM Player "
                         "WHERE [Email] = ? "
                         "AND [Password] = ?")
@@ -67,10 +69,11 @@ class PADSQL():
         results = self.cursor.fetchone()
         if results:
             print("User login Successful")
-            self.Email = Email
+            self.Email = Email.lower()
             self.Password = Password
             self.PlayerID = results[3]
             self.Username = results[2]
+            self.ProfileImage = results[4]
             self.signedIn = True
         else:
             print("Login Failed")
@@ -78,13 +81,70 @@ class PADSQL():
 
     def updateAccountInfo(self, Username, Password):
         SQLCommand = ("UPDATE Player "
-                      "Set Username = ?, "
-                      "Password = ? "
-                      "WHERE Email = ?")
+                      "Set [Username] = ?, "
+                      "[Password] = ? "
+                      "WHERE [Email] = ?")
         
         value = (Username, Password, self.Email)
         self.cursor.execute(SQLCommand, values)
         self.connection.commit()
+
+    def updateProfileImage(self, MonsterID):
+        results = self.selectMonsterClass(MonsterID)
+        if results:
+            SQLCommand = ("UPDATE Player "
+                          "Set ProfileImage = ?, "
+                          "WHERE Email = ?")
+            value = (MonsterID , self.Email)
+            self.cursor.execute(SQLCommand, values)
+            self.connection.commit()
+            return True
+        else:
+            return False
+
+    def retrievePassword(self,Email):
+        self.connect()
+        SQLCommand = "Select [Password] From Player Where [Email] = '" + Email + "'"
+        self.cursor.execute(SQLCommand)
+        result = self.cursor.fetchone()
+        if result:
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login("Padification@gmail.com", "PadificationSupport")
+
+            msg = "Your Password is " + str(result[0])
+            server.sendmail("Padification@gmail.com", Email, msg)
+            server.quit()
+            return True
+        else:
+            return False
+
+    def selectUsers(self):
+        SQLCommand = "Select Username, PlayerID, Email From Player"
+        self.cursor.execute(SQLCommand)
+        return self.cursor.fetchall()
+
+    def selectFollowers(self, User = None):
+        if User == None:
+            User = self.Email
+        SQLCommand = ("Select Username, FollowerEmail From (Follower LEFT OUTER JOIN Player ON followerEmail = Player.Email) "
+                      "WHERE Follower.Email = '" + User + "'")
+        self.cursor.execute(SQLCommand)
+        return self.cursor.fetchall()
+
+    def followPlayer(self, UserEmail):
+        SQLCommand = ("Select FID From Follower "
+                      "WHERE Email = '" + self.Email + "' AND FollowerEmail = '"+ UserEmail +"'")
+        self.cursor.execute(SQLCommand)
+        results = self.cursor.fetchall()
+        if results:
+            return False
+        else:
+            SQLCommand = ("INSERT INTO Follower (Email, FollowerEmail)"
+                          " VALUES ('" + self.Email + "', '" + UserEmail + "')")
+            self.cursor.execute(SQLCommand)
+            self.cursor.commit()
+            return True
 
     def closeConnection(self):
         """Closes Connection to PADification Database"""
@@ -93,6 +153,7 @@ class PADSQL():
         self.Password = None
         self.PlayerID = None
         self.Username = None
+        
         self.signedIn = False
 
     def selectMonsterClass(self, monSearch = None, dictionary = True):
@@ -334,7 +395,7 @@ class PADSQL():
         """Returns a List of Latent Awoken Skills a monster Instance has"""
         SQLCommand = "SELECT * FROM LatentSkillList WHERE InstanceID = " + str(InstanceID)
         self.cursor.execute(SQLCommand)
-        return list[self.cursor.fetchone()]
+        return self.cursor.fetchone()
 
     def getAwokenBadges(self):
         """Returns a List of Awoken Badges"""
@@ -461,7 +522,6 @@ class PADSQL():
             else:
                 print(LeaderSkillName.encode('ASCII', 'ignore'))
 
-
     def getActiveSkillDesc(self, ActiveSkillName):
         """Return ActiveSkill Desc"""
         if ActiveSkillName != None:
@@ -475,3 +535,8 @@ class PADSQL():
                 return result[0] 
             else:
                 print(LeaderSkillName.encode('ASCII', 'ignore'))
+
+#padsql = PADSQL()
+#padsql.login("Padmin","Test")
+#print(padsql.selectFollowers())
+##print(padsql.selectUsers())
