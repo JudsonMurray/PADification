@@ -18,6 +18,7 @@ from ast import literal_eval as le
 from PIL import Image
 from PIL import ImageTk
 from idlelib import ToolTip
+from CustomWidgets import *
 
 
 class MonsterBook():
@@ -520,14 +521,3 @@ class MonEvoFrame():
         if self.monster != None:
             self.Monbookobject.showInfo(self.monster, self.thumbnail)
 
-class ImageTooltip(ToolTip.ToolTipBase):
-    def __init__(self, button, Photoimage):
-        super().__init__(button)
-        self.PhotoImage = Photoimage
-        self.label = None
-
-    def showcontents(self):
-        self.label = Label(self.tipwindow, image = self.PhotoImage, justify=LEFT,
-                      background="#ffffe0", relief=GROOVE, borderwidth=8)
-
-        self.label.pack()
