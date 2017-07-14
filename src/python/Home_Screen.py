@@ -75,7 +75,7 @@ class HomeScreen():
             random.shuffle(teams)
             count = 0
             for i in self.TeamPreviews:
-                if len(teams) < count:
+                if count >= len(teams):
                     break
                 i.update(teams[count])
                 count +=1
