@@ -466,7 +466,7 @@ class EditTeam():
             teamName = "Team " + str(x)
         self.destroyerTeam.setTeamName(teamName)
         if self.destroyerTeam.AwokenBadgeName == 'No Badge':
-            self.destroyerTeam.setBadge()
+            self.destroyerTeam.setBadge('')
         elif self.destroyerTeam.AwokenBadgeName != 'No Badge' and self.destroyerTeam.AwokenBadgeName != None:
             self.destroyerTeam.setBadge(str(self.destroyerTeam.AwokenBadgeName))
         saveThisTeam = self.destroyerTeam.getSaveDict()
