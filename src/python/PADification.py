@@ -33,7 +33,7 @@ class PADification(tk.Tk):
         self.minsize(width=1280, height=960)
         self.maxsize(width=1280, height=960)
         self.resizable(width=False, height=False)
-        
+        self.title("PADification - The Ultimate in Puzzle and Dragons Organization.")
         #pypyodbc SQl Object
         self.PADsql = PADSQL.PADSQL()
 
@@ -71,6 +71,7 @@ class PADification(tk.Tk):
     def showHomeScreen(self):
         """Show Home Screen""" 
         self.forgetAll()
+        self.homeScreen.update()
         self.homeScreen.mainwindow.grid()
 
     #Displays the account options screen

@@ -6,6 +6,7 @@
 #
 # 2017-07-03 - WG - v1.0 - Monster Book able to search and Displays a maximum of 50 results on one page.
 # 2017-07-12 - WG - v1.1 - Monster book displays all information pertaining to monsters, Shows 7 results per page. Filters Are Added, Clear Filters also.
+# 2017-07-13 - WG - v1.2 - Monster Book Has Tool Tips, Portrait Images Tool Tip and Fixed Memory Leak of Evolution Tree Frames not Being Deleted.
 
 import tkinter as tk
 import pygubu

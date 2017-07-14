@@ -71,8 +71,8 @@ class PADSQL():
             print("User login Successful")
             self.Email = Email.lower()
             self.Password = Password
-            self.PlayerID = results[3]
             self.Username = results[2]
+            self.PlayerID = results[3]
             self.ProfileImage = results[4]
             self.signedIn = True
         else:
@@ -93,11 +93,12 @@ class PADSQL():
         results = self.selectMonsterClass(MonsterID)
         if results:
             SQLCommand = ("UPDATE Player "
-                          "Set ProfileImage = ?, "
+                          "Set ProfileImage = ? "
                           "WHERE Email = ?")
-            value = (MonsterID , self.Email)
-            self.cursor.execute(SQLCommand, values)
+            value = (results[0]["MonsterClassID"] , self.Email)
+            self.cursor.execute(SQLCommand, value)
             self.connection.commit()
+            self.ProfileImage = results[0]["MonsterClassID"]
             return True
         else:
             return False
@@ -380,7 +381,7 @@ class PADSQL():
         results = self.cursor.fetchone()
         LatentSkills = []
         while results:
-            LatentSkills.append(results[0])
+            LatentSkills.append(results)
             results = self.cursor.fetchone()
         return LatentSkills
 
@@ -399,7 +400,6 @@ class PADSQL():
 
     def saveLatentAwokenSkillList(self, instanceID ,lsone, lstwo, lsthree, lsfour, lsfive, lssix, extraslot):
         values = [instanceID ,lsone, lstwo, lsthree, lsfour, lsfive, lssix, extraslot]
-
         SQLCommand = ("INSERT INTO LatentSkillList (InstanceID, LatentSKillOne, LatentSKillTwo, LatentSKillThree, LatentSKillFour, LatentSKillFive, LatentSKillSix, ExtraSlot)"
                       "VALUES (?,?,?,?,?,?,?,?)")
         try:
