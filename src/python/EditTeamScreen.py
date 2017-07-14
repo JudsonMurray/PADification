@@ -39,8 +39,9 @@ class AwokenBadge:
     def awokenBadgeClick(self, event):
         self.master.setBadge = self.master.awokenBadges[self.i]
         self.master.badgeNum = self.i
-        print(self.i)
-        print(self.master.setBadge)
+        for i in self.master.awokenBadgeLabels:
+            i.badgebut.config(relief=FLAT)
+        self.badgebut.config(relief=SUNKEN)
         return
 
 class BadgeFrame(tk.Toplevel):
@@ -68,8 +69,8 @@ class BadgeFrame(tk.Toplevel):
             self.awokenBadgeLabels[i].badgebut.grid(row=i // 7,column = i % 7)
             self.awokenBadgeLabels[i].image.create_image(7,7,image = self.awokenBadgeImages[i], anchor = tk.NW, tag = "pic")
 
-            w = 420 #width for the Tk root
-            h = 170 # height for the Tk root
+            w = 490 #width for the Tk root
+            h = 190 # height for the Tk root
 
             # get screen width and height
             ws = self.winfo_screenwidth() # width of the screen
@@ -81,24 +82,14 @@ class BadgeFrame(tk.Toplevel):
 
             self.geometry('%dx%d+%d+%d' % (w,h, x, y))
 
-        self.count = 0
-        for i in self.awokenBadgeLabels:
-            print(i.i)
-            self.count += 1
-        #if (len(self.builder.get_object('frmBadges').grid_slaves()) // 2) * 30 > 500:
-        #    pass
-        #else:
-        #    self.builder.get_object('frmBadges').config(height=100) 
         self.builder.get_object('okBadge').bind('<Button-1>', self.okBadge)
         self.builder.connect_callbacks(self)
-        #master.wait_window(self) #pause anything on the main window until this one closes (optional)
         return
 
     def okBadge(self, event):
         self.destroyerTeam.setBadge(self.setBadge)
         if self.badgeNum != None:
             self.masterbuilder.get_object('lblAwokenBadge').config(image = self.awokenBadgeImages[self.badgeNum])
-        print('g')
         self.destroy()
         return
 
@@ -228,10 +219,8 @@ class EditTeam():
         
         #Creates a list of buttons for the monsters in a players collection
         b = len(myMonsterList)
-
+        self.page = 1
         leader = self.builder.get_object('canLeadMon')
-       
-
         if (len(self.canvas.grid_slaves()) // 2) * 30 > 500:
             pass
         else:
@@ -243,13 +232,29 @@ class EditTeam():
         # JBM - Modifying collection to Dictionary from List to make Monster Lookup easier
         instanceIDs = []
         monster = self.PADsql.selectMonsterInstance()
-
+        
         monsters = dict()
         for i in monster:
             monsters[i["InstanceID"]] = i
             instanceIDs.append(i["InstanceID"])
         self.instantList = instanceIDs
         self.myMonsterList = []
+        self.pages = len(monsters) // 50 + 1
+        if len(monsters) % 50 == 0:
+            self.pages -=1
+        
+        self.builder.get_variable('lblCurPage').set(('Page' + str(self.page) + '/' + str(self.pages)))
+        if self.page > self.pages:
+            self.prev()
+        if self.page == self.pages:
+            self.builder.get_object('btnNext').config(state=DISABLED)
+        else:
+            self.builder.get_object('btnNext').config(state=NORMAL)
+        if self.page == 1:
+            self.builder.get_object('btnPrev').config(state=DISABLED)
+        else:
+            self.builder.get_object('btnPrev').config(state=NORMAL)
+
 
         #Creates the photoimage for each monster instance of the user and stores them in a list
         for i in self.instantList:
@@ -265,22 +270,27 @@ class EditTeam():
         #Creates a graphical list of monsters
         buttons = []
         self.buttons = buttons = []
-        self.count = 0
-        for i in monsters:
+        self.count = 0 + (self.page - 1) * 50
+        #if self.count % 50 == 0 and self.count != 0:
+        #    self.count -=1
+        tt = range(0 + (self.page - 1) * 50, (50 + (self.page - 1) * 50) if len(monsters) - 1 > (50 + (self.page - 1) * 50) else len(monsters))
+        for i in range(0 + (self.page - 1) * 50, (50 + (self.page - 1) * 50) if len(monsters) - 1 > (50 + (self.page - 1) * 50) else len(monsters)):
+            #print(self.count)
             b = self.instantList[self.count]
             a = PADMonster.Monster(monsters[b])
             self.state = 'on'
                 
             self.buttons.append(MonsterFrame(self.container, self.builder, self.count, self.instantList, a, self.buttons, self.PADsql, self.state, self.destroyerTeam, self.var, self.master))
-            self.buttons[self.count].monbut.grid(row=self.count // 10,column = self.count % 10)
-            self.buttons[self.count].builder.get_object('FrameLabel').create_image(2,2, image = self.myMonsterList[self.count], anchor = tk.NW)
-            self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(a.Level)+ '\nID: ' + str(a.MonsterClassID))
+            self.buttons[self.count % 50].monbut.config(width=65)
+            self.buttons[self.count % 50].monbut.grid(row=self.count // 10,column = self.count % 10)
+            self.buttons[self.count % 50].builder.get_object('FrameLabel').create_image(2,2, image = self.myMonsterList[self.count], anchor = tk.NW)
+            self.buttons[self.count % 50].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(a.Level)+ '\nID: ' + str(a.MonsterClassID))
             
             if self.destroyerTeam.LeaderMonster == b or self.destroyerTeam.SubMonsterOne == b or\
                 self.destroyerTeam.SubMonsterTwo== b or self.destroyerTeam.SubMonsterThree == b or\
                 self.destroyerTeam.SubMonsterFour == b :
-                self.buttons[self.count].state = 'off'
-                self.buttons[self.count].monbut.config(relief=SUNKEN)
+                self.buttons[self.count % 50].state = 'off'
+                self.buttons[self.count % 50].monbut.config(relief=SUNKEN)
             self.count += 1
         self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
 
@@ -342,6 +352,14 @@ class EditTeam():
         self.builder.get_variable('teamName').set(self.destroyerTeam.TeamName)
         self.master.teamBrowser.setImages(self.builder)
         self.master.teamBrowser.updateTeamLabels(self.builder)
+
+    def next(self):
+        self.page +=1
+        self.populateCollection()
+
+    def prev(self):
+        self.page -=1
+        self.populateCollection()
 
     def raiseTeam(self):
         """returns team selection to raised relief"""
@@ -425,7 +443,7 @@ class EditTeam():
         return
 
     def selectBadge(self, event):
-
+        """opens Select Badge Frame"""
         inputDialog = BadgeFrame(self.master, self.builder, self.destroyerTeam)
         pass
 
@@ -434,13 +452,12 @@ class EditTeam():
         return
 
     def saveTeam(self, event):
-        
+        """Save team instance"""
         teamName = self.builder.get_variable('teamName').get()
         if len(teamName) > 20:
 
             return
         x=1
-        
         teamName = teamName.lstrip()
         for i in self.master.teamBrowser.teamListBox.get(0,END):
             if i[0:4] == "Team" and i[5:20].strip(' ') == str(x):
@@ -448,7 +465,10 @@ class EditTeam():
         if teamName == '':
             teamName = "Team " + str(x)
         self.destroyerTeam.setTeamName(teamName)
-        self.destroyerTeam.setBadge(str(self.destroyerTeam.AwokenBadgeName))
+        if self.destroyerTeam.AwokenBadgeName == 'No Badge':
+            self.destroyerTeam.setBadge()
+        elif self.destroyerTeam.AwokenBadgeName != 'No Badge' and self.destroyerTeam.AwokenBadgeName != None:
+            self.destroyerTeam.setBadge(str(self.destroyerTeam.AwokenBadgeName))
         saveThisTeam = self.destroyerTeam.getSaveDict()
         saveThisTeam['Email'] = self.PADsql.Email
         self.PADsql.saveTeam(saveThisTeam)

@@ -338,8 +338,10 @@ class Team():
 
     def setBadge(self, badge):
         """Sets badge"""
-        if type(badge) == str:
-            self.BadgeName = badge
+        if badge == 'None' or badge == '':
+            self.AwokenBadgeName = None
+        elif type(badge) == str:
+            self.AwokenBadgeName = badge
         else:
             print("Badge must be a string")
 

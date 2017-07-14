@@ -1,6 +1,6 @@
 #!/USR/BIN/ENV PYTHON 3.5
 #   NAME:    KYLE GUNTON
-#   DATE:    07/11/17
+#   DATE:    07/13/17
 #   PURPOSE: FUNCTIONALITY FOR THE BROWSE TEAM SCREEN 
 
 
@@ -48,8 +48,6 @@ class TeamBrowser():
         self.canSubMon2 = self.builder.get_object('canSubMon2')
         self.canSubMon3 = self.builder.get_object('canSubMon3')
         self.canSubMon4 = self.builder.get_object('canSubMon4')
-        
-        self.badgeImage = tk.PhotoImage(file="Resource/PAD/Images/Badges/Cost +100.png")
         #sets permanent images
         
         
@@ -67,7 +65,21 @@ class TeamBrowser():
             destroyerTeamBase = self.PADsql.selectTeamInstance(teams[0]['TeamInstanceID'])
             self.SelectedTeam = PADMonster.Team(self.PADsql)
             self.teamListBox.delete(0, END)
-        
+            
+            #Sort teams names by number if name is autonamed. (Team #)
+            sorted = False
+            while not sorted:
+                yt = 0
+                for i in range(0,len(teams)-1):
+                    qs =str(teams[i]['TeamName'])
+                    qy = str(teams[i + 1]['TeamName'])
+                    if str(teams[i]['TeamName'])[0:4] == "Team" and int((teams[i]['TeamName'])[5:20].strip(' ')) > int((teams[i+1]['TeamName'])[5:20].strip(' ')):
+                        teams[i], teams[i + 1] = teams[i + 1], teams[i]
+                        continue 
+                    yt+=1
+                if yt >= len(teams)-1:
+                    sorted = True
+
             for i in range(0,len(teams)):
                 qq = str(teams[i]['TeamInstanceID'])
                 self.teamListBox.insert(END, str(teams[i]['TeamName']) + '                                                            ' + qq)
@@ -176,7 +188,6 @@ class TeamBrowser():
         if self.SelectedTeam.AwokenBadgeName == None:
             self.SelectedTeam.AwokenBadgeName = 'No Badge'
         self.badgeImage = tk.PhotoImage(file = 'Resource/PAD/Images/Badges/'+ str(self.SelectedTeam.AwokenBadgeName).replace('/', '') + '.png')
-
 
         self.thisBuild.get_object('lblAwokenBadge').config(image = self.badgeImage, anchor = CENTER)
         self.thisBuild.get_object('lblTeamHP').config(text=  'HP:    ' + str(self.SelectedTeam.TeamHP))
