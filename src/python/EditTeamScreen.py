@@ -172,8 +172,8 @@ class MonsterFrame:
                     t.currentMonster.InstanceID == self.destroyerTeam.SubMonsterFour:
                     t.state = 'off'
                     t.monbut.config(relief=SUNKEN)
-            self.padific.teamBrowser.setImages(self.masterbuilder)
-            self.padific.teamBrowser.updateTeamLabels(self.masterbuilder)
+            #self.padific.teamBrowser.setImages(self.masterbuilder)
+            self.padific.teamBrowser.updateTeamLabels(self.masterbuilder, self.destroyerTeam)
             return
 
 class EditTeam():
@@ -203,8 +203,8 @@ class EditTeam():
         #Create TeamObject
         destroyerTeam = PADMonster.Team(self.PADsql)
         self.destroyerTeam = destroyerTeam
-        self.master.teamBrowser.setImages(self.builder)
-        self.master.teamBrowser.updateTeamLabels(self.builder)
+        #self.master.teamBrowser.setImages(self.builder)
+        #self.master.teamBrowser.updateTeamLabels(self.builder, self.destroyerTeam)
         
         self.canLeadMon = self.builder.get_object('canLeadMon')
         self.canSubMon1 = self.builder.get_object('canSubMon1')
@@ -351,7 +351,7 @@ class EditTeam():
 
         self.builder.get_variable('teamName').set(self.destroyerTeam.TeamName)
         self.master.teamBrowser.setImages(self.builder)
-        self.master.teamBrowser.updateTeamLabels(self.builder)
+        self.master.teamBrowser.updateTeamLabels(self.builder, self.destroyerTeam)
 
     def next(self):
         self.page +=1
@@ -415,7 +415,7 @@ class EditTeam():
             self.canSubMon1.delete('all')
             if self.destroyerTeam.SubMonsterOne != self.destroyerTeam.setSubMonsterOne():
                 self.destroyerTeam.setSubMonsterOne()
-        elif self.var.get() == 2:
+        elif self.var.get() == 2:   
             self.canSubMon2.delete('all')
             if self.destroyerTeam.SubMonsterTwo != self.destroyerTeam.setSubMonsterTwo():
                 self.destroyerTeam.setSubMonsterTwo()
@@ -438,8 +438,7 @@ class EditTeam():
                 t.state = 'off'
                 t.monbut.config(relief=SUNKEN)
         
-        self.master.teamBrowser.setImages(self.builder)
-        self.master.teamBrowser.updateTeamLabels(self.builder)
+        self.master.teamBrowser.updateTeamLabels(self.builder, self.destroyerTeam)
         return
 
     def selectBadge(self, event):
