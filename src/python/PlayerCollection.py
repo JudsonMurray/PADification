@@ -189,6 +189,9 @@ class PlayerCollection:
         a.WishList = 0
         b = a.getSaveDict()
 
+        global k
+        k = None
+
         self.pds.saveMonster(b)
 
         monsters.pop(selectedMonster)

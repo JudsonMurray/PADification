@@ -84,8 +84,10 @@ class MonsterEdit:
         pass
 
     def selectExtraSlot(self, event):
-        #self.extraSlot.invoke()
-        self.builder.get_object("lblLatentSlots").config(text = "Latent Slots: " + str(self.usedSlots) + " / " + str(self.maxSlots.get()))
+        if self.maxSlots.get() == 5:
+            self.builder.get_object("lblLatentSlots").config(text = "Latent Slots: " + str(self.usedSlots) + " / " + str(self.maxSlots.get() + 1))
+        elif self.maxSlots.get() == 6:
+            self.builder.get_object("lblLatentSlots").config(text = "Latent Slots: " + str(self.usedSlots) + " / " + str(self.maxSlots.get() - 1))
         
         pass
 
