@@ -6,18 +6,20 @@
 #Version 0.0.1
 
 import pygubu
+import PADMonster
+import random
+from CustomWidgets import *
 from tkinter import messagebox as mb
 from tkinter import simpledialog as sd
 from tkinter import *
-import tkinter as tk
 from PIL import Image, ImageFont, ImageDraw, ImageTk
 
 class HomeScreen():
     """Displays Home Screen Frame and widgets"""
     def __init__(self, master):
-        self.master = master
-
+        self.RESULTSPERPAGE = 5
         #Load GUI
+        self.master = master
         self.builder = builder = pygubu.Builder()
         builder.add_from_file('src/ui/HomeScreen.ui')
         self.mainwindow = builder.get_object('homePageFrame', master)
@@ -28,14 +30,17 @@ class HomeScreen():
         self.lblUsername = self.builder.get_object('lblUsername')
         self.lblCollectionCount = self.builder.get_object('lblCollectionCount')
         self.lblTeamCount = self.builder.get_object('lblTeamCount')
+        self.canTeamPreviewer = self.builder.get_object('canTeamPreviewer')
+        self.TeamPreviews = []
 
         #Screen Variables
         self.ProfileImage = None
-        self.testfont = ImageFont.truetype("Resource/PAD/Font/FOT-RowdyStd-EB.ttf", 15)
-        self.baseImage = Image.new('RGBA', (300, 20), (255,0,255,0))
-        self.drawtextTest = ImageDraw.Draw(self.baseImage)
+        self.imgTitleImage = PhotoImage(file = "Resource/PAD/Images/Padification Logo.png")
+        self.builder.get_object('lblTitleImage').config(image = self.imgTitleImage)
 
-        self.Usernamedrawnlabel = None
+        for i in range( 0 , self.RESULTSPERPAGE ):
+            self.TeamPreviews.append(TeamPreview(self.canTeamPreviewer, self))
+            self.TeamPreviews[i].mainFrame.grid(row = i)
 
     def update(self):
         print(self.master.PADsql.ProfileImage)
@@ -44,18 +49,36 @@ class HomeScreen():
         else:
             value = 1
 
-        
         self.ProfileImage = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(value) + ".png")
-        self.canProfileImage.create_image(2,2, image = self.ProfileImage, anchor = tk.NW)
+        self.canProfileImage.create_image(2,2, image = self.ProfileImage, anchor = NW)
 
-        CustomFont_Label(self.builder.get_object('frmPlayerInfo'), text= self.master.PADsql.Username, font_path="Resource/PAD/Font/FOT-RowdyStd-EB.ttf", size=22).grid(row = 0, column = 1, sticky = NW)
+        #CustomFont_Label(self.builder.get_object('frmPlayerInfo'), text= self.master.PADsql.Username, font_path="Resource/PAD/Font/FOT-RowdyStd-EB.ttf", size=22).grid(row = 0, column = 1, sticky = NW)
  
    
-        #self.lblUsername.config(text = self.master.PADsql.Username)
-        #self.lblUsername.config(image = self.Usernamedrawnlabel)
+        self.lblUsername.config(text = self.master.PADsql.Username)
         self.lblCollectionCount.config(text ="Monsters\t= " + str(len(self.master.PADsql.selectMonsterInstance())) )
         self.lblTeamCount.config(text ="Teams\t= " + str(len(self.master.PADsql.selectTeamInstance())))
 
+        teams = self.master.PADsql.selectAllTeamInstance()
+        teamset = []
+        if len(teams) >= 5:
+            while len(teamset) < 5:
+                team = random.choice(teams)
+                if team not in teamset:
+                    teamset.append(team)
+
+            count = 0
+            for i in self.TeamPreviews:
+                i.update(teamset[count])
+                count += 1
+        else:
+            random.shuffle(teams)
+            count = 0
+            for i in self.TeamPreviews:
+                if count >= len(teams):
+                    break
+                i.update(teams[count])
+                count +=1
 
     def onProfileImageClick(self, event):
         value = sd.askstring("Change Profile Image", "Enter Monster ID or Name:", parent=self.canProfileImage)
@@ -89,57 +112,57 @@ class HomeScreen():
     def onOptionsClick(self,event):
         self.master.showAccountOptions()
 
-def truetype_font(font_path, size):
-    return ImageFont.truetype(font_path, size)
+class TeamPreview():
+    def __init__(self, master, toplevel):
+        self.toplevel = toplevel
+        self.master = master
+        self.builder = pygubu.Builder()
+        self.builder.add_from_file('src/ui/HomeScreen.ui')
+        self.mainFrame = self.builder.get_object('frmTeamPreview', master)
+        self.canTeamSlot1 = self.builder.get_object('canTeamSlot1')
+        self.canTeamSlot2 = self.builder.get_object('canTeamSlot2')
+        self.canTeamSlot3 = self.builder.get_object('canTeamSlot3')
+        self.canTeamSlot4 = self.builder.get_object('canTeamSlot4')
+        self.canTeamSlot5 = self.builder.get_object('canTeamSlot5')
+        self.lblTeamUsername = self.builder.get_object('lblTeamUsername')
+        self.lblTeamName = self.builder.get_object('lblTeamName')
+        self.builder.connect_callbacks(self)
 
-class CustomFont_Label(Label):
-    def __init__(self, master, text, foreground="black", truetype_font=None, font_path=None, family=None, size=None, **kwargs):   
-        if truetype_font is None:
-            if font_path is None:
-                raise ValueError("Font path can't be None")
-                
-            # Initialize font
-            truetype_font = ImageFont.truetype(font_path, size)
+        #Variables
+        self.objTeam = None
+        self.strUsername = None
         
-        width, height = truetype_font.getsize(text)
 
-        image = Image.new("RGBA", (width, height), color=(0,0,0,0))
-        draw = ImageDraw.Draw(image)
+        self.imgTeamSlot1 = None
+        self.imgTeamSlot2 = None
+        self.imgTeamSlot3 = None
+        self.imgTeamSlot4 = None
+        self.imgTeamSlot5 = None
 
-        draw.text((0, 0), text, font=truetype_font, fill=foreground)
-        
-        self._photoimage = ImageTk.PhotoImage(image)
-        Label.__init__(self, master, image=self._photoimage, **kwargs)
+        self.imgTeamportrait1 = None
+        self.imgTeamportrait2 = None
+        self.imgTeamportrait3 = None
+        self.imgTeamportrait4 = None
+        self.imgTeamportrait5 = None
 
-class CustomFont_Message(Label):
-    def __init__(self, master, text, width, foreground="black", truetype_font=None, font_path=None, family=None, size=None, **kwargs):   
-        if truetype_font is None:
-            if font_path is None:
-                raise ValueError("Font path can't be None")
-                
-            # Initialize font
-            truetype_font = ImageFont.truetype(font_path, size)
-    
-        lines = textwrap.wrap(text, width=width)
+        self.monTeamSlot1 = None
+        self.monTeamSlot2 = None
+        self.monTeamSlot3 = None
+        self.monTeamSlot4 = None
+        self.monTeamSlot5 = None
 
-        width = 0
-        height = 0
-        
-        line_heights = []
-        for line in lines:
-            line_width, line_height = truetype_font.getsize(line)
-            line_heights.append(line_height)
-            
-            width = max(width, line_width)
-            height += line_height
+    def update(self, teamDict):
+        self.objTeam = PADMonster.Team(teamDict)
+        self.strUsername = self.toplevel.master.PADsql.selectUsers(teamDict["Email"])
+        self.lblTeamUsername.config(text = self.strUsername)
+        self.lblTeamName.config(text = teamDict["TeamName"])
 
-        image = Image.new("RGBA", (width, height), color=(0,0,0,0))
-        draw = ImageDraw.Draw(image)
+        for i in range(0,5):
+            keys = ['LeaderMonster', 'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour']
+            if teamDict[keys[i]] != None:
+                setattr(self, "monTeamSlot" + str(i+1), PADMonster.Monster(self.toplevel.master.PADsql.selectMonsterInstance(teamDict[keys[i]], allUsers = True)[0]))
+                setattr(self, "imgTeamSlot" + str(i+1), PhotoImage(file = "resource/PAD/images/thumbnails/" + str(getattr(self, "monTeamSlot" + str(i+1)).MonsterClassID) + ".png" ))
+                getattr(self, "canTeamSlot" + str(i+1)).create_image(2,2, image = getattr(self, "imgTeamSlot" + str(i+1)), anchor = NW)
 
-        y_text = 0
-        for i, line in enumerate(lines):
-            draw.text((0, y_text), line, font=truetype_font, fill=foreground)
-            y_text += line_heights[i]
-
-        self._photoimage = ImageTk.PhotoImage(image)
-        Label.__init__(self, master, image=self._photoimage, **kwargs)
+    def onCanTeamSlotClick(self, event):
+        print("you clicked me")

@@ -120,10 +120,15 @@ class PADSQL():
         else:
             return False
 
-    def selectUsers(self):
-        SQLCommand = "Select Username, PlayerID, Email From Player"
-        self.cursor.execute(SQLCommand)
-        return self.cursor.fetchall()
+    def selectUsers(self, Email = None):
+        if Email == None:
+            SQLCommand = "Select Username, PlayerID, Email From Player"
+            self.cursor.execute(SQLCommand)
+            return self.cursor.fetchall()
+        else:
+            SQLCommand = "Select Username From Player WHERE Email = '" + Email + "'"
+            self.cursor.execute(SQLCommand)
+            return self.cursor.fetchone()[0]
 
     def selectFollowers(self, User = None):
         if User == None:
@@ -193,24 +198,41 @@ class PADSQL():
         else:
             return self.cursor.fetchall()
 
-    def selectMonsterInstance(self, monSearch = None, dictionary = True, wishlist = 0):
+    def selectMonsterInstance(self, monSearch = None, dictionary = True, wishlist = 0, allUsers = False):
 
-        
-        SQLCommand = ("SELECT MonsterInstance.MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, "
-                        "MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, "
-                        "GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, "
-                        "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, InstanceID, Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, "
-                        "AssistMonsterID, SkillLevel, LSListID, Favorites, WishList "
-                        "FROM (MonsterInstance LEFT OUTER JOIN (MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) "
-                        "ON MonsterInstance.MonsterClassID = MonsterClass.MonsterClassID)"
-                        "WHERE MonsterInstance.Email = '" + str(self.Email) + "'and MonsterInstance.WishList = " + str(wishlist) )
+        if allUsers:
+            SQLCommand = ("SELECT MonsterInstance.MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, "
+                            "MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, "
+                            "GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, "
+                            "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, InstanceID, Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, "
+                            "AssistMonsterID, SkillLevel, LSListID, Favorites, WishList "
+                            "FROM (MonsterInstance LEFT OUTER JOIN (MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) "
+                            "ON MonsterInstance.MonsterClassID = MonsterClass.MonsterClassID)")
+                            
 
-        if monSearch == None:
-            SQLCommand += " ORDER BY InstanceID ASC"
-        elif type(monSearch) == int:
-            SQLCommand += " AND InstanceID = " + str(monSearch)
-        elif type(monSearch) == str:
-            SQLCommand += " AND MonsterName LIKE '%" + monSearch + "%'"
+            if monSearch == None:
+                SQLCommand += " ORDER BY InstanceID ASC"
+            elif type(monSearch) == int:
+                SQLCommand += " WHERE InstanceID = " + str(monSearch)
+            elif type(monSearch) == str:
+                SQLCommand += " WHERE MonsterName LIKE '%" + monSearch + "%'"
+
+        else:
+            SQLCommand = ("SELECT MonsterInstance.MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, "
+                            "MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, "
+                            "GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, "
+                            "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, InstanceID, Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, "
+                            "AssistMonsterID, SkillLevel, LSListID, Favorites, WishList "
+                            "FROM (MonsterInstance LEFT OUTER JOIN (MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) "
+                            "ON MonsterInstance.MonsterClassID = MonsterClass.MonsterClassID)"
+                            "WHERE MonsterInstance.Email = '" + str(self.Email) + "'and MonsterInstance.WishList = " + str(wishlist) )
+
+            if monSearch == None:
+                SQLCommand += " ORDER BY InstanceID ASC"
+            elif type(monSearch) == int:
+                SQLCommand += " AND InstanceID = " + str(monSearch)
+            elif type(monSearch) == str:
+                SQLCommand += " AND MonsterName LIKE '%" + monSearch + "%'"
 
         self.cursor.execute(SQLCommand)
 
@@ -284,11 +306,16 @@ class PADSQL():
         self.cursor.execute(SQLCommand)
         self.cursor.commit()
 
-    def selectTeamInstance(self, teamsearch = None, dictionary = True):
+    def selectTeamInstance(self, teamsearch = None, dictionary = True, UserEmail = None, allUser = False):
         """Selects all teams, or by TeamInstanceID, or TeamName returns a list of dictionarys or tuples."""
+        if UserEmail is None:
+            user = self.Email
+        else:
+            user = UserEmail
+
         SQLCommand = ("SELECT TeamInstanceID, Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, AwokenBadgeName "
                 "FROM Team "
-                "WHERE Email = '" + str(self.Email) + "'" )
+                "WHERE Email = '" + str(user) + "'" )
         if teamsearch == None:
             SQLCommand += " ORDER BY TeamName ASC"
         elif type(teamsearch) == int:
@@ -316,6 +343,26 @@ class PADSQL():
             return teamcollection
         else:
             return self.cursor.fetchall()
+
+    def selectAllTeamInstance(self):
+        SQLCommand = ("SELECT TeamInstanceID, Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, AwokenBadgeName "
+                "FROM Team ")
+        self.cursor.execute(SQLCommand)
+        properties = ['TeamInstanceID', 'Email', 'TeamName', 'LeaderMonster',
+                          'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 
+                          'AwokenBadgeName' ]
+        teamcollection = []
+        results = self.cursor.fetchone()
+        while results:
+            #Cycle through all results one by one.
+            teamDict = {}      
+            count = 0
+            for i in results:
+                teamDict[properties[count]] = i
+                count += 1
+            teamcollection.append(teamDict)
+            results = self.cursor.fetchone()
+        return teamcollection
 
     def saveTeam(self, TeamDict):
         """Save Team Instance Record"""

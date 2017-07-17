@@ -43,9 +43,11 @@
     <Folder Include="Docs\SRS\Orig\" />
     <Folder Include="Resource\" />
     <Folder Include="Resource\PAD\" />
+    <Folder Include="Resource\PAD\Font\" />
     <Folder Include="Resource\PAD\Images\" />
     <Folder Include="Resource\PAD\Images\Attributes\" />
     <Folder Include="Resource\PAD\Images\Awoken Skills\" />
+    <Folder Include="Resource\PAD\Images\Badges\" />
     <Folder Include="Resource\PAD\Images\portraits\" />
     <Folder Include="Resource\PAD\Images\thumbnails\" />
     <Folder Include="Resource\PAD\Images\Types\" />
@@ -195,6 +197,7 @@
     <Content Include="Docs\SRS\Padification SRS.docx" />
     <Content Include="Docs\SRS\~%24dification SRS.docx" />
     <Content Include="README.md" />
+    <Content Include="Resource\PAD\Font\FOT-RowdyStd-EB.ttf" />
     <Content Include="Resource\PAD\Images\Attributes\DarkSymbol.png" />
     <Content Include="Resource\PAD\Images\Attributes\FireSymbol.png" />
     <Content Include="Resource\PAD\Images\Attributes\LightSymbol.png" />
@@ -290,6 +293,23 @@
     <Content Include="Resource\PAD\Images\Awoken Skills\Resistance-Skill Bind.png" />
     <Content Include="Resource\PAD\Images\Awoken Skills\Skill Boost.png" />
     <Content Include="Resource\PAD\Images\Awoken Skills\Two-Pronged Attack.png" />
+    <Content Include="Resource\PAD\Images\Badges\Leaders Bind immune.png" />
+    <Content Include="Resource\PAD\Images\Badges\Mass Attack.png" />
+    <Content Include="Resource\PAD\Images\Badges\Move Time +1 second.png" />
+    <Content Include="Resource\PAD\Images\Badges\Move Time +2 seconds  Team Cost -400.png" />
+    <Content Include="Resource\PAD\Images\Badges\No Badge.png" />
+    <Content Include="Resource\PAD\Images\Badges\No Skyfall Combos.png" />
+    <Content Include="Resource\PAD\Images\Badges\Skill Bind resists +50%25.png" />
+    <Content Include="Resource\PAD\Images\Badges\Skillboost.png" />
+    <Content Include="Resource\PAD\Images\Badges\Team ATK +15%25  Team Cost -300.png" />
+    <Content Include="Resource\PAD\Images\Badges\Team ATK +15%25.png" />
+    <Content Include="Resource\PAD\Images\Badges\Team ATK +5%25.png" />
+    <Content Include="Resource\PAD\Images\Badges\Team Cost +100.png" />
+    <Content Include="Resource\PAD\Images\Badges\Team HP +15%25  Team Cost -300.png" />
+    <Content Include="Resource\PAD\Images\Badges\Team HP +5%25.png" />
+    <Content Include="Resource\PAD\Images\Badges\Team RCV +25%25.png" />
+    <Content Include="Resource\PAD\Images\Badges\Team RCV +35%25  Team Cost -300.png" />
+    <Content Include="Resource\PAD\Images\Padification Logo.png" />
     <Content Include="Resource\PAD\Images\PADification Title.png" />
     <Content Include="Resource\PAD\Images\portraits\1.jpg" />
     <Content Include="Resource\PAD\Images\portraits\10.jpg" />
@@ -7858,7 +7878,9 @@
     <Content Include="src\ui\Monster Edit UI.ui" />
     <Content Include="src\ui\Monster Info UI.ui" />
     <Content Include="src\ui\MonsterBook.ui" />
+    <Content Include="src\ui\Navigation.ui" />
     <Content Include="src\ui\PlayerCollection.ui" />
+    <Content Include="src\ui\Team Browser.ui" />
     <Content Include="Tools\Infranview Batch Image editor\iview444_x64_setup.exe" />
     <Content Include="Tools\Infranview Batch Image editor\Kyle Batch Resize settings.ini" />
     <Content Include="Tools\Infranview Batch Image editor\Read.Me" />
@@ -7893,6 +7915,9 @@
     <Compile Include="src\python\Account_Options_Screen.py" />
     <Compile Include="src\python\EditTeamScreen.py" />
     <Compile Include="src\python\Home_Screen.py" />
+    <Compile Include="src\python\CustomWidgets.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\python\MonsterBook.py">
       <SubType>Code</SubType>
     </Compile>
