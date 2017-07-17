@@ -98,6 +98,9 @@ class Monster():
         self.TotalATK = self.ATK + (self.PlusATK * 5)
         self.TotalRCV = self.RCV + (self.PlusRCV * 3)
 
+        if self.ActiveSkillName != None:
+            self.ActiveSkillCoolDown = self.ActiveSkillMaxCoolDown - (self.SkillLevel - 1)
+
     def calcLevel(self, currentXP, curveXP):
         """Calculated the Level of a monster Based on XP"""
         return int((currentXP / curveXP) ** (1/2.5) * 98 + 1)
