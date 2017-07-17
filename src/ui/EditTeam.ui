@@ -130,7 +130,7 @@
                 <bind add="True" handler="leadClick" sequence="&lt;1&gt;" />
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">20</property>
+                  <property name="padx">5</property>
                   <property name="pady">5</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
@@ -149,7 +149,7 @@
                 <bind add="True" handler="sub1Click" sequence="&lt;1&gt;" />
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">20</property>
+                  <property name="padx">5</property>
                   <property name="pady">5</property>
                   <property name="propagate">True</property>
                   <property name="row">4</property>
@@ -166,7 +166,7 @@
                 <bind add="True" handler="sub2Click" sequence="&lt;1&gt;" />
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">20</property>
+                  <property name="padx">5</property>
                   <property name="pady">5</property>
                   <property name="propagate">True</property>
                   <property name="row">5</property>
@@ -183,7 +183,7 @@
                 <bind add="True" handler="sub3Click" sequence="&lt;1&gt;" />
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">20</property>
+                  <property name="padx">5</property>
                   <property name="pady">5</property>
                   <property name="propagate">True</property>
                   <property name="row">6</property>
@@ -200,7 +200,7 @@
                 <bind add="True" handler="sub4Click" sequence="&lt;1&gt;" />
                 <layout>
                   <property name="column">0</property>
-                  <property name="padx">20</property>
+                  <property name="padx">5</property>
                   <property name="pady">5</property>
                   <property name="propagate">True</property>
                   <property name="row">7</property>
@@ -304,7 +304,7 @@ Monster</property>
             <child>
               <object class="ttk.Label" id="lblFireATK">
                 <property name="text" translatable="yes">Fire ATK: 0</property>
-                <property name="width">17</property>
+                <property name="width">16</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="propagate">False</property>
@@ -315,6 +315,7 @@ Monster</property>
             </child>
             <child>
               <object class="ttk.Label" id="waterImg">
+                <property name="text" translatable="yes">label_</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="padx">5</property>
@@ -327,7 +328,7 @@ Monster</property>
             <child>
               <object class="ttk.Label" id="lblWaterATK">
                 <property name="text" translatable="yes">Water ATK: 0</property>
-                <property name="width">17</property>
+                <property name="width">16</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="propagate">False</property>
@@ -388,7 +389,7 @@ Monster</property>
               <object class="ttk.Label" id="darkImg">
                 <property name="text" translatable="yes">Label_7</property>
                 <layout>
-                  <property name="column">0</property>
+                  <property name="column">1</property>
                   <property name="padx">5</property>
                   <property name="propagate">False</property>
                   <property name="row">2</property>
@@ -399,9 +400,9 @@ Monster</property>
             <child>
               <object class="ttk.Label" id="lblDarkATK">
                 <property name="text" translatable="yes">Dark ATK: 0</property>
-                <property name="width">17</property>
+                <property name="width">16</property>
                 <layout>
-                  <property name="column">0</property>
+                  <property name="column">1</property>
                   <property name="propagate">True</property>
                   <property name="row">2</property>
                   <property name="sticky">e</property>
@@ -410,7 +411,7 @@ Monster</property>
             </child>
             <child>
               <object class="ttk.Label" id="widthHolder">
-                <property name="width">17</property>
+                <property name="width">18</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="padx">5</property>
@@ -422,7 +423,7 @@ Monster</property>
             </child>
             <child>
               <object class="ttk.Label" id="widthHolder_47">
-                <property name="width">22</property>
+                <property name="width">21</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="padx">5</property>
@@ -665,7 +666,7 @@ Monster</property>
             <child>
               <object class="ttk.Label" id="lblDarkResist">
                 <property name="text" translatable="yes">Label_22</property>
-                <property name="width">25</property>
+                <property name="width">28</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="propagate">True</property>
@@ -688,7 +689,7 @@ Monster</property>
             <child>
               <object class="ttk.Label" id="lblJammerResist">
                 <property name="text" translatable="yes">Label_25</property>
-                <property name="width">25</property>
+                <property name="width">28</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="propagate">True</property>
@@ -711,7 +712,7 @@ Monster</property>
             <child>
               <object class="ttk.Label" id="lblPoisonResist">
                 <property name="text" translatable="yes">Label_27</property>
-                <property name="width">25</property>
+                <property name="width">28</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="propagate">True</property>
@@ -734,7 +735,7 @@ Monster</property>
             <child>
               <object class="ttk.Label" id="lblEnhancedFireChance">
                 <property name="text" translatable="yes">Label_29</property>
-                <property name="width">25</property>
+                <property name="width">28</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="propagate">True</property>
@@ -757,7 +758,7 @@ Monster</property>
             <child>
               <object class="ttk.Label" id="lblEnhancedWaterChance">
                 <property name="text" translatable="yes">Label_31</property>
-                <property name="width">25</property>
+                <property name="width">28</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="propagate">True</property>
@@ -780,7 +781,7 @@ Monster</property>
             <child>
               <object class="ttk.Label" id="lblEnhancedWoodChance">
                 <property name="text" translatable="yes">Label_33</property>
-                <property name="width">25</property>
+                <property name="width">28</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="propagate">True</property>
@@ -803,7 +804,7 @@ Monster</property>
             <child>
               <object class="ttk.Label" id="lblEnhancedLightChance">
                 <property name="text" translatable="yes">Label_35</property>
-                <property name="width">25</property>
+                <property name="width">28</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="propagate">True</property>
@@ -826,7 +827,7 @@ Monster</property>
             <child>
               <object class="ttk.Label" id="lblEnhancedDarkChance">
                 <property name="text" translatable="yes">Label_37</property>
-                <property name="width">25</property>
+                <property name="width">28</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="propagate">True</property>
@@ -849,7 +850,7 @@ Monster</property>
             <child>
               <object class="ttk.Label" id="lblEnhancedHealChance">
                 <property name="text" translatable="yes">Label_44</property>
-                <property name="width">25</property>
+                <property name="width">28</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="propagate">True</property>
@@ -874,7 +875,7 @@ Monster</property>
             <child>
               <object class="ttk.Label" id="widthHolder_24_45">
                 <property name="takefocus">false</property>
-                <property name="width">30</property>
+                <property name="width">34</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="padx">5</property>
