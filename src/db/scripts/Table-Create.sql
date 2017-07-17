@@ -318,7 +318,7 @@ CREATE TABLE PADification.dbo.Player (
   PlayerID INT NOT NULL,
   Password VARCHAR(10) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL,
   Username VARCHAR(15) NOT NULL,
-  ProfileImage INT,
+  ProfileImage INT DEFAULT 1,
   CONSTRAINT PK_Player PRIMARY KEY (Email)
 )
 GO
