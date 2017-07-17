@@ -64,7 +64,7 @@ class HomeScreen():
             self.RandPlayerFrames[i].mainFrame.grid(row = i)
 
     def update(self):
-        print(self.master.PADsql.ProfileImage)
+        #print(self.master.PADsql.ProfileImage)
         if self.master.PADsql.ProfileImage != None:
             value = self.master.PADsql.ProfileImage
         else:
@@ -227,5 +227,10 @@ class playerWidget():
         self.lblUsernamePF.config(text = self.Username)
         #self.lblTeamCountPF.config()
 
-        self.ProfileImageFile = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(self.ProfileImage) + ".png").subsample(3)
+        if self.ProfileImage != None:
+            value = self.ProfileImage
+        else:
+            value = 1
+
+        self.ProfileImageFile = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(value) + ".png").subsample(3)
         self.canPlayerPF.create_image(2,2, image = self.ProfileImageFile, anchor = NW)
