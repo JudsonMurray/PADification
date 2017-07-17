@@ -110,9 +110,10 @@ class MonsterFrame:
 
         #Changes the relief of the 'buttons' to signify a selected 'button'
         #Prevents the program from trying to change the releif of a 'button' if it doesn't exist
-        if len(self.buttons) - 1 >= k:
-            self.buttons[k].monbut.config(relief = FLAT)
+        for i in range(0, (len(self.buttons))):
+            self.buttons[i].monbut.config(relief = FLAT)
         k = self.selButton
+
         
         self.buttons[self.selButton].monbut.config(relief = SUNKEN)
 
@@ -160,7 +161,7 @@ class PlayerCollection:
         buttons =[]
         self.currentPage = 1
 
-        k=-1
+        k = None
         #self.__UpdateMonsters()
 
         #1: Creates a builder
@@ -174,8 +175,12 @@ class PlayerCollection:
         builder.connect_callbacks(self)
 
     def pageOne(self):
-        self.startMonster = 0
-        self.currentPage = 1
+        if k is None:
+            self.startMonster = 0
+            self.currentPage = 1
+            self.__RemoveInformation()
+        else:
+            self.startMonster = 50 * (self.currentPage - 1)
         self.populateList()
 
     def onAddFromWishlistClick(self):
@@ -195,11 +200,12 @@ class PlayerCollection:
 
     def populateList(self):
         '''Populates the player collection list'''
-        self.builder.get_object("btnFavorite").config(state = DISABLED)
-        self.builder.get_object("btnEdit").config(state = DISABLED)
-        self.builder.get_object("btnRemove").config(state = DISABLED)
-        self.builder.get_object("btnUnfavorite").config(state = DISABLED)
-        self.builder.get_object("btnAddFromWishlist").config(state = DISABLED)
+        if k is None:
+            self.builder.get_object("btnFavorite").config(state = DISABLED)
+            self.builder.get_object("btnEdit").config(state = DISABLED)
+            self.builder.get_object("btnRemove").config(state = DISABLED)
+            self.builder.get_object("btnUnfavorite").config(state = DISABLED)
+            self.builder.get_object("btnAddFromWishlist").config(state = DISABLED)
 
         global monsters
         
@@ -259,14 +265,20 @@ class PlayerCollection:
         elif self.pages <= self.currentPage:
             self.builder.get_object("btnNext").config(state = DISABLED)
             
-
         self.builder.get_object('lblCurPage').config(text = "Page " + str(self.currentPage) + "/" + str(self.pages))
 
         self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
 
+        if k != None:
+           self.buttons[k].monbut.config(relief = SUNKEN)
+
     def onWishlistClick(self):
+        global k
         self.displayWishlist = 1
         self.currentPage = 1
+        k = None
+        #for i in range(0, (len(self.buttons) - 1)):
+        #    self.buttons[i].monbut.config(relief = FLAT)
         self.builder.get_object("btnPrev").config(state = DISABLED)
         self.startMonster = 0
         self.builder.get_object("btnWishlist").config(state = DISABLED)
@@ -276,7 +288,11 @@ class PlayerCollection:
 
     def onMonsterListClick(self):
         self.displayWishlist = 0
+        global k
         self.currentPage = 1
+        k = None
+        #for i in range(0, (len(self.buttons) - 1)):
+        #    self.buttons[i].monbut.config(relief = FLAT)
         self.builder.get_object("btnPrev").config(state = DISABLED)
         self.startMonster = 0
         self.builder.get_object("btnMonsterList").config(state = DISABLED)
@@ -285,11 +301,13 @@ class PlayerCollection:
         self.populateList()
 
     def onEditMonsterClick(self):
-        self.master.monsterEdit.receiveInstanceID(selectedMonster)
+        self.master.monsterEdit.receiveInstanceID(selectedMonster, self.displayWishlist)
         self.master.showEditMonster()
 
     def onHomeClick(self):
         self.displayWishlist = 0
+        global k
+        k = None
         self.builder.get_object("btnWishlist").config(state = NORMAL)
         self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         self.master.showHomeScreen()
@@ -299,36 +317,50 @@ class PlayerCollection:
 
     def onMonsterBookClick(self):
         self.displayWishlist = 0
+        global k
+        k = None
         self.builder.get_object("btnWishlist").config(state = NORMAL)
         self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         self.master.showMonsterBook()
 
     def onMyTeamsClick(self):
         self.displayWishlist = 0
+        global k
+        k = None
         self.builder.get_object("btnWishlist").config(state = NORMAL)
         self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         self.master.showTeamBrowser()
 
     def onPlayersClick(self):
         self.displayWishlist = 0
+        global k
+        k = None
         self.builder.get_object("btnWishlist").config(state = NORMAL)
         self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         pass
 
     def onTeamRankingClick(self):
         self.displayWishlist = 0
+        global k
+        k = None
         self.builder.get_object("btnWishlist").config(state = NORMAL)
         self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         pass
 
     def onAccountOptionsClick(self):
         self.displayWishlist = 0
+        global k
+        k = None
         self.builder.get_object("btnWishlist").config(state = NORMAL)
         self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         self.master.showAccountOptions()
 
     def next(self):
+        #for i in range(0, (len(self.buttons) - 1)):
+        #    self.buttons[i].monbut.config(relief = FLAT)
         self.builder.get_object("btnPrev").config(state = NORMAL)
+        global k
+        k = None
         self.currentPage += 1
         if self.currentPage == self.pages:
             self.builder.get_object("btnNext").config(state = DISABLED)
@@ -336,8 +368,12 @@ class PlayerCollection:
         self.populateList()
 
     def prev(self):
+        #for i in range(0, (len(self.buttons) - 1)):
+        #    self.buttons[i].monbut.config(relief = FLAT)
         self.builder.get_object("btnNext").config(state = NORMAL)
         self.currentPage -= 1
+        global k
+        k = None
         self.startMonster -= self.count + 50
         if self.currentPage == 1:
             self.builder.get_object("btnPrev").config(state = DISABLED)
@@ -351,7 +387,27 @@ class PlayerCollection:
 
         if tkMessageBox:
             #Removes monster instance from DB
+            teams = self.pds.selectTeamInstance()
+            for i in range(0,len(teams)):
+                self.SelectedTeam = PADMonster.Team(self.pds, (teams[i]))
+
+                if self.SelectedTeam.LeaderMonster == selectedMonster:
+                    self.SelectedTeam.setLeaderMonster()
+                if self.SelectedTeam.SubMonsterOne == selectedMonster:
+                    self.SelectedTeam.setSubMonsterOne()
+                if self.SelectedTeam.SubMonsterTwo == selectedMonster:
+                    self.SelectedTeam.setSubMonsterTwo()
+                if self.SelectedTeam.SubMonsterThree == selectedMonster:
+                    self.SelectedTeam.setSubMonsterThree()
+                if self.SelectedTeam.SubMonsterFour == selectedMonster:
+                    self.SelectedTeam.setSubMonsterFour()
+                self.SelectedTeam.update()
+                self.pds.saveTeam(self.SelectedTeam.getSaveDict())
             self.pds.deleteMonster(selectedMonster)
+
+            global k
+
+            k = None
 
             #Removes references to the monster
             monsters.pop(selectedMonster)
