@@ -73,13 +73,13 @@ class AccountOptions:
         """Displays Main Menu"""
         self.master.showHomeScreen()
 
-    def onMonsterBookClick(self, event):
+    def onMonsterBookClick(self):
         self.master.showMonsterBook()
 
     def onMyMonstersClick(self):
         self.master.showPlayerCollection()
 
-    def onMyTeamsClick(self, event):
+    def onMyTeamsClick(self):
         self.master.showTeamBrowser()
 
     def onUsernameFocusIn(self,event):
