@@ -297,13 +297,29 @@
           <property name="sticky">nw</property>
         </layout>
         <child>
+          <object class="tk.Button" id="btnRefreshTeams">
+            <property name="command">onRefreshTeamsClick</property>
+            <property name="compound">top</property>
+            <property name="font">{yu} 12 {bold}</property>
+            <property name="text" translatable="yes">Refresh Teams!</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">5</property>
+              <property name="pady">5</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="sticky">nw</property>
+            </layout>
+          </object>
+        </child>
+        <child>
           <object class="tk.Canvas" id="canTeamPreviewer">
             <property name="height">700</property>
             <property name="width">590</property>
             <layout>
               <property name="column">0</property>
               <property name="padx">28</property>
-              <property name="pady">28</property>
+              <property name="pady">40</property>
               <property name="propagate">False</property>
               <property name="row">0</property>
             </layout>
@@ -325,6 +341,19 @@
           <property name="row">3</property>
           <property name="sticky">nw</property>
         </layout>
+        <child>
+          <object class="tk.Canvas" id="canFollowing">
+            <property name="height">280</property>
+            <property name="width">280</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">2</property>
+              <property name="pady">2</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
       </object>
     </child>
     <child>
@@ -341,10 +370,23 @@
           <property name="row">3</property>
           <property name="sticky">nw</property>
         </layout>
+        <child>
+          <object class="tk.Canvas" id="canFollowers">
+            <property name="height">280</property>
+            <property name="width">280</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">2</property>
+              <property name="pady">2</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
       </object>
     </child>
     <child>
-      <object class="tk.Frame" id="frmRandomPlayers">
+      <object class="tk.Frame" id="frmRandomPlayer">
         <property name="borderwidth">4</property>
         <property name="height">300</property>
         <property name="relief">groove</property>
@@ -357,6 +399,19 @@
           <property name="row">4</property>
           <property name="sticky">nw</property>
         </layout>
+        <child>
+          <object class="tk.Canvas" id="canRandPlayer">
+            <property name="height">280</property>
+            <property name="width">280</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">2</property>
+              <property name="pady">2</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
       </object>
     </child>
     <child>
@@ -376,70 +431,41 @@
       </object>
     </child>
   </object>
-  <object class="tk.Frame" id="frmPlayerSum">
-    <property name="borderwidth">4</property>
-    <property name="height">112</property>
+  <object class="tk.Frame" id="frmPlayerPF">
+    <property name="borderwidth">2</property>
+    <property name="height">41</property>
     <property name="relief">raised</property>
-    <property name="width">292</property>
+    <property name="width">285</property>
     <layout>
       <property name="column">0</property>
       <property name="propagate">False</property>
       <property name="row">0</property>
     </layout>
     <child>
-      <object class="tk.Canvas" id="canProfileImage_2">
-        <property name="height">100</property>
-        <property name="relief">flat</property>
-        <property name="width">100</property>
+      <object class="tk.Canvas" id="canPlayerPF">
+        <property name="borderwidth">0</property>
+        <property name="height">33</property>
+        <property name="relief">groove</property>
+        <property name="width">33</property>
         <bind add="True" handler="onProfileImageClick" sequence="&lt;1&gt;" />
         <layout>
           <property name="column">0</property>
           <property name="propagate">False</property>
           <property name="row">0</property>
-          <property name="rowspan">4</property>
+          <property name="rowspan">1</property>
           <property name="sticky">nw</property>
         </layout>
       </object>
     </child>
     <child>
-      <object class="tk.Label" id="lblUsername_2">
+      <object class="tk.Label" id="lblUsernamePF">
         <property name="font">{Yu} 14 {}</property>
-        <property name="text" translatable="yes">UserName
-</property>
+        <property name="text" translatable="yes">UserName</property>
         <layout>
-          <property name="column">0</property>
-          <property name="padx">120</property>
+          <property name="column">1</property>
           <property name="propagate">True</property>
           <property name="row">0</property>
-          <property name="sticky">nw</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Label" id="lblCollectionCount_3">
-        <property name="font">{yu} 12 {}</property>
-        <property name="text" translatable="yes">Monsters = 0000</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="padx">120</property>
-          <property name="pady">35</property>
-          <property name="propagate">True</property>
-          <property name="row">0</property>
-          <property name="sticky">nw</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Label" id="lblTeamCount_4">
-        <property name="font">{Yu} 12 {}</property>
-        <property name="text" translatable="yes">Teams = 0000</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="padx">120</property>
-          <property name="pady">65</property>
-          <property name="propagate">True</property>
-          <property name="row">0</property>
-          <property name="sticky">nw</property>
+          <property name="sticky">w</property>
         </layout>
       </object>
     </child>
@@ -448,7 +474,7 @@
     <property name="borderwidth">4</property>
     <property name="height">140</property>
     <property name="relief">raised</property>
-    <property name="width">590</property>
+    <property name="width">530</property>
     <layout>
       <property name="column">0</property>
       <property name="propagate">False</property>
@@ -552,7 +578,7 @@
         <property name="font">{yu} 14 {}</property>
         <property name="text" translatable="yes">Team Name: ---------------</property>
         <layout>
-          <property name="column">3</property>
+          <property name="column">2</property>
           <property name="columnspan">6</property>
           <property name="propagate">True</property>
           <property name="row">0</property>

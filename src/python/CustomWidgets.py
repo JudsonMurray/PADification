@@ -82,15 +82,43 @@ class ImageTooltip(ToolTip.ToolTipBase):
         self.label.pack()
 
 class MonsterStatTooltip(ToolTip.ToolTipBase):
-    def __init__(self, button, Photoimage):
-        super().__init__(button)
-        self.PhotoImage = Photoimage
+    def __init__(self, master, monster):
+        super().__init__(master)
+        self.monster = monster
         self.portrait = None
-        self.stat = None
-
+        self.portraitImage = Image.open("Resource/PAD/Images/portraits/"+ str(self.monster.MonsterClassID) + ".jpg")
+        self.portraitImage = self.portraitImage.resize((int(self.portraitImage.width / 1.33), int(self.portraitImage.height // 1.33)))
+        self.portraitimg = ImageTk.PhotoImage(self.portraitImage, self.portrait)
+        
 
     def showcontents(self):
-        self.portrait = Label(self.tipwindow, image = self.PhotoImage, justify=LEFT,
+        self.portrait = Label(self.tipwindow, image = self.portraitimg, justify=LEFT,
                       background="#ffffe0", relief=GROOVE, borderwidth=4)
-
         self.portrait.pack()
+
+        self.name = CustomFont_Label(self.tipwindow, text= self.monster.MonsterName, font_path="Resource/PAD/Font/FOT-RowdyStd-EB.ttf", size=20)
+
+        self.name.pack()
+
+        self.stats = Label(self.tipwindow, text = "Level = " + str(self.monster.Level) + "\tHp = " + str(self.monster.TotalHP) +
+                           "\tAtk = " + str(self.monster.TotalATK) + "\tRCV = " + str(self.monster.TotalRCV), 
+                           justify=LEFT, relief=GROOVE, borderwidth=4, font='Yu')
+        self.stats.pack()
+
+    def schedule(self):
+        self.unschedule()
+        self.id = self.button.after(250, self.showtip)
+
+    def showtip(self):
+        if self.tipwindow:
+            return
+        # The tip window must be completely outside the button;
+        # otherwise when the mouse enters the tip window we get
+        # a leave event and it disappears, and then we get an enter
+        # event and it reappears, and so on forever :-(
+        x = self.button.winfo_rootx() + self.button.winfo_width() + 1
+        y = self.button.winfo_rooty() - 250
+        self.tipwindow = tw = Toplevel(self.button)
+        tw.wm_overrideredirect(1)
+        tw.wm_geometry("+%d+%d" % (x, y))
+        self.showcontents()

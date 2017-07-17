@@ -18,6 +18,7 @@ class HomeScreen():
     """Displays Home Screen Frame and widgets"""
     def __init__(self, master):
         self.RESULTSPERPAGE = 5
+
         #Load GUI
         self.master = master
         self.builder = builder = pygubu.Builder()
@@ -33,14 +34,34 @@ class HomeScreen():
         self.canTeamPreviewer = self.builder.get_object('canTeamPreviewer')
         self.TeamPreviews = []
 
+        self.canFollowers = self.builder.get_object('canFollowers')
+        self.FollowerFrames = []
+        
+        self.canFollowing = self.builder.get_object('canFollowing')
+        self.FollowingFrames = []
+
+        self.canRandPlayer = self.builder.get_object('canRandPlayer')
+        self.RandPlayerFrames = []
+
         #Screen Variables
         self.ProfileImage = None
         self.imgTitleImage = PhotoImage(file = "Resource/PAD/Images/Padification Logo.png")
         self.builder.get_object('lblTitleImage').config(image = self.imgTitleImage)
+        self.firstLoad = True
 
         for i in range( 0 , self.RESULTSPERPAGE ):
             self.TeamPreviews.append(TeamPreview(self.canTeamPreviewer, self))
             self.TeamPreviews[i].mainFrame.grid(row = i)
+
+            
+            self.FollowerFrames.append(playerWidget(self.canFollowers,self))
+            self.FollowerFrames[i].mainFrame.grid(row = i)
+
+            self.FollowingFrames.append(playerWidget(self.canFollowing,self))
+            self.FollowingFrames[i].mainFrame.grid(row = i)
+
+            self.RandPlayerFrames.append(playerWidget(self.canRandPlayer,self))
+            self.RandPlayerFrames[i].mainFrame.grid(row = i)
 
     def update(self):
         print(self.master.PADsql.ProfileImage)
@@ -53,32 +74,39 @@ class HomeScreen():
         self.canProfileImage.create_image(2,2, image = self.ProfileImage, anchor = NW)
 
         #CustomFont_Label(self.builder.get_object('frmPlayerInfo'), text= self.master.PADsql.Username, font_path="Resource/PAD/Font/FOT-RowdyStd-EB.ttf", size=22).grid(row = 0, column = 1, sticky = NW)
- 
-   
         self.lblUsername.config(text = self.master.PADsql.Username)
         self.lblCollectionCount.config(text ="Monsters\t= " + str(len(self.master.PADsql.selectMonsterInstance())) )
         self.lblTeamCount.config(text ="Teams\t= " + str(len(self.master.PADsql.selectTeamInstance())))
 
-        teams = self.master.PADsql.selectAllTeamInstance()
-        teamset = []
-        if len(teams) >= 5:
-            while len(teamset) < 5:
-                team = random.choice(teams)
-                if team not in teamset:
-                    teamset.append(team)
+        if self.firstLoad:
+            self.updateRandomFrames(self.master.PADsql.selectAllTeamInstance(), self.TeamPreviews)
+            self.updateRandomFrames(self.master.PADsql.selectUsers(), self.RandPlayerFrames)
+            self.firstLoad = False
+
+    def updateRandomFrames(self, sqlQuery, Frames):
+        Selected = []
+
+        if len(sqlQuery) >= len(Frames):
+            while len(Selected) < len(Frames):
+                choice = random.choice(sqlQuery)
+                if choice not in Selected:
+                    Selected.append(choice)
 
             count = 0
-            for i in self.TeamPreviews:
-                i.update(teamset[count])
+            for i in Frames:
+                i.update(Selected[count])
                 count += 1
         else:
-            random.shuffle(teams)
+            random.shuffle(sqlQuery)
             count = 0
-            for i in self.TeamPreviews:
-                if count >= len(teams):
+            for i in Frames:
+                if count >= len(sqlQuery):
                     break
-                i.update(teams[count])
+                i.update(sqlQuery[count])
                 count +=1
+
+    def onRefreshTeamsClick(self):
+        self.updateRandomFrames(self.master.PADsql.selectAllTeamInstance(), self.TeamPreviews)
 
     def onProfileImageClick(self, event):
         value = sd.askstring("Change Profile Image", "Enter Monster ID or Name:", parent=self.canProfileImage)
@@ -119,6 +147,8 @@ class TeamPreview():
         self.builder = pygubu.Builder()
         self.builder.add_from_file('src/ui/HomeScreen.ui')
         self.mainFrame = self.builder.get_object('frmTeamPreview', master)
+
+        #Widget Objects
         self.canTeamSlot1 = self.builder.get_object('canTeamSlot1')
         self.canTeamSlot2 = self.builder.get_object('canTeamSlot2')
         self.canTeamSlot3 = self.builder.get_object('canTeamSlot3')
@@ -131,7 +161,7 @@ class TeamPreview():
         #Variables
         self.objTeam = None
         self.strUsername = None
-        
+        self.canIdenity = dict()
 
         self.imgTeamSlot1 = None
         self.imgTeamSlot2 = None
@@ -158,11 +188,44 @@ class TeamPreview():
         self.lblTeamName.config(text = teamDict["TeamName"])
 
         for i in range(0,5):
+            self.canIdenity[getattr(self, "canTeamSlot" + str(i+1))] = str(i+1)
+            setattr(self, "monTeamSlot" + str(i+1), None)
+            setattr(self, "imgTeamSlot" + str(i+1), None)
             keys = ['LeaderMonster', 'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour']
             if teamDict[keys[i]] != None:
                 setattr(self, "monTeamSlot" + str(i+1), PADMonster.Monster(self.toplevel.master.PADsql.selectMonsterInstance(teamDict[keys[i]], allUsers = True)[0]))
                 setattr(self, "imgTeamSlot" + str(i+1), PhotoImage(file = "resource/PAD/images/thumbnails/" + str(getattr(self, "monTeamSlot" + str(i+1)).MonsterClassID) + ".png" ))
                 getattr(self, "canTeamSlot" + str(i+1)).create_image(2,2, image = getattr(self, "imgTeamSlot" + str(i+1)), anchor = NW)
+                MonsterStatTooltip(getattr(self, "canTeamSlot" + str(i+1)), getattr(self, "monTeamSlot" + str(i+1)))
 
     def onCanTeamSlotClick(self, event):
-        print("you clicked me")
+        print("you clicked", getattr(self, "monTeamSlot" + self.canIdenity[event.widget]).MonsterName)
+
+class playerWidget():
+    def __init__(self, master, toplevel):
+        self.toplevel = toplevel
+        self.master = master
+        self.builder = pygubu.Builder()
+        self.builder.add_from_file('src/ui/HomeScreen.ui')
+        self.mainFrame = self.builder.get_object('frmPlayerPF', master)
+
+        #Widget Objects
+        self.canPlayerPF = self.builder.get_object('canPlayerPF', master)
+        self.lblUsernamePF = self.builder.get_object('lblUsernamePF', master)
+
+        #Variables
+        self.Username = None
+        self.Email = None
+        self.ProfileImage = None
+        self.ProfileImageFile = None
+
+    def update(self, playerDict):
+        self.Username = playerDict['Username']
+        self.Email = playerDict['Email']
+        self.ProfileImage = playerDict['ProfileImage']
+
+        self.lblUsernamePF.config(text = self.Username)
+        #self.lblTeamCountPF.config()
+
+        self.ProfileImageFile = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(self.ProfileImage) + ".png").subsample(3)
+        self.canPlayerPF.create_image(2,2, image = self.ProfileImageFile, anchor = NW)

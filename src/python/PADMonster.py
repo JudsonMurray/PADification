@@ -156,11 +156,12 @@ class Monster():
 
     def setSkillLevel(self,value):
         """Sets the skill Level"""
-        self.SkillLevel = value
-        if self.SkillLevel > self.ActiveSkillMaxLevel:
-            self.SkillLevel = self.ActiveSkillMaxLevel
-        if self.SkillLevel < 1:
-            self.SkillLevel = 1
+        if self.ActiveSkillMaxLevel != None:
+            self.SkillLevel = value
+            if self.SkillLevel > self.ActiveSkillMaxLevel:
+                self.SkillLevel = self.ActiveSkillMaxLevel
+            if self.SkillLevel < 1:
+                self.SkillLevel = 1
 
     def setSkillsAwoke(self, value):
         """Sets the Number of skills Awoke"""

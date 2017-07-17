@@ -122,9 +122,23 @@ class PADSQL():
 
     def selectUsers(self, Email = None):
         if Email == None:
-            SQLCommand = "Select Username, PlayerID, Email From Player"
+            SQLCommand = "Select Username, PlayerID, Email, ProfileImage From Player"
             self.cursor.execute(SQLCommand)
-            return self.cursor.fetchall()
+
+            keys = ['Username', 'PlayerID', 'Email', 'ProfileImage']
+            playerCollection = []
+            results = self.cursor.fetchone()
+
+            while results:
+                playerDict = {}
+                count = 0
+                for i in results:
+                    playerDict[keys[count]] = i
+                    count += 1
+                playerCollection.append(playerDict)
+                results = self.cursor.fetchone()
+
+            return playerCollection
         else:
             SQLCommand = "Select Username From Player WHERE Email = '" + Email + "'"
             self.cursor.execute(SQLCommand)
