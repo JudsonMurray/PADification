@@ -230,16 +230,16 @@ Monster</property>
               <property name="columnspan">1</property>
               <property name="propagate">True</property>
               <property name="row">1</property>
-              <rows>
-                <row id="1">
-                  <property name="minsize">0</property>
-                </row>
-              </rows>
               <columns>
                 <column id="0">
                   <property name="minsize">0</property>
                 </column>
               </columns>
+              <rows>
+                <row id="1">
+                  <property name="minsize">0</property>
+                </row>
+              </rows>
             </layout>
             <child>
               <object class="ttk.Label" id="hpImg">
@@ -1021,15 +1021,35 @@ Monster</property>
     <child>
       <object class="tk.Button" id="okBadge">
         <property name="font">{Times New Roman} 12 {}</property>
+        <property name="height">1</property>
         <property name="text" translatable="yes">OK</property>
-        <property name="width">6</property>
+        <property name="width">8</property>
         <bind add="True" handler="okBadge" sequence="&lt;1&gt;" />
         <layout>
-          <property name="column">0</property>
+          <property name="column">1</property>
           <property name="columnspan">77</property>
+          <property name="padx">10</property>
+          <property name="pady">5</property>
           <property name="propagate">True</property>
-          <property name="row">999</property>
-          <property name="sticky">s</property>
+          <property name="row">50</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="cancelAwokenBadge">
+        <property name="font">{Times New Roman} 12 {}</property>
+        <property name="height">1</property>
+        <property name="text" translatable="yes">Cancel</property>
+        <property name="width">8</property>
+        <bind add="True" handler="cancelAwokenBadgeChanges" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">1</property>
+          <property name="columnspan">77</property>
+          <property name="padx">10</property>
+          <property name="pady">5</property>
+          <property name="propagate">True</property>
+          <property name="row">50</property>
+          <property name="sticky">w</property>
         </layout>
       </object>
     </child>

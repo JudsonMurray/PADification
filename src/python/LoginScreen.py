@@ -29,6 +29,7 @@ class LoginScreen:
         self.builder.get_object('entEmail').bind('<Return>', self.onLoginClick)
         self.Email = self.builder.get_variable('varEmail')
         self.Password = self.builder.get_variable('varPassword')
+        self.Passw = self.builder.get_object('entPassword')
 
     #Activates next screen when button is clicked
     def onCreateAccountClick(self, event):
@@ -60,9 +61,11 @@ class LoginScreen:
         if self.Password.get() == ("Enter Password"):
             self.builder.get_object('entPassword').config(foreground="#000000")
             self.Password.set("")
+            self.Passw.config(show="*")
 
     def onPasswordFocusOut(self,event):
         """Fills Password Entry Field with Enter Password"""
         if self.Password.get() == (""):
             self.builder.get_object('entPassword').config(foreground="#c6caca")
             self.Password.set("Enter Password")
+            self.Passw.config(show="")

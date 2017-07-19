@@ -79,13 +79,21 @@ class PADSQL():
             print("Login Failed")
             self.closeConnection()
 
-    def updateAccountInfo(self, Username, Password):
+    def updateUsername(self, Username):
         SQLCommand = ("UPDATE Player "
-                      "Set [Username] = ?, "
-                      "[Password] = ? "
+                      "Set [Username] = ? "
                       "WHERE [Email] = ?")
         
-        values = (Username, Password, self.Email)
+        values = (Username, self.Email)
+        self.cursor.execute(SQLCommand, values)
+        self.connection.commit()
+
+    def updatePassword(self, Password):
+        SQLCommand = ("UPDATE Player "
+                      "Set [Password] = ? "
+                      "WHERE [Email] = ?")
+        
+        values = (Password, self.Email)
         self.cursor.execute(SQLCommand, values)
         self.connection.commit()
 

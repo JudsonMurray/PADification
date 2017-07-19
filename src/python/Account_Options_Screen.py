@@ -61,9 +61,9 @@ class AccountOptions:
             changeUsername = False
         if (changePassword == True and changeUsername == True) or (changePassword == True and changeUsername == None) or (changePassword == None and changeUsername == True):
             if changePassword == True:
-                self.master.PADsql.Password = self.obj2.get()
+                self.master.PADsql.updatePassword(self.obj2.get())
             if changeUsername == True:
-                self.master.PADsql.Username = self.obj1.get()
+                self.master.PADsql.updateUsername(self.obj1.get())
         if (changePassword == None and changeUsername == None):
             mb.showinfo("No Changes","No changes were implemented")
         self.onNewPassFocusOut(self)

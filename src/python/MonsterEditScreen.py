@@ -31,6 +31,7 @@ class MonsterEdit:
         self.monster = self.master.PADsql.selectMonsterInstance(self.instanceID, wishlist = Wishlist)
         self.monster = PADMonster.Monster(self.monster[0])
         self.latents = self.master.PADsql.getLatentAwokenSkills()
+
         if self.monster.LSListID != None:
             self.latentList = self.master.PADsql.getLatentAwokenSkillList(self.instanceID)
             if self.latentList[7]:
@@ -40,6 +41,7 @@ class MonsterEdit:
         self.image = Image.open("Resource/PAD/Images/portraits/" + str(self.monster.MonsterClassID) + ".jpg").resize((320,192))
         self.portrait = ImageTk.PhotoImage(self.image)
         self.builder.get_object("canPortrait").create_image(2, 2, image = self.portrait, anchor = NW)
+
         if self.monster.AssistMonsterID != None:
             self.assistMonster = self.master.PADsql.selectMonsterInstance(self.monster.AssistMonsterID, wishlist = Wishlist)
             self.assistMonster = PADMonster.Monster(self.assistMonster[0])
@@ -55,6 +57,7 @@ class MonsterEdit:
             self.assistHP = 0
             self.assistATK = 0
             self.assistRCV = 0
+
         self.builder.get_object("lstSelectedLatents").delete(0, END)
 
         self.__displayAwokenSkills()
@@ -123,32 +126,32 @@ class MonsterEdit:
         pass
 
     def applyChanges(self):
+        self.monster.setLevel(int(self.spnLevel.get()))
+        self.monster.setPlusHP(int(self.spnHP.get()))
+        self.monster.setPlusATK(int(self.spnATK.get()))
+        self.monster.setPlusRCV(int(self.spnRCV.get()))
+        self.monster.setSkillLevel(int(self.spnAwokenSkill.get()))
+        self.monster.setSkillsAwoke(int(self.spnSkillLVL.get()))
+
+
         pass
 
     def cancel(self):
-        for i in range(1, self.monster.Level):
-            self.builder.get_object("spnLevel").invoke('buttondown')
-
-        for i in range(0, self.monster.PlusHP):
-            self.builder.get_object("spn+HP").invoke('buttondown')
-
-        for i in range(0, self.monster.PlusATK):
-            self.builder.get_object("spn+ATK").invoke('buttondown')
-
-        for i in range(0, self.monster.PlusRCV):
-            self.builder.get_object("spn+RCV").invoke('buttondown')
-
-        for i in range(0, self.monster.SkillLevel):
-            self.builder.get_object("spnSkillLvl").invoke('buttondown')
-
-        for i in range(0, self.monster.SkillsAwoke):
-            self.builder.get_object("spnAwokenSkill").invoke('buttondown')
+        self.builder.get_variable("spnLevel").set(str(self.monster.Level))
+        self.builder.get_variable("spn+HP").set(str(self.monster.PlusHP))
+        self.builder.get_variable("spn+ATK").set(str(self.monster.PlusATK))
+        self.builder.get_variable("spn+RCV").set(str(self.monster.PlusRCV))
+        self.builder.get_variable("spnSkillLvl").set(str(self.monster.SkillLevel))
+        self.builder.get_variable("spnAwokenSkill").set(str(self.monster.SkillsAwoke))
 
         self.master.showPlayerCollection()
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #--- Displaying base information, performed when screen is opened from PlayerCollection -----------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    def __UpdateInfo(self):
+        pass
 
     def __displayAssistInfo(self):
         self.assistHP = int(math.ceil(self.assistMonster.TotalHP * 0.1))
@@ -193,53 +196,71 @@ class MonsterEdit:
         self.builder.get_object("lblLatentSlots").config(text = "Latent Slots: " + str(self.usedSlots) + " / " + str(self.maxSlots.get()))
 
     def __displayStats(self):
-        self.builder.get_object("lblCurrentLevel").config(text = "Current Level: " + str(self.monster.Level))
-        self.builder.get_object("lblCurrentEXP").config(text = "Current EXP: " + str(self.monster.CurrentExperience))
-        self.builder.get_object("lblBaseHP").config(text = "Base HP: " + str(self.monster.HP))
-        self.builder.get_object("lblBaseATK").config(text = "Base ATK: " + str(self.monster.ATK))
-        self.builder.get_object("lblBaseRCV").config(text = "Base RCV: " + str(self.monster.RCV))
+        self.lblCurrentLevel = self.builder.get_object("lblCurrentLevel")
+        self.lblCurrentLevel.config(text = "Current Level: " + str(self.monster.Level))
+
+        self.lblCurrentEXP = self.builder.get_object("lblCurrentEXP")
+        self.lblCurrentEXP.config(text = "Current EXP: " + str(self.monster.CurrentExperience))
+
+        self.lblBaseHP = self.builder.get_object("lblBaseHP")
+        self.lblBaseHP.config(text = "Base HP: " + str(self.monster.HP))
+
+        self.lblBaseATK = self.builder.get_object("lblBaseATK")
+        self.lblBaseATK.config(text = "Base ATK: " + str(self.monster.ATK))
+
+        self.lblBaseRCV = self.builder.get_object("lblBaseRCV")
+        self.lblBaseRCV.config(text = "Base RCV: " + str(self.monster.RCV))
 
         self.bonusHP = self.monster.PlusHP * 10
         self.bonusATK = self.monster.PlusATK * 5
         self.bonusRCV = self.monster.PlusRCV * 3
 
-        self.builder.get_object("lblBonusHP").config(text = "Bonus HP: " + str(self.bonusHP + self.assistHP))
-        self.builder.get_object("lblBonusATK").config(text = "Bonus ATK: " + str(self.bonusATK + self.assistATK))
-        self.builder.get_object("lblBonusRCV").config(text = "Bonus RCV: " + str(self.bonusRCV + self.assistRCV))
+        self.lblBonusHP = self.builder.get_object("lblBonusHP")
+        self.lblBonusHP.config(text = "Bonus HP: " + str(self.bonusHP + self.assistHP))
 
-        self.builder.get_object("lblTotalHP").config(text = "Total HP: " + str(self.monster.TotalHP + self.assistHP))
-        self.builder.get_object("lblTotalATK").config(text = "Total ATK: " + str(self.monster.TotalATK + self.assistATK))
-        self.builder.get_object("lblTotalRCV").config(text = "Total RCV: " + str(self.monster.TotalRCV+ self.assistRCV))
+        self.lblBonusATK = self.builder.get_object("lblBonusATK")
+        self.lblBonusATK.config(text = "Bonus ATK: " + str(self.bonusATK + self.assistATK))
 
-        self.builder.get_object("spnLevel").config(state = NORMAL)
+        self.lblBonusRCV = self.builder.get_object("lblBonusRCV")
+        self.lblBonusRCV.config(text = "Bonus RCV: " + str(self.bonusRCV + self.assistRCV))
+
+        self.lblTotalHP = self.builder.get_object("lblTotalHP")
+        self.lblTotalHP.config(text = "Total HP: " + str(self.monster.TotalHP + self.assistHP))
+
+        self.lblTotalATK = self.builder.get_object("lblTotalATK")
+        self.lblTotalATK.config(text = "Total ATK: " + str(self.monster.TotalATK + self.assistATK))
+
+        self.lblTotalRCV = self.builder.get_object("lblTotalRCV")
+        self.lblTotalRCV.config(text = "Total RCV: " + str(self.monster.TotalRCV+ self.assistRCV))
+
+        self.spnLevel = self.builder.get_object("spnLevel")
+        self.spnLevel.config(state = NORMAL)
 
         if self.monster.MaxLevel > 1:
-            self.builder.get_object("spnLevel").config(from_ = 1, to = self.monster.MaxLevel, state = 'readonly')
+            self.spnLevel.config(from_ = 1, to = self.monster.MaxLevel, state = 'readonly')
         else:
-            self.builder.get_object("spnLevel").config(from_ = 1, to = self.monster.MaxLevel, state = DISABLED)
+            self.spnLevel.config(from_ = 1, to = self.monster.MaxLevel, state = DISABLED)
 
-        self.builder.get_object("spn+HP").config(state = 'readonly')
-        self.builder.get_object("spn+ATK").config(state = 'readonly')
-        self.builder.get_object("spn+RCV").config(state = 'readonly')
+        self.spnHP = self.builder.get_object("spn+HP")
+        self.spnHP.config(state = 'readonly')
 
-        for i in range(1, self.monster.Level):
-            self.builder.get_object("spnLevel").invoke('buttonup')
+        self.spnATK = self.builder.get_object("spn+ATK")
+        self.spnATK.config(state = 'readonly')
 
-        for i in range(0, self.monster.PlusHP):
-            self.builder.get_object("spn+HP").invoke('buttonup')
-
-        for i in range(0, self.monster.PlusATK):
-            self.builder.get_object("spn+ATK").invoke('buttonup')
-
-        for i in range(0, self.monster.PlusRCV):
-            self.builder.get_object("spn+RCV").invoke('buttonup')
+        self.spnRCV = self.builder.get_object("spn+RCV")
+        self.spnRCV.config(state = 'readonly')
         
-        pass
+        self.builder.get_variable("spnLevel").set(str(self.monster.Level))
+        self.builder.get_variable("spn+HP").set(str(self.monster.PlusHP))
+        self.builder.get_variable("spn+ATK").set(str(self.monster.PlusATK))
+        self.builder.get_variable("spn+RCV").set(str(self.monster.PlusRCV))
+        self.builder.get_variable("spnSkillLvl").set(str(self.monster.SkillLevel))
+        self.builder.get_variable("spnAwokenSkill").set(str(self.monster.SkillsAwoke))
 
     def __displaySkillInfo(self):
         if self.monster.ActiveSkillName is None:
             self.builder.get_object("lblSkillName").config(text = "Skill Name: No Skill", justify = LEFT)
-            elf.builder.get_object("spnSkillLvl").config(state = DISABLED)
+            self.builder.get_object("spnSkillLvl").config(state = DISABLED)
             self.builder.get_object("lblSkillCooldown").config(text = "Cooldown: N/A")
         else:
             self.builder.get_object("lblSkillName").config(text = "Skill Name: " + self.monster.ActiveSkillName, justify = LEFT)
@@ -258,11 +279,13 @@ class MonsterEdit:
                 self.builder.get_object("lblSkillDesc").config(text = str(self.desc))
             else:
                 self.builder.get_object("lblSkillDesc").config(text = str(self.master.PADsql.getActiveSkillDesc(self.monster.ActiveSkillName)))
-            self.builder.get_object("spnSkillLvl").config(from_ = 1, to = self.monster.ActiveSkillMaxLevel, state = NORMAL)
-            self.builder.get_object('spnSkillLvl').config(state = 'readonly')
-            for i in range(1, self.monster.SkillLevel):
-                self.builder.get_object("spnSkillLvl").invoke('buttonup')
-            self.builder.get_object("lblSkillCooldown").config(text = "Cooldown: " + str(self.monster.ActiveSkillCoolDown))
+            self.spnSkillLVL = self.builder.get_object("spnSkillLvl")
+            self.spnSkillLVL.config(from_ = 1, to = self.monster.ActiveSkillMaxLevel, state = NORMAL)
+            self.spnSkillLVL.config(state = 'readonly')
+            self.builder.get_variable("spnSkillLvl").set(str(self.monster.SkillLevel))
+
+            self.lblSkillCooldown = self.builder.get_object("lblSkillCooldown")
+            self.lblSkillCooldown.config(text = "Cooldown: " + str(self.monster.ActiveSkillCoolDown))
         pass
 
     def __displayMonsterIDentification(self):
@@ -316,13 +339,14 @@ class MonsterEdit:
         pass
 
     def __displayAwokenSkills(self):
+        self.spnAwokenSkill = self.builder.get_object("spnAwokenSkill")
         if self.monster.ASListID is None:
-            self.builder.get_object("spnAwokenSkill").config(state = DISABLED)
+            self.spnAwokenSkill.config(state = DISABLED)
         else:
-            self.builder.get_object("spnAwokenSkill").config(state = NORMAL)
-            self.builder.get_object('spnAwokenSkill').config(state = 'readonly')
-            for i in range(0, self.monster.SkillsAwoke):
-                self.builder.get_object("spnAwokenSkill").invoke('buttonup')
+            self.spnAwokenSkill.config(state = NORMAL)
+            self.spnAwokenSkill.config(state = 'readonly')
+
+            self.builder.get_variable("spnAwokenSkill").set(str(self.monster.SkillsAwoke))
 
             #Creates the photo image for the selected monster's awoken awoken skills
             self.aSList = self.master.PADsql.getAwokenSkillList(self.monster.MonsterClassID)
@@ -343,7 +367,7 @@ class MonsterEdit:
                     else:
                         self.aSListImg.append(None)
 
-            self.builder.get_object("spnAwokenSkill").config(to = self.numAS)
+            self.spnAwokenSkill.config(to = self.numAS)
 
             #Removes all the previously selected monster's, if there was one, awoken awoken skills
             self.builder.get_object("canAwokenSkillOne").delete("all")

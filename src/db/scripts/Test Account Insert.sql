@@ -132,8 +132,8 @@ insert into Team(Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, S
 ('padmin', 'PADmin',100000005, 100000006, 100000007, 100000008, 100000009, NULL),
 ('padmin', 'PADmin 2nd team', 100000004, NULL, NULL, NULL, NULL, 'Team Cost +100'),
 --insert into padmin2
-('padmin2', 'PADmin2', 100000005, NULL, NULL, NULL, NULL, NULL),
+('padmin2', 'PADmin2', 100000065, NULL, NULL, NULL, NULL, NULL),
 --insert into padmin3
-('padmin3',	'PADmin3', 100000006, NULL, NULL, NULL, NULL, 'Team Cost +100'),
+('padmin3',	'PADmin3', 100000080, NULL, NULL, NULL, NULL, 'Team Cost +100'),
 --insert into padmin4
-('padmin4', 'PADmin4', 100000007, NULL, NULL, NULL,	NULL, NULL);
+('padmin4', 'PADmin4', 100000095, NULL, NULL, NULL,	NULL, NULL);
