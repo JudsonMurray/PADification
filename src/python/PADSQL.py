@@ -144,28 +144,75 @@ class PADSQL():
             self.cursor.execute(SQLCommand)
             return self.cursor.fetchone()[0]
 
+    def selectFollowings(self, User = None):
+        if User == None:
+            User = self.Email
+        SQLCommand = ("Select Username, PlayerID, Player.Email, ProfileImage From (Follower LEFT OUTER JOIN Player ON followingEmail = Player.Email) "
+                      "WHERE Follower.Email = '" + User + "'")
+        self.cursor.execute(SQLCommand)
+
+        keys = ['Username', 'PlayerID', 'Email', 'ProfileImage']
+        playerCollection = []
+        results = self.cursor.fetchone()
+        while results:
+            playerDict = {}
+            count = 0
+            for i in results:
+                playerDict[keys[count]] = i
+                count += 1
+            playerCollection.append(playerDict)
+            results = self.cursor.fetchone()
+
+        return playerCollection
+
     def selectFollowers(self, User = None):
         if User == None:
             User = self.Email
-        SQLCommand = ("Select Username, FollowerEmail From (Follower LEFT OUTER JOIN Player ON followerEmail = Player.Email) "
-                      "WHERE Follower.Email = '" + User + "'")
+        SQLCommand = ("Select Username, PlayerID, Player.Email, ProfileImage From (Follower LEFT OUTER JOIN Player ON Follower.Email = Player.Email) "
+                      "WHERE Follower.FollowingEmail = '" + User + "'")
         self.cursor.execute(SQLCommand)
-        return self.cursor.fetchall()
+
+        keys = ['Username', 'PlayerID', 'Email', 'ProfileImage']
+        playerCollection = []
+        results = self.cursor.fetchone()
+        while results:
+            playerDict = {}
+            count = 0
+            for i in results:
+                playerDict[keys[count]] = i
+                count += 1
+            playerCollection.append(playerDict)
+            results = self.cursor.fetchone()
+
+        return playerCollection
 
     def followPlayer(self, UserEmail):
         SQLCommand = ("Select FID From Follower "
-                      "WHERE Email = '" + self.Email + "' AND FollowerEmail = '"+ UserEmail +"'")
+                      "WHERE Email = '" + self.Email + "' AND FollowingEmail = '"+ UserEmail +"'")
         self.cursor.execute(SQLCommand)
         results = self.cursor.fetchall()
         if results:
             return False
         else:
-            SQLCommand = ("INSERT INTO Follower (Email, FollowerEmail)"
+            SQLCommand = ("INSERT INTO Follower (Email, FollowingEmail)"
                           " VALUES ('" + self.Email + "', '" + UserEmail + "')")
             self.cursor.execute(SQLCommand)
             self.cursor.commit()
             return True
 
+    def unFollowPlayer(self, FollowingEmail):
+        SQLCommand = ("Select FID From Follower "
+                      "WHERE Email = '" + self.Email + "' AND FollowingEmail = '"+ FollowingEmail +"'")
+        self.cursor.execute(SQLCommand)
+        results = self.cursor.fetchone()
+        if results:
+            print(results)
+            SQLCommand = "DELETE FROM Follower WHERE FID = " + str(results[0])
+            self.cursor.execute(SQLCommand)
+            self.cursor.commit()
+            return True
+        else:
+            return False
     def closeConnection(self):
         """Closes Connection to PADification Database"""
         self.connection.close()
@@ -481,7 +528,6 @@ class PADSQL():
                 print("Something Went Wrong")
                 return False
         
-
     def getAwokenBadges(self):
         """Returns a List of Awoken Badges"""
         SQLCommand = "SELECT * FROM AwokenBadge"

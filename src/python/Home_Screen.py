@@ -17,7 +17,8 @@ from PIL import Image, ImageFont, ImageDraw, ImageTk
 class HomeScreen():
     """Displays Home Screen Frame and widgets"""
     def __init__(self, master):
-        self.RESULTSPERPAGE = 5
+        self.TEAMRESULTSPERPAGE = 5
+        self.PLAYERRESULTSPERPAGE = 5
 
         #Load GUI
         self.master = master
@@ -36,9 +37,11 @@ class HomeScreen():
 
         self.canFollowers = self.builder.get_object('canFollowers')
         self.FollowerFrames = []
+        self.Followers = None
         
         self.canFollowing = self.builder.get_object('canFollowing')
         self.FollowingFrames = []
+        self.Following = None
 
         self.canRandPlayer = self.builder.get_object('canRandPlayer')
         self.RandPlayerFrames = []
@@ -49,19 +52,15 @@ class HomeScreen():
         self.builder.get_object('lblTitleImage').config(image = self.imgTitleImage)
         self.firstLoad = True
 
-        for i in range( 0 , self.RESULTSPERPAGE ):
+        for i in range( 0 , self.TEAMRESULTSPERPAGE ):
             self.TeamPreviews.append(TeamPreview(self.canTeamPreviewer, self))
-            self.TeamPreviews[i].mainFrame.grid(row = i)
 
-            
+        for i in range( 0 , self.PLAYERRESULTSPERPAGE ):
             self.FollowerFrames.append(playerWidget(self.canFollowers,self))
-            self.FollowerFrames[i].mainFrame.grid(row = i)
-
             self.FollowingFrames.append(playerWidget(self.canFollowing,self))
-            self.FollowingFrames[i].mainFrame.grid(row = i)
-
             self.RandPlayerFrames.append(playerWidget(self.canRandPlayer,self))
-            self.RandPlayerFrames[i].mainFrame.grid(row = i)
+
+
 
     def update(self):
         #print(self.master.PADsql.ProfileImage)
@@ -78,13 +77,21 @@ class HomeScreen():
         self.lblCollectionCount.config(text ="Monsters\t= " + str(len(self.master.PADsql.selectMonsterInstance())) )
         self.lblTeamCount.config(text ="Teams\t= " + str(len(self.master.PADsql.selectTeamInstance())))
 
+
         if self.firstLoad:
-            self.updateRandomFrames(self.master.PADsql.selectAllTeamInstance(), self.TeamPreviews)
-            self.updateRandomFrames(self.master.PADsql.selectUsers(), self.RandPlayerFrames)
+            self.updateFollowings()
+            self.updateRandomFrames(self.master.PADsql.selectAllTeamInstance(), self.TeamPreviews, rand = True)
+            self.updateRandomFrames(self.master.PADsql.selectUsers(), self.RandPlayerFrames, rand = True)
+            self.updateRandomFrames(self.master.PADsql.selectFollowers(), self.FollowerFrames, rand = False)
+            self.updateRandomFrames(self.master.PADsql.selectFollowings(), self.FollowingFrames, rand = False)
             self.firstLoad = False
 
-    def updateRandomFrames(self, sqlQuery, Frames):
+
+    def updateRandomFrames(self, sqlQuery, Frames, rand = False):
         Selected = []
+
+        for i in Frames:
+            i.mainFrame.grid_forget()
 
         if len(sqlQuery) >= len(Frames):
             while len(Selected) < len(Frames):
@@ -95,6 +102,7 @@ class HomeScreen():
             count = 0
             for i in Frames:
                 i.update(Selected[count])
+                i.mainFrame.grid(row = count)
                 count += 1
         else:
             random.shuffle(sqlQuery)
@@ -103,7 +111,18 @@ class HomeScreen():
                 if count >= len(sqlQuery):
                     break
                 i.update(sqlQuery[count])
+                i.mainFrame.grid(row = count)
                 count +=1
+
+    def updateFollowFrames(self):
+        self.updateRandomFrames(self.master.PADsql.selectFollowers(), self.FollowerFrames, rand = False)
+        self.updateRandomFrames(self.master.PADsql.selectFollowings(), self.FollowingFrames, rand = False)
+
+    def updateFollowings(self):
+        self.Followings = self.master.PADsql.selectFollowings()
+        self.Followers = self.master.PADsql.selectFollowers()
+        print("Followers:", self.Followers)
+        print("Followings:", self.Followings)
 
     def onRefreshTeamsClick(self):
         self.updateRandomFrames(self.master.PADsql.selectAllTeamInstance(), self.TeamPreviews)
@@ -181,11 +200,16 @@ class TeamPreview():
         self.monTeamSlot4 = None
         self.monTeamSlot5 = None
 
+        self.monToolTips = []
+        for i in range(0,5):
+            self.monToolTips.append(MonsterStatTooltip(getattr(self, "canTeamSlot" + str(i+1))))
+
     def update(self, teamDict):
         self.objTeam = PADMonster.Team(teamDict)
         self.strUsername = self.toplevel.master.PADsql.selectUsers(teamDict["Email"])
         self.lblTeamUsername.config(text = self.strUsername)
         self.lblTeamName.config(text = teamDict["TeamName"])
+
 
         for i in range(0,5):
             self.canIdenity[getattr(self, "canTeamSlot" + str(i+1))] = str(i+1)
@@ -196,10 +220,14 @@ class TeamPreview():
                 setattr(self, "monTeamSlot" + str(i+1), PADMonster.Monster(self.toplevel.master.PADsql.selectMonsterInstance(teamDict[keys[i]], allUsers = True)[0]))
                 setattr(self, "imgTeamSlot" + str(i+1), PhotoImage(file = "resource/PAD/images/thumbnails/" + str(getattr(self, "monTeamSlot" + str(i+1)).MonsterClassID) + ".png" ))
                 getattr(self, "canTeamSlot" + str(i+1)).create_image(2,2, image = getattr(self, "imgTeamSlot" + str(i+1)), anchor = NW)
-                MonsterStatTooltip(getattr(self, "canTeamSlot" + str(i+1)), getattr(self, "monTeamSlot" + str(i+1)))
+                self.monToolTips[i].update(getattr(self, "monTeamSlot" + str(i+1)))
+            else:
+                self.monToolTips[i].update()
+                
 
     def onCanTeamSlotClick(self, event):
-        print("you clicked", getattr(self, "monTeamSlot" + self.canIdenity[event.widget]).MonsterName)
+        if getattr(self, "monTeamSlot" + self.canIdenity[event.widget]) != None:
+            print("you clicked", getattr(self, "monTeamSlot" + self.canIdenity[event.widget]).MonsterName)
 
 class playerWidget():
     def __init__(self, master, toplevel):
@@ -213,11 +241,25 @@ class playerWidget():
         self.canPlayerPF = self.builder.get_object('canPlayerPF', master)
         self.lblUsernamePF = self.builder.get_object('lblUsernamePF', master)
 
+        self.popup = Menu(self.mainFrame, tearoff=0)
+        if self.master == self.toplevel.canRandPlayer:
+            self.popup.add_command(label="Follow", font="Yu", command=self.onFollow)
+        elif self.master == self.toplevel.canFollowers:
+            self.popup.add_command(label="Follow Back", font="Yu", command=self.onFollow)
+        else:
+            self.popup.add_command(label="UnFollow", font="Yu", command=self.onUnFollow)
+        self.popup.add_command(label="View Profile", font="Yu", command=self.onViewProfile)
+
+        #Bindings
+        for i in self.mainFrame.children:
+            self.mainFrame.children[i].bind("<1>", self.onPlayerClick)
+
         #Variables
         self.Username = None
         self.Email = None
         self.ProfileImage = None
         self.ProfileImageFile = None
+
 
     def update(self, playerDict):
         self.Username = playerDict['Username']
@@ -234,3 +276,24 @@ class playerWidget():
 
         self.ProfileImageFile = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(value) + ".png").subsample(3)
         self.canPlayerPF.create_image(2,2, image = self.ProfileImageFile, anchor = NW)
+
+    def onPlayerClick(self, event):
+        try:
+            self.popup.tk_popup(event.x_root, event.y_root, 0)
+        finally:
+            self.popup.grab_release()
+
+    def onViewProfile(self):
+        print("Viewed Profile")
+
+    def onFollow(self):
+        if self.toplevel.master.PADsql.followPlayer(self.Email):
+            print("Followed")
+            self.toplevel.updateFollowFrames()
+        else:
+            print("Not Followed/ Already Followed")
+
+    def onUnFollow(self):
+        self.toplevel.master.PADsql.unFollowPlayer(self.Email)
+        print("Unfollowed")
+        self.toplevel.updateFollowFrames()

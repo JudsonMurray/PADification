@@ -26,6 +26,9 @@ import Home_Screen
 import Account_Options_Screen
 import MonsterBook
 import TeamBrowserScreen
+
+from CustomWidgets import *
+
 class PADification(tk.Tk):
     def __init__(self, screenName = None, baseName = None, className = 'Tk', useTk = 1, sync = 0, use = None):
         super().__init__(screenName, baseName, className, useTk, sync, use)
@@ -34,6 +37,7 @@ class PADification(tk.Tk):
         self.maxsize(width=1280, height=960)
         self.resizable(width=False, height=False)
         self.title("PADification - The Ultimate in Puzzle and Dragons Organization.")
+
         #pypyodbc SQl Object
         self.PADsql = PADSQL.PADSQL()
 
@@ -49,6 +53,9 @@ class PADification(tk.Tk):
         self.editTeam = EditTeamScreen.EditTeam(self)
         self.monsterEdit = MonsterEditScreen.MonsterEdit(self)
         self.showLoginScreen()
+        #self.showHomeScreen()
+        #self.lower()
+        #LoginDialog(self,"LOGIN")
         super().mainloop()
 
     #Displays the login screen
@@ -71,8 +78,9 @@ class PADification(tk.Tk):
     def showHomeScreen(self):
         """Show Home Screen""" 
         self.forgetAll()
-        self.homeScreen.update()
         self.homeScreen.mainwindow.grid()
+        if self.PADsql.signedIn:
+            self.homeScreen.update()
 
     #Displays the account options screen
     def showAccountOptions(self):

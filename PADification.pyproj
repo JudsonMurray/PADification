@@ -7848,6 +7848,8 @@
     <Content Include="src\db\scripts\AwokenSkill-Inserts.sql" />
     <Content Include="src\db\scripts\AwokenSkillList-Inserts.sql" />
     <Content Include="src\db\scripts\create_db.bat" />
+    <Content Include="src\db\scripts\Drop-PADification-DB.sql" />
+    <Content Include="src\db\scripts\drop_db.bat" />
     <Content Include="src\db\scripts\EvolutionTree-Inserts.sql" />
     <Content Include="src\db\scripts\Generate-PADification-DB.sql" />
     <Content Include="src\db\scripts\LatentSkill-Inserts.sql" />
@@ -7860,6 +7862,7 @@
     <Content Include="src\db\scripts\Table-Create.sql" />
     <Content Include="src\db\scripts\Table-Drop.sql" />
     <Content Include="src\db\scripts\Team-inserts.sql" />
+    <Content Include="src\db\scripts\Test Account Insert.sql" />
     <Content Include="src\Python Integration Testing\Account Creation.ui" />
     <Content Include="src\Python Integration Testing\Account Options UI.ui" />
     <Content Include="src\Python Integration Testing\EditTeam.ui" />
