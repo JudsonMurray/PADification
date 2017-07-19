@@ -137,23 +137,12 @@ class MonsterEdit:
         pass
 
     def cancel(self):
-        for i in range(1, self.monster.Level):
-            self.builder.get_object("spnLevel").invoke('buttondown')
-
-        for i in range(0, self.monster.PlusHP):
-            self.builder.get_object("spn+HP").invoke('buttondown')
-
-        for i in range(0, self.monster.PlusATK):
-            self.builder.get_object("spn+ATK").invoke('buttondown')
-
-        for i in range(0, self.monster.PlusRCV):
-            self.builder.get_object("spn+RCV").invoke('buttondown')
-
-        for i in range(0, self.monster.SkillLevel):
-            self.builder.get_object("spnSkillLvl").invoke('buttondown')
-
-        for i in range(0, self.monster.SkillsAwoke):
-            self.builder.get_object("spnAwokenSkill").invoke('buttondown')
+        self.builder.get_variable("spnLevel").set(str(self.monster.Level))
+        self.builder.get_variable("spn+HP").set(str(self.monster.PlusHP))
+        self.builder.get_variable("spn+ATK").set(str(self.monster.PlusATK))
+        self.builder.get_variable("spn+RCV").set(str(self.monster.PlusRCV))
+        self.builder.get_variable("spnSkillLvl").set(str(self.monster.SkillLevel))
+        self.builder.get_variable("spnAwokenSkill").set(str(self.monster.SkillsAwoke))
 
         self.master.showPlayerCollection()
 
@@ -260,19 +249,13 @@ class MonsterEdit:
 
         self.spnRCV = self.builder.get_object("spn+RCV")
         self.spnRCV.config(state = 'readonly')
-
-        for i in range(1, self.monster.Level):
-            self.spnLevel.invoke('buttonup')
-
-        for i in range(0, self.monster.PlusHP):
-            self.spnHP.invoke('buttonup')
-
-        for i in range(0, self.monster.PlusATK):
-            self.spnATK.invoke('buttonup')
-
-        for i in range(0, self.monster.PlusRCV):
-            self.spnRCV.invoke('buttonup')
-
+        
+        self.builder.get_variable("spnLevel").set(str(self.monster.Level))
+        self.builder.get_variable("spn+HP").set(str(self.monster.PlusHP))
+        self.builder.get_variable("spn+ATK").set(str(self.monster.PlusATK))
+        self.builder.get_variable("spn+RCV").set(str(self.monster.PlusRCV))
+        self.builder.get_variable("spnSkillLvl").set(str(self.monster.SkillLevel))
+        self.builder.get_variable("spnAwokenSkill").set(str(self.monster.SkillsAwoke))
 
     def __displaySkillInfo(self):
         if self.monster.ActiveSkillName is None:
@@ -299,8 +282,8 @@ class MonsterEdit:
             self.spnSkillLVL = self.builder.get_object("spnSkillLvl")
             self.spnSkillLVL.config(from_ = 1, to = self.monster.ActiveSkillMaxLevel, state = NORMAL)
             self.spnSkillLVL.config(state = 'readonly')
-            for i in range(1, self.monster.SkillLevel):
-                self.spnSkillLVL.invoke('buttonup')
+            self.builder.get_variable("spnSkillLvl").set(str(self.monster.SkillLevel))
+
             self.lblSkillCooldown = self.builder.get_object("lblSkillCooldown")
             self.lblSkillCooldown.config(text = "Cooldown: " + str(self.monster.ActiveSkillCoolDown))
         pass
@@ -362,8 +345,8 @@ class MonsterEdit:
         else:
             self.spnAwokenSkill.config(state = NORMAL)
             self.spnAwokenSkill.config(state = 'readonly')
-            for i in range(0, self.monster.SkillsAwoke):
-                self.spnAwokenSkill.invoke('buttonup')
+
+            self.builder.get_variable("spnAwokenSkill").set(str(self.monster.SkillsAwoke))
 
             #Creates the photo image for the selected monster's awoken awoken skills
             self.aSList = self.master.PADsql.getAwokenSkillList(self.monster.MonsterClassID)

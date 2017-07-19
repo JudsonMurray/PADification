@@ -103,6 +103,7 @@ Activated</property>
               <object class="tk.Spinbox" id="spnAwokenSkill">
                 <property name="from_">0</property>
                 <property name="state">disabled</property>
+                <property name="textvariable">string:spnAwokenSkill</property>
                 <property name="to">9</property>
                 <layout>
                   <property name="column">0</property>
@@ -469,7 +470,7 @@ with the source code</property>
                   <property name="columnspan">3</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
-                  <property name="sticky">w</property>
+                  <property name="sticky">n</property>
                 </layout>
               </object>
             </child>
@@ -679,6 +680,7 @@ something wrong with the source code</property>
                 <child>
                   <object class="tk.Spinbox" id="spnSkillLvl">
                     <property name="state">disabled</property>
+                    <property name="textvariable">string:spnSkillLvl</property>
                     <layout>
                       <property name="column">1</property>
                       <property name="propagate">True</property>
@@ -758,8 +760,8 @@ something wrong with the source code</property>
                 </child>
                 <child>
                   <object class="tk.Spinbox" id="spnLevel">
-                    <property name="from_">1</property>
-                    <property name="textvariable">string:something</property>
+                    <property name="from_">0</property>
+                    <property name="textvariable">string:spnLevel</property>
                     <property name="to">99</property>
                     <layout>
                       <property name="column">0</property>
@@ -781,6 +783,7 @@ something wrong with the source code</property>
                 <child>
                   <object class="tk.Spinbox" id="spn+HP">
                     <property name="from_">0</property>
+                    <property name="textvariable">string:spn+HP</property>
                     <property name="to">99</property>
                     <layout>
                       <property name="column">0</property>
@@ -802,6 +805,7 @@ something wrong with the source code</property>
                 <child>
                   <object class="tk.Spinbox" id="spn+ATK">
                     <property name="from_">0</property>
+                    <property name="textvariable">string:spn+ATK</property>
                     <property name="to">99</property>
                     <layout>
                       <property name="column">0</property>
@@ -823,6 +827,7 @@ something wrong with the source code</property>
                 <child>
                   <object class="tk.Spinbox" id="spn+RCV">
                     <property name="from_">0</property>
+                    <property name="textvariable">string:spn+RCV</property>
                     <property name="to">99</property>
                     <layout>
                       <property name="column">0</property>
@@ -838,7 +843,7 @@ something wrong with the source code</property>
                     <property name="text" translatable="yes">Extra Latent Slot 
 TAMADRA used</property>
                     <property name="variable">int:maxSlots</property>
-                    <bind add="" handler="selectExtraSlot" sequence="&lt;1&gt;" />
+                    <bind add="" handler="selectExtraSlot" sequence="&lt;ButtonRelease-1&gt;" />
                     <layout>
                       <property name="column">0</property>
                       <property name="propagate">True</property>

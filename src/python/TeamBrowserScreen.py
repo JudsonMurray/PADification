@@ -19,14 +19,6 @@ import PADMonster
 class TeamBrowser():
     """Displays Edit Team Frame and Widgets"""
     def __init__(self, master):
-        #Declare Global Variables
-        self.buttons = []
-        self.state = []
-        self.monsterClassIDs = []
-        self.myMonsterList = []
-        self.var = IntVar(0)
-        self.teamMonsterSelected = Radiobutton(text='', variable=self.var, value=0)
-
         #Variables
         self.PADsql = master.PADsql
         self.master = master
@@ -48,91 +40,79 @@ class TeamBrowser():
                             self.builder.get_object('canSubMon2'), 
                             self.builder.get_object('canSubMon3'),
                             self.builder.get_object('canSubMon4')]
-        
+        return
+
     def loadUserTeams(self):
+        """Loads Teams into listbox"""
         self.connection = self.PADsql.connection
-        teams = self.PADsql.selectTeamInstance()
+        self.teams = self.PADsql.selectTeamInstance()
 
         self.setImages(None)
-        if len(teams) == 0:
+        if len(self.teams) == 0:
             self.teamListBox.delete(0, END)
             self.updateTeamLabels(self.builder, PADMonster.Team(self.PADsql))
             self.thisBuild.get_object('lblTeamName').config(text='Not A Team')
+            self.builder.get_object('btnEditTeam').config(state=DISABLED)
+            self.builder.get_object('btnRemoveTeam').config(state=DISABLED)
             return
-
         else:
-            destroyerTeamBase = self.PADsql.selectTeamInstance(teams[0]['TeamInstanceID'])
+            destroyerTeamBase = self.PADsql.selectTeamInstance(self.teams[0]['TeamInstanceID'])
             self.SelectedTeam = PADMonster.Team(self.PADsql)
             self.teamListBox.delete(0, END)
-            
-            #Sort teams names by number if name is autonamed. (Team #)
+
+            #Sort teams by name
             sorted = False
             while not sorted:
                 yt = 0
-                for i in range(0,len(teams)-1):
-                    if str(teams[i]['TeamName'])[0:4] == "Team" and ((teams[i]['TeamName'])[5:20].strip(' ')).isdigit() and \
-                        str(teams[i+1]['TeamName'])[0:4] == "Team" and ((teams[i]['TeamName'])[5:20].strip(' ')).isdigit():
-                        if int((teams[i]['TeamName'])[5:20].strip(' ')) > int((teams[i+1]['TeamName'])[5:20].strip(' ')):
-                            teams[i], teams[i + 1] = teams[i + 1], teams[i]
+                for i in range(0,len(self.teams)-1):
+                    if str(self.teams[i]['TeamName'])[0:4] == "Team" and ((self.teams[i]['TeamName'])[5:20].strip(' ')).isdigit() and \
+                        str(self.teams[i+1]['TeamName'])[0:4] == "Team" and ((self.teams[i]['TeamName'])[5:20].strip(' ')).isdigit():
+                        if int((self.teams[i]['TeamName'])[5:20].strip(' ')) > int((self.teams[i+1]['TeamName'])[5:20].strip(' ')):
+                            self.teams[i], self.teams[i + 1] = self.teams[i + 1], self.teams[i]
                             continue 
                     yt+=1
-                if yt >= len(teams)-1:
+                if yt >= len(self.teams)-1:
                     sorted = True
 
-            for i in range(0,len(teams)):
-                qq = str(teams[i]['TeamInstanceID'])
-                self.teamListBox.insert(END, str(teams[i]['TeamName']) + '                                                            ' + qq)
-        
-            teamID = self.teamListBox.get(ANCHOR)
-            if teamID == '': 
-                teamID = self.teamListBox.get(0)
-            teamID = teamID[-6:]
-            self.updateTeam(int(teamID))
-            self.newteam = self.builder.get_object('btnNewTeam')
+            #insert teams into listbox
+            for i in range(0,len(self.teams)):
+                qq = str(self.teams[i]['TeamInstanceID'])
+                self.teamListBox.insert(END, str(self.teams[i]['TeamName']) + '                                                            ' + qq)
+            
+            self.teamSelect(self)
+            self.builder.get_object('btnEditTeam').config(state=NORMAL)
+            self.builder.get_object('btnRemoveTeam').config(state=NORMAL)
             return
 
-    def newTeam(self, event):
-        """Show Login Screen"""
-        self.master.editTeam.loadTeam(PADMonster.Team(self.PADsql))
-        self.master.showEditTeamScreen()
-
-    def btnEditTeam(self, event):
-        self.master.editTeam.loadTeam(self.SelectedTeam)
-        self.master.showEditTeamScreen()
-
     def teamSelect(self, event):
+        """Selects team from listbox"""
         if self.teamListBox.get(0) == '':
             self.updateTeam((0))
             return
+        if self.teamListBox.get(ANCHOR) == '':
+             self.teamListBox.selection_anchor(0)
         teamID = self.teamListBox.get(ANCHOR)
-        if teamID == '': 
+        if teamID == '':
             teamID = self.teamListBox.get(0)
         teamID = teamID[-10:].strip(' ')
         self.updateTeam(int(teamID))
 
     def updateTeam(self, i):
-        if i == 0:
-            self.SelectedTeam = PADMonster.Team(self.PADsql)
-        else:
-            self.SelectedTeam = PADMonster.Team(self.PADsql, self.PADsql.selectTeamInstance(int(i))[0])
-
-        self.monsterClassIDs = []
+        """Updates Team Selected"""
+        self.SelectedTeam = PADMonster.Team(self.PADsql) if i == 0 else PADMonster.Team(self.PADsql, self.PADsql.selectTeamInstance(int(i))[0])
         self.myMonsterList = []
 
         for i in self.SelectedTeam.Monsters:
-            if i != None:
-                self.myMonsterList.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(i.MonsterClassID) + '.png'))
-            else:
-                self.myMonsterList.append(None)
-        while len(self.myMonsterList) < 5:
-            self.myMonsterList.append(None)
+            self.myMonsterList.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(i.MonsterClassID) + '.png')) if i != None else self.myMonsterList.append(None)
+
         self.updateTeamLabels(self.builder, self.SelectedTeam)
+        return
 
     def updateTeamLabels(self, build,team):
         """Updates team information labels"""
-        self.SelectedTeam.update()
         self.SelectedTeam = team
         self.thisBuild = build
+        self.SelectedTeam.update()
         for i in self.teamCanvas:
             i.delete('ALL')
 
@@ -164,34 +144,46 @@ class TeamBrowser():
             i+= 1
         else:
             self.myMonsterL.append(None)
- 
-        if self.myMonsterL[0] != None:
-            self.teamCanvas[0].create_image(7,7,image = self.myMonsterL[0], anchor = tk.NW, tag = "pic")
-        if self.myMonsterL[1] != None:
-            self.teamCanvas[1].create_image(7,7,image = self.myMonsterL[1], anchor = tk.NW, tag = "pic")
-        if self.myMonsterL[2] != None:
-            self.teamCanvas[2].create_image(7,7,image = self.myMonsterL[2], anchor = tk.NW, tag = "pic")
-        if self.myMonsterL[3] != None:
-            self.teamCanvas[3].create_image(7,7,image = self.myMonsterL[3], anchor = tk.NW, tag = "pic")
-        if self.myMonsterL[4] != None:
-            self.teamCanvas[4].create_image(7,7,image = self.myMonsterL[4], anchor = tk.NW, tag = "pic")
+
+        for i in range(0,5):
+            if self.myMonsterL[i] != None:
+                self.teamCanvas[i].create_image(7,7,image = self.myMonsterL[i], anchor = tk.NW, tag = "pic")
+
         if build == self.builder:
-            self.thisBuild.get_object('lblTeamName').config(text='' + str(self.SelectedTeam.TeamName))
+            self.builder.get_object('lblTeamName').config(text='' + str(self.SelectedTeam.TeamName))
+
         if self.SelectedTeam.AwokenBadgeName == None:
             self.SelectedTeam.AwokenBadgeName = 'No Badge'
-        self.badgeImage = tk.PhotoImage(file = 'Resource/PAD/Images/Badges/'+ str(self.SelectedTeam.AwokenBadgeName).replace('/', '') + '.png')
+
+        self.AwokenBadgeImage = tk.PhotoImage(file = 'Resource/PAD/Images/Badges/'+ str(self.SelectedTeam.AwokenBadgeName).replace('/', '') + '.png')
 
         if len(self.SelectedTeam.Monsters) != 0 and self.SelectedTeam.Monsters[0].InstanceID == self.SelectedTeam.LeaderMonster and self.SelectedTeam.Monsters[0].LeaderSkillName != None:
             leaderskilldesc =  str(self.master.PADsql.getLeaderSkillDesc(self.SelectedTeam.Monsters[0].LeaderSkillName))
-            if len(leaderskilldesc) > 110:
-                spacecount = leaderskilldesc.count(' ')
+            count = 0
+            spaces = []
+            spacepos = 0
+            self.range = 130
+            while len(leaderskilldesc) > self.range:
+                for i in str(leaderskilldesc[self.range - 130 : self.range]):
+                    if i == ' ':
+                        spaces.append(count)
+                        spacepos = spaces[len(spaces) - 1]
+                    count += 1
 
-                leaderskilldesc = leaderskilldesc[0:spacecount] + '\n' + leaderskilldesc[spacecount:]
+                leaderskilldesc = leaderskilldesc[0:spacepos] + '\n' + leaderskilldesc[spacepos + 1:]
+                self.range += 130
+            if len(leaderskilldesc) // 130 < 1:
+                leaderskilldesc += '\n' * 3
+            elif len(leaderskilldesc) // 260 < 1:
+                leaderskilldesc += '\n' * 2
+            elif len(leaderskilldesc) // 390 < 1:
+                leaderskilldesc += '\n' * 1
 
+            self.builder.get_object('lblLeaderSkill').config(text = "Leader Skill: " + self.SelectedTeam.Monsters[0].LeaderSkillName + '\n' + leaderskilldesc)
+        else:
+            self.builder.get_object('lblLeaderSkill').config(text = "Leader Skill: None"  + '\n' * 4)
 
-            self.builder.get_object('lblLeaderSkill').config(text = "Leader Skill: " + self.SelectedTeam.Monsters[0].LeaderSkillName+ '\n' + leaderskilldesc)
-
-        self.thisBuild.get_object('lblAwokenBadge').config(image = self.badgeImage, anchor = CENTER)
+        self.thisBuild.get_object('lblAwokenBadge').config(image = self.AwokenBadgeImage, anchor = CENTER)
         self.thisBuild.get_object('lblTeamHP').config(text=  'HP:    ' + str(self.SelectedTeam.TeamHP))
         self.thisBuild.get_object('lblTeamCost').config(text='Cost: ' + str(self.SelectedTeam.TeamCost))
         self.thisBuild.get_object('lblTeamRCV').config(text= 'RCV:  ' + str(self.SelectedTeam.TeamRCV))
@@ -201,24 +193,24 @@ class TeamBrowser():
         self.thisBuild.get_object('lblLightATK').config(text='Light ATK:   ' + str(self.SelectedTeam.LightATK))
         self.thisBuild.get_object('lblDarkATK').config(text= 'Dark ATK:    ' + str(self.SelectedTeam.DarkATK))
         self.thisBuild.get_object('lblSkillBindResist').config(text=  'Skill Bind Resist: ' + str(self.SelectedTeam.skillBindResist) + '%')
-        self.thisBuild.get_object('lblSkillBoost').config(text=   'Skill Boost: ' + str(self.SelectedTeam.skillBoost))
-        self.thisBuild.get_object('lblMoveTime').config(text=  'Move Time: ' + str(self.SelectedTeam.moveTime) + 's')
+        self.thisBuild.get_object('lblSkillBoost').config(text=  'Skill Boost: ' + str(self.SelectedTeam.skillBoost))
+        self.thisBuild.get_object('lblMoveTime').config(text=    'Move Time: ' + str(self.SelectedTeam.moveTime) + 's')
         self.thisBuild.get_object('lblDarkResist').config(text=  'Dark Resist: ' + str(self.SelectedTeam.darkResist) + '%')
-        self.thisBuild.get_object('lblJammerResist').config(text=  'Jammer Resist: ' + str(self.SelectedTeam.jammerResist) + '%')
-        self.thisBuild.get_object('lblPoisonResist').config(text=  'Poison Resist: ' + str(self.SelectedTeam.poisonResist) + '%')
+        self.thisBuild.get_object('lblJammerResist').config(text='Jammer Resist: ' + str(self.SelectedTeam.jammerResist) + '%')
+        self.thisBuild.get_object('lblPoisonResist').config(text='Poison Resist: ' + str(self.SelectedTeam.poisonResist) + '%')
         self.thisBuild.get_object('lblEnhancedFireChance').config(text=  'Enhanced Fire Chance: ' + str(self.SelectedTeam.enhancedFireChance) + '%')
-        self.thisBuild.get_object('lblEnhancedWaterChance').config(text=  'Enhanced Water Chance: ' + str(self.SelectedTeam.enhancedWaterChance) + '%')
+        self.thisBuild.get_object('lblEnhancedWaterChance').config(text= 'Enhanced Water Chance: ' + str(self.SelectedTeam.enhancedWaterChance) + '%')
         self.thisBuild.get_object('lblEnhancedWoodChance').config(text=  'Enhanced Wood Chance: ' + str(self.SelectedTeam.enhancedWoodChance) + '%')
-        self.thisBuild.get_object('lblEnhancedLightChance').config(text=  'Enhanced Light Chance: ' + str(self.SelectedTeam.enhancedLightChance) + '%')
+        self.thisBuild.get_object('lblEnhancedLightChance').config(text= 'Enhanced Light Chance: ' + str(self.SelectedTeam.enhancedLightChance) + '%')
         self.thisBuild.get_object('lblEnhancedDarkChance').config(text=  'Enhanced Dark Chance: ' + str(self.SelectedTeam.enhancedDarkChance) + '%')
         self.thisBuild.get_object('lblEnhancedHealChance').config(text=  'Enhanced Heal Chance: ' + str(self.SelectedTeam.enhancedHealChance) + '%')
         self.thisBuild.get_object('lblFireDR').config(text=  'Fire Dmg Reduction: ' + str(self.SelectedTeam.fireDmgReduction) + '%')
-        self.thisBuild.get_object('lblWaterDR').config(text=  'Water Dmg Reduction: ' + str(self.SelectedTeam.waterDmgReduction) + '%')
+        self.thisBuild.get_object('lblWaterDR').config(text= 'Water Dmg Reduction: ' + str(self.SelectedTeam.waterDmgReduction) + '%')
         self.thisBuild.get_object('lblWoodDR').config(text=  'Wood Dmg Reduction: ' + str(self.SelectedTeam.woodDmgReduction) + '%')
-        self.thisBuild.get_object('lblLightDR').config(text=  'Light Dmg Reduction: ' + str(self.SelectedTeam.lightDmgReduction) + '%')
+        self.thisBuild.get_object('lblLightDR').config(text= 'Light Dmg Reduction: ' + str(self.SelectedTeam.lightDmgReduction) + '%')
         self.thisBuild.get_object('lblDarkDR').config(text=  'Dark Dmg Reduction: ' + str(self.SelectedTeam.darkDmgReduction) + '%')
         return
-    
+
     def setImages(self, build):
         """Set Images"""
         if build != None:
@@ -273,34 +265,61 @@ class TeamBrowser():
         self.thisBuild.get_object('enhancedHealChanceImg').config(image=self.enhancedHealChanceImg)
         self.thisBuild.get_object('moveTimeImg').config(image=self.moveTimeImg)
         self.thisBuild.get_object('skillBoostImg').config(image=self.skillBoostImg)
+        return
 
-    def removeTeam(self,event):
+    def newTeam(self, event):
+        """Show Edit Team Screen with new team setup"""
+        self.master.editTeam.loadTeam(PADMonster.Team(self.PADsql))
+        self.master.showEditTeamScreen()
+        return
+
+    def btnEditTeam(self):
+        """Show Edit Team Screen with selected team setup"""
+        self.master.editTeam.loadTeam(self.SelectedTeam)
+        self.master.showEditTeamScreen()
+        return
+
+    def removeTeam(self):
+        """Removes selected team from the listbox as well as the database"""
         if self.teamListBox.get(ANCHOR) != '':
             self.PADsql.deleteTeam(self.SelectedTeam.TeamInstanceID)
             self.teamListBox.delete(ANCHOR)
-            self.loadUserTeams()
-            self.updateTeam(0)
+            self.teamSelect(self)
+            
+        if len(self.teams) == 0:
+            self.teamListBox.delete(0, END)
+            self.updateTeamLabels(self.builder, PADMonster.Team(self.PADsql))
+            self.thisBuild.get_object('lblTeamName').config(text='Not A Team')
+            self.builder.get_object('btnEditTeam').config(state=DISABLED)
+            self.builder.get_object('btnRemoveTeam').config(state=DISABLED)
+            return
+        return
 
     def onHomeClick(self, event):
         self.master.showHomeScreen()
+        return
 
     def onCollectionClick(self, event):
         self.master.showPlayerCollection()
+        return
 
     def onBookClick(self, EVENT):
         self.master.showMonsterBook()
+        return
 
     def onTeamsClick(self, event):
         self.master.showTeamBrowser()
+        return
 
     def onCommunityClick(self, event):
         #self.master.showCommunity()
-        pass
+        return
 
     def onTeamRankingClick(self, event):
         #self.master.showTeamRanking()
-        pass
+        return
 
     def onOptionsClick(self, EVENT):
         """Occurs When Account Options Button Is Clicked"""
         self.master.showAccountOptions()
+        return
