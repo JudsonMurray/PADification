@@ -17,6 +17,9 @@ import tkinter as tk
 import pygubu
 import random
 import pypyodbc
+import CustomWidgets
+from PIL import Image
+from PIL import ImageTk
 import sys
 import time
 import PADMonster
@@ -113,6 +116,7 @@ class MonsterFrame:
         for i in range(0, (len(self.buttons))):
             self.buttons[i].monbut.config(relief = FLAT)
         k = self.selButton
+        self.master.k = k
 
         
         self.buttons[self.selButton].monbut.config(relief = SUNKEN)
@@ -122,9 +126,9 @@ class MonsterFrame:
         self.masterbuilder.get_object("canMonsterSummary").create_image(7,7, image = self.s, anchor = tk.NW)
         self.masterbuilder.get_object("lblName").config(text = "Monster Name: " + str(monsters[self.ids[self.i]]["MonsterName"]))
         self.masterbuilder.get_object("lblRarity").config(text = "Rarity: " + str(monsters[self.ids[self.i]]["Rarity"]))
-        self.masterbuilder.get_object("lblHP").config(text = "HP: " + str(self.currentMonster.HP))
-        self.masterbuilder.get_object("lblATK").config(text = "ATK: " + str(self.currentMonster.ATK))
-        self.masterbuilder.get_object("lblRCV").config(text = "RCV: " + str(self.currentMonster.RCV))
+        self.masterbuilder.get_object("lblHP").config(text = "HP: " + str(self.currentMonster.TotalHP))
+        self.masterbuilder.get_object("lblATK").config(text = "ATK: " + str(self.currentMonster.TotalATK))
+        self.masterbuilder.get_object("lblRCV").config(text = "RCV: " + str(self.currentMonster.TotalRCV))
         #self.masterbuilder.get_object("lblHP").config(text = "HP: " + str(monsters[self.ids[self.i]]["HP"]))
         #self.masterbuilder.get_object("lblATK").config(text = "ATK: " + str(monsters[self.ids[self.i]]["ATK"]))
         #self.masterbuilder.get_object("lblRCV").config(text = "RCV: " + str(monsters[self.ids[self.i]]["RCV"]))
@@ -145,16 +149,22 @@ class MonsterFrame:
         #Saves the instanceid of the selected monster for later use
         selectedMonster = monsters[self.ids[self.i]]["InstanceID"]
 
+        self.image = Image.open("Resource/PAD/Images/portraits/" + str(monsters[self.ids[self.i]]["MonsterClassID"]) + ".jpg").resize((320,192))
+        self.portrait = ImageTk.PhotoImage(self.image)
+
+        self.master.portrait = CustomWidgets.ImageTooltip(self.masterbuilder.get_object("canMonsterSummary"), self.portrait)
+
 class PlayerCollection:
     def __init__(self, master):
         #Creates globals 
         global monsters
         global k
         global buttons
-
+        
         self.pds = master.PADsql
         self.master = master
         self.startMonster = 0
+        
 
         self.displayWishlist = 0
 
@@ -162,6 +172,7 @@ class PlayerCollection:
         self.currentPage = 1
 
         k = None
+        self.k = k
         #self.__UpdateMonsters()
 
         #1: Creates a builder
@@ -173,7 +184,7 @@ class PlayerCollection:
         #3: Creates the widget using a master as parent
         self.mainwindow = builder.get_object('frmPlayerCollection')
         builder.connect_callbacks(self)
-
+        self.portrait = CustomWidgets.ImageTooltip(self.builder.get_object("canMonsterSummary"), None)
     def pageOne(self):
         if k is None:
             self.startMonster = 0
@@ -181,6 +192,8 @@ class PlayerCollection:
             self.__RemoveInformation()
         else:
             self.startMonster = 50 * (self.currentPage - 1)
+            self.k = k
+            self.__UpdateInformation()
         self.populateList()
 
     def onAddFromWishlistClick(self):
@@ -304,6 +317,7 @@ class PlayerCollection:
         self.populateList()
 
     def onEditMonsterClick(self):
+        self.k = k
         self.master.monsterEdit.receiveInstanceID(selectedMonster, self.displayWishlist)
         self.master.showEditMonster()
 
@@ -421,7 +435,60 @@ class PlayerCollection:
             self.startMonster -= self.count
             self.populateList()
 
+    def __UpdateInformation(self):
+        self.monster = self.pds.selectMonsterInstance(self.instantList[k])
+        self.monster = PADMonster.Monster(self.monster[0])
+        self.builder.get_object("lblHP").config(text = "HP: " + str(self.monster.TotalHP))
+        self.builder.get_object("lblATK").config(text = "ATK: " + str(self.monster.TotalATK))
+        self.builder.get_object("lblRCV").config(text = "RCV: " + str(self.monster.TotalRCV))
+        
+        if self.monster.ASListID is None:
+            pass
+        else:
+        #Creates the photo image for the selected monster's awoken awoken skills
+            self.aSList = self.pds.getAwokenSkillList(self.monster.MonsterClassID)
+            self.aSListImg = []
+
+            for i in range(1, len(self.aSList)):
+                if i <= self.monster.SkillsAwoke:
+                    if self.aSList[i] is not None:
+                        self.aSListImg.append(PhotoImage(file = "Resource/PAD/Images/Awoken Skills/" + str(self.aSList[i]) +'.png'))
+                    else:
+                        self.aSListImg.append(None)
+                else:
+                    if self.aSList[i] is not None:
+                        self.aSListImg.append(PhotoImage(file = "Resource/PAD/Images/Awoken Skills/not " + str(self.aSList[i]) +'.png'))
+                    else:
+                        self.aSListImg.append(None)
+
+        #Removes all the previously selected monster's, if there was one, awoken awoken skills
+        self.builder.get_object("canASOne").delete("all")
+        self.builder.get_object("canASTwo").delete("all")
+        self.builder.get_object("canASThree").delete("all")
+        self.builder.get_object("canASFour").delete("all")
+        self.builder.get_object("canASFive").delete("all")
+        self.builder.get_object("canASSix").delete("all")
+        self.builder.get_object("canASSeven").delete("all")
+        self.builder.get_object("canASEight").delete("all")
+        self.builder.get_object("canASNine").delete("all")
+
+        self.builder.get_object("canASOne").create_image(2,2, image = self.aSListImg[0], anchor = tk.NW)
+        self.builder.get_object("canASTwo").create_image(2,2, image = self.aSListImg[1], anchor = tk.NW)
+        self.builder.get_object("canASThree").create_image(2,2, image = self.aSListImg[2], anchor = tk.NW)
+        self.builder.get_object("canASFour").create_image(2,2, image = self.aSListImg[3], anchor = tk.NW)
+        self.builder.get_object("canASFive").create_image(2,2, image = self.aSListImg[4], anchor = tk.NW)
+        self.builder.get_object("canASSix").create_image(2,2, image = self.aSListImg[5], anchor = tk.NW)
+        self.builder.get_object("canASSeven").create_image(2,2, image = self.aSListImg[6], anchor = tk.NW)
+        self.builder.get_object("canASEight").create_image(2,2, image = self.aSListImg[7], anchor = tk.NW)
+        self.builder.get_object("canASNine").create_image(2,2, image = self.aSListImg[8], anchor = tk.NW)
+
+        pass
+
     def __RemoveInformation(self):
+        self.portrait.photoImage = None
+        self.builder.get_object("canMonsterSummary").unbind("<Enter>")
+        self.builder.get_object("canMonsterSummary").unbind("<Leave>")
+        self.builder.get_object("canMonsterSummary").unbind("<ButtonPress>")
         '''Removes the information in the monster summary, runs during RemoveMonster'''
         self.builder.get_object("canMonsterSummary").delete('all')
         self.builder.get_object("lblName").config(text = "Monster Name: ")

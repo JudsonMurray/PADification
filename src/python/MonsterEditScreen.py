@@ -40,7 +40,7 @@ class MonsterEdit:
             self.extraSlot.deselect()
         self.image = Image.open("Resource/PAD/Images/portraits/" + str(self.monster.MonsterClassID) + ".jpg").resize((320,192))
         self.portrait = ImageTk.PhotoImage(self.image)
-        self.builder.get_object("canPortrait").create_image(2, 2, image = self.portrait, anchor = NW)
+        self.builder.get_object("canPortrait").create_image(8, 8, image = self.portrait, anchor = NW)
 
         if self.monster.AssistMonsterID != None:
             self.assistMonster = self.master.PADsql.selectMonsterInstance(self.monster.AssistMonsterID, wishlist = Wishlist)
@@ -98,6 +98,85 @@ class MonsterEdit:
 #--- Button Commands ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+    def changeLevel(self):
+        self.monster.setLevel(int(self.spnLevel.get()))
+        self.monster.updateStats()
+
+        self.lblCurrentLevel.config(text = "Current Level: " + str(self.monster.Level))
+        self.lblCurrentEXP.config(text = "Current EXP: " + str(self.monster.CurrentExperience))
+        self.lblBaseHP.config(text = "Base HP: " + str(self.monster.HP))
+        self.lblBaseATK.config(text = "Base ATK: " + str(self.monster.ATK))
+        self.lblBaseRCV.config(text = "Base RCV: " + str(self.monster.RCV))
+        self.lblTotalHP.config(text = "Total HP: " + str(self.monster.TotalHP + self.assistHP))
+        self.lblTotalATK.config(text = "Total ATK: " + str(self.monster.TotalATK + self.assistATK))
+        self.lblTotalRCV.config(text = "Total RCV: " + str(self.monster.TotalRCV+ self.assistRCV))
+        pass
+
+    def changeHP(self):
+        self.monster.setPlusHP(int(self.spnHP.get()))
+        self.bonusHP = self.monster.PlusHP * 10
+        self.lblBonusHP.config(text = "Bonus HP: " + str(self.bonusHP + self.assistHP))
+        self.lblTotalHP.config(text = "Total HP: " + str(self.monster.TotalHP + self.assistHP))
+        pass
+
+    def changeATK(self):
+        self.monster.setPlusATK(int(self.spnATK.get()))
+        self.bonusATK = self.monster.PlusATK * 5
+        self.lblBonusATK.config(text = "Bonus ATK: " + str(self.bonusATK + self.assistATK))
+        self.lblTotalATK.config(text = "Total ATK: " + str(self.monster.TotalATK + self.assistATK))
+        pass
+
+    def changeRCV(self):
+        self.monster.setPlusRCV(int(self.spnRCV.get()))
+        self.bonusRCV = self.monster.PlusRCV * 3
+        self.lblBonusRCV.config(text = "Bonus RCV: " + str(self.bonusRCV + self.assistRCV))
+        self.lblTotalRCV.config(text = "Total RCV: " + str(self.monster.TotalRCV+ self.assistRCV))
+        pass
+
+    def changeSkillLevel(self):
+        self.monster.setSkillLevel(int(self.spnSkillLVL.get()))
+        self.monster.updateStats()
+        self.lblSkillCooldown.config(text = "Cooldown: " + str(self.monster.ActiveSkillCoolDown))
+        pass
+
+    def changeSkillsAwoke(self):
+        self.monster.setSkillsAwoke(int(self.spnAwokenSkill.get()))
+        self.aSListImg = []
+        for i in range(1, len(self.aSList)):
+                if i <= self.monster.SkillsAwoke:
+                    if self.aSList[i] is not None:
+                        self.aSListImg.append(PhotoImage(file = "Resource/PAD/Images/Awoken Skills/" + str(self.aSList[i]) +'.png'))
+                        self.numAS += 1
+                    else:
+                        self.aSListImg.append(None)
+                else:
+                    if self.aSList[i] is not None:
+                        self.aSListImg.append(PhotoImage(file = "Resource/PAD/Images/Awoken Skills/not " + str(self.aSList[i]) +'.png'))
+                        self.numAS += 1
+                    else:
+                        self.aSListImg.append(None)
+
+        self.builder.get_object("canAwokenSkillOne").delete("all")
+        self.builder.get_object("canAwokenSkillTwo").delete("all")
+        self.builder.get_object("canAwokenSkillThree").delete("all")
+        self.builder.get_object("canAwokenSkillFour").delete("all")
+        self.builder.get_object("canAwokenSkillFive").delete("all")
+        self.builder.get_object("canAwokenSkillSix").delete("all")
+        self.builder.get_object("canAwokenSkillSeven").delete("all")
+        self.builder.get_object("canAwokenSkillEight").delete("all")
+        self.builder.get_object("canAwokenSkillNine").delete("all")
+
+        self.builder.get_object("canAwokenSkillOne").create_image(2,2, image = self.aSListImg[0], anchor = tk.NW)
+        self.builder.get_object("canAwokenSkillTwo").create_image(2,2, image = self.aSListImg[1], anchor = tk.NW)
+        self.builder.get_object("canAwokenSkillThree").create_image(2,2, image = self.aSListImg[2], anchor = tk.NW)
+        self.builder.get_object("canAwokenSkillFour").create_image(2,2, image = self.aSListImg[3], anchor = tk.NW)
+        self.builder.get_object("canAwokenSkillFive").create_image(2,2, image = self.aSListImg[4], anchor = tk.NW)
+        self.builder.get_object("canAwokenSkillSix").create_image(2,2, image = self.aSListImg[5], anchor = tk.NW)
+        self.builder.get_object("canAwokenSkillSeven").create_image(2,2, image = self.aSListImg[6], anchor = tk.NW)
+        self.builder.get_object("canAwokenSkillEight").create_image(2,2, image = self.aSListImg[7], anchor = tk.NW)
+        self.builder.get_object("canAwokenSkillNine").create_image(2,2, image = self.aSListImg[8], anchor = tk.NW)
+        pass
+
     def addLatentAwokenSkill(self):
         for i in self.latents:
             if self.chosenLatent == i[0]:
@@ -126,14 +205,10 @@ class MonsterEdit:
         pass
 
     def applyChanges(self):
-        self.monster.setLevel(int(self.spnLevel.get()))
-        self.monster.setPlusHP(int(self.spnHP.get()))
-        self.monster.setPlusATK(int(self.spnATK.get()))
-        self.monster.setPlusRCV(int(self.spnRCV.get()))
-        self.monster.setSkillLevel(int(self.spnAwokenSkill.get()))
-        self.monster.setSkillsAwoke(int(self.spnSkillLVL.get()))
-
-
+        global k
+        self.master.playerCollection.buttons[self.master.playerCollection.k].clickMe(self)
+        self.master.PADsql.saveMonster(self.monster.getSaveDict())
+        self.master.showPlayerCollection()
         pass
 
     def cancel(self):
@@ -232,6 +307,8 @@ class MonsterEdit:
 
         self.lblTotalRCV = self.builder.get_object("lblTotalRCV")
         self.lblTotalRCV.config(text = "Total RCV: " + str(self.monster.TotalRCV+ self.assistRCV))
+
+        
 
         self.spnLevel = self.builder.get_object("spnLevel")
         self.spnLevel.config(state = NORMAL)

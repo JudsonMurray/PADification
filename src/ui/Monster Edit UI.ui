@@ -101,6 +101,7 @@ Activated</property>
             </child>
             <child>
               <object class="tk.Spinbox" id="spnAwokenSkill">
+                <property name="command">changeSkillsAwoke</property>
                 <property name="from_">0</property>
                 <property name="state">disabled</property>
                 <property name="textvariable">string:spnAwokenSkill</property>
@@ -679,6 +680,7 @@ something wrong with the source code</property>
                 </child>
                 <child>
                   <object class="tk.Spinbox" id="spnSkillLvl">
+                    <property name="command">changeSkillLevel</property>
                     <property name="state">disabled</property>
                     <property name="textvariable">string:spnSkillLvl</property>
                     <layout>
@@ -760,6 +762,7 @@ something wrong with the source code</property>
                 </child>
                 <child>
                   <object class="tk.Spinbox" id="spnLevel">
+                    <property name="command">changeLevel</property>
                     <property name="from_">0</property>
                     <property name="textvariable">string:spnLevel</property>
                     <property name="to">99</property>
@@ -782,6 +785,7 @@ something wrong with the source code</property>
                 </child>
                 <child>
                   <object class="tk.Spinbox" id="spn+HP">
+                    <property name="command">changeHP</property>
                     <property name="from_">0</property>
                     <property name="textvariable">string:spn+HP</property>
                     <property name="to">99</property>
@@ -804,6 +808,7 @@ something wrong with the source code</property>
                 </child>
                 <child>
                   <object class="tk.Spinbox" id="spn+ATK">
+                    <property name="command">changeATK</property>
                     <property name="from_">0</property>
                     <property name="textvariable">string:spn+ATK</property>
                     <property name="to">99</property>
@@ -826,6 +831,7 @@ something wrong with the source code</property>
                 </child>
                 <child>
                   <object class="tk.Spinbox" id="spn+RCV">
+                    <property name="command">changeRCV</property>
                     <property name="from_">0</property>
                     <property name="textvariable">string:spn+RCV</property>
                     <property name="to">99</property>
