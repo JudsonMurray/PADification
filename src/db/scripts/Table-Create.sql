@@ -307,7 +307,7 @@ GO
 CREATE TABLE PADification.dbo.Follower (
   FID INT IDENTITY(1,1) NOT NULL,
   Email VARCHAR(50) NOT NULL,
-  FollowerEmail VARCHAR(50) NOT NULL,
+  FollowingEmail VARCHAR(50) NOT NULL,
   CONSTRAINT PK_Follower PRIMARY KEY (FID)
 )
 GO
