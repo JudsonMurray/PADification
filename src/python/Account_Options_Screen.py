@@ -69,17 +69,17 @@ class AccountOptions:
         self.onNewPassFocusOut(self)
         self.onPasswordFocusOut(self)
         self.onUsernameFocusOut(self)
-    def onMainMenuClick(self):
+    def onHomeClick(self, event):
         """Displays Main Menu"""
         self.master.showHomeScreen()
 
-    def onMonsterBookClick(self):
+    def onBookClick(self, event):
         self.master.showMonsterBook()
 
-    def onMyMonstersClick(self):
+    def onCollectionClick(self, event):
         self.master.showPlayerCollection()
 
-    def onMyTeamsClick(self):
+    def onTeamsClick(self, event):
         self.master.showTeamBrowser()
 
     def onUsernameFocusIn(self,event):
