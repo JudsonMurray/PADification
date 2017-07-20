@@ -94,7 +94,7 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
         if monster != None:
             self.monster = monster
             self.portraitImage = Image.open("Resource/PAD/Images/portraits/"+ str(self.monster.MonsterClassID) + ".jpg")
-            self.portraitImage = self.portraitImage.resize((int(self.portraitImage.width / 1.33), int(self.portraitImage.height // 1.33)))
+            self.portraitImage = self.portraitImage.resize((int(self.portraitImage.width / 1.66), int(self.portraitImage.height // 1.66)))
             self.portraitimg = ImageTk.PhotoImage(self.portraitImage, self.portrait)
         else:
             self.monster = monster
@@ -104,18 +104,23 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
 
     def showcontents(self):
         if self.monster != None:
+            self.tipwindow.config(relief=GROOVE, borderwidth=10)
             self.portrait = Label(self.tipwindow, image = self.portraitimg, justify=LEFT,
-                            background="#ffffe0", relief=GROOVE, borderwidth=4)
-            self.portrait.pack()
+                            background="#ffffe0")
+            self.portrait.grid(row=1,column=0)
 
-            self.name = CustomFont_Label(self.tipwindow, text= self.monster.MonsterName, font_path="Resource/PAD/Font/FOT-RowdyStd-EB.ttf", size=20)
 
-            self.name.pack()
+            self.name = CustomFont_Label(self.tipwindow, text= self.monster.MonsterName, font_path="Resource/PAD/Font/FOT-RowdyStd-EB.ttf", size=18, foreground="#800080")
+            self.name.grid(row=0,column=0,columnspan=2)
 
-            self.stats = Label(self.tipwindow, text = "Level = " + str(self.monster.Level) + "\tHp = " + str(self.monster.TotalHP) +
-                                "\tAtk = " + str(self.monster.TotalATK) + "\tRCV = " + str(self.monster.TotalRCV), 
-                                justify=LEFT, relief=GROOVE, borderwidth=4, font='Yu')
-            self.stats.pack()
+            self.stats = Label(self.tipwindow, 
+                               text = "  ID= " + str(self.monster.MonsterClassID) +
+                               "\nLVL= " + str(self.monster.Level) + 
+                               "\n  HP= " + str(self.monster.TotalHP) +
+                                "\nATK= " + str(self.monster.TotalATK) + 
+                                "\nRCV= " + str(self.monster.TotalRCV), 
+                                justify=LEFT, font=('Yu', 14, 'bold'))
+            self.stats.grid(row=0,column=1,rowspan=3)
 
     def schedule(self):
         self.unschedule()
