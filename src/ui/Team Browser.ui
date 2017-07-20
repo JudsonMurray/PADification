@@ -1072,4 +1072,121 @@
       </object>
     </child>
   </object>
+  <object class="tk.Frame" id="frmTeamPreview">
+    <property name="borderwidth">4</property>
+    <property name="height">140</property>
+    <property name="relief">raised</property>
+    <property name="width">530</property>
+    <layout>
+      <property name="column">0</property>
+      <property name="propagate">False</property>
+      <property name="row">0</property>
+    </layout>
+    <child>
+      <object class="tk.Canvas" id="canTeamSlot1">
+        <property name="borderwidth">2</property>
+        <property name="height">97</property>
+        <property name="relief">groove</property>
+        <property name="width">96</property>
+        <bind add="True" handler="onCanTeamSlotClick" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">False</property>
+          <property name="row">1</property>
+          <property name="rowspan">4</property>
+          <property name="sticky">nw</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Canvas" id="canTeamSlot2">
+        <property name="borderwidth">2</property>
+        <property name="height">97</property>
+        <property name="relief">groove</property>
+        <property name="width">96</property>
+        <bind add="True" handler="onCanTeamSlotClick" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">1</property>
+          <property name="propagate">False</property>
+          <property name="row">1</property>
+          <property name="rowspan">4</property>
+          <property name="sticky">nw</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Canvas" id="canTeamSlot3">
+        <property name="borderwidth">2</property>
+        <property name="height">97</property>
+        <property name="relief">groove</property>
+        <property name="width">96</property>
+        <bind add="True" handler="onCanTeamSlotClick" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">2</property>
+          <property name="propagate">False</property>
+          <property name="row">1</property>
+          <property name="rowspan">4</property>
+          <property name="sticky">nw</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Canvas" id="canTeamSlot4">
+        <property name="borderwidth">2</property>
+        <property name="height">96</property>
+        <property name="relief">groove</property>
+        <property name="width">97</property>
+        <bind add="True" handler="onCanTeamSlotClick" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">3</property>
+          <property name="propagate">False</property>
+          <property name="row">1</property>
+          <property name="rowspan">4</property>
+          <property name="sticky">nw</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Canvas" id="canTeamSlot5">
+        <property name="borderwidth">2</property>
+        <property name="height">96</property>
+        <property name="relief">groove</property>
+        <property name="width">97</property>
+        <bind add="True" handler="onCanTeamSlotClick" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">4</property>
+          <property name="propagate">False</property>
+          <property name="row">1</property>
+          <property name="rowspan">4</property>
+          <property name="sticky">nw</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="lblTeamUsername">
+        <property name="font">{yu} 12 {bold}</property>
+        <property name="text" translatable="yes">User: ---------------</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">7</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+          <property name="sticky">nw</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="lblTeamName_1">
+        <property name="font">{yu} 14 {}</property>
+        <property name="text" translatable="yes">Team Name: ---------------</property>
+        <layout>
+          <property name="column">2</property>
+          <property name="columnspan">6</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="sticky">nw</property>
+        </layout>
+      </object>
+    </child>
+  </object>
 </interface>

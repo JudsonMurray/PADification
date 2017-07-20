@@ -6,6 +6,7 @@
 
 import pygame
 import tkinter as tk
+from CustomWidgets import *
 import pygubu
 from tkinter import messagebox
 from tkinter import *
@@ -14,6 +15,7 @@ import pypyodbc
 import sys
 import PADSQL
 import PADMonster
+from PIL import Image, ImageFont, ImageDraw, ImageTk
 
 #variables to tell which monsters are selected within the collection
 class TeamBrowser():
@@ -40,6 +42,11 @@ class TeamBrowser():
                             self.builder.get_object('canSubMon2'), 
                             self.builder.get_object('canSubMon3'),
                             self.builder.get_object('canSubMon4')]
+        self.teamMonsters = [self.SelectedTeam.LeaderMonster,
+                             self.SelectedTeam.SubMonsterOne,
+                             self.SelectedTeam.SubMonsterTwo,
+                             self.SelectedTeam.SubMonsterThree,
+                             self.SelectedTeam.SubMonsterFour]
         return
 
     def loadUserTeams(self):
@@ -103,7 +110,7 @@ class TeamBrowser():
         self.myMonsterList = []
 
         for i in self.SelectedTeam.Monsters:
-            self.myMonsterList.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(i.MonsterClassID) + '.png')) if i != None else self.myMonsterList.append(None)
+            self.myMonsterList.append(ImageTk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(i.MonsterClassID) + '.png')) if i != None else self.myMonsterList.append(None)
 
         self.updateTeamLabels(self.builder, self.SelectedTeam)
         return
@@ -113,41 +120,42 @@ class TeamBrowser():
         self.SelectedTeam = team
         self.thisBuild = build
         self.SelectedTeam.update()
-        for i in self.teamCanvas:
-            i.delete('ALL')
-
+        self.teamMonsters = [self.SelectedTeam.LeaderMonster,
+                             self.SelectedTeam.SubMonsterOne,
+                             self.SelectedTeam.SubMonsterTwo,
+                             self.SelectedTeam.SubMonsterThree,
+                             self.SelectedTeam.SubMonsterFour]
         self.myMonsterL = []
-
+        teamCanvas = [self.thisBuild.get_object('canLeadMon'), 
+                            self.thisBuild.get_object('canSubMon1'),
+                            self.thisBuild.get_object('canSubMon2'), 
+                            self.thisBuild.get_object('canSubMon3'),
+                            self.thisBuild.get_object('canSubMon4')]
+        for i in teamCanvas:
+            i.delete('ALL')
         i = 0
-        if self.SelectedTeam.LeaderMonster != None:
-            self.myMonsterL.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(self.SelectedTeam.Monsters[i].MonsterClassID) + '.png'))
-            i+= 1
-        else:
-            self.myMonsterL.append(None)
-        if self.SelectedTeam.SubMonsterOne != None:
-            self.myMonsterL.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(self.SelectedTeam.Monsters[i].MonsterClassID) + '.png'))
-            i+= 1
-        else:
-            self.myMonsterL.append(None)
-        if self.SelectedTeam.SubMonsterTwo != None:
-            self.myMonsterL.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(self.SelectedTeam.Monsters[i].MonsterClassID) + '.png'))
-            i+= 1
-        else:
-            self.myMonsterL.append(None)
-        if self.SelectedTeam.SubMonsterThree != None:
-            self.myMonsterL.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(self.SelectedTeam.Monsters[i].MonsterClassID) + '.png'))
-            i+= 1
-        else:
-            self.myMonsterL.append(None)
-        if self.SelectedTeam.SubMonsterFour != None:
-            self.myMonsterL.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(self.SelectedTeam.Monsters[i].MonsterClassID) + '.png'))
-            i+= 1
-        else:
-            self.myMonsterL.append(None)
-
+        j=0
+        ww= int(teamCanvas[i].winfo_width())
+        wh= int(teamCanvas[i].winfo_height())
+        while i < 5:
+            if self.teamMonsters[i] != None:
+                self.fp = 'Resource/PAD/Images/thumbnails/'+ str(self.SelectedTeam.Monsters[j].MonsterClassID) + '.png'
+                self.img = Image.open(self.fp).resize((ww-14,wh-14))
+                self.myMonsterL.append(ImageTk.PhotoImage(self.img))
+                j+=1
+            else:
+                self.myMonsterL.append(None)
+            i += 1
+        j = 0
         for i in range(0,5):
             if self.myMonsterL[i] != None:
-                self.teamCanvas[i].create_image(7,7,image = self.myMonsterL[i], anchor = tk.NW, tag = "pic")
+                teamCanvas[i].create_image(7,7,image = self.myMonsterL[i], anchor = tk.NW, tag = "pic")
+                MonsterStatTooltip(teamCanvas[i]).update(self.SelectedTeam.Monsters[j])
+                j+=1
+            else:
+                MonsterStatTooltip(teamCanvas[i]).update()
+                
+
 
         if build == self.builder:
             self.builder.get_object('lblTeamName').config(text='' + str(self.SelectedTeam.TeamName))

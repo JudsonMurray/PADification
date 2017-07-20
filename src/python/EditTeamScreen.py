@@ -12,6 +12,7 @@
 import pygame
 import tkinter as tk
 import pygubu
+from CustomWidgets import *
 from tkinter import messagebox
 from tkinter import *
 import tkinter as tk
@@ -247,7 +248,7 @@ class EditTeam():
             self.buttons.append(MonsterFrame(self.container, self.builder, self.count, self.instantList, a, self.buttons, self.PADsql, self.state, self.destroyerTeam, self.var, self.master))
             self.buttons[self.count].monbut.config(width=65)
             self.buttons[self.count].monbut.grid(row=self.count // 10,column = self.count % 10)
-            self.buttons[self.count].builder.get_object('FrameLabel').create_image(2,2, image = self.myMonsterList[self.count], anchor = tk.NW)
+            self.buttons[self.count].builder.get_object('FrameLabel').create_image(2,2, image = self.myMonsterList[self.count+ (self.page - 1) * 50], anchor = tk.NW)
             self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(a.Level)+ '\nID: ' + str(a.MonsterClassID))
 
             if self.destroyerTeam.LeaderMonster == b or self.destroyerTeam.SubMonsterOne == b or\
@@ -260,60 +261,16 @@ class EditTeam():
 
     def loadTeam(self, instance):
         self.badgeNum = None
+        self.leadClick(self)
         self.teamInstance = instance
         self.updateTeam(self.teamInstance)
         self.populateCollection()
 
-    def updateTeam(self, i):
+    def updateTeam(self, team):
         self.myMonsterL = []
-        self.destroyerTeam = i
-        self.teamCanvas[0].delete('all')
-        self.teamCanvas[1].delete('all')
-        self.teamCanvas[2].delete('all')
-        self.teamCanvas[3].delete('all')
-        self.teamCanvas[4].delete('all')
-        i = 0
-        if self.destroyerTeam.LeaderMonster != None:
-            self.myMonsterL.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(self.destroyerTeam.Monsters[i].MonsterClassID) + '.png').zoom(5).subsample(7))
-            i+= 1
-        else:
-            self.myMonsterL.append(None)
-        if self.destroyerTeam.SubMonsterOne != None:
-            self.myMonsterL.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(self.destroyerTeam.Monsters[i].MonsterClassID) + '.png').zoom(5).subsample(7))
-            i+= 1
-        else:
-            self.myMonsterL.append(None)
-        if self.destroyerTeam.SubMonsterTwo != None:
-            self.myMonsterL.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(self.destroyerTeam.Monsters[i].MonsterClassID) + '.png').zoom(5).subsample(7))
-            i+= 1
-        else:
-            self.myMonsterL.append(None)
-        if self.destroyerTeam.SubMonsterThree != None:
-            self.myMonsterL.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(self.destroyerTeam.Monsters[i].MonsterClassID) + '.png').zoom(5).subsample(7))
-            i+= 1
-        else:
-            self.myMonsterL.append(None)
-        if self.destroyerTeam.SubMonsterFour != None:
-            self.myMonsterL.append(tk.PhotoImage(file = 'Resource/PAD/Images/thumbnails/'+ str(self.destroyerTeam.Monsters[i].MonsterClassID) + '.png').zoom(5).subsample(7))
-            i+= 1
-        else:
-            self.myMonsterL.append(None)
-
-        while len(self.myMonsterL) < 5:
-            self.myMonsterL.append(None)
- 
-        if self.myMonsterL[0] != None:
-            self.teamCanvas[0].create_image(7,7,image = self.myMonsterL[0], anchor = tk.NW, tag = "pic")
-        if self.myMonsterL[1] != None:
-            self.teamCanvas[1].create_image(7,7,image = self.myMonsterL[1], anchor = tk.NW, tag = "pic")
-        if self.myMonsterL[2] != None:
-            self.teamCanvas[2].create_image(7,7,image = self.myMonsterL[2], anchor = tk.NW, tag = "pic")
-        if self.myMonsterL[3] != None:
-            self.teamCanvas[3].create_image(7,7,image = self.myMonsterL[3], anchor = tk.NW, tag = "pic")
-        if self.myMonsterL[4] != None:
-            self.teamCanvas[4].create_image(7,7,image = self.myMonsterL[4], anchor = tk.NW, tag = "pic")
-
-
+        self.destroyerTeam = team
+        for i in range(0,5):
+            self.teamCanvas[i].delete('all')
         self.builder.get_variable('teamName').set(self.destroyerTeam.TeamName)
         self.master.teamBrowser.setImages(self.builder)
         self.master.teamBrowser.updateTeamLabels(self.builder, self.destroyerTeam)
@@ -328,11 +285,8 @@ class EditTeam():
 
     def raiseTeam(self):
         """returns team selection to raised relief"""
-        self.teamCanvas[0].config(relief=RAISED)
-        self.teamCanvas[1].config(relief=RAISED)
-        self.teamCanvas[2].config(relief=RAISED)
-        self.teamCanvas[3].config(relief=RAISED)
-        self.teamCanvas[4].config(relief=RAISED)
+        for i in range(0,5):
+            self.teamCanvas[i].config(relief=RAISED)
         return
 
     def leadClick(self, event):
