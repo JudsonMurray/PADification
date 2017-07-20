@@ -267,7 +267,7 @@ class PADSQL():
         else:
             return self.cursor.fetchall()
 
-    def selectMonsterInstance(self, monSearch = None, dictionary = True, wishlist = 0, allUsers = False):
+    def selectMonsterInstance(self, monSearch = None, dictionary = True, wishlist = 0, allUsers = False, byInstanceID = True):
 
         if allUsers:
             SQLCommand = ("SELECT MonsterInstance.MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, "
@@ -282,7 +282,10 @@ class PADSQL():
             if monSearch == None:
                 SQLCommand += " ORDER BY InstanceID ASC"
             elif type(monSearch) == int:
-                SQLCommand += " WHERE InstanceID = " + str(monSearch)
+                if byInstanceID:
+                    SQLCommand += " WHERE InstanceID = " + str(monSearch)
+                else:
+                    SQLCommand += " WHERE MonsterInstance.MonsterClassID = " + str(monSearch)
             elif type(monSearch) == str:
                 SQLCommand += " WHERE MonsterName LIKE '%" + monSearch + "%'"
 
@@ -299,7 +302,10 @@ class PADSQL():
             if monSearch == None:
                 SQLCommand += " ORDER BY InstanceID ASC"
             elif type(monSearch) == int:
-                SQLCommand += " AND InstanceID = " + str(monSearch)
+                if byInstanceID:
+                    SQLCommand += " and InstanceID = " + str(monSearch)
+                else:
+                    SQLCommand += " and MonsterInstance.MonsterClassID = " + str(monSearch)
             elif type(monSearch) == str:
                 SQLCommand += " AND MonsterName LIKE '%" + monSearch + "%'"
 
