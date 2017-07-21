@@ -52,10 +52,10 @@ class PADification(tk.Tk):
         self.teamBrowser = TeamBrowserScreen.TeamBrowser(self)
         self.editTeam = EditTeamScreen.EditTeam(self)
         self.monsterEdit = MonsterEditScreen.MonsterEdit(self)
-        self.showLoginScreen()
-        #self.showHomeScreen()
-        #self.lower()
-        #LoginDialog(self,"LOGIN")
+        #self.showLoginScreen()
+        self.showHomeScreen()
+        self.lower()
+        LoginDialog(self,"LOGIN")
         super().mainloop()
 
     #Displays the login screen

@@ -148,6 +148,7 @@ class LoginDialog(sd.Dialog):
         self.entPassword = None
         self.Email = StringVar(value = "Enter Email")
         self.Password = StringVar(value = "Enter Password")
+        self.Server = StringVar(value = "127.0.0.1")
         super().__init__(parent, title)
         
 
@@ -162,6 +163,9 @@ class LoginDialog(sd.Dialog):
         box = Frame(self)
         l = Label(box, image= self.imgTitleImage)
         l.pack()
+
+        self.entServer = Entry(box, width=20, textvariable=self.Server, font="yu")
+        self.entServer.pack(pady=5)
         self.entEmail = Entry(box, width=20, textvariable=self.Email,foreground="#c6caca", font="yu")
         self.entEmail.pack(pady=5)
         self.entPassword = Entry(box, width=20, textvariable=self.Password,foreground="#c6caca", font="yu")
@@ -217,7 +221,7 @@ class LoginDialog(sd.Dialog):
 
     def onLoginClick(self, event  = None):
         """Occurs When Login Button Is Clicked"""
-        self.master.PADsql.login(self.Email.get(), self.Password.get())
+        self.master.PADsql.login(self.Email.get(), self.Password.get(), self.Server.get())
         if self.master.PADsql.signedIn:
             self.master.showHomeScreen()
             self.destroy()
