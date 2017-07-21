@@ -362,7 +362,7 @@
         </layout>
         <child>
           <object class="tk.Button" id="btnSearchTeams">
-            <property name="command">onRefreshTeamsClick</property>
+            <property name="command">onSearchTeamsClick</property>
             <property name="compound">top</property>
             <property name="font">{yu} 12 {bold}</property>
             <property name="text" translatable="yes">Search</property>
@@ -396,10 +396,11 @@
         <child>
           <object class="tk.Entry" id="entSearchTeams">
             <property name="font">{yu} 12 {}</property>
-            <property name="foreground">#c0c0c0</property>
             <property name="text" translatable="yes">Enter Team Name.</property>
             <property name="textvariable">string:varTeamSearch</property>
             <property name="width">31</property>
+            <bind add="True" handler="onSearchBarFocusIn" sequence="&lt;FocusIn&gt;" />
+            <bind add="True" handler="onSearchBarFocusOut" sequence="&lt;FocusOut&gt;" />
             <layout>
               <property name="column">0</property>
               <property name="columnspan">10</property>
@@ -800,9 +801,11 @@
             <child>
               <object class="tk.Entry" id="entPlayerSearch">
                 <property name="font">{yu} 12 {}</property>
-                <property name="foreground">#c0c0c0</property>
-                <property name="text" translatable="yes">Enter a Username</property>
+                <property name="text" translatable="yes">Enter a Username.</property>
+                <property name="textvariable">string:varPlayerSearch</property>
                 <property name="width">22</property>
+                <bind add="True" handler="onSearchBarFocusIn" sequence="&lt;FocusIn&gt;" />
+                <bind add="True" handler="onSearchBarFocusOut" sequence="&lt;FocusOut&gt;" />
                 <layout>
                   <property name="column">0</property>
                   <property name="ipadx">0</property>

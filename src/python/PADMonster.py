@@ -377,3 +377,4 @@ class Team():
         """Sets Leader Monster requires instanceID"""
         self.SubMonsterFour = InstanceID
         self.update()
+

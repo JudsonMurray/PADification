@@ -18,13 +18,13 @@ class HomeScreen():
     """Displays Home Screen Frame and widgets"""
     def __init__(self, master):
         self.TEAMRESULTSPERPAGE = 6
-        self.PLAYERRESULTSPERPAGE = 5
+        self.PLAYERRESULTSPERPAGE = 9
 
         #Load GUI
         self.master = master
-        self.builder = builder = pygubu.Builder()
-        builder.add_from_file('src/ui/HomeScreen.ui')
-        self.mainwindow = builder.get_object('homePageFrame', master)
+        self.builder = pygubu.Builder()
+        self.builder.add_from_file('src/ui/HomeScreen.ui')
+        self.mainwindow = self.builder.get_object('homePageFrame', master)
         self.builder.connect_callbacks(self)
 
         #Screen Widgets
@@ -43,14 +43,22 @@ class HomeScreen():
         self.canPlayerSearch = self.builder.get_object('canPlayerSearch')
         self.PlayerSearchFrames = []
 
+        self.entTeamSearch = self.builder.get_object("entSearchTeams")
+        self.entPlayerSearch = self.builder.get_object("entPlayerSearch")
+       
+
         #Pygubu Variables
         self.FollowSwitch = self.builder.get_variable("varFollowSwitch")
+        self.TeamSearch = self.builder.get_variable("varTeamSearch")
+        self.PlayerSearch = self.builder.get_variable("varPlayerSearch")
 
         #Screen Variables
         self.ProfileImage = None
         self.imgTitleImage = PhotoImage(file = "Resource/PAD/Images/Padification Logo.png")
         self.builder.get_object('lblTitleImage').config(image = self.imgTitleImage)
         self.firstLoad = True
+        self.PlayerSearchResults = None
+        self.TeamSearchResults = None
 
         for i in range( 0 , self.TEAMRESULTSPERPAGE ):
             self.TeamPreviews.append(TeamPreview(self.canTeamPreviewer, self))
@@ -94,20 +102,28 @@ class HomeScreen():
         Selected = []
         for i in Frames:
             i.mainFrame.grid_forget()
-
-        if len(sqlQuery) >= len(Frames):
-            while len(Selected) < len(Frames):
-                choice = random.choice(sqlQuery)
-                if choice not in Selected:
-                    Selected.append(choice)
-            count = 0
-            for i in Frames:
-                i.update(Selected[count])
-                i.mainFrame.grid(row = count)
-                count += 1
+        if rand:
+            if len(sqlQuery) >= len(Frames):
+                while len(Selected) < len(Frames):
+                    choice = random.choice(sqlQuery)
+                    if choice not in Selected:
+                        Selected.append(choice)
+                count = 0
+                for i in Frames:
+                    i.update(Selected[count])
+                    i.mainFrame.grid(row = count)
+                    count += 1
+            else:
+                random.shuffle(sqlQuery)
+                count = 0
+                for i in Frames:
+                    if count >= len(sqlQuery):
+                        break
+                    i.update(sqlQuery[count])
+                    i.mainFrame.grid(row = count)
+                    count +=1
         else:
-            random.shuffle(sqlQuery)
-            count = 0
+            count=0
             for i in Frames:
                 if count >= len(sqlQuery):
                     break
@@ -129,9 +145,39 @@ class HomeScreen():
         print("Followings:", self.Followings)
 
 
-    def onRefreshTeamsClick(self):
-        self.updateFrames(self.master.PADsql.selectAllTeamInstance(), self.TeamPreviews)
+    def onSearchTeamsClick(self):
+        PriAttributes = []
+        for i in ["PriFire", "PriWater", "PriWood", "PriLight", "PriDark"]:
+            if self.builder.get_variable(i).get() != "" and self.builder.get_variable(i).get() != "0":
+                PriAttributes.append(self.builder.get_variable(i).get())
+        if len(PriAttributes) == 0:
+            PriAttributes = ["Fire","Water","Wood","Light","Dark"]
 
+        value = self.TeamSearch.get()
+        
+        if value and value != "Enter Team Name.":
+            self.updateFrames(self.master.PADsql.selectTeamInstance(value, allUser = True), self.TeamPreviews)
+        else:
+            self.updateFrames(self.master.PADsql.selectAllTeamInstance(), self.TeamPreviews, True)
+
+
+    def onSearchBarFocusIn(self, event):
+        #Clears Search Bar on focus
+        if event.widget == self.entTeamSearch:
+            if self.TeamSearch.get() == "Enter Team Name.":
+                self.TeamSearch.set("")
+        elif event.widget == self.entPlayerSearch:
+            if self.PlayerSearch.get() == "Enter a Username.":
+                self.PlayerSearch.set("")
+
+    def onSearchBarFocusOut(self, event):
+        #Populates empty Search bar on focus out
+        if event.widget == self.entTeamSearch:
+            if self.TeamSearch.get() == "":
+                self.TeamSearch.set("Enter Team Name.")
+        elif event.widget == self.entPlayerSearch:
+            if self.PlayerSearch.get() == "":
+                self.PlayerSearch.set("Enter a Username.")
 
     def onProfileImageClick(self, event):
         value = sd.askstring("Change Profile Image", "Enter Monster ID or Name:", parent=self.canProfileImage)
@@ -148,10 +194,8 @@ class HomeScreen():
     def onHomeClick(self,event):
             self.master.showHomeScreen()
 
-
     def onCollectionClick(self,event):
         self.master.showPlayerCollection()
-
 
     def onBookClick(self,event):
         self.master.showMonsterBook()

@@ -128,8 +128,30 @@ class PADSQL():
         else:
             return False
 
-    def selectUsers(self, Email = None):
-        if Email == None:
+    def selectUsers(self, Email = None, Username = None):
+        if Email != None:
+            SQLCommand = "Select Username From Player WHERE Email = '" + Email + "'"
+            self.cursor.execute(SQLCommand)
+            return self.cursor.fetchone()[0]
+
+        elif Username != None:
+            SQLCommand = "Select Username, PlayerID, Email, ProfileImage From Player WHERE Username like '%" + Username + "%'"
+            self.cursor.execute(SQLCommand)
+            keys = ['Username', 'PlayerID', 'Email', 'ProfileImage']
+            playerCollection = []
+            results = self.cursor.fetchone()
+
+            while results:
+                playerDict = {}
+                count = 0
+                for i in results:
+                    playerDict[keys[count]] = i
+                    count += 1
+                playerCollection.append(playerDict)
+                results = self.cursor.fetchone()
+
+            return playerCollection
+        else:
             SQLCommand = "Select Username, PlayerID, Email, ProfileImage From Player"
             self.cursor.execute(SQLCommand)
 
@@ -147,10 +169,6 @@ class PADSQL():
                 results = self.cursor.fetchone()
 
             return playerCollection
-        else:
-            SQLCommand = "Select Username From Player WHERE Email = '" + Email + "'"
-            self.cursor.execute(SQLCommand)
-            return self.cursor.fetchone()[0]
 
     def selectFollowings(self, User = None):
         if User == None:
@@ -221,6 +239,7 @@ class PADSQL():
             return True
         else:
             return False
+    
     def closeConnection(self):
         """Closes Connection to PADification Database"""
         self.connection.close()
@@ -383,14 +402,24 @@ class PADSQL():
             user = UserEmail
 
         SQLCommand = ("SELECT TeamInstanceID, Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, AwokenBadgeName "
-                "FROM Team "
-                "WHERE Email = '" + str(user) + "'" )
+                "FROM Team ")
+
+        if not allUser:
+            SQLCommand += "WHERE Email = '" + str(user) + "'" 
+
+
         if teamsearch == None:
             SQLCommand += " ORDER BY TeamName ASC"
         elif type(teamsearch) == int:
-            SQLCommand += " AND TeamInstanceID = " + str(teamsearch)
+            if not allUser:
+                SQLCommand += " AND TeamInstanceID = " + str(teamsearch)
+            else:
+                SQLCommand += "WHERE TeamInstanceID = " + str(teamsearch)
         elif type(teamsearch) == str:
-            SQLCommand += " AND TeamName LIKE '%" + teamsearch + "%'"
+            if not allUser:
+                SQLCommand += " AND TeamName LIKE '%" + teamsearch + "%'"
+            else:
+                SQLCommand += "WHERE TeamName LIKE '%" + teamsearch + "%'"
 
         self.cursor.execute(SQLCommand)
 
