@@ -13,6 +13,7 @@ from tkinter import messagebox as mb
 from tkinter import simpledialog as sd
 from tkinter import *
 from PIL import Image, ImageFont, ImageDraw, ImageTk
+import math
 
 class HomeScreen():
     """Displays Home Screen Frame and widgets"""
@@ -57,8 +58,19 @@ class HomeScreen():
         self.imgTitleImage = PhotoImage(file = "Resource/PAD/Images/Padification Logo.png")
         self.builder.get_object('lblTitleImage').config(image = self.imgTitleImage)
         self.firstLoad = True
-        self.PlayerSearchResults = None
+
+        #Search and page Variables
+
         self.TeamSearchResults = None
+        self.TeamCurPage = 1
+        self.TeamMaxPage = 1
+        self.entTeamPage = self.builder.get_variable("varTeamPageEnt")
+
+        self.PlayerSearchResults = None
+        self.PlayerCurPage = 1
+        self.PlayerMaxPage = 1
+
+
 
         for i in range( 0 , self.TEAMRESULTSPERPAGE ):
             self.TeamPreviews.append(TeamPreview(self.canTeamPreviewer, self))
@@ -89,53 +101,32 @@ class HomeScreen():
         self.lblCollectionCount.config(text ="Monsters\t= " + str(len(self.master.PADsql.selectMonsterInstance())) )
         self.lblTeamCount.config(text ="Teams\t= " + str(len(self.master.PADsql.selectTeamInstance())))
 
-
         if self.firstLoad:
             self.updateFollowings()
-            self.updateFrames(self.master.PADsql.selectAllTeamInstance(), self.TeamPreviews, rand = True)
-            self.updateFrames(self.master.PADsql.selectUsers(), self.PlayerSearchFrames, rand = True)
-            self.updateFrames(self.master.PADsql.selectFollowings(), self.FollowFrames, rand = False)
+            self.onSearchTeamsClick()
+            self.updateFrames(self.master.PADsql.selectUsers(), self.PlayerSearchFrames)
+            self.updateFollowFrame()
             self.firstLoad = False
 
 
-    def updateFrames(self, sqlQuery, Frames, rand = False):
+    def updateFrames(self, sqlQuery, Frames):
         Selected = []
         for i in Frames:
             i.mainFrame.grid_forget()
-        if rand:
-            if len(sqlQuery) >= len(Frames):
-                while len(Selected) < len(Frames):
-                    choice = random.choice(sqlQuery)
-                    if choice not in Selected:
-                        Selected.append(choice)
-                count = 0
-                for i in Frames:
-                    i.update(Selected[count])
-                    i.mainFrame.grid(row = count)
-                    count += 1
-            else:
-                random.shuffle(sqlQuery)
-                count = 0
-                for i in Frames:
-                    if count >= len(sqlQuery):
-                        break
-                    i.update(sqlQuery[count])
-                    i.mainFrame.grid(row = count)
-                    count +=1
-        else:
-            count=0
-            for i in Frames:
-                if count >= len(sqlQuery):
-                    break
-                i.update(sqlQuery[count])
-                i.mainFrame.grid(row = count)
-                count +=1
+
+        count=0
+        for i in Frames:
+            if count >= len(sqlQuery):
+                break
+            i.update(sqlQuery[count])
+            i.mainFrame.grid(row = count)
+            count +=1
 
     def updateFollowFrame(self):
         if self.FollowSwitch.get() == "Followers":
-            self.updateFrames(self.master.PADsql.selectFollowers(), self.FollowFrames, rand = False)
+            self.updateFrames(self.master.PADsql.selectFollowers(), self.FollowFrames)
         else:
-            self.updateFrames(self.master.PADsql.selectFollowings(), self.FollowFrames, rand = False)
+            self.updateFrames(self.master.PADsql.selectFollowings(), self.FollowFrames)
 
 
     def updateFollowings(self):
@@ -145,21 +136,74 @@ class HomeScreen():
         print("Followings:", self.Followings)
 
 
-    def onSearchTeamsClick(self):
+    def onSearchTeamsClick(self, event = None):
+        """Grab Search Results on Teams, Or Return all on Random."""
+        ############################
+        ##### GRAB ALL FILTERS #####
+        ############################
         PriAttributes = []
         for i in ["PriFire", "PriWater", "PriWood", "PriLight", "PriDark"]:
             if self.builder.get_variable(i).get() != "" and self.builder.get_variable(i).get() != "0":
                 PriAttributes.append(self.builder.get_variable(i).get())
         if len(PriAttributes) == 0:
             PriAttributes = ["Fire","Water","Wood","Light","Dark"]
-
-        value = self.TeamSearch.get()
         
+        ###################################
+        ##### GRAB ALL SEARCH RESULTS #####
+        ###################################
+        value = self.TeamSearch.get()
         if value and value != "Enter Team Name.":
-            self.updateFrames(self.master.PADsql.selectTeamInstance(value, allUser = True), self.TeamPreviews)
+            self.TeamSearchResults = self.master.PADsql.selectTeamInstance(value, allUser = True)
         else:
-            self.updateFrames(self.master.PADsql.selectAllTeamInstance(), self.TeamPreviews, True)
+            self.TeamSearchResults = self.master.PADsql.selectTeamInstance(allUser = True, exlcudeUser = True)
+            random.shuffle(self.TeamSearchResults)
 
+
+
+        #Setup Page
+        self.TeamCurPage = 1
+        self.TeamMaxPage = math.ceil(len(self.TeamSearchResults) / self.TEAMRESULTSPERPAGE)
+        self.entTeamPage.set(self.TeamCurPage)
+        self.builder.get_object("lblPageNumber").config(text = "       / " + str(self.TeamMaxPage))
+        self.builder.get_object("lblResults").config(text = str(len(self.TeamSearchResults)) + " Results.")
+        #update Page Results
+        self.updateTeamPage()
+
+    def updateTeamPage(self):
+        """Feeds update Frames a Page of results"""
+        min = (self.TeamCurPage - 1) * self.TEAMRESULTSPERPAGE
+        self.updateFrames(self.TeamSearchResults[min : min + self.TEAMRESULTSPERPAGE ], self.TeamPreviews)
+    
+    def onTeamNextPage(self):
+        """Next Page of Team Results"""
+        if self.TeamCurPage < self.TeamMaxPage:
+            self.TeamCurPage += 1
+        else:
+            return
+        self.entTeamPage.set(self.TeamCurPage)
+        self.updateTeamPage()
+
+    def onTeamPrevPage(self):
+        """Next Page of Team Results"""
+        if self.TeamCurPage > 1:
+            self.TeamCurPage -= 1
+        else:
+            return
+        self.entTeamPage.set(self.TeamCurPage)
+        self.updateTeamPage()
+
+    def onTeamPageEnter(self, event):
+         pgnum = int(self.entTeamPage.get())
+         if pgnum >= 1 and pgnum <= self.TeamMaxPage:
+             self.TeamCurPage = pgnum
+             self.updateTeamPage()
+
+    def validatePageEntry(self, action, index, value_if_allowed,
+                       prior_value, text, validation_type, trigger_type, widget_name):
+        if text in "0123456789\b" and len(value_if_allowed) < 4:
+            return True
+        else:
+            return False
 
     def onSearchBarFocusIn(self, event):
         #Clears Search Bar on focus

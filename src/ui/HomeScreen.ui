@@ -401,6 +401,7 @@
             <property name="width">31</property>
             <bind add="True" handler="onSearchBarFocusIn" sequence="&lt;FocusIn&gt;" />
             <bind add="True" handler="onSearchBarFocusOut" sequence="&lt;FocusOut&gt;" />
+            <bind add="True" handler="onSearchTeamsClick" sequence="&lt;Return&gt;" />
             <layout>
               <property name="column">0</property>
               <property name="columnspan">10</property>
@@ -528,7 +529,6 @@
                 <property name="borderwidth">4</property>
                 <property name="font">{YU} 12 {}</property>
                 <property name="relief">ridge</property>
-                <property name="text" translatable="yes">000 / 000</property>
                 <property name="width">12</property>
                 <layout>
                   <property name="column">0</property>
@@ -544,9 +544,9 @@
             </child>
             <child>
               <object class="tk.Button" id="btnNextPage">
+                <property name="command">onTeamNextPage</property>
                 <property name="font">{yu} 14 {}</property>
                 <property name="text" translatable="yes">Next</property>
-                <bind add="True" handler="nextPage" sequence="&lt;1&gt;" />
                 <layout>
                   <property name="column">0</property>
                   <property name="padx">305</property>
@@ -559,9 +559,9 @@
             </child>
             <child>
               <object class="tk.Button" id="btnPrevPage">
+                <property name="command">onTeamPrevPage</property>
                 <property name="font">{yu} 14 {}</property>
                 <property name="text" translatable="yes">Prev</property>
-                <bind add="True" handler="prevPage" sequence="&lt;1&gt;" />
                 <layout>
                   <property name="column">0</property>
                   <property name="padx">105</property>
@@ -598,12 +598,12 @@
                 <property name="justify">right</property>
                 <property name="text" translatable="yes">000
 </property>
-                <property name="textvariable">string:varPageEnt</property>
+                <property name="textvariable">string:varTeamPageEnt</property>
                 <property name="validate">key</property>
                 <property name="validatecommand">validatePageEntry</property>
                 <property name="validatecommand_args">%d %i %P %s %S %v %V %W</property>
                 <property name="width">3</property>
-                <bind add="True" handler="onPageEnter" sequence="&lt;Return&gt;" />
+                <bind add="True" handler="onTeamPageEnter" sequence="&lt;Return&gt;" />
                 <layout>
                   <property name="column">0</property>
                   <property name="padx">197</property>
@@ -937,7 +937,7 @@
     <property name="borderwidth">4</property>
     <property name="height">100</property>
     <property name="relief">raised</property>
-    <property name="width">350</property>
+    <property name="width">360</property>
     <layout>
       <property name="column">0</property>
       <property name="propagate">False</property>
@@ -1058,6 +1058,7 @@
         <property name="width">5</property>
         <layout>
           <property name="column">5</property>
+          <property name="padx">10</property>
           <property name="propagate">True</property>
           <property name="row">0</property>
         </layout>

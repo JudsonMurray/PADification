@@ -637,7 +637,7 @@ GO
 
 ALTER TABLE Follower
   ADD CONSTRAINT FK_Follower_Player2
-  FOREIGN KEY (FollowerEmail) REFERENCES Player (Email)
+  FOREIGN KEY (FollowingEmail) REFERENCES Player (Email)
 GO
 
 --Removed from v.0.06

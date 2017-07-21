@@ -7,15 +7,18 @@
 
 import pypyodbc
 import smtplib
+import time
 
-# SQL Server information.
-localhost = ('Driver={SQL Server};'
-            'Server=localhost;'
-            'Database=PADification;'
-            'uid=PADmin;pwd=PADmin;')
+
 
 class PADSQL():
     def __init__(self):
+        # SQL Server information.
+        self.server = ('Driver={SQL Server};'
+                        'Server=mssql3.gear.host;'
+                        'Database=PADification;'
+                        'uid=padification;pwd=Vm0b?pt9k!L4;')
+
         self.connection = None
         self.cursor = None
         self.Email = None
@@ -25,18 +28,25 @@ class PADSQL():
         self.ProfileImage = None
         self.signedIn = False
 
-    def connect(self):
+    def connect(self, serverip = None):
         """Connect to the Sql Server and Establish a cursor"""
         notconnected = True
         attempts = 0
+        #if serverip != None:
+        #    self.server = ('Driver={SQL Server};'
+        #                'Server=' + serverip + ';'
+        #                'Database=PADification;'
+        #                'uid=PADmin;pwd=PADmin;')
+        
+
         while notconnected and attempts < 5:
             try:
-                self.connection = pypyodbc.connect(localhost)
+                self.connection = pypyodbc.connect(self.server)
                 notconnected = False
             except:
                 print("Timeout, Retrying connection.", 4 - attempts, "attempts left.")
                 attempts += 1
-
+        
         if self.connection.connected:
             print("MSSQL 2014 server Connection Established.")
             self.cursor = self.connection.cursor()
@@ -52,20 +62,20 @@ class PADSQL():
                       "(Email, Password, Username, PlayerID) "
                       "VALUES (?,?,?,?)")
 
-        self.cursor.execute(SQLCommand, listValues)
+        self.executeSQLCommand(SQLCommand, listValues)
         self.connection.commit()
         print("Sign up Successful")
         self.closeConnection()
 
-    def login(self, Email, Password):
+    def login(self, Email, Password, Server = "localhost"):
         """Log in with login Info"""
-        self.connect()
+        self.connect(Server)
         SQLCommand = ("SELECT [Email], [Password], [Username], [PlayerID], [ProfileImage] "
                         "FROM Player "
                         "WHERE [Email] = ? "
                         "AND [Password] = ?")
         values = [Email, Password]
-        self.cursor.execute(SQLCommand, values)
+        self.executeSQLCommand(SQLCommand, values)
         results = self.cursor.fetchone()
         if results:
             print("User login Successful")
@@ -85,7 +95,7 @@ class PADSQL():
                       "WHERE [Email] = ?")
         
         values = (Username, self.Email)
-        self.cursor.execute(SQLCommand, values)
+        self.executeSQLCommand(SQLCommand, values)
         self.connection.commit()
 
     def updatePassword(self, Password):
@@ -94,7 +104,7 @@ class PADSQL():
                       "WHERE [Email] = ?")
         
         values = (Password, self.Email)
-        self.cursor.execute(SQLCommand, values)
+        self.executeSQLCommand(SQLCommand, values)
         self.connection.commit()
 
     def updateProfileImage(self, MonsterID):
@@ -104,7 +114,7 @@ class PADSQL():
                           "Set ProfileImage = ? "
                           "WHERE Email = ?")
             value = (results[0]["MonsterClassID"] , self.Email)
-            self.cursor.execute(SQLCommand, value)
+            self.executeSQLCommand(SQLCommand, value)
             self.connection.commit()
             self.ProfileImage = results[0]["MonsterClassID"]
             return True
@@ -114,7 +124,7 @@ class PADSQL():
     def retrievePassword(self,Email):
         self.connect()
         SQLCommand = "Select [Password] From Player Where [Email] = '" + Email + "'"
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
         result = self.cursor.fetchone()
         if result:
             server = smtplib.SMTP('smtp.gmail.com', 587)
@@ -131,12 +141,12 @@ class PADSQL():
     def selectUsers(self, Email = None, Username = None):
         if Email != None:
             SQLCommand = "Select Username From Player WHERE Email = '" + Email + "'"
-            self.cursor.execute(SQLCommand)
+            self.executeSQLCommand(SQLCommand)
             return self.cursor.fetchone()[0]
 
         elif Username != None:
             SQLCommand = "Select Username, PlayerID, Email, ProfileImage From Player WHERE Username like '%" + Username + "%'"
-            self.cursor.execute(SQLCommand)
+            self.executeSQLCommand(SQLCommand)
             keys = ['Username', 'PlayerID', 'Email', 'ProfileImage']
             playerCollection = []
             results = self.cursor.fetchone()
@@ -153,7 +163,7 @@ class PADSQL():
             return playerCollection
         else:
             SQLCommand = "Select Username, PlayerID, Email, ProfileImage From Player"
-            self.cursor.execute(SQLCommand)
+            self.executeSQLCommand(SQLCommand)
 
             keys = ['Username', 'PlayerID', 'Email', 'ProfileImage']
             playerCollection = []
@@ -175,7 +185,7 @@ class PADSQL():
             User = self.Email
         SQLCommand = ("Select Username, PlayerID, Player.Email, ProfileImage From (Follower LEFT OUTER JOIN Player ON followingEmail = Player.Email) "
                       "WHERE Follower.Email = '" + User + "'")
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
 
         keys = ['Username', 'PlayerID', 'Email', 'ProfileImage']
         playerCollection = []
@@ -196,7 +206,7 @@ class PADSQL():
             User = self.Email
         SQLCommand = ("Select Username, PlayerID, Player.Email, ProfileImage From (Follower LEFT OUTER JOIN Player ON Follower.Email = Player.Email) "
                       "WHERE Follower.FollowingEmail = '" + User + "'")
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
 
         keys = ['Username', 'PlayerID', 'Email', 'ProfileImage']
         playerCollection = []
@@ -215,26 +225,26 @@ class PADSQL():
     def followPlayer(self, UserEmail):
         SQLCommand = ("Select FID From Follower "
                       "WHERE Email = '" + self.Email + "' AND FollowingEmail = '"+ UserEmail +"'")
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
         results = self.cursor.fetchall()
         if results:
             return False
         else:
             SQLCommand = ("INSERT INTO Follower (Email, FollowingEmail)"
                           " VALUES ('" + self.Email + "', '" + UserEmail + "')")
-            self.cursor.execute(SQLCommand)
+            self.executeSQLCommand(SQLCommand)
             self.cursor.commit()
             return True
 
     def unFollowPlayer(self, FollowingEmail):
         SQLCommand = ("Select FID From Follower "
                       "WHERE Email = '" + self.Email + "' AND FollowingEmail = '"+ FollowingEmail +"'")
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
         results = self.cursor.fetchone()
         if results:
             print(results)
             SQLCommand = "DELETE FROM Follower WHERE FID = " + str(results[0])
-            self.cursor.execute(SQLCommand)
+            self.executeSQLCommand(SQLCommand)
             self.cursor.commit()
             return True
         else:
@@ -267,7 +277,7 @@ class PADSQL():
             SQLCommand += "WHERE MonsterName LIKE '%" + monSearch + "%'"
 
         SQLCommand += " ORDER BY MonsterClassID ASC"
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
 
         if dictionary:
             properties = ['MonsterClassID', 'MonsterName', 'Rarity', 'PriAttribute', 'SecAttribute', 'MonsterTypeOne', 'MonsterTypeTwo', 'MonsterTypeThree', 'ExpCurve', 'MaxLevel', 'MonsterCost', 'ASListID', 'LeaderSkillName', 'ActiveSkillName', 'MaxHP', 'MinHP', 'GrowthRateHP', 'MaxATK', 'MinATK', 'GrowthRateATK', 'MaxRCV', 'MinRCV', 'GrowthRateRCV', 'CurSell', 'CurFodder', 'MonsterPointValue', 'ActiveSkillMaxLevel', 'ActiveSkillMaxCoolDown', 'ActiveSkillDesc', 'LeaderSkillDesc']
@@ -328,7 +338,7 @@ class PADSQL():
             elif type(monSearch) == str:
                 SQLCommand += " AND MonsterName LIKE '%" + monSearch + "%'"
 
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
 
         if dictionary:
             properties = ['MonsterClassID', 'MonsterName', 'Rarity', 'PriAttribute', 'SecAttribute',
@@ -368,7 +378,7 @@ class PADSQL():
             SQLCommand = ("INSERT INTO MonsterInstance (Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, AssistMonsterID, SkillLevel, LSListID, MonsterClassID, Favorites, WishList) "
                           "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)")
 
-            self.cursor.execute(SQLCommand,values)
+            self.executeSQLCommand(SQLCommand,values)
             self.connection.commit()
             #print("Monster save Successful")
 
@@ -386,21 +396,21 @@ class PADSQL():
             SQLCommand = ("UPDATE MonsterInstance " + setstr +
                           "WHERE InstanceID = ?")
 
-            self.cursor.execute(SQLCommand,values)
+            self.executeSQLCommand(SQLCommand,values)
             self.connection.commit()
 
     def deleteMonster(self, InstanceID):
         """Delete a Monster Instance from MonsterInstance Table and the correspondin Latent Skill List"""
-        self.cursor.execute("SELECT * FROM LatentSkillList WHERE InstanceID = " + str(InstanceID))
+        self.executeSQLCommand("SELECT * FROM LatentSkillList WHERE InstanceID = " + str(InstanceID))
         LSL = self.cursor.fetchone()
         if LSL:
-            self.cursor.execute("DELETE FROM LatentSkillList WHERE InstanceID = " + str(InstanceID))
+            self.executeSQLCommand("DELETE FROM LatentSkillList WHERE InstanceID = " + str(InstanceID))
 
         SQLCommand = "DELETE FROM MonsterInstance WHERE InstanceID = " + str(InstanceID)
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
         self.cursor.commit()
 
-    def selectTeamInstance(self, teamsearch = None, dictionary = True, UserEmail = None, allUser = False):
+    def selectTeamInstance(self, teamsearch = None, dictionary = True, UserEmail = None, allUser = False, exlcudeUser = False):
         """Selects all teams, or by TeamInstanceID, or TeamName returns a list of dictionarys or tuples."""
         if UserEmail is None:
             user = self.Email
@@ -412,6 +422,9 @@ class PADSQL():
 
         if not allUser:
             SQLCommand += "WHERE Email = '" + str(user) + "'" 
+
+        if allUser and exlcudeUser:
+            SQLCommand += "WHERE Email <> '" + str(user) + "'" 
 
 
         if teamsearch == None:
@@ -427,7 +440,7 @@ class PADSQL():
             else:
                 SQLCommand += "WHERE TeamName LIKE '%" + teamsearch + "%'"
 
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
 
         if dictionary:
             properties = ['TeamInstanceID', 'Email', 'TeamName', 'LeaderMonster',
@@ -451,7 +464,7 @@ class PADSQL():
     def selectAllTeamInstance(self):
         SQLCommand = ("SELECT TeamInstanceID, Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, AwokenBadgeName "
                 "FROM Team ")
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
         properties = ['TeamInstanceID', 'Email', 'TeamName', 'LeaderMonster',
                           'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 
                           'AwokenBadgeName' ]
@@ -486,7 +499,7 @@ class PADSQL():
             SQLCommand = ("INSERT INTO Team (Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, AwokenBadgeName) "
                           "VALUES (?,?,?,?,?,?,?,?)")
 
-            self.cursor.execute(SQLCommand,values)
+            self.executeSQLCommand(SQLCommand,values)
             self.connection.commit()
 
         else:
@@ -503,19 +516,19 @@ class PADSQL():
             SQLCommand = ("UPDATE Team " + setstr +
                           "WHERE TeamInstanceID = ?")
 
-            self.cursor.execute(SQLCommand,values)
+            self.executeSQLCommand(SQLCommand,values)
             self.connection.commit()
 
     def deleteTeam(self, TeamInstanceID):
         """Delete a Team Instance from Team Table"""
         SQLCommand = "DELETE FROM Team WHERE TeamInstanceID = " + str(TeamInstanceID)
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
         self.cursor.commit()
 
     def getAwokenSkills(self):
         """Returns a List of AwokenSkills"""
         SQLCommand = "SELECT * FROM AwokenSkill"
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
 
         results = self.cursor.fetchone()
         AwokenSkills = []
@@ -527,7 +540,7 @@ class PADSQL():
     def getLatentAwokenSkills(self):
 
         SQLCommand = "SELECT * FROM LatentSkill"
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
 
         results = self.cursor.fetchone()
         LatentSkills = []
@@ -540,13 +553,13 @@ class PADSQL():
         """Returns a Tuple of a MonsterClass Awoken skills, listed in order starting with MonsterClassID"""
         
         SQLCommand = "SELECT * FROM AwokenSkillList WHERE ASListID = " + str(MonsterClassID)
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
         return self.cursor.fetchone()
 
     def getLatentAwokenSkillList(self, InstanceID):
         """Returns a List of Latent Awoken Skills a monster Instance has"""
         SQLCommand = "SELECT * FROM LatentSkillList WHERE InstanceID = " + str(InstanceID)
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
         return self.cursor.fetchone()
 
     def saveLatentAwokenSkillList(self, instanceID ,lsone, lstwo, lsthree, lsfour, lsfive, lssix, extraslot):
@@ -554,7 +567,7 @@ class PADSQL():
         SQLCommand = ("INSERT INTO LatentSkillList (InstanceID, LatentSKillOne, LatentSKillTwo, LatentSKillThree, LatentSKillFour, LatentSKillFive, LatentSKillSix, ExtraSlot)"
                       "VALUES (?,?,?,?,?,?,?,?)")
         try:
-            self.cursor.execute(SQLCommand,values)
+            self.executeSQLCommand(SQLCommand,values)
             self.cursor.commit()
             return True
         except pypyodbc.IntegrityError:
@@ -564,7 +577,7 @@ class PADSQL():
                 values.pop(0)
                 SQLCommand = ("UPDATE LatentSkillList SET LatentSKillOne = ?, LatentSKillTwo = ?, LatentSKillThree = ?, LatentSKillFour = ?, LatentSKillFive = ?, LatentSKillSix = ?, ExtraSlot = ? "
                       "WHERE InstanceID = ?")
-                self.cursor.execute(SQLCommand,values)
+                self.executeSQLCommand(SQLCommand,values)
                 self.cursor.commit()
                 return True
             except pypyodbc.IntegrityError:
@@ -574,7 +587,7 @@ class PADSQL():
     def getAwokenBadges(self):
         """Returns a List of Awoken Badges"""
         SQLCommand = "SELECT * FROM AwokenBadge"
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
 
         results = self.cursor.fetchone()
         AwokenBadges = []
@@ -591,14 +604,14 @@ class PADSQL():
         # Find Start of Tree.
         SQLCommand = ("SELECT NextMonsterID, BaseMonsterID FROM EvolutionTree "
                       "WHERE NextMonsterID = " + str(nextMonsterID) )
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
         results = self.cursor.fetchall()
 
         while results:
             lowestID = results[0][1]
             SQLCommand = ("SELECT NextMonsterID, BaseMonsterID FROM EvolutionTree "
                           "WHERE NextMonsterID = " + str(lowestID))
-            self.cursor.execute(SQLCommand)
+            self.executeSQLCommand(SQLCommand)
             results = self.cursor.fetchall()
         Evolutions.append([lowestID])
 
@@ -606,7 +619,7 @@ class PADSQL():
         # Iterate through tree and Add results
         SQLCommand = ("SELECT * FROM EvolutionTree "
                           "WHERE BaseMonsterID = " + str(lowestID))
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
         results = self.cursor.fetchall()
         Evolutions.append(results)
 
@@ -614,7 +627,7 @@ class PADSQL():
         while results:
             SQLCommand = ("SELECT * FROM EvolutionTree "
                           "WHERE BaseMonsterID = " + str(results[0][0]))
-            self.cursor.execute(SQLCommand)
+            self.executeSQLCommand(SQLCommand)
             results = self.cursor.fetchall()
 
             if results:
@@ -629,7 +642,7 @@ class PADSQL():
                 for i in results:
                     SQLCommand = ("SELECT * FROM EvolutionTree "
                           "WHERE BaseMonsterID = " + str(i[0]))
-                    self.cursor.execute(SQLCommand)
+                    self.executeSQLCommand(SQLCommand)
                     tempresult = self.cursor.fetchone()
                     if tempresult:
                         subResults.append(tempresult)
@@ -652,13 +665,13 @@ class PADSQL():
         Evolutions = []
         SQLCommand = ("SELECT * FROM EvolutionTree "
                       "WHERE NextMonsterID = " + str(MonsterClassID) )
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
         results = self.cursor.fetchone()
         #Evolutions.append(results)
         if results == None:
             SQLCommand = ("SELECT * FROM EvolutionTree "
                       "WHERE BaseMonsterID = " + str(MonsterClassID) )
-            self.cursor.execute(SQLCommand)
+            self.executeSQLCommand(SQLCommand)
             results = self.cursor.fetchone()
             return results
 
@@ -666,14 +679,14 @@ class PADSQL():
             SQLCommand = ("SELECT * FROM EvolutionTree "
                       "WHERE NextMonsterID = " + str(results[1]) )
 
-            self.cursor.execute(SQLCommand)
+            self.executeSQLCommand(SQLCommand)
             subresults = self.cursor.fetchone()
             dev = (results[1], results[0], 155, 156, 157, 158, 159, True)
             Evolutions.insert(0, dev)
 
         SQLCommand = ("SELECT * FROM EvolutionTree "
                       "WHERE BaseMonsterID = " + str(MonsterClassID) )
-        self.cursor.execute(SQLCommand)
+        self.executeSQLCommand(SQLCommand)
         results = self.cursor.fetchall()
 
         if results:
@@ -689,7 +702,7 @@ class PADSQL():
                 LeaderSkillName = LeaderSkillName.replace("'", "''")
             
             SQLCommand = "SELECT LeaderSkillDesc FROM LeaderSkill Where LeaderSkillName = '" + LeaderSkillName + "'"
-            self.cursor.execute(SQLCommand)
+            self.executeSQLCommand(SQLCommand)
             result = self.cursor.fetchone()
             if result:
                 return result[0] 
@@ -703,12 +716,29 @@ class PADSQL():
                 ActiveSkillName = ActiveSkillName.replace("'", "''")
 
             SQLCommand = "SELECT ActiveSkillDesc FROM ActiveSkill Where ActiveSkillName = '" + ActiveSkillName + "'"
-            self.cursor.execute(SQLCommand)
+            self.executeSQLCommand(SQLCommand)
             result = self.cursor.fetchone()
             if result:
                 return result[0] 
             else:
                 print(LeaderSkillName.encode('ASCII', 'ignore'))
+
+    def executeSQLCommand(self, sqlstring, params = None):
+        retry_flag = True
+        retry_count = 0
+        max_retrys = 5
+        while retry_flag:
+            try:
+                if params == None:
+                    self.cursor.execute(sqlstring)
+                else:
+                    self.cursor.execute(sqlstring, params)
+                retry_flag = False
+            except:
+                self.connect()
+                print("Timeout on server, retry after 1 sec")
+                retry_count += 1
+                time.sleep(3)
 
 #padsql = PADSQL()
 #padsql.login("Padmin","Test")
