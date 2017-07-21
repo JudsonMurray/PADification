@@ -20,6 +20,8 @@ import pypyodbc
 import sys
 import PADSQL
 import PADMonster
+from PADMonster import Monster
+from ast import literal_eval as le
 
 #variables to tell which monsters are selected within the collection
 
@@ -99,7 +101,7 @@ class BadgeFrame(tk.Toplevel):
         return
 
 class MonsterFrame:
-    def __init__(self, master, masterbuilder, i, ids, currentMonster, buttons, padsql, state, team, var, padific):
+    def __init__(self, master, masterbuilder, i, currentMonster, buttons, padsql, state, team, var, padific):
         self.destroyerTeam = team
         self.master = master
         self.masterbuilder = masterbuilder
@@ -108,7 +110,7 @@ class MonsterFrame:
         self.builder.add_from_file('src/ui/PlayerCollection.ui')
         self.monbut = self.builder.get_object('MonsFrame', self.master)
         self.builder.connect_callbacks(self)
-        self.ids = ids
+        #self.ids = ids
         self.currentMonster = currentMonster
         self.buttons = buttons
         self.padsql = padsql
@@ -162,16 +164,16 @@ class EditTeam():
         self.myMonsterList = []
         self.var = IntVar(0)
         self.master = master
-        
+        self.bgSearchText = "Enter Monster ID or Name"
         #Connect to Database
         self.PADsql = self.master.PADsql
-
+        self.MonsterResults = None
         #Create GUI and add title image
         self.builder = builder = pygubu.Builder()
         builder.add_from_file('src/ui/EditTeam.ui')
         self.mainwindow = builder.get_object('EditTeamFrame', master)    
-        self.titleImg = tk.PhotoImage(file = 'Resource/PAD/Images/PADification Title.png')
-        self.builder.get_object('titleImage').create_image(0,0, image =self.titleImg , anchor = tk.NW, tag = "pic")
+        #self.titleImg = tk.PhotoImage(file = 'Resource/PAD/Images/PADification Title.png')
+        #self.builder.get_object('titleImage').create_image(0,0, image =self.titleImg , anchor = tk.NW, tag = "pic")
         self.canvas = builder.get_object('canMonsterList')
         self.teamCanvas = builder.get_object('teamMonstersFrame')
         #Create TeamObject
@@ -179,7 +181,8 @@ class EditTeam():
         self.destroyerTeam = destroyerTeam
         #self.master.teamBrowser.setImages(self.builder)
         #self.master.teamBrowser.updateTeamLabels(self.builder, self.destroyerTeam)
-
+        self.imgTitleImage = PhotoImage(file = "Resource/PAD/Images/Padification Logo.png")
+        self.builder.get_object('lblTitleImage').config(image = self.imgTitleImage)
         self.teamCanvas = [self.builder.get_object('canLeadMon'),
                            self.builder.get_object('canSubMon1'),
                            self.builder.get_object('canSubMon2'),
@@ -192,25 +195,26 @@ class EditTeam():
         self.page = 1        
         self.builder.connect_callbacks(self)
         
-    def populateCollection(self):
+    def populateCollection(self, filter = None):
         self.PADsql = self.master.PADsql
         # JBM - Modifying collection to Dictionary from List to make Monster Lookup easier
         instanceIDs = []
-        monster = self.PADsql.selectMonsterInstance()
+        if filter == None:
+            monster = self.PADsql.selectMonsterInstance()
+        else:
+            monster = filter
 
         monsters = dict()
-        for i in monster:
-            monsters[i["InstanceID"]] = i
-            instanceIDs.append(i["InstanceID"])
-        self.instantList = instanceIDs
         self.myMonsterList = []
 
         #configures pages to match collection size
-        self.pages = len(monsters) // 50 + 1
-        if len(monsters) % 50 == 0:
+        self.pages = len(monster) // 50 + 1
+        if len(monster) % 50 == 0:
             self.pages -=1
-
-        self.builder.get_variable('lblCurPage').set(('Page' + str(self.page) + '/' + str(self.pages)))
+        if self.pages == 0:
+            self.pages = 1
+        
+        self.builder.get_variable('lblPageNumber').set(('   /' + str(self.pages)))
         if self.page > self.pages:
             self.prev()
         if self.page == self.pages:
@@ -221,11 +225,16 @@ class EditTeam():
             self.builder.get_object('btnPrev').config(state=DISABLED)
         else:
             self.builder.get_object('btnPrev').config(state=NORMAL)
+        self.builder.get_variable('varPageEnt').set((self.page))
 
 
         #Creates the photoimage for each monster instance of the user and stores them in a list
-        for i in self.instantList:
-            self.myMonster = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(monsters[i]["MonsterClassID"]) + '.png')
+        for i in range(0, len(monster)):
+            if filter == None:
+                y = int(monster[i]["MonsterClassID"])
+            else:
+                y = int(monster[i].MonsterClassID)
+            self.myMonster = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(y) + '.png')
             self.myMonster = self.myMonster.subsample(2)
             self.myMonsterList.append(self.myMonster)
 
@@ -238,14 +247,19 @@ class EditTeam():
         buttons = []
         self.buttons = buttons = []
         self.count = 0
-        tt = range(0 + (self.page - 1) * 50, (50 + (self.page - 1) * 50) if len(monsters) - 1 > (50 + (self.page - 1) * 50) else len(monsters))
-        for i in range(0 + (self.page - 1) * 50, (50 + (self.page - 1) * 50) if len(monsters) - 1 > (50 + (self.page - 1) * 50) else len(monsters)):
-            #print(self.count)
-            b = self.instantList[self.count + (self.page - 1) * 50]
-            a = PADMonster.Monster(monsters[b])
+        tt = range(0 + (self.page - 1) * 50, (50 + (self.page - 1) * 50) if len(monster) - 1 > (50 + (self.page - 1) * 50) else len(monster))
+        for i in range(0 + (self.page - 1) * 50, (50 + (self.page - 1) * 50) if len(monster) - 1 > (50 + (self.page - 1) * 50) else len(monster)):
+            if filter == None:
+                b = monster[i]["InstanceID"]
+                thisdict = monster[i]
+            else:
+                b = monster[i].InstanceID
+                thisdict = self.PADsql.selectMonsterInstance(b)[0]
+                
+            a = PADMonster.Monster(thisdict)
             self.state = 'on'
 
-            self.buttons.append(MonsterFrame(self.container, self.builder, self.count, self.instantList, a, self.buttons, self.PADsql, self.state, self.destroyerTeam, self.var, self.master))
+            self.buttons.append(MonsterFrame(self.container, self.builder, self.count, a, self.buttons, self.PADsql, self.state, self.destroyerTeam, self.var, self.master))
             self.buttons[self.count].monbut.config(width=65)
             self.buttons[self.count].monbut.grid(row=self.count // 10,column = self.count % 10)
             self.buttons[self.count].builder.get_object('FrameLabel').create_image(2,2, image = self.myMonsterList[self.count+ (self.page - 1) * 50], anchor = tk.NW)
@@ -261,11 +275,25 @@ class EditTeam():
 
     def loadTeam(self, instance):
         self.badgeNum = None
+        self.update()
         self.leadClick(self)
         self.teamInstance = instance
         self.updateTeam(self.teamInstance)
         self.populateCollection()
-
+        self.AttributeImages = dict()
+        for i in ["Fire","Water","Wood","Light","Dark"]:
+            self.AttributeImages[i] = PhotoImage(file = 'Resource/PAD/Images/Attributes/' + i + "Symbol.png")
+            self.builder.get_object("chkPri" + i).config(image = self.AttributeImages[i])
+            ToolTip.ToolTip(self.builder.get_object("chkPri" + i) , i)
+            self.builder.get_object("chkSec" + i).config(image = self.AttributeImages[i])
+            ToolTip.ToolTip(self.builder.get_object("chkSec" + i) , i)
+                    ##### TYPE IMAGES #####
+        self.TypeImages = dict()
+        for i in ["Attacker", "Awaken Material", "Balanced", "Devil", "Dragon", "Enhance Material",
+                  "Evo Material", "God", "Healer", "Machine", "Physical", "Redeemable Material" ]:
+            self.TypeImages[i] = PhotoImage(file = 'Resource/PAD/Images/Types/' + i + ".png")
+            self.builder.get_object("chkType" + i.replace(" ", "")).config(image = self.TypeImages[i])
+            ToolTip.ToolTip(self.builder.get_object("chkType" + i.replace(" ", "")) , i)
     def updateTeam(self, team):
         self.myMonsterL = []
         self.destroyerTeam = team
@@ -388,6 +416,160 @@ class EditTeam():
         self.PADsql.saveTeam(saveThisTeam)
         self.master.showTeamBrowser()
         return
+
+
+    def onSearchBarFocusIn(self, event):
+        #Clears Search Bar on focus
+        if self.builder.get_variable("SearchBar").get() == self.bgSearchText:
+            self.builder.get_variable("SearchBar").set("")
+        
+    def onSearchBarFocusOut(self, event):
+        #Populates empty Search bar on focus out
+        if self.builder.get_variable("SearchBar").get() == "":
+            self.builder.get_variable("SearchBar").set(self.bgSearchText)
+    def onSearchClick(self, event):
+        ############################
+        ##### PARSE SEARCH BAR #####
+        ############################
+        search = self.builder.get_variable("SearchBar").get()
+        if search == self.bgSearchText:
+            search = ""
+
+        if "," in search:
+            search = le("(" + search + ")")
+        elif search.isnumeric():
+            search = int(search)
+
+
+
+
+
+        self.MonsterResults = []
+        monsters = self.master.PADsql.selectMonsterInstance(search, byInstanceID = False)
+
+        #################################
+        ##### GET ATTRIBUTE FILTERS #####
+        #################################
+        PriAttributes = []
+        for i in ["PriFire", "PriWater", "PriWood", "PriLight", "PriDark"]:
+            if self.builder.get_variable(i).get() != "" and self.builder.get_variable(i).get() != "0":
+                PriAttributes.append(self.builder.get_variable(i).get())
+        SecAttributes = []
+        for i in ["SecFire", "SecWater", "SecWood", "SecLight", "SecDark"]:
+            if self.builder.get_variable(i).get() != "" and self.builder.get_variable(i).get() != "0":
+                SecAttributes.append(self.builder.get_variable(i).get())
+
+        ##### IF NOTHING SELECTED ADD ALL FILTERS #####
+        if len(PriAttributes) == 0 and len(SecAttributes) == 0:
+            PriAttributes = ["Fire","Water","Wood","Light","Dark"]
+            SecAttributes = ["Fire","Water","Wood","Light","Dark"]
+            self.builder.get_variable("varANDOR").set("OR")
+
+        ##### SINGLE ATTRIBUTE SWITCH TO 'OR' #####
+        elif len(PriAttributes) == 0 or len(SecAttributes) == 0:
+            self.builder.get_variable("varANDOR").set("OR")
+
+        ############################
+        ##### GET TYPE FILTERS #####
+        ############################
+        TypeFilters = []
+        for i in ["TypeAttacker", "TypeAwakenMaterial", "TypeBalanced", "TypeDevil", "TypeDragon", "TypeEnhanceMaterial",
+            "TypeEvoMaterial", "TypeGod", "TypeHealer", "TypeMachine", "TypePhysical", "TypeRedeemableMaterial" ]:
+            if self.builder.get_variable(i).get() != "" and self.builder.get_variable(i).get() != "0":
+                TypeFilters.append(self.builder.get_variable(i).get())
+
+        ##### IF NOTHING SELECTED ADD ALL FILTERS #####
+        if len(TypeFilters) == 0:
+            TypeFilters = ["Attacker", "Awaken Material", "Balanced", "Devil", "Dragon", "Enhance Material",
+                "Evo Material", "God", "Healer", "Machine", "Physical", "Redeemable Material" ]
+
+        ############################################
+        ##### ADD FILTERED MONSTERS TO RESULTS #####
+        ############################################
+        for i in monsters:
+            if self.builder.get_variable("varANDOR").get() == "OR":
+                if i["PriAttribute"] in PriAttributes or i["SecAttribute"] in SecAttributes:
+                    if i["MonsterTypeOne"] in TypeFilters or i["MonsterTypeTwo"] in TypeFilters or i["MonsterTypeThree"] in TypeFilters:
+                        self.MonsterResults.append(Monster(i))
+
+            elif self.builder.get_variable("varANDOR").get() == "AND":
+                if i["PriAttribute"] in PriAttributes and i["SecAttribute"] in SecAttributes:
+                    if i["MonsterTypeOne"] in TypeFilters or i["MonsterTypeTwo"] in TypeFilters or i["MonsterTypeThree"] in TypeFilters:
+                        self.MonsterResults.append(Monster(i))
+
+        ################################################
+        ##### CALCULATE MAXPAGES AND SET PAGE TO 1 #####
+        ################################################
+        self.page = 1
+        self.populateCollection(self.MonsterResults)
+        self.builder.get_object("lblResults").config(text = str(len(self.MonsterResults)) + " Results Found.")
+
+    def onPageEnter(self, event):
+        value = self.builder.get_variable("varPageEnt").get()
+        
+        while len(value) >= 1 and value[0] == '0':
+            value = value.replace('0', '', 1)
+
+        if len(value) == 0:
+            value = '1'
+        elif int(value) > self.pages:
+            value = str(self.pages)
+
+        self.builder.get_variable("varPageEnt").set(value)
+        self.page = int(value)
+        self.populateCollection(self.MonsterResults)
+
+
+    def validatePageEntry(self, action, index, value_if_allowed,
+                       prior_value, text, validation_type, trigger_type, widget_name):
+        if text in "0123456789\b" and len(value_if_allowed) < 4:
+            return True
+        else:
+            return False
+
+    def validateTwoDigit(self, action, index, value_if_allowed,
+                       prior_value, text, validation_type, trigger_type, widget_name):
+
+        if text in "0123456789\b" and len(value_if_allowed) < 3:
+            return True
+        else:
+            return False
+
+    def clearFilters(self):
+        """Deselect All Filters"""
+        for i in [  "TypeAttacker", "TypeAwakenMaterial", "TypeBalanced",
+                    "TypeDevil", "TypeDragon", "TypeEnhanceMaterial",
+                    "TypeEvoMaterial", "TypeGod", "TypeHealer",
+                    "TypeMachine", "TypePhysical", "TypeRedeemableMaterial",
+                    "PriFire", "PriWater", "PriWood", "PriLight", "PriDark",
+                    "SecFire", "SecWater", "SecWood", "SecLight", "SecDark" ]:
+            self.builder.get_variable(i).set("")
+
+    def onProfileImageClick(self, event):
+        value = sd.askstring("Change Profile Image", "Enter Monster ID or Name:", parent=self.builder.get_object("canProfileImage"))
+        if value is not None:
+            if value.isnumeric():
+                value = int(value)
+
+            if self.master.PADsql.updateProfileImage(value):
+                self.update()
+            else:
+                mb.showinfo("Profile Image", "Monster ID Does Not Exist")
+
+    def update(self):
+        #print(self.master.PADsql.ProfileImage)
+        if self.master.PADsql.ProfileImage != None:
+            value = self.master.PADsql.ProfileImage
+        else:
+            value = 1
+
+        self.ProfileImage = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(value) + ".png")
+        self.builder.get_object("canProfileImage").create_image(2,2, image = self.ProfileImage, anchor = NW)
+
+        #CustomFont_Label(self.builder.get_object('frmPlayerInfo'), text= self.master.PADsql.Username, font_path="Resource/PAD/Font/FOT-RowdyStd-EB.ttf", size=22).grid(row = 0, column = 1, sticky = NW)
+        self.builder.get_object("lblUsername").config(text = self.master.PADsql.Username)
+        self.builder.get_object("lblCollectionCount").config(text ="Monsters\t= " + str(len(self.master.PADsql.selectMonsterInstance())))
+        self.builder.get_object("lblTeamCount").config(text ="Teams\t= " + str(len(self.master.PADsql.selectTeamInstance())))
 
 if __name__ == '__main__':
     root = tk.Tk()

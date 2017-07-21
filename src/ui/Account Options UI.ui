@@ -22,99 +22,149 @@
       </object>
     </child>
     <child>
-      <object class="tk.Frame" id="Frame_1">
-        <property name="height">50</property>
-        <property name="width">1280</property>
+      <object class="tk.Frame" id="frmNavigation">
+        <property name="borderwidth">4</property>
+        <property name="height">71</property>
+        <property name="relief">groove</property>
+        <property name="width">1270</property>
         <layout>
           <property name="column">0</property>
+          <property name="columnspan">4</property>
+          <property name="padx">5</property>
+          <property name="pady">5</property>
           <property name="propagate">False</property>
           <property name="row">1</property>
+          <property name="sticky">nw</property>
+          <columns>
+            <column id="0">
+              <property name="minsize">0</property>
+              <property name="pad">0</property>
+            </column>
+          </columns>
         </layout>
         <child>
-          <object class="tk.Button" id="Home Screen">
-            <property name="command">onMainMenuClick</property>
+          <object class="tk.Button" id="btnHome">
+            <property name="font">{YU} 14 {}</property>
             <property name="text" translatable="yes">Home</property>
-            <property name="width">12</property>
+            <property name="width">15</property>
+            <bind add="True" handler="onHomeClick" sequence="&lt;1&gt;" />
             <layout>
               <property name="column">0</property>
-              <property name="padx">45</property>
-              <property name="propagate">True</property>
+              <property name="ipadx">2</property>
+              <property name="ipady">6</property>
+              <property name="padx">5</property>
+              <property name="pady">5</property>
+              <property name="propagate">False</property>
               <property name="row">0</property>
+              <property name="sticky">nw</property>
             </layout>
           </object>
         </child>
         <child>
-          <object class="tk.Button" id="My Monsters">
-            <property name="command">onMyMonstersClick</property>
+          <object class="tk.Button" id="btnCollection">
+            <property name="font">{Yu} 14 {}</property>
             <property name="text" translatable="yes">Collection</property>
-            <property name="width">12</property>
+            <property name="width">15</property>
+            <bind add="True" handler="onCollectionClick" sequence="&lt;1&gt;" />
             <layout>
-              <property name="column">1</property>
-              <property name="padx">45</property>
-              <property name="propagate">True</property>
+              <property name="column">0</property>
+              <property name="ipadx">2</property>
+              <property name="ipady">6</property>
+              <property name="padx">183</property>
+              <property name="pady">5</property>
+              <property name="propagate">False</property>
               <property name="row">0</property>
+              <property name="sticky">nw</property>
             </layout>
           </object>
         </child>
         <child>
-          <object class="tk.Button" id="Monster Book">
-            <property name="command">onMonsterBookClick</property>
+          <object class="tk.Button" id="btnBook">
+            <property name="font">{Yu} 14 {}</property>
             <property name="text" translatable="yes">Book</property>
-            <property name="width">12</property>
+            <property name="width">15</property>
+            <bind add="True" handler="onBookClick" sequence="&lt;1&gt;" />
             <layout>
-              <property name="column">2</property>
-              <property name="padx">45</property>
-              <property name="propagate">True</property>
+              <property name="column">0</property>
+              <property name="ipadx">2</property>
+              <property name="ipady">6</property>
+              <property name="padx">361</property>
+              <property name="pady">5</property>
+              <property name="propagate">False</property>
               <property name="row">0</property>
+              <property name="sticky">nw</property>
             </layout>
           </object>
         </child>
         <child>
-          <object class="tk.Button" id="My Teams">
-            <property name="command">onMyTeamsClick</property>
+          <object class="tk.Button" id="btnTeams">
+            <property name="font">{Yu} 14 {}</property>
             <property name="text" translatable="yes">Teams</property>
-            <property name="width">12</property>
+            <property name="width">15</property>
+            <bind add="True" handler="onTeamsClick" sequence="&lt;1&gt;" />
             <layout>
-              <property name="column">3</property>
-              <property name="padx">45</property>
-              <property name="propagate">True</property>
+              <property name="column">0</property>
+              <property name="ipadx">2</property>
+              <property name="ipady">6</property>
+              <property name="padx">539</property>
+              <property name="pady">5</property>
+              <property name="propagate">False</property>
               <property name="row">0</property>
+              <property name="sticky">nw</property>
             </layout>
           </object>
         </child>
         <child>
-          <object class="tk.Button" id="Players">
+          <object class="tk.Button" id="btnCommunity">
+            <property name="font">{yu} 14 {}</property>
             <property name="text" translatable="yes">Community</property>
-            <property name="width">12</property>
+            <property name="width">15</property>
+            <bind add="True" handler="onCommunityClick" sequence="&lt;1&gt;" />
             <layout>
-              <property name="column">4</property>
-              <property name="padx">45</property>
-              <property name="propagate">True</property>
+              <property name="column">0</property>
+              <property name="ipadx">2</property>
+              <property name="ipady">6</property>
+              <property name="padx">717</property>
+              <property name="pady">5</property>
+              <property name="propagate">False</property>
               <property name="row">0</property>
+              <property name="sticky">nw</property>
             </layout>
           </object>
         </child>
         <child>
-          <object class="tk.Button" id="Team Ranking">
+          <object class="tk.Button" id="btnTeamRanking">
+            <property name="font">{Yu} 14 {}</property>
             <property name="text" translatable="yes">Team Ranking</property>
-            <property name="width">12</property>
+            <property name="width">15</property>
+            <bind add="True" handler="onTeamRankingClick" sequence="&lt;1&gt;" />
             <layout>
-              <property name="column">5</property>
-              <property name="padx">45</property>
-              <property name="propagate">True</property>
+              <property name="column">0</property>
+              <property name="ipadx">2</property>
+              <property name="ipady">6</property>
+              <property name="padx">895</property>
+              <property name="pady">5</property>
+              <property name="propagate">False</property>
               <property name="row">0</property>
+              <property name="sticky">nw</property>
             </layout>
           </object>
         </child>
         <child>
-          <object class="tk.Button" id="Account">
+          <object class="tk.Button" id="btnOptions">
+            <property name="font">{Yu} 14 {}</property>
             <property name="text" translatable="yes">Options</property>
-            <property name="width">12</property>
+            <property name="width">15</property>
+            <bind add="True" handler="onOptionsClick" sequence="&lt;1&gt;" />
             <layout>
-              <property name="column">6</property>
-              <property name="padx">45</property>
-              <property name="propagate">True</property>
+              <property name="column">0</property>
+              <property name="ipadx">2</property>
+              <property name="ipady">6</property>
+              <property name="padx">1073</property>
+              <property name="pady">5</property>
+              <property name="propagate">False</property>
               <property name="row">0</property>
+              <property name="sticky">nw</property>
             </layout>
           </object>
         </child>
@@ -152,7 +202,6 @@ Various actions you may perform upon your account</property>
       <object class="tk.Frame" id="Player Options">
         <property name="borderwidth">5</property>
         <property name="height">550</property>
-        <property name="relief">raised</property>
         <property name="width">900</property>
         <layout>
           <property name="column">0</property>
@@ -373,32 +422,6 @@ Various actions you may perform upon your account</property>
               <property name="pady">10</property>
               <property name="propagate">False</property>
               <property name="row">5</property>
-            </layout>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Frame" id="Application Info">
-        <property name="borderwidth">5</property>
-        <property name="height">50</property>
-        <property name="relief">raised</property>
-        <property name="width">1280</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="pady">25</property>
-          <property name="propagate">False</property>
-          <property name="row">4</property>
-        </layout>
-        <child>
-          <object class="tk.Label" id="Label_7">
-            <property name="text" translatable="yes">Application info
-Version number,release date, authors, help screen, etc.</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="padx">500</property>
-              <property name="propagate">True</property>
-              <property name="row">0</property>
             </layout>
           </object>
         </child>
