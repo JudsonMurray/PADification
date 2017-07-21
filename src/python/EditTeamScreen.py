@@ -1,6 +1,6 @@
 #!/USR/BIN/ENV PYTHON 3.5
 #   NAME:    KYLE GUNTON
-#   DATE:    07/11/17
+#   DATE:    07/21/17
 #   PURPOSE: FUNCTIONALITY FOR THE EDIT TEAM SCREEN 
 
 #   -V. 0.0.1 -Created base functionality of selection monsters in player collection.
@@ -69,6 +69,7 @@ class BadgeFrame(tk.Toplevel):
             self.awokenBadgeLabels.append(AwokenBadge(self, self.builder.get_object('frmBadges'), self.builder, i))
             self.awokenBadgeLabels[i].badgebut.grid(row=i // 7,column = i % 7)
             self.awokenBadgeLabels[i].image.create_image(7,7,image = self.awokenBadgeImages[i], anchor = tk.NW, tag = "pic")
+            ToolTip.ToolTip(self.awokenBadgeLabels[i].image, str(self.awokenBadges[i]))
 
             w = 490 #width for the Tk root
             h = 190 # height for the Tk root
@@ -92,6 +93,7 @@ class BadgeFrame(tk.Toplevel):
             self.destroyerTeam.setBadge(self.setBadge)
             self.masterbuilder.get_object('lblAwokenBadge').config(image = self.awokenBadgeImages[self.badgeNum])
             self.destroy()
+            ToolTip.ToolTip(self.masterbuilder.get_object("lblAwokenBadge"), str(self.setBadge))
             return
         tk.messagebox.showwarning("No Badge Selected", "Please select a badge before confirming.")
         return
@@ -137,7 +139,6 @@ class MonsterFrame:
                 self.destroyerTeam.setSubMonsterThree(int(h))
             elif self.var.get() == 4:
                 self.destroyerTeam.setSubMonsterFour(int(h))
-
             self.teamCanvas[self.var.get()].create_image(7, 7, image = self.image, anchor = tk.NW)
 
             for t in self.buttons:
@@ -151,6 +152,7 @@ class MonsterFrame:
                     t.state = 'off'
                     t.monbut.config(relief=SUNKEN)
             self.padific.teamBrowser.updateTeamLabels(self.masterbuilder, self.destroyerTeam)
+
             return
 
 class EditTeam():
@@ -168,19 +170,15 @@ class EditTeam():
         #Connect to Database
         self.PADsql = self.master.PADsql
         self.MonsterResults = None
-        #Create GUI and add title image
+        #Create GUI
         self.builder = builder = pygubu.Builder()
         builder.add_from_file('src/ui/EditTeam.ui')
         self.mainwindow = builder.get_object('EditTeamFrame', master)    
-        #self.titleImg = tk.PhotoImage(file = 'Resource/PAD/Images/PADification Title.png')
-        #self.builder.get_object('titleImage').create_image(0,0, image =self.titleImg , anchor = tk.NW, tag = "pic")
         self.canvas = builder.get_object('canMonsterList')
         self.teamCanvas = builder.get_object('teamMonstersFrame')
         #Create TeamObject
         destroyerTeam = PADMonster.Team(self.PADsql)
         self.destroyerTeam = destroyerTeam
-        #self.master.teamBrowser.setImages(self.builder)
-        #self.master.teamBrowser.updateTeamLabels(self.builder, self.destroyerTeam)
         self.imgTitleImage = PhotoImage(file = "Resource/PAD/Images/Padification Logo.png")
         self.builder.get_object('lblTitleImage').config(image = self.imgTitleImage)
         self.teamCanvas = [self.builder.get_object('canLeadMon'),
@@ -196,9 +194,10 @@ class EditTeam():
         self.builder.connect_callbacks(self)
         
     def populateCollection(self, filter = None):
+        """Populate Users Monsters from their Monster Collection into buttons"""
         self.PADsql = self.master.PADsql
-        # JBM - Modifying collection to Dictionary from List to make Monster Lookup easier
         instanceIDs = []
+        self.filter = filter
         if filter == None:
             monster = self.PADsql.selectMonsterInstance()
         else:
@@ -206,7 +205,8 @@ class EditTeam():
 
         monsters = dict()
         self.myMonsterList = []
-
+        
+        ToolTip.ToolTip(self.builder.get_object("lblAwokenBadge"), self.destroyerTeam.AwokenBadgeName)
         #configures pages to match collection size
         self.pages = len(monster) // 50 + 1
         if len(monster) % 50 == 0:
@@ -274,6 +274,7 @@ class EditTeam():
         self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
 
     def loadTeam(self, instance):
+        """Loads user's team and calls methods to pupulate feilds"""
         self.badgeNum = None
         self.update()
         self.leadClick(self)
@@ -281,6 +282,8 @@ class EditTeam():
         self.updateTeam(self.teamInstance)
         self.populateCollection()
         self.AttributeImages = dict()
+
+                    #### ATTRIBUTE IMAGES #####
         for i in ["Fire","Water","Wood","Light","Dark"]:
             self.AttributeImages[i] = PhotoImage(file = 'Resource/PAD/Images/Attributes/' + i + "Symbol.png")
             self.builder.get_object("chkPri" + i).config(image = self.AttributeImages[i])
@@ -294,7 +297,9 @@ class EditTeam():
             self.TypeImages[i] = PhotoImage(file = 'Resource/PAD/Images/Types/' + i + ".png")
             self.builder.get_object("chkType" + i.replace(" ", "")).config(image = self.TypeImages[i])
             ToolTip.ToolTip(self.builder.get_object("chkType" + i.replace(" ", "")) , i)
+
     def updateTeam(self, team):
+        """"Updates team information"""
         self.myMonsterL = []
         self.destroyerTeam = team
         for i in range(0,5):
@@ -304,12 +309,20 @@ class EditTeam():
         self.master.teamBrowser.updateTeamLabels(self.builder, self.destroyerTeam)
 
     def next(self):
+        """Load next page of monsters"""
         self.page +=1
-        self.populateCollection()
+        if self.filter is not None:
+            self.populateCollection(self.filter)
+        else:
+           self.populateCollection()
 
     def prev(self):
+        """Load prev page of monsters"""
         self.page -=1
-        self.populateCollection()
+        if self.filter is not None:
+            self.populateCollection(self.filter)
+        else:
+            self.populateCollection()
 
     def raiseTeam(self):
         """returns team selection to raised relief"""
@@ -349,7 +362,6 @@ class EditTeam():
         """Command invoked when sub monster 4 is selected"""
         self.var.set(4)
         self.raiseTeam()
-        self.teamCanvas[4].config(relief=SUNKEN)
         return
     
     def removeMonster(self, event):
@@ -390,6 +402,7 @@ class EditTeam():
         return
 
     def cancelTeamEdit(self, event):
+        """Discard changes made to team and return to Team Browser Screen"""
         self.master.showTeamBrowser()
         return
 
@@ -401,8 +414,8 @@ class EditTeam():
             return
         x=1
         teamName = teamName.lstrip()
-        for i in self.master.teamBrowser.teamListBox.get(0,END):
-            if i[0:4] == "Team" and i[5:20].strip(' ') == str(x):
+        for i in self.master.teamBrowser.teams:
+            if i["TeamName"][0:4] == "Team" and i["TeamName"][5:20].strip(' ') == str(x):
                 x+=1
         if teamName == '':
             teamName = "Team " + str(x)
@@ -419,15 +432,16 @@ class EditTeam():
 
 
     def onSearchBarFocusIn(self, event):
-        #Clears Search Bar on focus
+        """Clears Search Bar on focus"""
         if self.builder.get_variable("SearchBar").get() == self.bgSearchText:
             self.builder.get_variable("SearchBar").set("")
         
     def onSearchBarFocusOut(self, event):
-        #Populates empty Search bar on focus out
+        """Populates empty Search bar on focus out"""
         if self.builder.get_variable("SearchBar").get() == "":
             self.builder.get_variable("SearchBar").set(self.bgSearchText)
     def onSearchClick(self, event):
+        """Search for monsters within collection to be displayed"""
         ############################
         ##### PARSE SEARCH BAR #####
         ############################
@@ -435,14 +449,10 @@ class EditTeam():
         if search == self.bgSearchText:
             search = ""
 
-        if "," in search:
+        if "," in search and search != ",":
             search = le("(" + search + ")")
         elif search.isnumeric():
             search = int(search)
-
-
-
-
 
         self.MonsterResults = []
         monsters = self.master.PADsql.selectMonsterInstance(search, byInstanceID = False)
@@ -505,6 +515,7 @@ class EditTeam():
         self.builder.get_object("lblResults").config(text = str(len(self.MonsterResults)) + " Results Found.")
 
     def onPageEnter(self, event):
+        """Load specified page of monsters"""
         value = self.builder.get_variable("varPageEnt").get()
         
         while len(value) >= 1 and value[0] == '0':
@@ -522,6 +533,7 @@ class EditTeam():
 
     def validatePageEntry(self, action, index, value_if_allowed,
                        prior_value, text, validation_type, trigger_type, widget_name):
+        """Confirm Values entered are numeric"""
         if text in "0123456789\b" and len(value_if_allowed) < 4:
             return True
         else:
@@ -529,7 +541,7 @@ class EditTeam():
 
     def validateTwoDigit(self, action, index, value_if_allowed,
                        prior_value, text, validation_type, trigger_type, widget_name):
-
+        """Confirm Values entered are numeric"""
         if text in "0123456789\b" and len(value_if_allowed) < 3:
             return True
         else:
@@ -546,6 +558,7 @@ class EditTeam():
             self.builder.get_variable(i).set("")
 
     def onProfileImageClick(self, event):
+        """Allows user to choose a profile Image"""
         value = sd.askstring("Change Profile Image", "Enter Monster ID or Name:", parent=self.builder.get_object("canProfileImage"))
         if value is not None:
             if value.isnumeric():
@@ -557,6 +570,7 @@ class EditTeam():
                 mb.showinfo("Profile Image", "Monster ID Does Not Exist")
 
     def update(self):
+        """Updates player profile image, username, collection and team counts"""
         #print(self.master.PADsql.ProfileImage)
         if self.master.PADsql.ProfileImage != None:
             value = self.master.PADsql.ProfileImage

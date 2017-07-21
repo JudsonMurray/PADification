@@ -1,6 +1,6 @@
 #!/USR/BIN/ENV PYTHON 3.5
 #   NAME:    KYLE GUNTON
-#   DATE:    07/14/17
+#   DATE:    07/21/17
 #   PURPOSE: FUNCTIONALITY FOR THE BROWSE TEAM SCREEN 
 
 
@@ -30,13 +30,14 @@ class TeamBrowser():
         self.builder = builder = pygubu.Builder()
         builder.add_from_file('src/ui/Team Browser.ui')
         self.mainwindow = builder.get_object('teamBrowserFrame', master)    
-        self.titleImg = tk.PhotoImage(file = 'Resource/PAD/Images/PADification Title.png')
-        self.builder.get_object('titleImage').create_image(0,0, image =self.titleImg , anchor = tk.NW, tag = "pic")
+
+        self.imgTitleImage = PhotoImage(file = "Resource/PAD/Images/Padification Logo.png")
+        self.builder.get_object('lblTitleImage').config(image = self.imgTitleImage)
         self.teamCanvas = builder.get_object('teamMonstersFrame')
         self.builder.connect_callbacks(self)
 
         #Widgets to access
-        self.teamListBox = self.builder.get_object('teamListBox')
+        #self.teamListBox = self.builder.get_object('teamListBox')
         self.teamCanvas = [self.builder.get_object('canLeadMon'), 
                             self.builder.get_object('canSubMon1'),
                             self.builder.get_object('canSubMon2'), 
@@ -53,10 +54,10 @@ class TeamBrowser():
         """Loads Teams into listbox"""
         self.connection = self.PADsql.connection
         self.teams = self.PADsql.selectTeamInstance()
-
+        self.update()
         self.setImages(None)
         if len(self.teams) == 0:
-            self.teamListBox.delete(0, END)
+            #self.teamListBox.delete(0, END)
             self.updateTeamLabels(self.builder, PADMonster.Team(self.PADsql))
             self.thisBuild.get_object('lblTeamName').config(text='Not A Team')
             self.builder.get_object('btnEditTeam').config(state=DISABLED)
@@ -65,7 +66,7 @@ class TeamBrowser():
         else:
             destroyerTeamBase = self.PADsql.selectTeamInstance(self.teams[0]['TeamInstanceID'])
             self.SelectedTeam = PADMonster.Team(self.PADsql)
-            self.teamListBox.delete(0, END)
+            #self.teamListBox.delete(0, END)
 
             #Sort teams by name
             sorted = False
@@ -80,28 +81,36 @@ class TeamBrowser():
                     yt+=1
                 if yt >= len(self.teams)-1:
                     sorted = True
-
+            self.teamPage = 1
             #insert teams into listbox
-            for i in range(0,len(self.teams)):
-                qq = str(self.teams[i]['TeamInstanceID'])
-                self.teamListBox.insert(END, str(self.teams[i]['TeamName']) + '                                                            ' + qq)
-            
+            self.loadTeams()
             self.teamSelect(self)
             self.builder.get_object('btnEditTeam').config(state=NORMAL)
             self.builder.get_object('btnRemoveTeam').config(state=NORMAL)
             return
 
+    def loadTeams(self):
+            #insert teams into listbox
+            self.team = []
+            j = (self.teamPage - 1) * 5
+            r=0
+            for i in range(0, 5):
+                self.team.append(TeamPreview(self.builder.get_object('canTeamPreviewer'), self))
+                if j < len(self.teams):
+                    self.team[i].update(self.teams[j], self)
+                self.team[i].mainFrame.grid(row=i)
+                j+=1
+
     def teamSelect(self, event):
-        """Selects team from listbox"""
-        if self.teamListBox.get(0) == '':
+        #"""Selects team from listbox"""
+        teamid = 0
+        if len(self.teams) == 0:
             self.updateTeam((0))
-            return
-        if self.teamListBox.get(ANCHOR) == '':
-             self.teamListBox.selection_anchor(0)
-        teamID = self.teamListBox.get(ANCHOR)
-        if teamID == '':
-            teamID = self.teamListBox.get(0)
-        teamID = teamID[-10:].strip(' ')
+            teamId = 0
+        #    return
+        elif self.SelectedTeam.TeamInstanceID == None:
+             teamID = self.teams[0]["TeamInstanceID"]
+        
         self.updateTeam(int(teamID))
 
     def updateTeam(self, i):
@@ -154,7 +163,6 @@ class TeamBrowser():
                 j+=1
             else:
                 MonsterStatTooltip(teamCanvas[i]).update()
-                
 
 
         if build == self.builder:
@@ -172,25 +180,25 @@ class TeamBrowser():
             spacepos = 0
             self.range = 130
             while len(leaderskilldesc) > self.range:
-                for i in str(leaderskilldesc[self.range - 130 : self.range]):
+                for i in str(leaderskilldesc[self.range - 120 : self.range]):
                     if i == ' ':
                         spaces.append(count)
                         spacepos = spaces[len(spaces) - 1]
                     count += 1
 
                 leaderskilldesc = leaderskilldesc[0:spacepos] + '\n' + leaderskilldesc[spacepos + 1:]
-                self.range += 130
-            if len(leaderskilldesc) // 130 < 1:
+                self.range += 120
+            if len(leaderskilldesc) // 120 < 1:
                 leaderskilldesc += '\n' * 3
-            elif len(leaderskilldesc) // 260 < 1:
+            elif len(leaderskilldesc) // 240 < 1:
                 leaderskilldesc += '\n' * 2
-            elif len(leaderskilldesc) // 390 < 1:
+            elif len(leaderskilldesc) // 360 < 1:
                 leaderskilldesc += '\n' * 1
 
             self.builder.get_object('lblLeaderSkill').config(text = "Leader Skill: " + self.SelectedTeam.Monsters[0].LeaderSkillName + '\n' + leaderskilldesc)
         else:
             self.builder.get_object('lblLeaderSkill').config(text = "Leader Skill: None"  + '\n' * 4)
-
+        ToolTip.ToolTip(self.builder.get_object("lblAwokenBadge"), self.SelectedTeam.AwokenBadgeName)
         self.thisBuild.get_object('lblAwokenBadge').config(image = self.AwokenBadgeImage, anchor = CENTER)
         self.thisBuild.get_object('lblTeamHP').config(text=  'HP:    ' + str(self.SelectedTeam.TeamHP))
         self.thisBuild.get_object('lblTeamCost').config(text='Cost: ' + str(self.SelectedTeam.TeamCost))
@@ -289,13 +297,15 @@ class TeamBrowser():
 
     def removeTeam(self):
         """Removes selected team from the listbox as well as the database"""
-        if self.teamListBox.get(ANCHOR) != '':
-            self.PADsql.deleteTeam(self.SelectedTeam.TeamInstanceID)
-            self.teamListBox.delete(ANCHOR)
-            self.teamSelect(self)
+        self.PADsql.deleteTeam(self.SelectedTeam.TeamInstanceID)
+        page = self.teamPage
+        self.loadUserTeams()
+        for i in range(0, 5):
+            self.team[i].mainframe.delete()
+        self.teamPage = page
+        self.loadTeams()
             
         if len(self.teams) == 0:
-            self.teamListBox.delete(0, END)
             self.updateTeamLabels(self.builder, PADMonster.Team(self.PADsql))
             self.thisBuild.get_object('lblTeamName').config(text='Not A Team')
             self.builder.get_object('btnEditTeam').config(state=DISABLED)
@@ -331,3 +341,101 @@ class TeamBrowser():
         """Occurs When Account Options Button Is Clicked"""
         self.master.showAccountOptions()
         return
+
+    def onProfileImageClick(self, event):
+        value = sd.askstring("Change Profile Image", "Enter Monster ID or Name:", parent=self.builder.get_object("canProfileImage"))
+        if value is not None:
+            if value.isnumeric():
+                value = int(value)
+
+            if self.master.PADsql.updateProfileImage(value):
+                self.update()
+            else:
+                mb.showinfo("Profile Image", "Monster ID Does Not Exist")
+
+    def update(self):
+        #print(self.master.PADsql.ProfileImage)
+        if self.master.PADsql.ProfileImage != None:
+            value = self.master.PADsql.ProfileImage
+        else:
+            value = 1
+
+        self.ProfileImage = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(value) + ".png")
+        self.builder.get_object("canProfileImage").create_image(2,2, image = self.ProfileImage, anchor = NW)
+
+        #CustomFont_Label(self.builder.get_object('frmPlayerInfo'), text= self.master.PADsql.Username, font_path="Resource/PAD/Font/FOT-RowdyStd-EB.ttf", size=22).grid(row = 0, column = 1, sticky = NW)
+        self.builder.get_object("lblUsername").config(text = self.master.PADsql.Username)
+        self.builder.get_object("lblCollectionCount").config(text ="Monsters\t= " + str(len(self.master.PADsql.selectMonsterInstance())))
+        self.builder.get_object("lblTeamCount").config(text ="Teams\t= " + str(len(self.master.PADsql.selectTeamInstance())))
+class TeamPreview():
+    def __init__(self, master, toplevel):
+        self.toplevel = toplevel
+        self.master = master
+        self.builder = pygubu.Builder()
+        self.builder.add_from_file('src/ui/Team Browser.ui')
+        self.mainFrame = self.builder.get_object('frmTeamPreview', master)
+
+        #Widget Objects
+        self.canTeamSlot1 = self.builder.get_object('canTeamSlot1')
+        self.canTeamSlot2 = self.builder.get_object('canTeamSlot2')
+        self.canTeamSlot3 = self.builder.get_object('canTeamSlot3')
+        self.canTeamSlot4 = self.builder.get_object('canTeamSlot4')
+        self.canTeamSlot5 = self.builder.get_object('canTeamSlot5')
+        self.lblTeamName = self.builder.get_object('lblTeamName')
+        self.builder.connect_callbacks(self)
+
+        #Variables
+        self.objTeam = None
+        self.strUsername = None
+        self.canIdentity = dict()
+
+        self.imgTeamSlot1 = None
+        self.imgTeamSlot2 = None
+        self.imgTeamSlot3 = None
+        self.imgTeamSlot4 = None
+        self.imgTeamSlot5 = None
+
+        self.imgTeamportrait1 = None
+        self.imgTeamportrait2 = None
+        self.imgTeamportrait3 = None
+        self.imgTeamportrait4 = None
+        self.imgTeamportrait5 = None
+
+        self.monTeamSlot1 = None
+        self.monTeamSlot2 = None
+        self.monTeamSlot3 = None
+        self.monTeamSlot4 = None
+        self.monTeamSlot5 = None
+
+        self.monToolTips = []
+        for i in range(0,5):
+            self.monToolTips.append(MonsterStatTooltip(getattr(self, "canTeamSlot" + str(i+1))))
+        for i in self.mainFrame.children:
+            self.mainFrame.children[i].bind("<1>", self.teamSelect)
+
+    def update(self, teamDict, master):
+        self.objTeam = PADMonster.Team(teamDict)
+        self.strUsername = self.toplevel.master.PADsql.Username
+        self.lblTeamName.config(text = teamDict["TeamName"])
+        self.teamDict = teamDict
+
+        for i in range(0,5):
+            self.canIdentity[getattr(self, "canTeamSlot" + str(i+1))] = str(i+1)
+            setattr(self, "monTeamSlot" + str(i+1), None)
+            setattr(self, "imgTeamSlot" + str(i+1), None)
+            keys = ['LeaderMonster', 'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour']
+            if teamDict[keys[i]] != None:
+                setattr(self, "monTeamSlot" + str(i+1), PADMonster.Monster(self.toplevel.master.PADsql.selectMonsterInstance(teamDict[keys[i]], allUsers = True)[0]))
+                setattr(self, "imgTeamSlot" + str(i+1), PhotoImage(file = "resource/PAD/images/thumbnails/" + str(getattr(self, "monTeamSlot" + str(i+1)).MonsterClassID) + ".png" ).subsample(2))
+                getattr(self, "canTeamSlot" + str(i+1)).create_image(2,2, image = getattr(self, "imgTeamSlot" + str(i+1)), anchor = NW)
+                self.monToolTips[i].update(getattr(self, "monTeamSlot" + str(i+1)))
+            else:
+                self.monToolTips[i].update()
+
+    def onCanTeamSlotClick(self, event):
+        if getattr(self, "monTeamSlot" + self.canIdentity[event.widget]) != None:
+            print("you clicked", getattr(self, "monTeamSlot" + self.canIdentity[event.widget]).MonsterName)
+
+    def teamSelect(self, event):
+        #"""Selects team from listbox"""
+        self.toplevel.master.teamBrowser.updateTeam((self.teamDict["TeamInstanceID"]))

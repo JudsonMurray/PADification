@@ -9,20 +9,98 @@
       <property name="row">0</property>
     </layout>
     <child>
-      <object class="tk.Canvas" id="titleImage">
-        <property name="height">200</property>
-        <property name="highlightbackground">#cc7d75</property>
-        <property name="selectbackground">#a5aa97</property>
-        <property name="selectforeground">#b6d56c</property>
-        <property name="takefocus">true</property>
-        <property name="width">1280</property>
+      <object class="tk.Frame" id="frmPlayerInfo">
+        <property name="borderwidth">4</property>
+        <property name="height">112</property>
+        <property name="relief">groove</property>
+        <property name="width">300</property>
         <layout>
           <property name="column">0</property>
-          <property name="columnspan">4</property>
-          <property name="propagate">True</property>
+          <property name="columnspan">100</property>
+          <property name="padx">6</property>
+          <property name="propagate">False</property>
           <property name="row">0</property>
-          <property name="sticky">w</property>
+          <property name="sticky">nw</property>
         </layout>
+        <child>
+          <object class="tk.Canvas" id="canProfileImage">
+            <property name="height">100</property>
+            <property name="relief">flat</property>
+            <property name="width">100</property>
+            <bind add="True" handler="onProfileImageClick" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">False</property>
+              <property name="row">0</property>
+              <property name="rowspan">1</property>
+              <property name="sticky">nw</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Label" id="lblUsername">
+            <property name="font">{Yu} 14 {}</property>
+            <property name="text" translatable="yes">
+</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="sticky">nw</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Label" id="lblCollectionCount">
+            <property name="font">{yu} 12 {}</property>
+            <property name="text" translatable="yes">Monsters = 0000</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="pady">35</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="sticky">nw</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Label" id="lblTeamCount">
+            <property name="font">{Yu} 12 {}</property>
+            <property name="text" translatable="yes">Teams = 0000</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="pady">65</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="sticky">nw</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="frmTitleImage">
+        <property name="borderwidth">4</property>
+        <property name="height">112</property>
+        <property name="relief">groove</property>
+        <property name="width">660</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">100</property>
+          <property name="padx">310</property>
+          <property name="propagate">False</property>
+          <property name="row">0</property>
+          <property name="sticky">n</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="lblTitleImage">
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
       </object>
     </child>
     <child>
@@ -47,17 +125,130 @@
           </object>
         </child>
         <child>
-          <object class="tk.Listbox" id="teamListBox">
-            <property name="height">20</property>
-            <property name="listvariable">string:teamSelected</property>
-            <property name="selectmode">single</property>
-            <property name="width">30</property>
-            <bind add="True" handler="teamSelect" sequence="&lt;ButtonRelease-1&gt;" />
+          <object class="tk.Frame" id="canTeamPreviewer">
+            <property name="height">510</property>
+            <property name="width">350</property>
             <layout>
               <property name="column">0</property>
-              <property name="propagate">True</property>
+              <property name="padx">5</property>
+              <property name="propagate">False</property>
               <property name="row">1</property>
+              <property name="rowspan">3</property>
             </layout>
+            <child>
+              <object class="tk.Frame" id="frmTeamPreview">
+                <property name="borderwidth">4</property>
+                <property name="height">100</property>
+                <property name="relief">raised</property>
+                <property name="width">350</property>
+                <bind add="True" handler="teamSelect" sequence="&lt;1&gt;" />
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">False</property>
+                  <property name="row">1</property>
+                </layout>
+                <child>
+                  <object class="tk.Canvas" id="canTeamSlot1">
+                    <property name="borderwidth">2</property>
+                    <property name="height">49</property>
+                    <property name="relief">groove</property>
+                    <property name="width">48</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">1</property>
+                      <property name="rowspan">4</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canTeamSlot2">
+                    <property name="borderwidth">2</property>
+                    <property name="height">49</property>
+                    <property name="relief">groove</property>
+                    <property name="width">48</property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="propagate">False</property>
+                      <property name="row">1</property>
+                      <property name="rowspan">4</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canTeamSlot3">
+                    <property name="borderwidth">2</property>
+                    <property name="height">49</property>
+                    <property name="relief">groove</property>
+                    <property name="width">48</property>
+                    <layout>
+                      <property name="column">2</property>
+                      <property name="propagate">False</property>
+                      <property name="row">1</property>
+                      <property name="rowspan">4</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canTeamSlot4">
+                    <property name="borderwidth">2</property>
+                    <property name="height">49</property>
+                    <property name="relief">groove</property>
+                    <property name="width">48</property>
+                    <layout>
+                      <property name="column">3</property>
+                      <property name="columnspan">1</property>
+                      <property name="propagate">False</property>
+                      <property name="row">1</property>
+                      <property name="rowspan">4</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canTeamSlot5">
+                    <property name="borderwidth">2</property>
+                    <property name="height">49</property>
+                    <property name="relief">groove</property>
+                    <property name="width">48</property>
+                    <layout>
+                      <property name="column">4</property>
+                      <property name="propagate">False</property>
+                      <property name="row">1</property>
+                      <property name="rowspan">4</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblTeamName">
+                    <property name="font">{yu} 12 {}</property>
+                    <property name="text" translatable="yes">---------------</property>
+                    <layout>
+                      <property name="column">2</property>
+                      <property name="columnspan">6</property>
+                      <property name="propagate">True</property>
+                      <property name="row">0</property>
+                      <property name="sticky">w</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblTeamRank">
+                    <property name="font">{Yu} 12 {}</property>
+                    <property name="text" translatable="yes">+00000</property>
+                    <layout>
+                      <property name="column">5</property>
+                      <property name="propagate">True</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
           </object>
         </child>
         <child>
@@ -69,7 +260,7 @@
               <property name="column">0</property>
               <property name="pady">10</property>
               <property name="propagate">True</property>
-              <property name="row">2</property>
+              <property name="row">4</property>
             </layout>
           </object>
         </child>
@@ -82,7 +273,7 @@
               <property name="column">0</property>
               <property name="pady">10</property>
               <property name="propagate">True</property>
-              <property name="row">3</property>
+              <property name="row">5</property>
             </layout>
           </object>
         </child>
@@ -95,28 +286,10 @@
               <property name="column">0</property>
               <property name="pady">10</property>
               <property name="propagate">True</property>
-              <property name="row">4</property>
+              <property name="row">6</property>
             </layout>
           </object>
         </child>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Label" id="lblPadInfoBar">
-        <property name="height">5</property>
-        <property name="height">5</property>
-        <property name="relief">sunken</property>
-        <property name="text" translatable="yes">PADification Application Information</property>
-        <property name="width">170</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="columnspan">7</property>
-          <property name="padx">40</property>
-          <property name="pady">20</property>
-          <property name="propagate">True</property>
-          <property name="row">6</property>
-          <property name="sticky">w</property>
-        </layout>
       </object>
     </child>
     <child>
@@ -126,8 +299,10 @@
         <layout>
           <property name="column">1</property>
           <property name="columnspan">1</property>
+          <property name="pady">5</property>
           <property name="propagate">True</property>
           <property name="row">2</property>
+          <property name="sticky">n</property>
         </layout>
         <child>
           <object class="ttk.Label" id="lblTeamName">
@@ -168,9 +343,10 @@
         <layout>
           <property name="column">1</property>
           <property name="columnspan">2</property>
+          <property name="pady">5</property>
           <property name="propagate">True</property>
-          <property name="row">3</property>
-          <property name="sticky">w</property>
+          <property name="row">2</property>
+          <property name="sticky">s</property>
         </layout>
         <child>
           <object class="tk.Canvas" id="canLeadMon">
@@ -265,7 +441,7 @@
           <property name="columnspan">1</property>
           <property name="padx">20</property>
           <property name="propagate">True</property>
-          <property name="row">4</property>
+          <property name="row">3</property>
           <property name="sticky">w</property>
         </layout>
         <child>
@@ -1047,7 +1223,7 @@
         <layout>
           <property name="column">1</property>
           <property name="propagate">True</property>
-          <property name="row">5</property>
+          <property name="row">4</property>
           <property name="sticky">w</property>
         </layout>
         <child>
@@ -1069,123 +1245,6 @@
             </layout>
           </object>
         </child>
-      </object>
-    </child>
-  </object>
-  <object class="tk.Frame" id="frmTeamPreview">
-    <property name="borderwidth">4</property>
-    <property name="height">140</property>
-    <property name="relief">raised</property>
-    <property name="width">530</property>
-    <layout>
-      <property name="column">0</property>
-      <property name="propagate">False</property>
-      <property name="row">0</property>
-    </layout>
-    <child>
-      <object class="tk.Canvas" id="canTeamSlot1">
-        <property name="borderwidth">2</property>
-        <property name="height">97</property>
-        <property name="relief">groove</property>
-        <property name="width">96</property>
-        <bind add="True" handler="onCanTeamSlotClick" sequence="&lt;1&gt;" />
-        <layout>
-          <property name="column">0</property>
-          <property name="propagate">False</property>
-          <property name="row">1</property>
-          <property name="rowspan">4</property>
-          <property name="sticky">nw</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Canvas" id="canTeamSlot2">
-        <property name="borderwidth">2</property>
-        <property name="height">97</property>
-        <property name="relief">groove</property>
-        <property name="width">96</property>
-        <bind add="True" handler="onCanTeamSlotClick" sequence="&lt;1&gt;" />
-        <layout>
-          <property name="column">1</property>
-          <property name="propagate">False</property>
-          <property name="row">1</property>
-          <property name="rowspan">4</property>
-          <property name="sticky">nw</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Canvas" id="canTeamSlot3">
-        <property name="borderwidth">2</property>
-        <property name="height">97</property>
-        <property name="relief">groove</property>
-        <property name="width">96</property>
-        <bind add="True" handler="onCanTeamSlotClick" sequence="&lt;1&gt;" />
-        <layout>
-          <property name="column">2</property>
-          <property name="propagate">False</property>
-          <property name="row">1</property>
-          <property name="rowspan">4</property>
-          <property name="sticky">nw</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Canvas" id="canTeamSlot4">
-        <property name="borderwidth">2</property>
-        <property name="height">96</property>
-        <property name="relief">groove</property>
-        <property name="width">97</property>
-        <bind add="True" handler="onCanTeamSlotClick" sequence="&lt;1&gt;" />
-        <layout>
-          <property name="column">3</property>
-          <property name="propagate">False</property>
-          <property name="row">1</property>
-          <property name="rowspan">4</property>
-          <property name="sticky">nw</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Canvas" id="canTeamSlot5">
-        <property name="borderwidth">2</property>
-        <property name="height">96</property>
-        <property name="relief">groove</property>
-        <property name="width">97</property>
-        <bind add="True" handler="onCanTeamSlotClick" sequence="&lt;1&gt;" />
-        <layout>
-          <property name="column">4</property>
-          <property name="propagate">False</property>
-          <property name="row">1</property>
-          <property name="rowspan">4</property>
-          <property name="sticky">nw</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Label" id="lblTeamUsername">
-        <property name="font">{yu} 12 {bold}</property>
-        <property name="text" translatable="yes">User: ---------------</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="columnspan">7</property>
-          <property name="propagate">True</property>
-          <property name="row">2</property>
-          <property name="sticky">nw</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Label" id="lblTeamName_1">
-        <property name="font">{yu} 14 {}</property>
-        <property name="text" translatable="yes">Team Name: ---------------</property>
-        <layout>
-          <property name="column">2</property>
-          <property name="columnspan">6</property>
-          <property name="propagate">True</property>
-          <property name="row">0</property>
-          <property name="sticky">nw</property>
-        </layout>
       </object>
     </child>
   </object>
