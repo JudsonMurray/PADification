@@ -148,7 +148,8 @@ class LoginDialog(sd.Dialog):
         self.entPassword = None
         self.Email = StringVar(value = "Enter Email")
         self.Password = StringVar(value = "Enter Password")
-        self.Server = StringVar(value = "127.0.0.1")
+        self.servertxt = StringVar(value = "Remote")
+        self.server = BooleanVar(value = True)
         super().__init__(parent, title)
         
 
@@ -164,8 +165,9 @@ class LoginDialog(sd.Dialog):
         l = Label(box, image= self.imgTitleImage)
         l.pack()
 
-        self.entServer = Entry(box, width=20, textvariable=self.Server, font="yu")
-        self.entServer.pack(pady=5)
+        self.chkServer = Checkbutton(box, indicatoron=False, font="yu", onvalue=False, offvalue=True, textvariable=self.servertxt, variable=self.server)
+        self.chkServer.bind("<1>", self.onServerClick)
+        self.chkServer.pack(pady=5)
         self.entEmail = Entry(box, width=20, textvariable=self.Email,foreground="#c6caca", font="yu")
         self.entEmail.pack(pady=5)
         self.entPassword = Entry(box, width=20, textvariable=self.Password,foreground="#c6caca", font="yu")
@@ -214,6 +216,11 @@ class LoginDialog(sd.Dialog):
         the dialog is destroyed. By default, it does nothing.
         '''
         pass
+    def onServerClick(self, event):
+        if self.server.get():
+            self.servertxt.set("localhost")
+        else:
+            self.servertxt.set("Remote")
 
     def onCreateAccountClick(self, event  = None):
         """Occurs When Create Account Button Is Clicked"""
@@ -221,7 +228,8 @@ class LoginDialog(sd.Dialog):
 
     def onLoginClick(self, event  = None):
         """Occurs When Login Button Is Clicked"""
-        self.master.PADsql.login(self.Email.get(), self.Password.get(), self.Server.get())
+        self.master.PADsql.remote = self.server.get()
+        self.master.PADsql.login(self.Email.get(), self.Password.get())
         if self.master.PADsql.signedIn:
             self.master.showHomeScreen()
             self.destroy()

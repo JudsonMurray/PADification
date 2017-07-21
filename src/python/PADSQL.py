@@ -19,6 +19,11 @@ class PADSQL():
                         'Database=PADification;'
                         'uid=padification;pwd=Vm0b?pt9k!L4;')
 
+        self.localhost = ('Driver={SQL Server};'
+                        'Server=localhost;'
+                        'Database=PADification;'
+                        'uid=PADmin;pwd=PADmin;')
+        self.remote = True
         self.connection = None
         self.cursor = None
         self.Email = None
@@ -28,20 +33,17 @@ class PADSQL():
         self.ProfileImage = None
         self.signedIn = False
 
-    def connect(self, serverip = None):
+    def connect(self):
         """Connect to the Sql Server and Establish a cursor"""
         notconnected = True
         attempts = 0
-        #if serverip != None:
-        #    self.server = ('Driver={SQL Server};'
-        #                'Server=' + serverip + ';'
-        #                'Database=PADification;'
-        #                'uid=PADmin;pwd=PADmin;')
-        
-
+        print(self.remote)
         while notconnected and attempts < 5:
             try:
-                self.connection = pypyodbc.connect(self.server)
+                if self.remote:
+                    self.connection = pypyodbc.connect(self.server)
+                else:
+                    self.connection = pypyodbc.connect(self.localhost)
                 notconnected = False
             except:
                 print("Timeout, Retrying connection.", 4 - attempts, "attempts left.")
@@ -67,9 +69,9 @@ class PADSQL():
         print("Sign up Successful")
         self.closeConnection()
 
-    def login(self, Email, Password, Server = "localhost"):
+    def login(self, Email, Password):
         """Log in with login Info"""
-        self.connect(Server)
+        self.connect()
         SQLCommand = ("SELECT [Email], [Password], [Username], [PlayerID], [ProfileImage] "
                         "FROM Player "
                         "WHERE [Email] = ? "
