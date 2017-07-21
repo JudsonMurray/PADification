@@ -5,7 +5,7 @@
 #   V.1.0   RB  Created base functionality for the player collection screen, known bugs are monster summary image is wrongly sized and type images not showing up
 #   V.1.1   RB  Monster summary image now sized correctly and type images are now being displayed
 #   V.1.2   RB  Changed the collection of information from the DB to use the PADSQL and PADMonster classes
-#   V.1.3   RB  Remove monster functionality works, Monsters now stored in a dictionary
+#   V.1.3   RB  Remove monster functionality works, self.monsters now stored in a dictionary
 #   V.1.4   RB  Integrated with the PADification.py
 #   V.1.5   RB  Added currently awoken awoken skills and disabled the monster summary buttons when a monster is not selected
 #   V.1.6   RB  Added a okcancel messagebox when remove monster is clicked and now able to load Edit Monster screen when edit monster is clicked
@@ -20,18 +20,22 @@ import pypyodbc
 import CustomWidgets
 from PIL import Image
 from PIL import ImageTk
+from idlelib import ToolTip
 import sys
 import time
 import PADMonster
+from PADMonster import Monster
 import PADSQL
 import MonsterEditScreen
+from ast import literal_eval as le
 
 
 class MonsterFrame:
-    def __init__(self, master, masterbuilder, i, ids, currentMonster, buttons, padsql, selButton):
+    def __init__(self, master, masterbuilder, i, ids, currentMonster, buttons, padsql, selButton, mastermaster):
         self.master = master
         self.masterbuilder = masterbuilder
         self.i = i
+        self.mastermaster = mastermaster
         self.builder = pygubu.Builder()
         self.builder.add_from_file('src/ui/PlayerCollection.ui')
         self.monbut = self.builder.get_object('MonsFrame', self.master)
@@ -41,7 +45,7 @@ class MonsterFrame:
         self.buttons = buttons
         self.padsql = padsql
         self.selButton = selButton
-        self.myMonster = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(monsters[self.ids[self.i]]["MonsterClassID"]) + '.png').subsample(2)
+        self.myMonster = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(self.currentMonster.MonsterClassID) + '.png').subsample(2)
         self.builder.get_object("FrameLabel").create_image(2,2, image = self.myMonster, anchor = tk.NW)
         
     def clickMe(self, event):
@@ -50,35 +54,41 @@ class MonsterFrame:
         global k
         global selectedMonster
         
-        if monsters[self.ids[self.i]]["Favorites"]:
+        if self.currentMonster.Favorites:
            self.masterbuilder.get_object("btnFavorite").config(state = Disabled)
         else:
             self.masterbuilder.get_object("btnFavorite").config(state = NORMAL)
         self.masterbuilder.get_object("btnEdit").config(state = NORMAL)
         self.masterbuilder.get_object("btnRemove").config(state = NORMAL)
-        if monsters[self.ids[self.i]]["Favorites"]:
+        if self.currentMonster.Favorites:
             self.masterbuilder.get_object("btnUnfavorite").config(state = NORMAL)
-        if monsters[self.ids[self.i]]["WishList"]:
+        if self.currentMonster.WishList:
             self.masterbuilder.get_object("btnAddFromWishlist").config(state = NORMAL)
         
         #Creates photoimages for selected monster 
-        self.s = PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(monsters[self.ids[self.i]]["MonsterClassID"]) +'.png').zoom(4)
+        self.s = PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(self.currentMonster.MonsterClassID) +'.png').zoom(4)
         self.s = self.s.subsample(5)
 
         #Creates the photo image for the selected monster's awoken awoken skills
-        self.aSList = self.padsql.getAwokenSkillList(monsters[self.ids[self.i]]["MonsterClassID"])
+        self.aSList = self.padsql.getAwokenSkillList(self.currentMonster.MonsterClassID)
         self.aSListImg = []
+
+        self.awokenSkills = []
 
         for i in range(1, len(self.aSList)):
             if i <= self.currentMonster.SkillsAwoke:
                 if self.aSList[i] is not None:
+                    self.awokenSkills.append(self.aSList[i])
                     self.aSListImg.append(PhotoImage(file = "Resource/PAD/Images/Awoken Skills/" + str(self.aSList[i]) +'.png'))
                 else:
+                    self.awokenSkills.append(None)
                     self.aSListImg.append(None)
             else:
                 if self.aSList[i] is not None:
+                    self.awokenSkills.append(self.aSList[i])
                     self.aSListImg.append(PhotoImage(file = "Resource/PAD/Images/Awoken Skills/not " + str(self.aSList[i]) +'.png'))
                 else:
+                    self.awokenSkills.append(None)
                     self.aSListImg.append(None)
 
         #Removes all the previously selected monster's, if there was one, awoken awoken skills
@@ -93,19 +103,19 @@ class MonsterFrame:
         self.masterbuilder.get_object("canASNine").delete("all")
 
         #Creates photimages for the types of the selected monster
-        self.e = PhotoImage(file = "Resource/PAD/Images/Types/" + str(monsters[self.ids[self.i]]["MonsterTypeOne"]) + '.png')
+        self.e = PhotoImage(file = "Resource/PAD/Images/Types/" + str(self.currentMonster.MonsterTypeOne) + '.png')
 
         #Removes all the previously selected monster's, if there was one, secondary and tertiary types
         self.masterbuilder.get_object("canType2").delete("all")
         self.masterbuilder.get_object("canType3").delete("all")
 
-        if not monsters[self.ids[self.i]]["MonsterTypeTwo"] is None:
-            self.f = PhotoImage(file = "Resource/PAD/Images/Types/" + str(monsters[self.ids[self.i]]["MonsterTypeTwo"]) + '.png')
+        if not self.currentMonster.MonsterTypeTwo is None:
+            self.f = PhotoImage(file = "Resource/PAD/Images/Types/" + str(self.currentMonster.MonsterTypeTwo) + '.png')
         else:
             self.f = None
 
-        if not monsters[self.ids[self.i]]["MonsterTypeThree"] is None:
-            self.g = PhotoImage(file = "Resource/PAD/Images/Types/" + str(monsters[self.ids[self.i]]["MonsterTypeThree"]) + '.png')
+        if not self.currentMonster.MonsterTypeThree is None:
+            self.g = PhotoImage(file = "Resource/PAD/Images/Types/" + str(self.currentMonster.MonsterTypeThree) + '.png')
         else:
             self.g = None
 
@@ -124,15 +134,12 @@ class MonsterFrame:
 
         #Populates fields with neccessary information
         self.masterbuilder.get_object("canMonsterSummary").create_image(7,7, image = self.s, anchor = tk.NW)
-        self.masterbuilder.get_object("lblName").config(text = "Monster Name: " + str(monsters[self.ids[self.i]]["MonsterName"]))
-        self.masterbuilder.get_object("lblRarity").config(text = "Rarity: " + str(monsters[self.ids[self.i]]["Rarity"]))
+        self.masterbuilder.get_object("lblName").config(text = "Monster Name: " + str(self.currentMonster.MonsterName))
+        self.masterbuilder.get_object("lblRarity").config(text = "Rarity: " + str(self.currentMonster.Rarity))
         self.masterbuilder.get_object("lblHP").config(text = "HP: " + str(self.currentMonster.TotalHP))
         self.masterbuilder.get_object("lblATK").config(text = "ATK: " + str(self.currentMonster.TotalATK))
         self.masterbuilder.get_object("lblRCV").config(text = "RCV: " + str(self.currentMonster.TotalRCV))
-        #self.masterbuilder.get_object("lblHP").config(text = "HP: " + str(monsters[self.ids[self.i]]["HP"]))
-        #self.masterbuilder.get_object("lblATK").config(text = "ATK: " + str(monsters[self.ids[self.i]]["ATK"]))
-        #self.masterbuilder.get_object("lblRCV").config(text = "RCV: " + str(monsters[self.ids[self.i]]["RCV"]))
-        self.masterbuilder.get_object("lblID").config(text = "Monster ID: " + str(monsters[self.ids[self.i]]["MonsterClassID"]))
+        self.masterbuilder.get_object("lblID").config(text = "Monster ID: " + str(self.currentMonster.MonsterClassID))
         self.masterbuilder.get_object("canType1").create_image(2,2, image = self.e, anchor = tk.NW)
         self.masterbuilder.get_object("canType2").create_image(2,2, image = self.f, anchor = tk.NW)
         self.masterbuilder.get_object("canType3").create_image(2,2, image = self.g, anchor = tk.NW)
@@ -147,20 +154,115 @@ class MonsterFrame:
         self.masterbuilder.get_object("canASNine").create_image(2,2, image = self.aSListImg[8], anchor = tk.NW)
 
         #Saves the instanceid of the selected monster for later use
-        selectedMonster = monsters[self.ids[self.i]]["InstanceID"]
+        selectedMonster = self.currentMonster.InstanceID
 
-        self.image = Image.open("Resource/PAD/Images/portraits/" + str(monsters[self.ids[self.i]]["MonsterClassID"]) + ".jpg").resize((320,192))
+        self.image = Image.open("Resource/PAD/Images/portraits/" + str(self.currentMonster.MonsterClassID) + ".jpg").resize((320,192))
         self.portrait = ImageTk.PhotoImage(self.image)
+
+        self.mastermaster.typeOne.text = self.currentMonster.MonsterTypeOne
+
+        if self.currentMonster.MonsterTypeTwo != None:
+            self.mastermaster.typeTwo.text = self.currentMonster.MonsterTypeTwo
+        else:
+            self.mastermaster.typeTwo.text = None
+            pass
+
+        if self.currentMonster.MonsterTypeThree != None:
+            self.mastermaster.typeThree.text = self.currentMonster.MonsterTypeThree
+        else:
+            self.mastermaster.typeThree.text = None
+
+        if self.awokenSkills[0] is None:
+            self.mastermaster.ASOne.text = None
+            self.mastermaster.ASTwo.text = None
+            self.mastermaster.ASThree.text = None
+            self.mastermaster.ASFour.text = None
+            self.mastermaster.ASFive.text = None
+            self.mastermaster.ASSix.text = None
+            self.mastermaster.ASSeven.text = None
+            self.mastermaster.ASEight.text = None
+            self.mastermaster.ASNine.text = None
+        else:
+            self.mastermaster.ASOne.text = self.awokenSkills[0]
+
+        if self.awokenSkills[1] is None:
+            self.mastermaster.ASTwo.text = None
+            self.mastermaster.ASThree.text = None
+            self.mastermaster.ASFour.text = None
+            self.mastermaster.ASFive.text = None
+            self.mastermaster.ASSix.text = None
+            self.mastermaster.ASSeven.text = None
+            self.mastermaster.ASEight.text = None
+            self.mastermaster.ASNine.text = None
+        else:
+            self.mastermaster.ASTwo.text = self.awokenSkills[1]
+
+        if self.awokenSkills[2] is None:
+            self.mastermaster.ASThree.text = None
+            self.mastermaster.ASFour.text = None
+            self.mastermaster.ASFive.text = None
+            self.mastermaster.ASSix.text = None
+            self.mastermaster.ASSeven.text = None
+            self.mastermaster.ASEight.text = None
+            self.mastermaster.ASNine.text = None
+        else:
+            self.mastermaster.ASThree.text = self.awokenSkills[2]
+
+        if self.awokenSkills[3] is None:
+            self.mastermaster.ASFour.text = None
+            self.mastermaster.ASFive.text = None
+            self.mastermaster.ASSix.text = None
+            self.mastermaster.ASSeven.text = None
+            self.mastermaster.ASEight.text = None
+            self.mastermaster.ASNine.text = None
+        else:
+            self.mastermaster.ASFour.text = self.awokenSkills[3]
+
+        if self.awokenSkills[4] is None:
+            self.mastermaster.ASFive.text = None
+            self.mastermaster.ASSix.text = None
+            self.mastermaster.ASSeven.text = None
+            self.mastermaster.ASEight.text = None
+            self.mastermaster.ASNine.text = None
+        else:
+            self.mastermaster.ASFive.text = self.awokenSkills[4]
+
+        if self.awokenSkills[5] is None:
+            self.mastermaster.ASSix.text = None
+            self.mastermaster.ASSeven.text = None
+            self.mastermaster.ASEight.text = None
+            self.mastermaster.ASNine.text = None
+        else:
+            self.mastermaster.ASSix.text = self.awokenSkills[5]
+
+        if self.awokenSkills[6] is None:
+            self.mastermaster.ASSeven.text = None
+            self.mastermaster.ASEight.text = None
+            self.mastermaster.ASNine.text = None
+        else:
+            self.mastermaster.ASSeven.text = self.awokenSkills[6]
+
+        if self.awokenSkills[7] is None:
+            self.mastermaster.ASEight.text = None
+            self.mastermaster.ASNine.text = None
+        else:
+            self.mastermaster.ASEight.text = self.awokenSkills[7]
+
+        if self.awokenSkills[8] is None:
+            self.mastermaster.ASNine.text = None
+        else:
+            self.mastermaster.ASNine.text = self.awokenSkills[8]
 
         self.master.portrait = CustomWidgets.ImageTooltip(self.masterbuilder.get_object("canMonsterSummary"), self.portrait)
 
 class PlayerCollection:
     def __init__(self, master):
         #Creates globals 
-        global monsters
+        
         global k
         global buttons
         
+        self.bgSearchText = 'Enter Monster ID or Name'
         self.pds = master.PADsql
         self.master = master
         self.startMonster = 0
@@ -184,7 +286,36 @@ class PlayerCollection:
         #3: Creates the widget using a master as parent
         self.mainwindow = builder.get_object('frmPlayerCollection')
         builder.connect_callbacks(self)
+        
         self.portrait = CustomWidgets.ImageTooltip(self.builder.get_object("canMonsterSummary"), None)
+        self.typeOne = ToolTip.ToolTip(self.builder.get_object("canType1"), None)
+        self.typeTwo = ToolTip.ToolTip(self.builder.get_object("canType2"), None)
+        self.typeThree = ToolTip.ToolTip(self.builder.get_object("canType3"), None)
+        self.ASOne = ToolTip.ToolTip(self.builder.get_object("canASOne"), None)
+        self.ASTwo = ToolTip.ToolTip(self.builder.get_object("canASTwo"), None)
+        self.ASThree = ToolTip.ToolTip(self.builder.get_object("canASThree"), None)
+        self.ASFour = ToolTip.ToolTip(self.builder.get_object("canASFour"), None)
+        self.ASFive = ToolTip.ToolTip(self.builder.get_object("canASFive"), None)
+        self.ASSix = ToolTip.ToolTip(self.builder.get_object("canASSix"), None)
+        self.ASSeven = ToolTip.ToolTip(self.builder.get_object("canASSeven"), None)
+        self.ASEight = ToolTip.ToolTip(self.builder.get_object("canASEight"), None)
+        self.ASNine = ToolTip.ToolTip(self.builder.get_object("canASNine"), None)
+
+        self.AttributeImages = dict()
+        for i in ["Fire","Water","Wood","Light","Dark"]:
+            self.AttributeImages[i] = PhotoImage(file = 'Resource/PAD/Images/Attributes/' + i + "Symbol.png")
+            self.builder.get_object("chkPri" + i).config(image = self.AttributeImages[i])
+            ToolTip.ToolTip(self.builder.get_object("chkPri" + i) , i)
+            self.builder.get_object("chkSec" + i).config(image = self.AttributeImages[i])
+            ToolTip.ToolTip(self.builder.get_object("chkSec" + i) , i)
+                    ##### TYPE IMAGES #####
+        self.TypeImages = dict()
+        for i in ["Attacker", "Awaken Material", "Balanced", "Devil", "Dragon", "Enhance Material",
+                  "Evo Material", "God", "Healer", "Machine", "Physical", "Redeemable Material" ]:
+            self.TypeImages[i] = PhotoImage(file = 'Resource/PAD/Images/Types/' + i + ".png")
+            self.builder.get_object("chkType" + i.replace(" ", "")).config(image = self.TypeImages[i])
+            ToolTip.ToolTip(self.builder.get_object("chkType" + i.replace(" ", "")) , i)
+
     def pageOne(self):
         if k is None:
             self.startMonster = 0
@@ -198,7 +329,7 @@ class PlayerCollection:
 
     def onAddFromWishlistClick(self):
 
-        a = PADMonster.Monster(monsters[selectedMonster])
+        a = PADMonster.Monster(self.monsters[selectedMonster])
         a.WishList = 0
         b = a.getSaveDict()
 
@@ -207,14 +338,14 @@ class PlayerCollection:
 
         self.pds.saveMonster(b)
 
-        monsters.pop(selectedMonster)
+        self.monsters.pop(selectedMonster)
         self.instantList.remove(selectedMonster)
 
         self.__RemoveInformation()
         self.startMonster -= self.count
         self.populateList()
 
-    def populateList(self):
+    def populateList(self, search = None):
         '''Populates the player collection list'''
         if k is None:
             self.builder.get_object("btnFavorite").config(state = DISABLED)
@@ -223,44 +354,44 @@ class PlayerCollection:
             self.builder.get_object("btnUnfavorite").config(state = DISABLED)
             self.builder.get_object("btnAddFromWishlist").config(state = DISABLED)
 
-        global monsters
+        
         
         self.builder.get_object("canMonsterList").delete("All")
 
         # JBM - Modifying collection to Dictionary from List to make Monster Lookup easier
         instanceIDs = []
-        monster = self.pds.selectMonsterInstance(wishlist = self.displayWishlist)
+        
 
-        monsters = dict()
+        if search is None:
+            monster = self.pds.selectMonsterInstance(wishlist = self.displayWishlist)
+        else:
+            monster = self.pds.selectMonsterInstance(wishlist = self.displayWishlist)
+        self.monsters = dict()
         for i in monster:
-            monsters[i["InstanceID"]] = i
+            self.monsters[i["InstanceID"]] = i
             instanceIDs.append(i["InstanceID"])
         self.instantList = instanceIDs
-        #self.myMonsterList = []
-
-        ##Creates the photoimage for each monster instance of the user and stores them in a list
-        #for i in self.instantList:
-        #    myMonster = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(monsters[i]["MonsterClassID"]) + '.png')
-        #    myMonster = myMonster.subsample(2)
-        #    self.myMonsterList.append(myMonster)
 
         self.container = self.builder.get_object('canMonsterList')
-        
 
         for i in self.container.grid_slaves():
             i.grid_forget()
         
-        #Creates a graphical list of monsters
+        #Creates a graphical list of self.monsters
         buttons = []
         self.buttons = buttons = []
         self.count = 0
-        
-
-        for i in monsters:
+        for i in range(0, len(self.monsters)):
             if self.startMonster < 50 * self.currentPage and ((self.startMonster >= 50 * (self.currentPage - 1)) and not(self.startMonster == len(self.instantList))):
-                b = self.instantList[self.startMonster]
-                a = PADMonster.Monster(monsters[b])
-                self.buttons.append(MonsterFrame(self.container, self.builder, self.startMonster, self.instantList, a, self.buttons, self.pds, self.count))
+                if search is None:
+                    b = self.instantList[self.startMonster]
+                    a = PADMonster.Monster(self.monsters[b])
+                else:
+                    try:
+                        a = search[i]
+                    except:
+                        break
+                self.buttons.append(MonsterFrame(self.container, self.builder, self.startMonster, self.instantList, a, self.buttons, self.pds, self.count, self))
                 self.buttons[self.count].monbut.grid(row=self.count // 10,column = self.count % 10)
                 #self.buttons[self.count].builder.get_object('FrameLabel').create_image(2,2, image = self.myMonsterList[self.startMonster], anchor = tk.NW)
                 self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(a.Level)+ '\nID: ' + str(a.MonsterClassID))
@@ -281,7 +412,8 @@ class PlayerCollection:
         elif self.pages <= self.currentPage:
             self.builder.get_object("btnNext").config(state = DISABLED)
             
-        self.builder.get_object('lblCurPage').config(text = "Page " + str(self.currentPage) + "/" + str(self.pages))
+        self.builder.get_variable('lblPageNumber').set( "    / " + str(self.pages))
+        self.builder.get_variable('varPageEnt').set(str(self.currentPage))
 
         self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
 
@@ -321,7 +453,7 @@ class PlayerCollection:
         self.master.monsterEdit.receiveInstanceID(selectedMonster, self.displayWishlist)
         self.master.showEditMonster()
 
-    def onHomeClick(self):
+    def onHomeClick(self, event):
         self.displayWishlist = 0
         global k
         k = None
@@ -329,10 +461,10 @@ class PlayerCollection:
         self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         self.master.showHomeScreen()
 
-    def onMyMonsterClick(self):
+    def onCollectionClick(self, event):
         self.master.showPlayerCollection()
 
-    def onMonsterBookClick(self):
+    def onBookClick(self, event):
         self.displayWishlist = 0
         global k
         k = None
@@ -340,7 +472,7 @@ class PlayerCollection:
         self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         self.master.showMonsterBook()
 
-    def onMyTeamsClick(self):
+    def onTeamsClick(self, event):
         self.displayWishlist = 0
         global k
         k = None
@@ -348,7 +480,7 @@ class PlayerCollection:
         self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         self.master.showTeamBrowser()
 
-    def onPlayersClick(self):
+    def onCommunityClick(self, event):
         self.displayWishlist = 0
         global k
         k = None
@@ -356,7 +488,7 @@ class PlayerCollection:
         self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         pass
 
-    def onTeamRankingClick(self):
+    def onTeamRankingClick(self, event):
         self.displayWishlist = 0
         global k
         k = None
@@ -364,7 +496,7 @@ class PlayerCollection:
         self.builder.get_object("btnMonsterList").config(state = DISABLED) 
         pass
 
-    def onAccountOptionsClick(self):
+    def onOptionsClick(self, event):
         self.displayWishlist = 0
         global k
         k = None
@@ -400,7 +532,7 @@ class PlayerCollection:
     def RemoveMonster(self):
         '''Removes the selected monster from the DB and all its references, occurs when remove monster button is clicked'''
 
-        tkMessageBox = messagebox.askokcancel("Confirm", "Are your sure you want to remove this monster?")
+        tkMessageBox = messagebox.askokcancel("Confirm", "Are your sure you want to remove this monster? The selected monster will be removed from all teams and assist positions.")
 
         if tkMessageBox:
             #Removes monster instance from DB
@@ -420,14 +552,21 @@ class PlayerCollection:
                     self.SelectedTeam.setSubMonsterFour()
                 self.SelectedTeam.update()
                 self.pds.saveTeam(self.SelectedTeam.getSaveDict())
-            self.pds.deleteMonster(selectedMonster)
+            
 
             global k
 
             k = None
 
+            for i in self.monsters:
+                check = PADMonster.Monster(self.monsters[i])
+                if check.AssistMonsterID == self.monsters[selectedMonster]["InstanceID"]:
+                    check.AssistMonsterID = None
+                    self.pds.saveMonster(check.getSaveDict())
+
+            self.pds.deleteMonster(selectedMonster)
             #Removes references to the monster
-            monsters.pop(selectedMonster)
+            self.monsters.pop(selectedMonster)
             self.instantList.remove(selectedMonster)
 
             #self.__UpdateMonsters()
@@ -486,6 +625,19 @@ class PlayerCollection:
 
     def __RemoveInformation(self):
         self.portrait.photoImage = None
+        self.typeOne.text = None
+        self.typeTwo.text = None
+        self.typeThree.text = None
+        self.ASOne.text = None
+        self.ASTwo.text = None
+        self.ASThree.text = None
+        self.ASFour.text = None
+        self.ASFive.text = None
+        self.ASSix.text = None
+        self.ASSeven.text = None
+        self.ASEight.text = None
+        self.ASNine.text = None
+
         self.builder.get_object("canMonsterSummary").unbind("<Enter>")
         self.builder.get_object("canMonsterSummary").unbind("<Leave>")
         self.builder.get_object("canMonsterSummary").unbind("<ButtonPress>")
@@ -509,3 +661,133 @@ class PlayerCollection:
         self.builder.get_object("canASSeven").delete("all")
         self.builder.get_object("canASEight").delete("all")
         self.builder.get_object("canASNine").delete("all")
+
+    def onSearchBarFocusIn(self, event):
+        #Clears Search Bar on focus
+        if self.builder.get_variable("SearchBar").get() == self.bgSearchText:
+            self.builder.get_variable("SearchBar").set("")
+        
+    def onSearchBarFocusOut(self, event):
+        #Populates empty Search bar on focus out
+        if self.builder.get_variable("SearchBar").get() == "":
+            self.builder.get_variable("SearchBar").set(self.bgSearchText)
+
+    def onSearchClick(self, event):
+        ############################
+        ##### PARSE SEARCH BAR #####
+        ############################
+
+        self.__RemoveInformation()
+
+        search = self.builder.get_variable("SearchBar").get()
+        if search == self.bgSearchText:
+            search = ""
+
+        if "," in search:
+            search = le("(" + search + ")")
+        elif search.isnumeric():
+            search = int(search)
+
+        self.MonsterResults = []
+        self.monsters = self.master.PADsql.selectMonsterInstance(search, byInstanceID = False, wishlist = self.displayWishlist)
+
+
+
+        #################################
+        ##### GET ATTRIBUTE FILTERS #####
+        #################################
+        PriAttributes = []
+        for i in ["PriFire", "PriWater", "PriWood", "PriLight", "PriDark"]:
+            if self.builder.get_variable(i).get() != "" and self.builder.get_variable(i).get() != "0":
+                PriAttributes.append(self.builder.get_variable(i).get())
+        SecAttributes = []
+        for i in ["SecFire", "SecWater", "SecWood", "SecLight", "SecDark"]:
+            if self.builder.get_variable(i).get() != "" and self.builder.get_variable(i).get() != "0":
+                SecAttributes.append(self.builder.get_variable(i).get())
+
+        ##### IF NOTHING SELECTED ADD ALL FILTERS #####
+        if len(PriAttributes) == 0 and len(SecAttributes) == 0:
+            PriAttributes = ["Fire","Water","Wood","Light","Dark"]
+            SecAttributes = ["Fire","Water","Wood","Light","Dark"]
+            self.builder.get_variable("varANDOR").set("OR")
+
+        ##### SINGLE ATTRIBUTE SWITCH TO 'OR' #####
+        elif len(PriAttributes) == 0 or len(SecAttributes) == 0:
+            self.builder.get_variable("varANDOR").set("OR")
+
+        ############################
+        ##### GET TYPE FILTERS #####
+        ############################
+        TypeFilters = []
+        for i in ["TypeAttacker", "TypeAwakenMaterial", "TypeBalanced", "TypeDevil", "TypeDragon", "TypeEnhanceMaterial",
+            "TypeEvoMaterial", "TypeGod", "TypeHealer", "TypeMachine", "TypePhysical", "TypeRedeemableMaterial" ]:
+            if self.builder.get_variable(i).get() != "" and self.builder.get_variable(i).get() != "0":
+                TypeFilters.append(self.builder.get_variable(i).get())
+
+        ##### IF NOTHING SELECTED ADD ALL FILTERS #####
+        if len(TypeFilters) == 0:
+            TypeFilters = ["Attacker", "Awaken Material", "Balanced", "Devil", "Dragon", "Enhance Material",
+                "Evo Material", "God", "Healer", "Machine", "Physical", "Redeemable Material" ]
+
+        ############################################
+        ##### ADD FILTERED self.monsters TO RESULTS #####
+        ############################################
+        for i in self.monsters:
+            if self.builder.get_variable("varANDOR").get() == "OR":
+                if i["PriAttribute"] in PriAttributes or i["SecAttribute"] in SecAttributes:
+                    if i["MonsterTypeOne"] in TypeFilters or i["MonsterTypeTwo"] in TypeFilters or i["MonsterTypeThree"] in TypeFilters:
+                        self.MonsterResults.append(Monster(i))
+
+            elif self.builder.get_variable("varANDOR").get() == "AND":
+                if i["PriAttribute"] in PriAttributes and i["SecAttribute"] in SecAttributes:
+                    if i["MonsterTypeOne"] in TypeFilters or i["MonsterTypeTwo"] in TypeFilters or i["MonsterTypeThree"] in TypeFilters:
+                        self.MonsterResults.append(Monster(i))
+        print(self.MonsterResults)
+        ################################################
+        ##### CALCULATE MAXPAGES AND SET PAGE TO 1 #####
+        ################################################
+        self.startMonster = 0
+        self.page = 1
+        self.populateList(self.MonsterResults)
+        self.builder.get_object("lblResults").config(text = str(len(self.MonsterResults)) + " Results Found.")
+
+    def onPageEnter(self, event):
+        value = self.builder.get_variable("varPageEnt").get()
+        
+        while len(value) >= 1 and value[0] == '0':
+            value = value.replace('0', '', 1)
+
+        if len(value) == 0:
+            value = '1'
+        elif int(value) > self.pages:
+            value = str(self.pages)
+
+        self.builder.get_variable("varPageEnt").set(value)
+        self.page = int(value)
+        self.populateCollection(self.MonsterResults)
+
+
+    def validatePageEntry(self, action, index, value_if_allowed,
+                       prior_value, text, validation_type, trigger_type, widget_name):
+        if text in "0123456789\b" and len(value_if_allowed) < 4:
+            return True
+        else:
+            return False
+
+    def validateTwoDigit(self, action, index, value_if_allowed,
+                       prior_value, text, validation_type, trigger_type, widget_name):
+
+        if text in "0123456789\b" and len(value_if_allowed) < 3:
+            return True
+        else:
+            return False
+
+    def clearFilters(self):
+        """Deselect All Filters"""
+        for i in [  "TypeAttacker", "TypeAwakenMaterial", "TypeBalanced",
+                    "TypeDevil", "TypeDragon", "TypeEnhanceMaterial",
+                    "TypeEvoMaterial", "TypeGod", "TypeHealer",
+                    "TypeMachine", "TypePhysical", "TypeRedeemableMaterial",
+                    "PriFire", "PriWater", "PriWood", "PriLight", "PriDark",
+                    "SecFire", "SecWater", "SecWood", "SecLight", "SecDark" ]:
+            self.builder.get_variable(i).set("")
