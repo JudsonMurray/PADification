@@ -19,6 +19,7 @@ from PIL import Image
 from PIL import ImageTk
 from idlelib import ToolTip
 from CustomWidgets import *
+import re
 
 
 class MonsterBook():
@@ -278,10 +279,11 @@ class MonsterBook():
         if search == self.bgSearchText:
             search = ""
 
-        if "," in search:
-            search = le("(" + search + ")")
-        elif search.isnumeric():
+        if search.isnumeric():
             search = int(search)
+        elif re.match(r"(\d+)(,\s*\d+)*", search):
+            search = le("(" + search + ")")
+        
 
         self.MonsterResults = []
         monsters = self.master.PADsql.selectMonsterClass(search)

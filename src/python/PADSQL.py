@@ -133,8 +133,11 @@ class PADSQL():
             server.starttls()
             server.login("Padification@gmail.com", "PadificationSupport")
 
+            headers = "From: Padification@gmail.com\nTo: "+ Email +"\nSubject: Password Recovery\n"
+                        
+
             msg = "Your Password is " + str(result[0])
-            server.sendmail("Padification@gmail.com", Email, msg)
+            server.sendmail("Padification@gmail.com", Email, headers + msg)
             server.quit()
             return True
         else:
@@ -403,14 +406,17 @@ class PADSQL():
 
     def deleteMonster(self, InstanceID):
         """Delete a Monster Instance from MonsterInstance Table and the correspondin Latent Skill List"""
-        self.executeSQLCommand("SELECT * FROM LatentSkillList WHERE InstanceID = " + str(InstanceID))
-        LSL = self.cursor.fetchone()
-        if LSL:
-            self.executeSQLCommand("DELETE FROM LatentSkillList WHERE InstanceID = " + str(InstanceID))
 
         SQLCommand = "DELETE FROM MonsterInstance WHERE InstanceID = " + str(InstanceID)
         self.executeSQLCommand(SQLCommand)
         self.cursor.commit()
+
+        self.executeSQLCommand("SELECT * FROM LatentSkillList WHERE InstanceID = " + str(InstanceID))
+        LSL = self.cursor.fetchone()
+        if LSL:
+            self.executeSQLCommand("DELETE FROM LatentSkillList WHERE InstanceID = " + str(InstanceID))
+            self.cursor.commit()
+
 
     def selectTeamInstance(self, teamsearch = None, dictionary = True, UserEmail = None, allUser = False, exlcudeUser = False):
         """Selects all teams, or by TeamInstanceID, or TeamName returns a list of dictionarys or tuples."""
@@ -566,26 +572,28 @@ class PADSQL():
 
     def saveLatentAwokenSkillList(self, instanceID ,lsone, lstwo, lsthree, lsfour, lsfive, lssix, extraslot):
         values = [instanceID ,lsone, lstwo, lsthree, lsfour, lsfive, lssix, extraslot]
-        SQLCommand = ("INSERT INTO LatentSkillList (InstanceID, LatentSKillOne, LatentSKillTwo, LatentSKillThree, LatentSKillFour, LatentSKillFive, LatentSKillSix, ExtraSlot)"
-                      "VALUES (?,?,?,?,?,?,?,?)")
-        try:
+
+        SQLCommand = "SELECT InstanceID FROM LatentSKillList WHERE InstanceID = " + str(values[0])
+        self.executeSQLCommand(SQLCommand)
+        results = self.cursor.fetchone()
+
+        if results:
+            values.append(values[0])
+            values.pop(0)
+            SQLCommand = ("UPDATE LatentSkillList SET LatentSKillOne = ?, LatentSKillTwo = ?, LatentSKillThree = ?, LatentSKillFour = ?, LatentSKillFive = ?, LatentSKillSix = ?, ExtraSlot = ? "
+                    "WHERE InstanceID = ?")
             self.executeSQLCommand(SQLCommand,values)
             self.cursor.commit()
             return True
-        except pypyodbc.IntegrityError:
-            try:
-                
-                values.append(values[0])
-                values.pop(0)
-                SQLCommand = ("UPDATE LatentSkillList SET LatentSKillOne = ?, LatentSKillTwo = ?, LatentSKillThree = ?, LatentSKillFour = ?, LatentSKillFive = ?, LatentSKillSix = ?, ExtraSlot = ? "
-                      "WHERE InstanceID = ?")
-                self.executeSQLCommand(SQLCommand,values)
-                self.cursor.commit()
-                return True
-            except pypyodbc.IntegrityError:
-                print("Something Went Wrong")
-                return False
-        
+
+        else:
+            SQLCommand = ("INSERT INTO LatentSkillList (InstanceID, LatentSKillOne, LatentSKillTwo, LatentSKillThree, LatentSKillFour, LatentSKillFive, LatentSKillSix, ExtraSlot)"
+                      "VALUES (?,?,?,?,?,?,?,?)")
+
+            self.executeSQLCommand(SQLCommand,values)
+            self.cursor.commit()
+            return True
+
     def getAwokenBadges(self):
         """Returns a List of Awoken Badges"""
         SQLCommand = "SELECT * FROM AwokenBadge"

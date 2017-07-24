@@ -132,8 +132,8 @@ class HomeScreen():
     def updateFollowings(self):
         self.Followings = self.master.PADsql.selectFollowings()
         self.Followers = self.master.PADsql.selectFollowers()
-        print("Followers:", self.Followers)
-        print("Followings:", self.Followings)
+        #print("Followers:", self.Followers)
+        #print("Followings:", self.Followings)
 
 
     def onSearchTeamsClick(self, event = None):
@@ -236,7 +236,7 @@ class HomeScreen():
 
 
     def onHomeClick(self,event):
-            self.master.showHomeScreen()
+        self.master.showHomeScreen()
 
     def onCollectionClick(self,event):
         self.master.showPlayerCollection()
