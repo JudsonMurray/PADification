@@ -370,8 +370,6 @@ class MonsterEdit:
 
     def __displayPossibleAssistants(self):
 
-        
-
         self.pAssistants = []
         if self.monster.WishList:
             self.wishlist = 1
@@ -400,6 +398,7 @@ class MonsterEdit:
 
         self.buttons = []
         self.count = 0
+        display = True
 
         if self.asist:
             for i in self.pAssistants:
@@ -411,18 +410,42 @@ class MonsterEdit:
                                     display = False
                                 else:
                                     display = True
+
+                                
+                                
                                 if a == self.formarAsisID:
                                     display = True
-                        
-                                if display:
-                                    self.buttons.append(MonsterFrame(self, self.pAssistants[self.startMonster]))
-                                    self.buttons[self.count].monbut.grid(row=self.count // 8,column = self.count % 8)
-                                    if self.pAssistants[self.startMonster].InstanceID == self.monster.AssistMonsterID:
-                                        self.buttons[self.count].monbut.config(relief = SUNKEN)
-                                    else:
-                                        self.buttons[self.count].monbut.config(relief = FLAT)
-                                    self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(self.pAssistants[self.startMonster].Level)+ '\nID: ' + str(self.pAssistants[self.startMonster].MonsterClassID))
-                                    self.count += 1
+                            teams = self.pds.selectTeamInstance()
+                            for selectedMonster in self.pAssistants:
+                                        for i in range(0,len(teams)):
+                                            self.SelectedTeam = PADMonster.Team(self.pds, (teams[i]))
+
+                                            if self.SelectedTeam.LeaderMonster == selectedMonster.InstanceID:
+                                                display = False
+                                                break
+                                            if self.SelectedTeam.SubMonsterOne == selectedMonster.InstanceID:
+                                                display = False
+                                                break
+                                            if self.SelectedTeam.SubMonsterTwo == selectedMonster.InstanceID:
+                                                display = False
+                                                break
+                                            if self.SelectedTeam.SubMonsterThree == selectedMonster.InstanceID:
+                                                display = False
+                                                break
+                                            if self.SelectedTeam.SubMonsterFour == selectedMonster.InstanceID:
+                                                display = False
+                                                break
+                                            display = True
+
+                            if display:
+                                self.buttons.append(MonsterFrame(self, self.pAssistants[self.startMonster]))
+                                self.buttons[self.count].monbut.grid(row=self.count // 8,column = self.count % 8)
+                                if self.pAssistants[self.startMonster].InstanceID == self.monster.AssistMonsterID:
+                                    self.buttons[self.count].monbut.config(relief = SUNKEN)
+                                else:
+                                    self.buttons[self.count].monbut.config(relief = FLAT)
+                                self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(self.pAssistants[self.startMonster].Level)+ '\nID: ' + str(self.pAssistants[self.startMonster].MonsterClassID))
+                                self.count += 1
                         
                         self.startMonster += 1
                 except:
@@ -434,6 +457,10 @@ class MonsterEdit:
         elif len(self.pAssistants) % 16 == 0:
             self.pages -= 1
 
+        if self.pages == 1:
+            self.builder.get_object('btnNext').config(state = DISABLED)
+        else:
+            self.builder.get_object('btnNext').config(state = NORMAL)
         self.builder.get_object('lblCurPage').config(text = "Page " + str(self.currentPage) + "/" + str(self.pages))
 
         pass
