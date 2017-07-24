@@ -55,7 +55,10 @@ class PADification(tk.Tk):
         #self.showLoginScreen()
         self.showHomeScreen()
         self.lower()
+
         LoginDialog(self,"LOGIN")
+        if not self.PADsql.signedIn:
+            self.destroy()
         super().mainloop()
 
     #Displays the login screen
@@ -126,4 +129,6 @@ class PADification(tk.Tk):
         self.editTeam.mainwindow.grid_forget()
         self.monsterEdit.monsteredit.grid_forget()
 
+    def quit(self):
+        super().quit()
 PADification()

@@ -11,6 +11,7 @@ from tkinter import simpledialog as sd
 from tkinter import *
 from PIL import Image, ImageFont, ImageDraw, ImageTk
 from idlelib import ToolTip
+import re
 
 def truetype_font(font_path, size):
     return ImageFont.truetype(font_path, size)
@@ -143,15 +144,47 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
 
 class LoginDialog(sd.Dialog):
     def __init__(self, parent, title = None):
+        # Screen State Constants
+        self.LOGIN = 0
+        self.CREATE = 1
+        self.RECOVER = 2
+        
         self.imgTitleImage = PhotoImage(file = "Resource/PAD/Images/Padification Logo.png").subsample(2)
+
+        self.varEmail = StringVar(value = "Enter Email")
+        self.varPassword = StringVar(value = "Enter Password")
+        self.varVerifyPassword = StringVar(value = "Confirm Password")
+        self.varUsername = StringVar(value = "Enter Username")
+        self.varPlayerID = StringVar(value = "Enter PlayerID")
+
+        self.server = BooleanVar(value = True)
+        self.servertxt = StringVar(value = "Remote")
+
+        self.screenState = self.LOGIN
+
+        #Frame Widgets
+        self.frmbodyBox = None
+        self.frmButtonBox = None
+
+        #Login Widgets vars
+        self.chkServerSelect = None
         self.entEmail = None
         self.entPassword = None
-        self.Email = StringVar(value = "Enter Email")
-        self.Password = StringVar(value = "Enter Password")
-        self.servertxt = StringVar(value = "Remote")
-        self.server = BooleanVar(value = True)
+
+        #Create Account Widgets
+        self.entUsername = None
+        self.entPlayerID = None
+        self.entVerifyPassword = None
+
+        #Buttons Vars
+        self.btnLogin = None
+        self.btnCreateAccount = None
+        self.btnExit = None
+        self.btnRecover = None
+        self.btnCancel = None
+        self.btnCreate = None
+
         super().__init__(parent, title)
-        
 
     def body(self, master):
         '''create dialog body.
@@ -161,44 +194,225 @@ class LoginDialog(sd.Dialog):
         by the __init__ method.
 
         '''
-        box = Frame(self)
-        l = Label(box, image= self.imgTitleImage)
+        t = Frame(self)
+        l = Label(t, image= self.imgTitleImage)
         l.pack()
+        self.chkServerSelect = Checkbutton(t, indicatoron=False, font="yu", onvalue=False, offvalue=True, textvariable=self.servertxt, variable=self.server)
+        self.chkServerSelect.bind("<1>", self.onServerClick)
+        self.chkServerSelect.pack(pady=5)
+        t.pack()
 
-        self.chkServer = Checkbutton(box, indicatoron=False, font="yu", onvalue=False, offvalue=True, textvariable=self.servertxt, variable=self.server)
-        self.chkServer.bind("<1>", self.onServerClick)
-        self.chkServer.pack(pady=5)
-        self.entEmail = Entry(box, width=20, textvariable=self.Email,foreground="#c6caca", font="yu")
+        self.frmbodyBox = box = Frame(self)
+
+        self.entEmail = Entry(box, width=20, textvariable=self.varEmail,foreground="#c6caca", font="yu")
+        self.entEmail.bind("<FocusIn>", self.onFocusIn)
+        self.entEmail.bind("<FocusOut>", self.onFocusOut)
+
+        self.entPassword = Entry(box, width=20, textvariable=self.varPassword,foreground="#c6caca", font="yu")
+        self.entPassword.bind("<FocusIn>", self.onFocusIn)
+        self.entPassword.bind("<FocusOut>", self.onFocusOut)
+        
+        self.entVerifyPassword = Entry(box, width=20, textvariable=self.varVerifyPassword,foreground="#c6caca", font="yu")
+        self.entVerifyPassword.bind("<FocusIn>", self.onFocusIn)
+        self.entVerifyPassword.bind("<FocusOut>", self.onFocusOut)
+
+        self.entUsername = Entry(box, width=20, textvariable=self.varUsername,foreground="#c6caca", font="yu")
+        self.entUsername.bind("<FocusIn>", self.onFocusIn)
+        self.entUsername.bind("<FocusOut>", self.onFocusOut)
+
+        self.entPlayerID = Entry(box, width=20, textvariable=self.varPlayerID,foreground="#c6caca", font="yu")
+        self.entPlayerID.bind("<FocusIn>", self.onFocusIn)
+        self.entPlayerID.bind("<FocusOut>", self.onFocusOut)
+
         self.entEmail.pack(pady=5)
-        self.entPassword = Entry(box, width=20, textvariable=self.Password,foreground="#c6caca", font="yu")
         self.entPassword.pack(pady=5)
-        self.entEmail.bind("<FocusIn>", self.onEmailFocusIn)
-        self.entEmail.bind("<FocusOut>", self.onEmailFocusOut)
-        self.entPassword.bind("<FocusIn>", self.onPasswordFocusIn)
-        self.entPassword.bind("<FocusOut>", self.onPasswordFocusOut)
+
         box.pack()
-    
+
     def buttonbox(self):
         '''add standard button box.
 
         override if you do not want the standard buttons
         '''
 
-        box = Frame(self)
+        self.frmButtonBox = box = Frame(self)
+        self.btnLogin = Button(box, text="Login", width=15, command=self.onLoginClick, default=ACTIVE, font="yu")
+        self.btnCreateAccount = Button(box, text="Create Account", width=15, command=self.onCreateAccountClick, font="yu")
+        self.btnExit = Button(box, text="Exit", width=15, command=self.onExit, font="yu")
+        self.btnRecover = Button(box, text="Recover Password", width=15, command=self.onRecoverClick, font="yu")
+        self.btnCancel = Button(box, text="Cancel", width=15, command=self.onCancelClick, font="yu")
 
-        w = Button(box, text="Login", width=15, command=self.onLoginClick, default=ACTIVE)
-        w.pack(side=LEFT, padx=5, pady=5)
 
-        w = Button(box, text="Exit", width=15, command=self.master.quit)
-        w.pack(side=LEFT, padx=5, pady=5)
-
-        w = Button(box, text="Create Account", width=15, command=self.onCreateAccountClick)
-        w.pack(padx=5, pady=5)
+        self.btnLogin.grid(row=0, column = 0, padx=5, pady=5)
+        self.btnExit.grid(row=0, column = 1, padx=5, pady=5)
+        self.btnCreateAccount.grid(row=1, column = 0, padx=5, pady=5)
+        self.btnRecover.grid(row=1, column = 1, padx=5, pady=5)
 
         self.bind("<Return>", self.onLoginClick)
         self.bind("<Escape>", self.master.quit)
 
         box.pack()
+
+    def clearWidgets(self):
+        for i in self.frmbodyBox.pack_slaves():
+            i.config(foreground="#c6caca")
+            i.pack_forget()
+        for i in self.frmButtonBox.grid_slaves():
+            i.grid_forget()
+
+        
+        self.varEmail.set("Enter Email")
+        self.varPassword.set("Enter Password")
+        self.varVerifyPassword.set("Confirm Password")
+        self.varUsername.set("Enter Username")
+        self.varPlayerID.set("Enter PlayerID")
+
+    def showLogin(self):
+        self.clearWidgets()
+        self.screenState = self.LOGIN
+
+        # Entry Fields
+        self.entEmail.pack(pady=5)
+        self.entPassword.pack(pady=5)
+
+        # Buttons
+        self.btnLogin.grid(row=0, column = 0, padx=5, pady=5)
+        self.btnExit.grid(row=0, column = 1, padx=5, pady=5)
+        self.btnCreateAccount.grid(row=1, column = 0, padx=5, pady=5)
+        self.btnRecover.grid(row=1, column = 1, padx=5, pady=5)
+
+    def showCreateAccount(self):
+        self.clearWidgets()
+        self.screenState = self.CREATE
+
+        # Entry Fields
+        self.entEmail.pack(pady=5)
+        self.entPassword.pack(pady=5)
+        self.entVerifyPassword.pack(pady=5)
+        self.entUsername.pack(pady=5)
+        self.entPlayerID.pack(pady=5)
+
+        # Buttons
+        self.btnCreateAccount.grid(row=0, column = 0, padx=5, pady=5)
+        self.btnCancel.grid(row=0, column = 1, padx=5, pady=5)
+
+    def showRecovery(self):
+        self.clearWidgets()
+        self.screenState = self.RECOVER
+
+        self.entEmail.pack(pady=5)
+        self.btnRecover.grid(row=0, column = 0, padx=5, pady=5)
+        self.btnCancel.grid(row=0, column = 1, padx=5, pady=5)
+
+    def onRecoverClick(self):
+        if self.screenState == self.LOGIN:
+            self.showRecovery()
+        elif self.screenState == self.RECOVER:
+            if self.master.PADsql.retrievePassword(self.varEmail.get()):
+                mb.showwarning("Email Recovery", "Password Sent to Email")
+            else:
+                mb.showwarning("Email Recovery", "No such Email Exists")
+        pass
+
+    def onCancelClick(self):
+        self.showLogin()
+
+    def onServerClick(self, event):
+        if self.server.get():
+            self.servertxt.set("localhost")
+        else:
+            self.servertxt.set("Remote")
+
+    def onCreateAccountClick(self, event  = None):
+        """Occurs When Create Account Button Is Clicked"""
+        if self.screenState == self.LOGIN:
+            self.showCreateAccount()
+        elif self.screenState == self.CREATE:
+
+            if not re.match(r'^[A-Za-z0-9\.\+_-]+@[A-Za-z0-9\._-]+\.[A-Za-z]*$', self.varEmail.get() ):
+                return mb.showwarning("invalid email", "input a valid email")
+
+            if not re.match(r'[A-Za-z0-9@#$%^&+=]{8,10}',self.varPassword.get()):
+                return mb.showwarning("Invalid Password", "Input a Valid Password,\nMust be 8-10 characters long,\nand can contain A-Z a-z 0-9 @#$%^&+=")
+
+            if not self.varPassword.get() == self.varVerifyPassword.get():
+                return mb.showwarning("Entry Error", "Passwords do not Match")
+
+            if not re.match(r'[A-Za-z0-9]\S+' , self.varUsername.get() ) or self.varUsername.get() == "Enter Username":
+                return mb.showwarning("Invalid Username", "Input a Valid Username,\nMust be 4-15 characters long,\nand can contain A-Z a-z 0-9 _\nand no spaces.")
+
+            if not re.match(r'[0-9]{9}' ,self.varPlayerID.get() ):
+                return mb.showwarning("Invalid PlayerID", "Input a Valid PlayerID,\nMust be 9 Digits long.")
+
+            self.master.PADsql.signup(self.varEmail.get(), self.varPassword.get(), self.varUsername.get(), self.varPlayerID.get())
+
+    def onLoginClick(self, event  = None):
+        """Occurs When Login Button Is Clicked"""
+        self.master.PADsql.remote = self.server.get()
+        self.master.PADsql.login(self.varEmail.get(), self.varPassword.get())
+        if self.master.PADsql.signedIn:
+            self.master.showHomeScreen()
+            self.destroy()
+        else:
+            mb.showwarning('Login Error', 'Email and Password Do not exist!')
+
+    def onExit(self):
+        self.destroy()
+        self.master.destroy()
+
+    def onFocusIn(self, event):
+        """Focus in behavior"""
+        if event.widget == self.entEmail:
+            if self.varEmail.get() == ("Enter Email"):
+                self.entEmail.config(foreground="#000000")
+                self.varEmail.set("")
+
+        elif event.widget == self.entPassword:
+            if self.varPassword.get() == ("Enter Password"):
+                self.entPassword.config(foreground="#000000")
+                self.varPassword.set("")
+
+        elif event.widget == self.entVerifyPassword:
+            if self.varVerifyPassword.get() == ("Confirm Password"):
+                self.entVerifyPassword.config(foreground="#000000")
+                self.varVerifyPassword.set("")
+
+        elif event.widget == self.entPlayerID:
+            if self.varPlayerID.get() == ("Enter PlayerID"):
+                self.entPlayerID.config(foreground="#000000")
+                self.varPlayerID.set("")
+
+        elif event.widget == self.entUsername:
+            if self.varUsername.get() == ("Enter Username"):
+                self.entUsername.config(foreground="#000000")
+                self.varUsername.set("")
+
+    def onFocusOut(self, event):
+        """Focus out behavior"""
+        if event.widget == self.entEmail:
+            if self.varEmail.get() == (""):
+                self.entEmail.config(foreground="#c6caca")
+                self.varEmail.set("Enter Email")
+
+        elif event.widget == self.entPassword:
+            if self.varPassword.get() == (""):
+                self.entPassword.config(foreground="#c6caca")
+                self.varPassword.set("Enter Password")
+
+        elif event.widget == self.entVerifyPassword:
+            if self.varVerifyPassword.get() == (""):
+                self.entVerifyPassword.config(foreground="#c6caca")
+                self.varVerifyPassword.set("Confirm Password")
+
+        elif event.widget == self.entPlayerID:
+            if self.varPlayerID.get() == (""):
+                self.entPlayerID.config(foreground="#c6caca")
+                self.varPlayerID.set("Enter PlayerID")
+
+        elif event.widget == self.entUsername:
+            if self.varUsername.get() == (""):
+                self.entUsername.config(foreground="#c6caca")
+                self.varUsername.set("Enter Username")
 
     def validate(self):
         '''validate the data
@@ -206,7 +420,6 @@ class LoginDialog(sd.Dialog):
         This method is called automatically to validate the data before the
         dialog is destroyed. By default, it always validates OK.
         '''
-
         return 1 # override
 
     def apply(self):
@@ -216,47 +429,3 @@ class LoginDialog(sd.Dialog):
         the dialog is destroyed. By default, it does nothing.
         '''
         pass
-    def onServerClick(self, event):
-        if self.server.get():
-            self.servertxt.set("localhost")
-        else:
-            self.servertxt.set("Remote")
-
-    def onCreateAccountClick(self, event  = None):
-        """Occurs When Create Account Button Is Clicked"""
-        self.master.showAccountCreation()
-
-    def onLoginClick(self, event  = None):
-        """Occurs When Login Button Is Clicked"""
-        self.master.PADsql.remote = self.server.get()
-        self.master.PADsql.login(self.Email.get(), self.Password.get())
-        if self.master.PADsql.signedIn:
-            self.master.showHomeScreen()
-            self.destroy()
-        else:
-            mb.showwarning('Login Error', 'Email and Password Do not exist!')
-
-
-    def onEmailFocusIn(self,event):
-        """Clears Username Entry Field"""
-        if self.Email.get() == ("Enter Email"):
-            self.entEmail.config(foreground="#000000")
-            self.Email.set("")
-
-    def onEmailFocusOut(self,event):
-        """Fills Empty Field with Enter Email"""
-        if self.Email.get() == "":
-            self.entEmail.config(foreground="#c6caca")
-            self.Email.set("Enter Email")
-
-    def onPasswordFocusIn(self,event):
-        """Clears Password Entry Field"""
-        if self.Password.get() == ("Enter Password"):
-            self.entPassword.config(foreground="#000000")
-            self.Password.set("")
-
-    def onPasswordFocusOut(self,event):
-        """Fills Password Entry Field with Enter Password"""
-        if self.Password.get() == (""):
-            self.entPassword.config(foreground="#c6caca")
-            self.Password.set("Enter Password")
