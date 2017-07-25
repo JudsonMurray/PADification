@@ -36,6 +36,8 @@ class PADification(tk.Tk):
         self.minsize(width=1280, height=960)
         self.maxsize(width=1280, height=960)
         self.resizable(width=False, height=False)
+        self.geometry('%dx%d+%d+%d' % (1280,960, 320, 10))
+
         self.title("PADification - The Ultimate in Puzzle and Dragons Organization.")
 
         #pypyodbc SQl Object
@@ -129,6 +131,22 @@ class PADification(tk.Tk):
         self.editTeam.mainwindow.grid_forget()
         self.editTeam.mainwindow.grid_forget()
         self.monsterEdit.monsteredit.grid_forget()
+
+    def updateProfile(self, builder):
+        """Updates player profile image, username, collection and team counts"""
+        #print(self.PADsql.ProfileImage)
+        if self.PADsql.ProfileImage != None:
+            value = self.PADsql.ProfileImage
+        else:
+            value = 1
+
+        self.ProfileImage = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(value) + ".png")
+        builder.get_object("canProfileImage").create_image(2,2, image = self.ProfileImage, anchor = NW)
+
+        #CustomFont_Label(self.builder.get_object('frmPlayerInfo'), text= self.PADsql.Username, font_path="Resource/PAD/Font/FOT-RowdyStd-EB.ttf", size=22).grid(row = 0, column = 1, sticky = NW)
+        builder.get_object("lblUsername").config(text = self.PADsql.Username)
+        builder.get_object("lblCollectionCount").config(text ="Monsters\t= " + str(len(self.PADsql.selectMonsterInstance())))
+        builder.get_object("lblTeamCount").config(text ="Teams\t= " + str(len(self.PADsql.selectTeamInstance())))
 
     def quit(self):
         super().quit()

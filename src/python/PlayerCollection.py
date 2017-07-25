@@ -377,6 +377,17 @@ class PlayerCollection:
         for i in self.container.grid_slaves():
             i.grid_forget()
         
+        allMonsters = self.master.PADsql.selectMonsterInstance()
+        self.assistants = []
+        for i in range(0,len(monster)):
+            for y in allMonsters:
+                if search == None:
+                    if monster[i]["InstanceID"] == y["AssistMonsterID"]:
+                        self.assistants.append(y["InstanceID"])
+                        break
+                elif monster[i].InstanceID == y["AssistMonsterID"]:
+                        self.assistants.append(y["InstanceID"])
+                        break
         #Creates a graphical list of self.monsters
         buttons = []
         self.buttons = buttons = []
@@ -394,6 +405,10 @@ class PlayerCollection:
                 self.buttons.append(MonsterFrame(self.container, self.builder, self.startMonster, self.instantList, a, self.buttons, self.pds, self.count, self))
                 self.buttons[self.count].monbut.grid(row=self.count // 10,column = self.count % 10)
                 #self.buttons[self.count].builder.get_object('FrameLabel').create_image(2,2, image = self.myMonsterList[self.startMonster], anchor = tk.NW)
+                
+                for c in self.assistants:
+                    if c == self.buttons[self.count].currentMonster.InstanceID:
+                        self.buttons[self.count].monbut.config(highlightbackground= "#b2a89d",highlightcolor="#b2a89d",highlightthickness=3)
                 self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(a.Level)+ '\nID: ' + str(a.MonsterClassID))
                 self.count += 1
                 self.startMonster += 1

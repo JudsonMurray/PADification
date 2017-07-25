@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <interface>
   <object class="tk.Frame" id="frmPlayerCollection">
-    <property name="height">910</property>
+    <property name="height">960</property>
     <property name="width">1280</property>
     <layout>
       <property name="column">0</property>
@@ -227,9 +227,9 @@
         <property name="scrolltype">both</property>
         <layout>
           <property name="column">0</property>
-          <property name="ipadx">340</property>
-          <property name="ipady">280</property>
-          <property name="padx">10</property>
+          <property name="ipadx">371</property>
+          <property name="ipady">310</property>
+          <property name="padx">5</property>
           <property name="pady">5</property>
           <property name="propagate">False</property>
           <property name="row">5</property>
@@ -252,7 +252,7 @@
       <object class="tk.LabelFrame" id="frmMonsterSummary">
         <property name="height">280</property>
         <property name="text" translatable="yes">Monster Summary</property>
-        <property name="width">575</property>
+        <property name="width">525</property>
         <layout>
           <property name="column">1</property>
           <property name="propagate">False</property>
@@ -383,10 +383,10 @@
                 <property name="borderwidth">5</property>
                 <property name="padx">0</property>
                 <property name="text" translatable="yes">Monster Name:</property>
-                <property name="width">47</property>
+                <property name="width">72</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="columnspan">2</property>
+                  <property name="columnspan">3</property>
                   <property name="propagate">True</property>
                   <property name="row">0</property>
                   <property name="sticky">w</property>
@@ -538,10 +538,10 @@
                 <property name="height">200</property>
                 <property name="width">200</property>
                 <layout>
-                  <property name="column">3</property>
+                  <property name="column">2</property>
                   <property name="columnspan">1</property>
                   <property name="propagate">True</property>
-                  <property name="row">1</property>
+                  <property name="row">2</property>
                   <property name="rowspan">3</property>
                 </layout>
                 <child>
@@ -653,7 +653,7 @@
       <object class="tk.LabelFrame" id="frmEvoTree">
         <property name="height">280</property>
         <property name="text" translatable="yes">Evolution Tree</property>
-        <property name="width">575</property>
+        <property name="width">525</property>
         <layout>
           <property name="column">1</property>
           <property name="propagate">False</property>
@@ -668,7 +668,7 @@
             <property name="width">495</property>
             <layout>
               <property name="column">0</property>
-              <property name="padx">20</property>
+              <property name="padx">5</property>
               <property name="pady">20</property>
               <property name="propagate">False</property>
               <property name="row">0</property>
@@ -1263,8 +1263,9 @@
   <object class="tk.Frame" id="MonsFrame">
     <property name="borderwidth">5</property>
     <property name="cursor">arrow</property>
-    <property name="height">103</property>
-    <property name="width">62</property>
+    <property name="height">113</property>
+    <property name="highlightthickness">4</property>
+    <property name="width">69</property>
     <bind add="" handler="clickMe" sequence="&lt;1&gt;" />
     <layout>
       <property name="column">0</property>
