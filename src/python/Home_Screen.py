@@ -19,6 +19,7 @@ import logging
 class HomeScreen():
     """Displays Home Screen Frame and widgets"""
     def __init__(self, master):
+        self.logger = logging.getLogger("Padification.ui.HomeScreen")
         self.TEAMRESULTSPERPAGE = 6
         self.PLAYERRESULTSPERPAGE = 9
 
@@ -326,6 +327,7 @@ class HomeScreen():
 
 class TeamPreview():
     def __init__(self, master, toplevel):
+        self.logger = logging.getLogger("Padification.ui.MonsterBook.TeamPreview")
         self.toplevel = toplevel
         self.master = master
         self.builder = pygubu.Builder()
@@ -396,6 +398,7 @@ class TeamPreview():
 
 class playerWidget():
     def __init__(self, master, toplevel):
+        self.logger = logging.getLogger("Padification.ui.PlayerWidget")
         self.toplevel = toplevel
         self.master = master
         self.builder = pygubu.Builder()

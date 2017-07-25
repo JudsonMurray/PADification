@@ -11,8 +11,10 @@ import tkinter.messagebox as mb
 import pygubu
 import re 
 
+
 class AccountOptions:
     def __init__(self, master):
+        self.logger = logging.getLogger("PADification.ui.AccountOptions")
         self.master = master
         self.builder = pygubu.Builder()
 

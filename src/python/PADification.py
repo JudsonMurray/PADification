@@ -31,9 +31,17 @@ import TeamBrowserScreen
 
 from CustomWidgets import *
 
+logging.basicConfig(filename='log/' + '{:%Y-%m-%d %H-%M-%S}'.format(datetime.datetime.now()) + '.log', level=logging.WARN , format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logging.getLogger().addHandler(logging.StreamHandler())
+logging.info("Application Start")
+
 class PADification(tk.Tk):
     def __init__(self, screenName = None, baseName = None, className = 'Tk', useTk = 1, sync = 0, use = None):
         super().__init__(screenName, baseName, className, useTk, sync, use)
+
+        #Logging object
+        self.logger = logging.getLogger("Padification.root")
+
         # Fix the Size of the Application
         self.minsize(width=1280, height=960)
         self.maxsize(width=1280, height=960)
@@ -42,11 +50,7 @@ class PADification(tk.Tk):
 
         self.title("PADification - The Ultimate in Puzzle and Dragons Organization.")
 
-        #Logging object
         
-        logging.basicConfig(filename='log/' + '{:%Y-%m-%d %H-%M-%S}'.format(datetime.datetime.now()) + '.log', level=logging.WARN , format='%(asctime)s %(message)s')
-        logging.getLogger().addHandler(logging.StreamHandler())
-        logging.info("Application Start")
         #pypyodbc SQl Object
         self.PADsql = PADSQL.PADSQL()
 

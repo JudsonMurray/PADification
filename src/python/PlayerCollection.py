@@ -57,6 +57,9 @@ class EvoFrame:
 
 class MonsterFrame:
     def __init__(self, master, masterbuilder, i, ids, currentMonster, buttons, padsql, selButton, mastermaster):
+        #logger
+        self.logger = logging.getLogger("Padification.ui.PlayerCollection.MonsterFrame")
+
         self.master = master
         self.masterbuilder = masterbuilder
         self.i = i
@@ -295,6 +298,8 @@ class MonsterFrame:
 
 class PlayerCollection:
     def __init__(self, master):
+        #logger
+        self.logger = logging.getLogger("Padification.ui.PlayerCollection.PlayerCollection")
         #Creates globals 
         
         global k

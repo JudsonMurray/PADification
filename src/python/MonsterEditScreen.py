@@ -18,6 +18,7 @@ import logging
 
 class MonsterFrame:
     def __init__(self, master, assistant):
+        self.logger = logging.getLogger("Padification.ui.MonsterEditScreen.MonsterFrame")
         self.master = master
         self.assistant = assistant
         self.builder = pygubu.Builder()
@@ -48,6 +49,9 @@ class MonsterFrame:
 
 class MonsterEdit:
     def __init__(self, master):
+        #logger
+        self.logger = logging.getLogger("Padification.ui.MonsterEditScreen.MonsterEdit")
+
         self.master  = master
         self.builder = pygubu.Builder()
         self.builder.add_from_file(r"src\ui\Monster Edit UI.ui")

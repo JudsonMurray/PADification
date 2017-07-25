@@ -20,6 +20,7 @@ def truetype_font(font_path, size):
 class CustomFont_Label(Label):
     # Author: Miguel Martinez Lopez -- http://code.activestate.com/recipes/580778-tkinter-custom-fonts/
     def __init__(self, master, text, foreground="black", truetype_font=None, font_path=None, family=None, size=None, **kwargs):   
+        self.logger = logging.getLogger("Padification.CustomWidgets.CustomFont_Label")
         if truetype_font is None:
             if font_path is None:
                 raise ValueError("Font path can't be None")
@@ -40,6 +41,7 @@ class CustomFont_Label(Label):
 class CustomFont_Message(Label):
     # Author: Miguel Martinez Lopez -- http://code.activestate.com/recipes/580778-tkinter-custom-fonts/
     def __init__(self, master, text, width, foreground="black", truetype_font=None, font_path=None, family=None, size=None, **kwargs):   
+        self.logger = logging.getLogger("Padification.CustomWidgets.CustomFont_Message")
         if truetype_font is None:
             if font_path is None:
                 raise ValueError("Font path can't be None")
@@ -74,6 +76,7 @@ class CustomFont_Message(Label):
 class ImageTooltip(ToolTip.ToolTipBase):
     def __init__(self, button, Photoimage):
         super().__init__(button)
+        self.logger = logging.getLogger("Padification.CustomWidgets.ImageTooltip")
         self.PhotoImage = Photoimage
         self.label = None
 
@@ -86,6 +89,7 @@ class ImageTooltip(ToolTip.ToolTipBase):
 class MonsterStatTooltip(ToolTip.ToolTipBase):
     def __init__(self, master):
         super().__init__(master)
+        self.logger = logging.getLogger("Padification.CustomWidgets.MonsterStatTooltip")
         self.monster = None
         self.portrait = None
         self.portraitImage = None
@@ -145,6 +149,7 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
 
 class LoginDialog(sd.Dialog):
     def __init__(self, parent, title = None):
+        self.logger = logging.getLogger("Padification.CustomWidgets.LoginDialog")
         # Screen State Constants
         self.LOGIN = 0
         self.CREATE = 1

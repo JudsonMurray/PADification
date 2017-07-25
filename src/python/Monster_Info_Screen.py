@@ -12,6 +12,7 @@ import logging
 
 class MonsterInfo:
     def __init__(self, master):
+        self.logger = logging.getLogger("Padification.ui.Monster_Info_Screen")
         self.master = master
         self.builder = pygubu.Builder()
 
