@@ -75,6 +75,12 @@ class MonsterFrame:
         self.selButton = selButton
         self.myMonster = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(self.currentMonster.MonsterClassID) + '.png').subsample(2)
         self.builder.get_object("FrameLabel").create_image(2,2, image = self.myMonster, anchor = tk.NW)
+        if self.currentMonster.Favorites:
+           self.monbut.config(bg = 'Yellow')
+           self.builder.get_object('lblMonsterBrief').config(bg = 'Yellow')
+        else:
+            self.monbut.config(bg = '#f0f0f0')
+            self.builder.get_object('lblMonsterBrief').config(bg = '#f0f0f0')
         
     def clickMe(self, event):
         '''Occurs everytime a monster in the player collection is clicked'''
@@ -96,9 +102,15 @@ class MonsterFrame:
             self.count += 1
 
         if self.currentMonster.Favorites:
-           self.masterbuilder.get_object("btnFavorite").config(state = Disabled)
+           self.monbut.config(bg = 'Yellow')
+           self.builder.get_object('lblMonsterBrief').config(bg = 'Yellow')
+           self.masterbuilder.get_object("btnFavorite").config(state = DISABLED)
+           self.masterbuilder.get_object("btnUnfavorite").config(state = NORMAL)
         else:
+            self.monbut.config(bg = '#f0f0f0')
+            self.builder.get_object('lblMonsterBrief').config(bg = '#f0f0f0')
             self.masterbuilder.get_object("btnFavorite").config(state = NORMAL)
+            self.masterbuilder.get_object("btnUnfavorite").config(state = DISABLED)
         self.masterbuilder.get_object("btnEdit").config(state = NORMAL)
         self.masterbuilder.get_object("btnRemove").config(state = NORMAL)
         if self.currentMonster.Favorites:
@@ -424,13 +436,9 @@ class PlayerCollection:
         self.assistants = []
         for i in range(0,len(monster)):
             for y in allMonsters:
-                if search == None:
-                    if monster[i]["InstanceID"] == y["AssistMonsterID"]:
-                        self.assistants.append(y["InstanceID"])
-                        break
-                elif monster[i].InstanceID == y["AssistMonsterID"]:
-                        self.assistants.append(y["InstanceID"])
-                        break
+                if monster[i]["InstanceID"] == y["AssistMonsterID"]:
+                    self.assistants.append(y["InstanceID"])
+                    break
         #Creates a graphical list of self.monsters
         buttons = []
         self.buttons = buttons = []
@@ -480,6 +488,28 @@ class PlayerCollection:
 
         if k != None:
            self.buttons[k].monbut.config(relief = SUNKEN)
+
+    def addToFavorites(self):
+        self.edit = Monster((self.pds.selectMonsterInstance(selectedMonster))[0])
+
+        self.edit.Favorites = 1
+        self.buttons[k].monbut.config(bg = 'Yellow')
+        self.buttons[k].builder.get_object('lblMonsterBrief').config(bg = 'Yellow')
+        self.pds.saveMonster(self.edit.getSaveDict())
+        self.buttons[k].currentMonster = Monster((self.pds.selectMonsterInstance(selectedMonster))[0])
+        self.buttons[k].clickMe(self)
+        pass
+
+    def removeFromFavorites(self):
+        self.edit = Monster((self.pds.selectMonsterInstance(selectedMonster))[0])
+
+        self.edit.Favorites = 0
+        self.buttons[k].monbut.config(bg = '#f0f0f0')
+        self.buttons[k].builder.get_object('lblMonsterBrief').config(bg = '#f0f0f0')
+        self.pds.saveMonster(self.edit.getSaveDict())
+        self.buttons[k].currentMonster = Monster((self.pds.selectMonsterInstance(selectedMonster))[0])
+        self.buttons[k].clickMe(self)
+        pass
 
     def onWishlistClick(self):
         global k

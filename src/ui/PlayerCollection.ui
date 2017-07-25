@@ -284,6 +284,7 @@
             </layout>
             <child>
               <object class="tk.Button" id="btnFavorite">
+                <property name="command">addToFavorites</property>
                 <property name="state">disabled</property>
                 <property name="text" translatable="yes">Add to Favorites</property>
                 <layout>
@@ -298,6 +299,7 @@
             </child>
             <child>
               <object class="tk.Button" id="btnUnfavorite">
+                <property name="command">removeFromFavorites</property>
                 <property name="state">disabled</property>
                 <property name="text" translatable="yes">Remove From Favorites</property>
                 <layout>
