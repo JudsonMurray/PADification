@@ -8,7 +8,7 @@
 import pypyodbc
 import smtplib
 import time
-
+import logging
 
 
 class PADSQL():
@@ -36,9 +36,8 @@ class PADSQL():
     def connect(self):
         """Connect to the Sql Server and Establish a cursor"""
         notconnected = True
-        attempts = 0
-        print(self.remote)
-        while notconnected and attempts < 5:
+        attempts = 5
+        while notconnected and attempts > 0:
             try:
                 if self.remote:
                     self.connection = pypyodbc.connect(self.server)
@@ -46,14 +45,15 @@ class PADSQL():
                     self.connection = pypyodbc.connect(self.localhost)
                 notconnected = False
             except:
-                print("Timeout, Retrying connection.", 4 - attempts, "attempts left.")
-                attempts += 1
+                attempts -=1
+                logging.warning("Timeout, Retrying connection." + str(attempts) + "attempts left.")
+                
         
         if self.connection.connected:
-            print("MSSQL 2014 server Connection Established.")
+            logging.info("MSSQL 2014 server Connection Established.")
             self.cursor = self.connection.cursor()
         else:
-            print("Connection Failed.")
+            logging.warning("Connection Failed.")
 
     def signup(self, Email, Password, Username, PlayerID):
         """Function will execute TSQL command to insert into Table Player"""
@@ -66,7 +66,7 @@ class PADSQL():
 
         self.executeSQLCommand(SQLCommand, listValues)
         self.connection.commit()
-        print("Sign up Successful")
+        logging.info("Sign up Successful")
         self.closeConnection()
 
     def login(self, Email, Password):
@@ -80,7 +80,7 @@ class PADSQL():
         self.executeSQLCommand(SQLCommand, values)
         results = self.cursor.fetchone()
         if results:
-            print("User login Successful")
+            logging.info("User login Successful")
             self.Email = Email.lower()
             self.Password = Password
             self.Username = results[2]
@@ -88,7 +88,7 @@ class PADSQL():
             self.ProfileImage = results[4]
             self.signedIn = True
         else:
-            print("Login Failed")
+            logging.warning("Login Failed")
             self.closeConnection()
 
     def updateUsername(self, Username):
@@ -247,7 +247,6 @@ class PADSQL():
         self.executeSQLCommand(SQLCommand)
         results = self.cursor.fetchone()
         if results:
-            print(results)
             SQLCommand = "DELETE FROM Follower WHERE FID = " + str(results[0])
             self.executeSQLCommand(SQLCommand)
             self.cursor.commit()
@@ -717,7 +716,7 @@ class PADSQL():
             if result:
                 return result[0] 
             else:
-                print(LeaderSkillName.encode('ASCII', 'ignore'))
+                logging.info(LeaderSkillName.encode('ASCII', 'ignore'))
 
     def getActiveSkillDesc(self, ActiveSkillName):
         """Return ActiveSkill Desc"""
@@ -731,7 +730,7 @@ class PADSQL():
             if result:
                 return result[0] 
             else:
-                print(LeaderSkillName.encode('ASCII', 'ignore'))
+                logging.info(LeaderSkillName.encode('ASCII', 'ignore'))
 
     def executeSQLCommand(self, sqlstring, params = None):
         retry_flag = True
@@ -746,7 +745,7 @@ class PADSQL():
                 retry_flag = False
             except:
                 self.connect()
-                print("Timeout on server, retry after 1 sec")
+                logging.warning("Timeout on server, retry after 1 sec")
                 retry_count += 1
                 time.sleep(3)
 

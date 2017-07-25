@@ -4,3 +4,4 @@
 src/.sonar/.sonar_lock
 src/sonar-project.properties
 src/.sonar/report-task.txt
+padification.log

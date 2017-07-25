@@ -7,6 +7,7 @@
 #               within this Module for PAD Stats.
 
 import math
+import logging
 
 class Monster():
     def __init__(self, monsterDictionary):

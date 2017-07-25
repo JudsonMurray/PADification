@@ -14,7 +14,7 @@ from idlelib import ToolTip
 from PIL import Image
 from PIL import ImageTk
 import PADMonster
-
+import logging
 
 class MonsterFrame:
     def __init__(self, master, assistant):

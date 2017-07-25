@@ -7,6 +7,7 @@
 # v1.0 WG - Integrated Code from Zachs Test_Integration.py,
 
 #3rd Party Modules
+import logging
 import pypyodbc
 import tkinter as tk
 from tkinter import *
@@ -20,8 +21,8 @@ import PlayerCollection
 import MonsterEditScreen
 import Monster_Info_Screen
 import EditTeamScreen
-import LoginScreen
-import AccountCreation
+#import LoginScreen
+#import AccountCreation
 import Home_Screen
 import Account_Options_Screen
 import MonsterBook
@@ -38,9 +39,12 @@ class PADification(tk.Tk):
         self.resizable(width=False, height=False)
         self.title("PADification - The Ultimate in Puzzle and Dragons Organization.")
 
+        #Logging object
+        logging.basicConfig(filename='padification.log', level=logging. INFO,format='%(asctime)s %(message)s')
+        logging.getLogger().addHandler(logging.StreamHandler())
+        logging.info("Application Start")
         #pypyodbc SQl Object
         self.PADsql = PADSQL.PADSQL()
-
 
         #screens
         self.MonsterBook = MonsterBook.MonsterBook(self)
