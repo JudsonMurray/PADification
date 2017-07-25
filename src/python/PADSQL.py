@@ -10,10 +10,10 @@ import smtplib
 import time
 import logging
 
-
 class PADSQL():
     def __init__(self):
         # SQL Server information.
+        self.logger = logging.getLogger('PADification.PADsql')
         self.server = ('Driver={SQL Server};'
                         'Server=mssql3.gear.host;'
                         'Database=PADification;'
@@ -46,14 +46,14 @@ class PADSQL():
                 notconnected = False
             except:
                 attempts -=1
-                logging.warning("Timeout, Retrying connection." + str(attempts) + "attempts left.")
+                self.logger.warning("Timeout, Retrying connection." + str(attempts) + "attempts left.")
                 
         
         if self.connection.connected:
-            logging.info("MSSQL 2014 server Connection Established.")
+            self.logger.info("MSSQL 2014 server Connection Established.")
             self.cursor = self.connection.cursor()
         else:
-            logging.warning("Connection Failed.")
+            self.logger.warning("Connection Failed.")
 
     def signup(self, Email, Password, Username, PlayerID):
         """Function will execute TSQL command to insert into Table Player"""
@@ -66,7 +66,7 @@ class PADSQL():
 
         self.executeSQLCommand(SQLCommand, listValues)
         self.connection.commit()
-        logging.info("Sign up Successful")
+        self.logger.info("Sign up Successful")
         self.closeConnection()
 
     def login(self, Email, Password):
@@ -80,7 +80,7 @@ class PADSQL():
         self.executeSQLCommand(SQLCommand, values)
         results = self.cursor.fetchone()
         if results:
-            logging.info("User login Successful")
+            self.logger.info("User login Successful")
             self.Email = Email.lower()
             self.Password = Password
             self.Username = results[2]
@@ -88,7 +88,7 @@ class PADSQL():
             self.ProfileImage = results[4]
             self.signedIn = True
         else:
-            logging.warning("Login Failed")
+            self.logger.warning("Login Failed")
             self.closeConnection()
 
     def updateUsername(self, Username):
@@ -682,7 +682,8 @@ class PADSQL():
                       "WHERE BaseMonsterID = " + str(MonsterClassID) )
             self.executeSQLCommand(SQLCommand)
             results = self.cursor.fetchone()
-            return results
+            Evolutions.append(results)
+            return Evolutions
 
         if results[7]: # if Ultimate
             SQLCommand = ("SELECT * FROM EvolutionTree "
@@ -716,7 +717,7 @@ class PADSQL():
             if result:
                 return result[0] 
             else:
-                logging.info(LeaderSkillName.encode('ASCII', 'ignore'))
+                self.logger.info(LeaderSkillName.encode('ASCII', 'ignore'))
 
     def getActiveSkillDesc(self, ActiveSkillName):
         """Return ActiveSkill Desc"""
@@ -730,7 +731,7 @@ class PADSQL():
             if result:
                 return result[0] 
             else:
-                logging.info(LeaderSkillName.encode('ASCII', 'ignore'))
+                self.logger.info(LeaderSkillName.encode('ASCII', 'ignore'))
 
     def executeSQLCommand(self, sqlstring, params = None):
         retry_flag = True
@@ -745,7 +746,7 @@ class PADSQL():
                 retry_flag = False
             except:
                 self.connect()
-                logging.warning("Timeout on server, retry after 1 sec")
+                self.logger.warning("Timeout on server, retry after 1 sec")
                 retry_count += 1
                 time.sleep(3)
 
