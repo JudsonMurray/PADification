@@ -15,6 +15,45 @@ from PIL import Image
 from PIL import ImageTk
 import PADMonster
 import logging
+import CustomWidgets
+
+class EvoFrame:
+    def __init__(self, master, nextMon):
+        self.master = master
+        self.nextMon = nextMon
+        self.builder = pygubu.Builder()
+        self.builder.add_from_file(r"src\ui\Monster Edit UI.ui")
+        self.evos = self.builder.get_object('frmEvos', self.master.builder.get_object("canEvoTree"))
+        self.availEvo = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(self.nextMon) + '.png').zoom(4).subsample(5)
+        self.builder.get_object("canNextMon").create_image(7,7, image = self.availEvo, anchor = tk.NW)
+        self.builder.connect_callbacks(self)
+        return
+    def clickMe(self, event):
+        self.master.master.monsterEdit.monster.MonsterClassID = self.nextMon
+        
+        self.master.master.monsterEdit.monster.updateStats()
+        #self.master.master.monsterEdit.applyChanges()
+#class Evolve()
+class EvolutionFrame(tk.Toplevel):
+    def __init__(self, master, masterbuilder):
+        tk.Toplevel.__init__(self, master)
+        self.master = master
+        self.masterbuilder = masterbuilder
+        self.builder = pygubu.Builder()
+        self.builder.add_from_file('src/ui/Monster Edit UI.ui')
+        self.mainwidow = self.builder.get_object('canEvoTree', self)
+
+        self.transient(master) #set to be on top of the main window
+        self.grab_set() #hijack all commands from the master (clicks on the main window are ignored)
+        self.evos = self.master.PADsql.getEvolutions(self.master.monsterEdit.monster.MonsterClassID)
+        self.evoFrames = []
+
+        self.count = 0
+
+        for i in self.evos:
+            self.evoFrames.append(EvoFrame(self, i[0]))
+            self.evoFrames[self.count].evos.grid(row=self.count // 4,column = self.count % 4, padx = 8, pady = 10)
+            self.count += 1
 
 class MonsterFrame:
     def __init__(self, master, assistant):
@@ -338,8 +377,8 @@ class MonsterEdit:
 
     def applyChanges(self):
         global k
-        self.master.playerCollection.buttons[self.master.playerCollection.k].clickMe(self)
         self.master.PADsql.saveMonster(self.monster.getSaveDict())
+        self.master.playerCollection.buttons[self.master.playerCollection.k].clickMe(self)
         self.master.showPlayerCollection()
         pass
 
@@ -400,7 +439,8 @@ class MonsterEdit:
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #--- Displaying base information, performed when screen is opened from PlayerCollection -----------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+    def btnEvolutionClick(self, event):
+        dialog = EvolutionFrame(self.master, self.builder)
     def __displayPossibleAssistants(self):
 
         if self.pAssistants is None:
