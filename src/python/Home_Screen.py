@@ -46,7 +46,6 @@ class HomeScreen():
 
         self.entTeamSearch = self.builder.get_object("entSearchTeams")
         self.entPlayerSearch = self.builder.get_object("entPlayerSearch")
-       
 
         #Pygubu Variables
         self.FollowSwitch = self.builder.get_variable("varFollowSwitch")
@@ -60,7 +59,6 @@ class HomeScreen():
         self.firstLoad = True
 
         #Search and page Variables
-
         self.TeamSearchResults = None
         self.TeamCurPage = 1
         self.TeamMaxPage = 1
@@ -69,8 +67,12 @@ class HomeScreen():
         self.PlayerSearchResults = None
         self.PlayerCurPage = 1
         self.PlayerMaxPage = 1
+        self.entPlayerPage = self.builder.get_variable("varPlayerSearchPg")
 
-
+        self.FollowResults = None
+        self.FollowCurPage = 1
+        self.FollowMaxPage = 1
+        self.entFollowPage = self.builder.get_variable("varFollowPg")
 
         for i in range( 0 , self.TEAMRESULTSPERPAGE ):
             self.TeamPreviews.append(TeamPreview(self.canTeamPreviewer, self))
@@ -86,7 +88,6 @@ class HomeScreen():
             ToolTip.ToolTip(self.builder.get_object("chkPri" + i) , i)
 
 
-
     def update(self):
         if self.master.PADsql.ProfileImage != None:
             value = self.master.PADsql.ProfileImage
@@ -95,21 +96,18 @@ class HomeScreen():
 
         self.ProfileImage = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(value) + ".png")
         self.canProfileImage.create_image(2,2, image = self.ProfileImage, anchor = NW)
-
-        #CustomFont_Label(self.builder.get_object('frmPlayerInfo'), text= self.master.PADsql.Username, font_path="Resource/PAD/Font/FOT-RowdyStd-EB.ttf", size=22).grid(row = 0, column = 1, sticky = NW)
         self.lblUsername.config(text = self.master.PADsql.Username)
         self.lblCollectionCount.config(text ="Monsters\t= " + str(len(self.master.PADsql.selectMonsterInstance())) )
         self.lblTeamCount.config(text ="Teams\t= " + str(len(self.master.PADsql.selectTeamInstance())))
 
         if self.firstLoad:
-            self.updateFollowings()
             self.onSearchTeamsClick()
-            self.updateFrames(self.master.PADsql.selectUsers(), self.PlayerSearchFrames)
+            self.onPlayerSearch()
             self.updateFollowFrame()
             self.firstLoad = False
 
-
     def updateFrames(self, sqlQuery, Frames):
+
         Selected = []
         for i in Frames:
             i.mainFrame.grid_forget()
@@ -124,17 +122,75 @@ class HomeScreen():
 
     def updateFollowFrame(self):
         if self.FollowSwitch.get() == "Followers":
-            self.updateFrames(self.master.PADsql.selectFollowers(), self.FollowFrames)
+            self.FollowResults = self.master.PADsql.selectFollowers()
         else:
-            self.updateFrames(self.master.PADsql.selectFollowings(), self.FollowFrames)
+            self.FollowResults = self.master.PADsql.selectFollowings()
+        #Setup Page
+        self.FollowCurPage = 1
+        self.FollowMaxPage = math.ceil(len(self.FollowResults) / self.PLAYERRESULTSPERPAGE)
+        self.entFollowPage.set(self.FollowCurPage)
+        self.builder.get_object("lblFollowpg").config(text = " / " + str(self.FollowMaxPage))
 
+        self.updateFollowPage()
 
-    def updateFollowings(self):
-        self.Followings = self.master.PADsql.selectFollowings()
-        self.Followers = self.master.PADsql.selectFollowers()
-        #print("Followers:", self.Followers)
-        #print("Followings:", self.Followings)
+    def updateFollowPage(self):
+        min = (self.FollowCurPage - 1) * self.PLAYERRESULTSPERPAGE
+        self.updateFrames(self.FollowResults[min : min + self.PLAYERRESULTSPERPAGE ], self.FollowFrames)
 
+    def onFollowPrev(self):
+        if self.FollowCurPage > 1:
+            self.FollowCurPage -= 1
+        else:
+            return
+        self.entFollowPage.set(self.FollowCurPage)
+        self.updateFollowPage()
+
+    def onFollowNext(self):
+        if self.FollowCurPage < self.FollowMaxPage:
+            self.FollowCurPage += 1
+        else:
+            return
+        self.entFollowPage.set(self.FollowCurPage)
+        self.updateFollowPage()
+
+    def onPlayerSearch(self, event = None):
+        value = self.PlayerSearch.get()
+        if value and value != "Enter a Username.":
+            self.PlayerSearchResults = self.master.PADsql.selectUsers(Username = value)
+        else:
+            self.PlayerSearchResults = self.master.PADsql.selectUsers()
+            random.shuffle(self.PlayerSearchResults)
+            #Setup Page
+        self.PlayerCurPage = 1
+        self.PlayerMaxPage = math.ceil(len(self.PlayerSearchResults) / self.PLAYERRESULTSPERPAGE)
+        self.entPlayerPage.set(self.PlayerCurPage)
+        self.builder.get_object("lblPlayerSearchPg").config(text = " / " + str(self.PlayerMaxPage))
+
+        #update Page Results
+        self.updatePlayerSearch()
+
+    def updatePlayerSearch(self):
+        """Feeds update Frames a Page of results"""
+        min = (self.PlayerCurPage - 1) * self.PLAYERRESULTSPERPAGE
+        self.updateFrames(self.PlayerSearchResults[min : min + self.PLAYERRESULTSPERPAGE ], self.PlayerSearchFrames)
+
+    def onPlayerNext(self):
+        """Next Page of Team Results"""
+        if self.PlayerCurPage < self.PlayerMaxPage:
+            self.PlayerCurPage += 1
+        else:
+            return
+        self.entPlayerPage.set(self.PlayerCurPage)
+        self.updatePlayerSearch()
+
+    def onPlayerPrev(self):
+        """Next Page of Team Results"""
+        if self.PlayerCurPage > 1:
+            self.PlayerCurPage -= 1
+        else:
+            return
+        self.entPlayerPage.set(self.PlayerCurPage)
+        self.updatePlayerSearch()
 
     def onSearchTeamsClick(self, event = None):
         """Grab Search Results on Teams, Or Return all on Random."""
@@ -158,6 +214,17 @@ class HomeScreen():
             self.TeamSearchResults = self.master.PADsql.selectTeamInstance(allUser = True, exlcudeUser = True)
             random.shuffle(self.TeamSearchResults)
 
+        if len(PriAttributes) < 5:
+            TeamFilteredResults = []
+            for i in self.TeamSearchResults:
+                if i["LeaderMonster"] != None:
+                    query = self.master.PADsql.selectMonsterInstance(i["LeaderMonster"], allUsers = True)
+                    if query:
+                        testing = PADMonster.Monster(query[0])
+                        if testing.PriAttribute in PriAttributes:
+                            TeamFilteredResults.append(i)
+
+            self.TeamSearchResults = TeamFilteredResults
 
 
         #Setup Page

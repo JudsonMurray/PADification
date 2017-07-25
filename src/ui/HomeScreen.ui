@@ -660,6 +660,7 @@
             </layout>
             <child>
               <object class="tk.Button" id="btnFollowPrev">
+                <property name="command">onFollowPrev</property>
                 <property name="font">{yu} 10 {}</property>
                 <property name="text" translatable="yes">Prev</property>
                 <layout>
@@ -676,6 +677,7 @@
               <object class="tk.Entry" id="entFollowPg">
                 <property name="font">{yu} 12 {}</property>
                 <property name="text" translatable="yes">0000</property>
+                <property name="textvariable">string:varFollowPg</property>
                 <property name="width">4</property>
                 <layout>
                   <property name="column">0</property>
@@ -704,6 +706,7 @@
             </child>
             <child>
               <object class="tk.Button" id="btnFollowNext">
+                <property name="command">onFollowNext</property>
                 <property name="font">{yu} 10 {}</property>
                 <property name="text" translatable="yes">Next</property>
                 <layout>
@@ -786,6 +789,7 @@
             </layout>
             <child>
               <object class="tk.Button" id="btnPlayerSearch">
+                <property name="command">onPlayerSearch</property>
                 <property name="font">{yu} 10 {}</property>
                 <property name="text" translatable="yes">Search</property>
                 <property name="width">6</property>
@@ -819,6 +823,7 @@
             </child>
             <child>
               <object class="tk.Button" id="btnPlayerSearchPrev">
+                <property name="command">onPlayerPrev</property>
                 <property name="font">{yu} 10 {}</property>
                 <property name="text" translatable="yes">Prev</property>
                 <layout>
@@ -835,6 +840,7 @@
               <object class="tk.Entry" id="entPlayerSearchPg">
                 <property name="font">{yu} 12 {}</property>
                 <property name="text" translatable="yes">0000</property>
+                <property name="textvariable">string:varPlayerSearchPg</property>
                 <property name="width">4</property>
                 <layout>
                   <property name="column">0</property>
@@ -863,6 +869,7 @@
             </child>
             <child>
               <object class="tk.Button" id="btnPlayerSearchNext">
+                <property name="command">onPlayerNext</property>
                 <property name="font">{yu} 10 {}</property>
                 <property name="text" translatable="yes">Next</property>
                 <layout>
