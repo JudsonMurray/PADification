@@ -47,15 +47,13 @@ class AccountOptions:
         self.onNewPassFocusIn(self)
         self.onPasswordFocusIn(self)
         self.onUsernameFocusIn(self)
-        if re.match(r'[A-Za-z0-9@#$%^&+=]*$',self.obj2.get()) or len(self.obj2.get()) < 8 or len(self.obj2.get()) > 10:
-            changePassword = True
-
-        elif not re.match(r'[A-Za-z0-9@#$%^&+=]*$',self.obj2.get()) or len(self.obj2.get()) < 8 or len(self.obj2.get()) > 10:
-            return mb.showwarning("Invalid Password", "Input a Valid Password,\nMust be 8-10 characters long,\nand can contain A-Z a-z 0-9 @#$%^&+=")
-            
-        else:
-            mb.showerror("Update Error","Passwords do not match!")
+        if not re.match(r'[A-Za-z0-9@#$%^&+=]*$',self.obj2.get()) or len(self.obj2.get()) < 8 or len(self.obj2.get()) > 10 or self.obj2.get() != self.obj3.get():
             changePassword = False
+            return mb.showwarning("Invalid Password", "Input a Valid Password,\nMust be 8-10 characters long,\nand can contain A-Z a-z 0-9 @#$%^&+=")
+
+        elif re.match(r'[A-Za-z0-9@#$%^&+=]*$',self.obj2.get()) and len(self.obj2.get()) < 8 or len(self.obj2.get()) > 10 and self.obj2.get() == self.obj3.get():
+            changePassword = True
+            
 
         if self.obj1.get() != '' and not self.obj1.get().isspace() :
             changeUsername = True 
@@ -66,8 +64,10 @@ class AccountOptions:
             changeUsername = False
         if (changePassword == True and changeUsername == True) or (changePassword == True and changeUsername == None) or (changePassword == None and changeUsername == True):
             if changePassword == True:
+                mb.showinfo("Successful Update","Password was updated")
                 self.master.PADsql.updatePassword(self.obj2.get())
             if changeUsername == True:
+                mb.showinfo("Successful Update","Username was updated!")
                 self.master.PADsql.updateUsername(self.obj1.get())
         if (changePassword == None and changeUsername == None):
             mb.showinfo("No Changes","No changes were implemented")
