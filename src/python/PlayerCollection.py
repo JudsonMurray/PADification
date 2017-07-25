@@ -34,25 +34,26 @@ class EvoFrame:
     def __init__(self, master, nextMon):
         self.master = master
         self.nextMon = nextMon
-        self.builder = pygubu.Builder()
-        self.builder.add_from_file(r"src\ui\PlayerCollection.ui")
-        self.evos = self.builder.get_object('frmEvos', self.master.masterbuilder.get_object("canEvoTree"))
-        self.availEvo = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(self.nextMon[0]) + '.png').zoom(4).subsample(5)
-        self.builder.get_object("canNextMon").create_image(7,7, image = self.availEvo, anchor = tk.NW)
-        self.evos.config(highlightthickness = 5)
-        self.check = self.nextMon[0]
+        if self.nextMon != None:
+            self.builder = pygubu.Builder()
+            self.builder.add_from_file(r"src\ui\PlayerCollection.ui")
+            self.evos = self.builder.get_object('frmEvos', self.master.masterbuilder.get_object("canEvoTree"))
+            self.availEvo = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(self.nextMon[0]) + '.png').zoom(4).subsample(5)
+            self.builder.get_object("canNextMon").create_image(7,7, image = self.availEvo, anchor = tk.NW)
+            self.evos.config(highlightthickness = 5)
+            self.check = self.nextMon[0]
 
-        self.check = Monster((self.master.mastermaster.pds.selectMonsterClass(self.check))[0])
+            self.check = Monster((self.master.mastermaster.pds.selectMonsterClass(self.check))[0])
 
-        self.evos.config(highlightbackground = 'Red')
+            self.evos.config(highlightbackground = 'Red')
 
-        if self.nextMon[7]:
-            self.evos.config(highlightbackground = 'Blue')
+            if self.nextMon[7]:
+                self.evos.config(highlightbackground = 'Blue')
 
-        if self.master.currentMonster.MonsterClassID > self.nextMon[0]:
-            self.evos.config(highlightbackground = 'Yellow')
+            if self.master.currentMonster.MonsterClassID > self.nextMon[0]:
+                self.evos.config(highlightbackground = 'Yellow')
 
-        self.builder.connect_callbacks(self)
+            self.builder.connect_callbacks(self)
         return
 
 class MonsterFrame:
@@ -87,19 +88,22 @@ class MonsterFrame:
         
         global k
         global selectedMonster
-        
-        self.evos = self.mastermaster.pds.getEvolutions(self.currentMonster.MonsterClassID)
-        self.evoFrames = []
-
-        self.count = 0
 
         for i in self.masterbuilder.get_object("canEvoTree").grid_slaves():
-            i.grid_forget()
+                i.grid_forget()
 
-        for i in self.evos:
-            self.evoFrames.append(EvoFrame(self, i))
-            self.evoFrames[self.count].evos.grid(row=self.count // 4,column = self.count % 4, padx = 8, pady = 10)
-            self.count += 1
+        self.evos = self.mastermaster.pds.getEvolutions(self.currentMonster.MonsterClassID)
+        if self.evos:
+            self.evoFrames = []
+
+            self.count = 0
+
+            
+
+            for i in self.evos:
+                self.evoFrames.append(EvoFrame(self, i))
+                self.evoFrames[self.count].evos.grid(row=self.count // 4,column = self.count % 4, padx = 8, pady = 10)
+                self.count += 1
 
         if self.currentMonster.Favorites:
            self.monbut.config(bg = 'Yellow')
@@ -728,6 +732,9 @@ class PlayerCollection:
         self.ASSeven.text = None
         self.ASEight.text = None
         self.ASNine.text = None
+
+        for i in self.builder.get_object("canEvoTree").grid_slaves():
+            i.grid_forget()
 
         self.builder.get_object("canMonsterSummary").unbind("<Enter>")
         self.builder.get_object("canMonsterSummary").unbind("<Leave>")

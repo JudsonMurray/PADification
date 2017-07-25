@@ -691,7 +691,8 @@ class PADSQL():
                       "WHERE BaseMonsterID = " + str(MonsterClassID) )
             self.executeSQLCommand(SQLCommand)
             results = self.cursor.fetchone()
-            Evolutions.append(results)
+            if results:
+                Evolutions.append(results)
             return Evolutions
 
         if results[7]: # if Ultimate
