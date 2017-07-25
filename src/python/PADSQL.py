@@ -57,17 +57,26 @@ class PADSQL():
 
     def signup(self, Email, Password, Username, PlayerID):
         """Function will execute TSQL command to insert into Table Player"""
+        SQLCommand = ("SELECT [Email]"
+                        "FROM Player "
+                        "WHERE [Email] = ? ")
+        values = [Email]
+        self.executeSQLCommand(SQLCommand, values)
+        results = self.cursor.fetchone()
+        if not results:
+            self.connect()
+            listValues = [Email.lower(), Password, Username, PlayerID]
+            SQLCommand = ("INSERT INTO Player "
+                            "(Email, Password, Username, PlayerID) "
+                            "VALUES (?,?,?,?)")
 
-        self.connect()
-        listValues = [Email.lower(), Password, Username, PlayerID]
-        SQLCommand = ("INSERT INTO Player "
-                      "(Email, Password, Username, PlayerID) "
-                      "VALUES (?,?,?,?)")
-
-        self.executeSQLCommand(SQLCommand, listValues)
-        self.connection.commit()
-        self.logger.info("Sign up Successful")
-        self.closeConnection()
+            self.executeSQLCommand(SQLCommand, listValues)
+            self.connection.commit()
+            self.logger.info("Sign up Successful")
+            self.closeConnection()
+            return True
+        else:
+            return False
 
     def login(self, Email, Password):
         """Log in with login Info"""

@@ -316,9 +316,9 @@ class LoginDialog(sd.Dialog):
             self.showRecovery()
         elif self.screenState == self.RECOVER:
             if self.master.PADsql.retrievePassword(self.varEmail.get()):
-                mb.showwarning("Email Recovery", "Password Sent to Email")
+                mb.showwarning("Email Recovery", "Password Sent to Email",parent=self)
             else:
-                mb.showwarning("Email Recovery", "No such Email Exists")
+                mb.showwarning("Email Recovery", "No such Email Exists",parent=self)
         pass
 
     def onCancelClick(self):
@@ -337,22 +337,25 @@ class LoginDialog(sd.Dialog):
         elif self.screenState == self.CREATE:
 
             if not re.match(r'^[A-Za-z0-9\.\+_-]+@[A-Za-z0-9\._-]+\.[A-Za-z]*$', self.varEmail.get() ):
-                return mb.showwarning("invalid email", "input a valid email")
+                return mb.showwarning("invalid email", "input a valid email",parent=self)
 
             if not re.match(r'[A-Za-z0-9@#$%^&+=]*$',self.varPassword.get()) or len(self.varPassword.get()) < 8 or len(self.varPassword.get()) > 10:
-                return mb.showwarning("Invalid Password", "Input a Valid Password,\nMust be 8-10 characters long,\nand can contain A-Z a-z 0-9 @#$%^&+=")
+                return mb.showwarning("Invalid Password", "Input a Valid Password,\nMust be 8-10 characters long,\nand can contain A-Z a-z 0-9 @#$%^&+=",parent=self)
 
             if not self.varPassword.get() == self.varVerifyPassword.get():
-                return mb.showwarning("Entry Error", "Passwords do not Match")
+                return mb.showwarning("Entry Error", "Passwords do not Match",parent=self)
 
             if not re.match(r'[A-Za-z0-9 ]*$' , self.varUsername.get() ) or self.varUsername.get() == "Enter Username" or len(self.varUsername.get()) < 4 or len(self.varUsername.get()) > 15:
-                return mb.showwarning("Invalid Username", "Input a Valid Username,\nMust be 4-15 characters long,\nand can contain A-Z a-z 0-9.")
+                return mb.showwarning("Invalid Username", "Input a Valid Username,\nMust be 4-15 characters long,\nand can contain A-Z a-z 0-9.",parent=self)
 
-            if not re.match(r'[0-9]*$' ,self.varPlayerID.get() ) and len(self.varPlayerID.get()) != 9:
-                return mb.showwarning("Invalid PlayerID", "Input a Valid PlayerID,\nMust be 9 Digits long.")
+            if not re.match(r'[0-9]*$' ,self.varPlayerID.get() ) or len(self.varPlayerID.get()) != 9:
+                return mb.showwarning("Invalid PlayerID", "Input a Valid PlayerID,\nMust be 9 Digits long.",parent=self)
 
-            self.master.PADsql.signup(self.varEmail.get(), self.varPassword.get(), self.varUsername.get(), self.varPlayerID.get())
-            mb.showwarning("Account Created!", "Account has been successfully Created.")
+            self.master.PADsql.remote = self.server.get()
+            if self.master.PADsql.signup(self.varEmail.get(), self.varPassword.get(), self.varUsername.get(), self.varPlayerID.get()):
+                mb.showwarning("Account Created!", "Account has been successfully Created." , parent=self)
+            else:
+                mb.showwarning("Account already exists!", "An account with this Email already exists." , parent=self)
             self.showLogin()
 
     def onLoginClick(self, event  = None):
@@ -364,7 +367,7 @@ class LoginDialog(sd.Dialog):
                 self.master.showHomeScreen()
                 self.destroy()
             else:
-                mb.showwarning('Login Error', 'Email and Password Do not exist!')
+                mb.showwarning('Login Error', 'Email and Password Do not exist!',parent=self)
 
     def onExit(self):
         self.destroy()
