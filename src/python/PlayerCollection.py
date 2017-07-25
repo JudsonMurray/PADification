@@ -37,8 +37,21 @@ class EvoFrame:
         self.builder = pygubu.Builder()
         self.builder.add_from_file(r"src\ui\PlayerCollection.ui")
         self.evos = self.builder.get_object('frmEvos', self.master.masterbuilder.get_object("canEvoTree"))
-        self.availEvo = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(self.nextMon) + '.png').zoom(4).subsample(5)
+        self.availEvo = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(self.nextMon[0]) + '.png').zoom(4).subsample(5)
         self.builder.get_object("canNextMon").create_image(7,7, image = self.availEvo, anchor = tk.NW)
+        self.evos.config(highlightthickness = 5)
+        self.check = self.nextMon[0]
+
+        self.check = Monster((self.master.mastermaster.pds.selectMonsterClass(self.check))[0])
+
+        self.evos.config(highlightbackground = 'Red')
+
+        if self.nextMon[7]:
+            self.evos.config(highlightbackground = 'Blue')
+
+        if self.master.currentMonster.MonsterClassID > self.nextMon[0]:
+            self.evos.config(highlightbackground = 'Yellow')
+
         self.builder.connect_callbacks(self)
         return
 
@@ -71,8 +84,11 @@ class MonsterFrame:
 
         self.count = 0
 
+        for i in self.masterbuilder.get_object("canEvoTree").grid_slaves():
+            i.grid_forget()
+
         for i in self.evos:
-            self.evoFrames.append(EvoFrame(self, i[0]))
+            self.evoFrames.append(EvoFrame(self, i))
             self.evoFrames[self.count].evos.grid(row=self.count // 4,column = self.count % 4, padx = 8, pady = 10)
             self.count += 1
 

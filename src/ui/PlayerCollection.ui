@@ -661,6 +661,18 @@
           <property name="sticky">w</property>
         </layout>
         <child>
+          <object class="tk.Label" id="lblEvoPrompt">
+            <property name="text" translatable="yes">Yellow = Devolution     Blue = Ultimate Evolution     Red = Reincarnation &amp; Evo Fusion</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="pady">5</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="sticky">w</property>
+            </layout>
+          </object>
+        </child>
+        <child>
           <object class="tk.Canvas" id="canEvoTree">
             <property name="borderwidth">5</property>
             <property name="height">200</property>
@@ -669,9 +681,9 @@
             <layout>
               <property name="column">0</property>
               <property name="padx">5</property>
-              <property name="pady">20</property>
+              <property name="pady">5</property>
               <property name="propagate">False</property>
-              <property name="row">0</property>
+              <property name="row">1</property>
             </layout>
           </object>
         </child>
