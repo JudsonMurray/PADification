@@ -8,7 +8,7 @@
 #   -V. 0.0.3 -Updated Screen display, updated File Paths
 #   -V. 0.0.4 -Added functionality billy overwrote. Fixed multiple selection of one monster.
 #   -V. 0.0.5 -Made many miscellaneous bug fixes
-
+import logging
 import pygame
 import tkinter as tk
 import pygubu
@@ -151,6 +151,20 @@ class MonsterFrame:
                     t.currentMonster.InstanceID == self.destroyerTeam.SubMonsterFour:
                     t.state = 'off'
                     t.monbut.config(relief=SUNKEN)
+                    self.padific.editTeam.assistants
+                    
+            self.teamCanvas[self.var.get()].config(highlightbackground= "#f0f0f0",highlightcolor="#f0f0f0",highlightthickness=5)
+            for c in self.padific.editTeam.assistants:
+                if c == self.destroyerTeam.LeaderMonster:
+                    self.teamCanvas[0].config(highlightbackground= "#b2a89d",highlightcolor="#b2a89d",highlightthickness=5)
+                elif c == self.destroyerTeam.SubMonsterOne:
+                    self.teamCanvas[1].config(highlightbackground= "#b2a89d",highlightcolor="#b2a89d",highlightthickness=5)
+                elif c == self.destroyerTeam.SubMonsterTwo:
+                    self.teamCanvas[2].config(highlightbackground= "#b2a89d",highlightcolor="#b2a89d",highlightthickness=5)
+                elif c == self.destroyerTeam.SubMonsterThree:
+                    self.teamCanvas[3].config(highlightbackground= "#b2a89d",highlightcolor="#b2a89d",highlightthickness=5)
+                elif c == self.destroyerTeam.SubMonsterFour:
+                    self.teamCanvas[4].config(highlightbackground= "#b2a89d",highlightcolor="#b2a89d",highlightthickness=5)
             self.padific.teamBrowser.updateTeamLabels(self.masterbuilder, self.destroyerTeam)
 
             return
@@ -267,7 +281,7 @@ class EditTeam():
         self.count = 0
         tt = range(0 + (self.page - 1) * 50, (50 + (self.page - 1) * 50) if len(monster) - 1 > (50 + (self.page - 1) * 50) else len(monster))
         for i in range(0 + (self.page - 1) * 50, (50 + (self.page - 1) * 50) if len(monster) - 1 > (50 + (self.page - 1) * 50) else len(monster)):
-            if search == None:
+            if filter == None:
                 b = monster[i]["InstanceID"]
                 thisdict = monster[i]
             else:
@@ -285,6 +299,10 @@ class EditTeam():
             for c in self.assistants:
                 if c == self.buttons[self.count].currentMonster.InstanceID:
                     self.buttons[self.count].monbut.config(highlightbackground= "#b2a89d",highlightcolor="#b2a89d",highlightthickness=3)
+                    break
+                else:
+                    self.buttons[self.count].monbut.config(highlightbackground= None,highlightcolor=None,highlightthickness=3)
+
             if self.destroyerTeam.LeaderMonster == b or self.destroyerTeam.SubMonsterOne == b or\
                 self.destroyerTeam.SubMonsterTwo== b or self.destroyerTeam.SubMonsterThree == b or\
                 self.destroyerTeam.SubMonsterFour == b :
@@ -386,6 +404,8 @@ class EditTeam():
     
     def removeMonster(self, event):
         """Remove monsterfrom selected team slot"""
+        
+        self.teamCanvas[self.var.get()].config(highlightbackground= "#f0f0f0",highlightcolor="#f0f0f0",highlightthickness=5)
         if self.var.get() == 0:
             if self.destroyerTeam.LeaderMonster != self.destroyerTeam.setLeaderMonster():
                 self.destroyerTeam.setLeaderMonster()

@@ -55,6 +55,7 @@
     <Folder Include="src\" />
     <Folder Include="src\db\" />
     <Folder Include="src\db\scripts\" />
+    <Folder Include="src\deprecated\" />
     <Folder Include="src\Python Code\" />
     <Folder Include="src\Python Integration Testing\" />
     <Folder Include="src\python\" />
@@ -7892,6 +7893,8 @@
     <Content Include="Tools\Python\Read.ME" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\deprecated\AccountCreation.py" />
+    <Compile Include="src\deprecated\LoginScreen.py" />
     <Compile Include="src\Python Code\AccountCreation.py" />
     <Compile Include="src\Python Code\Account_Options_Screen.py" />
     <Compile Include="src\Python Code\EditTeamScreen.py" />
@@ -7907,14 +7910,12 @@
     <Compile Include="src\Python Integration Testing\EditTeamScreen.py" />
     <Compile Include="src\Python Integration Testing\Home_Screen.py" />
     <Compile Include="src\Python Integration Testing\LoginScreen.py" />
-    <Compile Include="src\python\LoginScreen.py" />
     <Compile Include="src\Python Integration Testing\MonsterEditScreen.py" />
     <Compile Include="src\Python Integration Testing\Monster_Info_Screen.py" />
     <Compile Include="src\Python Integration Testing\PADMonster.py" />
     <Compile Include="src\Python Integration Testing\PADSQL.py" />
     <Compile Include="src\Python Integration Testing\PlayerCollection.py" />
     <Compile Include="src\Python Integration Testing\Test_Integration.py" />
-    <Compile Include="src\python\AccountCreation.py" />
     <Compile Include="src\python\Account_Options_Screen.py" />
     <Compile Include="src\python\EditTeamScreen.py" />
     <Compile Include="src\python\Home_Screen.py" />

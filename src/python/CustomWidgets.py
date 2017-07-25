@@ -12,6 +12,7 @@ from tkinter import *
 from PIL import Image, ImageFont, ImageDraw, ImageTk
 from idlelib import ToolTip
 import re
+import logging
 
 def truetype_font(font_path, size):
     return ImageFont.truetype(font_path, size)

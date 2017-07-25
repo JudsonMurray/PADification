@@ -598,7 +598,7 @@
         <layout>
           <property name="column">0</property>
           <property name="columnspan">3</property>
-          <property name="ipadx">365</property>
+          <property name="ipadx">370</property>
           <property name="ipady">300</property>
           <property name="padx">5</property>
           <property name="pady">15</property>
@@ -622,16 +622,15 @@
     <child>
       <object class="tk.Frame" id="teamEditFrame">
         <property name="borderwidth">5</property>
-        <property name="height">100</property>
         <property name="relief">raised</property>
         <layout>
           <property name="column">3</property>
           <property name="columnspan">1</property>
-          <property name="ipady">30</property>
           <property name="padx">5</property>
           <property name="pady">15</property>
           <property name="propagate">True</property>
           <property name="row">2</property>
+          <property name="rowspan">1</property>
         </layout>
         <child>
           <object class="tk.Frame" id="nameAndBadgeFrame">
@@ -687,23 +686,24 @@
         </child>
         <child>
           <object class="tk.Frame" id="teamMonstersFrame">
-            <property name="height">150</property>
+            <property name="height">200</property>
             <property name="width">20</property>
             <layout>
               <property name="column">0</property>
-              <property name="ipadx">40</property>
-              <property name="ipady">180</property>
+              <property name="ipadx">45</property>
+              <property name="ipady">200</property>
               <property name="propagate">False</property>
               <property name="row">0</property>
               <property name="rowspan">20</property>
             </layout>
             <child>
               <object class="tk.Canvas" id="canLeadMon">
-                <property name="background">#decbf3</property>
+                <property name="background">#ffffff</property>
                 <property name="borderwidth">5</property>
-                <property name="height">70</property>
+                <property name="height">80</property>
+                <property name="highlightthickness">5</property>
                 <property name="relief">raised</property>
-                <property name="width">70</property>
+                <property name="width">80</property>
                 <bind add="True" handler="leadClick" sequence="&lt;1&gt;" />
                 <layout>
                   <property name="column">0</property>
@@ -718,11 +718,12 @@
             </child>
             <child>
               <object class="tk.Canvas" id="canSubMon1">
-                <property name="background">#d3baef</property>
+                <property name="background">#ffffff</property>
                 <property name="borderwidth">5</property>
-                <property name="height">70</property>
+                <property name="height">80</property>
+                <property name="highlightthickness">5</property>
                 <property name="relief">raised</property>
-                <property name="width">70</property>
+                <property name="width">80</property>
                 <bind add="True" handler="sub1Click" sequence="&lt;1&gt;" />
                 <layout>
                   <property name="column">0</property>
@@ -735,11 +736,12 @@
             </child>
             <child>
               <object class="tk.Canvas" id="canSubMon2">
-                <property name="background">#a470de</property>
+                <property name="background">#ffffff</property>
                 <property name="borderwidth">5</property>
-                <property name="height">70</property>
+                <property name="height">80</property>
+                <property name="highlightthickness">5</property>
                 <property name="relief">raised</property>
-                <property name="width">70</property>
+                <property name="width">80</property>
                 <bind add="True" handler="sub2Click" sequence="&lt;1&gt;" />
                 <layout>
                   <property name="column">0</property>
@@ -752,11 +754,12 @@
             </child>
             <child>
               <object class="tk.Canvas" id="canSubMon3">
-                <property name="background">#6d2bb7</property>
+                <property name="background">#ffffff</property>
                 <property name="borderwidth">5</property>
-                <property name="height">70</property>
+                <property name="height">80</property>
+                <property name="highlightthickness">5</property>
                 <property name="relief">raised</property>
-                <property name="width">70</property>
+                <property name="width">80</property>
                 <bind add="True" handler="sub3Click" sequence="&lt;1&gt;" />
                 <layout>
                   <property name="column">0</property>
@@ -769,11 +772,12 @@
             </child>
             <child>
               <object class="tk.Canvas" id="canSubMon4">
-                <property name="background">#3e1867</property>
+                <property name="background">#ffffff</property>
                 <property name="borderwidth">5</property>
-                <property name="height">70</property>
+                <property name="height">80</property>
+                <property name="highlightthickness">5</property>
                 <property name="relief">raised</property>
-                <property name="width">70</property>
+                <property name="width">80</property>
                 <bind add="True" handler="sub4Click" sequence="&lt;1&gt;" />
                 <layout>
                   <property name="column">0</property>

@@ -3,8 +3,7 @@
 #   DATE:    07/21/17
 #   PURPOSE: FUNCTIONALITY FOR THE BROWSE TEAM SCREEN 
 
-
-import pygame
+import logging
 import tkinter as tk
 from CustomWidgets import *
 import pygubu
