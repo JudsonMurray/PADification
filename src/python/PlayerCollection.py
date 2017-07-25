@@ -411,6 +411,9 @@ class PlayerCollection:
             self.builder.get_object("btnNext").config(state = NORMAL)
         elif self.pages <= self.currentPage:
             self.builder.get_object("btnNext").config(state = DISABLED)
+
+        if self.currentPage == 1:
+            self.builder.get_object("btnPrev").config(state = DISABLED)
             
         self.builder.get_variable('lblPageNumber').set( "    / " + str(self.pages))
         self.builder.get_variable('varPageEnt').set(str(self.currentPage))
@@ -575,18 +578,27 @@ class PlayerCollection:
             self.populateList()
 
     def __UpdateInformation(self):
-        self.monster = self.pds.selectMonsterInstance(self.instantList[k])
+        self.monster = self.pds.selectMonsterInstance(self.instantList[k + (self.currentPage - 1) * 50])
         self.monster = PADMonster.Monster(self.monster[0])
         self.builder.get_object("lblHP").config(text = "HP: " + str(self.monster.TotalHP))
         self.builder.get_object("lblATK").config(text = "ATK: " + str(self.monster.TotalATK))
         self.builder.get_object("lblRCV").config(text = "RCV: " + str(self.monster.TotalRCV))
         
+        self.aSListImg = []
+        self.builder.get_object("canASOne").delete("all")
+        self.builder.get_object("canASTwo").delete("all")
+        self.builder.get_object("canASThree").delete("all")
+        self.builder.get_object("canASFour").delete("all")
+        self.builder.get_object("canASFive").delete("all")
+        self.builder.get_object("canASSix").delete("all")
+        self.builder.get_object("canASSeven").delete("all")
+        self.builder.get_object("canASEight").delete("all")
+        self.builder.get_object("canASNine").delete("all")
         if self.monster.ASListID is None:
             pass
         else:
         #Creates the photo image for the selected monster's awoken awoken skills
             self.aSList = self.pds.getAwokenSkillList(self.monster.MonsterClassID)
-            self.aSListImg = []
 
             for i in range(1, len(self.aSList)):
                 if i <= self.monster.SkillsAwoke:
@@ -601,15 +613,6 @@ class PlayerCollection:
                         self.aSListImg.append(None)
 
         #Removes all the previously selected monster's, if there was one, awoken awoken skills
-        self.builder.get_object("canASOne").delete("all")
-        self.builder.get_object("canASTwo").delete("all")
-        self.builder.get_object("canASThree").delete("all")
-        self.builder.get_object("canASFour").delete("all")
-        self.builder.get_object("canASFive").delete("all")
-        self.builder.get_object("canASSix").delete("all")
-        self.builder.get_object("canASSeven").delete("all")
-        self.builder.get_object("canASEight").delete("all")
-        self.builder.get_object("canASNine").delete("all")
 
         self.builder.get_object("canASOne").create_image(2,2, image = self.aSListImg[0], anchor = tk.NW)
         self.builder.get_object("canASTwo").create_image(2,2, image = self.aSListImg[1], anchor = tk.NW)
