@@ -8,6 +8,7 @@
 
 #3rd Party Modules
 import logging
+import datetime
 import pypyodbc
 import tkinter as tk
 from tkinter import *
@@ -42,7 +43,8 @@ class PADification(tk.Tk):
         self.title("PADification - The Ultimate in Puzzle and Dragons Organization.")
 
         #Logging object
-        logging.basicConfig(filename='padification.log', level=logging. INFO,format='%(asctime)s %(message)s')
+        
+        logging.basicConfig(filename='log/' + '{:%Y-%m-%d %H-%M-%S}'.format(datetime.datetime.now()) + '.log', level=logging.WARN , format='%(asctime)s %(message)s')
         logging.getLogger().addHandler(logging.StreamHandler())
         logging.info("Application Start")
         #pypyodbc SQl Object
