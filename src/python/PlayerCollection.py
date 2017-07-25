@@ -30,6 +30,18 @@ import MonsterEditScreen
 from ast import literal_eval as le
 
 
+class EvoFrame:
+    def __init__(self, master, nextMon):
+        self.master = master
+        self.nextMon = nextMon
+        self.builder = pygubu.Builder()
+        self.builder.add_from_file(r"src\ui\PlayerCollection.ui")
+        self.evos = self.builder.get_object('frmEvos', self.master.masterbuilder.get_object("canEvoTree"))
+        self.availEvo = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(self.nextMon) + '.png').zoom(4).subsample(5)
+        self.builder.get_object("canNextMon").create_image(7,7, image = self.availEvo, anchor = tk.NW)
+        self.builder.connect_callbacks(self)
+        return
+
 class MonsterFrame:
     def __init__(self, master, masterbuilder, i, ids, currentMonster, buttons, padsql, selButton, mastermaster):
         self.master = master
@@ -54,6 +66,16 @@ class MonsterFrame:
         global k
         global selectedMonster
         
+        self.evos = self.mastermaster.pds.getEvolutions(self.currentMonster.MonsterClassID)
+        self.evoFrames = []
+
+        self.count = 0
+
+        for i in self.evos:
+            self.evoFrames.append(EvoFrame(self, i[0]))
+            self.evoFrames[self.count].evos.grid(row=self.count // 4,column = self.count % 4, padx = 8, pady = 10)
+            self.count += 1
+
         if self.currentMonster.Favorites:
            self.masterbuilder.get_object("btnFavorite").config(state = Disabled)
         else:
