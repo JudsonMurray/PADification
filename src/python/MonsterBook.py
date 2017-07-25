@@ -25,6 +25,8 @@ import logging
 class MonsterBook():
     """Displays Home Screen Frame and widgets"""
     def __init__(self, master):
+        #logger
+        self.logger = logging.getLogger("Padification.ui.MonsterBook")
         #Constants
         self.bgSearchText = "Enter Monster ID or Name"
         self.RESULTSPERPAGE = 7
@@ -442,6 +444,8 @@ class MonsterBook():
 
 class MonsterFrame():
     def __init__(self, master, mbobject):
+        #logger
+        self.logger = logging.getLogger("Padification.ui.MonsterBook.MonsterFrame")
         #TK Variables
         self.Monbookobject = mbobject
         self.master = master
@@ -499,6 +503,8 @@ class MonsterFrame():
 
 class MonEvoFrame():
     def __init__(self, master, mbobject):
+        #logger
+        self.logger = logging.getLogger("Padification.ui.MonsterBook.MonEvoFrame")
         #TK Variables
         self.Monbookobject = mbobject
         self.master = master
