@@ -670,7 +670,7 @@ class PlayerCollection:
             self.populateList()
 
     def __UpdateInformation(self):
-        self.monster = self.pds.selectMonsterInstance(self.instantList[k + (self.currentPage - 1) * 50])
+        self.monster = self.pds.selectMonsterInstance(self.instantList[k + (self.currentPage - 1) * 50], wishlist = self.displayWishlist)
         self.monster = PADMonster.Monster(self.monster[0])
         self.builder.get_object("lblHP").config(text = "HP: " + str(self.monster.TotalHP))
         self.builder.get_object("lblATK").config(text = "ATK: " + str(self.monster.TotalATK))
@@ -706,15 +706,15 @@ class PlayerCollection:
 
         #Removes all the previously selected monster's, if there was one, awoken awoken skills
 
-        self.builder.get_object("canASOne").create_image(2,2, image = self.aSListImg[0], anchor = tk.NW)
-        self.builder.get_object("canASTwo").create_image(2,2, image = self.aSListImg[1], anchor = tk.NW)
-        self.builder.get_object("canASThree").create_image(2,2, image = self.aSListImg[2], anchor = tk.NW)
-        self.builder.get_object("canASFour").create_image(2,2, image = self.aSListImg[3], anchor = tk.NW)
-        self.builder.get_object("canASFive").create_image(2,2, image = self.aSListImg[4], anchor = tk.NW)
-        self.builder.get_object("canASSix").create_image(2,2, image = self.aSListImg[5], anchor = tk.NW)
-        self.builder.get_object("canASSeven").create_image(2,2, image = self.aSListImg[6], anchor = tk.NW)
-        self.builder.get_object("canASEight").create_image(2,2, image = self.aSListImg[7], anchor = tk.NW)
-        self.builder.get_object("canASNine").create_image(2,2, image = self.aSListImg[8], anchor = tk.NW)
+            self.builder.get_object("canASOne").create_image(2,2, image = self.aSListImg[0], anchor = tk.NW)
+            self.builder.get_object("canASTwo").create_image(2,2, image = self.aSListImg[1], anchor = tk.NW)
+            self.builder.get_object("canASThree").create_image(2,2, image = self.aSListImg[2], anchor = tk.NW)
+            self.builder.get_object("canASFour").create_image(2,2, image = self.aSListImg[3], anchor = tk.NW)
+            self.builder.get_object("canASFive").create_image(2,2, image = self.aSListImg[4], anchor = tk.NW)
+            self.builder.get_object("canASSix").create_image(2,2, image = self.aSListImg[5], anchor = tk.NW)
+            self.builder.get_object("canASSeven").create_image(2,2, image = self.aSListImg[6], anchor = tk.NW)
+            self.builder.get_object("canASEight").create_image(2,2, image = self.aSListImg[7], anchor = tk.NW)
+            self.builder.get_object("canASNine").create_image(2,2, image = self.aSListImg[8], anchor = tk.NW)
 
         pass
 
