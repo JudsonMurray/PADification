@@ -8,6 +8,7 @@ import tkinter as tk
 from tkinter import *
 import tkinter.messagebox as mb
 import pygubu
+import re 
 
 class AccountOptions:
     def __init__(self, master):
@@ -43,10 +44,11 @@ class AccountOptions:
         self.onNewPassFocusIn(self)
         self.onPasswordFocusIn(self)
         self.onUsernameFocusIn(self)
-        if self.obj2.get() == self.obj3.get() and self.obj2.get() != '':
-            changePassword = True 
-        elif self.obj2.get() == '':
-            pass
+        if re.match(r'[A-Za-z0-9@#$%^&+=]*$',self.obj2.get()) or len(self.obj2.get()) < 8 or len(self.obj2.get()) > 10:
+            changePassword = True
+
+        elif not re.match(r'[A-Za-z0-9@#$%^&+=]*$',self.obj2.get()) or len(self.obj2.get()) < 8 or len(self.obj2.get()) > 10:
+            return mb.showwarning("Invalid Password", "Input a Valid Password,\nMust be 8-10 characters long,\nand can contain A-Z a-z 0-9 @#$%^&+=")
             
         else:
             mb.showerror("Update Error","Passwords do not match!")
