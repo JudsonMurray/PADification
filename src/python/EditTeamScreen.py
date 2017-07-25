@@ -27,6 +27,7 @@ from ast import literal_eval as le
 
 class AwokenBadge:
     def __init__(self, master, masterframe, builder, i):
+        self.logger = logging.getLogger("Padification.ui.EditTeamScreen.AwokenBadge")
         self.builder = builder
         self.master= master
         self.masterframe = masterframe
@@ -50,6 +51,7 @@ class AwokenBadge:
 class BadgeFrame(tk.Toplevel):
     def __init__(self, master, masterbuilder, team):
         tk.Toplevel.__init__(self, master)
+        self.logger = logging.getLogger("Padification.ui.EditTeamScreen.BadgeFrame")
         self.master = master
         self.masterbuilder = masterbuilder
         self.destroyerTeam = team
@@ -104,6 +106,7 @@ class BadgeFrame(tk.Toplevel):
 
 class MonsterFrame:
     def __init__(self, master, masterbuilder, i, currentMonster, buttons, padsql, state, team, var, padific):
+        self.logger = logging.getLogger("Padification.ui.EditTeamScreen.MonsterFrame")
         self.destroyerTeam = team
         self.master = master
         self.masterbuilder = masterbuilder
@@ -172,6 +175,8 @@ class MonsterFrame:
 class EditTeam():
     """Displays Edit Team Frame and Widgets"""
     def __init__(self, master):
+        #logger
+        self.logger = logging.getLogger("Padification.ui.EditTeamScreen.EditTeam")
         #Declare Global Variables
         self.leadMon = self.sub1 = self.sub2 = self.sub3 = self.sub4 = None
         buttons = []

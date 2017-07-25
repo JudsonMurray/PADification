@@ -20,6 +20,8 @@ from PIL import Image, ImageFont, ImageDraw, ImageTk
 class TeamBrowser():
     """Displays Edit Team Frame and Widgets"""
     def __init__(self, master):
+        #logger
+        self.logger = logging.getLogger("Padification.ui.TeamBrowserScreen")
         #Variables
         self.PADsql = master.PADsql
         self.master = master
@@ -368,6 +370,9 @@ class TeamBrowser():
         self.builder.get_object("lblTeamCount").config(text ="Teams\t= " + str(len(self.master.PADsql.selectTeamInstance())))
 class TeamPreview():
     def __init__(self, master, toplevel):
+        #logger
+        self.logger = logging.getLogger("Padification.class.TeamPreview")
+
         self.toplevel = toplevel
         self.master = master
         self.builder = pygubu.Builder()

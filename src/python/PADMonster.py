@@ -11,6 +11,8 @@ import logging
 
 class Monster():
     def __init__(self, monsterDictionary):
+        #Logger
+        self.logger = logging.getLogger("Padification.class.Monster")
         #Class Variables
         self.MonsterClassID = None
         self.MonsterName = None
@@ -177,6 +179,7 @@ class Monster():
 
 class Team():
     def __init__(self, PADSQL, TeamInstanceDict = None):
+        self.logger = logging.getLogger("Padification.class.Team")
         self.PADSQL = PADSQL
         #Instance Variables
         self.TeamInstanceID = None
