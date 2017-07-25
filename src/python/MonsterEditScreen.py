@@ -28,6 +28,7 @@ class MonsterFrame:
         self.builder.connect_callbacks(self)
 
     def clickMe(self, event):
+        self.master.builder.get_object('btnRemoveAssist').config(state = NORMAL)
         for i in range(0, (len(self.master.buttons))):
             self.master.buttons[i].monbut.config(relief = FLAT)
         self.monbut.config(relief = SUNKEN)
@@ -36,6 +37,7 @@ class MonsterFrame:
         for i in range(0, len(self.master.assistants)):
             if self.master.assistants[i] == self.master.monster.AssistMonsterID:
                 self.master.assistants.pop(i)
+                break
 
         self.master.monster.AssistMonsterID = None
 
@@ -72,7 +74,8 @@ class MonsterEdit:
     def receiveInstanceID(self, InstanceID, Wishlist):
         self.instanceID = InstanceID
         self.startMonster = 0
-        
+        self.pAssistants = None
+        self.displayList = []
         self.currentPage = 1
         self.builder.get_object("btnNext").config(state = NORMAL)
         self.builder.get_object("btnPrev").config(state = DISABLED)
@@ -96,6 +99,7 @@ class MonsterEdit:
         if self.monster.AssistMonsterID != None:
             self.displayAssistInfo()
         else:
+            self.builder.get_object('btnRemoveAssist').config(state = DISABLED)
             self.builder.get_object("canAssistantThumb").delete('all')
             self.builder.get_object("lblAssistName").config(text = "Assist Name: None", justify = LEFT)
             self.builder.get_object("lblAssistID").config(text = "Assist ID: None", justify = LEFT)
@@ -354,6 +358,7 @@ class MonsterEdit:
         self.currentPage += 1
         if self.currentPage == self.pages:
             self.builder.get_object("btnNext").config(state = DISABLED)
+        self.startMonster = (self.currentPage - 1) * 16
         self.__displayPossibleAssistants()
 
     def prev(self):
@@ -364,104 +369,143 @@ class MonsterEdit:
             self.builder.get_object("btnPrev").config(state = DISABLED)
         self.__displayPossibleAssistants()
 
+    def removeAssistant(self):
+        
+        self.builder.get_object("canAssistantThumb").delete('all')
+        self.builder.get_object("lblAssistName").config(text = "Assist Name: None", justify = LEFT)
+        self.builder.get_object("lblAssistID").config(text = "Assist ID: None", justify = LEFT)
+        self.builder.get_object("lblAssistLvl").config(text = "Assist LvL: None", justify = LEFT)
+        self.builder.get_object("lblAssistHP").config(text = "Assist HP: None", justify = LEFT)
+        self.builder.get_object("lblAssistATK").config(text = "Assist ATK: None", justify = LEFT)
+        self.builder.get_object("lblAssistRCV").config(text = "Assist RCV: None", justify = LEFT)
+        self.builder.get_object("lblAssistSkillName").config(text = "Assist Skill: None", anchor = W)
+        self.builder.get_object("lblAssistSkillDesc").config(text = "N/A")
+        self.builder.get_object("lblAssistSkillLvl").config(text = "LvL: N/A")
+        self.builder.get_object("lblAssistSkillCD").config(text = "Cooldown: N/A")
+        self.assistHP = 0
+        self.assistATK = 0
+        self.assistRCV = 0
+        self.count = 0
+        self.builder.get_object('btnRemoveAssist').config(state = DISABLED)
+        for i in range(0, len(self.displayList)):
+            if self.displayList[i].InstanceID == self.monster.AssistMonsterID and self.count < 16:
+                self.buttons[self.count].monbut.config(relief = FLAT)
+                break
+            else:
+                self.count += 1
+        self.monster.AssistMonsterID = None
+        self.__displayStats()
+        pass
+
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #--- Displaying base information, performed when screen is opened from PlayerCollection -----------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     def __displayPossibleAssistants(self):
 
-        self.pAssistants = []
-        if self.monster.WishList:
-            self.wishlist = 1
-        else:
-            self.wishlist = 0
+        if self.pAssistants is None:
 
-        self.assistList = self.master.PADsql.selectMonsterInstance(wishlist = self.wishlist)
-
-        for i in range(0, len(self.assistList)):
-            self.pAssistants.append(PADMonster.Monster(self.assistList[i]))
-
-        self.assistants = []
-        for i in self.pAssistants:
-            if self.monster.InstanceID == i.AssistMonsterID:
-                self.asist = False
-                break
+            self.pAssistants = []
+            if self.monster.WishList:
+                self.wishlist = 1
             else:
-                if i.AssistMonsterID != None:
-                    self.assistants.append(i.AssistMonsterID)
-                self.asist = True
+                self.wishlist = 0
 
-        self.myMonsterList = []
+            self.assistList = self.master.PADsql.selectMonsterInstance(wishlist = self.wishlist)
+
+            for i in range(0, len(self.assistList)):
+                self.pAssistants.append(PADMonster.Monster(self.assistList[i]))
+
+            self.assistants = []
+            for i in self.pAssistants:
+                if self.monster.InstanceID == i.AssistMonsterID:
+                    self.asist = False
+                    break
+                else:
+                    if i.AssistMonsterID != None:
+                        self.assistants.append(i.AssistMonsterID)
+                    self.asist = True
+
+            self.myMonsterList = []
+
+            
+            self.count = 0
+            self.teamins =[]
+            teams = self.master.PADsql.selectTeamInstance()
+            for x in range(0,len(teams)):
+                self.teamins.append( PADMonster.Team(self.master.PADsql, (teams[x])))
+
+            self.displayList = []
+            if self.asist:
+                for l in range(0, len(self.pAssistants)):
+                    print('.')
+                    display = True
+                    i = self.pAssistants[l + self.startMonster]
+                    try:
+                        if i.InstanceID != self.monster.InstanceID and i.AssistMonsterID is None:
+                            for a in self.assistants:
+                                if a == i.InstanceID and a != self.formarAsisID:
+                                    display = False
+                                    break
+                                else:
+                                    display = True
+
+                            if display:
+                                for self.SelectedTeam in self.teamins:
+                                    if self.SelectedTeam.LeaderMonster == i.InstanceID:
+                                        display = False
+                                        break
+                                    if self.SelectedTeam.SubMonsterOne == i.InstanceID:
+                                        display = False
+                                        break
+                                    if self.SelectedTeam.SubMonsterTwo == i.InstanceID:
+                                        display = False
+                                        break
+                                    if self.SelectedTeam.SubMonsterThree == i.InstanceID:
+                                        display = False
+                                        break
+                                    if self.SelectedTeam.SubMonsterFour == i.InstanceID:
+                                        display = False
+                                        break
+                            if display:
+                                self.displayList.append(i)
+                                pass
+                    except:
+                        pass
 
         for i in self.builder.get_object("canSelectAssist").grid_slaves():
-            i.grid_forget()
+                i.grid_forget()
 
         self.buttons = []
         self.count = 0
-        display = True
 
-        if self.asist:
-            for i in self.pAssistants:
-                try:
-                    if self.startMonster < 16 * self.currentPage and ((self.startMonster >= 16 * (self.currentPage - 1)) and not(self.startMonster == len(self.pAssistants))) or self.count != 16:
-                        if self.pAssistants[self.startMonster].InstanceID != self.monster.InstanceID and self.pAssistants[self.startMonster].AssistMonsterID is None:
-                            for a in self.assistants:
-                                if a == self.pAssistants[self.startMonster].InstanceID:
-                                    display = False
-                                else:
-                                    display = True
-
-                                
-                                
-                                if a == self.formarAsisID:
-                                    display = True
-                            teams = self.pds.selectTeamInstance()
-                            for selectedMonster in self.pAssistants:
-                                        for i in range(0,len(teams)):
-                                            self.SelectedTeam = PADMonster.Team(self.pds, (teams[i]))
-
-                                            if self.SelectedTeam.LeaderMonster == selectedMonster.InstanceID:
-                                                display = False
-                                                break
-                                            if self.SelectedTeam.SubMonsterOne == selectedMonster.InstanceID:
-                                                display = False
-                                                break
-                                            if self.SelectedTeam.SubMonsterTwo == selectedMonster.InstanceID:
-                                                display = False
-                                                break
-                                            if self.SelectedTeam.SubMonsterThree == selectedMonster.InstanceID:
-                                                display = False
-                                                break
-                                            if self.SelectedTeam.SubMonsterFour == selectedMonster.InstanceID:
-                                                display = False
-                                                break
-                                            display = True
-
-                            if display:
-                                self.buttons.append(MonsterFrame(self, self.pAssistants[self.startMonster]))
-                                self.buttons[self.count].monbut.grid(row=self.count // 8,column = self.count % 8)
-                                if self.pAssistants[self.startMonster].InstanceID == self.monster.AssistMonsterID:
-                                    self.buttons[self.count].monbut.config(relief = SUNKEN)
-                                else:
-                                    self.buttons[self.count].monbut.config(relief = FLAT)
-                                self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(self.pAssistants[self.startMonster].Level)+ '\nID: ' + str(self.pAssistants[self.startMonster].MonsterClassID))
-                                self.count += 1
-                        
+        if self.displayList != None:
+            for i in self.displayList:
+                if self.startMonster < 16 * self.currentPage and ((self.startMonster >= 16 * (self.currentPage - 1)) and (self.startMonster != len(self.displayList))) or self.count != 16:
+                    if self.startMonster < self.currentPage * 16 and self.startMonster < len(self.displayList):
+                        self.buttons.append(MonsterFrame(self, self.displayList[self.startMonster]))
+                        #self.buttons[self.count].monbut.config(padx = 8, pady = 10)
+                        self.buttons[self.count].monbut.grid(row=self.count // 8,column = self.count % 8, padx = 8, pady = 10)
+                        if self.displayList[self.startMonster].InstanceID == self.monster.AssistMonsterID:
+                            self.buttons[self.count].monbut.config(relief = SUNKEN)
+                        else:
+                            self.buttons[self.count].monbut.config(relief = FLAT)
+                        self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(self.displayList[self.startMonster].Level)+ '\nID: ' + str(self.displayList[self.startMonster].MonsterClassID))
+                        self.count += 1
                         self.startMonster += 1
-                except:
-                    pass
+                else:
+                    break
 
-        self.pages = (len(self.pAssistants) // 16) + 1
-        if len(self.pAssistants) == 0:
-            self.pages = 1
-        elif len(self.pAssistants) % 16 == 0:
-            self.pages -= 1
+            self.pages = (len(self.displayList) // 16) + 1
 
-        if self.pages == 1:
-            self.builder.get_object('btnNext').config(state = DISABLED)
-        else:
-            self.builder.get_object('btnNext').config(state = NORMAL)
-        self.builder.get_object('lblCurPage').config(text = "Page " + str(self.currentPage) + "/" + str(self.pages))
+            if len(self.displayList) == 0:
+                self.pages = 1
+            elif len(self.displayList) % 16 == 0:
+                self.pages -= 1
+
+            if self.pages == 1:
+                self.builder.get_object('btnNext').config(state = DISABLED)
+            self.builder.get_object('lblCurPage').config(text = "Page " + str(self.currentPage) + "/" + str(self.pages))
 
         pass
 
@@ -689,13 +733,24 @@ class MonsterEdit:
 
     def __displayAwokenSkills(self):
         self.spnAwokenSkill = self.builder.get_object("spnAwokenSkill")
+        #Removes all the previously selected monster's, if there was one, awoken awoken skills
+        self.builder.get_object("canAwokenSkillOne").delete("all")
+        self.builder.get_object("canAwokenSkillTwo").delete("all")
+        self.builder.get_object("canAwokenSkillThree").delete("all")
+        self.builder.get_object("canAwokenSkillFour").delete("all")
+        self.builder.get_object("canAwokenSkillFive").delete("all")
+        self.builder.get_object("canAwokenSkillSix").delete("all")
+        self.builder.get_object("canAwokenSkillSeven").delete("all")
+        self.builder.get_object("canAwokenSkillEight").delete("all")
+        self.builder.get_object("canAwokenSkillNine").delete("all")
+
         if self.monster.ASListID is None:
+            self.builder.get_variable("spnAwokenSkill").set(0)
             self.spnAwokenSkill.config(state = DISABLED)
         else:
             self.spnAwokenSkill.config(state = NORMAL)
-            self.spnAwokenSkill.config(state = 'readonly')
-
             self.builder.get_variable("spnAwokenSkill").set(str(self.monster.SkillsAwoke))
+            self.spnAwokenSkill.config(state = 'readonly')
 
             #Creates the photo image for the selected monster's awoken awoken skills
             self.aSList = self.master.PADsql.getAwokenSkillList(self.monster.MonsterClassID)
@@ -723,16 +778,6 @@ class MonsterEdit:
 
             self.spnAwokenSkill.config(to = self.numAS)
 
-            #Removes all the previously selected monster's, if there was one, awoken awoken skills
-            self.builder.get_object("canAwokenSkillOne").delete("all")
-            self.builder.get_object("canAwokenSkillTwo").delete("all")
-            self.builder.get_object("canAwokenSkillThree").delete("all")
-            self.builder.get_object("canAwokenSkillFour").delete("all")
-            self.builder.get_object("canAwokenSkillFive").delete("all")
-            self.builder.get_object("canAwokenSkillSix").delete("all")
-            self.builder.get_object("canAwokenSkillSeven").delete("all")
-            self.builder.get_object("canAwokenSkillEight").delete("all")
-            self.builder.get_object("canAwokenSkillNine").delete("all")
 
             self.builder.get_object("canAwokenSkillOne").create_image(2,2, image = self.aSListImg[0], anchor = tk.NW)
             self.builder.get_object("canAwokenSkillTwo").create_image(2,2, image = self.aSListImg[1], anchor = tk.NW)

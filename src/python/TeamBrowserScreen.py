@@ -53,7 +53,7 @@ class TeamBrowser():
         """Loads Teams into listbox"""
         self.connection = self.PADsql.connection
         self.teams = self.PADsql.selectTeamInstance()
-        self.update()
+        self.master.updateProfile(self.builder)
         self.setImages(None)
         if len(self.teams) == 0:
             #self.teamListBox.delete(0, END)
@@ -177,7 +177,7 @@ class TeamBrowser():
             count = 0
             spaces = []
             spacepos = 0
-            self.range = 130
+            self.range = 120
             while len(leaderskilldesc) > self.range:
                 for i in str(leaderskilldesc[self.range - 120 : self.range]):
                     if i == ' ':
@@ -300,7 +300,7 @@ class TeamBrowser():
         page = self.teamPage
         self.loadUserTeams()
         for i in range(0, 5):
-            self.team[i].mainframe.delete()
+            self.team[i].mainFrame.grid_forget()
         self.teamPage = page
         self.loadTeams()
             
@@ -348,11 +348,11 @@ class TeamBrowser():
                 value = int(value)
 
             if self.master.PADsql.updateProfileImage(value):
-                self.update()
+                self.master.updateProfile(self.builder)
             else:
                 mb.showinfo("Profile Image", "Monster ID Does Not Exist")
 
-    def update(self):
+    def updateProfile(self):
         #print(self.master.PADsql.ProfileImage)
         if self.master.PADsql.ProfileImage != None:
             value = self.master.PADsql.ProfileImage
@@ -437,4 +437,5 @@ class TeamPreview():
 
     def teamSelect(self, event):
         #"""Selects team from listbox"""
-        self.toplevel.master.teamBrowser.updateTeam((self.teamDict["TeamInstanceID"]))
+        if self.objTeam != None:
+            self.toplevel.master.teamBrowser.updateTeam((self.teamDict["TeamInstanceID"]))

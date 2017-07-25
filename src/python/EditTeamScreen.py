@@ -1,6 +1,6 @@
 #!/USR/BIN/ENV PYTHON 3.5
 #   NAME:    KYLE GUNTON
-#   DATE:    07/21/17
+#   DATE:    07/24/17
 #   PURPOSE: FUNCTIONALITY FOR THE EDIT TEAM SCREEN 
 
 #   -V. 0.0.1 -Created base functionality of selection monsters in player collection.
@@ -202,6 +202,24 @@ class EditTeam():
             monster = self.PADsql.selectMonsterInstance()
         else:
             monster = filter
+        allMonsters = self.PADsql.selectMonsterInstance()
+        self.count = 0
+        pops = []
+        self.assistants = []
+        for i in range(0,len(monster)):
+            for y in allMonsters:
+                if filter == None:
+                    if monster[i]["InstanceID"] == y["AssistMonsterID"]:
+                        self.assistants.append(y["InstanceID"])
+                        pops.append(i)
+                        break
+                elif monster[i].InstanceID == y["AssistMonsterID"]:
+                        self.assistants.append(y["InstanceID"])
+                        pops.append(i)
+                        break
+                self.count += 1
+        for i in pops[::-1]:
+            monster.pop(i)
 
         monsters = dict()
         self.myMonsterList = []
@@ -249,7 +267,7 @@ class EditTeam():
         self.count = 0
         tt = range(0 + (self.page - 1) * 50, (50 + (self.page - 1) * 50) if len(monster) - 1 > (50 + (self.page - 1) * 50) else len(monster))
         for i in range(0 + (self.page - 1) * 50, (50 + (self.page - 1) * 50) if len(monster) - 1 > (50 + (self.page - 1) * 50) else len(monster)):
-            if filter == None:
+            if search == None:
                 b = monster[i]["InstanceID"]
                 thisdict = monster[i]
             else:
@@ -260,11 +278,13 @@ class EditTeam():
             self.state = 'on'
 
             self.buttons.append(MonsterFrame(self.container, self.builder, self.count, a, self.buttons, self.PADsql, self.state, self.destroyerTeam, self.var, self.master))
-            self.buttons[self.count].monbut.config(width=65)
+            self.buttons[self.count].monbut.config(width=69)
             self.buttons[self.count].monbut.grid(row=self.count // 10,column = self.count % 10)
             self.buttons[self.count].builder.get_object('FrameLabel').create_image(2,2, image = self.myMonsterList[self.count+ (self.page - 1) * 50], anchor = tk.NW)
             self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(a.Level)+ '\nID: ' + str(a.MonsterClassID))
-
+            for c in self.assistants:
+                if c == self.buttons[self.count].currentMonster.InstanceID:
+                    self.buttons[self.count].monbut.config(highlightbackground= "#b2a89d",highlightcolor="#b2a89d",highlightthickness=3)
             if self.destroyerTeam.LeaderMonster == b or self.destroyerTeam.SubMonsterOne == b or\
                 self.destroyerTeam.SubMonsterTwo== b or self.destroyerTeam.SubMonsterThree == b or\
                 self.destroyerTeam.SubMonsterFour == b :
@@ -276,7 +296,7 @@ class EditTeam():
     def loadTeam(self, instance):
         """Loads user's team and calls methods to pupulate feilds"""
         self.badgeNum = None
-        self.update()
+        self.master.updateProfile(self.builder)
         self.leadClick(self)
         self.teamInstance = instance
         self.updateTeam(self.teamInstance)
@@ -565,25 +585,11 @@ class EditTeam():
                 value = int(value)
 
             if self.master.PADsql.updateProfileImage(value):
-                self.update()
+                self.master.updateProfile(self.builder)
             else:
                 mb.showinfo("Profile Image", "Monster ID Does Not Exist")
 
-    def update(self):
-        """Updates player profile image, username, collection and team counts"""
-        #print(self.master.PADsql.ProfileImage)
-        if self.master.PADsql.ProfileImage != None:
-            value = self.master.PADsql.ProfileImage
-        else:
-            value = 1
 
-        self.ProfileImage = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(value) + ".png")
-        self.builder.get_object("canProfileImage").create_image(2,2, image = self.ProfileImage, anchor = NW)
-
-        #CustomFont_Label(self.builder.get_object('frmPlayerInfo'), text= self.master.PADsql.Username, font_path="Resource/PAD/Font/FOT-RowdyStd-EB.ttf", size=22).grid(row = 0, column = 1, sticky = NW)
-        self.builder.get_object("lblUsername").config(text = self.master.PADsql.Username)
-        self.builder.get_object("lblCollectionCount").config(text ="Monsters\t= " + str(len(self.master.PADsql.selectMonsterInstance())))
-        self.builder.get_object("lblTeamCount").config(text ="Teams\t= " + str(len(self.master.PADsql.selectTeamInstance())))
 
 if __name__ == '__main__':
     root = tk.Tk()
