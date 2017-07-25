@@ -14,6 +14,7 @@ from tkinter import simpledialog as sd
 from tkinter import *
 from PIL import Image, ImageFont, ImageDraw, ImageTk
 import math
+import logging
 
 class HomeScreen():
     """Displays Home Screen Frame and widgets"""

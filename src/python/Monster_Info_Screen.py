@@ -8,6 +8,7 @@ import tkinter as tk
 from tkinter import *
 import tkinter.messagebox as mb
 import pygubu
+import logging
 
 class MonsterInfo:
     def __init__(self, master):

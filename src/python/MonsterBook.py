@@ -20,7 +20,7 @@ from PIL import ImageTk
 from idlelib import ToolTip
 from CustomWidgets import *
 import re
-
+import logging
 
 class MonsterBook():
     """Displays Home Screen Frame and widgets"""

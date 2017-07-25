@@ -4,6 +4,7 @@
 #   Date:   JUNE 27TH 2017
 #   Purpose:THE ACCOUNT OPTIONS SCREEN
 
+import logging
 import tkinter as tk
 from tkinter import *
 import tkinter.messagebox as mb

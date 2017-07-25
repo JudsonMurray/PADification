@@ -8,7 +8,7 @@
 #   -V. 0.0.3 -Updated Screen display, updated File Paths
 #   -V. 0.0.4 -Added functionality billy overwrote. Fixed multiple selection of one monster.
 #   -V. 0.0.5 -Made many miscellaneous bug fixes
-
+import logging
 import pygame
 import tkinter as tk
 import pygubu

@@ -11,7 +11,7 @@
 #   V.1.6   RB  Added a okcancel messagebox when remove monster is clicked and now able to load Edit Monster screen when edit monster is clicked
 #   V.1.7   RB  Added Wishlist functionality
 #
-
+import logging
 from tkinter import *
 import tkinter as tk
 import pygubu
