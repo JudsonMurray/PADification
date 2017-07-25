@@ -352,8 +352,10 @@ class LoginDialog(sd.Dialog):
                 return mb.showwarning("Invalid PlayerID", "Input a Valid PlayerID,\nMust be 9 Digits long.",parent=self)
 
             self.master.PADsql.remote = self.server.get()
-            self.master.PADsql.signup(self.varEmail.get(), self.varPassword.get(), self.varUsername.get(), self.varPlayerID.get())
-            mb.showwarning("Account Created!", "Account has been successfully Created." , parent=self)
+            if self.master.PADsql.signup(self.varEmail.get(), self.varPassword.get(), self.varUsername.get(), self.varPlayerID.get()):
+                mb.showwarning("Account Created!", "Account has been successfully Created." , parent=self)
+            else:
+                mb.showwarning("Account already exists!", "An account with this Email already exists." , parent=self)
             self.showLogin()
 
     def onLoginClick(self, event  = None):

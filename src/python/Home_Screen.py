@@ -130,9 +130,10 @@ class HomeScreen():
         #Setup Page
         self.FollowCurPage = 1
         self.FollowMaxPage = math.ceil(len(self.FollowResults) / self.PLAYERRESULTSPERPAGE)
+        if self.FollowMaxPage == 0:
+            self.FollowMaxPage = 1
         self.entFollowPage.set(self.FollowCurPage)
         self.builder.get_object("lblFollowpg").config(text = " / " + str(self.FollowMaxPage))
-
         self.updateFollowPage()
 
     def updateFollowPage(self):
