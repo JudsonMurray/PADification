@@ -28,6 +28,7 @@ class MonsterFrame:
         self.builder.connect_callbacks(self)
 
     def clickMe(self, event):
+        self.master.builder.get_object('btnRemoveAssist').config(state = NORMAL)
         for i in range(0, (len(self.master.buttons))):
             self.master.buttons[i].monbut.config(relief = FLAT)
         self.monbut.config(relief = SUNKEN)
@@ -98,6 +99,7 @@ class MonsterEdit:
         if self.monster.AssistMonsterID != None:
             self.displayAssistInfo()
         else:
+            self.builder.get_object('btnRemoveAssist').config(state = DISABLED)
             self.builder.get_object("canAssistantThumb").delete('all')
             self.builder.get_object("lblAssistName").config(text = "Assist Name: None", justify = LEFT)
             self.builder.get_object("lblAssistID").config(text = "Assist ID: None", justify = LEFT)
@@ -366,6 +368,34 @@ class MonsterEdit:
         if self.currentPage == 1:
             self.builder.get_object("btnPrev").config(state = DISABLED)
         self.__displayPossibleAssistants()
+
+    def removeAssistant(self):
+        
+        self.builder.get_object("canAssistantThumb").delete('all')
+        self.builder.get_object("lblAssistName").config(text = "Assist Name: None", justify = LEFT)
+        self.builder.get_object("lblAssistID").config(text = "Assist ID: None", justify = LEFT)
+        self.builder.get_object("lblAssistLvl").config(text = "Assist LvL: None", justify = LEFT)
+        self.builder.get_object("lblAssistHP").config(text = "Assist HP: None", justify = LEFT)
+        self.builder.get_object("lblAssistATK").config(text = "Assist ATK: None", justify = LEFT)
+        self.builder.get_object("lblAssistRCV").config(text = "Assist RCV: None", justify = LEFT)
+        self.builder.get_object("lblAssistSkillName").config(text = "Assist Skill: None", anchor = W)
+        self.builder.get_object("lblAssistSkillDesc").config(text = "N/A")
+        self.builder.get_object("lblAssistSkillLvl").config(text = "LvL: N/A")
+        self.builder.get_object("lblAssistSkillCD").config(text = "Cooldown: N/A")
+        self.assistHP = 0
+        self.assistATK = 0
+        self.assistRCV = 0
+        self.count = 0
+        self.builder.get_object('btnRemoveAssist').config(state = DISABLED)
+        for i in range(0, len(self.displayList)):
+            if self.displayList[i].InstanceID == self.monster.AssistMonsterID and self.count < 16:
+                self.buttons[self.count].monbut.config(relief = FLAT)
+                break
+            else:
+                self.count += 1
+        self.monster.AssistMonsterID = None
+        self.__displayStats()
+        pass
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #--- Displaying base information, performed when screen is opened from PlayerCollection -----------------------------------------------------------------------------------------------------------------------
@@ -703,13 +733,24 @@ class MonsterEdit:
 
     def __displayAwokenSkills(self):
         self.spnAwokenSkill = self.builder.get_object("spnAwokenSkill")
+        #Removes all the previously selected monster's, if there was one, awoken awoken skills
+        self.builder.get_object("canAwokenSkillOne").delete("all")
+        self.builder.get_object("canAwokenSkillTwo").delete("all")
+        self.builder.get_object("canAwokenSkillThree").delete("all")
+        self.builder.get_object("canAwokenSkillFour").delete("all")
+        self.builder.get_object("canAwokenSkillFive").delete("all")
+        self.builder.get_object("canAwokenSkillSix").delete("all")
+        self.builder.get_object("canAwokenSkillSeven").delete("all")
+        self.builder.get_object("canAwokenSkillEight").delete("all")
+        self.builder.get_object("canAwokenSkillNine").delete("all")
+
         if self.monster.ASListID is None:
+            self.builder.get_variable("spnAwokenSkill").set(0)
             self.spnAwokenSkill.config(state = DISABLED)
         else:
             self.spnAwokenSkill.config(state = NORMAL)
-            self.spnAwokenSkill.config(state = 'readonly')
-
             self.builder.get_variable("spnAwokenSkill").set(str(self.monster.SkillsAwoke))
+            self.spnAwokenSkill.config(state = 'readonly')
 
             #Creates the photo image for the selected monster's awoken awoken skills
             self.aSList = self.master.PADsql.getAwokenSkillList(self.monster.MonsterClassID)
@@ -737,16 +778,6 @@ class MonsterEdit:
 
             self.spnAwokenSkill.config(to = self.numAS)
 
-            #Removes all the previously selected monster's, if there was one, awoken awoken skills
-            self.builder.get_object("canAwokenSkillOne").delete("all")
-            self.builder.get_object("canAwokenSkillTwo").delete("all")
-            self.builder.get_object("canAwokenSkillThree").delete("all")
-            self.builder.get_object("canAwokenSkillFour").delete("all")
-            self.builder.get_object("canAwokenSkillFive").delete("all")
-            self.builder.get_object("canAwokenSkillSix").delete("all")
-            self.builder.get_object("canAwokenSkillSeven").delete("all")
-            self.builder.get_object("canAwokenSkillEight").delete("all")
-            self.builder.get_object("canAwokenSkillNine").delete("all")
 
             self.builder.get_object("canAwokenSkillOne").create_image(2,2, image = self.aSListImg[0], anchor = tk.NW)
             self.builder.get_object("canAwokenSkillTwo").create_image(2,2, image = self.aSListImg[1], anchor = tk.NW)
