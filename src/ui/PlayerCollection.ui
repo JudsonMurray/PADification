@@ -250,7 +250,7 @@
     </child>
     <child>
       <object class="tk.LabelFrame" id="frmMonsterSummary">
-        <property name="height">280</property>
+        <property name="height">311</property>
         <property name="text" translatable="yes">Monster Summary</property>
         <property name="width">525</property>
         <layout>
@@ -653,7 +653,7 @@
     </child>
     <child>
       <object class="tk.LabelFrame" id="frmEvoTree">
-        <property name="height">280</property>
+        <property name="height">311</property>
         <property name="text" translatable="yes">Available Evolutions</property>
         <property name="width">525</property>
         <layout>
@@ -677,12 +677,13 @@
         <child>
           <object class="tk.Canvas" id="canEvoTree">
             <property name="borderwidth">5</property>
-            <property name="height">200</property>
+            <property name="height">230</property>
             <property name="relief">raised</property>
-            <property name="width">495</property>
+            <property name="width">465</property>
             <layout>
               <property name="column">0</property>
-              <property name="padx">5</property>
+              <property name="ipadx">0</property>
+              <property name="padx">25</property>
               <property name="pady">5</property>
               <property name="propagate">False</property>
               <property name="row">1</property>
@@ -1321,7 +1322,7 @@ ID:</property>
     <layout>
       <property name="column">0</property>
       <property name="padx">20</property>
-      <property name="pady">10</property>
+      <property name="pady">5</property>
       <property name="propagate">True</property>
       <property name="row">0</property>
     </layout>

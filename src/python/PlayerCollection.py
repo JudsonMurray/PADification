@@ -102,7 +102,7 @@ class MonsterFrame:
 
             for i in self.evos:
                 self.evoFrames.append(EvoFrame(self, i))
-                self.evoFrames[self.count].evos.grid(row=self.count // 4,column = self.count % 4, padx = 8, pady = 10)
+                self.evoFrames[self.count].evos.grid(row=self.count // 4,column = self.count % 4, padx = 8, pady = 8)
                 self.count += 1
 
         if self.currentMonster.Favorites:
