@@ -312,6 +312,7 @@
     <Content Include="Resource\PAD\Images\Badges\Team RCV +35%25  Team Cost -300.png" />
     <Content Include="Resource\PAD\Images\Padification Logo.png" />
     <Content Include="Resource\PAD\Images\PADification Title.png" />
+    <Content Include="Resource\PAD\Images\PortraitBanner.jpg" />
     <Content Include="Resource\PAD\Images\portraits\1.jpg" />
     <Content Include="Resource\PAD\Images\portraits\10.jpg" />
     <Content Include="Resource\PAD\Images\portraits\100.jpg" />
@@ -4068,6 +4069,7 @@
     <Content Include="Resource\PAD\Images\portraits\997.jpg" />
     <Content Include="Resource\PAD\Images\portraits\998.jpg" />
     <Content Include="Resource\PAD\Images\portraits\999.jpg" />
+    <Content Include="Resource\PAD\Images\RarityStar.png" />
     <Content Include="Resource\PAD\Images\thumbnails\1.png" />
     <Content Include="Resource\PAD\Images\thumbnails\10.png" />
     <Content Include="Resource\PAD\Images\thumbnails\100.png" />

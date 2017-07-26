@@ -42,6 +42,25 @@ class Monster():
         self.MonsterPointValue = None
         self.ActiveSkillDesc = None
         self.LeaderSkillDesc = None
+        
+        #Awoken Skill Variables
+        self.AwokenSkillOne = None
+        self.AwokenSkillTwo = None
+        self.AwokenSkillThree = None
+        self.AwokenSkillFour = None
+        self.AwokenSkillFive = None
+        self.AwokenSkillSix = None
+        self.AwokenSkillSeven = None
+        self.AwokenSkillEight = None
+        self.AwokenSkillNine = None
+
+        #Latent Skill Variables
+        self.LatentSkillOne = None
+        self.LatentSkillTwo = None
+        self.LatentSkillThree = None
+        self.LatentSkillFour = None
+        self.LatentSkillFive = None
+        self.LatentSkillSix = None
 
         #ActiveSkill Variables
         self.ActiveSkillMaxLevel = 0
@@ -64,6 +83,15 @@ class Monster():
         #Calculated Variables
         self.MaxExperience = 0
         self.Level = 0
+        self.AssistHP = 0
+        self.AssistATK = 0
+        self.AssistRCV = 0
+        self.AwokenHP = 0
+        self.AwokenATK = 0
+        self.AwokenRCV = 0
+        self.LatentHP = 0
+        self.LatentATK = 0
+        self.LatentRCV = 0
         self.HP = 0
         self.ATK = 0
         self.RCV = 0
@@ -97,9 +125,40 @@ class Monster():
         self.ATK = self.calcStat(self.MinATK, self.MaxATK, self.Level, self.MaxLevel, self.GrowthRateATK)
         self.RCV = self.calcStat(self.MinRCV, self.MaxRCV, self.Level, self.MaxLevel, self.GrowthRateRCV)        
 
-        self.TotalHP = self.HP + (self.PlusHP * 10)
-        self.TotalATK = self.ATK + (self.PlusATK * 5)
-        self.TotalRCV = self.RCV + (self.PlusRCV * 3)
+
+        values = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
+        self.AwokenHP = 0
+        self.AwokenATK = 0
+        self.AwokenRCV = 0
+        for i in range(0,9):
+            if i < self.SkillsAwoke:
+                awsk = getattr(self,"AwokenSkill" + values[i])
+                if awsk == "Enhanced HP":
+                    self.AwokenHP += 200
+                elif awsk == "Enhanced Attack":
+                    self.AwokenATK += 100
+                elif awsk == "Enhanced Heal":
+                    self.AwokenRCV += 100
+
+        self.LatentHP = 0
+        self.LatentATK = 0
+        self.LatentRCV = 0
+        for i in ["One", "Two", "Three", "Four", "Five", "Six"]:
+            lask = getattr(self,"LatentSkill" + i)
+            if lask == "Improved HP":
+                self.LatentHP += round(self.HP * 0.015)
+            elif lask == "Improved Attack":
+                self.LatentATK += round(self.ATK * 0.01)
+            elif lask == "Improved Heal":
+                self.LatentRCV += round(self.RCV * 0.04)
+            elif lask == "Improved All Stats":
+                self.LatentHP += round(self.HP * 0.015)
+                self.LatentATK += round(self.ATK * 0.01)
+                self.LatentRCV += round(self.RCV * 0.04)
+
+        self.TotalHP = self.HP + (self.PlusHP * 10) + self.AwokenHP + self.LatentHP + self.AssistHP
+        self.TotalATK = self.ATK + (self.PlusATK * 5) + self.AwokenATK + self.LatentATK + self.AssistATK
+        self.TotalRCV = self.RCV + (self.PlusRCV * 3) + self.AwokenRCV + self.LatentRCV + self.AssistRCV
 
         if self.ActiveSkillName != None:
             self.ActiveSkillCoolDown = self.ActiveSkillMaxCoolDown - (self.SkillLevel - 1)
@@ -127,6 +186,10 @@ class Monster():
 
     def setLevel(self, value):
         """set CurrentExperience to the appropriate value for a specified level"""
+        if value <= 0:
+            value = 1
+        if value > 99:
+            value = 99
         self.setCurrentExperience(self.calcXP(value,self.ExpCurve))
 
     def getCurrentExperience(self):
@@ -176,6 +239,22 @@ class Monster():
             self.SkillsAwoke = 0
         if self.SkillsAwoke > 9:
             self.SkillsAwoke = 9
+
+    def calcAssistStats(self, MonsterInstance):
+        if isinstance(MonsterInstance, Monster):
+            if self.PriAttribute == MonsterInstance.PriAttribute:
+                self.AssistHP = round(MonsterInstance.TotalHP * 0.1)
+                self.AssistATK = round(MonsterInstance.TotalATK * 0.05)
+                self.AssistRCV = round(MonsterInstance.TotalRCV * 0.15)
+            else:
+                self.AssistHP = 0
+                self.AssistATK = 0
+                self.AssistRCV = 0
+        else:
+            self.AssistHP = 0
+            self.AssistATK = 0
+            self.AssistRCV = 0
+        self.updateStats()
 
 class Team():
     def __init__(self, PADSQL, TeamInstanceDict = None):

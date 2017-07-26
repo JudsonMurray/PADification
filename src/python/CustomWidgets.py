@@ -167,6 +167,22 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
                     img = Image.open("Resource/PAD/Images/Types/" + getattr(self.monster, "MonsterType" + values[i]) + ".png")
                     baseimg.paste(img, (10 + ( i * 40 ), 80 ))
 
+            img = Image.open("Resource/PAD/Images/RarityStar.png")
+            for i in range(0,self.monster.Rarity):
+                baseimg.paste(img, (250 + ( i * 30 ), 12 ))
+
+            values = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
+            for i in range(0,9):
+                if getattr(self.monster, "AwokenSkill" + values[i]) != None:
+                        if i < self.monster.SkillsAwoke:
+                            img = Image.open("Resource/PAD/Images/Awoken Skills/" + getattr(self.monster, "AwokenSkill" + values[i]) + ".png")
+                        else:
+                            img = Image.open("Resource/PAD/Images/Awoken Skills/not " + getattr(self.monster, "AwokenSkill" + values[i]) + ".png")
+                        baseimg.paste(img, (590, 80 + ((i) * 40)))
+            #count = 0
+            #for i in ["One", "Two", "Three", "Four", "Five", "Six"]:
+            #    if getattr(self.monster, "LatentSkill" + values[i]) != None:
+            #        #img = Image.open("Resource/PAD/Images/Awoken Skills/" + getattr(self.monster, "AwokenSkill" + values[i]) + ".png")
 
             self.portraitImage = baseimg
             self.portraitImage = self.portraitImage.resize((int(self.portraitImage.width / 1.5), int(self.portraitImage.height / 1.5 )), Image.ANTIALIAS)
@@ -177,6 +193,7 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
             self.portrait = None
             self.portraitImage = None
             self.portraitimg = None
+
     def shadowText(self, drawer, x, y, text, font, color):
         drawer.text((x+2, y+2), text, font=font, fill=color)
 

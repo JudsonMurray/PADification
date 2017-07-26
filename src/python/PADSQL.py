@@ -279,8 +279,9 @@ class PADSQL():
            Returns a List of Tuples"""
 
         SQLCommand = ("SELECT MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSKill.LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, "
-                      "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, ActiveSkill.ActiveSkillDesc, LeaderSKill.LeaderSkillDesc "
-                      "FROM ((MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) LEFT OUTER JOIN LeaderSkill ON MonsterClass.LeaderSkillName = LeaderSKill.LeaderSkillName) ")
+                      "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, ActiveSkill.ActiveSkillDesc, LeaderSKill.LeaderSkillDesc, "
+                      "AwokenSkillOne, AwokenSkillTwo, AwokenSkillThree, AwokenSkillFour, AwokenSkillFive, AwokenSkillSix, AwokenSkillSeven, AwokenSkillEight, AwokenSkillNine "
+                      "FROM (((MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) LEFT OUTER JOIN LeaderSkill ON MonsterClass.LeaderSkillName = LeaderSKill.LeaderSkillName) LEFT OUTER JOIN AwokenSkillList ON MonsterClass.ASListID = AwokenSkillList.ASListID ")
 
         if type(monSearch) == tuple and len(monSearch) == 2:
             SQLCommand += "WHERE MonsterClassID BETWEEN " + str(monSearch[0]) + " AND " + str(monSearch[1])
@@ -293,7 +294,10 @@ class PADSQL():
         self.executeSQLCommand(SQLCommand)
 
         if dictionary:
-            properties = ['MonsterClassID', 'MonsterName', 'Rarity', 'PriAttribute', 'SecAttribute', 'MonsterTypeOne', 'MonsterTypeTwo', 'MonsterTypeThree', 'ExpCurve', 'MaxLevel', 'MonsterCost', 'ASListID', 'LeaderSkillName', 'ActiveSkillName', 'MaxHP', 'MinHP', 'GrowthRateHP', 'MaxATK', 'MinATK', 'GrowthRateATK', 'MaxRCV', 'MinRCV', 'GrowthRateRCV', 'CurSell', 'CurFodder', 'MonsterPointValue', 'ActiveSkillMaxLevel', 'ActiveSkillMaxCoolDown', 'ActiveSkillDesc', 'LeaderSkillDesc']
+            properties = ['MonsterClassID', 'MonsterName', 'Rarity', 'PriAttribute', 'SecAttribute', 'MonsterTypeOne', 'MonsterTypeTwo', 'MonsterTypeThree', 'ExpCurve', 'MaxLevel', 'MonsterCost', 
+                          'ASListID', 'LeaderSkillName', 'ActiveSkillName', 'MaxHP', 'MinHP', 'GrowthRateHP', 'MaxATK', 'MinATK', 'GrowthRateATK', 'MaxRCV', 'MinRCV', 'GrowthRateRCV', 'CurSell', 
+                          'CurFodder', 'MonsterPointValue', 'ActiveSkillMaxLevel', 'ActiveSkillMaxCoolDown', 'ActiveSkillDesc', 'LeaderSkillDesc', 'AwokenSkillOne', 'AwokenSkillTwo', 'AwokenSkillThree', 
+                          'AwokenSkillFour', 'AwokenSkillFive', 'AwokenSkillSix', 'AwokenSkillSeven', 'AwokenSkillEight', 'AwokenSkillNine']
             monstercollection = []
             results = self.cursor.fetchone()
             while results:
@@ -313,19 +317,24 @@ class PADSQL():
 
         if allUsers:
             SQLCommand = ("SELECT MonsterInstance.MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, "
-                            "MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, "
+                            "MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, MonsterClass.ASListID, MonsterClass.LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, "
                             "GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, "
-                            "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, InstanceID, Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, "
-                            "AssistMonsterID, SkillLevel, LSListID, Favorites, WishList "
-                            "FROM (MonsterInstance LEFT OUTER JOIN (MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) "
-                            "ON MonsterInstance.MonsterClassID = MonsterClass.MonsterClassID)")
+                            "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, MonsterInstance.InstanceID, Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, "
+                            "AssistMonsterID, SkillLevel, LSListID, Favorites, WishList, ActiveSkill.ActiveSkillDesc, LeaderSKill.LeaderSkillDesc, "
+                            "AwokenSkillOne, AwokenSkillTwo, AwokenSkillThree, AwokenSkillFour, AwokenSkillFive, AwokenSkillSix, AwokenSkillSeven, AwokenSkillEight, AwokenSkillNine, "
+                            "LatentSKillOne, LatentSKillTwo, LatentSKillThree, LatentSKillFour, LatentSKillFive, LatentSKillSix "
+                            "FROM (((((MonsterInstance LEFT OUTER JOIN MonsterClass ON MonsterInstance.MonsterClassID = MonsterClass.MonsterClassID) "
+							"LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) "
+                            "LEFT OUTER JOIN LeaderSkill ON MonsterClass.LeaderSkillName = LeaderSKill.LeaderSkillName) "
+                            "LEFT OUTER JOIN AwokenSkillList ON MonsterClass.ASListID = AwokenSkillList.ASListID) "
+                            "LEFT OUTER JOIN LatentSkillList ON MonsterInstance.InstanceID = LatentSKillList.InstanceID)")
                             
 
             if monSearch == None:
-                SQLCommand += " ORDER BY InstanceID ASC"
+                SQLCommand += " ORDER BY MonsterInstance.InstanceID ASC"
             elif type(monSearch) == int:
                 if byInstanceID:
-                    SQLCommand += " WHERE InstanceID = " + str(monSearch)
+                    SQLCommand += " WHERE MonsterInstance.InstanceID = " + str(monSearch)
                 else:
                     SQLCommand += " WHERE MonsterInstance.MonsterClassID = " + str(monSearch)
             elif type(monSearch) == str:
@@ -333,19 +342,24 @@ class PADSQL():
 
         else:
             SQLCommand = ("SELECT MonsterInstance.MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, "
-                            "MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, "
+                            "MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, MonsterClass.ASListID, MonsterClass.LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, "
                             "GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, "
-                            "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, InstanceID, Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, "
-                            "AssistMonsterID, SkillLevel, LSListID, Favorites, WishList "
-                            "FROM (MonsterInstance LEFT OUTER JOIN (MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) "
-                            "ON MonsterInstance.MonsterClassID = MonsterClass.MonsterClassID)"
+                            "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, MonsterInstance.InstanceID, Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, "
+                            "AssistMonsterID, SkillLevel, LSListID, Favorites, WishList, ActiveSkill.ActiveSkillDesc, LeaderSKill.LeaderSkillDesc, "
+                            "AwokenSkillOne, AwokenSkillTwo, AwokenSkillThree, AwokenSkillFour, AwokenSkillFive, AwokenSkillSix, AwokenSkillSeven, AwokenSkillEight, AwokenSkillNine, "
+                            "LatentSKillOne, LatentSKillTwo, LatentSKillThree, LatentSKillFour, LatentSKillFive, LatentSKillSix "
+                            "FROM (((((MonsterInstance LEFT OUTER JOIN MonsterClass ON MonsterInstance.MonsterClassID = MonsterClass.MonsterClassID) "
+							"LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) "
+                            "LEFT OUTER JOIN LeaderSkill ON MonsterClass.LeaderSkillName = LeaderSKill.LeaderSkillName) "
+                            "LEFT OUTER JOIN AwokenSkillList ON MonsterClass.ASListID = AwokenSkillList.ASListID) "
+                            "LEFT OUTER JOIN LatentSkillList ON MonsterInstance.InstanceID = LatentSKillList.InstanceID) "
                             "WHERE MonsterInstance.Email = '" + str(self.Email) + "'and MonsterInstance.WishList = " + str(wishlist) )
 
             if monSearch == None:
-                SQLCommand += " ORDER BY InstanceID ASC"
+                SQLCommand += " ORDER BY MonsterInstance.InstanceID ASC"
             elif type(monSearch) == int:
                 if byInstanceID:
-                    SQLCommand += " and InstanceID = " + str(monSearch)
+                    SQLCommand += " and MonsterInstance.InstanceID = " + str(monSearch)
                 else:
                     SQLCommand += " and MonsterInstance.MonsterClassID = " + str(monSearch)
             elif type(monSearch) == str:
@@ -359,7 +373,11 @@ class PADSQL():
                           'MonsterCost', 'ASListID', 'LeaderSkillName', 'ActiveSkillName', 'MaxHP', 
                           'MinHP', 'GrowthRateHP', 'MaxATK', 'MinATK', 'GrowthRateATK', 'MaxRCV', 'MinRCV', 
                           'GrowthRateRCV', 'CurSell', 'CurFodder', 'MonsterPointValue', 'ActiveSkillMaxLevel', 'ActiveSkillMaxCoolDown', 
-                          'InstanceID', 'Email', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID', 'Favorites', 'WishList' ]
+                          'InstanceID', 'Email', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID',
+                          'Favorites', 'WishList', 'ActiveSkillDesc', 'LeaderSkillDesc', 'AwokenSkillOne', 'AwokenSkillTwo', 'AwokenSkillThree', 
+                          'AwokenSkillFour', 'AwokenSkillFive', 'AwokenSkillSix', 'AwokenSkillSeven', 'AwokenSkillEight', 'AwokenSkillNine', 
+                          'LatentSKillOne', 'LatentSKillTwo', 'LatentSKillThree', 'LatentSKillFour', 'LatentSKillFive', 'LatentSKillSix' ]
+
             monstercollection = []
             results = self.cursor.fetchone()
             while results:
@@ -754,7 +772,8 @@ class PADSQL():
                 else:
                     self.cursor.execute(sqlstring, params)
                 retry_flag = False
-            except:
+            except Exception as e:
+                self.logger.warning(e)
                 self.connect()
                 self.logger.warning("Timeout on server, retry after 1 sec")
                 retry_count += 1
