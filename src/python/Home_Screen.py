@@ -91,6 +91,7 @@ class HomeScreen():
 
 
     def update(self):
+        # Called When switching to home and Updated Profile image.
         if self.master.PADsql.ProfileImage != None:
             value = self.master.PADsql.ProfileImage
         else:
@@ -102,14 +103,14 @@ class HomeScreen():
         self.lblCollectionCount.config(text ="Monsters\t= " + str(len(self.master.PADsql.selectMonsterInstance())) )
         self.lblTeamCount.config(text ="Teams\t= " + str(len(self.master.PADsql.selectTeamInstance())))
 
-        if self.firstLoad:
+        if self.firstLoad: # Load Frames first time opened.
             self.onSearchTeamsClick()
             self.onPlayerSearch()
             self.updateFollowFrame()
             self.firstLoad = False
 
     def updateFrames(self, sqlQuery, Frames):
-
+        #Update Frames with Results
         Selected = []
         for i in Frames:
             i.mainFrame.grid_forget()
@@ -123,6 +124,7 @@ class HomeScreen():
             count +=1
 
     def updateFollowFrame(self):
+        #Gets results for Followers and Followings and populates the frame
         if self.FollowSwitch.get() == "Followers":
             self.FollowResults = self.master.PADsql.selectFollowers()
         else:
@@ -137,6 +139,7 @@ class HomeScreen():
         self.updateFollowPage()
 
     def updateFollowPage(self):
+        #updates follow frams with results
         min = (self.FollowCurPage - 1) * self.PLAYERRESULTSPERPAGE
         self.updateFrames(self.FollowResults[min : min + self.PLAYERRESULTSPERPAGE ], self.FollowFrames)
 
@@ -164,6 +167,11 @@ class HomeScreen():
             self.PlayerSearchResults = self.master.PADsql.selectUsers()
             random.shuffle(self.PlayerSearchResults)
             #Setup Page
+            count = 0
+        for i in self.PlayerSearchResults:
+            if i["Email"].lower() == self.master.PADsql.Email.lower():
+                self.PlayerSearchResults.pop(count)
+                count += 1
         self.PlayerCurPage = 1
         self.PlayerMaxPage = math.ceil(len(self.PlayerSearchResults) / self.PLAYERRESULTSPERPAGE)
         self.entPlayerPage.set(self.PlayerCurPage)
