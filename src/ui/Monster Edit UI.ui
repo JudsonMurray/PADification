@@ -1351,28 +1351,59 @@ ID:</property>
       </object>
     </child>
   </object>
-  <object class="tk.LabelFrame" id="frmEvoTree">
-    <property name="height">280</property>
-    <property name="text" translatable="yes">Available Evolutions</property>
-    <property name="width">525</property>
+  <object class="tk.Frame" id="frmEvoTree">
+    <property name="borderwidth">5</property>
+    <property name="height">330</property>
+    <property name="relief">groove</property>
+    <property name="width">526</property>
     <layout>
-      <property name="column">1</property>
-      <property name="propagate">False</property>
-      <property name="row">6</property>
-      <property name="sticky">w</property>
+      <property name="column">0</property>
+      <property name="propagate">True</property>
+      <property name="row">0</property>
     </layout>
     <child>
       <object class="tk.Canvas" id="canEvoTree">
         <property name="borderwidth">5</property>
-        <property name="height">200</property>
+        <property name="height">230</property>
         <property name="relief">raised</property>
         <property name="width">495</property>
         <layout>
           <property name="column">0</property>
+          <property name="columnspan">2</property>
           <property name="padx">5</property>
           <property name="pady">20</property>
           <property name="propagate">False</property>
           <property name="row">0</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="btnConfirmEvo">
+        <property name="command">confirmEvo</property>
+        <property name="height">2</property>
+        <property name="text" translatable="yes">Confirm</property>
+        <property name="textvariable">string:btnConfirmEvo</property>
+        <property name="width">20</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+          <property name="sticky">e</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="btnCancelEvo">
+        <property name="command">cancelEvo</property>
+        <property name="height">2</property>
+        <property name="text" translatable="yes">Cancel</property>
+        <property name="textvariable">string:btnCancelEvo</property>
+        <property name="width">20</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+          <property name="sticky">w</property>
         </layout>
       </object>
     </child>

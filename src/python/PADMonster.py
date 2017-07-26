@@ -283,7 +283,7 @@ class Team():
 
             i.ASList= self.PADSQL.getAwokenSkillList(i.MonsterClassID) 
             i.awokenSkills = []
-            for x in range(1, i.SkillsAwoke - 1):
+            for x in range(1, i.SkillsAwoke + 1):
                 i.awokenSkills.append(i.ASList[x])
 
             for b in i.awokenSkills:
@@ -291,7 +291,7 @@ class Team():
                     self.skillBindResist += 20
                 if b == 'Enhanced Fire Orbs':
                     self.enhancedFireChance += 20
-                if b == 'EEnhanced Water Orbs':
+                if b == 'Enhanced Water Orbs':
                     self.enhancedWaterChance += 20
                 if b == 'Enhanced Wood Orbs':
                     self.enhancedWoodChance += 20
