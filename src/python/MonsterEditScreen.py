@@ -249,8 +249,38 @@ class MonsterEdit:
         
         if str(self.latentSkills['state']) == 'normal':
             self.chosenLatent = self.latentSkills.get(ANCHOR)
+            count = 0
+            for i in ('Attacker Killer','Dragon Killer', 'God Killer', 'Balanced Killer', 'Devil Killer', 'Machine Killer', 'Physical Killer', 'Healer Killer'):
+                if self.chosenLatent == i:
+                    if self.monster.MonsterTypeOne == "Balanced" or self.monster.MonsterTypeTwo == "Balanced" or self.monster.MonsterTypeThree == "Balanced":
+                        break
+                    if (count == 0 or count == 1) and (self.monster.MonsterTypeOne != "Healer" and self.monster.MonsterTypeTwo != "Healer" and self.monster.MonsterTypeThree != "Healer"):
+                        self.chosenLatent = ''
+                        break
+                    if count == 2 and (self.monster.MonsterTypeOne != "Machine" and self.monster.MonsterTypeTwo != "Machine" and self.monster.MonsterTypeThree != "Machine" and self.monster.MonsterTypeOne != "Devil" and self.monster.MonsterTypeTwo != "Devil" and self.monster.MonsterTypeThree != "Devil"):
+                        self.chosenLatent = ''
+                        break
+                    if count == 3  and (self.monster.MonsterTypeOne != "Machine" and self.monster.MonsterTypeTwo != "Machine" and self.monster.MonsterTypeThree != "Machine"):
+                        self.chosenLatent = ''
+                        break
+                    if count == 4 and (self.monster.MonsterTypeOne != "Attacker" and self.monster.MonsterTypeTwo != "Attacker" and self.monster.MonsterTypeThree != "Attacker" and self.monster.MonsterTypeOne != "God" and self.monster.MonsterTypeTwo != "God" and self.monster.MonsterTypeThree != "God"):
+                        self.chosenLatent = ''
+                        break
+                    if count == 5 and (self.monster.MonsterTypeOne != "Physical" and self.monster.MonsterTypeTwo != "Physical" and self.monster.MonsterTypeThree != "Physical" and self.monster.MonsterTypeOne != "Dragon" and self.monster.MonsterTypeTwo != "Dragon" and self.monster.MonsterTypeThree != "Dragon"):
+                        self.chosenLatent = ''
+                        break
+                    if count == 6  and (self.monster.MonsterTypeOne != "Attacker" and self.monster.MonsterTypeTwo != "Attacker" and self.monster.MonsterTypeThree != "Attacker"):
+                        self.chosenLatent = ''
+                        break
+                    if count == 7 and (self.monster.MonsterTypeOne != "Physical" and self.monster.MonsterTypeTwo != "Physical" and self.monster.MonsterTypeThree != "Physical" and self.monster.MonsterTypeOne != "Dragon" and self.monster.MonsterTypeTwo != "Dragon" and self.monster.MonsterTypeThree != "Dragon"):
+                        self.chosenLatent = ''
+                        break
+                count += 1
+
             if self.chosenLatent != '' and self.usedSlots < self.maxSlots.get():
                 self.builder.get_object("btnAddLS").config(state = NORMAL)
+            else:
+                self.builder.get_object("btnAddLS").config(state = DISABLED)
             self.builder.get_object("btnRemoveLS").config(state = DISABLED)
         pass
 

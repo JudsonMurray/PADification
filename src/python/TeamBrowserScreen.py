@@ -15,6 +15,7 @@ import sys
 import PADSQL
 import PADMonster
 from PIL import Image, ImageFont, ImageDraw, ImageTk
+import math
 
 #variables to tell which monsters are selected within the collection
 class TeamBrowser():
@@ -26,7 +27,10 @@ class TeamBrowser():
         self.PADsql = master.PADsql
         self.master = master
         self.SelectedTeam = PADMonster.Team(self.PADsql)
-
+        self.TEAMRESULTSPERPAGE = 4
+        self.teams = None
+        
+        self.TeamMaxPage = 1
         #Create GUI and add title image
         self.builder = builder = pygubu.Builder()
         builder.add_from_file('src/ui/Team Browser.ui')
@@ -36,6 +40,10 @@ class TeamBrowser():
         self.builder.get_object('lblTitleImage').config(image = self.imgTitleImage)
         self.teamCanvas = builder.get_object('teamMonstersFrame')
         self.builder.connect_callbacks(self)
+        self.entTeamPage = self.builder.get_variable("varTeamPageEnt")
+        self.entTeamSearch = self.builder.get_object("entSearchTeams")
+        
+        self.TeamSearch = self.builder.get_variable("varTeamSearch")
 
         #Widgets to access
         #self.teamListBox = self.builder.get_object('teamListBox')
@@ -49,12 +57,22 @@ class TeamBrowser():
                              self.SelectedTeam.SubMonsterTwo,
                              self.SelectedTeam.SubMonsterThree,
                              self.SelectedTeam.SubMonsterFour]
+        self.firstrun = True
+        
+        self.AttributeImages = dict()
+        for i in ["Fire","Water","Wood","Light","Dark"]:
+            self.AttributeImages[i] = PhotoImage(file = 'Resource/PAD/Images/Attributes/' + i + "Symbol.png")
+            self.builder.get_object("chkPri" + i).config(image = self.AttributeImages[i])
+            ToolTip.ToolTip(self.builder.get_object("chkPri" + i) , i)
         return
 
-    def loadUserTeams(self):
+    def loadUserTeams(self, search = None):
         """Loads Teams into listbox"""
         self.connection = self.PADsql.connection
-        self.teams = self.PADsql.selectTeamInstance()
+        if search != None:
+            self.teams = self.PADsql.selectTeamInstance(search)
+        else:
+            self.teams = self.PADsql.selectTeamInstance()
         self.master.updateProfile(self.builder)
         self.setImages(None)
         if len(self.teams) == 0:
@@ -84,6 +102,9 @@ class TeamBrowser():
                     sorted = True
             self.teamPage = 1
             #insert teams into listbox
+            if self.firstrun:
+                self.onSearchTeamsClick()
+                self.firstrun = False
             self.loadTeams()
             self.teamSelect(self)
             self.builder.get_object('btnEditTeam').config(state=NORMAL)
@@ -93,13 +114,15 @@ class TeamBrowser():
     def loadTeams(self):
             #insert teams into listbox
             self.team = []
-            j = (self.teamPage - 1) * 5
+            if self.teamPage > self.TeamMaxPage:
+                self.teamPage = self.TeamMaxPage
+            j = (self.teamPage - 1) * 4
             r=0
-            for i in range(0, 5):
+            for i in range(0, 4):
                 self.team.append(TeamPreview(self.builder.get_object('canTeamPreviewer'), self))
                 if j < len(self.teams):
                     self.team[i].update(self.teams[j], self)
-                self.team[i].mainFrame.grid(row=i)
+                self.team[i].mainFrame.grid(row=i+1)
                 j+=1
 
     def teamSelect(self, event):
@@ -368,6 +391,89 @@ class TeamBrowser():
         self.builder.get_object("lblUsername").config(text = self.master.PADsql.Username)
         self.builder.get_object("lblCollectionCount").config(text ="Monsters\t= " + str(len(self.master.PADsql.selectMonsterInstance())))
         self.builder.get_object("lblTeamCount").config(text ="Teams\t= " + str(len(self.master.PADsql.selectTeamInstance())))
+
+    def onSearchTeamsClick(self, event = None):
+        """Grab Search Results on Teams, Or Return all on Random."""
+        ############################
+        ##### GRAB ALL FILTERS #####
+        ############################
+        PriAttributes = []
+        for i in ["PriFire", "PriWater", "PriWood", "PriLight", "PriDark"]:
+            if self.builder.get_variable(i).get() != "" and self.builder.get_variable(i).get() != "0":
+                PriAttributes.append(self.builder.get_variable(i).get())
+        if len(PriAttributes) == 0:
+            PriAttributes = ["Fire","Water","Wood","Light","Dark"]
+        
+        ###################################
+        ##### GRAB ALL SEARCH RESULTS #####
+        ###################################
+        value = self.TeamSearch.get()
+        if value and value != "Enter Team Name.":
+            self.loadUserTeams(value)
+        elif not self.firstrun:
+            self.loadUserTeams()
+        
+        if len(PriAttributes) < 5:
+            TeamFilteredResults = []
+            for i in self.teams:
+                if i["LeaderMonster"] != None:
+                    query = self.master.PADsql.selectMonsterInstance(i["LeaderMonster"], allUsers = True)
+                    if query:
+                        testing = PADMonster.Monster(query[0])
+                        if testing.PriAttribute in PriAttributes:
+                            TeamFilteredResults.append(i)
+            self.teams = TeamFilteredResults
+        #Setup Page
+        self.teamPage = 1
+        self.TeamMaxPage = math.ceil(len(self.teams) / self.TEAMRESULTSPERPAGE)
+
+        self.entTeamPage.set(self.teamPage)
+        self.builder.get_object("lblPageNumber").config(text = "       / " + str(self.TeamMaxPage))
+        self.builder.get_object("lblResults").config(text = str(len(self.teams)) + " Results.")
+        #update Page Results
+        self.loadTeams()
+    
+    def onTeamNextPage(self):
+        """Next Page of Team Results"""
+        if self.teamPage < self.TeamMaxPage:
+            self.teamPage += 1
+        else:
+            return
+        self.entTeamPage.set(self.teamPage)
+        self.loadTeams()
+
+    def onTeamPrevPage(self):
+        """Next Page of Team Results"""
+        if self.teamPage > 1:
+            self.teamPage -= 1
+        else:
+            return
+        self.entTeamPage.set(self.teamPage)
+        self.loadTeams()
+
+    def onTeamPageEnter(self, event):
+         pgnum = int(self.entTeamPage.get())
+         if pgnum >= 1 and pgnum <= self.TeamMaxPage:
+             self.teamPage = pgnum
+             self.loadTeams()
+
+    def validatePageEntry(self, action, index, value_if_allowed,
+                       prior_value, text, validation_type, trigger_type, widget_name):
+        if text in "0123456789\b" and len(value_if_allowed) < 4:
+            return True
+        else:
+            return False
+
+    def onSearchBarFocusIn(self, event):
+        #Clears Search Bar on focus
+        if self.TeamSearch.get() == "Enter Team Name.":
+            self.TeamSearch.set("")
+
+    def onSearchBarFocusOut(self, event):
+        #Populates empty Search bar on focus out
+        if self.TeamSearch.get() == "":
+            self.TeamSearch.set("Enter Team Name.")
+
 class TeamPreview():
     def __init__(self, master, toplevel):
         #logger

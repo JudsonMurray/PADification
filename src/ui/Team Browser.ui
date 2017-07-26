@@ -105,13 +105,13 @@
     </child>
     <child>
       <object class="tk.Frame" id="frmTeamSelect">
-        <property name="height">200</property>
+        <property name="height">300</property>
         <property name="width">200</property>
         <layout>
           <property name="column">0</property>
           <property name="propagate">True</property>
           <property name="row">2</property>
-          <property name="rowspan">4</property>
+          <property name="rowspan">7</property>
           <property name="sticky">n</property>
         </layout>
         <child>
@@ -121,12 +121,13 @@
               <property name="column">0</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
+              <property name="sticky">n</property>
             </layout>
           </object>
         </child>
         <child>
           <object class="tk.Frame" id="canTeamPreviewer">
-            <property name="height">510</property>
+            <property name="height">560</property>
             <property name="width">350</property>
             <layout>
               <property name="column">0</property>
@@ -134,6 +135,11 @@
               <property name="propagate">False</property>
               <property name="row">1</property>
               <property name="rowspan">3</property>
+              <rows>
+                <row id="0">
+                  <property name="minsize">143</property>
+                </row>
+              </rows>
             </layout>
             <child>
               <object class="tk.Frame" id="frmTeamPreview">
@@ -145,7 +151,7 @@
                 <layout>
                   <property name="column">0</property>
                   <property name="propagate">False</property>
-                  <property name="row">1</property>
+                  <property name="row">3</property>
                 </layout>
                 <child>
                   <object class="tk.Canvas" id="canTeamSlot1">
@@ -249,6 +255,246 @@
                 </child>
               </object>
             </child>
+            <child>
+              <object class="tk.Button" id="btnSearchTeams">
+                <property name="command">onSearchTeamsClick</property>
+                <property name="compound">top</property>
+                <property name="font">{yu} 12 {bold}</property>
+                <property name="text" translatable="yes">Search</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="columnspan">10</property>
+                  <property name="padx">295</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">ne</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Entry" id="entSearchTeams">
+                <property name="font">{yu} 12 {}</property>
+                <property name="text" translatable="yes">Enter Team Name.</property>
+                <property name="textvariable">string:varTeamSearch</property>
+                <property name="width">31</property>
+                <bind add="True" handler="onSearchBarFocusIn" sequence="&lt;FocusIn&gt;" />
+                <bind add="True" handler="onSearchBarFocusOut" sequence="&lt;FocusOut&gt;" />
+                <bind add="True" handler="onSearchTeamsClick" sequence="&lt;Return&gt;" />
+                <layout>
+                  <property name="column">0</property>
+                  <property name="columnspan">10</property>
+                  <property name="ipadx">0</property>
+                  <property name="ipady">6</property>
+                  <property name="padx">10</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">nw</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Frame" id="frmAttributeFilters">
+                <property name="borderwidth">4</property>
+                <property name="height">50</property>
+                <property name="relief">flat</property>
+                <property name="width">345</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="propagate">False</property>
+                  <property name="row">0</property>
+                  <property name="sticky">w</property>
+                </layout>
+                <child>
+                  <object class="tk.Checkbutton" id="chkPriFire">
+                    <property name="indicatoron">false</property>
+                    <property name="onvalue">Fire</property>
+                    <property name="selectcolor">#00ff00</property>
+                    <property name="text" translatable="yes">
+</property>
+                    <property name="variable">string:PriFire</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="columnspan">1</property>
+                      <property name="pady">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">1</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Checkbutton" id="chkPriWater">
+                    <property name="indicatoron">false</property>
+                    <property name="onvalue">Water</property>
+                    <property name="selectcolor">#00ff00</property>
+                    <property name="variable">string:PriWater</property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="propagate">False</property>
+                      <property name="row">1</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Checkbutton" id="chkPriWood">
+                    <property name="indicatoron">false</property>
+                    <property name="onvalue">Wood</property>
+                    <property name="selectcolor">#00ff00</property>
+                    <property name="variable">string:PriWood</property>
+                    <layout>
+                      <property name="column">2</property>
+                      <property name="padx">0</property>
+                      <property name="pady">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">1</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Checkbutton" id="chkPriLight">
+                    <property name="indicatoron">false</property>
+                    <property name="onvalue">Light</property>
+                    <property name="selectcolor">#00ff00</property>
+                    <property name="variable">string:PriLight</property>
+                    <layout>
+                      <property name="column">3</property>
+                      <property name="padx">0</property>
+                      <property name="pady">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">1</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Checkbutton" id="chkPriDark">
+                    <property name="indicatoron">false</property>
+                    <property name="onvalue">Dark</property>
+                    <property name="selectcolor">#00ff00</property>
+                    <property name="text" translatable="yes">
+</property>
+                    <property name="variable">string:PriDark</property>
+                    <layout>
+                      <property name="column">4</property>
+                      <property name="padx">0</property>
+                      <property name="pady">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">1</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Frame" id="frmPageButtons">
+                <property name="height">50</property>
+                <property name="width">360</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="columnspan">5</property>
+                  <property name="padx">5</property>
+                  <property name="propagate">False</property>
+                  <property name="row">0</property>
+                  <property name="sticky">sw</property>
+                </layout>
+                <child>
+                  <object class="tk.Label" id="lblPageNumber">
+                    <property name="borderwidth">4</property>
+                    <property name="font">{YU} 12 {}</property>
+                    <property name="relief">ridge</property>
+                    <property name="width">12</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="ipadx">14</property>
+                      <property name="ipady">6</property>
+                      <property name="padx">160</property>
+                      <property name="pady">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">0</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Button" id="btnNextPage">
+                    <property name="command">onTeamNextPage</property>
+                    <property name="font">{yu} 14 {}</property>
+                    <property name="text" translatable="yes">Next</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="padx">305</property>
+                      <property name="pady">1</property>
+                      <property name="propagate">True</property>
+                      <property name="row">0</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Button" id="btnPrevPage">
+                    <property name="command">onTeamPrevPage</property>
+                    <property name="font">{yu} 14 {}</property>
+                    <property name="text" translatable="yes">Prev</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="padx">105</property>
+                      <property name="pady">1</property>
+                      <property name="propagate">True</property>
+                      <property name="row">0</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Label" id="lblResults">
+                    <property name="anchor">e</property>
+                    <property name="borderwidth">4</property>
+                    <property name="font">{yu} 12 {}</property>
+                    <property name="relief">ridge</property>
+                    <property name="text" translatable="yes">0000 Results.</property>
+                    <property name="width">10</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="ipadx">3</property>
+                      <property name="ipady">6</property>
+                      <property name="padx">0</property>
+                      <property name="pady">0</property>
+                      <property name="propagate">True</property>
+                      <property name="row">0</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Entry" id="entPageNum">
+                    <property name="font">{yu} 12 {}</property>
+                    <property name="justify">right</property>
+                    <property name="text" translatable="yes">000
+</property>
+                    <property name="textvariable">string:varTeamPageEnt</property>
+                    <property name="validate">key</property>
+                    <property name="validatecommand">validatePageEntry</property>
+                    <property name="validatecommand_args">%d %i %P %s %S %v %V %W</property>
+                    <property name="width">3</property>
+                    <bind add="True" handler="onTeamPageEnter" sequence="&lt;Return&gt;" />
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="padx">197</property>
+                      <property name="pady">9</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                      <property name="sticky">nw</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
           </object>
         </child>
         <child>
@@ -260,7 +506,19 @@
               <property name="column">0</property>
               <property name="pady">10</property>
               <property name="propagate">True</property>
-              <property name="row">4</property>
+              <property name="row">7</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="btnDreamTeam">
+            <property name="state">disabled</property>
+            <property name="text" translatable="yes">Add Dream Team</property>
+            <property name="width">20</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">8</property>
             </layout>
           </object>
         </child>
@@ -273,7 +531,7 @@
               <property name="column">0</property>
               <property name="pady">10</property>
               <property name="propagate">True</property>
-              <property name="row">5</property>
+              <property name="row">9</property>
             </layout>
           </object>
         </child>
@@ -284,9 +542,8 @@
             <property name="width">20</property>
             <layout>
               <property name="column">0</property>
-              <property name="pady">10</property>
               <property name="propagate">True</property>
-              <property name="row">6</property>
+              <property name="row">10</property>
             </layout>
           </object>
         </child>
@@ -305,7 +562,7 @@
           <property name="sticky">n</property>
         </layout>
         <child>
-          <object class="ttk.Label" id="lblTeamName">
+          <object class="ttk.Label" id="lblTeamName_1">
             <property name="text" translatable="yes">Team Name: </property>
             <property name="width">20</property>
             <layout>
@@ -318,7 +575,6 @@
         </child>
         <child>
           <object class="ttk.Label" id="lblAwokenBadge">
-            <property name="borderwidth">5</property>
             <property name="justify">center</property>
             <property name="relief">raised</property>
             <property name="text" translatable="yes">       No 

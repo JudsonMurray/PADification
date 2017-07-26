@@ -1,8 +1,21 @@
 --PADification Databse Delete script--
 --REVISION HISTORY
 --July 6, 2017 - Initial creation of this script (V.1.0)
+--July 26, 2017 - Added drop table for TeamRank table (V.1.1)
 
 use PADification
+--Added from version 1.1
+--Drop Team Rank table
+if OBJECT_ID('PADification.dbo.TeamRank', 'U') is not null
+	ALTER TABLE TeamRank DROP CONSTRAINT PK_TeamRank
+	GO
+	ALTER TABLE TeamRank DROP CONSTRAINT FK_TeamRank_Player
+	GO
+	ALTER TABLE TeamRank DROP CONSTRAINT FK_TeamRank_Team
+	GO
+	DROP TABLE TeamRank;
+	GO
+
 --Drop Team table
 if OBJECT_ID('PADification.dbo.Team', 'U') is not null
 	ALTER TABLE Team DROP CONSTRAINT PK_Team
@@ -145,6 +158,7 @@ if OBJECT_ID('PADification.dbo.LatentSkill', 'U') is not null
 --	DROP TABLE TeamTags;
 --	GO
 
+---------------------------------------------------------------
 --Drop PADification Database
 if DB_ID('PADification') is not null
 	 Use Master

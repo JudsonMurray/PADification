@@ -10,7 +10,10 @@
 #   V.1.5   RB  Added currently awoken awoken skills and disabled the monster summary buttons when a monster is not selected
 #   V.1.6   RB  Added a okcancel messagebox when remove monster is clicked and now able to load Edit Monster screen when edit monster is clicked
 #   V.1.7   RB  Added Wishlist functionality
+#   V.1.8   RB  Added Available Evolutions
+#   V.1.9   RB  Added Favorite functionality
 #
+
 import logging
 from tkinter import *
 import tkinter as tk
