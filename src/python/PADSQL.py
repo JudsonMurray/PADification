@@ -278,10 +278,13 @@ class PADSQL():
            a tuple of 2 INT for Range, a string of monsterName for a like search or empty for entire collection.
            Returns a List of Tuples"""
 
-        SQLCommand = ("SELECT MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, ASListID, LeaderSKill.LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, "
-                      "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, ActiveSkill.ActiveSkillDesc, LeaderSKill.LeaderSkillDesc, "
-                      "AwokenSkillOne, AwokenSkillTwo, AwokenSkillThree, AwokenSkillFour, AwokenSkillFive, AwokenSkillSix, AwokenSkillSeven, AwokenSkillEight, AwokenSkillNine "
-                      "FROM (((MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) LEFT OUTER JOIN LeaderSkill ON MonsterClass.LeaderSkillName = LeaderSKill.LeaderSkillName) LEFT OUTER JOIN AwokenSkillList ON MonsterClass.ASListID = AwokenSkillList.ASListID ")
+        SQLCommand = ("SELECT MonsterClassID, MonsterName, Rarity, PriAttribute, SecAttribute, MonsterTypeOne, MonsterTypeTwo, MonsterTypeThree, ExpCurve, MaxLevel, MonsterCost, "
+                      "MonsterClass.ASListID, LeaderSKill.LeaderSkillName, ActiveSkill.ActiveSkillName, MaxHP, MinHP, GrowthRateHP, MaxATK, MinATK, GrowthRateATK, MaxRCV, MinRCV, "
+                      "GrowthRateRCV, CurSell, CurFodder, MonsterPointValue, ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, ActiveSkill.ActiveSkillDesc, LeaderSKill.LeaderSkillDesc, "
+                        "AwokenSkillOne, AwokenSkillTwo, AwokenSkillThree, AwokenSkillFour, AwokenSkillFive, AwokenSkillSix, AwokenSkillSeven, AwokenSkillEight, AwokenSkillNine "
+                        "FROM (((MonsterClass LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) "
+                        "LEFT OUTER JOIN LeaderSkill ON MonsterClass.LeaderSkillName = LeaderSKill.LeaderSkillName) "
+                        "LEFT OUTER JOIN AwokenSkillList ON MonsterClass.ASListID = AwokenSkillList.ASListID) " )
 
         if type(monSearch) == tuple and len(monSearch) == 2:
             SQLCommand += "WHERE MonsterClassID BETWEEN " + str(monSearch[0]) + " AND " + str(monSearch[1])
