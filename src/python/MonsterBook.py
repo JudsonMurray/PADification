@@ -326,9 +326,10 @@ class MonsterBook():
             TypeFilters = ["Attacker", "Awaken Material", "Balanced", "Devil", "Dragon", "Enhance Material",
                 "Evo Material", "God", "Healer", "Machine", "Physical", "Redeemable Material" ]
 
-        print("Primary Attributes =", PriAttributes,"\n" +self.builder.get_variable("varANDOR").get())
-        print("Secondary Attributes =", SecAttributes)
-        print("Types =", TypeFilters)
+        self.logger.info("Primary Attributes =", str(PriAttributes) + 
+                         "\n" +self.builder.get_variable("varANDOR").get() + 
+                         "\nSecondary Attributes =" + str(SecAttributes) + 
+                         "\nTypes =" + str(TypeFilters))
 
         ############################################
         ##### ADD FILTERED MONSTERS TO RESULTS #####
@@ -380,18 +381,25 @@ class MonsterBook():
 
     def validatePageEntry(self, action, index, value_if_allowed,
                        prior_value, text, validation_type, trigger_type, widget_name):
-        if text in "0123456789\b" and len(value_if_allowed) < 4:
+
+        if value_if_allowed == "":
             return True
-        else:
+        if not value_if_allowed.isnumeric():
             return False
+        if not len(value_if_allowed) < 4:
+            return False
+        return True
 
     def validateTwoDigit(self, action, index, value_if_allowed,
                        prior_value, text, validation_type, trigger_type, widget_name):
 
-        if text in "0123456789\b" and len(value_if_allowed) < 3:
+        if value_if_allowed == "":
             return True
-        else:
+        if not value_if_allowed.isnumeric():
             return False
+        if not len(value_if_allowed) < 3:
+            return False
+        return True
 
     def onHomeClick(self,event):
         self.master.showHomeScreen()
@@ -441,6 +449,7 @@ class MonsterBook():
                     "PriFire", "PriWater", "PriWood", "PriLight", "PriDark",
                     "SecFire", "SecWater", "SecWood", "SecLight", "SecDark" ]:
             self.builder.get_variable(i).set("")
+        self.builder.get_variable("SearchBar").set(self.bgSearchText)
 
 class MonsterFrame():
     def __init__(self, master, mbobject):

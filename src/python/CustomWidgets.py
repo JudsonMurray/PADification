@@ -216,7 +216,10 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
             # otherwise when the mouse enters the tip window we get
             # a leave event and it disappears, and then we get an enter
             # event and it reappears, and so on forever :-(
-            x = self.button.winfo_rootx() + self.button.winfo_width() + 1
+            if self.button.winfo_rootx() > 1200:
+                x = self.button.winfo_rootx() - (self.button.winfo_width() + 375)
+            else:
+                x = self.button.winfo_rootx() + (self.button.winfo_width() + 1)
             y = 250
             self.tipwindow = tw = Toplevel(self.button)
             tw.wm_overrideredirect(1)

@@ -44,12 +44,13 @@ class PADSQL():
                 else:
                     self.connection = pypyodbc.connect(self.localhost)
                 notconnected = False
-            except:
+            except Exception as e:
+                self.logger.warn(e)
                 attempts -=1
                 self.logger.warning("Timeout, Retrying connection." + str(attempts) + "attempts left.")
                 
         
-        if self.connection.connected:
+        if isinstance(self.connection, pypyodbc.connect) and self.connection.connected:
             self.logger.info("MSSQL 2014 server Connection Established.")
             self.cursor = self.connection.cursor()
         else:
