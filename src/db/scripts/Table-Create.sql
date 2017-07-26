@@ -4,7 +4,7 @@
 /*  Title    : Padification DataBase                                              */
 /*  FileName : PADification database schema.ecm                                   */
 /*  Platform : SQL Server 2014                                                    */
-/*  Version  : 0.1.2                                                              */
+/*  Version  : 0.1.3                                                              */
 /*  Date     : July 7, 2017                                                      */
 /*================================================================================*/
 --Revision History
@@ -19,7 +19,8 @@
 --July 7, 2017 - Removed the deletion functions for all tables
 --July 7, 2017 - Updated multiple tables: MonsterClass, EvolutionTree, MonsterInstance, Player, Follower & team.
 --July 13, 2017 - Added a ProfileImage to Player table.
---July 26th 2017 - Added a new field to Team table; Dream Team.
+--July 26th 2017 - Added a new field to Team table; Dream Team. (v.0.1.2)
+--July 26th 2017 - Added a new Table; Team Rank table. (v.0.1.3)
 
 USE PADification
 /*================================================================================*/
@@ -385,8 +386,18 @@ CREATE TABLE PADification.dbo.Team (
   SubMonsterThree INT,
   SubMonsterFour INT,
   AwokenBadgeName VARCHAR(50),
-  DreamTeam BIT DEFAULT 0 NOT NULL,
+  DreamTeam BIT DEFAULT 0 NOT NULL,	--added from version 0.1.2
   CONSTRAINT PK_Team PRIMARY KEY (TeamInstanceID)
+)
+GO
+
+--added from version 0.1.3
+CREATE TABLE PADification.dbo.TeamRank (
+  VoteID INT IDENTITY(1, 1) NOT NULL,
+  Email VARCHAR (50) NOT NULL,
+  TeamInstanceID INT NOT NULL,
+  Vote BIT,
+  CONSTRAINT pk_TeamRank PRIMARY KEY (VoteID)
 )
 GO
 
@@ -674,4 +685,16 @@ GO
 ALTER TABLE Player
   ADD CONSTRAINT FK_Player_MonsterClass
   FOREIGN KEY (ProfileImage) REFERENCES MonsterClass (MonsterClassID)
+GO
+
+--added from version 0.1.3
+ALTER TABLE TeamRank
+  ADD CONSTRAINT FK_TeamRank_Player
+  FOREIGN KEY (Email) REFERENCES Player (Email)
+GO
+
+--added from version 0.1.3
+ALTER TABLE TeamRank
+  ADD CONSTRAINT FK_TeamRank_Team
+  FOREIGN KEY (TeamInstanceID) REFERENCES Team (TeamInstanceID)
 GO
