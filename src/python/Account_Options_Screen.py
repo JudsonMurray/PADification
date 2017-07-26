@@ -47,13 +47,15 @@ class AccountOptions:
         self.onNewPassFocusIn(self)
         self.onPasswordFocusIn(self)
         self.onUsernameFocusIn(self)
-        if not re.match(r'[A-Za-z0-9@#$%^&+=]*$',self.obj2.get()) or len(self.obj2.get()) < 8 or len(self.obj2.get()) > 10 or self.obj2.get() != self.obj3.get():
+        if self.obj2.get() == '':
+            pass
+
+        elif not re.match(r'[A-Za-z0-9@#$%^&+=]*$',self.obj2.get()) or len(self.obj2.get()) < 8 or len(self.obj2.get()) > 10 or self.obj2.get() != self.obj3.get():
             changePassword = False
             return mb.showwarning("Invalid Password", "Input a Valid Password,\nMust be 8-10 characters long,\nand can contain A-Z a-z 0-9 @#$%^&+=")
 
         elif re.match(r'[A-Za-z0-9@#$%^&+=]*$',self.obj2.get()) and len(self.obj2.get()) < 8 or len(self.obj2.get()) > 10 and self.obj2.get() == self.obj3.get():
             changePassword = True
-            
 
         if self.obj1.get() != '' and not self.obj1.get().isspace() :
             changeUsername = True 
