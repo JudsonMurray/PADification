@@ -94,39 +94,98 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
         self.portrait = None
         self.portraitImage = None
         self.portraitimg = None
+        self.portraitBanner = None
+        self.portraitBannerImage = None
+        self.portraitBannerPI = None
     
     def update(self, monster = None):
 
         if monster != None:
             self.monster = monster
-            self.portraitImage = Image.open("Resource/PAD/Images/portraits/"+ str(self.monster.MonsterClassID) + ".jpg")
-            self.portraitImage = self.portraitImage.resize((int(self.portraitImage.width / 1.66), int(self.portraitImage.height // 1.66)))
+            truetype_font = ImageFont.truetype("Resource/PAD/Font/FOT-RowdyStd-EB.ttf", 22)
+            baseimg = Image.open("Resource/PAD/Images/PortraitBanner.jpg")
+            portimg = Image.open("Resource/PAD/Images/portraits/"+ str(self.monster.MonsterClassID) + ".jpg")
+            thumbimg = Image.open("Resource/PAD/Images/thumbnails/"+ str(self.monster.MonsterClassID) + ".png")
+            baseimg.paste(portimg, (0,75))
+            baseimg.paste(thumbimg,(11,472))
+            draw = ImageDraw.Draw(baseimg)
+            shadowcolor = "#000000"
+
+            #draw Mon ID
+            self.shadowText(draw, 10, 15, "No." + str(self.monster.MonsterClassID), truetype_font, shadowcolor)
+            draw.text((10, 15), "No." + str(self.monster.MonsterClassID), font=truetype_font, fill="#ffffff")
+            #draw Mon Name
+            self.shadowText(draw, 10, 35, self.monster.MonsterName, truetype_font, shadowcolor)
+            draw.text((10, 35), self.monster.MonsterName, font=truetype_font, fill="#ffffff")
+            #draw Mon LVL
+            self.shadowText(draw, 340, 475, "Lv."+str(self.monster.Level), truetype_font, shadowcolor)
+            draw.text((340, 475), "Lv."+str(self.monster.Level), font=truetype_font, fill="#ffffff")
+            #draw Mon Max LVL
+            self.shadowText(draw, 340, 500, "Max Lv."+str(self.monster.MaxLevel), truetype_font, shadowcolor)
+            draw.text((340, 500), "Max Lv."+str(self.monster.MaxLevel), font=truetype_font, fill="#ffffff")
+            #draw Mon PLUSHP
+            self.shadowText(draw, 260, 470, "(+" + str(self.monster.PlusHP) + ")", truetype_font, shadowcolor)
+            draw.text((260, 470), "(+" + str(self.monster.PlusHP) + ")", font=truetype_font, fill="#fbfc19")
+            #draw Mon PLUSATK
+            self.shadowText(draw, 260, 503, "(+" + str(self.monster.PlusATK) + ")", truetype_font, shadowcolor)
+            draw.text((260, 503), "(+" + str(self.monster.PlusATK) + ")", font=truetype_font, fill="#fbfc19")
+            #draw Mon PLUSRCV
+            self.shadowText(draw, 260, 537, "(+" + str(self.monster.PlusRCV) + ")", truetype_font, shadowcolor)
+            draw.text((260, 537), "(+" + str(self.monster.PlusRCV) + ")", font=truetype_font, fill="#fbfc19")
+            #draw Mon Cost
+            self.shadowText(draw, 580, 480, str(self.monster.MonsterCost), truetype_font, shadowcolor)
+            draw.text((580, 480), str(self.monster.MonsterCost), font=truetype_font, fill="#ffffff")
+            #draw Mon Skill
+            if self.monster.ActiveSkillName != None:
+                self.shadowText(draw, 105, 585, str(self.monster.ActiveSkillName), truetype_font, shadowcolor)
+                draw.text((105, 585), str(self.monster.ActiveSkillName), font=truetype_font, fill="#7cb4ee")
+
+                self.shadowText(draw, 420, 545, "Lv." + str(self.monster.SkillLevel) + " Turn(s): " + str(self.monster.ActiveSkillMaxCoolDown - self.monster.SkillLevel + 1 ),
+                                 truetype_font, shadowcolor)
+                draw.text((420, 545), "Lv." + str(self.monster.SkillLevel) + " Turn(s): " + str(self.monster.ActiveSkillMaxCoolDown - self.monster.SkillLevel + 1 ),
+                            font=truetype_font, fill="#ffffff")
+
+            if self.monster.LeaderSkillName != None:
+                self.shadowText(draw, 197, 700, str(self.monster.LeaderSkillName), truetype_font, shadowcolor)
+                draw.text((197, 700), str(self.monster.LeaderSkillName), font=truetype_font, fill="#86ee7b")
+
+            #Resize font
+            truetype_font = ImageFont.truetype("Resource/PAD/Font/FOT-RowdyStd-EB.ttf", 26)
+            #draw Mon HP
+            self.shadowText(draw, 178, 470, str(self.monster.TotalHP), truetype_font, shadowcolor)
+            draw.text((178, 470), str(self.monster.TotalHP), font=truetype_font, fill="#ffffff")
+            #draw Mon ATK
+            self.shadowText(draw, 178, 503, str(self.monster.TotalATK), truetype_font, shadowcolor)
+            draw.text((178, 503), str(self.monster.TotalATK), font=truetype_font, fill="#ffffff")
+            #draw Mon RCV
+            self.shadowText(draw, 178, 537, str(self.monster.TotalRCV), truetype_font, shadowcolor)
+            draw.text((178, 537), str(self.monster.TotalRCV), font=truetype_font, fill="#ffffff")
+
+            values = ["One", "Two", "Three"]
+            for i in range(0,3):
+                if getattr(self.monster, "MonsterType" + values[i]) != None:
+                    img = Image.open("Resource/PAD/Images/Types/" + getattr(self.monster, "MonsterType" + values[i]) + ".png")
+                    baseimg.paste(img, (10 + ( i * 40 ), 80 ))
+
+
+            self.portraitImage = baseimg
+            self.portraitImage = self.portraitImage.resize((int(self.portraitImage.width / 1.5), int(self.portraitImage.height / 1.5 )), Image.ANTIALIAS)
             self.portraitimg = ImageTk.PhotoImage(self.portraitImage, self.portrait)
+
         else:
             self.monster = monster
             self.portrait = None
             self.portraitImage = None
             self.portraitimg = None
+    def shadowText(self, drawer, x, y, text, font, color):
+        drawer.text((x+2, y+2), text, font=font, fill=color)
 
     def showcontents(self):
         if self.monster != None:
-            self.tipwindow.config(relief=GROOVE, borderwidth=10)
+            self.tipwindow.config(relief=GROOVE, borderwidth=10, background="#000000")
             self.portrait = Label(self.tipwindow, image = self.portraitimg, justify=LEFT,
-                            background="#ffffe0")
-            self.portrait.grid(row=1,column=0)
-
-
-            self.name = CustomFont_Label(self.tipwindow, text= self.monster.MonsterName, font_path="Resource/PAD/Font/FOT-RowdyStd-EB.ttf", size=18, foreground="#800080")
-            self.name.grid(row=0,column=0,columnspan=2)
-
-            self.stats = Label(self.tipwindow, 
-                               text = "  ID= " + str(self.monster.MonsterClassID) +
-                               "\nLVL= " + str(self.monster.Level) + 
-                               "\n  HP= " + str(self.monster.TotalHP) +
-                                "\nATK= " + str(self.monster.TotalATK) + 
-                                "\nRCV= " + str(self.monster.TotalRCV), 
-                                justify=LEFT, font=('Yu', 14, 'bold'))
-            self.stats.grid(row=0,column=1,rowspan=3)
+                            background="#000000")
+            self.portrait.grid(row=0, column=0, sticky=NW)
 
     def schedule(self):
         self.unschedule()
@@ -141,7 +200,7 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
             # a leave event and it disappears, and then we get an enter
             # event and it reappears, and so on forever :-(
             x = self.button.winfo_rootx() + self.button.winfo_width() + 1
-            y = self.button.winfo_rooty() - 250
+            y = 250
             self.tipwindow = tw = Toplevel(self.button)
             tw.wm_overrideredirect(1)
             tw.wm_geometry("+%d+%d" % (x, y))
