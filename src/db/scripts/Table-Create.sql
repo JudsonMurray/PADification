@@ -4,7 +4,7 @@
 /*  Title    : Padification DataBase                                              */
 /*  FileName : PADification database schema.ecm                                   */
 /*  Platform : SQL Server 2014                                                    */
-/*  Version  : 0.1.1                                                              */
+/*  Version  : 0.1.2                                                              */
 /*  Date     : July 7, 2017                                                      */
 /*================================================================================*/
 --Revision History
@@ -19,6 +19,7 @@
 --July 7, 2017 - Removed the deletion functions for all tables
 --July 7, 2017 - Updated multiple tables: MonsterClass, EvolutionTree, MonsterInstance, Player, Follower & team.
 --July 13, 2017 - Added a ProfileImage to Player table.
+--July 26th 2017 - Added a new field to Team table; Dream Team.
 
 USE PADification
 /*================================================================================*/
@@ -384,6 +385,7 @@ CREATE TABLE PADification.dbo.Team (
   SubMonsterThree INT,
   SubMonsterFour INT,
   AwokenBadgeName VARCHAR(50),
+  DreamTeam BIT DEFAULT 0 NOT NULL,
   CONSTRAINT PK_Team PRIMARY KEY (TeamInstanceID)
 )
 GO

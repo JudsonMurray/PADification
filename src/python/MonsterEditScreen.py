@@ -16,45 +16,113 @@ from PIL import ImageTk
 import PADMonster
 import logging
 import CustomWidgets
+from PADMonster import Monster
 
 class EvoFrame:
     def __init__(self, master, nextMon):
+        #logger
+        #self.logger = logging.getLogger("Padification.ui.MonsterEditScreen.EvoFrame")
         self.master = master
         self.nextMon = nextMon
         self.builder = pygubu.Builder()
         self.builder.add_from_file(r"src\ui\Monster Edit UI.ui")
-        self.evos = self.builder.get_object('frmEvos', self.master.builder.get_object("canEvoTree"))
-        self.availEvo = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(self.nextMon) + '.png').zoom(4).subsample(5)
+        self.evos = self.builder.get_object('frmEvos', self.master.container)
+        self.availEvo = tk.PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(self.nextMon[0]) + '.png').zoom(4).subsample(5)
         self.builder.get_object("canNextMon").create_image(7,7, image = self.availEvo, anchor = tk.NW)
+        self.evos.config(highlightthickness = 5)
+        self.check = self.nextMon[0]
+
+        self.check = Monster((self.master.master.PADsql.selectMonsterClass(self.check))[0])
+
+        self.evos.config(highlightbackground = 'Red')
+
+        if self.nextMon[7]:
+            self.evos.config(highlightbackground = 'Blue')
+
+        if self.master.m.MonsterClassID > self.nextMon[0]:
+            self.evos.config(highlightbackground = 'Yellow')
         self.builder.connect_callbacks(self)
         return
     def clickMe(self, event):
-        self.master.master.monsterEdit.monster.MonsterClassID = self.nextMon
-        
-        self.master.master.monsterEdit.monster.updateStats()
+        self.master.builder.get_object('btnConfirmEvo').config(state=NORMAL)
+        self.master.monClass = self.master.master.PADsql.selectMonsterClass(self.nextMon[0])
         #self.master.master.monsterEdit.applyChanges()
+
 #class Evolve()
 class EvolutionFrame(tk.Toplevel):
     def __init__(self, master, masterbuilder):
+        #logger
+        #self.logger = logging.getLogger("Padification.ui.MonsterEditScreen.EvolutionFrame")
         tk.Toplevel.__init__(self, master)
         self.master = master
         self.masterbuilder = masterbuilder
         self.builder = pygubu.Builder()
         self.builder.add_from_file('src/ui/Monster Edit UI.ui')
-        self.mainwidow = self.builder.get_object('canEvoTree', self)
-
+        self.mainwidow = self.builder.get_object('frmEvoTree', self)
+        self.container = self.builder.get_object('canEvoTree', self.mainwidow)
+        self.monClass = None
         self.transient(master) #set to be on top of the main window
         self.grab_set() #hijack all commands from the master (clicks on the main window are ignored)
         self.evos = self.master.PADsql.getEvolutions(self.master.monsterEdit.monster.MonsterClassID)
         self.evoFrames = []
-
+        
+        self.builder.get_object('btnConfirmEvo').config(state=DISABLED)
         self.count = 0
-
+        
+        w = 526 #width for the Tk root
+        h = 335 #height for the Tk root
+        ws = self.winfo_screenwidth() # width of the screen
+        hs = self.winfo_screenheight() # height of the screen
+        # calculate x and y coordinates for the Tk root window
+        x = (ws/2) - (w/2)
+        y = (hs/2) - (h/2)
+        self.geometry('%dx%d+%d+%d' % (w,h, x, y))
+        self.m = self.master.monsterEdit.monster
         for i in self.evos:
-            self.evoFrames.append(EvoFrame(self, i[0]))
+            self.evoFrames.append(EvoFrame(self, i))
             self.evoFrames[self.count].evos.grid(row=self.count // 4,column = self.count % 4, padx = 8, pady = 10)
             self.count += 1
+        self.builder.connect_callbacks(self)
 
+    def confirmEvo(self):
+        
+        self.m.MonsterClassID = self.monClass[0]['MonsterClassID']
+        self.m.MonsterName = self.monClass[0]['MonsterName']
+        self.m.Rarity = self.monClass[0]['Rarity']
+        self.m.PriAttribute = self.monClass[0]['PriAttribute']
+        self.m.SecAttribute = self.monClass[0]['SecAttribute']
+        self.m.MonsterTypeOne = self.monClass[0]['MonsterTypeOne']
+        self.m.MonsterTypeTwo = self.monClass[0]['MonsterTypeTwo']
+        self.m.MonsterTypeThree = self.monClass[0]['MonsterTypeThree']
+        self.m.ExpCurve = self.monClass[0]['ExpCurve']
+        self.m.MaxLevel = self.monClass[0]['MaxLevel']
+        self.m.MonsterCost = self.monClass[0]['MonsterCost']
+        self.m.ASListID = self.monClass[0]['ASListID']
+        self.m.LeaderSkillName = self.monClass[0]['LeaderSkillName']
+        self.m.ActiveSkillName = self.monClass[0]['ActiveSkillName']
+        self.m.MaxHP = self.monClass[0]['MaxHP']
+        self.m.MinHP = self.monClass[0]['MinHP']
+        self.m.GrowthRateHP = self.monClass[0]['GrowthRateHP']
+        self.m.MaxATK = self.monClass[0]['MaxATK']
+        self.m.MinATK = self.monClass[0]['MinATK']
+        self.m.GrowthRateATK = self.monClass[0]['GrowthRateATK']
+        self.m.MaxRCV = self.monClass[0]['MaxRCV']
+        self.m.MinRCV = self.monClass[0]['MinRCV']
+        self.m.GrowthRateRCV = self.monClass[0]['GrowthRateRCV']
+        self.m.CurSell = self.monClass[0]['CurSell']
+        self.m.CurFodder = self.monClass[0]['CurFodder']
+        self.m.MonsterPointValue = self.monClass[0]['MonsterPointValue']
+        self.m.ActiveSkillDesc = self.monClass[0]['ActiveSkillDesc']
+        self.m.LeaderSkillDesc = self.monClass[0]['LeaderSkillDesc']
+        self.m.updateStats()
+        self.master.monsterEdit.updateMonsterPage()
+        self.destroy()
+        pass
+
+    def cancelEvo(self):
+        self.builder.get_object('btnConfirmEvo').config(state=DISABLED)
+        self.monClass = None
+        self.destroy()
 class MonsterFrame:
     def __init__(self, master, assistant):
         self.logger = logging.getLogger("Padification.ui.MonsterEditScreen.MonsterFrame")
@@ -116,18 +184,21 @@ class MonsterEdit:
 
     def receiveInstanceID(self, InstanceID, Wishlist):
         self.instanceID = InstanceID
+        self.wishlist = Wishlist
+        self.monster = self.master.PADsql.selectMonsterInstance(self.instanceID, wishlist = self.wishlist)
+        self.monster = PADMonster.Monster(self.monster[0])
+        self.updateMonsterPage()
+
+    def updateMonsterPage(self):
+        self.latents = self.master.PADsql.getLatentAwokenSkills()
         self.startMonster = 0
         self.pAssistants = None
         self.displayList = []
         self.currentPage = 1
         self.builder.get_object("btnNext").config(state = NORMAL)
         self.builder.get_object("btnPrev").config(state = DISABLED)
-        self.wishlist = Wishlist
         self.extraSlot = self.builder.get_object("chkExtraSlot")
         self.maxSlots = self.builder.get_variable('maxSlots')
-        self.monster = self.master.PADsql.selectMonsterInstance(self.instanceID, wishlist = self.wishlist)
-        self.monster = PADMonster.Monster(self.monster[0])
-        self.latents = self.master.PADsql.getLatentAwokenSkills()
         self.formarAsisID = self.monster.AssistMonsterID
         if self.monster.LSListID != None:
             self.latentList = self.master.PADsql.getLatentAwokenSkillList(self.instanceID)
@@ -382,8 +453,8 @@ class MonsterEdit:
     def applyChanges(self):
         global k
         self.master.PADsql.saveMonster(self.monster.getSaveDict())
-        self.master.playerCollection.buttons[self.master.playerCollection.k].clickMe(self)
         self.master.showPlayerCollection()
+        self.master.playerCollection.buttons[self.master.playerCollection.k].clickMe(self)
         pass
 
     def cancel(self):
@@ -393,7 +464,6 @@ class MonsterEdit:
         self.builder.get_variable("spn+RCV").set(str(self.monster.PlusRCV))
         self.builder.get_variable("spnSkillLvl").set(str(self.monster.SkillLevel))
         self.builder.get_variable("spnAwokenSkill").set(str(self.monster.SkillsAwoke))
-
         self.master.showPlayerCollection()
 
     def next(self):
@@ -557,10 +627,14 @@ class MonsterEdit:
     def displayAssistInfo(self):
         self.assistMonster = self.master.PADsql.selectMonsterInstance(self.monster.AssistMonsterID, wishlist = self.wishlist)
         self.assistMonster = PADMonster.Monster(self.assistMonster[0])
-
-        self.assistHP = int(math.ceil(self.assistMonster.TotalHP * 0.1))
-        self.assistATK = int(math.ceil(self.assistMonster.TotalATK * 0.05))
-        self.assistRCV = int(math.ceil(self.assistMonster.TotalRCV * 0.15))
+        
+        self.assistHP = 0
+        self.assistATK = 0
+        self.assistRCV = 0
+        if self.monster.PriAttribute == self.assistMonster.PriAttribute:
+            self.assistHP = int(math.ceil(self.assistMonster.TotalHP * 0.1))
+            self.assistATK = int(math.ceil(self.assistMonster.TotalATK * 0.05))
+            self.assistRCV = int(math.ceil(self.assistMonster.TotalRCV * 0.15))
 
         self.AssistImage = PhotoImage(file = "Resource/PAD/Images/thumbnails/" + str(self.assistMonster.MonsterClassID) + ".png")
         self.builder.get_object("canAssistantThumb").create_image(7, 7, image = self.AssistImage, anchor = NW)
@@ -593,7 +667,7 @@ class MonsterEdit:
         pass
 
     def __displayLatentSkills(self):
-
+        self.builder.get_object("lstLatents").delete(0,END)
         for i in self.latents:
             self.builder.get_object("lstLatents").insert(END, i[0])
 
