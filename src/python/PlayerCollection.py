@@ -826,6 +826,7 @@ class PlayerCollection:
         ################################################
         ##### CALCULATE MAXPAGES AND SET PAGE TO 1 #####
         ################################################
+        self.startMonster = 0
         self.page = 1
         self.populateList()
         self.builder.get_object("lblResults").config(text = str(len(self.MonsterResults)) + " of " + str(len(self.pds.selectMonsterInstance(wishlist = self.displayWishlist))))
