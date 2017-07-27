@@ -392,21 +392,20 @@ class PlayerCollection:
 
     def onAddFromWishlistClick(self):
 
-        a = PADMonster.Monster(self.monsters[selectedMonster])
-        a.WishList = 0
-        b = a.getSaveDict()
+        for a in self.MonsterResults:
+            if a.InstanceID == selectedMonster:
+                a.WishList = 0
+                b = a.getSaveDict()
 
-        global k
-        k = None
+                global k
+                k = None
 
-        self.pds.saveMonster(b)
+                self.pds.saveMonster(b)
 
-        self.monsters.pop(selectedMonster)
-        self.instantList.remove(selectedMonster)
-
-        self.__RemoveInformation()
-        self.startMonster -= self.count
-        self.populateList()
+                self.__RemoveInformation()
+                self.startMonster -= self.count
+                self.onSearchClick()
+                break
 
     def populateList(self):
         '''Populates the player collection list'''
