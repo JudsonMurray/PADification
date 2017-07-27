@@ -29,6 +29,7 @@ class TeamBrowser():
         self.SelectedTeam = PADMonster.Team(self.PADsql)
         self.TEAMRESULTSPERPAGE = 4
         self.teams = None
+        self.dreamTeams = 0
         
         self.TeamMaxPage = 1
         #Create GUI and add title image
@@ -70,9 +71,9 @@ class TeamBrowser():
         """Loads Teams into listbox"""
         self.connection = self.PADsql.connection
         if search != None:
-            self.teams = self.PADsql.selectTeamInstance(search)
+            self.teams = self.PADsql.selectTeamInstance(search, dreamteam = self.dreamTeams)
         else:
-            self.teams = self.PADsql.selectTeamInstance()
+            self.teams = self.PADsql.selectTeamInstance(dreamteam = self.dreamTeams)
         self.master.updateProfile(self.builder)
         self.setImages(None)
         if len(self.teams) == 0:
@@ -81,6 +82,8 @@ class TeamBrowser():
             self.thisBuild.get_object('lblTeamName').config(text='Not A Team')
             self.builder.get_object('btnEditTeam').config(state=DISABLED)
             self.builder.get_object('btnRemoveTeam').config(state=DISABLED)
+            self.teamPage = 0
+            self.entTeamPage.set(0)
             return
         else:
             destroyerTeamBase = self.PADsql.selectTeamInstance(self.teams[0]['TeamInstanceID'])
@@ -111,23 +114,40 @@ class TeamBrowser():
             self.builder.get_object('btnRemoveTeam').config(state=NORMAL)
             return
 
+    def toggleDreamTeams(self):
+        """Swaps between dream teams and regular teams"""
+        if self.dreamTeams:
+            self.dreamTeams = 0
+            self.builder.get_variable('btnDreamTeams').set('Dream Teams Off')
+            self.builder.get_object('btnDreamTeams').config(relief = RAISED)
+        else:
+            self.dreamTeams = 1
+            self.builder.get_variable('btnDreamTeams').set('Dream Teams On')
+            self.builder.get_object('btnDreamTeams').config(relief = SUNKEN)
+        self.onSearchTeamsClick()
+
+
     def loadTeams(self):
             #insert teams into listbox
             self.team = []
             if self.teamPage > self.TeamMaxPage:
                 self.teamPage = self.TeamMaxPage
             j = (self.teamPage - 1) * 4
+            if j < 0:
+                j = 0
             r=0
             for i in range(0, 4):
                 self.team.append(TeamPreview(self.builder.get_object('canTeamPreviewer'), self))
                 if j < len(self.teams):
                     self.team[i].update(self.teams[j], self)
+                else:
+                    self.team[i].update(None, self)
                 self.team[i].mainFrame.grid(row=i+1)
                 j+=1
 
     def teamSelect(self, event):
-        #"""Selects team from listbox"""
-        teamid = 0
+        """Selects team from list"""
+        teamId = 0
         if len(self.teams) == 0:
             self.updateTeam((0))
             teamId = 0
@@ -139,7 +159,7 @@ class TeamBrowser():
 
     def updateTeam(self, i):
         """Updates Team Selected"""
-        self.SelectedTeam = PADMonster.Team(self.PADsql) if i == 0 else PADMonster.Team(self.PADsql, self.PADsql.selectTeamInstance(int(i))[0])
+        self.SelectedTeam = PADMonster.Team(self.PADsql, dreamteam = self.dreamTeams) if i == 0 else PADMonster.Team(self.PADsql, self.PADsql.selectTeamInstance(int(i), dreamteam = self.dreamTeams)[0])
         self.myMonsterList = []
 
         for i in self.SelectedTeam.Monsters:
@@ -190,7 +210,7 @@ class TeamBrowser():
 
 
         if build == self.builder:
-            self.builder.get_object('lblTeamName').config(text='' + str(self.SelectedTeam.TeamName))
+            self.builder.get_object('lblTeamName').config(text= str(self.SelectedTeam.TeamName))
 
         if self.SelectedTeam.AwokenBadgeName == None:
             self.SelectedTeam.AwokenBadgeName = 'No Badge'
@@ -309,13 +329,13 @@ class TeamBrowser():
 
     def newTeam(self, event):
         """Show Edit Team Screen with new team setup"""
-        self.master.editTeam.loadTeam(PADMonster.Team(self.PADsql))
+        self.master.editTeam.loadTeam(PADMonster.Team(self.PADsql), self.dreamTeams)
         self.master.showEditTeamScreen()
         return
 
     def btnEditTeam(self):
         """Show Edit Team Screen with selected team setup"""
-        self.master.editTeam.loadTeam(self.SelectedTeam)
+        self.master.editTeam.loadTeam(self.SelectedTeam, self.dreamTeams)
         self.master.showEditTeamScreen()
         return
 
@@ -324,7 +344,7 @@ class TeamBrowser():
         self.PADsql.deleteTeam(self.SelectedTeam.TeamInstanceID)
         page = self.teamPage
         self.loadUserTeams()
-        for i in range(0, 5):
+        for i in range(0, 4):
             self.team[i].mainFrame.grid_forget()
         self.teamPage = page
         self.loadTeams()
@@ -417,7 +437,7 @@ class TeamBrowser():
             TeamFilteredResults = []
             for i in self.teams:
                 if i["LeaderMonster"] != None:
-                    query = self.master.PADsql.selectMonsterInstance(i["LeaderMonster"], allUsers = True)
+                    query = self.master.PADsql.selectMonsterInstance(i["LeaderMonster"])
                     if query:
                         testing = PADMonster.Monster(query[0])
                         if testing.PriAttribute in PriAttributes:
@@ -425,6 +445,8 @@ class TeamBrowser():
             self.teams = TeamFilteredResults
         #Setup Page
         self.teamPage = 1
+        if len(self.teams) < 1:
+            self.teamPage = 0
         self.TeamMaxPage = math.ceil(len(self.teams) / self.TEAMRESULTSPERPAGE)
 
         self.entTeamPage.set(self.teamPage)
@@ -524,19 +546,25 @@ class TeamPreview():
             self.mainFrame.children[i].bind("<1>", self.teamSelect)
 
     def update(self, teamDict, master):
+        if teamDict == None:
+            for i in range(0,5):
+                getattr(self, "canTeamSlot" + str(i+1)).delete("all")
+                return
         self.objTeam = PADMonster.Team(teamDict)
         self.strUsername = self.toplevel.master.PADsql.Username
-        self.lblTeamName.config(text = teamDict["TeamName"])
+        self.lblTeamName.config(text = teamDict["TeamName"])    
         self.teamDict = teamDict
 
         for i in range(0,5):
+           
             self.canIdentity[getattr(self, "canTeamSlot" + str(i+1))] = str(i+1)
             setattr(self, "monTeamSlot" + str(i+1), None)
             setattr(self, "imgTeamSlot" + str(i+1), None)
             keys = ['LeaderMonster', 'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour']
             if teamDict[keys[i]] != None:
-                setattr(self, "monTeamSlot" + str(i+1), PADMonster.Monster(self.toplevel.master.PADsql.selectMonsterInstance(teamDict[keys[i]], allUsers = True)[0]))
+                setattr(self, "monTeamSlot" + str(i+1), PADMonster.Monster(self.toplevel.master.PADsql.selectMonsterInstance(teamDict[keys[i]], wishlist = self.toplevel.dreamTeams)[0]))
                 setattr(self, "imgTeamSlot" + str(i+1), PhotoImage(file = "resource/PAD/images/thumbnails/" + str(getattr(self, "monTeamSlot" + str(i+1)).MonsterClassID) + ".png" ).subsample(2))
+                getattr(self, "canTeamSlot" + str(i+1)).delete("all")
                 getattr(self, "canTeamSlot" + str(i+1)).create_image(2,2, image = getattr(self, "imgTeamSlot" + str(i+1)), anchor = NW)
                 self.monToolTips[i].update(getattr(self, "monTeamSlot" + str(i+1)))
             else:

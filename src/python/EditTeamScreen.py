@@ -218,10 +218,10 @@ class EditTeam():
         instanceIDs = []
         self.filter = filter
         if filter == None:
-            monster = self.PADsql.selectMonsterInstance()
+            monster = self.PADsql.selectMonsterInstance(wishlist = self.dreamteam)
         else:
             monster = filter
-        allMonsters = self.PADsql.selectMonsterInstance()
+        allMonsters = self.PADsql.selectMonsterInstance(wishlist = self.dreamteam)
         self.count = 0
         pops = []
         self.assistants = []
@@ -291,7 +291,7 @@ class EditTeam():
                 thisdict = monster[i]
             else:
                 b = monster[i].InstanceID
-                thisdict = self.PADsql.selectMonsterInstance(b)[0]
+                thisdict = self.PADsql.selectMonsterInstance(b, wishlist = self.dreamteam)[0]
                 
             a = PADMonster.Monster(thisdict)
             self.state = 'on'
@@ -316,8 +316,9 @@ class EditTeam():
             self.count += 1 
         self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
 
-    def loadTeam(self, instance):
+    def loadTeam(self, instance, dreamteam = 0):
         """Loads user's team and calls methods to pupulate feilds"""
+        self.dreamteam = dreamteam
         self.badgeNum = None
         self.master.updateProfile(self.builder)
         self.leadClick(self)
@@ -345,6 +346,7 @@ class EditTeam():
         """"Updates team information"""
         self.myMonsterL = []
         self.destroyerTeam = team
+        self.destroyerTeam.setDreamState(self.dreamteam)
         for i in range(0,5):
             self.teamCanvas[i].delete('all')
         self.builder.get_variable('teamName').set(self.destroyerTeam.TeamName)
@@ -464,6 +466,7 @@ class EditTeam():
                 x+=1
         if teamName == '':
             teamName = "Team " + str(x)
+        self.destroyerTeam.setDreamState(self.dreamteam)
         self.destroyerTeam.setTeamName(teamName)
         if self.destroyerTeam.AwokenBadgeName == 'No Badge':
             self.destroyerTeam.setBadge('')
