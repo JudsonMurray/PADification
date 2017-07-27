@@ -752,7 +752,7 @@ class PlayerCollection:
         if self.builder.get_variable("SearchBar").get() == "":
             self.builder.get_variable("SearchBar").set(self.bgSearchText)
 
-    def onSearchClick(self):
+    def onSearchClick(self, event = None):
         ############################
         ##### PARSE SEARCH BAR #####
         ############################
@@ -827,7 +827,7 @@ class PlayerCollection:
         ##### CALCULATE MAXPAGES AND SET PAGE TO 1 #####
         ################################################
         self.startMonster = 0
-        self.page = 1
+        self.currentPage = 1
         self.populateList()
         self.builder.get_object("lblResults").config(text = str(len(self.MonsterResults)) + " of " + str(len(self.pds.selectMonsterInstance(wishlist = self.displayWishlist))))
 
@@ -841,10 +841,11 @@ class PlayerCollection:
             value = '1'
         elif int(value) > self.pages:
             value = str(self.pages)
-
+        
         self.builder.get_variable("varPageEnt").set(value)
-        self.page = int(value)
-        self.populateCollection(self.MonsterResults)
+        self.currentPage = int(value)
+        self.startMonster = (self.currentPage - 1) * 50
+        self.populateList()
 
 
     def validatePageEntry(self, action, index, value_if_allowed,
