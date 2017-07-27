@@ -394,6 +394,24 @@ class PlayerCollection:
 
         for a in self.MonsterResults:
             if a.InstanceID == selectedMonster:
+                teams = self.pds.selectTeamInstance(dreamteam = self.displayWishlist)
+                for i in teams:
+                    self.SelectedTeam = PADMonster.Team(self.pds, i)
+
+                    if self.SelectedTeam.LeaderMonster == selectedMonster:
+                        self.SelectedTeam.setLeaderMonster()
+                    if self.SelectedTeam.SubMonsterOne == selectedMonster:
+                        self.SelectedTeam.setSubMonsterOne()
+                    if self.SelectedTeam.SubMonsterTwo == selectedMonster:
+                        self.SelectedTeam.setSubMonsterTwo()
+                    if self.SelectedTeam.SubMonsterThree == selectedMonster:
+                        self.SelectedTeam.setSubMonsterThree()
+                    if self.SelectedTeam.SubMonsterFour == selectedMonster:
+                        self.SelectedTeam.setSubMonsterFour()
+                    self.SelectedTeam.update()
+                    print(self.SelectedTeam.getSaveDict())
+                    self.pds.saveTeam(self.SelectedTeam.getSaveDict())
+
                 a.WishList = 0
                 b = a.getSaveDict()
 
@@ -401,6 +419,7 @@ class PlayerCollection:
                 k = None
 
                 self.pds.saveMonster(b)
+
 
                 self.__RemoveInformation()
                 self.startMonster -= self.count
