@@ -545,15 +545,21 @@ class PADSQL():
 
             setstr = 'SET '
             values = []
+            count = 0
             for i in keys:
                 values.append(TeamDict[i])
                 setstr += i + " = ?"  
-                setstr += ", " if i != 'AwokenBadgeName' else " "
+                if count < len(keys) - 1:
+                    setstr += ", "
+                else: 
+                    setstr += " "
+
+                count +=1
             values.append(TeamDict["TeamInstanceID"])
 
             SQLCommand = ("UPDATE Team " + setstr +
                           "WHERE TeamInstanceID = ?")
-
+            print(SQLCommand)
             self.executeSQLCommand(SQLCommand,values)
             self.connection.commit()
 

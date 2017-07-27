@@ -613,7 +613,7 @@ class PlayerCollection:
 
         if tkMessageBox:
             #Removes monster instance from DB
-            teams = self.pds.selectTeamInstance()
+            teams = self.pds.selectTeamInstance(dreamteam = self.displayWishlist)
             for i in range(0,len(teams)):
                 self.SelectedTeam = PADMonster.Team(self.pds, (teams[i]))
 
@@ -628,6 +628,7 @@ class PlayerCollection:
                 if self.SelectedTeam.SubMonsterFour == selectedMonster:
                     self.SelectedTeam.setSubMonsterFour()
                 self.SelectedTeam.update()
+                print(self.SelectedTeam.getSaveDict())
                 self.pds.saveTeam(self.SelectedTeam.getSaveDict())
             
 
@@ -635,21 +636,18 @@ class PlayerCollection:
 
             k = None
 
-            for i in self.monsters:
-                check = PADMonster.Monster(self.monsters[i])
-                if check.AssistMonsterID == self.monsters[selectedMonster]["InstanceID"]:
+            for i in self.MonsterResults:
+                check = i
+                if check.AssistMonsterID == selectedMonster:
                     check.AssistMonsterID = None
                     self.pds.saveMonster(check.getSaveDict())
 
             self.pds.deleteMonster(selectedMonster)
-            #Removes references to the monster
-            self.monsters.pop(selectedMonster)
-            self.instantList.remove(selectedMonster)
 
             #self.__UpdateMonsters()
             self.__RemoveInformation()
             self.startMonster -= self.count
-            self.populateList()
+            self.onSearchClick()
 
     def __UpdateInformation(self):
         global selectedMonster
@@ -758,7 +756,8 @@ class PlayerCollection:
         ############################
         ##### PARSE SEARCH BAR #####
         ############################
-
+        global selectedMonster
+        selectedMonster = None
         self.__RemoveInformation()
 
         search = self.builder.get_variable("SearchBar").get()

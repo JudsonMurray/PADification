@@ -657,7 +657,7 @@ class MonsterEdit:
     def displayAssistInfo(self):
         self.assistMonster = self.master.PADsql.selectMonsterInstance(self.monster.AssistMonsterID, wishlist = self.wishlist)
         self.assistMonster = PADMonster.Monster(self.assistMonster[0])
-        
+        self.builder.get_object('btnRemoveAssist').config(state = NORMAL)
         self.assistHP = 0
         self.assistATK = 0
         self.assistRCV = 0
