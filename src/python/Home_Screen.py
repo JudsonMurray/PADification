@@ -352,6 +352,9 @@ class TeamPreview():
         self.lblTeamUsername = self.builder.get_object('lblTeamUsername')
         self.lblTeamName = self.builder.get_object('lblTeamName')
         self.builder.connect_callbacks(self)
+        self.btnTeamVoteUp = self.builder.get_object('btnTeamUpVote')
+        self.btnTeamVoteDown = self.builder.get_object('btnTeamDownVote')
+        self.lblTeamRank = self.builder.get_object('lblTeamRank')
 
         #Variables
         self.objTeam = None
@@ -382,10 +385,13 @@ class TeamPreview():
 
     def update(self, teamDict):
         self.objTeam = PADMonster.Team(teamDict)
+        print(teamDict)
         self.strUsername = self.toplevel.master.PADsql.selectUsers(teamDict["Email"])
         self.lblTeamUsername.config(text = self.strUsername)
         self.lblTeamName.config(text = teamDict["TeamName"])
+        self.TeamInstanceID = teamDict["TeamInstanceID"]
 
+        self.updateVotes()
 
         for i in range(0,5):
             self.canIdentity[getattr(self, "canTeamSlot" + str(i+1))] = str(i+1)
@@ -400,10 +406,31 @@ class TeamPreview():
             else:
                 self.monToolTips[i].update()
                 
+    def updateVotes(self):
+        votes = self.toplevel.master.PADsql.getVotes(self.TeamInstanceID)
+        self.voteCount = votes[0]
+
+        self.lblTeamRank.config(text=str(self.voteCount))
+        if votes[1]== None:
+            pass
+        elif votes[1]:
+            self.btnTeamVoteUp.config(foreground="#3DDE47")
+            self.btnTeamVoteDown.config(foreground="#000000")
+        else:
+            self.btnTeamVoteDown.config(foreground="#DE1A18")
+            self.btnTeamVoteUp.config(foreground="#000000")
 
     def onCanTeamSlotClick(self, event):
         if getattr(self, "monTeamSlot" + self.canIdentity[event.widget]) != None:
             print("you clicked", getattr(self, "monTeamSlot" + self.canIdentity[event.widget]).MonsterName)
+
+    def onVoteUp(self):
+        self.toplevel.master.PADsql.teamVote(self.TeamInstanceID, True)
+        self.updateVotes()
+
+    def onVoteDown(self):
+        self.toplevel.master.PADsql.teamVote(self.TeamInstanceID, False)
+        self.updateVotes()
 
 class playerWidget():
     def __init__(self, master, toplevel):

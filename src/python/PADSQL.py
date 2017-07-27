@@ -783,6 +783,48 @@ class PADSQL():
                 retry_count += 1
                 time.sleep(3)
 
+    def teamVote(self, TeamInstanceID, Vote = None):
+        SQLCommand = "SELECT * FROM TeamRank WHERE Email = ? AND TeamInstanceID = ?"
+        values = [self.Email, TeamInstanceID]
+        self.executeSQLCommand(SQLCommand, values)
+
+        results = self.cursor.fetchall()
+        if not results:
+            SQLCommand = "INSERT INTO TeamRank (Email, TeamInstanceID, Vote) Values (?,?,?)"
+            values = [self.Email, TeamInstanceID, Vote]
+            self.executeSQLCommand(SQLCommand, values)
+            self.cursor.commit()
+            return True
+        else:
+            SQLCommand = "UPDATE TeamRank SET Vote = ? WHERE Email = ? AND TeamInstanceID = ?"
+            values = [Vote, self.Email, TeamInstanceID]
+            self.executeSQLCommand(SQLCommand, values)
+            self.cursor.commit()
+            return True
+
+    def getVotes(self, TeamInstanceID):
+        """Get a Count of votes for a specific team."""
+        SQLCommand = "SELECT * FROM TeamRank WHERE TeamInstanceID = ?"
+        values = [TeamInstanceID]
+        self.executeSQLCommand(SQLCommand, values)
+        results = self.cursor.fetchall()
+
+        voted = None
+        count = 0
+        if results:
+            for i in results:
+                if i[1] == self.Email:
+                    voted = i[3]
+
+                if i[3] == None:
+                    continue
+
+                if i[3] == True:
+                    count += 1
+                elif i[3] == False:
+                    count -= 1
+        return [count, voted]
+
 #padsql = PADSQL()
 #padsql.login("Padmin","Test")
 #print(padsql.selectFollowers())

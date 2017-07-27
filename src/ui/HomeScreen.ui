@@ -944,7 +944,7 @@
     <property name="borderwidth">4</property>
     <property name="height">100</property>
     <property name="relief">raised</property>
-    <property name="width">360</property>
+    <property name="width">350</property>
     <layout>
       <property name="column">0</property>
       <property name="propagate">False</property>
@@ -1059,10 +1059,11 @@
     </child>
     <child>
       <object class="tk.Button" id="btnTeamUpVote">
-        <property name="background">#80ff80</property>
-        <property name="font">{Yu} 12 {bold}</property>
-        <property name="text" translatable="yes">Up</property>
-        <property name="width">5</property>
+        <property name="activebackground">#80ff80</property>
+        <property name="command">onVoteUp</property>
+        <property name="font">{Wingdings 3} 12 {bold}</property>
+        <property name="text" translatable="yes">p</property>
+        <property name="width">0</property>
         <layout>
           <property name="column">5</property>
           <property name="padx">10</property>
@@ -1074,7 +1075,7 @@
     <child>
       <object class="tk.Label" id="lblTeamRank">
         <property name="font">{Yu} 12 {}</property>
-        <property name="text" translatable="yes">+00000</property>
+        <property name="text" translatable="yes">+000</property>
         <layout>
           <property name="column">5</property>
           <property name="propagate">True</property>
@@ -1084,10 +1085,11 @@
     </child>
     <child>
       <object class="tk.Button" id="btnTeamDownVote">
-        <property name="background">#ff8080</property>
-        <property name="font">{yu} 12 {bold}</property>
-        <property name="text" translatable="yes">Down</property>
-        <property name="width">5</property>
+        <property name="activebackground">#ff8080</property>
+        <property name="command">onVoteDown</property>
+        <property name="font">{Wingdings 3} 12 {bold}</property>
+        <property name="text" translatable="yes">q</property>
+        <property name="width">0</property>
         <layout>
           <property name="column">5</property>
           <property name="propagate">True</property>
