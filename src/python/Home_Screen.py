@@ -167,11 +167,12 @@ class HomeScreen():
             self.PlayerSearchResults = self.master.PADsql.selectUsers()
             random.shuffle(self.PlayerSearchResults)
             #Setup Page
-            count = 0
+        count = 0
         for i in self.PlayerSearchResults:
             if i["Email"].lower() == self.master.PADsql.Email.lower():
                 self.PlayerSearchResults.pop(count)
-                count += 1
+            count += 1
+
         self.PlayerCurPage = 1
         self.PlayerMaxPage = math.ceil(len(self.PlayerSearchResults) / self.PLAYERRESULTSPERPAGE)
         self.entPlayerPage.set(self.PlayerCurPage)
@@ -385,7 +386,6 @@ class TeamPreview():
 
     def update(self, teamDict):
         self.objTeam = PADMonster.Team(teamDict)
-        print(teamDict)
         self.strUsername = self.toplevel.master.PADsql.selectUsers(teamDict["Email"])
         self.lblTeamUsername.config(text = self.strUsername)
         self.lblTeamName.config(text = teamDict["TeamName"])
@@ -410,7 +410,7 @@ class TeamPreview():
         votes = self.toplevel.master.PADsql.getVotes(self.TeamInstanceID)
         self.voteCount = votes[0]
 
-        self.lblTeamRank.config(text=str(self.voteCount))
+        self.lblTeamRank.config(text="%+d" % self.voteCount)
         if votes[1]== None:
             pass
         elif votes[1]:
