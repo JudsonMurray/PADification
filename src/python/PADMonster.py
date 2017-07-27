@@ -273,6 +273,7 @@ class Team():
 
         #Objects
         self.Monsters = []
+        self.DreamTeam = 0
 
         #Calculated Values
         self.TeamHP = 0
@@ -310,16 +311,21 @@ class Team():
     def update(self):
         """Updates the Team."""
         self.Monsters = []
+        if self.DreamTeam:
+            x=1
+        else:
+            x=0
+        monmon = self.PADSQL.selectMonsterInstance(self.LeaderMonster, wishlist = x)
         if self.LeaderMonster != None:
-            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.LeaderMonster)[0]))
+            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.LeaderMonster, wishlist = x)[0]))
         if self.SubMonsterOne != None:
-            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterOne)[0]))
+            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterOne, wishlist = x)[0]))
         if self.SubMonsterTwo != None:
-            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterTwo)[0]))
+            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterTwo, wishlist = x)[0]))
         if self.SubMonsterThree != None:
-            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterThree)[0]))
+            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterThree, wishlist = x)[0]))
         if self.SubMonsterFour != None:
-            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterFour)[0]))
+            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterFour, wishlist = x)[0]))
 
         self.TeamHP = 0
         self.TeamRCV = 0
@@ -405,7 +411,7 @@ class Team():
         """Returns a Dictionary to represent an instance"""
         saveDict = {}
         saveVars = ['TeamInstanceID','Email', 'TeamName', 'LeaderMonster',
-                    'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 'AwokenBadgeName' ]
+                    'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 'AwokenBadgeName', 'DreamTeam' ]
         
         for i in saveVars:
             saveDict[i] = getattr(self, i)
@@ -435,6 +441,10 @@ class Team():
     def getBadge(self):
         """Gets Team Awoken Badge"""
         return self.BadgeName
+
+    def setDreamState(self, dreamstate):
+        self.DreamTeam = dreamstate
+        return
 
     def setLeaderMonster(self, InstanceID = None):
         """Sets Leader Monster requires instanceID"""

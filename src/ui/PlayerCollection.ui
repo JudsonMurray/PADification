@@ -746,10 +746,10 @@
             </child>
             <child>
               <object class="tk.Button" id="btnSearch">
+                <property name="command">onSearchClick</property>
                 <property name="font">{Yu} 12 {bold}</property>
                 <property name="relief">raised</property>
                 <property name="text" translatable="yes">Search</property>
-                <bind add="True" handler="onSearchClick" sequence="&lt;1&gt;" />
                 <layout>
                   <property name="column">0</property>
                   <property name="ipadx">7</property>

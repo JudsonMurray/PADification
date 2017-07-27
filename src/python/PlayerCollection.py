@@ -45,7 +45,6 @@ class EvoFrame:
             self.builder.get_object("canNextMon").create_image(7,7, image = self.availEvo, anchor = tk.NW)
             self.evos.config(highlightthickness = 5)
             self.check = self.nextMon[0]
-
             self.check = Monster((self.master.mastermaster.pds.selectMonsterClass(self.check))[0])
 
             self.evos.config(highlightbackground = 'Red')
@@ -60,7 +59,7 @@ class EvoFrame:
         return
 
 class MonsterFrame:
-    def __init__(self, master, masterbuilder, i, ids, currentMonster, buttons, padsql, selButton, mastermaster):
+    def __init__(self, master, masterbuilder, i, currentMonster, buttons, padsql, selButton, mastermaster):
         #logger
         self.logger = logging.getLogger("Padification.ui.PlayerCollection.MonsterFrame")
 
@@ -72,7 +71,6 @@ class MonsterFrame:
         self.builder.add_from_file('src/ui/PlayerCollection.ui')
         self.monbut = self.builder.get_object('MonsFrame', self.master)
         self.builder.connect_callbacks(self)
-        self.ids = ids
         self.currentMonster = currentMonster
         self.buttons = buttons
         self.padsql = padsql
@@ -323,7 +321,10 @@ class PlayerCollection:
         
         global k
         global buttons
-        
+        global selectedMonster
+
+        selectedMonster = None
+        self.MonsterResults = None
         self.bgSearchText = 'Enter Monster ID or Name'
         self.pds = master.PADsql
         self.master = master
@@ -387,7 +388,7 @@ class PlayerCollection:
             self.startMonster = 50 * (self.currentPage - 1)
             self.k = k
             self.__UpdateInformation()
-        self.populateList()
+        self.onSearchClick()
 
     def onAddFromWishlistClick(self):
 
@@ -407,7 +408,7 @@ class PlayerCollection:
         self.startMonster -= self.count
         self.populateList()
 
-    def populateList(self, search = None):
+    def populateList(self):
         '''Populates the player collection list'''
         if k is None:
             self.builder.get_object("btnFavorite").config(state = DISABLED)
@@ -415,24 +416,8 @@ class PlayerCollection:
             self.builder.get_object("btnRemove").config(state = DISABLED)
             self.builder.get_object("btnUnfavorite").config(state = DISABLED)
             self.builder.get_object("btnAddFromWishlist").config(state = DISABLED)
-
-        
         
         self.builder.get_object("canMonsterList").delete("All")
-
-        # JBM - Modifying collection to Dictionary from List to make Monster Lookup easier
-        instanceIDs = []
-        
-
-        if search is None:
-            monster = self.pds.selectMonsterInstance(wishlist = self.displayWishlist)
-        else:
-            monster = self.pds.selectMonsterInstance(wishlist = self.displayWishlist)
-        self.monsters = dict()
-        for i in monster:
-            self.monsters[i["InstanceID"]] = i
-            instanceIDs.append(i["InstanceID"])
-        self.instantList = instanceIDs
 
         self.container = self.builder.get_object('canMonsterList')
 
@@ -441,40 +426,33 @@ class PlayerCollection:
         
         allMonsters = self.master.PADsql.selectMonsterInstance()
         self.assistants = []
-        for i in range(0,len(monster)):
+        for i in self.MonsterResults:
             for y in allMonsters:
-                if monster[i]["InstanceID"] == y["AssistMonsterID"]:
+                if i.InstanceID == y["AssistMonsterID"]:
                     self.assistants.append(y["InstanceID"])
                     break
         #Creates a graphical list of self.monsters
         buttons = []
         self.buttons = buttons = []
         self.count = 0
-        for i in range(0, len(self.monsters)):
-            if self.startMonster < 50 * self.currentPage and ((self.startMonster >= 50 * (self.currentPage - 1)) and not(self.startMonster == len(self.instantList))):
-                if search is None:
-                    b = self.instantList[self.startMonster]
-                    a = PADMonster.Monster(self.monsters[b])
-                else:
-                    try:
-                        a = search[i]
-                    except:
-                        break
-                self.buttons.append(MonsterFrame(self.container, self.builder, self.startMonster, self.instantList, a, self.buttons, self.pds, self.count, self))
+        for i in self.MonsterResults:
+            if self.startMonster < 50 * self.currentPage and ((self.startMonster >= 50 * (self.currentPage - 1)) and not(self.startMonster == len(self.MonsterResults))):
+                self.buttons.append(MonsterFrame(self.container, self.builder, self.startMonster, self.MonsterResults[self.startMonster], self.buttons, self.pds, self.count, self))
                 self.buttons[self.count].monbut.grid(row=self.count // 10,column = self.count % 10)
-                #self.buttons[self.count].builder.get_object('FrameLabel').create_image(2,2, image = self.myMonsterList[self.startMonster], anchor = tk.NW)
+                if self.MonsterResults[self.startMonster].InstanceID == selectedMonster:
+                    self.buttons[self.count].monbut.config(relief = SUNKEN)
                 
                 for c in self.assistants:
                     if c == self.buttons[self.count].currentMonster.InstanceID:
                         self.buttons[self.count].monbut.config(highlightbackground= "#b2a89d",highlightcolor="#b2a89d",highlightthickness=3)
-                self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(a.Level)+ '\nID: ' + str(a.MonsterClassID))
+                self.buttons[self.count].builder.get_object('lblMonsterBrief').config(text = 'LVL:' + str(self.MonsterResults[self.startMonster].Level)+ '\nID: ' + str(self.MonsterResults[self.startMonster].MonsterClassID))
                 self.count += 1
                 self.startMonster += 1
 
-        self.pages = (len(self.instantList) // 50) + 1
-        if len(self.instantList) == 0:
+        self.pages = (len(self.MonsterResults) // 50) + 1
+        if len(self.MonsterResults) == 0:
             self.pages = 1
-        elif len(self.instantList) % 50 == 0:
+        elif len(self.MonsterResults) % 50 == 0:
             self.pages -= 1
 
         if self.currentPage > self.pages:
@@ -493,36 +471,35 @@ class PlayerCollection:
 
         self.container.config(height=(len(self.container.grid_slaves()) // 2) * 30)
 
-        if k != None:
-           self.buttons[k].monbut.config(relief = SUNKEN)
-
     def addToFavorites(self):
-        self.edit = Monster((self.pds.selectMonsterInstance(selectedMonster))[0])
+        self.edit = Monster(self.pds.selectMonsterInstance(selectedMonster, wishlist = self.displayWishlist)[0])
 
         self.edit.Favorites = 1
         self.buttons[k].monbut.config(bg = 'Yellow')
         self.buttons[k].builder.get_object('lblMonsterBrief').config(bg = 'Yellow')
         self.pds.saveMonster(self.edit.getSaveDict())
-        self.buttons[k].currentMonster = Monster((self.pds.selectMonsterInstance(selectedMonster))[0])
+        self.buttons[k].currentMonster = Monster((self.pds.selectMonsterInstance(selectedMonster, wishlist = self.displayWishlist))[0])
         self.buttons[k].clickMe(self)
         pass
 
     def removeFromFavorites(self):
-        self.edit = Monster((self.pds.selectMonsterInstance(selectedMonster))[0])
+        self.edit = Monster((self.pds.selectMonsterInstance(selectedMonster, wishlist = self.displayWishlist))[0])
 
         self.edit.Favorites = 0
         self.buttons[k].monbut.config(bg = '#f0f0f0')
         self.buttons[k].builder.get_object('lblMonsterBrief').config(bg = '#f0f0f0')
         self.pds.saveMonster(self.edit.getSaveDict())
-        self.buttons[k].currentMonster = Monster((self.pds.selectMonsterInstance(selectedMonster))[0])
+        self.buttons[k].currentMonster = Monster((self.pds.selectMonsterInstance(selectedMonster, wishlist = self.displayWishlist))[0])
         self.buttons[k].clickMe(self)
         pass
 
     def onWishlistClick(self):
         global k
+        global selectedMonster
         self.displayWishlist = 1
         self.currentPage = 1
         k = None
+        selectedMonster = None
         #for i in range(0, (len(self.buttons) - 1)):
         #    self.buttons[i].monbut.config(relief = FLAT)
         self.builder.get_object("btnPrev").config(state = DISABLED)
@@ -530,13 +507,15 @@ class PlayerCollection:
         self.builder.get_object("btnWishlist").config(state = DISABLED)
         self.builder.get_object("btnMonsterList").config(state = NORMAL)
         self.__RemoveInformation()
-        self.populateList()
+        self.onSearchClick()
 
     def onMonsterListClick(self):
         self.displayWishlist = 0
         global k
+        global selectedMonster
         self.currentPage = 1
         k = None
+        selectedMonster = None
         #for i in range(0, (len(self.buttons) - 1)):
         #    self.buttons[i].monbut.config(relief = FLAT)
         self.builder.get_object("btnPrev").config(state = DISABLED)
@@ -544,7 +523,7 @@ class PlayerCollection:
         self.builder.get_object("btnMonsterList").config(state = DISABLED)
         self.builder.get_object("btnWishlist").config(state = NORMAL)
         self.__RemoveInformation()
-        self.populateList()
+        self.onSearchClick()
 
     def onEditMonsterClick(self):
         self.k = k
@@ -611,7 +590,7 @@ class PlayerCollection:
         self.currentPage += 1
         if self.currentPage == self.pages:
             self.builder.get_object("btnNext").config(state = DISABLED)
-        self.__RemoveInformation()
+        #self.__RemoveInformation()
         self.populateList()
 
     def prev(self):
@@ -624,7 +603,7 @@ class PlayerCollection:
         self.startMonster -= self.count + 50
         if self.currentPage == 1:
             self.builder.get_object("btnPrev").config(state = DISABLED)
-        self.__RemoveInformation()
+        #self.__RemoveInformation()
         self.populateList()
 
     def RemoveMonster(self):
@@ -673,7 +652,9 @@ class PlayerCollection:
             self.populateList()
 
     def __UpdateInformation(self):
-        self.monster = self.pds.selectMonsterInstance(self.instantList[k + (self.currentPage - 1) * 50], wishlist = self.displayWishlist)
+        global selectedMonster
+
+        self.monster = self.pds.selectMonsterInstance(selectedMonster, wishlist = self.displayWishlist)
         self.monster = PADMonster.Monster(self.monster[0])
         self.builder.get_object("lblHP").config(text = "HP: " + str(self.monster.TotalHP))
         self.builder.get_object("lblATK").config(text = "ATK: " + str(self.monster.TotalATK))
@@ -773,7 +754,7 @@ class PlayerCollection:
         if self.builder.get_variable("SearchBar").get() == "":
             self.builder.get_variable("SearchBar").set(self.bgSearchText)
 
-    def onSearchClick(self, event):
+    def onSearchClick(self):
         ############################
         ##### PARSE SEARCH BAR #####
         ############################
@@ -843,14 +824,13 @@ class PlayerCollection:
                 if i["PriAttribute"] in PriAttributes and i["SecAttribute"] in SecAttributes:
                     if i["MonsterTypeOne"] in TypeFilters or i["MonsterTypeTwo"] in TypeFilters or i["MonsterTypeThree"] in TypeFilters:
                         self.MonsterResults.append(Monster(i))
-        print(self.MonsterResults)
         ################################################
         ##### CALCULATE MAXPAGES AND SET PAGE TO 1 #####
         ################################################
         self.startMonster = 0
         self.page = 1
-        self.populateList(self.MonsterResults)
-        self.builder.get_object("lblResults").config(text = str(len(self.MonsterResults)) + " Results Found.")
+        self.populateList()
+        self.builder.get_object("lblResults").config(text = str(len(self.MonsterResults)) + " of " + str(len(self.pds.selectMonsterInstance(wishlist = self.displayWishlist))))
 
     def onPageEnter(self, event):
         value = self.builder.get_variable("varPageEnt").get()

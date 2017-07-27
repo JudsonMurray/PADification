@@ -448,21 +448,21 @@ class PADSQL():
             self.cursor.commit()
 
 
-    def selectTeamInstance(self, teamsearch = None, dictionary = True, UserEmail = None, allUser = False, exlcudeUser = False):
+    def selectTeamInstance(self, teamsearch = None, dictionary = True, UserEmail = None, allUser = False, exlcudeUser = False, dreamteam = 0):
         """Selects all teams, or by TeamInstanceID, or TeamName returns a list of dictionarys or tuples."""
         if UserEmail is None:
             user = self.Email
         else:
             user = UserEmail
 
-        SQLCommand = ("SELECT TeamInstanceID, Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, AwokenBadgeName "
-                "FROM Team ")
+        SQLCommand = ('SELECT TeamInstanceID, Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, AwokenBadgeName, DreamTeam '
+                "FROM Team WHERE DreamTeam = '" + str(dreamteam) + "' ")
 
         if not allUser:
-            SQLCommand += "WHERE Email = '" + str(user) + "'" 
+            SQLCommand += "AND Email = '" + str(user) + "'" 
 
         if allUser and exlcudeUser:
-            SQLCommand += "WHERE Email <> '" + str(user) + "'" 
+            SQLCommand += "AND Email <> '" + str(user) + "'" 
 
 
         if teamsearch == None:
@@ -471,19 +471,19 @@ class PADSQL():
             if not allUser:
                 SQLCommand += " AND TeamInstanceID = " + str(teamsearch)
             else:
-                SQLCommand += "WHERE TeamInstanceID = " + str(teamsearch)
+                SQLCommand += "AND TeamInstanceID = " + str(teamsearch)
         elif type(teamsearch) == str:
             if not allUser:
                 SQLCommand += " AND TeamName LIKE '%" + teamsearch + "%'"
             else:
-                SQLCommand += "WHERE TeamName LIKE '%" + teamsearch + "%'"
+                SQLCommand += "AND TeamName LIKE '%" + teamsearch + "%'"
 
         self.executeSQLCommand(SQLCommand)
 
         if dictionary:
             properties = ['TeamInstanceID', 'Email', 'TeamName', 'LeaderMonster',
                           'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 
-                          'AwokenBadgeName' ]
+                          'AwokenBadgeName', 'DreamTeam' ]
             teamcollection = []
             results = self.cursor.fetchone()
             while results:
@@ -500,12 +500,12 @@ class PADSQL():
             return self.cursor.fetchall()
 
     def selectAllTeamInstance(self):
-        SQLCommand = ("SELECT TeamInstanceID, Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, AwokenBadgeName "
+        SQLCommand = ("SELECT TeamInstanceID, Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, AwokenBadgeName, DreamTeam "
                 "FROM Team ")
         self.executeSQLCommand(SQLCommand)
         properties = ['TeamInstanceID', 'Email', 'TeamName', 'LeaderMonster',
                           'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 
-                          'AwokenBadgeName' ]
+                          'AwokenBadgeName', 'DreamTeam' ]
         teamcollection = []
         results = self.cursor.fetchone()
         while results:
@@ -523,7 +523,7 @@ class PADSQL():
         """Save Team Instance Record"""
         keys = [ 'Email', 'TeamName', 'LeaderMonster',
                           'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour', 
-                          'AwokenBadgeName' ]
+                          'AwokenBadgeName', 'DreamTeam']
         if TeamDict["TeamInstanceID"] == None:
             """If it is a new Team"""
             TeamDict.pop("TeamInstanceID")
@@ -534,8 +534,8 @@ class PADSQL():
                 values.append(TeamDict[i])
                     
 
-            SQLCommand = ("INSERT INTO Team (Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, AwokenBadgeName) "
-                          "VALUES (?,?,?,?,?,?,?,?)")
+            SQLCommand = ("INSERT INTO Team (Email, TeamName, LeaderMonster, SubMonsterOne, SubMonsterTwo, SubMonsterThree, SubMonsterFour, AwokenBadgeName, DreamTeam) "
+                          "VALUES (?,?,?,?,?,?,?,?,?)")
 
             self.executeSQLCommand(SQLCommand,values)
             self.connection.commit()
