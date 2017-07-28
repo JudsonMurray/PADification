@@ -326,7 +326,7 @@ class PADSQL():
                             "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, MonsterInstance.InstanceID, Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, "
                             "AssistMonsterID, SkillLevel, LSListID, Favorites, WishList, ActiveSkill.ActiveSkillDesc, LeaderSKill.LeaderSkillDesc, "
                             "AwokenSkillOne, AwokenSkillTwo, AwokenSkillThree, AwokenSkillFour, AwokenSkillFive, AwokenSkillSix, AwokenSkillSeven, AwokenSkillEight, AwokenSkillNine, "
-                            "LatentSKillOne, LatentSKillTwo, LatentSKillThree, LatentSKillFour, LatentSKillFive, LatentSKillSix "
+                            "LatentSkillOne, LatentSkillTwo, LatentSkillThree, LatentSKillFour, LatentSkillFive, LatentSkillSix "
                             "FROM (((((MonsterInstance LEFT OUTER JOIN MonsterClass ON MonsterInstance.MonsterClassID = MonsterClass.MonsterClassID) "
 							"LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) "
                             "LEFT OUTER JOIN LeaderSkill ON MonsterClass.LeaderSkillName = LeaderSKill.LeaderSkillName) "
@@ -351,7 +351,7 @@ class PADSQL():
                             "ActiveSkillMaxLevel, ActiveSkillMaxCoolDown, MonsterInstance.InstanceID, Email, CurrentExperience, PlusATK, PlusRCV, PlusHP, SkillsAwoke, "
                             "AssistMonsterID, SkillLevel, LSListID, Favorites, WishList, ActiveSkill.ActiveSkillDesc, LeaderSKill.LeaderSkillDesc, "
                             "AwokenSkillOne, AwokenSkillTwo, AwokenSkillThree, AwokenSkillFour, AwokenSkillFive, AwokenSkillSix, AwokenSkillSeven, AwokenSkillEight, AwokenSkillNine, "
-                            "LatentSKillOne, LatentSKillTwo, LatentSKillThree, LatentSKillFour, LatentSKillFive, LatentSKillSix "
+                            "LatentSkillOne, LatentSkillTwo, LatentSkillThree, LatentSKillFour, LatentSkillFive, LatentSkillSix "
                             "FROM (((((MonsterInstance LEFT OUTER JOIN MonsterClass ON MonsterInstance.MonsterClassID = MonsterClass.MonsterClassID) "
 							"LEFT OUTER JOIN ActiveSkill ON MonsterClass.ActiveSkillName = ActiveSkill.ActiveSkillName) "
                             "LEFT OUTER JOIN LeaderSkill ON MonsterClass.LeaderSkillName = LeaderSKill.LeaderSkillName) "
@@ -380,7 +380,7 @@ class PADSQL():
                           'InstanceID', 'Email', 'CurrentExperience', 'PlusATK', 'PlusRCV', 'PlusHP', 'SkillsAwoke', 'AssistMonsterID', 'SkillLevel', 'LSListID',
                           'Favorites', 'WishList', 'ActiveSkillDesc', 'LeaderSkillDesc', 'AwokenSkillOne', 'AwokenSkillTwo', 'AwokenSkillThree', 
                           'AwokenSkillFour', 'AwokenSkillFive', 'AwokenSkillSix', 'AwokenSkillSeven', 'AwokenSkillEight', 'AwokenSkillNine', 
-                          'LatentSKillOne', 'LatentSKillTwo', 'LatentSKillThree', 'LatentSKillFour', 'LatentSKillFive', 'LatentSKillSix' ]
+                          'LatentSkillOne', 'LatentSkillTwo', 'LatentSkillThree', 'LatentSkillFour', 'LatentSkillFive', 'LatentSkillSix' ]
 
             monstercollection = []
             results = self.cursor.fetchone()
