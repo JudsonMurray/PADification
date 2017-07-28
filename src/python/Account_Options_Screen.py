@@ -10,7 +10,7 @@ from tkinter import *
 import tkinter.messagebox as mb
 import pygubu
 import re 
-
+from tkinter import simpledialog as sd
 
 class AccountOptions:
     def __init__(self, master):
@@ -19,9 +19,13 @@ class AccountOptions:
         self.builder = pygubu.Builder()
 
         self.builder.add_from_file("src/ui/Account Options UI.ui")
-        self.mainwindow = self.builder.get_object("Account Options",master)
-        self.image1 = PhotoImage(file = 'Resource/PAD/Images/PADification Title.png')
-        item = self.builder.get_object('TitleCanvas').create_image(10,0,image = self.image1,anchor = NW,tag="Title")
+        self.mainwindow = self.builder.get_object("Account Options",master)       
+        self.imgTitleImage = PhotoImage(file = "Resource/PAD/Images/Padification Logo.png")
+        self.builder.get_object('lblTitleImage').config(image = self.imgTitleImage)
+        self.canProfileImage = self.builder.get_object('canProfileImage')
+        self.lblUsername = self.builder.get_object('lblUsername')
+        self.lblCollectionCount = self.builder.get_object('lblCollectionCount')
+        self.lblTeamCount = self.builder.get_object('lblTeamCount')
 
         self.builder.connect_callbacks(self)
 
@@ -30,8 +34,34 @@ class AccountOptions:
         self.obj3 = self.builder.get_object("Confirm New Password",master)
 
 
+    def onProfileImageClick(self, event):
+        value = sd.askstring("Change Profile Image", "Enter Monster ID or Name:", parent=self.builder.get_object("canProfileImage"))
+        if value is not None:
+            if value.isnumeric():
+                value = int(value)
+
+            if self.master.PADsql.updateProfileImage(value):
+                self.master.updateProfile(self.builder)
+            else:
+                mb.showinfo("Profile Image", "Monster ID Does Not Exist")
+
+    def updateProfile(self):
+        #print(self.master.PADsql.ProfileImage)
+        if self.master.PADsql.ProfileImage != None:
+            value = self.master.PADsql.ProfileImage
+        else:
+            value = 1
+
+        self.ProfileImage = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(value) + ".png")
+        self.builder.get_object("canProfileImage").create_image(2,2, image = self.ProfileImage, anchor = NW)
+
+        #CustomFont_Label(self.builder.get_object('frmPlayerInfo'), text= self.master.PADsql.Username, font_path="Resource/PAD/Font/FOT-RowdyStd-EB.ttf", size=22).grid(row = 0, column = 1, sticky = NW)
+        self.builder.get_object("lblUsername").config(text = self.master.PADsql.Username)
+        self.builder.get_object("lblCollectionCount").config(text ="Monsters\t= " + str(len(self.master.PADsql.selectMonsterInstance())))
+        self.builder.get_object("lblTeamCount").config(text ="Teams\t= " + str(len(self.master.PADsql.selectTeamInstance())))
 
     def updateLabel(self):
+        self.updateProfile()
         x = self.master.PADsql.PlayerID
         self.lab1 = self.builder.get_object("IDNum")
         self.lab2 = self.builder.get_object("AccName")
