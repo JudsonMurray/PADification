@@ -1,6 +1,6 @@
 #!/USR/BIN/ENV PYTHON 3.5
 #   NAME:    KYLE GUNTON
-#   DATE:    07/24/17
+#   DATE:    07/28/17
 #   PURPOSE: FUNCTIONALITY FOR THE EDIT TEAM SCREEN 
 
 #   -V. 0.0.1 -Created base functionality of selection monsters in player collection.
@@ -154,7 +154,6 @@ class MonsterFrame:
                     t.currentMonster.InstanceID == self.destroyerTeam.SubMonsterFour:
                     t.state = 'off'
                     t.monbut.config(relief=SUNKEN)
-                    self.padific.editTeam.assistants
                     
             self.teamCanvas[self.var.get()].config(highlightbackground= "#f0f0f0",highlightcolor="#f0f0f0",highlightthickness=5)
             for c in self.padific.editTeam.assistants:
@@ -169,7 +168,6 @@ class MonsterFrame:
                 elif c == self.destroyerTeam.SubMonsterFour:
                     self.teamCanvas[4].config(highlightbackground= "#b2a89d",highlightcolor="#b2a89d",highlightthickness=5)
             self.padific.teamBrowser.updateTeamLabels(self.masterbuilder, self.destroyerTeam)
-
             return
 
 class EditTeam():
@@ -407,6 +405,7 @@ class EditTeam():
         """Command invoked when sub monster 4 is selected"""
         self.var.set(4)
         self.raiseTeam()
+        self.teamCanvas[4].config(relief=SUNKEN)
         return
     
     def removeMonster(self, event):
@@ -482,7 +481,6 @@ class EditTeam():
             if tt[i]['TeamInstanceID'] > tID:
                 tID = tt[i]['TeamInstanceID']
         tt = self.PADsql.selectTeamInstance(int(tID), dreamteam = self.dreamteam)
-        t1 = PADMonster.Team(self.PADsql, tt[0])
         if self.destroyerTeam.TeamInstanceID != None and self.destroyerTeam.TeamInstanceID != 0:
             self.master.teamBrowser.SelectedTeam = self.destroyerTeam
         else:
@@ -500,6 +498,7 @@ class EditTeam():
         """Populates empty Search bar on focus out"""
         if self.builder.get_variable("SearchBar").get() == "":
             self.builder.get_variable("SearchBar").set(self.bgSearchText)
+
     def onSearchClick(self, event):
         """Search for monsters within collection to be displayed"""
         ############################

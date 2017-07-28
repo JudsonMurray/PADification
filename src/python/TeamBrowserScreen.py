@@ -112,11 +112,16 @@ class TeamBrowser():
                 self.firstrun = False
                 self.autoTeamSelect(self)
             elif not self.firstrun:
+
+                self.TeamMaxPage = math.ceil(len(self.teams) / self.TEAMRESULTSPERPAGE)
+                self.builder.get_object("lblPageNumber").config(text = "       / " + str(self.TeamMaxPage))
+                self.builder.get_object("lblResults").config(text = str(len(self.teams)) + " Results.")
                 for i in range(0,len(self.teams)):
                     if self.teams[i]["TeamInstanceID"] == self.SelectedTeam.TeamInstanceID:
-                        self.teamPage = math.ceil(i / self.TEAMRESULTSPERPAGE)
+                        self.teamPage = math.ceil(i+1 / self.TEAMRESULTSPERPAGE)
                         if self.teamPage < 1:
                             self.teamPage = 1
+                        self.entTeamPage.set(self.teamPage)
                         break
                 self.loadTeams()
             self.entTeamPage.set(self.teamPage)
@@ -141,6 +146,8 @@ class TeamBrowser():
 
     def loadTeams(self):
             #insert teams into listbox
+            
+            #update Page Results
             self.team = []
             if self.teamPage > self.TeamMaxPage:
                 self.teamPage = self.TeamMaxPage
@@ -461,8 +468,6 @@ class TeamBrowser():
             self.teams = TeamFilteredResults
         #Setup Page
         self.teamPage = 1
-        if len(self.teams) < 1:
-            self.teamPage = 0
         self.TeamMaxPage = math.ceil(len(self.teams) / self.TEAMRESULTSPERPAGE)
 
         self.entTeamPage.set(self.teamPage)
@@ -470,6 +475,8 @@ class TeamBrowser():
         self.builder.get_object("lblResults").config(text = str(len(self.teams)) + " Results.")
         #update Page Results
         self.loadTeams()
+        self.team[0].teamSelect(self)
+
     
     def onTeamNextPage(self):
         """Next Page of Team Results"""
