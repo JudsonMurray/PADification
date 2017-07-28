@@ -483,8 +483,9 @@ class MonsterEdit:
     def applyChanges(self):
         global k
         self.master.PADsql.saveMonster(self.monster.getSaveDict())
-        self.master.showPlayerCollection()
+        self.master.playerCollection.MonsterResults[self.master.playerCollection.k +(50 * (self.master.playerCollection.currentPage - 1))] = PADMonster.Monster(self.master.PADsql.selectMonsterInstance(self.monster.InstanceID)[0])
         self.master.playerCollection.buttons[self.master.playerCollection.k].clickMe(self)
+        self.master.showPlayerCollection()
         pass
 
     def cancel(self):
@@ -567,7 +568,7 @@ class MonsterEdit:
                     if self.aASList[l] is not None:
                         self.aNumAS += 1
 
-                if self.assistList[i]["SkillsAwoke"] == self.aNumAS and self.aASList != None and self.assistList[i]["ActiveSkillName"] != None:
+                if self.assistList[i]["SkillsAwoke"] == self.aNumAS and self.aNumAS != 0 and self.assistList[i]["ActiveSkillName"] != None:
                     self.pAssistants.append(PADMonster.Monster(self.assistList[i]))
 
             self.assistants = []
