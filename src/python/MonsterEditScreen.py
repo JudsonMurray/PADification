@@ -159,6 +159,7 @@ class MonsterEdit:
         #logger
         self.logger = logging.getLogger("Padification.ui.MonsterEditScreen.MonsterEdit")
 
+
         self.master  = master
         self.builder = pygubu.Builder()
         self.builder.add_from_file(r"src\ui\Monster Edit UI.ui")
@@ -166,6 +167,8 @@ class MonsterEdit:
         self.builder.connect_callbacks(self)
         self.image = None
         self.portrait = None
+        self.imgTitleImage = PhotoImage(file = "Resource/PAD/Images/Padification Logo.png")
+        self.builder.get_object('lblTitleImage').config(image = self.imgTitleImage)
         self.AttOne = ToolTip.ToolTip(self.builder.get_object("canPriAtt"), None)
         self.AttTwo = ToolTip.ToolTip(self.builder.get_object("canSecAtt"), None)
         self.TypeOne = ToolTip.ToolTip(self.builder.get_object("canTypeOne"), None)
@@ -249,6 +252,10 @@ class MonsterEdit:
         
         if str(self.latentSkills['state']) == 'normal':
             self.chosenLatent = self.latentSkills.get(ANCHOR)
+            for i in self.latents:
+                if self.chosenLatent == i[0]:
+                    self.moreSlots = i[2]
+                    break
             count = 0
             for i in ('Attacker Killer','Dragon Killer', 'God Killer', 'Balanced Killer', 'Devil Killer', 'Machine Killer', 'Physical Killer', 'Healer Killer'):
                 if self.chosenLatent == i:
@@ -277,7 +284,7 @@ class MonsterEdit:
                         break
                 count += 1
 
-            if self.chosenLatent != '' and self.usedSlots < self.maxSlots.get():
+            if self.chosenLatent != '' and self.usedSlots + self.moreSlots <= self.maxSlots.get():
                 self.builder.get_object("btnAddLS").config(state = NORMAL)
             else:
                 self.builder.get_object("btnAddLS").config(state = DISABLED)
@@ -443,7 +450,6 @@ class MonsterEdit:
 
         if self.monster.LSListID is None:
             self.monster.LSListID = self.monster.InstanceID
-        print(a)
 
         pass
 
@@ -484,8 +490,8 @@ class MonsterEdit:
         global k
         self.master.PADsql.saveMonster(self.monster.getSaveDict())
         self.master.playerCollection.MonsterResults[self.master.playerCollection.k +(50 * (self.master.playerCollection.currentPage - 1))] = PADMonster.Monster(self.master.PADsql.selectMonsterInstance(self.monster.InstanceID)[0])
-        self.master.playerCollection.buttons[self.master.playerCollection.k].clickMe(self)
         self.master.showPlayerCollection()
+        self.master.playerCollection.buttons[self.master.playerCollection.k].clickMe(self)
         pass
 
     def cancel(self):
@@ -593,7 +599,6 @@ class MonsterEdit:
             self.displayList = []
             if self.asist:
                 for l in range(0, len(self.pAssistants)):
-                    print('.')
                     display = True
                     i = self.pAssistants[l + self.startMonster]
                     try:

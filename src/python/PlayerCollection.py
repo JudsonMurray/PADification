@@ -364,6 +364,51 @@ class MonsterFrame:
         else:
             self.mastermaster.ASNine.text = self.awokenSkills[8]
 
+        if self.currentMonster.LatentSkillOne is None:
+            self.mastermaster.LSOne.text = None
+            self.mastermaster.LSTwo.text = None
+            self.mastermaster.LSThree.text = None
+            self.mastermaster.LSFour.text = None
+            self.mastermaster.LSFive.text = None
+            self.mastermaster.LSSix.text = None
+        else:
+            self.mastermaster.LSOne.text = self.currentMonster.LatentSkillOne
+
+        if self.currentMonster.LatentSkillTwo is None:
+            self.mastermaster.LSTwo.text = None
+            self.mastermaster.LSThree.text = None
+            self.mastermaster.LSFour.text = None
+            self.mastermaster.LSFive.text = None
+            self.mastermaster.LSSix.text = None
+        else:
+            self.mastermaster.LSTwo.text = self.currentMonster.LatentSkillTwo
+
+        if self.currentMonster.LatentSkillThree is None:
+            self.mastermaster.LSThree.text = None
+            self.mastermaster.LSFour.text = None
+            self.mastermaster.LSFive.text = None
+            self.mastermaster.LSSix.text = None
+        else:
+            self.mastermaster.LSThree.text = self.currentMonster.LatentSkillThree
+
+        if self.currentMonster.LatentSkillFour is None:
+            self.mastermaster.LSFour.text = None
+            self.mastermaster.LSFive.text = None
+            self.mastermaster.LSSix.text = None
+        else:
+            self.mastermaster.LSFour.text = self.currentMonster.LatentSkillFour
+
+        if self.currentMonster.LatentSkillFive is None:
+            self.mastermaster.LSFive.text = None
+            self.mastermaster.LSSix.text = None
+        else:
+            self.mastermaster.LSFive.text = self.currentMonster.LatentSkillFive
+
+        if self.currentMonster.LatentSkillSix is None:
+            self.mastermaster.LSSix.text = None
+        else:
+            self.mastermaster.LSSix.text = self.currentMonster.LatentSkillSix
+
         self.master.portrait = CustomWidgets.ImageTooltip(self.masterbuilder.get_object("canMonsterSummary"), self.portrait)
 
 class PlayerCollection:
@@ -375,6 +420,7 @@ class PlayerCollection:
         global k
         global buttons
         global selectedMonster
+
 
         selectedMonster = None
         self.MonsterResults = None
@@ -403,6 +449,9 @@ class PlayerCollection:
         self.mainwindow = builder.get_object('frmPlayerCollection')
         builder.connect_callbacks(self)
         
+        self.imgTitleImage = PhotoImage(file = "Resource/PAD/Images/Padification Logo.png")
+        self.builder.get_object('lblTitleImage').config(image = self.imgTitleImage)
+        
         self.portrait = CustomWidgets.ImageTooltip(self.builder.get_object("canMonsterSummary"), None)
         self.typeOne = ToolTip.ToolTip(self.builder.get_object("canType1"), None)
         self.typeTwo = ToolTip.ToolTip(self.builder.get_object("canType2"), None)
@@ -416,6 +465,12 @@ class PlayerCollection:
         self.ASSeven = ToolTip.ToolTip(self.builder.get_object("canASSeven"), None)
         self.ASEight = ToolTip.ToolTip(self.builder.get_object("canASEight"), None)
         self.ASNine = ToolTip.ToolTip(self.builder.get_object("canASNine"), None)
+        self.LSOne = ToolTip.ToolTip(self.builder.get_object("canLatentOne"), None)
+        self.LSTwo = ToolTip.ToolTip(self.builder.get_object("canLatentTwo"), None)
+        self.LSThree = ToolTip.ToolTip(self.builder.get_object("canLatentThree"), None)
+        self.LSFour = ToolTip.ToolTip(self.builder.get_object("canLatentFour"), None)
+        self.LSFive = ToolTip.ToolTip(self.builder.get_object("canLatentFive"), None)
+        self.LSSix = ToolTip.ToolTip(self.builder.get_object("canLatentSix"), None)
 
         self.AttributeImages = dict()
         for i in ["Fire","Water","Wood","Light","Dark"]:
@@ -464,7 +519,6 @@ class PlayerCollection:
                     if self.SelectedTeam.SubMonsterFour == selectedMonster:
                         self.SelectedTeam.setSubMonsterFour()
                     self.SelectedTeam.update()
-                    print(self.SelectedTeam.getSaveDict())
                     self.pds.saveTeam(self.SelectedTeam.getSaveDict())
 
                 a.WishList = 0
@@ -703,7 +757,6 @@ class PlayerCollection:
                 if self.SelectedTeam.SubMonsterFour == selectedMonster:
                     self.SelectedTeam.setSubMonsterFour()
                 self.SelectedTeam.update()
-                print(self.SelectedTeam.getSaveDict())
                 self.pds.saveTeam(self.SelectedTeam.getSaveDict())
             
 
