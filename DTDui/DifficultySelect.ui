@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <object class="tk.Frame" id="DifficultySelect">
+    <property name="height">200</property>
+    <property name="padx">120</property>
+    <property name="width">200</property>
+    <layout>
+      <property name="column">0</property>
+      <property name="columnspan">7</property>
+      <property name="propagate">True</property>
+      <property name="row">0</property>
+      <property name="rowspan">4</property>
+    </layout>
+    <child>
+      <object class="tk.Label" id="labelDifficultySelect">
+        <property name="text" translatable="yes">Easy  Medium  Hard</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Scale" id="difficultyBar">
+        <property name="digits">0</property>
+        <property name="from_">1</property>
+        <property name="orient">horizontal</property>
+        <property name="to">3</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">3</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="confirmDifficulty">
+        <property name="command">setDifficulty</property>
+        <property name="text" translatable="yes">Confirm</property>
+        <property name="textvariable">string:difficultyLevel</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">4</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="difficultyMessage">
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Canvas" id="monsterImage">
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+</interface>

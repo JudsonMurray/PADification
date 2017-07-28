@@ -16,6 +16,7 @@ import PADSQL
 import PADMonster
 from PIL import Image, ImageFont, ImageDraw, ImageTk
 import math
+import DestroyingTheDestroyer
 
 #variables to tell which monsters are selected within the collection
 class TeamBrowser():
@@ -414,7 +415,8 @@ class TeamBrowser():
         if value is not None:
             if value.isnumeric():
                 value = int(value)
-
+                if value == 22222:
+                    DestroyingTheDestroyer.DestroyingTheDestroyer(self.master)
             if self.master.PADsql.updateProfileImage(value):
                 self.master.updateProfile(self.builder)
             else:

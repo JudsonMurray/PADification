@@ -1,0 +1,14 @@
+{
+	"Level1" : { 	"monster1" : 0, "monster2" : 0, "monster3" : 0},
+	"Level2" : { 	"monster1" : 0, "monster2" : 0, "monster3" : 0},
+	"Level3" : { 	"monster1" : 0, "monster2" : 0, "monster3" : 0},
+	"Level4" : { 	"monster1" : 0, "monster2" : 0, "monster3" : 0},
+	"Level5" : { 	"monster1" : 0, "monster2" : 0, "monster3" : 0},
+	"Level6" : { 	"monster1" : 0, "monster2" : 0, "monster3" : 0},
+	"Level7" : { 	"monster1" : 0, "monster2" : 0, "monster3" : 0},
+	"Level8" : { 	"monster1" : 0, "monster2" : 0, "monster3" : 0},
+	"Level9" : { 	"monster1" : 0, "monster2" : 0, "monster3" : 0},
+	"Level10" : { 	"monster1" : "Left Arm", "monster2" : "Kyle The Destroyer", "monster3" : "Right Arm", "winMonster" : 1, "BGM" : "bossFight.ogg" }
+
+		
+}
