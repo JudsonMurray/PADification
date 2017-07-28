@@ -409,6 +409,51 @@
               </object>
             </child>
             <child>
+              <object class="tk.Frame" id="frmTypes">
+                <property name="height">32</property>
+                <property name="width">102</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">False</property>
+                  <property name="row">3</property>
+                  <property name="sticky">e</property>
+                </layout>
+                <child>
+                  <object class="tk.Canvas" id="canType1">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canType2">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canType3">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">2</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
               <object class="tk.Label" id="lblAttribute">
                 <property name="borderwidth">5</property>
                 <property name="padx">0</property>
@@ -479,50 +524,6 @@
                   <property name="row">3</property>
                   <property name="sticky">w</property>
                 </layout>
-              </object>
-            </child>
-            <child>
-              <object class="tk.Frame" id="frmTypes">
-                <property name="height">32</property>
-                <property name="width">102</property>
-                <layout>
-                  <property name="column">0</property>
-                  <property name="propagate">False</property>
-                  <property name="row">3</property>
-                </layout>
-                <child>
-                  <object class="tk.Canvas" id="canType1">
-                    <property name="height">32</property>
-                    <property name="width">31</property>
-                    <layout>
-                      <property name="column">0</property>
-                      <property name="propagate">False</property>
-                      <property name="row">0</property>
-                    </layout>
-                  </object>
-                </child>
-                <child>
-                  <object class="tk.Canvas" id="canType2">
-                    <property name="height">32</property>
-                    <property name="width">31</property>
-                    <layout>
-                      <property name="column">1</property>
-                      <property name="propagate">False</property>
-                      <property name="row">0</property>
-                    </layout>
-                  </object>
-                </child>
-                <child>
-                  <object class="tk.Canvas" id="canType3">
-                    <property name="height">32</property>
-                    <property name="width">31</property>
-                    <layout>
-                      <property name="column">2</property>
-                      <property name="propagate">False</property>
-                      <property name="row">0</property>
-                    </layout>
-                  </object>
-                </child>
               </object>
             </child>
             <child>
@@ -642,6 +643,95 @@
                       <property name="column">2</property>
                       <property name="propagate">True</property>
                       <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="lblLatentSkills">
+                <property name="text" translatable="yes">Latent Awoken Skills: </property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">4</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Frame" id="frmLatentSkills">
+                <property name="height">200</property>
+                <property name="width">200</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">4</property>
+                  <property name="sticky">w</property>
+                </layout>
+                <child>
+                  <object class="tk.Canvas" id="canLatentOne">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canLatentTwo">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canLatentThree">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">2</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canLatentFour">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">3</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canLatentFive">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">4</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Canvas" id="canLatentSix">
+                    <property name="height">32</property>
+                    <property name="width">31</property>
+                    <layout>
+                      <property name="column">5</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
                     </layout>
                   </object>
                 </child>

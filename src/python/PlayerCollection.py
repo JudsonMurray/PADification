@@ -110,14 +110,16 @@ class MonsterFrame:
            self.monbut.config(bg = 'Yellow')
            self.builder.get_object('lblMonsterBrief').config(bg = 'Yellow')
            self.masterbuilder.get_object("btnFavorite").config(state = DISABLED)
+           self.masterbuilder.get_object('btnRemove').config(state = DISABLED)
            self.masterbuilder.get_object("btnUnfavorite").config(state = NORMAL)
         else:
             self.monbut.config(bg = '#f0f0f0')
             self.builder.get_object('lblMonsterBrief').config(bg = '#f0f0f0')
             self.masterbuilder.get_object("btnFavorite").config(state = NORMAL)
             self.masterbuilder.get_object("btnUnfavorite").config(state = DISABLED)
+            self.masterbuilder.get_object('btnRemove').config(state = NORMAL)
         self.masterbuilder.get_object("btnEdit").config(state = NORMAL)
-        self.masterbuilder.get_object("btnRemove").config(state = NORMAL)
+        #self.masterbuilder.get_object("btnRemove").config(state = NORMAL)
         if self.currentMonster.Favorites:
             self.masterbuilder.get_object("btnUnfavorite").config(state = NORMAL)
         if self.currentMonster.WishList:
@@ -180,14 +182,65 @@ class MonsterFrame:
         
 
         #Changes the relief of the 'buttons' to signify a selected 'button'
-        #Prevents the program from trying to change the releif of a 'button' if it doesn't exist
         for i in range(0, (len(self.buttons))):
             self.buttons[i].monbut.config(relief = FLAT)
         k = self.selButton
         self.master.k = k
-
         
         self.buttons[self.selButton].monbut.config(relief = SUNKEN)
+
+        self.latents = []
+
+        if self.currentMonster.LSListID != None:
+            if self.currentMonster.LatentSkillOne != None:
+                self.baseImg = Image.open("Resource/PAD/Images/LatentAwokenSkills/" + str(self.currentMonster.LatentSkillOne) + '.png')
+                self.baseImg = self.baseImg.resize((30,30), Image.ANTIALIAS)
+                self.latents.append(ImageTk.PhotoImage(self.baseImg))
+                self.masterbuilder.get_object("canLatentOne").create_image(2,2, image = self.latents[0], anchor = tk.NW)
+            else:
+                self.masterbuilder.get_object("canLatentOne").delete('all')
+            if self.currentMonster.LatentSkillTwo != None:
+                self.baseImg = Image.open("Resource/PAD/Images/LatentAwokenSkills/" + str(self.currentMonster.LatentSkillTwo) + '.png')
+                self.baseImg = self.baseImg.resize((30,30), Image.ANTIALIAS)
+                self.latents.append(ImageTk.PhotoImage(self.baseImg))
+                self.masterbuilder.get_object("canLatentTwo").create_image(2,2, image = self.latents[1], anchor = tk.NW)
+            else:
+                self.masterbuilder.get_object("canLatentTwo").delete('all')
+            if self.currentMonster.LatentSkillThree != None:
+                self.baseImg = Image.open("Resource/PAD/Images/LatentAwokenSkills/" + str(self.currentMonster.LatentSkillThree) + '.png')
+                self.baseImg = self.baseImg.resize((30,30), Image.ANTIALIAS)
+                self.latents.append(ImageTk.PhotoImage(self.baseImg))
+                self.masterbuilder.get_object("canLatentThree").create_image(2,2, image = self.latents[2], anchor = tk.NW)
+            else:
+                self.masterbuilder.get_object("canLatentThree").delete('all')
+            if self.currentMonster.LatentSkillFour != None:
+                self.baseImg = Image.open("Resource/PAD/Images/LatentAwokenSkills/" + str(self.currentMonster.LatentSkillFour) + '.png')
+                self.baseImg = self.baseImg.resize((30,30), Image.ANTIALIAS)
+                self.latents.append(ImageTk.PhotoImage(self.baseImg))
+                self.masterbuilder.get_object("canLatentFour").create_image(2,2, image = self.latents[3], anchor = tk.NW)
+            else:
+                self.masterbuilder.get_object("canLatentFour").delete('all')
+            if self.currentMonster.LatentSkillFive != None:
+                self.baseImg = Image.open("Resource/PAD/Images/LatentAwokenSkills/" + str(self.currentMonster.LatentSkillFive) + '.png')
+                self.baseImg = self.baseImg.resize((30,30), Image.ANTIALIAS)
+                self.latents.append(ImageTk.PhotoImage(self.baseImg))
+                self.masterbuilder.get_object("canLatentFive").create_image(2,2, image = self.latents[4], anchor = tk.NW)
+            else:
+                self.masterbuilder.get_object("canLatentFive").delete('all')
+            if self.currentMonster.LatentSkillSix != None:
+                self.baseImg = Image.open("Resource/PAD/Images/LatentAwokenSkills/" + str(self.currentMonster.LatentSkillSix) + '.png')
+                self.baseImg = self.baseImg.resize((30,30), Image.ANTIALIAS)
+                self.latents.append(ImageTk.PhotoImage(self.baseImg))
+                self.masterbuilder.get_object("canLatentSix").create_image(2,2, image = self.latents[5], anchor = tk.NW)
+            else:
+                self.masterbuilder.get_object("canLatentSix").delete('all')
+        else:
+            self.masterbuilder.get_object("canLatentOne").delete('all')
+            self.masterbuilder.get_object("canLatentTwo").delete('all')
+            self.masterbuilder.get_object("canLatentThree").delete('all')
+            self.masterbuilder.get_object("canLatentFour").delete('all')
+            self.masterbuilder.get_object("canLatentFive").delete('all')
+            self.masterbuilder.get_object("canLatentSix").delete('all')
 
 
         #Populates fields with neccessary information
@@ -384,11 +437,13 @@ class PlayerCollection:
             self.startMonster = 0
             self.currentPage = 1
             self.__RemoveInformation()
+            self.onSearchClick()
         else:
             self.startMonster = 50 * (self.currentPage - 1)
             self.k = k
             self.__UpdateInformation()
-        self.onSearchClick()
+            self.populateList()
+        
 
     def onAddFromWishlistClick(self):
 
@@ -498,6 +553,7 @@ class PlayerCollection:
         self.pds.saveMonster(self.edit.getSaveDict())
         self.buttons[k].currentMonster = Monster((self.pds.selectMonsterInstance(selectedMonster, wishlist = self.displayWishlist))[0])
         self.buttons[k].clickMe(self)
+        self.MonsterResults[k + ((self.currentPage - 1) * 50)] = Monster((self.pds.selectMonsterInstance(selectedMonster, wishlist = self.displayWishlist))[0])
         pass
 
     def removeFromFavorites(self):
@@ -509,6 +565,7 @@ class PlayerCollection:
         self.pds.saveMonster(self.edit.getSaveDict())
         self.buttons[k].currentMonster = Monster((self.pds.selectMonsterInstance(selectedMonster, wishlist = self.displayWishlist))[0])
         self.buttons[k].clickMe(self)
+        self.MonsterResults[k + ((self.currentPage - 1) * 50)] = Monster((self.pds.selectMonsterInstance(selectedMonster, wishlist = self.displayWishlist))[0])
         pass
 
     def onWishlistClick(self):
@@ -603,8 +660,8 @@ class PlayerCollection:
         #for i in range(0, (len(self.buttons) - 1)):
         #    self.buttons[i].monbut.config(relief = FLAT)
         self.builder.get_object("btnPrev").config(state = NORMAL)
-        global k
-        k = None
+        #global k
+        #k = None
         self.currentPage += 1
         if self.currentPage == self.pages:
             self.builder.get_object("btnNext").config(state = DISABLED)
@@ -616,8 +673,8 @@ class PlayerCollection:
         #    self.buttons[i].monbut.config(relief = FLAT)
         self.builder.get_object("btnNext").config(state = NORMAL)
         self.currentPage -= 1
-        global k
-        k = None
+        #global k
+        #k = None
         self.startMonster -= self.count + 50
         if self.currentPage == 1:
             self.builder.get_object("btnPrev").config(state = DISABLED)
@@ -686,6 +743,7 @@ class PlayerCollection:
         self.builder.get_object("canASSeven").delete("all")
         self.builder.get_object("canASEight").delete("all")
         self.builder.get_object("canASNine").delete("all")
+
         if self.monster.ASListID is None:
             pass
         else:
@@ -719,6 +777,14 @@ class PlayerCollection:
         pass
 
     def __RemoveInformation(self):
+        '''Removes the information in the monster summary, runs during RemoveMonster'''
+        
+        self.builder.get_object("btnFavorite").config(state = DISABLED)
+        self.builder.get_object("btnEdit").config(state = DISABLED)
+        self.builder.get_object("btnRemove").config(state = DISABLED)
+        self.builder.get_object("btnUnfavorite").config(state = DISABLED)
+        self.builder.get_object("btnAddFromWishlist").config(state = DISABLED)
+
         self.portrait.photoImage = None
         self.typeOne.text = None
         self.typeTwo.text = None
@@ -739,7 +805,6 @@ class PlayerCollection:
         self.builder.get_object("canMonsterSummary").unbind("<Enter>")
         self.builder.get_object("canMonsterSummary").unbind("<Leave>")
         self.builder.get_object("canMonsterSummary").unbind("<ButtonPress>")
-        '''Removes the information in the monster summary, runs during RemoveMonster'''
         self.builder.get_object("canMonsterSummary").delete('all')
         self.builder.get_object("lblName").config(text = "Monster Name: ")
         self.builder.get_object("lblRarity").config(text = "Rarity: ")
@@ -759,6 +824,12 @@ class PlayerCollection:
         self.builder.get_object("canASSeven").delete("all")
         self.builder.get_object("canASEight").delete("all")
         self.builder.get_object("canASNine").delete("all")
+        self.builder.get_object("canLatentOne").delete('all')
+        self.builder.get_object("canLatentTwo").delete('all')
+        self.builder.get_object("canLatentThree").delete('all')
+        self.builder.get_object("canLatentFour").delete('all')
+        self.builder.get_object("canLatentFive").delete('all')
+        self.builder.get_object("canLatentSix").delete('all')
 
     def onSearchBarFocusIn(self, event):
         #Clears Search Bar on focus

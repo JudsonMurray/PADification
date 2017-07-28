@@ -494,7 +494,9 @@ class MonsterEdit:
         self.builder.get_variable("spn+RCV").set(str(self.monster.PlusRCV))
         self.builder.get_variable("spnSkillLvl").set(str(self.monster.SkillLevel))
         self.builder.get_variable("spnAwokenSkill").set(str(self.monster.SkillsAwoke))
+        self.master.playerCollection.buttons[self.master.playerCollection.k].clickMe(self)
         self.master.showPlayerCollection()
+        
 
     def next(self):
         self.builder.get_object("btnPrev").config(state = NORMAL)
@@ -547,7 +549,7 @@ class MonsterEdit:
         dialog = EvolutionFrame(self.master, self.builder)
     def __displayPossibleAssistants(self):
 
-        if self.pAssistants is None:
+        if self.pAssistants is None and self.monster.ActiveSkillName != None:
 
             self.pAssistants = []
             if self.monster.WishList:
@@ -558,7 +560,15 @@ class MonsterEdit:
             self.assistList = self.master.PADsql.selectMonsterInstance(wishlist = self.wishlist)
 
             for i in range(0, len(self.assistList)):
-                self.pAssistants.append(PADMonster.Monster(self.assistList[i]))
+                self.aASList = self.master.PADsql.getAwokenSkillList(self.assistList[i]["MonsterClassID"])
+                self.aNumAS = 0
+
+                for l in range(1, len(self.aASList)):
+                    if self.aASList[l] is not None:
+                        self.aNumAS += 1
+
+                if self.assistList[i]["SkillsAwoke"] == self.aNumAS and self.aASList != None and self.assistList[i]["ActiveSkillName"] != None:
+                    self.pAssistants.append(PADMonster.Monster(self.assistList[i]))
 
             self.assistants = []
             for i in self.pAssistants:
@@ -708,7 +718,6 @@ class MonsterEdit:
             self.latentList = self.master.PADsql.getLatentAwokenSkillList(self.instanceID)
             if self.latentList[7]:
                 self.extraSlot.select()
-                print(self.usedSlots)
             else:
                 self.extraSlot.deselect()
                 self.extraSlot.config(state = NORMAL)
@@ -719,11 +728,14 @@ class MonsterEdit:
                             self.usedSlots += int(a[2])
                             break
                     self.builder.get_object("lstSelectedLatents").insert(END, i)
+
         if self.usedSlots >= 6:
             self.extraSlot.config(state= DISABLED)
 
         if self.usedSlots == self.maxSlots.get():
             self.latentSkills.config(state = DISABLED)
+        else:
+            self.latentSkills.config(state = NORMAL)
 
         self.builder.get_object("lblLatentSlots").config(text = "Latent Slots: " + str(self.usedSlots) + " / " + str(self.maxSlots.get()))
 
