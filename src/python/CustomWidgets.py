@@ -583,15 +583,15 @@ class TeamTooltip(ToolTip.ToolTipBase):
                 if i != None:
                     thumbimg = Image.open("Resource/PAD/Images/thumbnails/"+ str(i.MonsterClassID) + ".png")
                     if count == 0:
-                        baseimg.paste(thumbimg,(38, 96))
+                        baseimg.paste(thumbimg,(40, 99))
                     else:
-                        baseimg.paste(thumbimg,(197 + ((count - 1) * 110), 96))
+                        baseimg.paste(thumbimg,(199 + ((count - 1) * 110), 99))
                 count += 1
 
             draw = ImageDraw.Draw(baseimg)
             
 
-            self.teamFrameRaw = baseimg.resize((int(baseimg.width / 1.25), int(baseimg.height / 1.25 )), Image.ANTIALIAS)
+            self.teamFrameRaw = baseimg.resize((int(baseimg.width / 1.5), int(baseimg.height / 1.5 )), Image.ANTIALIAS)
             self.teamFrameImage = ImageTk.PhotoImage(self.teamFrameRaw)
             
         else:

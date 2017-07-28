@@ -187,15 +187,15 @@ class TeamBrowser():
         for i in teamCanvas:
             i.delete('ALL')
         i = 0
-        j=0
+        #j=0
         ww= int(teamCanvas[i].winfo_width())
         wh= int(teamCanvas[i].winfo_height())
         while i < 5:
             if self.teamMonsters[i] != None:
-                self.fp = 'Resource/PAD/Images/thumbnails/'+ str(self.SelectedTeam.Monsters[j].MonsterClassID) + '.png'
+                self.fp = 'Resource/PAD/Images/thumbnails/'+ str(self.SelectedTeam.Monsters[i].MonsterClassID) + '.png'
                 self.img = Image.open(self.fp).resize((ww-14,wh-14))
                 self.myMonsterL.append(ImageTk.PhotoImage(self.img))
-                j+=1
+                #j+=1
             else:
                 self.myMonsterL.append(None)
             i += 1
@@ -217,7 +217,8 @@ class TeamBrowser():
 
         self.AwokenBadgeImage = tk.PhotoImage(file = 'Resource/PAD/Images/Badges/'+ str(self.SelectedTeam.AwokenBadgeName).replace('/', '') + '.png')
 
-        if len(self.SelectedTeam.Monsters) != 0 and self.SelectedTeam.Monsters[0].InstanceID == self.SelectedTeam.LeaderMonster and self.SelectedTeam.Monsters[0].LeaderSkillName != None:
+        #if len(self.SelectedTeam.Monsters) != 0 and self.SelectedTeam.Monsters[0].InstanceID == self.SelectedTeam.LeaderMonster and self.SelectedTeam.Monsters[0].LeaderSkillName != None:
+        if self.SelectedTeam.Monsters[0] != None and self.SelectedTeam.Monsters[0].LeaderSkillName != None:
             leaderskilldesc =  str(self.master.PADsql.getLeaderSkillDesc(self.SelectedTeam.Monsters[0].LeaderSkillName))
             count = 0
             spaces = []

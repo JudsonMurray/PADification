@@ -14,6 +14,10 @@ import tkinter as tk
 from tkinter import *
 import tkinter.messagebox as mb
 import pygubu
+import os
+import sys
+import ctypes
+import inspect
 
 #1st Party Modules
 import PADSQL
@@ -29,6 +33,7 @@ import Account_Options_Screen
 import MonsterBook
 import TeamBrowserScreen
 
+
 from CustomWidgets import *
 
 logging.basicConfig(filename='log/' + '{:%Y-%m-%d %H-%M-%S}'.format(datetime.datetime.now()) + '.log', level=logging.WARN , format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -39,8 +44,20 @@ class PADification(tk.Tk):
     def __init__(self, screenName = None, baseName = None, className = 'Tk', useTk = 1, sync = 0, use = None):
         super().__init__(screenName, baseName, className, useTk, sync, use)
 
-        #Logging object
+        #loggin object
         self.logger = logging.getLogger("Padification.root")
+        #system Info
+
+        self.windll_user32 = ctypes.windll.user32
+        self.screenWidth = self.windll_user32.GetSystemMetrics(0)
+        self.screenHeight = self.windll_user32.GetSystemMetrics(1)
+        print(self.screenWidth, self.screenHeight)
+
+        currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+        self.resourcePath = (os.path.dirname(currentdir) + "\\Resource\\" )
+        
+        print(currentdir)
+        print(self.resourcePath)
 
         # Fix the Size of the Application
         self.minsize(width=1280, height=960)
