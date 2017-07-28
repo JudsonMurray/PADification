@@ -392,21 +392,39 @@ class PlayerCollection:
 
     def onAddFromWishlistClick(self):
 
-        a = PADMonster.Monster(self.monsters[selectedMonster])
-        a.WishList = 0
-        b = a.getSaveDict()
+        for a in self.MonsterResults:
+            if a.InstanceID == selectedMonster:
+                teams = self.pds.selectTeamInstance(dreamteam = self.displayWishlist)
+                for i in teams:
+                    self.SelectedTeam = PADMonster.Team(self.pds, i)
 
-        global k
-        k = None
+                    if self.SelectedTeam.LeaderMonster == selectedMonster:
+                        self.SelectedTeam.setLeaderMonster()
+                    if self.SelectedTeam.SubMonsterOne == selectedMonster:
+                        self.SelectedTeam.setSubMonsterOne()
+                    if self.SelectedTeam.SubMonsterTwo == selectedMonster:
+                        self.SelectedTeam.setSubMonsterTwo()
+                    if self.SelectedTeam.SubMonsterThree == selectedMonster:
+                        self.SelectedTeam.setSubMonsterThree()
+                    if self.SelectedTeam.SubMonsterFour == selectedMonster:
+                        self.SelectedTeam.setSubMonsterFour()
+                    self.SelectedTeam.update()
+                    print(self.SelectedTeam.getSaveDict())
+                    self.pds.saveTeam(self.SelectedTeam.getSaveDict())
 
-        self.pds.saveMonster(b)
+                a.WishList = 0
+                b = a.getSaveDict()
 
-        self.monsters.pop(selectedMonster)
-        self.instantList.remove(selectedMonster)
+                global k
+                k = None
 
-        self.__RemoveInformation()
-        self.startMonster -= self.count
-        self.populateList()
+                self.pds.saveMonster(b)
+
+
+                self.__RemoveInformation()
+                self.startMonster -= self.count
+                self.onSearchClick()
+                break
 
     def populateList(self):
         '''Populates the player collection list'''
@@ -613,7 +631,7 @@ class PlayerCollection:
 
         if tkMessageBox:
             #Removes monster instance from DB
-            teams = self.pds.selectTeamInstance()
+            teams = self.pds.selectTeamInstance(dreamteam = self.displayWishlist)
             for i in range(0,len(teams)):
                 self.SelectedTeam = PADMonster.Team(self.pds, (teams[i]))
 
@@ -628,6 +646,7 @@ class PlayerCollection:
                 if self.SelectedTeam.SubMonsterFour == selectedMonster:
                     self.SelectedTeam.setSubMonsterFour()
                 self.SelectedTeam.update()
+                print(self.SelectedTeam.getSaveDict())
                 self.pds.saveTeam(self.SelectedTeam.getSaveDict())
             
 
@@ -635,21 +654,18 @@ class PlayerCollection:
 
             k = None
 
-            for i in self.monsters:
-                check = PADMonster.Monster(self.monsters[i])
-                if check.AssistMonsterID == self.monsters[selectedMonster]["InstanceID"]:
+            for i in self.MonsterResults:
+                check = i
+                if check.AssistMonsterID == selectedMonster:
                     check.AssistMonsterID = None
                     self.pds.saveMonster(check.getSaveDict())
 
             self.pds.deleteMonster(selectedMonster)
-            #Removes references to the monster
-            self.monsters.pop(selectedMonster)
-            self.instantList.remove(selectedMonster)
 
             #self.__UpdateMonsters()
             self.__RemoveInformation()
             self.startMonster -= self.count
-            self.populateList()
+            self.onSearchClick()
 
     def __UpdateInformation(self):
         global selectedMonster
@@ -754,11 +770,12 @@ class PlayerCollection:
         if self.builder.get_variable("SearchBar").get() == "":
             self.builder.get_variable("SearchBar").set(self.bgSearchText)
 
-    def onSearchClick(self):
+    def onSearchClick(self, event = None):
         ############################
         ##### PARSE SEARCH BAR #####
         ############################
-
+        global selectedMonster
+        selectedMonster = None
         self.__RemoveInformation()
 
         search = self.builder.get_variable("SearchBar").get()
@@ -828,7 +845,7 @@ class PlayerCollection:
         ##### CALCULATE MAXPAGES AND SET PAGE TO 1 #####
         ################################################
         self.startMonster = 0
-        self.page = 1
+        self.currentPage = 1
         self.populateList()
         self.builder.get_object("lblResults").config(text = str(len(self.MonsterResults)) + " of " + str(len(self.pds.selectMonsterInstance(wishlist = self.displayWishlist))))
 
@@ -842,10 +859,11 @@ class PlayerCollection:
             value = '1'
         elif int(value) > self.pages:
             value = str(self.pages)
-
+        
         self.builder.get_variable("varPageEnt").set(value)
-        self.page = int(value)
-        self.populateCollection(self.MonsterResults)
+        self.currentPage = int(value)
+        self.startMonster = (self.currentPage - 1) * 50
+        self.populateList()
 
 
     def validatePageEntry(self, action, index, value_if_allowed,

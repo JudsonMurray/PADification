@@ -57,12 +57,17 @@ class AccountOptions:
         elif not re.match(r'[A-Za-z0-9@#$%^&+=]*$',self.obj2.get()) or len(self.obj2.get()) < 8 or len(self.obj2.get()) > 10 or self.obj2.get() != self.obj3.get():
             changePassword = False
             return mb.showwarning("Invalid Password", "Input a Valid Password,\nMust be 8-10 characters long,\nand can contain A-Z a-z 0-9 @#$%^&+=")
+
         #Update Username
-        if self.obj1.get() != '' and not self.obj1.get().isspace() :
+        if len(self.obj1.get()) >= 4 and len(self.obj1.get()) <= 15:
             changeUsername = True 
 
         elif self.obj1.get() == '':
             pass
+
+        elif not len(self.obj1.get()) < 4 or len(self.obj1.get()) > 15:
+                changeUsername = False
+                return mb.showwarning("Invalid Username", "Input a Valid Username,\nMust be 4-15 characters long")
 
         else:
             mb.showerror("Update Error","Incorrect username format!")
