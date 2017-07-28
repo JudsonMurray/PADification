@@ -1,0 +1,348 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <object class="tk.Frame" id="MainMenu">
+    <property name="height">480</property>
+    <property name="width">640</property>
+    <layout>
+      <property name="column">0</property>
+      <property name="propagate">False</property>
+      <property name="row">0</property>
+    </layout>
+    <child>
+      <object class="tk.Frame" id="Frame_1">
+        <property name="height">480</property>
+        <property name="width">640</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">10</property>
+          <property name="propagate">False</property>
+          <property name="row">0</property>
+          <property name="rowspan">10</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="NewGame">
+        <property name="command">onNewGameClick</property>
+        <property name="padx">10</property>
+        <property name="text" translatable="yes">New Game</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="columnspan">1</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="EndlessMode">
+        <property name="command">onEndlessModeClick</property>
+        <property name="padx">3</property>
+        <property name="text" translatable="yes">Endless Mode</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="columnspan">1</property>
+          <property name="propagate">True</property>
+          <property name="row">3</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="Load">
+        <property name="command">onLoadClick</property>
+        <property name="padx">10</property>
+        <property name="text" translatable="yes">Load Game</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="columnspan">1</property>
+          <property name="propagate">True</property>
+          <property name="row">4</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="Quit">
+        <property name="command">onQuitClick</property>
+        <property name="padx">10</property>
+        <property name="text" translatable="yes">Quit Game</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="columnspan">1</property>
+          <property name="propagate">True</property>
+          <property name="row">5</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="Credits">
+        <property name="command">onCreditClick</property>
+        <property name="padx">21</property>
+        <property name="text" translatable="yes">Credits</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="columnspan">1</property>
+          <property name="propagate">True</property>
+          <property name="row">6</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Canvas" id="hydraCanvas">
+        <property name="height">200</property>
+        <property name="relief">raised</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">7</property>
+          <property name="rowspan">2</property>
+          <property name="sticky">nw</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Canvas" id="knightCanvas">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="ipady">0</property>
+          <property name="propagate">True</property>
+          <property name="row">7</property>
+          <property name="rowspan">2</property>
+          <property name="sticky">nw</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Canvas" id="titleCanvas">
+        <property name="background">black</property>
+        <property name="height">100</property>
+        <property name="width">640</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">10</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+  <object class="tk.Frame" id="GameOver">
+    <property name="height">480</property>
+    <property name="width">640</property>
+    <layout>
+      <property name="column">0</property>
+      <property name="propagate">False</property>
+      <property name="row">0</property>
+    </layout>
+    <child>
+      <object class="tk.Frame" id="Frame_2">
+        <property name="height">480</property>
+        <property name="width">640</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">10</property>
+          <property name="propagate">False</property>
+          <property name="row">0</property>
+          <property name="rowspan">10</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="DeathMenu">
+        <property name="command">onMenuClick</property>
+        <property name="text" translatable="yes">Main Menu</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">10</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="DeathNewGame">
+        <property name="command">onNewGameClick</property>
+        <property name="padx">3</property>
+        <property name="text" translatable="yes">New Game</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">10</property>
+          <property name="propagate">True</property>
+          <property name="row">3</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="DeathQuit">
+        <property name="command">onQuitClick</property>
+        <property name="padx">20</property>
+        <property name="text" translatable="yes">Quit</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">10</property>
+          <property name="propagate">True</property>
+          <property name="row">4</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Canvas" id="gameOverCanvas">
+        <property name="background">black</property>
+        <property name="height">100</property>
+        <property name="width">640</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">10</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+  <object class="tk.Frame" id="endlessOver">
+    <property name="height">480</property>
+    <property name="width">640</property>
+    <layout>
+      <property name="column">0</property>
+      <property name="columnspan">10</property>
+      <property name="propagate">False</property>
+      <property name="row">0</property>
+    </layout>
+    <child>
+      <object class="tk.Frame" id="EndlessOverFrame">
+        <property name="height">480</property>
+        <property name="width">640</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">10</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="rowspan">10</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="PlayerLabel">
+        <property name="text" translatable="yes">-placeHolder-</property>
+        <property name="textvariable">string:playerHolder</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">10</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Canvas" id="endlessOverCanvas">
+        <property name="background">black</property>
+        <property name="height">100</property>
+        <property name="width">640</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">10</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="Attacks dealt:">
+        <property name="text" translatable="yes">Attacks dealt:</property>
+        <layout>
+          <property name="column">3</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="Floors Reached:">
+        <property name="text" translatable="yes">Floors reached:</property>
+        <layout>
+          <property name="column">3</property>
+          <property name="propagate">True</property>
+          <property name="row">3</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="Destroyers destroyed:">
+        <property name="text" translatable="yes">Destroyers destroyed:</property>
+        <layout>
+          <property name="column">3</property>
+          <property name="propagate">True</property>
+          <property name="row">4</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="atkHolder">
+        <property name="text" translatable="yes">atkHolder</property>
+        <property name="textvariable">string:atkHolder</property>
+        <layout>
+          <property name="column">5</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="floHolder">
+        <property name="text" translatable="yes">FloHolder</property>
+        <property name="textvariable">string:floHolder</property>
+        <layout>
+          <property name="column">5</property>
+          <property name="propagate">True</property>
+          <property name="row">3</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="ddHolder">
+        <property name="text" translatable="yes">ddHolder</property>
+        <property name="textvariable">string:ddHolder</property>
+        <layout>
+          <property name="column">5</property>
+          <property name="propagate">True</property>
+          <property name="row">4</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="EndlessMenu">
+        <property name="command">onMenuClick</property>
+        <property name="text" translatable="yes">Main Menu</property>
+        <layout>
+          <property name="columnspan">10</property>
+          <property name="propagate">True</property>
+          <property name="row">5</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="EndlessQuit">
+        <property name="command">onQuitClick</property>
+        <property name="text" translatable="yes">Quit</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">10</property>
+          <property name="ipadx">20</property>
+          <property name="propagate">True</property>
+          <property name="row">6</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+</interface>

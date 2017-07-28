@@ -1,0 +1,16 @@
+{	
+	"Kyle The Destroyer": {"Atk": 0, "HpMax": 450, "Speed": 6, "Def": 50, "img": "theDestroyer.gif", "isBoss" : 1}, 
+	"Left Arm": {"Atk": 20, "HpMax": 100, "Speed": 2, "Def": 50, "img": "LeftArm.gif", "isBoss" : 1}, 
+	"Right Arm": {"Atk": 20, "HpMax": 100, "Speed": 2, "Def": 50, "img": "RightArm.gif", "isBoss" : 1}, 
+	"Kyle The Destroyer": {"Atk": 0, "HpMax": 450, "Speed": 2, "Def": 50, "img": "theDestroyer.gif", "isBoss" : 1}, 
+	"Ogre": {"Atk": 20, "HpMax": 230, "Speed": 4, "Def": 6, "img": "Ogre.gif", "isBoss" : 0},
+	"Cthulu": {"Atk": 20, "HpMax": 133, "Speed": 3, "Def": 6, "img": "Cthulu.gif", "isBoss" : 0}, 
+	"Goblin": {"Atk": 12, "HpMax": 55, "Speed": 4, "Def": 7, "img": "Goblin.gif", "isBoss" : 0}, 
+	"Wendigo": {"Atk": 21, "HpMax": 40, "Speed": 4, "Def": 2, "img": "wendigo.gif", "isBoss" : 0}, 
+	"Gargoyle": {"Atk": 8, "HpMax": 30, "Speed": 3, "Def": 16, "img": "Gargoyle.gif", "isBoss" : 0}, 
+	"Sword Gator": {"Atk": 7, "HpMax": 12, "Speed": 4, "Def": 10000, "img": "Sword Gator.gif", "isBoss" : 0}, 
+	"Pikachu": {"Atk": 17, "HpMax": 42, "Speed": 3, "Def": 1, "img": "Pikachu.gif", "isBoss" : 0}, 
+	"MissingNo": {"Atk": 16, "HpMax": 27, "Speed": 2, "Def": 16, "img": "MissingNo.gif", "isBoss" : 0}, 
+	"Pedo Bear": {"Atk": 1, "HpMax": 190, "Speed": 2, "Def": -5, "img": "AVeryPowerfulMonster.gif", "isBoss" : 0}, 
+	"Gremlin": {"Atk": 12, "HpMax": 50, "Speed": 3, "Def": 7, "img": "Gremlin.gif", "isBoss" : 0}		
+														}

@@ -1,0 +1,800 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <object class="ttk.Frame" id="root">
+    <property name="height">480</property>
+    <property name="width">640</property>
+    <layout>
+      <property name="column">0</property>
+      <property name="propagate">False</property>
+      <property name="row">0</property>
+      <columns>
+        <column id="0">
+          <property name="pad">38</property>
+        </column>
+      </columns>
+      <rows>
+        <row id="0">
+          <property name="pad">6</property>
+        </row>
+      </rows>
+    </layout>
+    <child>
+      <object class="ttk.Frame" id="size">
+        <property name="height">480</property>
+        <property name="width">640</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">10</property>
+          <property name="propagate">False</property>
+          <property name="row">0</property>
+          <property name="rowspan">10</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Frame" id="titleFrame">
+        <property name="height">40</property>
+        <property name="relief">groove</property>
+        <property name="width">180</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">1</property>
+          <property name="propagate">False</property>
+          <property name="row">0</property>
+          <columns>
+            <column id="0">
+              <property name="pad">40</property>
+            </column>
+          </columns>
+          <rows>
+            <row id="0">
+              <property name="pad">20</property>
+            </row>
+          </rows>
+        </layout>
+        <child>
+          <object class="ttk.Label" id="floorLabel">
+            <property name="font">{@MS Gothic} 14 {}</property>
+            <property name="text" translatable="yes">Floor:</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Label" id="floorNum">
+            <property name="font">{@MS Gothic} 14 {}</property>
+            <property name="text" translatable="yes">0</property>
+            <property name="textvariable">string:floorVar</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="sticky">w</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Label" id="Label_1">
+            <property name="font">{@MS Gothic} 14 {}</property>
+            <property name="text" translatable="yes">/ 10</property>
+            <layout>
+              <property name="column">2</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Frame" id="monsterFrame">
+        <property name="borderwidth">2</property>
+        <property name="height">200</property>
+        <property name="relief">groove</property>
+        <property name="width">640</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">1</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+          <columns>
+            <column id="0">
+              <property name="minsize">0</property>
+              <property name="pad">40</property>
+            </column>
+          </columns>
+          <rows>
+            <row id="0">
+              <property name="pad">5</property>
+            </row>
+          </rows>
+        </layout>
+        <child>
+          <object class="ttk.Frame" id="size_2">
+            <property name="height">200</property>
+            <property name="width">600</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="columnspan">4</property>
+              <property name="propagate">False</property>
+              <property name="row">0</property>
+              <property name="rowspan">3</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Frame" id="monsterOne">
+            <property name="borderwidth">10</property>
+            <property name="height">200</property>
+            <property name="relief">groove</property>
+            <property name="width">160</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">False</property>
+              <property name="row">0</property>
+              <property name="sticky">s</property>
+            </layout>
+            <child>
+              <object class="ttk.Label" id="mOneName">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">Ogre</property>
+                <property name="textvariable">string:mOneName</property>
+                <property name="width">18</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="columnspan">4</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">nw</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="level">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">lv. </property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="mOneLevel">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">1</property>
+                <property name="textvariable">int:mOneLevel</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="mOneHP">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">Hp: </property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="mOneHPValue">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">0</property>
+                <property name="textvariable">int:mOneHPValue</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="slash">
+                <property name="text" translatable="yes">/</property>
+                <layout>
+                  <property name="column">2</property>
+                  <property name="columnspan">2</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="mOneMaxHP">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">10</property>
+                <property name="textvariable">int:mOneMaxHP</property>
+                <layout>
+                  <property name="column">3</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Canvas" id="mOne">
+                <property name="borderwidth">10</property>
+                <property name="height">100</property>
+                <property name="relief">raised</property>
+                <property name="selectbackground">#020202</property>
+                <property name="selectborderwidth">10</property>
+                <property name="width">100</property>
+                <bind add="True" handler="canvasSelection" sequence="&lt;1&gt;" />
+                <layout>
+                  <property name="column">0</property>
+                  <property name="columnspan">6</property>
+                  <property name="propagate">True</property>
+                  <property name="row">3</property>
+                  <property name="rowspan">6</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Frame" id="monsterTwo">
+            <property name="borderwidth">10</property>
+            <property name="height">200</property>
+            <property name="relief">groove</property>
+            <property name="width">160</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">False</property>
+              <property name="row">0</property>
+              <property name="sticky">sw</property>
+            </layout>
+            <child>
+              <object class="ttk.Label" id="mTwoName">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">Ogre</property>
+                <property name="textvariable">string:mTwoName</property>
+                <property name="width">18</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="columnspan">6</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">nw</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="level_11">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">lv. </property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="mTwoLevel">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">1</property>
+                <property name="textvariable">int:mTwoLevel</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="mTwoHP">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">Hp: </property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="mTwoHPValue">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">0</property>
+                <property name="textvariable">int:mTwoHPValue</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="slash_15">
+                <property name="text" translatable="yes">/</property>
+                <layout>
+                  <property name="column">2</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="mTwoMaxHP">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">10</property>
+                <property name="textvariable">int:mTwoMaxHP</property>
+                <layout>
+                  <property name="column">3</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Canvas" id="mTwo">
+                <property name="borderwidth">10</property>
+                <property name="height">100</property>
+                <property name="relief">raised</property>
+                <property name="selectbackground">#020202</property>
+                <property name="selectborderwidth">10</property>
+                <property name="width">100</property>
+                <bind add="True" handler="canvasSelection" sequence="&lt;1&gt;" />
+                <layout>
+                  <property name="column">0</property>
+                  <property name="columnspan">6</property>
+                  <property name="propagate">True</property>
+                  <property name="row">3</property>
+                  <property name="rowspan">6</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Frame" id="monsterThree">
+            <property name="borderwidth">10</property>
+            <property name="height">200</property>
+            <property name="relief">groove</property>
+            <property name="width">160</property>
+            <layout>
+              <property name="column">2</property>
+              <property name="propagate">False</property>
+              <property name="row">0</property>
+              <property name="sticky">s</property>
+            </layout>
+            <child>
+              <object class="ttk.Label" id="mThreeName">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">Ogre</property>
+                <property name="textvariable">string:mThreeName</property>
+                <property name="width">18</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="columnspan">7</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">nw</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="level_18">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">lv. </property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="mThreeLevel">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">1</property>
+                <property name="textvariable">int:mThreeLevel</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="mThreeHP">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">Hp: </property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="mThreeHPValue">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">0</property>
+                <property name="textvariable">int:mThreeHPValue</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="slash_22">
+                <property name="text" translatable="yes">/</property>
+                <layout>
+                  <property name="column">2</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="mThreeMaxHP">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">10</property>
+                <property name="textvariable">int:mThreeMaxHP</property>
+                <layout>
+                  <property name="column">3</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Canvas" id="mThree">
+                <property name="borderwidth">10</property>
+                <property name="height">100</property>
+                <property name="insertontime">0</property>
+                <property name="relief">raised</property>
+                <property name="selectbackground">#020202</property>
+                <property name="selectborderwidth">10</property>
+                <property name="width">100</property>
+                <bind add="True" handler="canvasSelection" sequence="&lt;1&gt;" />
+                <layout>
+                  <property name="column">0</property>
+                  <property name="columnspan">6</property>
+                  <property name="propagate">True</property>
+                  <property name="row">3</property>
+                  <property name="rowspan">6</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Radiobutton" id="Radio_1">
+            <property name="value">0</property>
+            <property name="variable">int:monsterSelection</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Radiobutton" id="Radio_2">
+            <property name="value">1</property>
+            <property name="variable">int:monsterSelection</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Radiobutton" id="Radio_3">
+            <property name="value">2</property>
+            <property name="variable">int:monsterSelection</property>
+            <layout>
+              <property name="column">2</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Labelframe" id="CombatLogFrame">
+        <property name="height">200</property>
+        <property name="text" translatable="yes">Combat Log</property>
+        <property name="underline">0</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">3</property>
+          <property name="sticky">n</property>
+        </layout>
+        <child>
+          <object class="tk.Text" id="CombatLog">
+            <property name="cursor">arrow</property>
+            <property name="font">{@MS Gothic} 12 {}</property>
+            <property name="height">6</property>
+            <property name="insertunfocussed">none</property>
+            <property name="setgrid">false</property>
+            <property name="state">disabled</property>
+            <property name="takefocus">false</property>
+            <property name="text" translatable="yes">Combat Log</property>
+            <property name="width">74</property>
+            <property name="wrap">word</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">2</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_2">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">1</property>
+          <property name="propagate">True</property>
+          <property name="row">5</property>
+          <property name="rowspan">1</property>
+          <columns>
+            <column id="0">
+              <property name="minsize">0</property>
+              <property name="pad">30</property>
+            </column>
+          </columns>
+        </layout>
+        <child>
+          <object class="ttk.Frame" id="PlayerFrame">
+            <property name="height">75</property>
+            <property name="relief">groove</property>
+            <property name="width">250</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="columnspan">1</property>
+              <property name="propagate">False</property>
+              <property name="row">0</property>
+              <property name="rowspan">10</property>
+              <property name="sticky">w</property>
+              <columns>
+                <column id="0">
+                  <property name="pad">0</property>
+                  <property name="weight">0</property>
+                </column>
+                <column id="1">
+                  <property name="weight">0</property>
+                </column>
+                <column id="2">
+                  <property name="weight">0</property>
+                </column>
+                <column id="3">
+                  <property name="pad">0</property>
+                  <property name="weight">0</property>
+                </column>
+                <column id="4">
+                  <property name="pad">0</property>
+                </column>
+              </columns>
+              <rows>
+                <row id="0">
+                  <property name="pad">5</property>
+                </row>
+              </rows>
+            </layout>
+            <child>
+              <object class="ttk.Label" id="playerName">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">playerName</property>
+                <property name="textvariable">string:playerName</property>
+                <property name="width">22</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="columnspan">5</property>
+                  <property name="padx">10</property>
+                  <property name="propagate">False</property>
+                  <property name="row">0</property>
+                  <property name="rowspan">1</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="level_1">
+                <property name="anchor">e</property>
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">lv.</property>
+                <property name="width">4</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="columnspan">1</property>
+                  <property name="propagate">False</property>
+                  <property name="row">1</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="playerLevel">
+                <property name="anchor">w</property>
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">0</property>
+                <property name="textvariable">int:playerLevel</property>
+                <property name="width">4</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="columnspan">3</property>
+                  <property name="propagate">False</property>
+                  <property name="row">1</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="hp">
+                <property name="anchor">e</property>
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">Hp:</property>
+                <property name="width">4</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="columnspan">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="playerHPValue">
+                <property name="anchor">e</property>
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">1000</property>
+                <property name="textvariable">int:playerHPValue</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="Label_29">
+                <property name="text" translatable="yes">/</property>
+                <layout>
+                  <property name="column">2</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="playerMaxHP">
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">1000</property>
+                <property name="textvariable">int:playerMaxHP</property>
+                <property name="width">4</property>
+                <layout>
+                  <property name="column">3</property>
+                  <property name="propagate">False</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="potPic">
+                <property name="anchor">w</property>
+                <property name="height">20</property>
+                <property name="height">20</property>
+                <property name="text" translatable="yes">Label_2</property>
+                <layout>
+                  <property name="column">4</property>
+                  <property name="propagate">False</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="potionCount">
+                <property name="anchor">w</property>
+                <property name="font">{@MS Gothic} 12 {}</property>
+                <property name="text" translatable="yes">0</property>
+                <layout>
+                  <property name="column">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Frame" id="ButtonFrame">
+            <property name="borderwidth">10</property>
+            <property name="height">200</property>
+            <property name="relief">ridge</property>
+            <property name="width">200</property>
+            <layout>
+              <property name="column">2</property>
+              <property name="columnspan">2</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="sticky">e</property>
+            </layout>
+            <child>
+              <object class="ttk.Button" id="AttackButton">
+                <property name="command">onAttack</property>
+                <property name="takefocus">false</property>
+                <property name="text" translatable="yes">Attack</property>
+                <property name="width">15</property>
+                <bind add="True" handler="onAttack" sequence="&lt;1&gt;" />
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Button" id="PotionButton">
+                <property name="command">onPotion</property>
+                <property name="takefocus">false</property>
+                <property name="text" translatable="yes">Potion</property>
+                <property name="width">15</property>
+                <bind add="True" handler="onPotion" sequence="&lt;1&gt;" />
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Button" id="FleeButton">
+                <property name="command">onFlee</property>
+                <property name="takefocus">false</property>
+                <property name="text" translatable="yes">Flee</property>
+                <property name="width">15</property>
+                <bind add="" handler="onFlee" sequence="&lt;1&gt;" />
+                <layout>
+                  <property name="column">2</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
