@@ -475,6 +475,18 @@ class EditTeam():
         saveThisTeam = self.destroyerTeam.getSaveDict()
         saveThisTeam['Email'] = self.PADsql.Email
         self.PADsql.saveTeam(saveThisTeam)
+        
+        tt = self.PADsql.selectTeamInstance(dreamteam = self.dreamteam)
+        tID = 0
+        for i in range(0, len(tt)):
+            if tt[i]['TeamInstanceID'] > tID:
+                tID = tt[i]['TeamInstanceID']
+        tt = self.PADsql.selectTeamInstance(int(tID), dreamteam = self.dreamteam)
+        t1 = PADMonster.Team(self.PADsql, tt[0])
+        if self.destroyerTeam.TeamInstanceID != None and self.destroyerTeam.TeamInstanceID != 0:
+            self.master.teamBrowser.SelectedTeam = self.destroyerTeam
+        else:
+            self.master.teamBrowser.SelectedTeam = PADMonster.Team(self.PADsql,tt[0])
         self.master.showTeamBrowser()
         return
 
