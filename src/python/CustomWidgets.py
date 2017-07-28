@@ -166,39 +166,40 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
             truetype_font = ImageFont.truetype("Resource/PAD/Font/FOT-RowdyStd-EB.ttf", 14)
             #skill Descriptions
             
-            skilldescwords = self.monster.ActiveSkillDesc.split(" ")
-            skilldescline = ""
-            skilldesc = []
-            for i in skilldescwords:
-                if len(skilldescline + i) < 77:
-                    skilldescline += i + " "
-                else:
+            if self.monster.ActiveSkillDesc != None:
+                skilldescwords = self.monster.ActiveSkillDesc.split(" ")
+                skilldescline = ""
+                skilldesc = []
+                for i in skilldescwords:
+                    if len(skilldescline + i) < 77:
+                        skilldescline += i + " "
+                    else:
+                        skilldesc.append(skilldescline)
+                        skilldescline = ""
+                if skilldescline:
                     skilldesc.append(skilldescline)
                     skilldescline = ""
-            if skilldescline:
-                skilldesc.append(skilldescline)
+                count = 0
+                for i in skilldesc:
+                    draw.text((17, 620 + (count * 15)), i, font=truetype_font, fill="#000000")
+                    count += 1
+            if self.monster.LeaderSkillDesc != None:
+                skilldescwords = self.monster.LeaderSkillDesc.split(" ")
                 skilldescline = ""
-            count = 0
-            for i in skilldesc:
-                draw.text((17, 620 + (count * 15)), i, font=truetype_font, fill="#000000")
-                count += 1
-            
-            skilldescwords = self.monster.LeaderSkillDesc.split(" ")
-            skilldescline = ""
-            skilldesc = []
-            for i in skilldescwords:
-                if len(skilldescline + i) < 77:
-                    skilldescline += i + " "
-                else:
+                skilldesc = []
+                for i in skilldescwords:
+                    if len(skilldescline + i) < 77:
+                        skilldescline += i + " "
+                    else:
+                        skilldesc.append(skilldescline)
+                        skilldescline = i + " "
+                if skilldescline:
                     skilldesc.append(skilldescline)
-                    skilldescline = i + " "
-            if skilldescline:
-                skilldesc.append(skilldescline)
-                skilldescline = ""
-            count = 0
-            for i in skilldesc:
-                draw.text((17, 735 + (count * 15)), i, font=truetype_font, fill="#000000")
-                count += 1
+                    skilldescline = ""
+                count = 0
+                for i in skilldesc:
+                    draw.text((17, 735 + (count * 15)), i, font=truetype_font, fill="#000000")
+                    count += 1
 
             values = ["One", "Two", "Three"]
             for i in range(0,3):
