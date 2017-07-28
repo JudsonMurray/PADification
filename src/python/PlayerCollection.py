@@ -409,8 +409,8 @@ class MonsterFrame:
         else:
             self.mastermaster.LSSix.text = self.currentMonster.LatentSkillSix
 
-        self.master.portrait = CustomWidgets.ImageTooltip(self.masterbuilder.get_object("canMonsterSummary"), self.portrait)
-
+        self.mastermaster.portrait.update(self.currentMonster)
+        
 class PlayerCollection:
     def __init__(self, master):
         #logger
@@ -452,7 +452,7 @@ class PlayerCollection:
         self.imgTitleImage = PhotoImage(file = "Resource/PAD/Images/Padification Logo.png")
         self.builder.get_object('lblTitleImage').config(image = self.imgTitleImage)
         
-        self.portrait = CustomWidgets.ImageTooltip(self.builder.get_object("canMonsterSummary"), None)
+        self.portrait = CustomWidgets.MonsterStatTooltip(self.builder.get_object("canMonsterSummary"))
         self.typeOne = ToolTip.ToolTip(self.builder.get_object("canType1"), None)
         self.typeTwo = ToolTip.ToolTip(self.builder.get_object("canType2"), None)
         self.typeThree = ToolTip.ToolTip(self.builder.get_object("canType3"), None)
@@ -838,7 +838,7 @@ class PlayerCollection:
         self.builder.get_object("btnUnfavorite").config(state = DISABLED)
         self.builder.get_object("btnAddFromWishlist").config(state = DISABLED)
 
-        self.portrait.photoImage = None
+        #self.portrait.photoImage = None
         self.typeOne.text = None
         self.typeTwo.text = None
         self.typeThree.text = None
@@ -855,10 +855,10 @@ class PlayerCollection:
         for i in self.builder.get_object("canEvoTree").grid_slaves():
             i.grid_forget()
 
-        self.builder.get_object("canMonsterSummary").unbind("<Enter>")
-        self.builder.get_object("canMonsterSummary").unbind("<Leave>")
-        self.builder.get_object("canMonsterSummary").unbind("<ButtonPress>")
-        self.builder.get_object("canMonsterSummary").delete('all')
+        #self.builder.get_object("canMonsterSummary").unbind("<Enter>")
+        #self.builder.get_object("canMonsterSummary").unbind("<Leave>")
+        #self.builder.get_object("canMonsterSummary").unbind("<ButtonPress>")
+        #self.builder.get_object("canMonsterSummary").delete('all')
         self.builder.get_object("lblName").config(text = "Monster Name: ")
         self.builder.get_object("lblRarity").config(text = "Rarity: ")
         self.builder.get_object("lblHP").config(text = "HP: ")
