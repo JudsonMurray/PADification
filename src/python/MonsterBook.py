@@ -284,7 +284,7 @@ class MonsterBook():
 
         if search.isnumeric():
             search = int(search)
-        elif re.match(r"(\d+)(,\s*\d+)*", search):
+        elif re.match(r"(\d+,\s*\d+)", search):
             search = le("(" + search + ")")
         
 
