@@ -315,17 +315,17 @@ class Team():
             x=1
         else:
             x=0
-        monmon = self.PADSQL.selectMonsterInstance(self.LeaderMonster, wishlist = x)
+        monmon = self.PADSQL.selectMonsterInstance(self.LeaderMonster, wishlist = x, allUsers = True)
         if self.LeaderMonster != None:
-            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.LeaderMonster, wishlist = x)[0]))
+            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.LeaderMonster, wishlist = x, allUsers = True)[0]))
         if self.SubMonsterOne != None:
-            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterOne, wishlist = x)[0]))
+            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterOne, wishlist = x, allUsers = True)[0]))
         if self.SubMonsterTwo != None:
-            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterTwo, wishlist = x)[0]))
+            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterTwo, wishlist = x, allUsers = True)[0]))
         if self.SubMonsterThree != None:
-            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterThree, wishlist = x)[0]))
+            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterThree, wishlist = x, allUsers = True)[0]))
         if self.SubMonsterFour != None:
-            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterFour, wishlist = x)[0]))
+            self.Monsters.append(Monster(self.PADSQL.selectMonsterInstance(self.SubMonsterFour, wishlist = x, allUsers = True)[0]))
 
         self.TeamHP = 0
         self.TeamRCV = 0

@@ -118,14 +118,20 @@ class MonsterBook():
             self.curPage += 1
             self.update()
             self.builder.get_variable("varPageEnt").set(str(self.curPage))
-            #self.clearInfo()
+        elif self.curPage == self.maxPage and self.maxPage != 1:
+            self.curPage = 1
+            self.update()
+            self.builder.get_variable("varPageEnt").set(str(self.curPage))
 
     def prevPage(self, event):
         if self.curPage > 1:
             self.curPage -= 1
             self.update()
             self.builder.get_variable("varPageEnt").set(str(self.curPage))
-            #self.clearInfo()
+        elif self.curPage == 1 and self.maxPage != 1:
+            self.curPage = self.maxPage
+            self.update()
+            self.builder.get_variable("varPageEnt").set(str(self.curPage))
     
     def clearInfo(self):
         """Clears Monster SUmmary Info"""
@@ -168,11 +174,6 @@ class MonsterBook():
         self.thumbnail = thumbnail
         self.builder.get_object("canMonsterSummary").create_image(10,10, image = self.thumbnail, anchor = tk.NW)
 
-        #if self.portraitImage != None:
-        #    print("Clearing")
-        #    self.Tooltips[0].PhotoImage = None
-        #    self.portrait = None
-        #    self.portraitImage.close()
         self.portraitImage = Image.open("Resource/PAD/Images/portraits/"+ str(self.monster.MonsterClassID) + ".jpg")
         self.portrait = ImageTk.PhotoImage(self.portraitImage, self.portrait)
         self.PortraitTooltip.PhotoImage = self.portrait
@@ -450,6 +451,7 @@ class MonsterBook():
                     "SecFire", "SecWater", "SecWood", "SecLight", "SecDark" ]:
             self.builder.get_variable(i).set("")
         self.builder.get_variable("SearchBar").set(self.bgSearchText)
+        self.master.focus()
 
 class MonsterFrame():
     def __init__(self, master, mbobject):

@@ -1549,14 +1549,10 @@
         </layout>
         <child>
           <object class="tk.Checkbutton" id="chkWishList">
-            <property name="activebackground">#ffed71</property>
-            <property name="background">#b8ccb5</property>
             <property name="font">{yu} 14 {}</property>
-            <property name="indicatoron">false</property>
-            <property name="selectcolor">#ffed71</property>
-            <property name="text" translatable="yes">WishList</property>
+            <property name="text" translatable="yes">Add to WishList?</property>
             <property name="variable">boolean:varWishList</property>
-            <property name="width">19</property>
+            <property name="width">17</property>
             <layout>
               <property name="column">0</property>
               <property name="columnspan">2</property>
@@ -1584,7 +1580,7 @@
         <child>
           <object class="tk.Entry" id="entSetLevel">
             <property name="font">{yu} 12 {}</property>
-            <property name="text" translatable="yes">99</property>
+            <property name="text" translatable="yes">1</property>
             <property name="textvariable">string:varSetLevel</property>
             <property name="validate">key</property>
             <property name="validatecommand">validateTwoDigit</property>
@@ -1616,7 +1612,7 @@
         <child>
           <object class="tk.Entry" id="entSetPlusHP">
             <property name="font">{yu} 12 {}</property>
-            <property name="text" translatable="yes">99</property>
+            <property name="text" translatable="yes">0</property>
             <property name="textvariable">string:varPlusHP</property>
             <property name="validate">key</property>
             <property name="validatecommand">validateTwoDigit</property>
@@ -1648,7 +1644,7 @@
         <child>
           <object class="tk.Entry" id="entSetPlusATK">
             <property name="font">{yu} 12 {}</property>
-            <property name="text" translatable="yes">99</property>
+            <property name="text" translatable="yes">0</property>
             <property name="textvariable">string:varPlusATK</property>
             <property name="validate">key</property>
             <property name="validatecommand">validateTwoDigit</property>
@@ -1680,7 +1676,7 @@
         <child>
           <object class="tk.Entry" id="entSetPlusRCV">
             <property name="font">{yu} 12 {}</property>
-            <property name="text" translatable="yes">99</property>
+            <property name="text" translatable="yes">0</property>
             <property name="textvariable">string:varPlusRCV</property>
             <property name="validate">key</property>
             <property name="validatecommand">validateTwoDigit</property>
@@ -1712,7 +1708,7 @@
         <child>
           <object class="tk.Entry" id="entSetAwakens">
             <property name="font">{yu} 12 {}</property>
-            <property name="text" translatable="yes">99</property>
+            <property name="text" translatable="yes">0</property>
             <property name="textvariable">string:varAwakens</property>
             <property name="validate">key</property>
             <property name="validatecommand">validateTwoDigit</property>
@@ -1744,7 +1740,7 @@
         <child>
           <object class="tk.Entry" id="entSetSkillLevel">
             <property name="font">{yu} 12 {}</property>
-            <property name="text" translatable="yes">99</property>
+            <property name="text" translatable="yes">1</property>
             <property name="textvariable">string:varSkillLevel</property>
             <property name="validate">key</property>
             <property name="validatecommand">validateTwoDigit</property>

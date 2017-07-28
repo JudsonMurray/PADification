@@ -559,6 +559,10 @@ class PADSQL():
 
     def deleteTeam(self, TeamInstanceID):
         """Delete a Team Instance from Team Table"""
+        SQLCommand = "DELETE FROM TeamRank WHERE TeamInstanceID = " + str(TeamInstanceID)
+        self.executeSQLCommand(SQLCommand)
+        self.cursor.commit()
+
         SQLCommand = "DELETE FROM Team WHERE TeamInstanceID = " + str(TeamInstanceID)
         self.executeSQLCommand(SQLCommand)
         self.cursor.commit()

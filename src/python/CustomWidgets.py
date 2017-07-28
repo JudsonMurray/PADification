@@ -151,6 +151,7 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
 
             #Resize font
             truetype_font = ImageFont.truetype("Resource/PAD/Font/FOT-RowdyStd-EB.ttf", 26)
+
             #draw Mon HP
             self.shadowText(draw, 178, 470, str(self.monster.TotalHP), truetype_font, shadowcolor)
             draw.text((178, 470), str(self.monster.TotalHP), font=truetype_font, fill="#ffffff")
@@ -160,6 +161,44 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
             #draw Mon RCV
             self.shadowText(draw, 178, 537, str(self.monster.TotalRCV), truetype_font, shadowcolor)
             draw.text((178, 537), str(self.monster.TotalRCV), font=truetype_font, fill="#ffffff")
+
+            #Resize font
+            truetype_font = ImageFont.truetype("Resource/PAD/Font/FOT-RowdyStd-EB.ttf", 14)
+            #skill Descriptions
+            
+            skilldescwords = self.monster.ActiveSkillDesc.split(" ")
+            skilldescline = ""
+            skilldesc = []
+            for i in skilldescwords:
+                if len(skilldescline + i) < 77:
+                    skilldescline += i + " "
+                else:
+                    skilldesc.append(skilldescline)
+                    skilldescline = ""
+            if skilldescline:
+                skilldesc.append(skilldescline)
+                skilldescline = ""
+            count = 0
+            for i in skilldesc:
+                draw.text((17, 620 + (count * 15)), i, font=truetype_font, fill="#000000")
+                count += 1
+            
+            skilldescwords = self.monster.LeaderSkillDesc.split(" ")
+            skilldescline = ""
+            skilldesc = []
+            for i in skilldescwords:
+                if len(skilldescline + i) < 77:
+                    skilldescline += i + " "
+                else:
+                    skilldesc.append(skilldescline)
+                    skilldescline = i + " "
+            if skilldescline:
+                skilldesc.append(skilldescline)
+                skilldescline = ""
+            count = 0
+            for i in skilldesc:
+                draw.text((17, 735 + (count * 15)), i, font=truetype_font, fill="#000000")
+                count += 1
 
             values = ["One", "Two", "Three"]
             for i in range(0,3):
@@ -185,7 +224,7 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
             #        #img = Image.open("Resource/PAD/Images/Awoken Skills/" + getattr(self.monster, "AwokenSkill" + values[i]) + ".png")
 
             self.portraitImage = baseimg
-            self.portraitImage = self.portraitImage.resize((int(self.portraitImage.width / 1.5), int(self.portraitImage.height / 1.5 )), Image.ANTIALIAS)
+            self.portraitImage = self.portraitImage.resize((int(self.portraitImage.width / 1.25), int(self.portraitImage.height / 1.25 )), Image.ANTIALIAS)
             self.portraitimg = ImageTk.PhotoImage(self.portraitImage, self.portrait)
 
         else:
@@ -216,8 +255,8 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
             # otherwise when the mouse enters the tip window we get
             # a leave event and it disappears, and then we get an enter
             # event and it reappears, and so on forever :-(
-            if self.button.winfo_rootx() > 1200:
-                x = self.button.winfo_rootx() - (self.button.winfo_width() + 375)
+            if self.button.winfo_rootx() > 1000:
+                x = self.button.winfo_rootx() - 535
             else:
                 x = self.button.winfo_rootx() + (self.button.winfo_width() + 1)
             y = 250
@@ -522,3 +561,72 @@ class LoginDialog(sd.Dialog):
         the dialog is destroyed. By default, it does nothing.
         '''
         pass
+
+class TeamTooltip(ToolTip.ToolTipBase):
+    def __init__(self, master):
+        super().__init__(master)
+        self.logger = logging.getLogger("Padification.CustomWidgets.MonsterStatTooltip")
+        self.team = None
+        self.teamFrameRaw = None
+        self.teamFrameImage = None
+
+    
+    def update(self, team = None):
+
+        if team != None:
+            self.team = team
+            truetype_font = ImageFont.truetype("Resource/PAD/Font/FOT-RowdyStd-EB.ttf", 22)
+            baseimg = Image.open("Resource/PAD/Images/TeamFrame.png")
+
+            count = 0
+            for i in self.team.Monsters:
+                if i != None:
+                    thumbimg = Image.open("Resource/PAD/Images/thumbnails/"+ str(i.MonsterClassID) + ".png")
+                    if count == 0:
+                        baseimg.paste(thumbimg,(38, 96))
+                    else:
+                        baseimg.paste(thumbimg,(197 + ((count - 1) * 110), 96))
+                count += 1
+
+            draw = ImageDraw.Draw(baseimg)
+            
+
+            self.teamFrameRaw = baseimg.resize((int(baseimg.width / 1.25), int(baseimg.height / 1.25 )), Image.ANTIALIAS)
+            self.teamFrameImage = ImageTk.PhotoImage(self.teamFrameRaw)
+            
+        else:
+            self.team = None
+            self.teamFrameRaw = None
+            self.teamFrameImage = None
+
+    def shadowText(self, drawer, x, y, text, font, color):
+        drawer.text((x+2, y+2), text, font=font, fill=color)
+
+    def showcontents(self):
+        if self.team != None:
+            self.tipwindow.config(relief=GROOVE, borderwidth=10, background="#000000")
+            self.portrait = Label(self.tipwindow, image = self.teamFrameImage, justify=LEFT,
+                            background="#000000")
+            self.portrait.grid(row=0, column=0, sticky=NW)
+
+    def schedule(self):
+        self.unschedule()
+        self.id = self.button.after(250, self.showtip)
+
+    def showtip(self):
+        if self.team != None:
+            if self.tipwindow:
+                return
+            # The tip window must be completely outside the button;
+            # otherwise when the mouse enters the tip window we get
+            # a leave event and it disappears, and then we get an enter
+            # event and it reappears, and so on forever :-(
+            if self.button.winfo_rootx() > 1000:
+                x = self.button.winfo_rootx() - 535
+            else:
+                x = self.button.winfo_rootx() + (self.button.winfo_width() + 1)
+            y = 250
+            self.tipwindow = tw = Toplevel(self.button)
+            tw.wm_overrideredirect(1)
+            tw.wm_geometry("+%d+%d" % (x, y))
+            self.showcontents()

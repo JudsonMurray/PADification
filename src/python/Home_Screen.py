@@ -166,19 +166,21 @@ class HomeScreen():
         else:
             self.PlayerSearchResults = self.master.PADsql.selectUsers()
             random.shuffle(self.PlayerSearchResults)
-            #Setup Page
+
+        #Remove Player From Results.
         count = 0
         for i in self.PlayerSearchResults:
             if i["Email"].lower() == self.master.PADsql.Email.lower():
                 self.PlayerSearchResults.pop(count)
             count += 1
 
+        #Setup Page.
         self.PlayerCurPage = 1
         self.PlayerMaxPage = math.ceil(len(self.PlayerSearchResults) / self.PLAYERRESULTSPERPAGE)
         self.entPlayerPage.set(self.PlayerCurPage)
         self.builder.get_object("lblPlayerSearchPg").config(text = " / " + str(self.PlayerMaxPage))
 
-        #update Page Results
+        #update Page Results.
         self.updatePlayerSearch()
 
     def updatePlayerSearch(self):
@@ -311,7 +313,10 @@ class HomeScreen():
             if self.master.PADsql.updateProfileImage(value):
                 self.update()
             else:
-                mb.showinfo("Profile Image", "Monster ID Does Not Exist")
+                if isinstance(value,int):
+                    mb.showinfo("Profile Image", "Monster ID Does Not Exist")
+                else:
+                    mb.showinfo("Profile Image", "Monster Name Not Found.")
 
 
     def onHomeClick(self,event):
@@ -380,16 +385,22 @@ class TeamPreview():
         self.monTeamSlot4 = None
         self.monTeamSlot5 = None
 
+        self.teamToolTip = TeamTooltip(self.lblTeamName)
+
         self.monToolTips = []
         for i in range(0,5):
             self.monToolTips.append(MonsterStatTooltip(getattr(self, "canTeamSlot" + str(i+1))))
 
+        self.vote = None
+
     def update(self, teamDict):
-        self.objTeam = PADMonster.Team(teamDict)
+        self.objTeam = PADMonster.Team(self.toplevel.master.PADsql, teamDict)
         self.strUsername = self.toplevel.master.PADsql.selectUsers(teamDict["Email"])
         self.lblTeamUsername.config(text = self.strUsername)
         self.lblTeamName.config(text = teamDict["TeamName"])
         self.TeamInstanceID = teamDict["TeamInstanceID"]
+
+        self.teamToolTip.update(self.objTeam)
 
         self.updateVotes()
 
@@ -409,11 +420,14 @@ class TeamPreview():
     def updateVotes(self):
         votes = self.toplevel.master.PADsql.getVotes(self.TeamInstanceID)
         self.voteCount = votes[0]
+        self.vote = votes[1]
 
         self.lblTeamRank.config(text="%+d" % self.voteCount)
-        if votes[1]== None:
-            pass
-        elif votes[1]:
+
+        if self.vote == None:
+            self.btnTeamVoteUp.config(foreground="#000000")
+            self.btnTeamVoteDown.config(foreground="#000000")
+        elif self.vote:
             self.btnTeamVoteUp.config(foreground="#3DDE47")
             self.btnTeamVoteDown.config(foreground="#000000")
         else:
@@ -425,11 +439,17 @@ class TeamPreview():
             print("you clicked", getattr(self, "monTeamSlot" + self.canIdentity[event.widget]).MonsterName)
 
     def onVoteUp(self):
-        self.toplevel.master.PADsql.teamVote(self.TeamInstanceID, True)
+        if self.vote:
+            self.toplevel.master.PADsql.teamVote(self.TeamInstanceID, None)
+        else:
+            self.toplevel.master.PADsql.teamVote(self.TeamInstanceID, True)
         self.updateVotes()
 
     def onVoteDown(self):
-        self.toplevel.master.PADsql.teamVote(self.TeamInstanceID, False)
+        if self.vote == False:
+            self.toplevel.master.PADsql.teamVote(self.TeamInstanceID, None)
+        else:
+            self.toplevel.master.PADsql.teamVote(self.TeamInstanceID, False)
         self.updateVotes()
 
 class playerWidget():
