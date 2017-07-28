@@ -44,6 +44,7 @@ class TeamBrowser():
         self.entTeamPage = self.builder.get_variable("varTeamPageEnt")
         self.entTeamSearch = self.builder.get_object("entSearchTeams")
         
+        self.teamPage = 1
         self.TeamSearch = self.builder.get_variable("varTeamSearch")
 
         #Widgets to access
@@ -86,8 +87,8 @@ class TeamBrowser():
             self.entTeamPage.set(0)
             return
         else:
-            destroyerTeamBase = self.PADsql.selectTeamInstance(self.teams[0]['TeamInstanceID'])
-            self.SelectedTeam = PADMonster.Team(self.PADsql)
+            if self.SelectedTeam.TeamInstanceID is None:
+                self.SelectedTeam = PADMonster.Team(self.PADsql)
             #self.teamListBox.delete(0, END)
 
             #Sort teams by name
@@ -103,13 +104,24 @@ class TeamBrowser():
                     yt+=1
                 if yt >= len(self.teams)-1:
                     sorted = True
-            self.teamPage = 1
+            
             #insert teams into listbox
             if self.firstrun:
+                self.teamPage = 1
                 self.onSearchTeamsClick()
                 self.firstrun = False
-            self.loadTeams()
-            self.teamSelect(self)
+                self.autoTeamSelect(self)
+            elif not self.firstrun:
+                for i in range(0,len(self.teams)):
+                    if self.teams[i]["TeamInstanceID"] == self.SelectedTeam.TeamInstanceID:
+                        self.teamPage = math.ceil(i / self.TEAMRESULTSPERPAGE)
+                        if self.teamPage < 1:
+                            self.teamPage = 1
+                        break
+                self.loadTeams()
+            self.entTeamPage.set(self.teamPage)
+            self.builder.get_object("lblPageNumber").config(text = "       / " + str(self.TeamMaxPage))
+            self.builder.get_object("lblResults").config(text = str(len(self.teams)) + " Results.")
             self.builder.get_object('btnEditTeam').config(state=NORMAL)
             self.builder.get_object('btnRemoveTeam').config(state=NORMAL)
             return
@@ -144,8 +156,12 @@ class TeamBrowser():
                     self.team[i].update(None, self)
                 self.team[i].mainFrame.grid(row=i+1)
                 j+=1
+            for i in range(0,len(self.team)):
+                if self.team[i].teamDict != None and self.team[i].teamDict["TeamInstanceID"] == self.SelectedTeam.TeamInstanceID:
+                    self.team[i].teamSelect(self)
 
-    def teamSelect(self, event):
+
+    def autoTeamSelect(self, event):
         """Selects team from list"""
         teamId = 0
         if len(self.teams) == 0:
@@ -153,12 +169,11 @@ class TeamBrowser():
             teamId = 0
         #    return
         elif self.SelectedTeam.TeamInstanceID == None:
-             teamID = self.teams[0]["TeamInstanceID"]
-        
-        self.updateTeam(int(teamID))
+            self.team[0].teamSelect(self)
 
     def updateTeam(self, i):
         """Updates Team Selected"""
+        tt = self.PADsql.selectTeamInstance(int(i))
         self.SelectedTeam = PADMonster.Team(self.PADsql, dreamteam = self.dreamTeams) if i == 0 else PADMonster.Team(self.PADsql, self.PADsql.selectTeamInstance(int(i), dreamteam = self.dreamTeams)[0])
         self.myMonsterList = []
 
@@ -290,7 +305,7 @@ class TeamBrowser():
         self.lightDmgReductionImg = tk.PhotoImage(file='Resource/PAD/Images/Awoken Skills/Reduce Light Damage.png') 
         self.darkDmgReductionImg = tk.PhotoImage(file='Resource/PAD/Images/Awoken Skills/Reduce Dark Damage.png') 
         self.darkResistImg = tk.PhotoImage(file='Resource/PAD/Images/Awoken Skills/Resistance-Dark.png') 
-        self.jammerResistImg = tk.PhotoImage(file='Resource/PAD/Images/Awoken Skills/Enhanced Fire Orbs.png') 
+        self.jammerResistImg = tk.PhotoImage(file='Resource/PAD/Images/Awoken Skills/Resistance-Jammers.png') 
         self.poisonResistImg = tk.PhotoImage(file='Resource/PAD/Images/Awoken Skills/Resistance-Poison.png') 
         self.enhancedFireChanceImg = tk.PhotoImage(file='Resource/PAD/Images/Awoken Skills/Enhanced Fire Orbs.png') 
         self.enhancedWaterChanceImg = tk.PhotoImage(file='Resource/PAD/Images/Awoken Skills/Enhanced Water Orbs.png') 
@@ -500,6 +515,7 @@ class TeamPreview():
     def __init__(self, master, toplevel):
         #logger
         self.logger = logging.getLogger("Padification.class.TeamPreview")
+        self.teamDict = None
 
         self.toplevel = toplevel
         self.master = master
@@ -578,3 +594,6 @@ class TeamPreview():
         #"""Selects team from listbox"""
         if self.objTeam != None:
             self.toplevel.master.teamBrowser.updateTeam((self.teamDict["TeamInstanceID"]))
+            for i in self.toplevel.master.teamBrowser.team:
+                i.mainFrame.config(relief=RAISED)
+            self.mainFrame.config(relief=SUNKEN)
