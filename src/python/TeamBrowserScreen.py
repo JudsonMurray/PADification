@@ -417,6 +417,7 @@ class TeamBrowser():
                 value = int(value)
                 if value == 22222:
                     DestroyingTheDestroyer.DestroyingTheDestroyer(self.master)
+                    return
             if self.master.PADsql.updateProfileImage(value):
                 self.master.updateProfile(self.builder)
             else:
