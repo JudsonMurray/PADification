@@ -11,13 +11,111 @@
       <property name="rowspan">10</property>
     </layout>
     <child>
-      <object class="tk.Canvas" id="TitleCanvas">
-        <property name="height">200</property>
-        <property name="width">1280</property>
+      <object class="tk.Frame" id="frmPlayerInfo">
+        <property name="borderwidth">4</property>
+        <property name="height">112</property>
+        <property name="relief">groove</property>
+        <property name="width">300</property>
         <layout>
           <property name="column">0</property>
-          <property name="propagate">True</property>
+          <property name="columnspan">99</property>
+          <property name="padx">6</property>
+          <property name="propagate">False</property>
           <property name="row">0</property>
+          <property name="sticky">nw</property>
+        </layout>
+        <child>
+          <object class="tk.Canvas" id="canProfileImage">
+            <property name="height">100</property>
+            <property name="relief">flat</property>
+            <property name="width">100</property>
+            <bind add="True" handler="onProfileImageClick" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">False</property>
+              <property name="row">0</property>
+              <property name="rowspan">1</property>
+              <property name="sticky">nw</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Label" id="lblUsername">
+            <property name="font">{Yu} 14 {}</property>
+            <property name="text" translatable="yes">
+</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="sticky">nw</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Label" id="lblCollectionCount">
+            <property name="font">{yu} 12 {}</property>
+            <property name="text" translatable="yes">Monsters = 0000</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="pady">35</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="sticky">nw</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Label" id="lblTeamCount">
+            <property name="font">{Yu} 12 {}</property>
+            <property name="text" translatable="yes">Teams = 0000</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="pady">65</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="sticky">nw</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="frmTitleImage">
+        <property name="borderwidth">4</property>
+        <property name="height">112</property>
+        <property name="relief">groove</property>
+        <property name="width">660</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">99</property>
+          <property name="propagate">False</property>
+          <property name="row">0</property>
+          <property name="sticky">n</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="lblTitleImage">
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="frmPlayerInfo2">
+        <property name="borderwidth">4</property>
+        <property name="height">112</property>
+        <property name="relief">groove</property>
+        <property name="width">300</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">99</property>
+          <property name="propagate">False</property>
+          <property name="row">0</property>
+          <property name="sticky">ne</property>
         </layout>
       </object>
     </child>
@@ -30,7 +128,7 @@
         <layout>
           <property name="column">0</property>
           <property name="columnspan">4</property>
-          <property name="padx">5</property>
+          <property name="padx">6</property>
           <property name="pady">5</property>
           <property name="propagate">False</property>
           <property name="row">1</property>
@@ -216,7 +314,7 @@ Various actions you may perform upon your account</property>
             <property name="width">200</property>
             <layout>
               <property name="column">0</property>
-              <property name="padx">350</property>
+              <property name="padx">500</property>
               <property name="pady">10</property>
               <property name="propagate">False</property>
               <property name="row">0</property>
