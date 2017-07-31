@@ -355,7 +355,7 @@ class TeamPreview():
         self.canTeamSlot3 = self.builder.get_object('canTeamSlot3')
         self.canTeamSlot4 = self.builder.get_object('canTeamSlot4')
         self.canTeamSlot5 = self.builder.get_object('canTeamSlot5')
-        self.lblTeamUsername = self.builder.get_object('lblTeamUsername')
+        #self.lblTeamUsername = self.builder.get_object('lblTeamUsername')
         self.lblTeamName = self.builder.get_object('lblTeamName')
         self.builder.connect_callbacks(self)
         self.btnTeamVoteUp = self.builder.get_object('btnTeamUpVote')
@@ -396,11 +396,11 @@ class TeamPreview():
     def update(self, teamDict):
         self.objTeam = PADMonster.Team(self.toplevel.master.PADsql, teamDict)
         self.strUsername = self.toplevel.master.PADsql.selectUsers(teamDict["Email"])
-        self.lblTeamUsername.config(text = self.strUsername)
+        #self.lblTeamUsername.config(text = self.strUsername)
         self.lblTeamName.config(text = teamDict["TeamName"])
         self.TeamInstanceID = teamDict["TeamInstanceID"]
 
-        self.teamToolTip.update(self.objTeam)
+        self.teamToolTip.update(self.objTeam, self.strUsername)
 
         self.updateVotes()
 
@@ -411,7 +411,9 @@ class TeamPreview():
             keys = ['LeaderMonster', 'SubMonsterOne', 'SubMonsterTwo', 'SubMonsterThree', 'SubMonsterFour']
             if teamDict[keys[i]] != None:
                 setattr(self, "monTeamSlot" + str(i+1), PADMonster.Monster(self.toplevel.master.PADsql.selectMonsterInstance(teamDict[keys[i]], allUsers = True)[0]))
-                setattr(self, "imgTeamSlot" + str(i+1), PhotoImage(file = "resource/PAD/images/thumbnails/" + str(getattr(self, "monTeamSlot" + str(i+1)).MonsterClassID) + ".png" ).subsample(2))
+
+                img = Image.open(RP.THUMBNAILS + "\\" + str(getattr(self, "monTeamSlot" + str(i+1)).MonsterClassID) + ".png" )
+                setattr(self, "imgTeamSlot" + str(i+1), ImageTk.PhotoImage(img.resize((img.width // 2, img.height // 2),Image.ANTIALIAS)))
                 getattr(self, "canTeamSlot" + str(i+1)).create_image(2,2, image = getattr(self, "imgTeamSlot" + str(i+1)), anchor = NW)
                 self.monToolTips[i].update(getattr(self, "monTeamSlot" + str(i+1)))
             else:
@@ -493,7 +495,10 @@ class playerWidget():
         else:
             value = 1
 
-        self.ProfileImageFile = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(value) + ".png").subsample(3)
+        self.ProfileImageRaw = Image.open('Resource/PAD/Images/thumbnails/' + str(value) + ".png")
+        self.ProfileImageRaw = self.ProfileImageRaw.resize((33,33), Image.ANTIALIAS)
+        #self.ProfileImageFile = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(value) + ".png").subsample(3)
+        self.ProfileImageFile = ImageTk.PhotoImage(self.ProfileImageRaw)
         self.canPlayerPF.create_image(2,2, image = self.ProfileImageFile, anchor = NW)
 
         if self.master == self.toplevel.canPlayerSearch:

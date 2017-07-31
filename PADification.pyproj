@@ -49,6 +49,7 @@
     <Folder Include="Resource\PAD\Images\Attributes\" />
     <Folder Include="Resource\PAD\Images\Awoken Skills\" />
     <Folder Include="Resource\PAD\Images\Badges\" />
+    <Folder Include="Resource\PAD\Images\LatentAwokenSkills\" />
     <Folder Include="Resource\PAD\Images\portraits\" />
     <Folder Include="Resource\PAD\Images\thumbnails\" />
     <Folder Include="Resource\PAD\Images\Types\" />
@@ -357,6 +358,27 @@
     <Content Include="Resource\PAD\Images\Badges\Team HP +5%25.png" />
     <Content Include="Resource\PAD\Images\Badges\Team RCV +25%25.png" />
     <Content Include="Resource\PAD\Images\Badges\Team RCV +35%25  Team Cost -300.png" />
+    <Content Include="Resource\PAD\Images\EvolutionFrame.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Attacker Killer.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Auto-Heal.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Balanced Killer.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Dark Damage Reduction.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Devil Killer.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Dragon Killer.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Extend Move Time.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Fire Damage Reduction.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\God Killer.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Healer Killer.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Improve All Stats.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Improved Attack.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Improved Healing.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Improved HP.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Light Damage Reduction.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Machine Killer.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Physical Killer.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Skill Delay Resist.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Water Damage Reduction.png" />
+    <Content Include="Resource\PAD\Images\LatentAwokenSkills\Wood Damage Reduction.png" />
     <Content Include="Resource\PAD\Images\Padification Logo.png" />
     <Content Include="Resource\PAD\Images\PADification Title.png" />
     <Content Include="Resource\PAD\Images\PortraitBanner.jpg" />
@@ -4117,6 +4139,7 @@
     <Content Include="Resource\PAD\Images\portraits\998.jpg" />
     <Content Include="Resource\PAD\Images\portraits\999.jpg" />
     <Content Include="Resource\PAD\Images\RarityStar.png" />
+    <Content Include="Resource\PAD\Images\TeamFrame.png" />
     <Content Include="Resource\PAD\Images\thumbnails\1.png" />
     <Content Include="Resource\PAD\Images\thumbnails\10.png" />
     <Content Include="Resource\PAD\Images\thumbnails\100.png" />
@@ -7889,6 +7912,7 @@
     <Content Include="Resource\PAD\Images\Types\Machine.png" />
     <Content Include="Resource\PAD\Images\Types\Physical.png" />
     <Content Include="Resource\PAD\Images\Types\Redeemable Material.png" />
+    <Content Include="Resource\Profanity.txt" />
     <Content Include="Schema\PADification database %28with Tags%29 schema.ecm" />
     <Content Include="Schema\PADification database schema.bmp" />
     <Content Include="Schema\PADification database schema.ecm" />
@@ -8009,6 +8033,9 @@
     <Compile Include="src\python\PADMonster.py" />
     <Compile Include="src\python\PADSQL.py" />
     <Compile Include="src\python\PlayerCollection.py" />
+    <Compile Include="src\python\ResourcePath.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\python\TeamBrowserScreen.py" />
     <Compile Include="src\python\UnitTest\ConnectionTest.py" />
     <Compile Include="src\python\UnitTest\LoginTestsPADification.py" />

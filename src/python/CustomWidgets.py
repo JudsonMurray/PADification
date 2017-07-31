@@ -5,6 +5,7 @@
 # Date: 2017-07-04
 # Purpose: Module Contains Custom Tkinter Widgets for Fun and glory.
 
+import ResourcePath as RP
 import pygubu
 from tkinter import messagebox as mb
 from tkinter import simpledialog as sd
@@ -97,75 +98,91 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
         self.portraitBanner = None
         self.portraitBannerImage = None
         self.portraitBannerPI = None
+        
+
+        attrstring = "self.button.master"
+        while 1:
+            if eval(attrstring + ".master") is not None:
+                attrstring += ".master"
+            else:
+                break
+        self.roottk = eval(attrstring)
     
     def update(self, monster = None):
 
         if monster != None:
             self.monster = monster
-            truetype_font = ImageFont.truetype("Resource/PAD/Font/FOT-RowdyStd-EB.ttf", 22)
-            baseimg = Image.open("Resource/PAD/Images/PortraitBanner.jpg")
-            portimg = Image.open("Resource/PAD/Images/portraits/"+ str(self.monster.MonsterClassID) + ".jpg")
-            thumbimg = Image.open("Resource/PAD/Images/thumbnails/"+ str(self.monster.MonsterClassID) + ".png")
+            truetype_font = ImageFont.truetype(RP.FONT + r"\FOT-RowdyStd-EB.ttf", 22)
+            baseimg = Image.open(RP.IMAGE + r"\PortraitBanner.jpg")
+            portimg = Image.open( RP.PORTRAITS + "\\" + str(self.monster.MonsterClassID) + ".jpg")
+            thumbimg = Image.open(RP.THUMBNAILS + "\\" + str(self.monster.MonsterClassID) + ".png")
             baseimg.paste(portimg, (0,75))
-            baseimg.paste(thumbimg,(11,472))
+            baseimg.paste(thumbimg, (11,472), thumbimg)
             draw = ImageDraw.Draw(baseimg)
-            shadowcolor = "#000000"
+
+            black = "#000000"
+            white = "#ffffff"
+            yellow = "#fbfc19"
+            blue = "#7cb4ee"
+            green = "#86ee7b"
 
             #draw Mon ID
-            self.shadowText(draw, 10, 15, "No." + str(self.monster.MonsterClassID), truetype_font, shadowcolor)
-            draw.text((10, 15), "No." + str(self.monster.MonsterClassID), font=truetype_font, fill="#ffffff")
+            self.shadowText(draw, 10, 10, "No." + str(self.monster.MonsterClassID), truetype_font, black, white)
+
             #draw Mon Name
-            self.shadowText(draw, 10, 35, self.monster.MonsterName, truetype_font, shadowcolor)
-            draw.text((10, 35), self.monster.MonsterName, font=truetype_font, fill="#ffffff")
+            self.shadowText(draw, 10, 35, self.monster.MonsterName, truetype_font, black, white)
+
             #draw Mon LVL
-            self.shadowText(draw, 340, 475, "Lv."+str(self.monster.Level), truetype_font, shadowcolor)
-            draw.text((340, 475), "Lv."+str(self.monster.Level), font=truetype_font, fill="#ffffff")
+            self.shadowText(draw, 340, 475, "Lv."+str(self.monster.Level), truetype_font, black, white)
+
             #draw Mon Max LVL
-            self.shadowText(draw, 340, 500, "Max Lv."+str(self.monster.MaxLevel), truetype_font, shadowcolor)
-            draw.text((340, 500), "Max Lv."+str(self.monster.MaxLevel), font=truetype_font, fill="#ffffff")
+            self.shadowText(draw, 340, 500, "Max Lv."+str(self.monster.MaxLevel), truetype_font, black, white)
+
             #draw Mon PLUSHP
-            self.shadowText(draw, 260, 470, "(+" + str(self.monster.PlusHP) + ")", truetype_font, shadowcolor)
-            draw.text((260, 470), "(+" + str(self.monster.PlusHP) + ")", font=truetype_font, fill="#fbfc19")
+            statstr = "(+" + str(self.monster.PlusHP) + ")"
+            self.shadowText(draw, 325 - truetype_font.getsize(statstr)[0], 470, statstr, truetype_font, black, yellow)
+
             #draw Mon PLUSATK
-            self.shadowText(draw, 260, 503, "(+" + str(self.monster.PlusATK) + ")", truetype_font, shadowcolor)
-            draw.text((260, 503), "(+" + str(self.monster.PlusATK) + ")", font=truetype_font, fill="#fbfc19")
+            statstr = "(+" + str(self.monster.PlusATK) + ")"
+            self.shadowText(draw, 325 - truetype_font.getsize(statstr)[0], 503, statstr, truetype_font, black, yellow)
+
             #draw Mon PLUSRCV
-            self.shadowText(draw, 260, 537, "(+" + str(self.monster.PlusRCV) + ")", truetype_font, shadowcolor)
-            draw.text((260, 537), "(+" + str(self.monster.PlusRCV) + ")", font=truetype_font, fill="#fbfc19")
+            statstr = "(+" + str(self.monster.PlusRCV) + ")"
+            self.shadowText(draw, 325 - truetype_font.getsize(statstr)[0], 537, statstr, truetype_font, black, yellow)
+
             #draw Mon Cost
-            self.shadowText(draw, 580, 480, str(self.monster.MonsterCost), truetype_font, shadowcolor)
-            draw.text((580, 480), str(self.monster.MonsterCost), font=truetype_font, fill="#ffffff")
+            self.shadowText(draw, 580, 480, str(self.monster.MonsterCost), truetype_font, black, white)
+
             #draw Mon Skill
+            truetype_font = ImageFont.truetype(RP.FONT + r"\FOT-RowdyStd-EB.ttf", 18)
             if self.monster.ActiveSkillName != None:
-                self.shadowText(draw, 105, 585, str(self.monster.ActiveSkillName), truetype_font, shadowcolor)
-                draw.text((105, 585), str(self.monster.ActiveSkillName), font=truetype_font, fill="#7cb4ee")
+                self.shadowText(draw, 105, 585, str(self.monster.ActiveSkillName), truetype_font, black, blue)
 
                 self.shadowText(draw, 420, 545, "Lv." + str(self.monster.SkillLevel) + " Turn(s): " + str(self.monster.ActiveSkillMaxCoolDown - self.monster.SkillLevel + 1 ),
-                                 truetype_font, shadowcolor)
-                draw.text((420, 545), "Lv." + str(self.monster.SkillLevel) + " Turn(s): " + str(self.monster.ActiveSkillMaxCoolDown - self.monster.SkillLevel + 1 ),
-                            font=truetype_font, fill="#ffffff")
+                                 truetype_font, black, white)
 
             if self.monster.LeaderSkillName != None:
-                self.shadowText(draw, 197, 700, str(self.monster.LeaderSkillName), truetype_font, shadowcolor)
-                draw.text((197, 700), str(self.monster.LeaderSkillName), font=truetype_font, fill="#86ee7b")
+                self.shadowText(draw, 197, 700, str(self.monster.LeaderSkillName), truetype_font, black, white)
 
             #Resize font
-            truetype_font = ImageFont.truetype("Resource/PAD/Font/FOT-RowdyStd-EB.ttf", 26)
+            truetype_font = ImageFont.truetype(RP.FONT + r"\FOT-RowdyStd-EB.ttf", 26)
 
-            #draw Mon HP
-            self.shadowText(draw, 178, 470, str(self.monster.TotalHP), truetype_font, shadowcolor)
-            draw.text((178, 470), str(self.monster.TotalHP), font=truetype_font, fill="#ffffff")
-            #draw Mon ATK
-            self.shadowText(draw, 178, 503, str(self.monster.TotalATK), truetype_font, shadowcolor)
-            draw.text((178, 503), str(self.monster.TotalATK), font=truetype_font, fill="#ffffff")
-            #draw Mon RCV
-            self.shadowText(draw, 178, 537, str(self.monster.TotalRCV), truetype_font, shadowcolor)
-            draw.text((178, 537), str(self.monster.TotalRCV), font=truetype_font, fill="#ffffff")
-
-            #Resize font
-            truetype_font = ImageFont.truetype("Resource/PAD/Font/FOT-RowdyStd-EB.ttf", 14)
-            #skill Descriptions
+            #self.shadowText(draw, 178, 470, str(self.monster.TotalHP), truetype_font, black, white)
             
+            #draw Mon HP
+            self.shadowText(draw, 250 - (len(str(self.monster.TotalHP) * 18)), 470, str(self.monster.TotalHP), truetype_font, black, white)
+
+            #draw Mon ATK
+            self.shadowText(draw, 250 - (len(str(self.monster.TotalATK) * 18)), 503, str(self.monster.TotalATK), truetype_font, black, white)
+
+            #draw Mon RCV
+            self.shadowText(draw, 250 - (len(str(self.monster.TotalRCV) * 18)), 537, str(self.monster.TotalRCV), truetype_font, black, white)
+
+            #Resize font
+            truetype_font = ImageFont.truetype(RP.FONT + r"\FOT-RowdyStd-EB.ttf", 14)
+
+            #skill Descriptions
+            #Active
             if self.monster.ActiveSkillDesc != None:
                 skilldescwords = self.monster.ActiveSkillDesc.split(" ")
                 skilldescline = ""
@@ -181,8 +198,10 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
                     skilldescline = ""
                 count = 0
                 for i in skilldesc:
-                    draw.text((17, 620 + (count * 15)), i, font=truetype_font, fill="#000000")
+                    draw.text((17, 620 + (count * 15)), i, font=truetype_font, fill=black)
                     count += 1
+
+            #Leader
             if self.monster.LeaderSkillDesc != None:
                 skilldescwords = self.monster.LeaderSkillDesc.split(" ")
                 skilldescline = ""
@@ -198,16 +217,17 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
                     skilldescline = ""
                 count = 0
                 for i in skilldesc:
-                    draw.text((17, 735 + (count * 15)), i, font=truetype_font, fill="#000000")
+                    draw.text((17, 735 + (count * 15)), i, font=truetype_font, fill=black)
                     count += 1
 
+            baseimg. paste(Image.new("RGBA",(130,10),(0,0,0,255)),(0,80))
             values = ["One", "Two", "Three"]
             for i in range(0,3):
                 if getattr(self.monster, "MonsterType" + values[i]) != None:
-                    img = Image.open("Resource/PAD/Images/Types/" + getattr(self.monster, "MonsterType" + values[i]) + ".png")
-                    baseimg.paste(img, (10 + ( i * 40 ), 80 ))
+                    img = Image.open(RP.TYPES + "\\" + getattr(self.monster, "MonsterType" + values[i]) + ".png")
+                    baseimg.paste(img, (10 + ( i * 40 ), 80 ), img)
 
-            img = Image.open("Resource/PAD/Images/RarityStar.png")
+            img = Image.open(RP.IMAGE + r"\RarityStar.png")
             for i in range(0,self.monster.Rarity):
                 baseimg.paste(img, (250 + ( i * 30 ), 12 ))
 
@@ -215,14 +235,16 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
             for i in range(0,9):
                 if getattr(self.monster, "AwokenSkill" + values[i]) != None:
                         if i < self.monster.SkillsAwoke:
-                            img = Image.open("Resource/PAD/Images/Awoken Skills/" + getattr(self.monster, "AwokenSkill" + values[i]) + ".png")
+                            img = Image.open(RP.AWOKENSKILLS + "\\" + getattr(self.monster, "AwokenSkill" + values[i]) + ".png")
                         else:
-                            img = Image.open("Resource/PAD/Images/Awoken Skills/not " + getattr(self.monster, "AwokenSkill" + values[i]) + ".png")
-                        baseimg.paste(img, (590, 80 + ((i) * 40)))
-            #count = 0
-            #for i in ["One", "Two", "Three", "Four", "Five", "Six"]:
-            #    if getattr(self.monster, "LatentSkill" + values[i]) != None:
-            #        #img = Image.open("Resource/PAD/Images/Awoken Skills/" + getattr(self.monster, "AwokenSkill" + values[i]) + ".png")
+                            img = Image.open(RP.AWOKENSKILLS + r"\not " + getattr(self.monster, "AwokenSkill" + values[i]) + ".png")
+                        baseimg.paste(img, (590, 80 + ((i) * 40)), img)
+            count = 0
+            for i in ["One", "Two", "Three", "Four", "Five", "Six"]:
+                if getattr(self.monster, "LatentSkill" + i) != None:
+                    img = Image.open(RP.LATENTAWOKENSKILLS + "\\" + getattr(self.monster, "LatentSkill" + i) + ".png")
+                    baseimg.paste(img.resize((40,40), Image.ANTIALIAS), (220 + ( count * 45 ), 415 ))
+                    count += 1
 
             self.portraitImage = baseimg
             self.portraitImage = self.portraitImage.resize((int(self.portraitImage.width / 1.25), int(self.portraitImage.height / 1.25 )), Image.ANTIALIAS)
@@ -234,8 +256,9 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
             self.portraitImage = None
             self.portraitimg = None
 
-    def shadowText(self, drawer, x, y, text, font, color):
-        drawer.text((x+2, y+2), text, font=font, fill=color)
+    def shadowText(self, drawer, x, y, text, font, bgcolor, fgcolor):
+        drawer.text((x+2, y+2), text, font=font, fill=bgcolor)
+        drawer.text((x, y), text, font=font, fill=fgcolor)
 
     def showcontents(self):
         if self.monster != None:
@@ -256,12 +279,320 @@ class MonsterStatTooltip(ToolTip.ToolTipBase):
             # otherwise when the mouse enters the tip window we get
             # a leave event and it disappears, and then we get an enter
             # event and it reappears, and so on forever :-(
-            if self.button.winfo_rootx() > 1000:
+
+            #print(self.button.master.master.master.master.master.screenWidth)
+
+            
+            self.tipwindow = tw = Toplevel(self.button)
+
+            if self.button.winfo_rootx() > RP.SCREENWIDTH / 2:
                 x = self.button.winfo_rootx() - 535
             else:
                 x = self.button.winfo_rootx() + (self.button.winfo_width() + 1)
-            y = 250
+            y = RP.SCREENHEIGHT / 8
+            tw.wm_overrideredirect(1)
+            tw.wm_geometry("+%d+%d" % (x, y))
+            self.showcontents()
+
+class TeamTooltip(ToolTip.ToolTipBase):
+    def __init__(self, master):
+        super().__init__(master)
+        self.logger = logging.getLogger("Padification.CustomWidgets.MonsterStatTooltip")
+        self.team = None
+        self.username = None
+        self.teamFrameRaw = None
+        self.teamFrameImage = None
+
+        attrstring = "self.button.master"
+        while 1:
+            if eval(attrstring + ".master") is not None:
+                attrstring += ".master"
+            else:
+                break
+        self.roottk = eval(attrstring)
+    
+    def update(self, team = None, username = None):
+
+        if team != None:
+            self.username = username
+            self.team = team
+            truetype_font = ImageFont.truetype(RP.FONT + r"\FOT-RowdyStd-EB.ttf", 18)
+            baseimg = Image.open(RP.IMAGE + r"\TeamFrame.png")
+            draw = ImageDraw.Draw(baseimg)
+            black = "#000000"
+            white = "#ffffff"
+
+            count = 0
+            for i in self.team.Monsters:
+                if i != None:
+                    thumbimg = Image.open(RP.THUMBNAILS + "\\"+ str(i.MonsterClassID) + ".png")
+                    if count == 0:
+                        baseimg.paste(thumbimg,(40, 99),thumbimg)
+                        self.shadowText(draw, 60, 205, "Lv." + str(i.Level), truetype_font, black, white)
+                        self.shadowText(draw, 40, 230, "HP:" + str(i.TotalHP), truetype_font, black, white)
+                        if i.LeaderSkillDesc != None:
+                            self.shadowText(draw, 205, 505, i.LeaderSkillName, truetype_font, black, "#86ee7b")
+                            skilldescwords = i.LeaderSkillDesc.split(" ")
+                            skilldescline = ""
+                            skilldesc = []
+                            for i in skilldescwords:
+                                if len(skilldescline + i) < 60:
+                                    skilldescline += i + " "
+                                else:
+                                    skilldesc.append(skilldescline)
+                                    skilldescline = i + " "
+                            if skilldescline:
+                                skilldesc.append(skilldescline)
+                                skilldescline = ""
+                            linecount = 0
+                            for i in skilldesc:
+                                draw.text((15, 535 + (linecount * 17)), i, font=truetype_font, fill="#000000")
+                                linecount += 1
+                    else:
+                        baseimg.paste(thumbimg,(199 + ((count - 1) * 110), 99), thumbimg)
+                        self.shadowText(draw, 219 + (count - 1) * 110, 205, "Lv." + str(i.Level), truetype_font, black, white)
+                        self.shadowText(draw, 199 + (count - 1) * 110, 230, "HP:" + str(i.TotalHP), truetype_font, black, white)
+                count += 1
+
+            truetype_font = ImageFont.truetype(RP.FONT + r"\FOT-RowdyStd-EB.ttf", 22)
+
+            # Name Labels
+            self.shadowText(draw, 375 - (len(str(self.team.TeamName)) * 9), 52, str(self.team.TeamName), truetype_font, black, "#ffea00")
+            self.shadowText(draw, 13, 9, "Created By: " + str(self.username), truetype_font, black, "#ffea00")
+            #draw.text((13, 9), "Created By: " + str(self.username), font=truetype_font, fill="#ffea00")
+
+            # Stat Labels
+            draw.text((615 - (len(str(self.team.TeamHP)) * 18), 287), str(self.team.TeamHP), font=truetype_font, fill=black)
+            draw.text((315 -(len(str(self.team.TeamRCV)) * 18), 345), str(self.team.TeamRCV), font=truetype_font, fill=black)
+            draw.text((615 - (len(str(self.team.FireATK)) * 18), 345), str(self.team.FireATK), font=truetype_font, fill=black)
+            draw.text((315 -(len(str(self.team.WaterATK)) * 18), 396), str(self.team.WaterATK), font=truetype_font, fill=black)
+            draw.text((615 - (len(str(self.team.WoodATK)) * 18), 396), str(self.team.WoodATK), font=truetype_font, fill=black)
+            draw.text((315 -(len(str(self.team.LightATK)) * 18), 447), str(self.team.LightATK), font=truetype_font, fill=black)
+            draw.text((615 - (len(str(self.team.DarkATK)) * 18), 447), str(self.team.DarkATK), font=truetype_font, fill=black)
+            draw.text((315 -(len(str(self.team.TeamCost)) * 18), 286), str(self.team.TeamCost), font=truetype_font, fill=black)
+
+            # Team Awoken Stats
+            y = 20
+            ys = 35
+            truetype_font = ImageFont.truetype(RP.FONT + r"\FOT-RowdyStd-EB.ttf", 24)
+
+            if self.team.skillBindResist != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Resistance-Skill Bind.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.skillBindResist) + "%", font=truetype_font, fill=black)
+                y += ys
+            if self.team.fireDmgReduction != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Reduce Fire Damage.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.fireDmgReduction) + "%", font=truetype_font, fill=black)
+                y += ys
+            if self.team.waterDmgReduction != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Reduce Water Damage.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.waterDmgReduction) + "%", font=truetype_font, fill=black)
+                y += ys
+            if self.team.woodDmgReduction != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Reduce Wood Damage.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.woodDmgReduction) + "%", font=truetype_font, fill=black)
+                y += ys
+
+            if self.team.lightDmgReduction != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Reduce Light Damage.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.lightDmgReduction) + "%", font=truetype_font, fill=black)
+                y += ys
+
+            if self.team.darkDmgReduction != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Reduce Dark Damage.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.darkDmgReduction) + "%", font=truetype_font, fill=black)
+                y += ys
+
+            if self.team.darkResist != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Resistance-Dark.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.darkResist) + "%", font=truetype_font, fill=black)
+                y+= ys
+
+            if self.team.jammerResist != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Resistance-Jammers.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.jammerResist) + "%", font=truetype_font, fill=black)
+                y += ys
+
+            if self.team.poisonResist != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Resistance-Poison.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.poisonResist) + "%", font=truetype_font, fill=black)
+                y += ys
+
+            if self.team.enhancedFireChance != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Enhanced Fire Orbs.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.enhancedFireChance) + "%", font=truetype_font, fill=black)
+                y += ys
+
+            if self.team.enhancedWaterChance != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Enhanced Water Orbs.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.enhancedWaterChance) + "%", font=truetype_font, fill=black)
+                y += ys
+
+            if self.team.enhancedWoodChance != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Enhanced Wood Orbs.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.enhancedWoodChance) + "%", font=truetype_font, fill=black)
+                y += ys
+            
+            if self.team.enhancedLightChance != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Enhanced Light Orbs.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.enhancedLightChance) + "%", font=truetype_font, fill=black)
+                y += ys
+
+            if self.team.enhancedDarkChance != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Enhanced Dark Orbs.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.enhancedDarkChance) + "%", font=truetype_font, fill=black)
+                y += ys
+
+            if self.team.enhancedHealChance != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Enhanced Heal Orbs.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.enhancedHealChance) + "%", font=truetype_font, fill=black)
+                y += ys
+
+            if self.team.moveTime != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Extend Time.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.moveTime) + "s", font=truetype_font, fill=black)
+                y += ys
+
+            if self.team.skillBoost != 0:
+                thumbnail = Image.open(RP.AWOKENSKILLS + r'\Skill Boost.png')
+                baseimg.paste(thumbnail,(675, y),thumbnail)
+                draw.text((707, y), str(self.team.skillBoost), font=truetype_font, fill=black)
+            
+            #badge
+            if self.team.AwokenBadgeName != None:
+                badge = Image.open(RP.BADGE + "\\"+ str(self.team.AwokenBadgeName) + ".png")
+                badge = badge.resize( (54,40), Image.ANTIALIAS )
+                baseimg.paste(badge,(114, 48))
+
+            self.teamFrameRaw = baseimg.resize((int(baseimg.width / 1.5), int(baseimg.height / 1.5 )), Image.ANTIALIAS)
+            self.teamFrameImage = ImageTk.PhotoImage(self.teamFrameRaw)
+            
+        else:
+            self.team = None
+            self.teamFrameRaw = None
+            self.teamFrameImage = None
+
+    def shadowText(self, drawer, x, y, text, font, bgcolor, fgcolor):
+        drawer.text((x+2, y+2), text, font=font, fill=bgcolor)
+        drawer.text((x, y), text, font=font, fill=fgcolor)
+
+    def sizedText(self, drawer, x, y, text, font, bgcolor, fgcolor, size, baseImage):
+        width, height = font.getsize(text)
+        image = Image.new("RGBA", (width, height))
+        draw = ImageDraw.Draw(image)
+        draw.text((0, 0), text, font=font, fill=fgcolor)
+        image = image.resize(size, Image.ANTIALIAS)
+        baseImage.paste(image,(x,y), image)
+
+    def showcontents(self):
+        if self.team != None:
+            self.tipwindow.config(relief=GROOVE, borderwidth=10, background="#000000")
+            self.portrait = Label(self.tipwindow, image = self.teamFrameImage, justify=LEFT,
+                            background="#000000")
+            self.portrait.grid(row=0, column=0, sticky=NW)
+
+    def schedule(self):
+        self.unschedule()
+        self.id = self.button.after(250, self.showtip)
+
+    def showtip(self):
+        if self.team != None:
+            if self.tipwindow:
+                return
+            # The tip window must be completely outside the button;
+            # otherwise when the mouse enters the tip window we get
+            # a leave event and it disappears, and then we get an enter
+            # event and it reappears, and so on forever :-(
+            if self.button.winfo_rootx() > RP.SCREENWIDTH / 2:
+                x = self.button.winfo_rootx() - 535
+            else:
+                x = self.button.winfo_rootx() + (self.button.winfo_width() + 1)
+            y = RP.SCREENHEIGHT / 8
             self.tipwindow = tw = Toplevel(self.button)
+            tw.wm_overrideredirect(1)
+            tw.wm_geometry("+%d+%d" % (x, y))
+            self.showcontents()
+
+class EvolutionTooltip(ToolTip.ToolTipBase):
+    def __init__(self, master):
+        super().__init__(master)
+        self.logger = logging.getLogger("Padification.CustomWidgets.EvolutionTooltip")
+
+        self.Evolution = None
+        self.EvolutionImage = None
+        
+        attrstring = "self.button.master"
+        while 1:
+            if eval(attrstring + ".master") is not None:
+                attrstring += ".master"
+            else:
+                break
+        self.roottk = eval(attrstring)
+    
+    def update(self, Evolution = None):
+
+        if Evolution != None:
+            self.Evolution = Evolution
+            baseimg = Image.open(RP.IMAGE + r"\EvolutionFrame.png")
+            
+            for i in range(2,7):
+                if self.Evolution[i] != None:
+                    img = Image.open(RP.THUMBNAILS + "\\" + str(self.Evolution[i]) + ".png")
+                    baseimg.paste(img, (16+ ((i-2) * 117), 38), img)
+
+            baseimg = baseimg.resize((baseimg.width // 2 ,baseimg.height // 2),Image.ANTIALIAS)
+            
+            self.EvolutionImage = ImageTk.PhotoImage(baseimg)
+        else:
+            self.Evolution = None
+            self.EvolutionImage = None
+
+    def shadowText(self, drawer, x, y, text, font, color):
+        drawer.text((x+2, y+2), text, font=font, fill=color)
+
+    def showcontents(self):
+        if self.Evolution != None:
+            self.tipwindow.config(relief=GROOVE, borderwidth=10, background="#000000")
+            self.portrait = Label(self.tipwindow, image = self.EvolutionImage, justify=LEFT,
+                            background="#000000")
+            self.portrait.grid(row=0, column=0, sticky=NW)
+
+    def schedule(self):
+        self.unschedule()
+        self.id = self.button.after(250, self.showtip)
+
+    def showtip(self):
+        if self.Evolution != None:
+            if self.tipwindow:
+                return
+            # The tip window must be completely outside the button;
+            # otherwise when the mouse enters the tip window we get
+            # a leave event and it disappears, and then we get an enter
+            # event and it reappears, and so on forever :-(
+
+            #print(self.button.master.master.master.master.master.screenWidth)
+
+            
+            self.tipwindow = tw = Toplevel(self.button)
+
+            x = self.button.winfo_rootx() + (self.button.winfo_width() + 1)
+            y = self.button.winfo_rooty() + (self.button.winfo_height() + 1)
             tw.wm_overrideredirect(1)
             tw.wm_geometry("+%d+%d" % (x, y))
             self.showcontents()
@@ -274,7 +605,9 @@ class LoginDialog(sd.Dialog):
         self.CREATE = 1
         self.RECOVER = 2
         self.FGCOLOR = "#999999"
-        self.imgTitleImage = PhotoImage(file = "Resource/PAD/Images/Padification Logo.png").subsample(2)
+        img = Image.open(RP.IMAGE + r"\Padification Logo.png")
+        self.imgTitleImage = ImageTk.PhotoImage(img.resize((img.width // 2, img.height // 2),Image.ANTIALIAS))
+        #self.imgTitleImage = PhotoImage(file = RP.IMAGE + r"\Padification Logo.png").subsample(2)
 
         self.varEmail = StringVar(value = "Enter Email")
         self.varPassword = StringVar(value = "Enter Password")
@@ -562,72 +895,3 @@ class LoginDialog(sd.Dialog):
         the dialog is destroyed. By default, it does nothing.
         '''
         pass
-
-class TeamTooltip(ToolTip.ToolTipBase):
-    def __init__(self, master):
-        super().__init__(master)
-        self.logger = logging.getLogger("Padification.CustomWidgets.MonsterStatTooltip")
-        self.team = None
-        self.teamFrameRaw = None
-        self.teamFrameImage = None
-
-    
-    def update(self, team = None):
-
-        if team != None:
-            self.team = team
-            truetype_font = ImageFont.truetype("Resource/PAD/Font/FOT-RowdyStd-EB.ttf", 22)
-            baseimg = Image.open("Resource/PAD/Images/TeamFrame.png")
-
-            count = 0
-            for i in self.team.Monsters:
-                if i != None:
-                    thumbimg = Image.open("Resource/PAD/Images/thumbnails/"+ str(i.MonsterClassID) + ".png")
-                    if count == 0:
-                        baseimg.paste(thumbimg,(40, 99))
-                    else:
-                        baseimg.paste(thumbimg,(199 + ((count - 1) * 110), 99))
-                count += 1
-
-            draw = ImageDraw.Draw(baseimg)
-            
-
-            self.teamFrameRaw = baseimg.resize((int(baseimg.width / 1.5), int(baseimg.height / 1.5 )), Image.ANTIALIAS)
-            self.teamFrameImage = ImageTk.PhotoImage(self.teamFrameRaw)
-            
-        else:
-            self.team = None
-            self.teamFrameRaw = None
-            self.teamFrameImage = None
-
-    def shadowText(self, drawer, x, y, text, font, color):
-        drawer.text((x+2, y+2), text, font=font, fill=color)
-
-    def showcontents(self):
-        if self.team != None:
-            self.tipwindow.config(relief=GROOVE, borderwidth=10, background="#000000")
-            self.portrait = Label(self.tipwindow, image = self.teamFrameImage, justify=LEFT,
-                            background="#000000")
-            self.portrait.grid(row=0, column=0, sticky=NW)
-
-    def schedule(self):
-        self.unschedule()
-        self.id = self.button.after(250, self.showtip)
-
-    def showtip(self):
-        if self.team != None:
-            if self.tipwindow:
-                return
-            # The tip window must be completely outside the button;
-            # otherwise when the mouse enters the tip window we get
-            # a leave event and it disappears, and then we get an enter
-            # event and it reappears, and so on forever :-(
-            if self.button.winfo_rootx() > 1000:
-                x = self.button.winfo_rootx() - 535
-            else:
-                x = self.button.winfo_rootx() + (self.button.winfo_width() + 1)
-            y = 250
-            self.tipwindow = tw = Toplevel(self.button)
-            tw.wm_overrideredirect(1)
-            tw.wm_geometry("+%d+%d" % (x, y))
-            self.showcontents()

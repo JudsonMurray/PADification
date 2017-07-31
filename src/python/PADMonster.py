@@ -149,7 +149,7 @@ class Monster():
                 self.LatentHP += round(self.HP * 0.015)
             elif lask == "Improved Attack":
                 self.LatentATK += round(self.ATK * 0.01)
-            elif lask == "Improved Heal":
+            elif lask == "Improved Healing":
                 self.LatentRCV += round(self.RCV * 0.04)
             elif lask == "Improved All Stats":
                 self.LatentHP += round(self.HP * 0.015)
@@ -300,7 +300,7 @@ class Team():
         self.enhancedLightChance = 0
         self.enhancedDarkChance = 0
         self.enhancedHealChance = 0
-        self.moveTime = 4.00
+        self.moveTime = 0.0
         self.skillBoost = 0
 
         if TeamInstanceDict != None:
@@ -360,7 +360,7 @@ class Team():
         self.enhancedLightChance = 0
         self.enhancedDarkChance = 0
         self.enhancedHealChance = 0
-        self.moveTime = 4.00
+        self.moveTime = 0.0
         self.skillBoost = 0
 
         for i in self.Monsters:

@@ -11,12 +11,12 @@
 import tkinter as tk
 import pygubu
 import math
+import ResourcePath as RP
 from PADMonster import Monster
 from tkinter import messagebox as mb
 from tkinter import *
 from ast import literal_eval as le
-from PIL import Image
-from PIL import ImageTk
+from PIL import Image, ImageFont, ImageDraw, ImageTk
 from idlelib import ToolTip
 from CustomWidgets import *
 import re
@@ -34,7 +34,7 @@ class MonsterBook():
         #TK Variables
         self.master = master
         self.builder = pygubu.Builder()
-        self.builder.add_from_file('src/ui/MonsterBook.ui')
+        self.builder.add_from_file(RP.UI + r'\MonsterBook.ui')
         self.mainwindow = self.builder.get_object('frmMonsterBook', master)
         self.resultsFrame = self.builder.get_object('canMonsterList')
         self.canEvoFrame = self.builder.get_object('canEvoTree')
@@ -73,7 +73,7 @@ class MonsterBook():
         ##### Atttribute Images #####
         self.AttributeImages = dict()
         for i in ["Fire","Water","Wood","Light","Dark"]:
-            self.AttributeImages[i] = PhotoImage(file = 'Resource/PAD/Images/Attributes/' + i + "Symbol.png")
+            self.AttributeImages[i] = PhotoImage(file = RP.ATTRIBUTES + '\\' + i + "Symbol.png")
             self.builder.get_object("chkPri" + i).config(image = self.AttributeImages[i])
             ToolTip.ToolTip(self.builder.get_object("chkPri" + i) , i)
             self.builder.get_object("chkSec" + i).config(image = self.AttributeImages[i])
@@ -83,7 +83,7 @@ class MonsterBook():
         self.TypeImages = dict()
         for i in ["Attacker", "Awaken Material", "Balanced", "Devil", "Dragon", "Enhance Material",
                   "Evo Material", "God", "Healer", "Machine", "Physical", "Redeemable Material" ]:
-            self.TypeImages[i] = PhotoImage(file = 'Resource/PAD/Images/Types/' + i + ".png")
+            self.TypeImages[i] = PhotoImage(file = RP.TYPES + '\\' + i + ".png")
             self.builder.get_object("chkType" + i.replace(" ", "")).config(image = self.TypeImages[i])
             ToolTip.ToolTip(self.builder.get_object("chkType" + i.replace(" ", "")) , i)
 
@@ -174,7 +174,7 @@ class MonsterBook():
         self.thumbnail = thumbnail
         self.builder.get_object("canMonsterSummary").create_image(10,10, image = self.thumbnail, anchor = tk.NW)
 
-        self.portraitImage = Image.open("Resource/PAD/Images/portraits/"+ str(self.monster.MonsterClassID) + ".jpg")
+        self.portraitImage = Image.open(RP.PORTRAITS + "\\" + str(self.monster.MonsterClassID) + ".jpg")
         self.portrait = ImageTk.PhotoImage(self.portraitImage, self.portrait)
         self.PortraitTooltip.PhotoImage = self.portrait
         
@@ -201,7 +201,7 @@ class MonsterBook():
             self.builder.get_object("canType" + str(count)).unbind("<Leave>")
             self.builder.get_object("canType" + str(count)).unbind("<ButtonPress>")
             if getattr(monster, i) != None:
-                setattr(self, i, PhotoImage(file = 'Resource/PAD/Images/Types/' + getattr(monster, i) + ".png") )
+                setattr(self, i, PhotoImage(file = RP.TYPES + '\\' + getattr(monster, i) + ".png") )
                 self.builder.get_object("canType" + str(count)).create_image(2,2, image = getattr(self, i), anchor = tk.NW)
                 self.Tooltips.append(ToolTip.ToolTip(self.builder.get_object("canType" + str(count)) , getattr(monster, i)))
             else:
@@ -218,7 +218,7 @@ class MonsterBook():
             self.builder.get_object("can" + i).unbind("<Leave>")
             self.builder.get_object("can" + i).unbind("<ButtonPress>")
             if AwokenSkills[count] != None:
-                setattr(self,i, PhotoImage(file = 'Resource/PAD/Images/Awoken Skills/' + AwokenSkills[count] + ".png"))
+                setattr(self,i, PhotoImage(file = RP.AWOKENSKILLS + '\\' + AwokenSkills[count] + ".png"))
                 self.builder.get_object("can" + i).create_image(2,2, image = getattr(self, i), anchor = tk.NW)
                 self.Tooltips.append(ToolTip.ToolTip(self.builder.get_object("can" + i) , AwokenSkills[count]))
             else:
@@ -256,6 +256,8 @@ class MonsterBook():
 
         self.evoFrames = []
         self.canEvoFrame
+
+
         evocol = 0
         for i in evoTree:
             evorow = 0
@@ -270,6 +272,8 @@ class MonsterBook():
                 else:
                     if o != None:
                         frame.update(Monster(self.master.PADsql.selectMonsterClass(o[0])[0]))
+                        tooltip = EvolutionTooltip(frame.EvoCanvas)
+                        tooltip.update(o)
                 frame.EvoFrame.grid(column = evocol, row = evorow, padx = 4)
                 evorow += 1
             evocol +=1
@@ -461,7 +465,7 @@ class MonsterFrame():
         self.Monbookobject = mbobject
         self.master = master
         self.builder = pygubu.Builder()
-        self.builder.add_from_file('src/ui/MonsterBook.ui')
+        self.builder.add_from_file(RP.UI + r'\MonsterBook.ui')
         self.frame = self.builder.get_object('MonsFrame', master)
         self.FrameLabel = self.builder.get_object('FrameLabel')
         self.builder.connect_callbacks(self)
@@ -475,7 +479,7 @@ class MonsterFrame():
 
     def update(self, monster):
         self.monster = monster
-        self.thumbnail = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(self.monster.MonsterClassID) + ".png")
+        self.thumbnail = PhotoImage(file = RP.THUMBNAILS + '\\' + str(self.monster.MonsterClassID) + ".png")
         self.FrameLabel.create_image(2,2, image = self.thumbnail, anchor = tk.NW)
 
         #Label Configurations
@@ -499,7 +503,7 @@ class MonsterFrame():
         count = 1
         for i in ["MonsterTypeOne", "MonsterTypeTwo", "MonsterTypeThree"]:
             if getattr(self.monster, i) != None:
-                setattr(self, i, PhotoImage(file = 'Resource/PAD/Images/Types/' + getattr(self.monster, i) + ".png") )
+                setattr(self, i, PhotoImage(file = RP.TYPES + '\\' + getattr(self.monster, i) + ".png") )
                 self.builder.get_object("canFrameType" + str(count)).create_image(2,2, image = getattr(self, i), anchor = tk.NW)
                 self.builder.get_object("canFrameType" + str(count)).grid(row = 0, column = count)
                 ToolTip.ToolTip(self.builder.get_object("canFrameType" + str(count)) , getattr(self.monster, i))
@@ -520,7 +524,7 @@ class MonEvoFrame():
         self.Monbookobject = mbobject
         self.master = master
         self.builder = pygubu.Builder()
-        self.builder.add_from_file('src/ui/MonsterBook.ui')
+        self.builder.add_from_file(RP.UI + r'\MonsterBook.ui')
         self.EvoFrame = self.builder.get_object('MonsEvoFrame', master)
         self.EvoCanvas = self.builder.get_object('canEvoFrame')
         self.builder.connect_callbacks(self)
@@ -532,8 +536,8 @@ class MonEvoFrame():
 
     def update(self, monster):
         self.monster = monster
-        self.smallThumbnail =PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(self.monster.MonsterClassID) + ".png").subsample(2)
-        self.thumbnail = PhotoImage(file = 'Resource/PAD/Images/thumbnails/' + str(self.monster.MonsterClassID) + ".png")
+        self.smallThumbnail =PhotoImage(file = RP.THUMBNAILS + '\\' + str(self.monster.MonsterClassID) + ".png").subsample(2)
+        self.thumbnail = PhotoImage(file = RP.THUMBNAILS + '\\' + str(self.monster.MonsterClassID) + ".png")
         self.EvoCanvas.create_image(2,2, image = self.smallThumbnail, anchor = tk.NW)
 
     def onFrameClick(self, event):
