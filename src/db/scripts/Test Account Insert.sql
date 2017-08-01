@@ -4,7 +4,7 @@ insert into Player(Email,Username, Password, PlayerID) Values
 ('PADmin@PAD.min', 'Test', 'password', 000000000),
 ('PADmin@PAD.min2', 'Test2', 'password', 000000001),
 ('PADmin@PAD.min3', 'Test3', 'password', 000000002),
-('PADification@gmail.com', 'password', 'Test', 1),
+('PADification@gmail.com', 'PADtester', 'password', 1),
 ('PADmin@PAD.min4', 'Test4', 'password', 000000003),
 ('PADmin@PAD.min5', 'Test5', 'password', 000000004),
 ('PADmin@PAD.min6', 'Test6', 'password', 000000005),
