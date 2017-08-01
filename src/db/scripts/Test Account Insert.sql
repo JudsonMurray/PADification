@@ -2,7 +2,7 @@ use PADification
 
 insert into Player(Email,Username, Password, PlayerID) Values 
 ('PADmin@PAD.min', 'Test', 'password', 000000000),
-('PADmin@PAD.min2', 'Test2', '', 000000001),
+('PADmin@PAD.min2', 'Test2', 'password', 000000001),
 ('PADmin@PAD.min3', 'Test3', 'password', 000000002),
 ('PADification@gmail.com', 'password', 'Test', 1),
 ('PADmin@PAD.min4', 'Test4', 'password', 000000003),
@@ -10,7 +10,8 @@ insert into Player(Email,Username, Password, PlayerID) Values
 ('PADmin@PAD.min6', 'Test6', 'password', 000000005),
 ('PADmin@PAD.min7', 'Test7', 'password', 000000006),
 ('PADmin@PAD.min8', 'Test8', 'password', 000000007),
-('PADmin@PAD.min9', 'Test9', 'password', 000000008);
+('PADmin@PAD.min9', 'Test9', 'password', 000000008),
+('PADmin@PAD.min10', 'Test10', 'password',000000009);
 
 --insert into PADmin@PAD.min
 insert into MonsterInstance(Email, MonsterClassID, CurrentExperience, PlusHP, PlusATK, PlusRCV, SkillsAwoke, AssistMonsterID, SkillLevel, LSListID) Values
