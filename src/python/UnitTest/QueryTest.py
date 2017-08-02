@@ -17,7 +17,8 @@ class TC3(unittest.TestCase):
 
     def __init__(self, methodName = 'runTest'):
         self.padsql = PADSQL.PADSQL()
-        self.padsql.login('TestEmail1@test.test', 'Password')
+        self.padsql.remote = False
+        self.padsql.login('Padmin@pad.min', 'password')
         return super().__init__(methodName)
 
 
